@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaj6oBxP  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:resj6oBxPS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touj6oBx  a          chon:hessTournament ;
+        chon:atPlace  :plaj6oBxP ;
+        chon:hasName  "Credit Suisse" .
+
+:agj6oBxP  a          chon:Agent ;
+        chon:hasName  "Milov, Vadim" , "Karpov, Anatoly" .
+
+:opej6oBxP  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agj6oBxP .
+
+:rolhgj6oBxPS3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agj6oBxP .
+
+:rolhgK8yTTRtt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agj6oBxP .
+
+chon:HalfMove  chon:subEventOf  :gamj6oBx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agj6oBxP .
+
+:hmgamK8yTTRt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgK8yTTRtt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Milov, Vadim" ;
+        chon:hasSANRecord      "Ndxe5" , "Rg7" , "Rfd1" , "Rh6" , "Be2" , "g4" , "Rg8" , "h4" , "Qc2" , "Kxh2" , "Qe3" , "Qf5" , "g5" , "Bc8" , "gxh3" , "Kxg7" , "g3" , "Bxh6" , "Qc3" , "Qh5" , "Nxe4" , "Nc5" , "Bf1" , "Nd3" , "Nf6" , "Rag8" , "Na2" , "Rg6" , "Qg5" , "Bxg7+" , "Nxf2" , "Rd4" , "Nb4" , "h2+" , "N6h5" , "Bxf4" , "Nc6" ;
+        chon:nextHalfMove      :hmgamK8yTTRt .
+
+:cgrj6oBxP  a   chon:ChessGameReport .
+
+:gamj6oBx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolj6oBxP ;
+        chon:atPlace           :plaj6oBxP ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamj6oBxPS ;
+        chon:hasHalfMove       :hmgamj6oBxPS , :hmgamK8yTTRt ;
+        chon:hasLastHalfMove   :hmgamK8yTTRt ;
+        chon:hasOpening        :opej6oBxP ;
+        chon:hasReport         :cgrj6oBxP ;
+        chon:hasResult         :resj6oBxPS ;
+        chon:subEventOf        :touj6oBx .
+
+:hmgamj6oBxPS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgK8yTTRtt , :rolhgj6oBxPS3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Milov, Vadim" ;
+        chon:hasSANRecord      "b5" , "O-O" , "a3" , "Qe7" , "Bg4" , "e4" , "e5" , "Bd6" , "Nc6" , "Kh8" , "dxc4" , "Bf3" , "Bxc4" , "Bd7" , "Nf6" , "Bf4" , "Nd2" , "Ne5" , "Nb3" , "Be2" , "d5" , "a6" , "Be3" , "d4" , "Rc1" , "c4" , "Nf3" , "Nc3" , "Nf4" , "Ng6" ;
+        chon:nextHalfMove      :hmgamK8yTTRt , :hmgamj6oBxPS .
+
+:rolj6oBxP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agj6oBxP .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

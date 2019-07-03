@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgoo6sZQab  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcoafqP .
+
+:placoafqP  a         chon:Place ;
+        chon:hasName  "Hannover" .
+
+:hmgamoo6sZQa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoo6sZQab , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hartmann, W." ;
+        chon:hasSANRecord      "Nxd3" , "Qb6" , "h4" , "Bg2" , "Qd6" , "Qa8+" , "Qxh8" , "Qa7" , "h1=Q+" , "Rf1" , "a5" , "Qxe3" , "Qxf2" , "Qe1" , "e7" , "Kd7" , "Nd3" , "Bc5" , "Be6+" , "Qxe6" , "Bxf2" , "cxd3" , "Rf2" , "f5" , "h3" , "Bb3" , "h2" , "Bc6" ;
+        chon:nextHalfMove      :hmgamoo6sZQa .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcoafqP .
+
+:rolhgcoafqP6Z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcoafqP .
+
+:cgrcoafqP  a   chon:ChessGameReport .
+
+:hmgamcoafqP6  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcoafqP6Z ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hartmann, W." ;
+        chon:hasSANRecord      "Bc6" , "Bf8" , "Nf7" , "Ng5" , "d4" , "e6" , "Nc3" , "g5" , "h5" , "Nfd7" , "Rg1" , "Nf2" , "Nh3" , "Nde5" , "Bd7" , "d6" , "gxh5" , "Be8" , "Nb4" , "Qe1" , "Nf5" , "Qa5" , "Nf3" , "f6" , "g6" , "h6" , "h4" , "Nxh6" , "O-O-O" , "Bg2" , "dxe6" , "exd5" , "Nc6" , "a6" , "a4" , "Bxd1" , "Be7" , "gxh6" , "Kb1" , "Nxd4" , "cxd4" , "Nf6" , "e4" , "f4" , "g4" , "Be3" , "Bf3" , "Nxe3" , "Rxd1+" , "Qd2" , "c5" , "d5" ;
+        chon:nextHalfMove      :hmgamcoafqP6 , :hmgamoo6sZQa .
+
+chon:HalfMove  chon:subEventOf  :gamcoafq .
+
+:agcoafqP  a          chon:Agent ;
+        chon:hasName  "Hartmann, W." , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcoafqP .
+
+:rolcoafqP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcoafqP .
+
+:opecoafqP  a            chon:ChessOpening ;
+        chon:hasECOCode  "B81" .
+
+:gamcoafq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcoafqP ;
+        chon:atPlace           :placoafqP ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcoafqP6 ;
+        chon:hasHalfMove       :hmgamcoafqP6 , :hmgamoo6sZQa ;
+        chon:hasLastHalfMove   :hmgamoo6sZQa ;
+        chon:hasOpening        :opecoafqP ;
+        chon:hasReport         :cgrcoafqP ;
+        chon:hasResult         :rescoafqP6 ;
+        chon:subEventOf        :toucoafq .
+
+:toucoafq  a          chon:hessTournament ;
+        chon:atPlace  :placoafqP ;
+        chon:hasName  "Hannover" .
+
+:rescoafqP6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

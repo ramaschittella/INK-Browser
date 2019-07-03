@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeJA8AIZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C33" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJA8AIZ .
+
+chon:HalfMove  chon:subEventOf  :gamJA8AI .
+
+:cgrJA8AIZ  a   chon:ChessGameReport .
+
+:hmgamVA5OfZy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVA5OfZyS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rf3" , "Qxf5" , "Nf6" , "Qxd6" , "Rxe4" , "Ka1" , "Kc7" , "Rh4" , "Qf2" , "Nd2" , "Qa5+" , "Rxh6" , "Bxe2" , "Qh2+" , "Qh2" , "Qh8+" , "c3" , "Nxe2" , "gxh6" , "Re8" , "Nd7" , "Rf2" , "Ng4" , "Qf4" , "Kb1" , "Rxh5" , "Ne5" , "Rf4" , "Kb6" , "f5" , "O-O-O" , "Nc4+" , "Qxh6" , "Ng3" , "Qg5+" , "Nf1" , "Qe1" , "Qf5+" ;
+        chon:nextHalfMove      :hmgamVA5OfZy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJA8AIZ .
+
+:hmgamJA8AIZv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJA8AIZvr , :rolhgVA5OfZyS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "gxf4" , "d6" , "Ne7" , "Bxf3" , "Rh6" , "f4" , "Bxh4+" , "Nxf4" , "Be7" , "Qe2" , "c6" , "Nf3" , "Bxf4" , "e5" , "Qh2" , "e4" , "d4" , "Rxh4" , "g3" , "h4" , "Bc4" , "Nc3" , "h5" , "Bg4" , "exf4" , "Ng6" , "Be2" ;
+        chon:nextHalfMove      :hmgamVA5OfZy , :hmgamJA8AIZv .
+
+:rolJA8AIZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJA8AIZ .
+
+:gamJA8AI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJA8AIZ ;
+        chon:atPlace           :plaJA8AIZ ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJA8AIZv ;
+        chon:hasHalfMove       :hmgamVA5OfZy , :hmgamJA8AIZv ;
+        chon:hasLastHalfMove   :hmgamVA5OfZy ;
+        chon:hasOpening        :opeJA8AIZ ;
+        chon:hasReport         :cgrJA8AIZ ;
+        chon:hasResult         :resJA8AIZv ;
+        chon:subEventOf        :touJA8AI .
+
+:plaJA8AIZ  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:touJA8AI  a          chon:hessTournament ;
+        chon:atPlace  :plaJA8AIZ ;
+        chon:hasName  "Vienna" .
+
+:resJA8AIZv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agJA8AIZ  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Halprin, Alexander" .
+
+:rolhgJA8AIZvr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJA8AIZ .
+
+:rolhgVA5OfZyS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJA8AIZ .

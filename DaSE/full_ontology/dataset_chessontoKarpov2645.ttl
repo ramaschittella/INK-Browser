@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamDSUMAOA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDSUMAOAF , :rolhg6U75XOq6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kosteniuk,A" ;
+        chon:hasSANRecord      "Bg5" , "e5" , "Bb8" , "Qc6" , "Qc2" , "c4" , "c6" , "Bxf6" , "c5" , "d4" , "d4+" , "Bh4" , "exd5" , "Nxc5" , "cxd5" , "Nb5" , "Nbd7" , "Nf3" , "Kh8" , "Nc3" , "Bd6" , "Qe6" , "Kxg2" , "exf3" , "e4" , "e3" , "e6" , "Qe7" , "dxc5" , "O-O" , "fxg2" , "Bf5" , "Bxh7+" , "Nf6" , "Bd3" , "d5" , "Bc7" ;
+        chon:nextHalfMove      :hmgam6U75XOq , :hmgamDSUMAOA .
+
+:hmgam6U75XOq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6U75XOq6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kosteniuk,A" ;
+        chon:hasSANRecord      "Bg3" , "Rxc8" , "Be4" , "Qh6" , "c8=Q" , "f4" , "c7" , "Rae8" , "Rxf1" , "fxg3" , "Kg1" , "Bh3+" , "Bf4" , "Bxf1" , "Qxc3" , "Bxb7" , "Bxc8" , "c6" , "Bd2" , "Qxf8+" , "Qc5" , "f5" , "dxc3" ;
+        chon:nextHalfMove      :hmgam6U75XOq .
+
+:rolhgDSUMAOAF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDSUMAO .
+
+:gamDSUMA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDSUMAO ;
+        chon:atPlace           :plaDSUMAO ;
+        chon:atTime            "2002.06.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDSUMAOA ;
+        chon:hasHalfMove       :hmgam6U75XOq , :hmgamDSUMAOA ;
+        chon:hasLastHalfMove   :hmgam6U75XOq ;
+        chon:hasOpening        :opeDSUMAO ;
+        chon:hasReport         :cgrDSUMAO ;
+        chon:hasResult         :resDSUMAOA ;
+        chon:subEventOf        :touDSUMA .
+
+:cgrDSUMAO  a   chon:ChessGameReport .
+
+:touDSUMA  a          chon:hessTournament ;
+        chon:atPlace  :plaDSUMAO ;
+        chon:hasName  "II Magistral" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDSUMAO .
+
+:resDSUMAOA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhg6U75XOq6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDSUMAO .
+
+chon:HalfMove  chon:subEventOf  :gamDSUMA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDSUMAO .
+
+:plaDSUMAO  a         chon:Place ;
+        chon:hasName  "Manises ESP" .
+
+:agDSUMAO  a          chon:Agent ;
+        chon:hasName  "Kosteniuk,A" , "Karpov,An" .
+
+:rolDSUMAO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDSUMAO .
+
+:opeDSUMAO  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

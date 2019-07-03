@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamORQSL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolORQSLY ;
+        chon:atPlace           :plaORQSLY ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZRNQiXs ;
+        chon:hasHalfMove       :hmgamZRNQiXs ;
+        chon:hasLastHalfMove   :hmgamZRNQiXs ;
+        chon:hasOpening        :opeZRNQiX ;
+        chon:hasReport         :cgrZRNQiX ;
+        chon:hasResult         :resZRNQiXs ;
+        chon:subEventOf        :touORQSL .
+
+:opeZRNQiX  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+:touORQSL  a          chon:hessTournament ;
+        chon:atPlace  :plaORQSLY ;
+        chon:hasName  "Cicero sim" .
+
+:hmgamZRNQiXs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZRNQiXsW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Goranson, W." ;
+        chon:hasSANRecord      "Rh1" , "Qg3" , "g4" , "Rxh7" , "Rh6" , "Be6+" , "dxc5" , "Nxg4" , "Qh4+" , "Bxf3" , "c4" , "Na5" , "Qf6" , "Rhg8" , "Bxd7" , "c6" , "Rf7" , "Kc2" , "Rxg3" , "Kc3" , "d3" , "c3" , "Rf1" , "cxd4" , "Kb8" , "g6" , "f6" , "gxf5" , "cxb3+" , "Bc5" , "Be1" , "Bd2" , "hxg4" , "Nxc5" , "Na4" , "Kc7" , "Bh5" , "Rg2+" , "d6" , "axb3" , "O-O-O" , "Nb3" , "exd4" , "h3" , "f4" , "f5" , "e5" , "Nc3" , "Bf5" , "Rxd7" , "Bc4" , "Qxg3" , "Qxf3" , "Nf6" , "Rd7" , "Bg4" , "Bxg4" , "Nc6" , "Kd1" , "Qe2" , "Rg7" , "e4" , "Nf3" , "Rxf6" , "d4" ;
+        chon:nextHalfMove      :hmgamZRNQiXs .
+
+:rolhgZRNQiXsW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZRNQiX , :agORQSLY .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agORQSLY .
+
+chon:HalfMove  chon:subEventOf  :gamORQSL .
+
+:cgrZRNQiX  a   chon:ChessGameReport .
+
+:resZRNQiXs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZRNQiX .
+
+:agZRNQiX  a          chon:Agent ;
+        chon:hasName  "Goranson, W." .
+
+:rolZRNQiX  a             chon:AuthorRole ;
+        chon:performedBy  :agZRNQiX .
+
+:plaORQSLY  a         chon:Place ;
+        chon:hasName  "Cicero" .
+
+:agORQSLY  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" .
+
+:rolORQSLY  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

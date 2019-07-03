@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrZKLwK2  a   chon:ChessGameReport .
+
+:resZKLwK2m  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolZKLwK2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZKLwK2 .
+
+:touZKLwK  a          chon:hessTournament ;
+        chon:atPlace  :plaZKLwK2 ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZKLwK2 .
+
+:hmgamZKLwK2m  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZKLwK2mW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelfand, Boris" ;
+        chon:hasSANRecord      "Rbb1" , "Qb5" , "e3" , "bxa5" , "b4" , "h6" , "Qa8" , "a5" , "Nb5" , "d4" , "Ne8" , "Nxb5" , "Rc8" , "Qd1" , "Nbc4" , "cxd5" , "a4" , "a3" , "Rxa5" , "Qxd3" , "Bb4" , "Be7" , "e6" , "Qb3" , "Bd3" , "Nc3" , "h3" , "Rfb1" , "Rxb5" , "Nf6" , "Nd3" , "O-O" , "Nbd7" , "b6" , "Bd2" , "d5" , "Bf5" , "c6" , "Nb6" , "Nd6" , "Be1" , "Bxb4" , "Nf3" , "Bxd3" , "Bd8" , "Ra6" , "Ne5" , "c4" ;
+        chon:nextHalfMove      :hmgamZKLwK2m .
+
+chon:HalfMove  chon:subEventOf  :gamZKLwK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZKLwK2 .
+
+:agZKLwK2  a          chon:Agent ;
+        chon:hasName  "Gelfand, Boris" , "Karpov, Anatoly" .
+
+:opeZKLwK2  a            chon:ChessOpening ;
+        chon:hasECOCode  "D12" .
+
+:rolhgZKLwK2mW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZKLwK2 .
+
+:gamZKLwK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZKLwK2 ;
+        chon:atPlace           :plaZKLwK2 ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZKLwK2m ;
+        chon:hasHalfMove       :hmgamZKLwK2m ;
+        chon:hasLastHalfMove   :hmgamZKLwK2m ;
+        chon:hasOpening        :opeZKLwK2 ;
+        chon:hasReport         :cgrZKLwK2 ;
+        chon:hasResult         :resZKLwK2m ;
+        chon:subEventOf        :touZKLwK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaZKLwK2  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .

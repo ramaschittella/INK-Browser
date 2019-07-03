@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrhvUuBg  a   chon:ChessGameReport .
+
+:gamhvUuB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhvUuBg ;
+        chon:atPlace           :plahvUuBg ;
+        chon:atTime            "2008.08.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhvUuBgW ;
+        chon:hasHalfMove       :hmgamhvUuBgW ;
+        chon:hasLastHalfMove   :hmgamhvUuBgW ;
+        chon:hasOpening        :opehvUuBg ;
+        chon:hasReport         :cgrhvUuBg ;
+        chon:hasResult         :reshvUuBgW ;
+        chon:subEventOf        :touhvUuB .
+
+:reshvUuBgW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhvUuBg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghvUuBg .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghvUuBg .
+
+:plahvUuBg  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:HalfMove  chon:subEventOf  :gamhvUuB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghvUuBg .
+
+:hmgamhvUuBgW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghvUuBgWN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Morozevich,A" ;
+        chon:hasSANRecord      "Qa4+" , "Qb3" , "e3" , "d5" , "g6" , "Nb4" , "Bg7" , "Bxc7" , "Bf4" , "Nc3" , "Qxb7" , "dxc4" , "c4" , "Rb8" , "Rb1" , "d4" , "Qxc7" , "Nf6" , "Bxc4" , "Rxb2" , "Bd7" , "Nc6" ;
+        chon:nextHalfMove      :hmgamhvUuBgW .
+
+:aghvUuBg  a          chon:Agent ;
+        chon:hasName  "Morozevich,A" , "Karpov,Ana" .
+
+:touhvUuB  a          chon:hessTournament ;
+        chon:atPlace  :plahvUuBg ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+:opehvUuBg  a            chon:ChessOpening ;
+        chon:hasECOCode  "D82" .
+
+:rolhghvUuBgWN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghvUuBg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

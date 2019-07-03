@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrP1rJdd  a   chon:ChessGameReport .
+
+:rolhg1YoWKdrm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP1rJdd .
+
+:rolP1rJdd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agP1rJdd .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP1rJdd .
+
+chon:HalfMove  chon:subEventOf  :gamP1rJd .
+
+:gamP1rJd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolP1rJdd ;
+        chon:atPlace           :plaP1rJdd ;
+        chon:atTime            "1895.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamP1rJddm ;
+        chon:hasHalfMove       :hmgamP1rJddm , :hmgam1YoWKdr ;
+        chon:hasLastHalfMove   :hmgam1YoWKdr ;
+        chon:hasOpening        :opeP1rJdd ;
+        chon:hasReport         :cgrP1rJdd ;
+        chon:hasResult         :resP1rJddm ;
+        chon:subEventOf        :touP1rJd .
+
+:plaP1rJdd  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+:touP1rJd  a          chon:hessTournament ;
+        chon:atPlace  :plaP1rJdd ;
+        chon:hasName  "Hastings" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP1rJdd .
+
+:hmgam1YoWKdr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1YoWKdrm , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mason, James" ;
+        chon:hasSANRecord      "Bxb7" , "Bd5" , "Qa2" , "Bxe3" , "Rad8" , "N6d7" , "Bc5" , "Nf4" , "Qa4" , "Re8" , "g6" , "Rxd1" , "h6" , "Qxa2" , "Qxa6" , "Ng6" , "Re7" , "Qb3" , "Ne6" , "Qb8" , "h5" , "Nf8" , "g5" , "O-O-O" , "Qa8" , "Bxa8" , "h4" , "Qxa8" , "Rxd1+" , "Bc6" ;
+        chon:nextHalfMove      :hmgam1YoWKdr .
+
+:agP1rJdd  a          chon:Agent ;
+        chon:hasName  "Mason, James" , "Steinitz, William" .
+
+:hmgamP1rJddm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1YoWKdrm , :rolhgP1rJddm9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mason, James" ;
+        chon:hasSANRecord      "Ne7" , "Nf1" , "d5" , "Bb3" , "O-O" , "Nf6" , "Be7" , "Nf3" , "e4" , "Nxe6" , "Qc6" , "Bc5" , "Bc2" , "Nc6" , "Bd6" , "d3" , "d6" , "e5" , "a6" , "g4" , "c3" , "dxe4" , "Ne3" , "Nbd2" , "f3" , "Ng5" , "Qe2" , "Be6" , "Qd7" , "Qxe6" , "Bc4" ;
+        chon:nextHalfMove      :hmgam1YoWKdr , :hmgamP1rJddm .
+
+:opeP1rJdd  a            chon:ChessOpening ;
+        chon:hasECOCode  "C41" .
+
+:rolhgP1rJddm9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP1rJdd .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resP1rJddm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag81Q1BI  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Polgar, Judit" .
+
+:rol81Q1BI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag81Q1BI .
+
+:hmgam81Q1BIq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgj1Me9Jv5 , chon:AgentRole , :rolhg81Q1BIqT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qh4" , "Qxe4" , "h6" , "Ngf6" , "dxc5" , "Bxe3+" , "Qe2" , "e4" , "Nf6" , "Kf8" , "Qg4" , "Bd6" , "N1f3" , "c6" , "Nxe4" , "d5" , "Ng5" , "d4" , "Nd2" , "Nd7" , "c5" , "Be3" , "Bd3" , "e6" , "Ne4" , "dxe4" , "O-O-O" , "Qc7" , "Bxc5" ;
+        chon:nextHalfMove      :hmgam81Q1BIq , :hmgamj1Me9Jv .
+
+:ope81Q1BI  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:rolhgj1Me9Jv5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag81Q1BI .
+
+:hmgamj1Me9Jv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgj1Me9Jv5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c3" , "Kf7" , "Qd5" , "Kb1" , "Bg6" , "Nd7" , "c5" , "Qf2" , "Bc2" , "c4" , "Rhf1" , "Rxd8" , "Qe7" , "Qxe5" , "Rfe1" , "Bf5" , "Rhd8" , "Qxa7" , "Kg8" , "Qc4" , "Nxe5" , "Rd1" , "Qd6" , "Ra8" , "Bd7" , "Bh7+" , "Qd8+" , "Qd3" , "Kh7" , "Kf8" , "Bf7" , "Be4" , "Rc8" , "Re8" , "Kg6" , "a3" , "Qd4" , "Rxc5" , "Qc5" , "Re1" , "Bc6" , "Qc2" , "Qe2" , "Qg4+" , "Qc7" , "e4" , "g4" , "Bb3" , "Bc2+" , "Ne5" , "f6" , "Rxe6" , "Qd7" , "Qf8" , "Be8" , "Qxh2" , "Rxd8+" , "fxe3" , "e5" ;
+        chon:nextHalfMove      :hmgamj1Me9Jv .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag81Q1BI .
+
+chon:HalfMove  chon:subEventOf  :gam81Q1B .
+
+:res81Q1BIq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gam81Q1B  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol81Q1BI ;
+        chon:atPlace           :pla81Q1BI ;
+        chon:atTime            "1998.06.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam81Q1BIq ;
+        chon:hasHalfMove       :hmgam81Q1BIq , :hmgamj1Me9Jv ;
+        chon:hasLastHalfMove   :hmgamj1Me9Jv ;
+        chon:hasOpening        :ope81Q1BI ;
+        chon:hasReport         :cgr81Q1BI ;
+        chon:hasResult         :res81Q1BIq ;
+        chon:subEventOf        :tou81Q1B .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag81Q1BI .
+
+:pla81Q1BI  a         chon:Place ;
+        chon:hasName  "Budapest" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr81Q1BI  a   chon:ChessGameReport .
+
+:tou81Q1B  a          chon:hessTournament ;
+        chon:atPlace  :pla81Q1BI ;
+        chon:hasName  "Budapest m 30'" .
+
+:rolhg81Q1BIqT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag81Q1BI .

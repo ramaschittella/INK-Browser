@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla5MWDa7  a         chon:Place ;
+        chon:hasName  "Mazatlan" .
+
+:gam5MWDa  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5MWDa7 ;
+        chon:atPlace           :pla5MWDa7 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam32zqmee ;
+        chon:hasHalfMove       :hmgam32zqmee ;
+        chon:hasLastHalfMove   :hmgam32zqmee ;
+        chon:hasOpening        :ope5MWDa7 ;
+        chon:hasReport         :cgr5MWDa7 ;
+        chon:hasResult         :res5MWDa7G ;
+        chon:subEventOf        :tou5MWDa .
+
+:tou5MWDa  a          chon:hessTournament ;
+        chon:atPlace  :pla5MWDa7 ;
+        chon:hasName  "Mazatlan rapid" .
+
+:cgr5MWDa7  a   chon:ChessGameReport .
+
+:hmgam32zqmee  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg32zqmeej , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qb7" , "Re3" , "Nd2" , "Qb2" , "Rc7" , "Bf4" , "hxg7" , "Nf6" , "d5" , "Bxg6" , "Kxf7" , "Ngf3" , "e4" , "e6" , "Kg7" , "dxe5" , "c3" , "O-O" , "Qxg7" , "a3" , "a4" , "Bc5" , "Rh1" , "Qd4" , "hxg6" , "Qd1" , "Bd3" , "cxd5" , "Qc8" , "exd5" , "Qb5" , "Bxb4" , "Rae1" , "Ra7" , "d4" , "g5" , "b4" , "Bxe5" , "b5" , "Kg2" , "h6" , "Nf3" , "Nd7" , "g4" , "Bg4" , "Nxe5" , "Rb3" , "Bg6" , "c6" , "Nc6" , "Rxf7+" , "Ne5" , "Qb3" , "Qb4" , "Rc3" , "cxb4" , "a5" , "Rac8" , "b3" , "Re8" , "h4" , "Be7" , "h5" , "Qxe5" , "Ra4" , "Bh5" ;
+        chon:nextHalfMove      :hmgam32zqmee .
+
+:rol5MWDa7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag32zqme .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5MWDa7 .
+
+chon:HalfMove  chon:subEventOf  :gam5MWDa .
+
+:rolhg32zqmeej  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5MWDa7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5MWDa7 .
+
+:ag5MWDa7  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Dzindzichashvili, Roman" .
+
+:ope5MWDa7  a            chon:ChessOpening ;
+        chon:hasECOCode  "B13" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res5MWDa7G  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

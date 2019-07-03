@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgJdPTrH3n  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNf9KHJ .
+
+:rolhgNf9KHJLp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNf9KHJ .
+
+:opeNf9KHJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A48" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNf9KHJ .
+
+:hmgamNf9KHJL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJdPTrH3n , chon:AgentRole , :rolhgNf9KHJLp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nf6" , "Nbd2" , "c3" , "Bg7" , "c5" , "g6" , "Nf3" , "Bf4" , "d4" ;
+        chon:nextHalfMove      :hmgamJdPTrH3 , :hmgamNf9KHJL .
+
+chon:HalfMove  chon:subEventOf  :gamNf9KH .
+
+:gamNf9KH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNf9KHJ ;
+        chon:atPlace           :plaNf9KHJ ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNf9KHJL ;
+        chon:hasHalfMove       :hmgamNf9KHJL , :hmgamJdPTrH3 ;
+        chon:hasLastHalfMove   :hmgamJdPTrH3 ;
+        chon:hasOpening        :opeNf9KHJ ;
+        chon:hasReport         :cgrNf9KHJ ;
+        chon:hasResult         :resNf9KHJL ;
+        chon:subEventOf        :touNf9KH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNf9KHJ .
+
+:plaNf9KHJ  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+:hmgamJdPTrH3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJdPTrH3n , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rxe8+" , "Ke2" , "d5" , "e3" , "Bxd4" , "Be2" , "Kf1" , "Nxd4" , "Qd5" , "Ne4" , "Rd1" , "Bc3+" , "Qxa2" , "Nb3" , "cxd4" , "Bb5" , "Be1" , "Kd3" , "g3" , "Re8" , "Rc8" , "e5" , "Qh4" , "Qa4+" , "exd4" , "Qg4" , "Qe4" , "Rxb8" , "d4" , "Qxh1+" , "Qb4" , "Nxd2" , "Qxa7" , "Bxe8" , "Qxd7" , "Qxb7" , "O-O" , "Bxb2" , "Bxb8" , "Bd7" , "Qc5" , "Qc2" ;
+        chon:nextHalfMove      :hmgamJdPTrH3 .
+
+:cgrNf9KHJ  a   chon:ChessGameReport .
+
+:resNf9KHJL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agNf9KHJ  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Keres, Paul" .
+
+:rolNf9KHJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNf9KHJ .
+
+:touNf9KH  a          chon:hessTournament ;
+        chon:atPlace  :plaNf9KHJ ;
+        chon:hasName  "Candidats Tournament" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

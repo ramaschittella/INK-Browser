@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgXJIRt3ep  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXJIRt3 .
+
+:agXJIRt3  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Unzicker, Wolfgang" .
+
+:hmgamTHq1c1u  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTHq1c1up , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf4" , "Rb4" , "Re3" , "Ne2" , "Qe4" , "Re4" , "Kg1" , "Qf2" , "Ng3" ;
+        chon:nextHalfMove      :hmgamTHq1c1u .
+
+:opeXJIRt3  a            chon:ChessOpening ;
+        chon:hasECOCode  "B84" .
+
+:gamXJIRt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXJIRt3 ;
+        chon:atPlace           :plaXJIRt3 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXJIRt3e ;
+        chon:hasHalfMove       :hmgamTHq1c1u , :hmgamXJIRt3e ;
+        chon:hasLastHalfMove   :hmgamTHq1c1u ;
+        chon:hasOpening        :opeXJIRt3 ;
+        chon:hasReport         :cgrXJIRt3 ;
+        chon:hasResult         :resXJIRt3e ;
+        chon:subEventOf        :touXJIRt .
+
+:touXJIRt  a          chon:hessTournament ;
+        chon:atPlace  :plaXJIRt3 ;
+        chon:hasName  "Bad Kissingen" .
+
+:resXJIRt3e  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXJIRt3 .
+
+chon:HalfMove  chon:subEventOf  :gamXJIRt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXJIRt3 .
+
+:cgrXJIRt3  a   chon:ChessGameReport .
+
+:rolhgTHq1c1up  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXJIRt3 .
+
+:rolXJIRt3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXJIRt3 .
+
+:plaXJIRt3  a         chon:Place ;
+        chon:hasName  "Bad Kissingen" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamXJIRt3e  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXJIRt3ep , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qf3" , "dxe5" , "Qxd5" , "h6" , "O-O" , "Nf6" , "Be3" , "c4" , "Nc5" , "Kh1" , "Rxc5" , "e6" , "d6" , "fxe5" , "Qh4" , "Qc2" , "Ne3" , "Nxg5" , "e5" , "Qb6" , "b3" , "Qc6" , "Rf2" , "cxd4" , "Nxc5" , "Qxe5" , "Ng4" , "Bf3" , "c5" , "Na4" , "Rb1" , "Ne8" , "f4" , "Rxd5" , "Bg5" , "Bxg5" , "Rc8" , "b4" , "Bxb7" , "Rb8" , "h3" , "b5" , "Nf3" , "Qxb7" , "Nf5" , "Nc3" , "Qe4" , "Be7" , "Be2" , "Nxd4" , "Nge4" , "Nd7" , "Rd1" , "Qxa6" , "e4" , "d4" , "Qd3" , "Rd5" , "Rc1" , "Qc5" , "Bb7" , "Qxb4" , "Qc7" , "Rf1" , "Qe1" , "Qe1+" , "Qd4+" , "a6" , "Nxc4" ;
+        chon:nextHalfMove      :hmgamTHq1c1u , :hmgamXJIRt3e .

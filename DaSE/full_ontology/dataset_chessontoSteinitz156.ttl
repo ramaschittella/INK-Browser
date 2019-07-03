@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agzguOi7  a          chon:Agent ;
+        chon:hasName  "Von Minckwitz, Johannes" , "Steinitz, William" .
+
+:opezguOi7  a            chon:ChessOpening ;
+        chon:hasECOCode  "C25" .
+
+:hmgamciDmd9H  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgciDmd9HV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Von Minckwitz, Johannes" ;
+        chon:hasSANRecord      "Qxc4" , "Nf6" , "Qe6" , "Be7" , "Bc4" , "Ng4+" , "Qe2" , "Qe4" , "Kf1" ;
+        chon:nextHalfMove      :hmgamciDmd9H .
+
+:reszguOi7P  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgciDmd9HV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzguOi7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzguOi7 .
+
+:rolhgLgr5R8Sx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzguOi7 .
+
+:cgrLgr5R8  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamzguOi .
+
+:gamzguOi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzguOi7 ;
+        chon:atPlace           :plazguOi7 ;
+        chon:atTime            "1870.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLgr5R8S ;
+        chon:hasHalfMove       :hmgamLgr5R8S , :hmgamciDmd9H ;
+        chon:hasLastHalfMove   :hmgamciDmd9H ;
+        chon:hasOpening        :opezguOi7 ;
+        chon:hasReport         :cgrLgr5R8 ;
+        chon:hasResult         :reszguOi7P ;
+        chon:subEventOf        :touzguOi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzguOi7 .
+
+:touzguOi  a          chon:hessTournament ;
+        chon:atPlace  :plazguOi7 ;
+        chon:hasName  "Baden-Baden" .
+
+:rolLgr5R8  a             chon:AuthorRole ;
+        chon:performedBy  :agLgr5R8 .
+
+:rolzguOi7  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamLgr5R8S  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLgr5R8Sx , :rolhgciDmd9HV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Von Minckwitz, Johannes" ;
+        chon:hasSANRecord      "Nc3" , "axb5" , "Bxf4" , "Qh6" , "Bxb5+" , "e5" , "Qh5+" , "a4" , "Nf3" , "e4" , "Qh5" , "b6" , "exf4" , "Qxb5+" , "Qh4+" , "Nb5" , "Ke2" , "Nd5" , "d4" , "f4" , "Bg3" , "Nf6" , "Ba6" , "Nc6" , "Kf2" ;
+        chon:nextHalfMove      :hmgamLgr5R8S , :hmgamciDmd9H .
+
+:plazguOi7  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

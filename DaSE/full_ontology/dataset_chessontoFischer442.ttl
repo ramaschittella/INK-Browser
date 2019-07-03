@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope4RwuRv  a            chon:ChessOpening ;
+        chon:hasECOCode  "D97" .
+
+:tou4RwuR  a          chon:hessTournament ;
+        chon:atPlace  :pla4RwuRv ;
+        chon:hasName  "Poughskeepie" .
+
+:hmgamvTGPcvD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvTGPcvDs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qxf2" , "Rd5" , "Qxb5" , "Qa5+" , "c5" , "Bg7" , "Nf2+" , "Nd3" , "Qxc4" , "Bxd1" , "Qa4" , "Bxf3" , "Qxb2" , "Rd1" , "Kh1" , "d6" , "d7" , "Rxd1+" , "Qxb4" , "Nc5" , "Bg4" , "Rxa2" , "Ne2" , "exd4" , "Qd8" , "Nb5" , "Qd2" , "Rdd1" , "axb5" , "d5" , "Nc3" , "a6" , "fxe3" , "O-O" , "Qc6" , "Ra1" , "b4" , "b5" , "Bd4" , "Be2" , "c4+" , "Qc8" , "Rxf2" , "Qb6" , "Nd7" , "Rd2" ;
+        chon:nextHalfMove      :hmgamvTGPcvD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4RwuRv .
+
+chon:HalfMove  chon:subEventOf  :gam4RwuR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4RwuRv .
+
+:pla4RwuRv  a         chon:Place ;
+        chon:hasName  "Poughskeepie" .
+
+:cgr4RwuRv  a   chon:ChessGameReport .
+
+:rolhgvTGPcvDs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4RwuRv .
+
+:hmgam4RwuRvL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4RwuRvL2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rd1" , "Qb3" , "Qxc4" , "Nc3" , "d5" , "Nxe3" , "Ng4" , "Be3" , "c6" , "e4" , "g6" , "d4" , "Bg7" , "Nf6" , "O-O" , "Nf3" , "c4" , "e5" , "dxc4" ;
+        chon:nextHalfMove      :hmgamvTGPcvD , :hmgam4RwuRvL .
+
+:ag4RwuRv  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Oster, R." .
+
+:rol4RwuRv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4RwuRv .
+
+:gam4RwuR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4RwuRv ;
+        chon:atPlace           :pla4RwuRv ;
+        chon:atTime            "1963.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4RwuRvL ;
+        chon:hasHalfMove       :hmgam4RwuRvL , :hmgamvTGPcvD ;
+        chon:hasLastHalfMove   :hmgamvTGPcvD ;
+        chon:hasOpening        :ope4RwuRv ;
+        chon:hasReport         :cgr4RwuRv ;
+        chon:hasResult         :res4RwuRvL ;
+        chon:subEventOf        :tou4RwuR .
+
+:rolhg4RwuRvL2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4RwuRv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res4RwuRvL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamPT7RB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLPN1lh ;
+        chon:atPlace           :plaPT7RBj ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLPN1lhF ;
+        chon:hasHalfMove       :hmgamLPN1lhF ;
+        chon:hasLastHalfMove   :hmgamLPN1lhF ;
+        chon:hasOpening        :opeLPN1lh ;
+        chon:hasReport         :cgrLPN1lh ;
+        chon:hasResult         :resLPN1lhF ;
+        chon:subEventOf        :touLPN1l .
+
+:rolhgLPN1lhFk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLPN1lh .
+
+:resLPN1lhF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLPN1lh .
+
+:hmgamLPN1lhF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLPN1lhFk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc5" , "Kf7" , "Nge7" , "Rd7" , "b5" , "Nf3" , "Nxd1" , "axb6" , "h4" , "Bb4+" , "exd4" , "Qg6" , "Nd5" , "Rad1" , "dxe4" , "Bxe4" , "e4" , "Bxd5+" , "c4" , "Rfe1" , "Bxc3+" , "Qb4" , "Rxd1" , "Be3" , "a4" , "g3" , "Bd5" , "Be6" , "e5" , "Rfd8" , "d4" , "Bf5" , "Nxd4" , "fxg6" , "a5" , "bxc3" , "cxd4" , "O-O" , "Qd3" , "c3" , "h5" , "h3" , "Rad8" , "c6" , "cxb5" , "Nc3" , "Qxb5" , "Rxd5" , "Qf6" , "Nc6" , "d5" , "Qb3" , "Qxg6" , "Bg2" , "Bc5" ;
+        chon:nextHalfMove      :hmgamLPN1lhF .
+
+chon:HalfMove  chon:subEventOf  :gamPT7RB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLPN1lh .
+
+:cgrLPN1lh  a   chon:ChessGameReport .
+
+:plaPT7RBj  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:agLPN1lh  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Salov, Valery" .
+
+:rolLPN1lh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLPN1lh .
+
+:touLPN1l  a          chon:hessTournament ;
+        chon:atPlace  :plaPT7RBj ;
+        chon:hasName  "Reggio Emilia9192" .
+
+:opeLPN1lh  a            chon:ChessOpening ;
+        chon:hasECOCode  "C45" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

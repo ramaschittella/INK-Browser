@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agG10oBQ  a          chon:Agent ;
+        chon:hasName  "Chigorin, Mikhail" , "Steinitz, William" .
+
+:rolG10oBQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSY7SaP .
+
+:opeG10oBQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "D07" .
+
+:hmgamSY7SaPL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSY7SaPLk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Rhe8" , "Bg2" , "Kc2" , "Nxg6+" , "Qxd1+" , "Bxb4" , "d5" , "bxa4" , "f4" , "Nh6" , "O-O-O+" , "Ng8" , "Nxf4" , "Ke3" , "Kd6" , "Qxd5" , "b3" , "f5" , "a6" , "a5" , "exf3" , "Nd4+" , "Bf1" , "Ra8+" , "Bf7" , "Nxe7" , "Bxe7" , "h3" , "Be3" , "Rxd8" , "Nc3" , "Bb4" , "c4" , "c5" , "Kd2" , "Kc5" , "Kc7" , "Bg4" , "Kd7" , "Nge7" , "b5" , "Bf8" , "Ne6" , "h4" , "Bxf3" , "Nc6" , "Kc1" , "Kxf5" , "axb4" , "Nxd8" , "Bxg6" , "Nf3" , "Rd1" , "d4" , "Bxc5" , "Bc4" , "a4" , "e5" , "Raxd8" , "Kf4" , "Nxe5" , "Rxa4" , "dxe5" , "cxd5" , "Nd5" , "hxg5" , "g4" , "g6" , "g5" , "Kxd1" , "Nxb4" , "h6" ;
+        chon:nextHalfMove      :hmgamSY7SaPL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agG10oBQ .
+
+:resG10oBQI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamG10oB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agG10oBQ .
+
+:cgrG10oBQ  a   chon:ChessGameReport .
+
+:gamG10oB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolG10oBQ ;
+        chon:atPlace           :plaG10oBQ ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSY7SaPL ;
+        chon:hasHalfMove       :hmgamSY7SaPL ;
+        chon:hasLastHalfMove   :hmgamSY7SaPL ;
+        chon:hasOpening        :opeG10oBQ ;
+        chon:hasReport         :cgrG10oBQ ;
+        chon:hasResult         :resG10oBQI ;
+        chon:subEventOf        :touG10oB .
+
+:touG10oB  a          chon:hessTournament ;
+        chon:atPlace  :plaG10oBQ ;
+        chon:hasName  "Vienna" .
+
+:rolhgSY7SaPLk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agG10oBQ .
+
+:plaG10oBQ  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg0GNMteLl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0GNMte .
+
+:cgr0GNMte  a   chon:ChessGameReport .
+
+:hmgam0GNMteL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5EuVec2l , :rolhg0GNMteLl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "e5" , "e4" ;
+        chon:nextHalfMove      :hmgam5EuVec2 , :hmgam0GNMteL .
+
+:ag0GNMte  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Grischuk,A" .
+
+:gam0GNMt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0GNMte ;
+        chon:atPlace           :pla0GNMte ;
+        chon:atTime            "2003.10.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0GNMteL ;
+        chon:hasHalfMove       :hmgam0GNMteL , :hmgam5EuVec2 ;
+        chon:hasLastHalfMove   :hmgam5EuVec2 ;
+        chon:hasOpening        :ope0GNMte ;
+        chon:hasReport         :cgr0GNMte ;
+        chon:hasResult         :res0GNMteL ;
+        chon:subEventOf        :tou0GNMt .
+
+:rol0GNMte  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0GNMte .
+
+:tou0GNMt  a          chon:hessTournament ;
+        chon:atPlace  :pla0GNMte ;
+        chon:hasName  "GpB" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0GNMte .
+
+:rolhg5EuVec2l  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0GNMte .
+
+chon:HalfMove  chon:subEventOf  :gam0GNMt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0GNMte .
+
+:res0GNMteL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ope0GNMte  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:hmgam5EuVec2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5EuVec2l ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bf5" , "Nxe5" , "Bd3" , "Nf6" , "d5" , "Nf3" , "Bf4" , "d6" , "d4" , "Nbd2" , "O-O" , "Be7" , "Nd6" , "Nxe4" , "Ng3" , "Re1" , "Nc4" , "Bg6" , "Nf1" , "Nc6" ;
+        chon:nextHalfMove      :hmgam5EuVec2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla0GNMte  a         chon:Place ;
+        chon:hasName  "Cap D'Agde FRA" .

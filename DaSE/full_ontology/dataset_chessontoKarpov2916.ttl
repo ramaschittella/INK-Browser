@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resMeJNyVO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrMeJNyV  a   chon:ChessGameReport .
+
+:agMeJNyV  a          chon:Agent ;
+        chon:hasName  "Langenfeld,O" , "Karpov,Ana" .
+
+:rolMeJNyV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMeJNyV .
+
+:opeMeJNyV  a            chon:ChessOpening ;
+        chon:hasECOCode  "A70" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMeJNyV .
+
+chon:HalfMove  chon:subEventOf  :gamMeJNy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMeJNyV .
+
+:hmgamYeF46WT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYeF46WTz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Langenfeld,O" ;
+        chon:hasSANRecord      "Qxd4" , "Qe6" , "Qb4" , "Bxd4" , "Rd8" , "Rxb8" , "Rec8" , "Nc2" , "c3" , "Bd1" , "Qb1+" , "Qb7" , "d5" , "Bf4" , "Qxe4" , "Re4" , "Rb1" , "Ra2" , "Qc4" , "Rxe8+" , "Qf5" , "cxb2" , "Raa1" , "Rd1" , "Qxf4" , "Qxb8" , "Rxa6" , "Rd4" , "Qxd5" , "Kg7" , "Nd4" , "Bf3" , "Nxe4" , "Rxb2" , "Rab8" , "Qxb6" , "Be8" ;
+        chon:nextHalfMove      :hmgamYeF46WT .
+
+:hmgamMeJNyVO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMeJNyVOo , :rolhgYeF46WTz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Langenfeld,O" ;
+        chon:hasSANRecord      "O-O" , "d5" , "d4" , "Qd2" , "Be3" , "d6" , "Nxb6" , "Bc2" , "Nf6" , "Bd7" , "h3" , "a4" , "c4" , "Re8" , "Nf3" , "e4" , "e6" , "c5" , "Bg7" , "Nd4" , "Qc7" , "a5" , "Nbd7" , "Nc3" , "exd5" , "cxd5" , "Bd3" , "a6" , "axb6" , "g6" , "b5" ;
+        chon:nextHalfMove      :hmgamMeJNyVO , :hmgamYeF46WT .
+
+:rolhgMeJNyVOo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMeJNyV .
+
+:rolhgYeF46WTz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMeJNyV .
+
+:gamMeJNy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMeJNyV ;
+        chon:atPlace           :plaMeJNyV ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMeJNyVO ;
+        chon:hasHalfMove       :hmgamMeJNyVO , :hmgamYeF46WT ;
+        chon:hasLastHalfMove   :hmgamYeF46WT ;
+        chon:hasOpening        :opeMeJNyV ;
+        chon:hasReport         :cgrMeJNyV ;
+        chon:hasResult         :resMeJNyVO ;
+        chon:subEventOf        :touMeJNy .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touMeJNy  a          chon:hessTournament ;
+        chon:atPlace  :plaMeJNyV ;
+        chon:hasName  "Simul" .
+
+:plaMeJNyV  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamvT8Nc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGT54ME ;
+        chon:atPlace           :plavT8NcF ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGT54ME2 ;
+        chon:hasHalfMove       :hmgamGT54ME2 ;
+        chon:hasLastHalfMove   :hmgamGT54ME2 ;
+        chon:hasOpening        :opeGT54ME ;
+        chon:hasReport         :cgrGT54ME ;
+        chon:hasResult         :resGT54ME2 ;
+        chon:subEventOf        :touGT54M .
+
+:rolhgGT54ME2K  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGT54ME .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGT54ME .
+
+chon:HalfMove  chon:subEventOf  :gamvT8Nc .
+
+:cgrGT54ME  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGT54ME .
+
+:hmgamGT54ME2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGT54ME2K ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hort, Vlastimil" ;
+        chon:hasSANRecord      "Qa5" , "Bb5" , "e6" , "Bxa4" , "axb5+" , "Ne4" , "h4" , "Nxe5" , "c4" , "Nd2" , "dxe5" , "Qxd6" , "Nc3" , "cxd5" , "f5" , "Rxc1" , "Nc4" , "Qb3" , "f4" , "b6" , "c6" , "Qa4" , "Qb4" , "Rxc8" , "Kc4" , "Kd4" , "Rhc8" , "Bxd6" , "d5" , "Nf3" , "g4" , "Ke2" , "Bxd7+" , "g6" , "gxh5" , "Kd7" , "Rc8" , "Kxc8" , "Bd7" , "a4" , "Rhc1" , "Nf6" , "h5" , "Bf4" , "a6" , "h3" , "Kxd7" , "Kd2" , "Nxe4" , "dxe4" , "d4" , "Ne5+" , "Bd6" , "e3" , "Nd3" , "b5+" , "Nc6" , "Kb6" , "b4" , "Kc6" , "Qxa4" , "Nb4" , "Kc3" ;
+        chon:nextHalfMove      :hmgamGT54ME2 .
+
+:agGT54ME  a          chon:Agent ;
+        chon:hasName  "Hort, Vlastimil" , "Fischer, Robert James" .
+
+:touGT54M  a          chon:hessTournament ;
+        chon:atPlace  :plavT8NcF ;
+        chon:hasName  "Herceg Novi blitz" .
+
+:rolGT54ME  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGT54ME .
+
+:opeGT54ME  a            chon:ChessOpening ;
+        chon:hasECOCode  "D10" .
+
+:plavT8NcF  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+:resGT54ME2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

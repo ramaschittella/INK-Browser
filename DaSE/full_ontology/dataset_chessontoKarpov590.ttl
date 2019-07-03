@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgEXS3s8MS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEXS3s8 .
+
+:cgrEXS3s8  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEXS3s8 .
+
+chon:HalfMove  chon:subEventOf  :gamEXS3s .
+
+:resEXS3s8M  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolEXS3s8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEXS3s8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEXS3s8 .
+
+:plaEXS3s8  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:hmgamEXS3s8M  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEXS3s8MS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Qc7" , "Rxd6" , "c6" , "Nc6" , "Rad1" , "Rd3" , "Bg4" , "Qe3" , "Re6" , "Ne7" , "Rxd3" , "g6" , "d6" , "Ne1" , "Bf6" , "Nf3" , "Qc5" , "Qd3" , "Qc4" , "Nf6" , "Bxe2" , "b5" , "Nf1" , "exd4" , "Ng3" , "Ne5" , "d4" , "Be2" , "Bd8" , "Qxd6" , "dxe5" , "Bxe5" , "Rfd1" , "Rad8" , "Rd6" , "Nc8" , "N1d2" , "e4" , "Re8" , "c3" , "Nc3" , "Nd7" , "Be3" , "Nxe2" , "O-O" , "Bxd4" , "Kf1" , "Bg7" , "e5" ;
+        chon:nextHalfMove      :hmgamEXS3s8M .
+
+:agEXS3s8  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeEXS3s8  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+:gamEXS3s  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEXS3s8 ;
+        chon:atPlace           :plaEXS3s8 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEXS3s8M ;
+        chon:hasHalfMove       :hmgamEXS3s8M ;
+        chon:hasLastHalfMove   :hmgamEXS3s8M ;
+        chon:hasOpening        :opeEXS3s8 ;
+        chon:hasReport         :cgrEXS3s8 ;
+        chon:hasResult         :resEXS3s8M ;
+        chon:subEventOf        :touEXS3s .
+
+:touEXS3s  a          chon:hessTournament ;
+        chon:atPlace  :plaEXS3s8 ;
+        chon:hasName  "IBM" .

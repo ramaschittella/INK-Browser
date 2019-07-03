@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resSwLuPRq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agSwLuPR  a          chon:Agent ;
+        chon:hasName  "Paasikangas, Johanna" , "Karpov, Anatoly" .
+
+:touSwLuP  a          chon:hessTournament ;
+        chon:atPlace  :plaEf9HDK ;
+        chon:hasName  "Valkeakoski sim" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSwLuPR .
+
+:opeSwLuPR  a            chon:ChessOpening ;
+        chon:hasECOCode  "B53" .
+
+:gamEf9HD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSwLuPR ;
+        chon:atPlace           :plaEf9HDK ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSwLuPRq ;
+        chon:hasHalfMove       :hmgamSwLuPRq ;
+        chon:hasLastHalfMove   :hmgamSwLuPRq ;
+        chon:hasOpening        :opeSwLuPR ;
+        chon:hasReport         :cgrSwLuPR ;
+        chon:hasResult         :resSwLuPRq ;
+        chon:subEventOf        :touSwLuP .
+
+chon:HalfMove  chon:subEventOf  :gamEf9HD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSwLuPR .
+
+:plaEf9HDK  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:cgrSwLuPR  a   chon:ChessGameReport .
+
+:rolhgSwLuPRqN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSwLuPR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolSwLuPR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSwLuPR .
+
+:hmgamSwLuPRq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSwLuPRqN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Paasikangas, Johanna" ;
+        chon:hasSANRecord      "Nbxd4" , "c4" , "h6" , "Bg5" , "e5" , "Nh7" , "Nb5" , "Bb5" , "Nxd4" , "Nd5" , "c5" , "e4" , "dxe5" , "Ba4" , "d6" , "Ne4" , "Rd2" , "Qxb5" , "b4" , "Qxd4" , "Be3" , "Bd7" , "Nxb5" , "f3" , "Qa5+" , "Rad1" , "Rc1" , "Nxe5" , "a3" , "h4" , "Nc3" , "Rd1" , "Bxg5" , "Nc6" , "cxd4" , "Nf6" , "Nd6" , "Nf3" , "Nxg5" , "d4" , "Bc6" , "Rb8" , "a6" , "Be7" , "O-O" , "e6" ;
+        chon:nextHalfMove      :hmgamSwLuPRq .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamnniHR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnniHRm ;
+        chon:atPlace           :planniHRm ;
+        chon:atTime            "1978.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamynfVqmA ;
+        chon:hasHalfMove       :hmgamynfVqmA ;
+        chon:hasLastHalfMove   :hmgamynfVqmA ;
+        chon:hasOpening        :openniHRm ;
+        chon:hasReport         :cgrnniHRm ;
+        chon:hasResult         :resnniHRmx ;
+        chon:subEventOf        :tounniHR .
+
+:resnniHRmx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:tounniHR  a          chon:hessTournament ;
+        chon:atPlace  :planniHRm ;
+        chon:hasName  "World Championship 29th" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnniHRm .
+
+:planniHRm  a         chon:Place ;
+        chon:hasName  "Baguio City" .
+
+chon:HalfMove  chon:subEventOf  :gamnniHR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnniHRm .
+
+:cgrnniHRm  a   chon:ChessGameReport .
+
+:hmgamynfVqmA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgynfVqmAo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "axb5" , "Ke3" , "Rd7+" , "exd4" , "Ne4" , "Nf3+" , "a4" , "Rxa6" , "Rxg7" , "Rfc8" , "Qd6" , "Rxh7" , "e5" , "Qd3" , "Ke6" , "Bxa6" , "c4" , "cxb5" , "Bb4" , "Nc3" , "d4" , "Kd5" , "Qe6" , "Rxc5" , "Bxc3" , "f4" , "Ke2" , "O-O" , "Ra3" , "Nc6" , "a3" , "Na5" , "Rxe5" , "bxc3" , "Ng3" , "Ba3" , "Rb7+" , "Rf3+" , "a6" , "Nf6" , "Ncd2" , "Nf3" , "e3" , "Rc6" , "Rf4+" , "Kd4" , "Ba6" , "Kf7" , "cxd4" , "Bd3" , "Ne2" , "Bxb5" , "Nxd4+" , "Re7+" , "e6" , "Rb5" , "b5" , "fxe6" , "Nxe5" , "Rd5" , "Nxa3" , "Ra1" , "Nf5" , "Nc4" , "d5" , "dxe6" , "Kxe5" , "fxe5" , "Qxa6" , "Rb1" ;
+        chon:nextHalfMove      :hmgamynfVqmA .
+
+:agnniHRm  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kortschnoj, Viktor" .
+
+:rolnniHRm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnniHRm .
+
+:openniHRm  a            chon:ChessOpening ;
+        chon:hasECOCode  "E47" .
+
+:rolhgynfVqmAo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnniHRm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

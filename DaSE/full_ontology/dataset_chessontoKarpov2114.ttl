@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope78dMzP  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag78dMzP .
+
+:gamabvDP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol78dMzP ;
+        chon:atPlace           :pla78dMzP ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam78dMzPl ;
+        chon:hasHalfMove       :hmgam78dMzPl ;
+        chon:hasLastHalfMove   :hmgam78dMzPl ;
+        chon:hasOpening        :ope78dMzP ;
+        chon:hasReport         :cgr78dMzP ;
+        chon:hasResult         :res78dMzPl ;
+        chon:subEventOf        :tou78dMz .
+
+chon:HalfMove  chon:subEventOf  :gamabvDP .
+
+:cgr78dMzP  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag78dMzP .
+
+:hmgam78dMzPl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg78dMzPlP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hurme, Harri M" ;
+        chon:hasSANRecord      "Nc5" , "Nh5" , "Ng3" , "d6" , "dxe5+" , "Be2" , "Nxf3" , "g4" , "e4" , "Bxf3" , "Rh1" , "Bh4" , "bxa6" , "Nc6" , "Na6" , "Bxa6" , "a3" , "Ba4" , "O-O" , "Ra1" , "Nd3" , "Qe8" , "Nf8+" , "d7" , "Ne6" , "Nb4" , "Bg7" , "axb5" , "Bd1+" , "f3" , "e5+" , "Kg2" , "Qg5" , "Be3" , "Qd3" , "g5" , "e5" , "Kg3" , "Ne4+" , "Bg4" , "Rxd7" , "Bxf6" , "Rf1+" , "g6" , "d4" , "Kf2" , "Rg1" , "Kf4" , "Bxa7" , "Rh5" , "Kh8" , "Nd4" , "Rd5" , "Qxh1" , "Nf3" , "Nc3" , "Ng5" , "Bf6" , "Qf1" , "d5" , "Nxb5" , "Rxa3" , "Qh4" , "Bf2" , "f4" , "Nxe5" , "Qg6" , "h5" , "Bxc2" , "f5" , "fxg4" , "Rxf4" , "Bxg4" , "gxf3" , "Ke1" , "Rxf6" , "Kg6" , "Ke3" , "Rf2" , "gxf4" , "Kg7" , "b4" , "Rxh1+" , "Rh6" , "Bb5" , "b5" , "Raf8" , "Kf6" , "Rg5" , "hxg3" , "exf4" , "Nf6" , "Raf1" , "Rd3" , "Nxc7" ;
+        chon:nextHalfMove      :hmgam78dMzPl .
+
+:rol78dMzP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag78dMzP .
+
+:tou78dMz  a          chon:hessTournament ;
+        chon:atPlace  :pla78dMzP ;
+        chon:hasName  "Valkeakoski sim" .
+
+:rolhg78dMzPlP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag78dMzP .
+
+:pla78dMzP  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:res78dMzPl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag78dMzP  a          chon:Agent ;
+        chon:hasName  "Hurme, Harri M" , "Karpov, Anatoly" .

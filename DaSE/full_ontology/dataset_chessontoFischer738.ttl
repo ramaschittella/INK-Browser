@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope9rMOMV  a            chon:ChessOpening ;
+        chon:hasECOCode  "C31" .
+
+:cgr9rMOMV  a   chon:ChessGameReport .
+
+:rolhgLtUnGXAg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9rMOMV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9rMOMV .
+
+:gam9rMOM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9rMOMV ;
+        chon:atPlace           :pla9rMOMV ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9rMOMVG ;
+        chon:hasHalfMove       :hmgamztY09Wx , :hmgamLtUnGXA , :hmgam9rMOMVG ;
+        chon:hasLastHalfMove   :hmgamLtUnGXA ;
+        chon:hasOpening        :ope9rMOMV ;
+        chon:hasReport         :cgr9rMOMV ;
+        chon:hasResult         :res9rMOMVG ;
+        chon:subEventOf        :tou9rMOM .
+
+:hmgamztY09Wx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgztY09Wx4 , chon:AgentRole , :rolhgLtUnGXAg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Szmetan, Jorge" ;
+        chon:hasSANRecord      "Rb1+" , "Ra4" , "Rxh4" , "Nxc6+" , "Ra2" , "Nxg1" , "Bg1" , "Bc6" , "Kb3" , "Ke5" , "Ne2" , "Ka5" , "Ra1" , "Rb4+" , "Rxg2" , "Nc3" , "Kc4" , "Rc7" , "h4" , "Nb5" , "Rg5" , "Rg7" , "Kb6" , "Rf5" , "Rg5+" , "Kb2" , "Rxa3" , "a5" , "Rh8" , "Kb5" , "Rc4" , "Rh2" , "Be8" , "h3" , "Rc1" , "Kc6" , "Kc7" , "Kc5" , "Rg6+" , "Kc3" , "Kxa5" , "Rxf6+" , "Rg3" , "Rg4" , "Rg1" , "Ka6" , "Rb1" , "Kxc6" , "Rc3+" , "b6" , "Bf7" , "Rh5" , "Rh1" , "a3" , "a4" , "Rd1" , "Kd6" , "Rd4" , "Rxc1" , "Kd3" , "Nd4+" , "Rf7" ;
+        chon:nextHalfMove      :hmgamztY09Wx , :hmgamLtUnGXA .
+
+chon:HalfMove  chon:subEventOf  :gam9rMOM .
+
+:rol9rMOMV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9rMOMV .
+
+:res9rMOMVG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou9rMOM  a          chon:hessTournament ;
+        chon:atPlace  :pla9rMOMV ;
+        chon:hasName  "Buenos Aires" .
+
+:ag9rMOMV  a          chon:Agent ;
+        chon:hasName  "Szmetan, Jorge" , "Fischer, Robert James" .
+
+:hmgam9rMOMVG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9rMOMVGF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Szmetan, Jorge" ;
+        chon:hasSANRecord      "Re1" , "Rf1" , "Nxe5" , "Kc1" , "e3" , "exd2+" , "dxe4" , "Qe2" , "Re8+" , "Nd7" , "Bxc4" , "Bxf7+" , "Bxd2" , "Re6" , "Ngf6" , "Rad8" , "a4" , "bxc4" , "Rxe6" , "Nc3" , "Ba3+" , "Kf5" , "Kb1" , "Bg4+" , "Bc4" , "e4" , "f4" , "Nxc7+" , "fxe5" , "a5" , "exf6" , "Nd5" , "Qxc4" , "Bc1" , "Nf3" , "Qc4+" , "Kd1" , "Kxe6" , "Bc5" , "e5" , "h5" , "d5" , "gxf6" , "Rd7" , "Qd4" , "Be2" , "b3" , "Kxf7" ;
+        chon:nextHalfMove      :hmgamztY09Wx , :hmgam9rMOMVG .
+
+:rolhgztY09Wx4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9rMOMV .
+
+:rolhg9rMOMVGF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9rMOMV .
+
+:hmgamLtUnGXA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLtUnGXAg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Szmetan, Jorge" ;
+        chon:hasSANRecord      "b5" , "Rh3+" , "Kg5" , "Kg6" , "Kf7" , "Kb4" , "Rg5" , "Kf5" , "Kf6" , "Rc8+" , "Kd4" , "Rg4+" , "Kh8" , "h6" , "h7" , "Rh4+" , "Rh1" , "Rg1+" , "Ke5" , "Rg8" , "Kc3" , "Kg7" , "Rh5" , "Rb8" , "Kxc2" , "h5" ;
+        chon:nextHalfMove      :hmgamLtUnGXA .
+
+:pla9rMOMV  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9rMOMV .

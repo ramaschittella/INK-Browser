@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agf2DueJ  a          chon:Agent ;
+        chon:hasName  "Petrosian, Tigran V" , "Fischer, Robert James" .
+
+:resf2DueJ7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opef2DueJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "B15" .
+
+:gamf2Due  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolf2DueJ ;
+        chon:atPlace           :plaf2DueJ ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamf2DueJ7 ;
+        chon:hasHalfMove       :hmgamf2DueJ7 ;
+        chon:hasLastHalfMove   :hmgamf2DueJ7 ;
+        chon:hasOpening        :opef2DueJ ;
+        chon:hasReport         :cgrf2DueJ ;
+        chon:hasResult         :resf2DueJ7 ;
+        chon:subEventOf        :touf2Due .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agf2DueJ .
+
+:hmgamf2DueJ7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgf2DueJ7b , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "f4" , "Rc3" , "Qf2" , "Kb7" , "g6" , "Bg7" , "Qa5" , "gxf5" , "Nc6" , "Qd2" , "h3" , "Rhc8" , "Kf1" , "Nf5" , "Rc7" , "b6" , "Nxa5" , "Nb8" , "Nc3" , "b3" , "Bxf5" , "Bxf3" , "c5" , "Ne7" , "cxd4" , "d5" , "Nxc6" , "Kg2" , "Bd3" , "Qa6" , "Be3" , "Nd7" , "Qxf3" , "e4" , "Nb4" , "Rac1" , "Nf3" , "d4" , "f6" , "Nc1" , "Rd7" , "Bg4" , "c6" , "e6" , "g3" , "O-O-O" , "Rxc6" , "Nd3" , "h5" , "Rg1" , "Kf3" , "Qxa5" , "c3" , "e5" , "Kxc6" , "Qb6" , "Rgc1" , "Ne2" ;
+        chon:nextHalfMove      :hmgamf2DueJ7 .
+
+chon:HalfMove  chon:subEventOf  :gamf2Due .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agf2DueJ .
+
+:cgrf2DueJ  a   chon:ChessGameReport .
+
+:touf2Due  a          chon:hessTournament ;
+        chon:atPlace  :plaf2DueJ ;
+        chon:hasName  "Belgrade URS-World" .
+
+:rolf2DueJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agf2DueJ .
+
+:plaf2DueJ  a         chon:Place ;
+        chon:hasName  "Belgrade" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgf2DueJ7b  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agf2DueJ .

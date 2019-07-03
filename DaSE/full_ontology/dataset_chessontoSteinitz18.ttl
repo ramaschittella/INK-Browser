@@ -1,0 +1,75 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag7oDXex  a          chon:Agent ;
+        chon:hasName  "Lange, Max" , "Steinitz, William" .
+
+:cgr7oDXex  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7oDXex .
+
+:hmgamiozbNwL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQmpSqwWp , :rolhgiozbNwLN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lange, Max" ;
+        chon:hasSANRecord      "Bxf7+" , "Nc6" , "e5" , "g4" , "gxf3" , "c3" , "O-O" , "exf4" , "g5" , "Kxf7" , "fxg2" , "Nf3" , "d4" , "e4" , "Bc4" , "f4" ;
+        chon:nextHalfMove      :hmgamiozbNwL , :hmgam3mk7XvZ .
+
+:rolhgeltTVwfP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7oDXex .
+
+chon:HalfMove  chon:subEventOf  :gam7oDXe .
+
+:ope7oDXex  a            chon:ChessOpening ;
+        chon:hasECOCode  "C37" .
+
+:gam7oDXe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7oDXex ;
+        chon:atPlace           :pla7oDXex ;
+        chon:atTime            "1860.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiozbNwL ;
+        chon:hasHalfMove       :hmgamiozbNwL , :hmgam3mk7XvZ ;
+        chon:hasLastHalfMove   :hmgam3mk7XvZ ;
+        chon:hasOpening        :ope7oDXex ;
+        chon:hasReport         :cgr7oDXex ;
+        chon:hasResult         :res7oDXexI ;
+        chon:subEventOf        :tou7oDXe .
+
+:rolhgiozbNwLN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7oDXex .
+
+:res7oDXexI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhg3mk7XvZA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7oDXex .
+
+:rol7oDXex  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7oDXex .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgQmpSqwWp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7oDXex .
+
+:hmgam3mk7XvZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3mk7XvZA , :rolhgeltTVwfP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lange, Max" ;
+        chon:hasSANRecord      "Kb5" , "Be3+" , "Qh5+" , "Nc5+" , "Rxf8" , "Kd6" , "Bg5+" , "Qc4+" , "Nh6" , "Ke6" , "Nd2" , "Ka4" , "Kc5" , "Qxf8" , "Ke7" , "Nb3+" , "Ka5" , "d5+" , "Nb4" , "Qe2+" , "Rxf4" ;
+        chon:nextHalfMove      :hmgam3mk7XvZ .
+
+:tou7oDXe  a          chon:hessTournament ;
+        chon:atPlace  :pla7oDXex ;
+        chon:hasName  "Vienna m2" .
+
+:pla7oDXex  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7oDXex .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touDVZkv  a          chon:hessTournament ;
+        chon:atPlace  :plaDVZkvu ;
+        chon:hasName  "Capablanca mem" .
+
+:plaDVZkvu  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDVZkvu .
+
+:cgrDVZkvu  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamDVZkv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDVZkvu .
+
+:agDVZkvu  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Pietzsch, Wolfgang" .
+
+:rolDVZkvu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDVZkvu .
+
+:opeDVZkvu  a            chon:ChessOpening ;
+        chon:hasECOCode  "E67" .
+
+:hmgamzTGthsi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzTGthsiu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bg7" , "d4" , "exf5" , "Ne6" , "Rxf7" , "Qe7" , "Ng5" , "d6" , "dxe5" , "Nf3" , "Rab1" , "Bg4" , "c6" , "c4" , "Bd4" , "O-O" , "Ne8" , "f5" , "Be3" , "Bxd7" , "f4" , "Nbd7" , "gxf5" , "Nf6" , "exf4" , "Qf7" , "h6" , "g6" , "Rd2" , "e5" , "g3" , "Bg2" , "Qg6" , "Rd7" , "Qxf7+" , "Qc2" , "Nh4" , "gxf4" , "Nc3" , "Nc7" , "Bh3" , "Rd1" , "e4" ;
+        chon:nextHalfMove      :hmgamzTGthsi .
+
+:resDVZkvu1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgzTGthsiu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDVZkvu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamDVZkv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDVZkvu ;
+        chon:atPlace           :plaDVZkvu ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzTGthsi ;
+        chon:hasHalfMove       :hmgamzTGthsi ;
+        chon:hasLastHalfMove   :hmgamzTGthsi ;
+        chon:hasOpening        :opeDVZkvu ;
+        chon:hasReport         :cgrDVZkvu ;
+        chon:hasResult         :resDVZkvu1 ;
+        chon:subEventOf        :touDVZkv .

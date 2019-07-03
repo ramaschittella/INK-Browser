@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgxtxOSimW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxtxOSi .
+
+:rolhgZtH8Wlbm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxtxOSi .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxtxOSi .
+
+:touxtxOS  a          chon:hessTournament ;
+        chon:atPlace  :plaxtxOSi ;
+        chon:hasName  "Bled" .
+
+:plaxtxOSi  a         chon:Place ;
+        chon:hasName  "Bled" .
+
+chon:HalfMove  chon:subEventOf  :gamxtxOS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxtxOSi .
+
+:cgrxtxOSi  a   chon:ChessGameReport .
+
+:agxtxOSi  a          chon:Agent ;
+        chon:hasName  "Matanovic, Aleksandar" , "Fischer, Robert James" .
+
+:rolxtxOSi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxtxOSi .
+
+:hmgamxtxOSim  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZtH8Wlbm , :rolhgxtxOSimW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Matanovic, Aleksandar" ;
+        chon:hasSANRecord      "e5" , "bxc4" , "b5" , "g6" , "Nf3" , "Nc3" , "Rxe1+" , "d6" , "d4" , "Qxg3+" , "Kf1" , "Ke2" , "Ba4" , "exd4" , "Re8" , "Nxc4" , "Bf8" , "Nf1" , "Qxc4" , "Qg5" , "c3" , "Qa4" , "Bxe1" , "Bd7" , "Ne2" , "Nf6" , "Na5" , "Nc4" , "Be7" , "Qc7" , "Rc1" , "Qxh3" , "Rfe8" , "Qh1+" , "c5" , "O-O" , "Bd6" , "Qxa6" , "g3" , "Qc2" , "a6" , "Qh5" , "exd5" , "Nc6" , "e4" , "Qd6" , "Ne3" , "Bxa4" , "Re1" , "Qh5+" , "Qxa4" , "Bd2" , "d5" , "Bxb4" , "Qh3+" , "b4" , "cxb4" , "Bb5" , "Bc2" , "Bb3" , "Nxd4" , "Bc5" , "Nbd2" , "Qe5" , "h3" ;
+        chon:nextHalfMove      :hmgamxtxOSim , :hmgamZtH8Wlb .
+
+:opextxOSi  a            chon:ChessOpening ;
+        chon:hasECOCode  "C97" .
+
+:hmgamZtH8Wlb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZtH8Wlbm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Matanovic, Aleksandar" ;
+        chon:hasSANRecord      "Nxd5" , "h5" , "Qh8+" , "f3" , "Qf6+" , "Qxd5" , "f4" , "Kc8" , "g5" , "Bc5" , "Kg5" , "Qh1+" , "Qe5+" , "a4" , "Bg3" , "Kd7" , "Ke2" , "Qe4+" , "Bc3" , "Kf7" , "Ke8" , "Kd5" , "g4" , "Bxe5" , "Qf6" , "Kd2" , "f5" , "Kd3" , "Ke4" , "Kf5" , "Ba7" , "Bb8" , "Qxe5" , "a5" ;
+        chon:nextHalfMove      :hmgamZtH8Wlb .
+
+:gamxtxOS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxtxOSi ;
+        chon:atPlace           :plaxtxOSi ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxtxOSim ;
+        chon:hasHalfMove       :hmgamxtxOSim , :hmgamZtH8Wlb ;
+        chon:hasLastHalfMove   :hmgamZtH8Wlb ;
+        chon:hasOpening        :opextxOSi ;
+        chon:hasReport         :cgrxtxOSi ;
+        chon:hasResult         :resxtxOSim ;
+        chon:subEventOf        :touxtxOS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resxtxOSim  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

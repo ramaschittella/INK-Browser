@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr778Z7A  a   chon:ChessGameReport .
+
+:rolhg778Z7AZN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag778Z7A .
+
+:rol778Z7A  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag778Z7A .
+
+:tou778Z7  a          chon:hessTournament ;
+        chon:atPlace  :plaaaqQmS ;
+        chon:hasName  "Santa Monica" .
+
+:res778Z7AZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag778Z7A .
+
+chon:HalfMove  chon:subEventOf  :gamaaqQm .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag778Z7A .
+
+:ag778Z7A  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Larsen, Bent" .
+
+:ope778Z7A  a            chon:ChessOpening ;
+        chon:hasECOCode  "A72" .
+
+:gamaaqQm  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol778Z7A ;
+        chon:atPlace           :plaaaqQmS ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam778Z7AZ ;
+        chon:hasHalfMove       :hmgam778Z7AZ ;
+        chon:hasLastHalfMove   :hmgam778Z7AZ ;
+        chon:hasOpening        :ope778Z7A ;
+        chon:hasReport         :cgr778Z7A ;
+        chon:hasResult         :res778Z7AZ ;
+        chon:subEventOf        :tou778Z7 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaaaqQmS  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+:hmgam778Z7AZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg778Z7AZN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "bxc3" , "Qd2" , "Re1" , "Bf1" , "Qd7" , "c4" , "Nh5" , "Kg3" , "Bg3" , "d6" , "Nd7" , "Kf1" , "Ne4" , "Nf6" , "Kf2" , "Rd8" , "g3" , "Bxf5" , "Bxc3" , "Nxe3" , "O-O" , "Rbe8" , "exd5" , "Re3" , "Ra1" , "a4" , "Bb5" , "e4" , "a6" , "Nh7" , "Bg5" , "Ng6" , "Ne3" , "Ne5" , "Qxe3" , "exf5" , "Re8" , "Qe7" , "h5" , "Nf8" , "Rb8" , "Rxf3" , "Qc2" , "hxg3" , "Be2" , "e6" , "Nxg3" , "Bh4" , "Bg7" , "Kh3" , "Qc7" , "Nd2" , "d5" , "cxd5" , "f3" , "Nxg4" , "g4" , "d4" , "c5" , "g6" , "a5" , "g5" , "Nf3" , "Rxe3" , "Nf5" , "h6" , "Nc4" , "Nc3" , "Rhe1" ;
+        chon:nextHalfMove      :hmgam778Z7AZ .

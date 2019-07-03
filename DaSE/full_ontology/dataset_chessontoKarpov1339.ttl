@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgD5pPXZH1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag15gg4X .
+
+:rolhgb5duBWSz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag15gg4X .
+
+:hmgamD5pPXZH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgD5pPXZH1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxb3" , "Bxa2" , "Bf8" , "gxh5" , "Bxb4" , "h5" , "g6" , "g4" ;
+        chon:nextHalfMove      :hmgamD5pPXZH .
+
+:hmgamb5duBWS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgb5duBWSz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "exf3" , "f4" , "Bxe4" , "Nh7" , "Nf8" , "Qc2" , "Bxa5" , "Bf5" , "e5" , "Bxe3" , "g3" , "Re1" , "Bd6" , "Be5" , "d5" , "h3" , "fxe6" , "Ne7" , "Qxe4" , "Kh2" , "Nc3" , "e4" , "c6" , "Rfe1" , "Nf6" , "Bxc3" , "Bxe1" , "Qc8" , "c5" , "Bb1" , "Bd7" , "Bb6" , "b5" , "Bg4" , "Re8" , "Nxe3" , "Nexd5" , "b4" , "Qe4" , "a6" , "Rad1" , "h6" , "c4" , "a5" , "Kg1" , "Kf7" , "Bh3" , "Rxe6" , "Ne6" , "Ke8" , "dxc3" , "Bd4" , "Qe3" , "Bc6" , "Nc2" , "cxd5" , "Bxe6" , "Qc6" , "Qf2" , "Qb7" , "Bb4" , "Nc6" , "b3" , "Bg2" , "Ne3" , "Re6" , "Rae8" , "Bc3" , "h4" , "d6" , "Nd4" , "Bxf3" , "Bxc5" , "Rxe1" , "O-O" , "Bd2" , "Nf3" ;
+        chon:nextHalfMove      :hmgamD5pPXZH , :hmgamb5duBWS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag15gg4X .
+
+:cgr15gg4X  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam15gg4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag15gg4X .
+
+:pla15gg4X  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:res15gg4XP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag15gg4X  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Lautier, Joel" .
+
+:rol15gg4X  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag15gg4X .
+
+:gam15gg4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol15gg4X ;
+        chon:atPlace           :pla15gg4X ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamb5duBWS ;
+        chon:hasHalfMove       :hmgamD5pPXZH , :hmgamb5duBWS ;
+        chon:hasLastHalfMove   :hmgamD5pPXZH ;
+        chon:hasOpening        :ope15gg4X ;
+        chon:hasReport         :cgr15gg4X ;
+        chon:hasResult         :res15gg4XP ;
+        chon:subEventOf        :tou15gg4 .
+
+:ope15gg4X  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+:tou15gg4  a          chon:hessTournament ;
+        chon:atPlace  :pla15gg4X ;
+        chon:hasName  "Biel" .

@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rol9lRocP  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:pla9lRocP  a         chon:Place ;
+        chon:hasName  "Hannover" .
+
+:hmgam7AsdnWW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7AsdnWWH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pfleger, Helmut" ;
+        chon:hasSANRecord      "Be3" , "a4" , "Rb5" , "Bh6" , "h5" , "f4" , "cxb5" , "g6" , "a7" , "e5" , "Rb8" , "Qxd4" , "Ne5" , "exd4" , "Ra1" , "Qg7" , "Kh7" , "Rxb2" , "Bb7" , "Nxf3+" , "fxg6" , "Nbd7" , "h6" , "f5" , "Ba3" , "Nxb5" , "Nc3" , "d5" , "h3" , "Bg5" , "c6" , "a5" , "O-O" , "Rad1" , "Qe7" , "Re1" , "Nhf6" , "Bxc4" , "Qe3" , "d4" , "Bg7" , "e4" , "Bf8" , "Be2" , "Nf6" , "Nc4" , "Qf2" , "d6" , "Bf4" , "b5" , "Bxa7" , "Qd2" , "Nf3" , "a6" , "Re8" , "Bxd4" , "Nd7" , "Nh5" , "Bc5" , "bxc4" , "fxg6+" , "Bxf3" ;
+        chon:nextHalfMove      :hmgam7AsdnWW .
+
+:ag7AsdnW  a          chon:Agent ;
+        chon:hasName  "Pfleger, Helmut" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9lRocP .
+
+:ope7AsdnW  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+:ag9lRocP  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+chon:HalfMove  chon:subEventOf  :gam9lRoc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7AsdnW .
+
+:gam9lRoc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9lRocP ;
+        chon:atPlace           :pla9lRocP ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7AsdnWW ;
+        chon:hasHalfMove       :hmgam7AsdnWW ;
+        chon:hasLastHalfMove   :hmgam7AsdnWW ;
+        chon:hasOpening        :ope7AsdnW ;
+        chon:hasReport         :cgr7AsdnW ;
+        chon:hasResult         :res7AsdnWW ;
+        chon:subEventOf        :tou9lRoc .
+
+:res7AsdnWW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgr7AsdnW  a   chon:ChessGameReport .
+
+:rolhg7AsdnWWH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7AsdnW , :ag9lRocP .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol7AsdnW  a             chon:AuthorRole ;
+        chon:performedBy  :ag7AsdnW .
+
+:tou9lRoc  a          chon:hessTournament ;
+        chon:atPlace  :pla9lRocP ;
+        chon:hasName  "Hannover" .

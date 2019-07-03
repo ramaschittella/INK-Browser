@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg5S3DRoja  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSSQlvo .
+
+:agSSQlvo  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Maisuradze,N" .
+
+:rolSSQlvo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSSQlvo .
+
+:gamSSQlv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSSQlvo ;
+        chon:atPlace           :plaSSQlvo ;
+        chon:atTime            "2013.10.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSSQlvos ;
+        chon:hasHalfMove       :hmgamSSQlvos , :hmgam5S3DRoj ;
+        chon:hasLastHalfMove   :hmgam5S3DRoj ;
+        chon:hasOpening        :opeSSQlvo ;
+        chon:hasReport         :cgrSSQlvo ;
+        chon:hasResult         :resSSQlvos ;
+        chon:subEventOf        :touSSQlv .
+
+:opeSSQlvo  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+:touSSQlv  a          chon:hessTournament ;
+        chon:atPlace  :plaSSQlvo ;
+        chon:hasName  "2nd Karpov Trophy Prelim" .
+
+:resSSQlvos  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSSQlvo .
+
+chon:HalfMove  chon:subEventOf  :gamSSQlv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSSQlvo .
+
+:hmgam5S3DRoj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5S3DRoja ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nf3" , "Be7" , "Na4" , "Rxd1" , "c5" , "Bc3" , "Bb7" , "Bd2" , "c4" , "bxc3" , "b5" , "Bxc5" , "Nxc3" , "Nbd2" , "Kf8" , "Bf3" , "O-O" , "Bb4" , "Bxf3" , "Qxd1" , "Rc7" , "dxc5" , "Nxd7" , "Rc8" , "Rac1" , "Be2" , "Nf6" , "a6" , "Nxf3" , "Ne5" , "e6" , "Nb3" , "Nbd4" , "e3" , "Nc5" , "Rac8" , "Bxc4" , "Nbd7" ;
+        chon:nextHalfMove      :hmgam5S3DRoj .
+
+:rolhgSSQlvosM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSSQlvo .
+
+:plaSSQlvo  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamSSQlvos  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5S3DRoja , :rolhgSSQlvosM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "d5" , "dxc4" , "c4" , "d4" ;
+        chon:nextHalfMove      :hmgam5S3DRoj , :hmgamSSQlvos .
+
+:cgrSSQlvo  a   chon:ChessGameReport .

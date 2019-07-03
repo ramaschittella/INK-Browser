@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toufBOBG  a          chon:hessTournament ;
+        chon:atPlace  :plafBOBGS ;
+        chon:hasName  "Mar del Plata" .
+
+:rolhgqBKPeTuG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfBOBGS .
+
+:hmgamqBKPeTu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqBKPeTuG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gadia, Okicio" ;
+        chon:hasSANRecord      "Nxe7+" , "Rxc6" , "Rfc8" , "Ra1" , "Rb8" , "f6" , "Be7" , "Bxc6" , "c3" , "a4" , "O-O" , "Nd5" , "Bxf6" , "Rac8" , "Bg5" , "Qb6+" , "Qd8" , "Bd5" , "Kh1" , "Rad1" ;
+        chon:nextHalfMove      :hmgamqBKPeTu .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfBOBGS .
+
+:plafBOBGS  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:hmgamfBOBGSs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfBOBGSsv , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gadia, Okicio" ;
+        chon:hasSANRecord      "Be7" , "e6" , "Bc4" , "Nc6" , "Nxc6" , "Bb7" , "d4" , "Nf3" , "c5" , "Nf6" , "O-O" , "cxd4" , "f4" , "e4" , "Qd3" , "a6" , "Nc3" , "Bb3" , "b5" , "f5" , "Bxc6" , "Nxd4" , "d6" , "e5" ;
+        chon:nextHalfMove      :hmgamqBKPeTu , :hmgamfBOBGSs .
+
+chon:HalfMove  chon:subEventOf  :gamfBOBG .
+
+:cgrfBOBGS  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfBOBGS .
+
+:agfBOBGS  a          chon:Agent ;
+        chon:hasName  "Gadia, Okicio" , "Fischer, Robert James" .
+
+:rolfBOBGS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfBOBGS .
+
+:opefBOBGS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B87" .
+
+:rolhgfBOBGSsv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfBOBGS .
+
+:resfBOBGSs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamfBOBG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfBOBGS ;
+        chon:atPlace           :plafBOBGS ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfBOBGSs ;
+        chon:hasHalfMove       :hmgamfBOBGSs , :hmgamqBKPeTu ;
+        chon:hasLastHalfMove   :hmgamqBKPeTu ;
+        chon:hasOpening        :opefBOBGS ;
+        chon:hasReport         :cgrfBOBGS ;
+        chon:hasResult         :resfBOBGSs ;
+        chon:subEventOf        :toufBOBG .

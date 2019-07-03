@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamRVBPqZI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRVBPqZI1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nxe4" , "d4" , "d5" , "Nf3" , "Nf6" , "e4" , "Bd3" , "e5" ;
+        chon:nextHalfMove      :hmgamRVBPqZI , :hmgamiXL0KZx .
+
+:rolhgiXL0KZxq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRVBPqZ .
+
+:cgrRVBPqZ  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRVBPqZ .
+
+chon:HalfMove  chon:subEventOf  :gamRVBPq .
+
+:gamRVBPq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRVBPqZ ;
+        chon:atPlace           :plaRVBPqZ ;
+        chon:atTime            "2009.07.12"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRVBPqZI ;
+        chon:hasHalfMove       :hmgamiXL0KZx , :hmgamRVBPqZI ;
+        chon:hasLastHalfMove   :hmgamiXL0KZx ;
+        chon:hasOpening        :opeRVBPqZ ;
+        chon:hasReport         :cgrRVBPqZ ;
+        chon:hasResult         :resRVBPqZI ;
+        chon:subEventOf        :touRVBPq .
+
+:resRVBPqZI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolRVBPqZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRVBPqZ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRVBPqZ .
+
+:rolhgRVBPqZI1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRVBPqZ .
+
+:plaRVBPqZ  a         chon:Place ;
+        chon:hasName  "Donostia ESP" .
+
+:hmgamiXL0KZx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiXL0KZxq , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bf4" , "Qd2" , "Qg2" , "bxc3" , "Nxg5" , "Nxh3+" , "d4" , "g4" , "h4" , "Qe2" , "O-O" , "Bh5" , "Rg6" , "Nd8" , "Rf3" , "f4" , "Bd6" , "Ne5" , "Bh2" , "Re7" , "Kg6" , "Re3" , "Rag8" , "Qe6" , "Qd3+" , "Nxc3" , "g5" , "h5" , "Rb1" , "Nxe6" , "Qd7" , "Bg6" , "Nc6" , "c6" , "Nc3" , "f5" , "Bc7" , "Bxe5" , "Bg3" , "Kh7" , "dxe5" , "Rxf7+" , "Rf1" , "Qc8" , "Be7" , "cxd3" , "g6" , "Kh1" , "Rg8" , "h3" , "Rg5" , "e6" , "f6" , "Bg4" , "Rxh3" , "Bxd3" ;
+        chon:nextHalfMove      :hmgamiXL0KZx .
+
+:agRVBPqZ  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Svidler,P" .
+
+:touRVBPq  a          chon:hessTournament ;
+        chon:atPlace  :plaRVBPqZ ;
+        chon:hasName  "City of Culture GM" .
+
+:opeRVBPqZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C43" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opexfmVWN  a            chon:ChessOpening ;
+        chon:hasECOCode  "A21" .
+
+:toulfqHo  a          chon:hessTournament ;
+        chon:atPlace  :plalfqHoO ;
+        chon:hasName  "Reykjavik rapid" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxfmVWN .
+
+chon:HalfMove  chon:subEventOf  :gamlfqHo .
+
+:cgrxfmVWN  a   chon:ChessGameReport .
+
+:rolhgxfmVWNL2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxfmVWN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxfmVWN .
+
+:rolxfmVWN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxfmVWN .
+
+:gamlfqHo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxfmVWN ;
+        chon:atPlace           :plalfqHoO ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxfmVWNL ;
+        chon:hasHalfMove       :hmgamxfmVWNL ;
+        chon:hasLastHalfMove   :hmgamxfmVWNL ;
+        chon:hasOpening        :opexfmVWN ;
+        chon:hasReport         :cgrxfmVWN ;
+        chon:hasResult         :resxfmVWNL ;
+        chon:subEventOf        :toulfqHo .
+
+:hmgamxfmVWNL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxfmVWNL2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Olafsson, Helgi" ;
+        chon:hasSANRecord      "Nge2" , "Bg1" , "b3" , "Bg2" , "a5" , "O-O" , "Qd2" , "c6" , "Nd5" , "Nxe5" , "Nc3" , "Na6" , "Re8" , "Rc8" , "Rdxd3" , "Qd5" , "Rad1" , "Be3" , "Be6" , "e5" , "Rae8" , "b5" , "g6" , "Bh6" , "exf5" , "Qd7" , "Ng4" , "Nf6" , "Qf6" , "Kh2" , "d3" , "Bg7" , "f5" , "Rxa2" , "Kxg2" , "Kh1" , "Bf2" , "fxe5" , "h4" , "f4" , "c4" , "Qf4" , "cxb5" , "Qxh6" , "d6" , "Bxf5" , "Qxf5" , "Nxb4" , "Qa8" , "Rde3" , "Rxg2" , "Rxe2" , "Nd3" , "g3" , "Rf3" , "g4" , "e4" , "axb4" , "Rxf5" , "d4" , "Nb4" ;
+        chon:nextHalfMove      :hmgamxfmVWNL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agxfmVWN  a          chon:Agent ;
+        chon:hasName  "Olafsson, Helgi" , "Karpov, Anatoly" .
+
+:plalfqHoO  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:resxfmVWNL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

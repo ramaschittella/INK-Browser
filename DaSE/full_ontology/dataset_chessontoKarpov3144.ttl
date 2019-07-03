@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resPhGdd79  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolPhGdd7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPhGdd7 .
+
+:hmgamPhGdd79  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPhGdd79A , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Ju" ;
+        chon:hasSANRecord      "Qxc3" , "d4" , "Nf6" , "d5" , "Bxc5" , "Rxa1+" , "a3" , "Ra7" , "e6" , "Qb6" , "b6" , "Ba3" , "dxc5" , "Qd4" , "dxe4" , "Qa8" , "Kh7" , "bxc5" , "c4" , "Rc8" , "Bxa1" , "a5" , "Qc2" , "Bxc3+" , "Qc3" , "Nf3" , "Bb7" , "Ne8" , "Nd2" , "b5" , "h5" , "Ne4" , "Qxd6" , "Qxb5" , "Qa7" , "axb4" , "Bd3" , "Qb3" , "h3" , "Rxc5" , "Bb2" , "Ra1" , "O-O" , "Rxb5" , "d6" , "Nb3" , "Bxe4" , "Nd6" , "c5" , "Nc7" , "Nc3" , "e3" , "Na6" , "f6" , "b4" , "Qxb3" , "Qc7" , "Bb4" , "cxb5" ;
+        chon:nextHalfMove      :hmgamPhGdd79 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPhGdd7 .
+
+chon:HalfMove  chon:subEventOf  :gamPhGdd .
+
+:agPhGdd7  a          chon:Agent ;
+        chon:hasName  "Polgar,Ju" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPhGdd7 .
+
+:opePhGdd7  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:gamPhGdd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPhGdd7 ;
+        chon:atPlace           :plaPhGdd7 ;
+        chon:atTime            "2009.08.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPhGdd79 ;
+        chon:hasHalfMove       :hmgamPhGdd79 ;
+        chon:hasLastHalfMove   :hmgamPhGdd79 ;
+        chon:hasOpening        :opePhGdd7 ;
+        chon:hasReport         :cgrPhGdd7 ;
+        chon:hasResult         :resPhGdd79 ;
+        chon:subEventOf        :touPhGdd .
+
+:touPhGdd  a          chon:hessTournament ;
+        chon:atPlace  :plaPhGdd7 ;
+        chon:hasName  "Champions Rapid" .
+
+:plaPhGdd7  a         chon:Place ;
+        chon:hasName  "Zuerich SUI" .
+
+:rolhgPhGdd79A  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPhGdd7 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrPhGdd7  a   chon:ChessGameReport .

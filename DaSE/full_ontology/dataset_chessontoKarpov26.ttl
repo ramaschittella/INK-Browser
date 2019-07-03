@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resAyETdBr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agAyETdB  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Adorjan, Andras" .
+
+:rolAyETdB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAyETdB .
+
+:hmgamAyETdBr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAyETdBrQ , :rolhg3AQcABih ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "h3" , "hxg4" , "Nf3" , "a6" , "e4" , "Bxc6" , "Qd3" , "Bb5" , "Bg4" , "h5" , "dxc6" , "O-O" , "Nc6" , "e5" , "c3" ;
+        chon:nextHalfMove      :hmgam3AQcABi , :hmgamAyETdBr .
+
+:opeAyETdB  a            chon:ChessOpening ;
+        chon:hasECOCode  "C68" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAyETdB .
+
+:hmgam3AQcABi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3AQcABih ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nxe5" , "Bd6" , "Bh2+" , "Nxd3" , "hxg4" ;
+        chon:nextHalfMove      :hmgam3AQcABi .
+
+:rolhg3AQcABih  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAyETdB .
+
+chon:HalfMove  chon:subEventOf  :gampyHEG .
+
+:gampyHEG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAyETdB ;
+        chon:atPlace           :plapyHEGS ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAyETdBr ;
+        chon:hasHalfMove       :hmgam3AQcABi , :hmgamAyETdBr ;
+        chon:hasLastHalfMove   :hmgam3AQcABi ;
+        chon:hasOpening        :opeAyETdB ;
+        chon:hasReport         :cgrAyETdB ;
+        chon:hasResult         :resAyETdBr ;
+        chon:subEventOf        :toupyHEG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAyETdB .
+
+:toupyHEG  a          chon:hessTournament ;
+        chon:atPlace  :plapyHEGS ;
+        chon:hasName  "EU-ch U18 sf 6768" .
+
+:plapyHEGS  a         chon:Place ;
+        chon:hasName  "Groningen" .
+
+:cgrAyETdB  a   chon:ChessGameReport .
+
+:rolhgAyETdBrQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAyETdB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

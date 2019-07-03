@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamZEPO6YA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZEPO6YAw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc8" , "Qe2" , "Bd8" , "Ng3" , "Bf8" , "Kh2" , "Qxb3" , "Nc7" , "Na4" , "axb4" , "Qxa2" , "hxg3" , "Kg2" , "h6" , "Bd3" , "Nd2" , "g3" , "Ba3" , "Rxc1+" , "Rxa2" , "Qxb4" , "Rc1" , "Na8" , "g4" , "Qd3" , "Be7" , "Qc3" , "Bxa4" , "Nb6" , "Nxg3" , "Bxb5" , "Bxc1" , "Qxa4" , "Nb3" , "Bxd7" , "Qc8" , "Ra2" , "Be3" ;
+        chon:nextHalfMove      :hmgamZEPO6YA .
+
+:rolhgxSFvKYL7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxSFvKY .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxSFvKY .
+
+:opexSFvKY  a            chon:ChessOpening ;
+        chon:hasECOCode  "C90" .
+
+:gamxSFvK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxSFvKY ;
+        chon:atPlace           :plaxSFvKY ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxSFvKYL ;
+        chon:hasHalfMove       :hmgamxSFvKYL , :hmgamZEPO6YA ;
+        chon:hasLastHalfMove   :hmgamZEPO6YA ;
+        chon:hasOpening        :opexSFvKY ;
+        chon:hasReport         :cgrxSFvKY ;
+        chon:hasResult         :resxSFvKYL ;
+        chon:subEventOf        :touxSFvK .
+
+chon:HalfMove  chon:subEventOf  :gamxSFvK .
+
+:touxSFvK  a          chon:hessTournament ;
+        chon:atPlace  :plaxSFvKY ;
+        chon:hasName  "Bad Kissingen" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxSFvKY .
+
+:hmgamxSFvKYL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxSFvKYL7 , chon:AgentRole , :rolhgZEPO6YAw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Re1" , "Bb3" , "Ba4" , "a6" , "Nf3" , "Bd7" , "d5" , "Nf6" , "Be7" , "Na5" , "Nh5" , "a3" , "Qb3" , "Bc2" , "Nc6" , "b5" , "d4" , "e4" , "Na6" , "cxd4" , "e5" , "d6" , "Bb1" , "c3" , "c5" , "Nf1" , "Nb4" , "a5" , "Bb5" , "Re8" , "Qb8" , "O-O" , "Nbd2" , "b4" , "d3" ;
+        chon:nextHalfMove      :hmgamxSFvKYL , :hmgamZEPO6YA .
+
+:plaxSFvKY  a         chon:Place ;
+        chon:hasName  "Bad Kissingen" .
+
+:cgrxSFvKY  a   chon:ChessGameReport .
+
+:rolhgZEPO6YAw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxSFvKY .
+
+:resxSFvKYL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agxSFvKY  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Spassky, Boris V" .
+
+:rolxSFvKY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxSFvKY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

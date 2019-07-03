@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr4v6IkS  a   chon:ChessGameReport .
+
+:hmgam4v6IkSl  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhget3WRRoV , :rolhg4v6IkSlK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Nf3" , "e5" , "e4" , "Nf6" ;
+        chon:nextHalfMove      :hmgam4v6IkSl , :hmgamet3WRRo .
+
+:tou4v6Ik  a          chon:hessTournament ;
+        chon:atPlace  :pla4v6IkS ;
+        chon:hasName  "Moscow-4teams" .
+
+:rol4v6IkS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4v6IkS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4v6IkS .
+
+:pla4v6IkS  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:rolhget3WRRoV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4v6IkS .
+
+chon:HalfMove  chon:subEventOf  :gam4v6Ik .
+
+:res4v6IkSl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4v6IkS .
+
+:ag4v6IkS  a          chon:Agent ;
+        chon:hasName  "Smyslov, Vassily" , "Karpov, Anatoly" .
+
+:rolhg4v6IkSlK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4v6IkS .
+
+:ope4v6IkS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:gam4v6Ik  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4v6IkS ;
+        chon:atPlace           :pla4v6IkS ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4v6IkSl ;
+        chon:hasHalfMove       :hmgam4v6IkSl , :hmgamet3WRRo ;
+        chon:hasLastHalfMove   :hmgamet3WRRo ;
+        chon:hasOpening        :ope4v6IkS ;
+        chon:hasReport         :cgr4v6IkS ;
+        chon:hasResult         :res4v6IkSl ;
+        chon:subEventOf        :tou4v6Ik .
+
+:hmgamet3WRRo  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhget3WRRoV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Ndb3" , "Rab8" , "N2b3" , "Rxe3" , "Bf3" , "Kf6" , "Bg5" , "Nxe4" , "Nc3" , "Nb6" , "Bxe7" , "Rhe8" , "Qe7" , "Rde1" , "d3" , "Ne4" , "Na6" , "Nf6" , "d5" , "Re3" , "Na5" , "Nxe5" , "fxe3" , "Re5" , "Rf1" , "Be7" , "Nd2" , "c6" , "Kxe7" , "O-O-O" , "Nf3" , "d6" , "f5" , "Qe2" , "Bd7" , "Nd5" , "Nc8" , "Nd4" , "Bxe2" , "Qxe2+" ;
+        chon:nextHalfMove      :hmgamet3WRRo .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

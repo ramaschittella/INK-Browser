@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgg36c0cwr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agg36c0c .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agg36c0c .
+
+chon:HalfMove  chon:subEventOf  :gamg36c0 .
+
+:hmgamc1MlTaM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgc1MlTaMp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc6" , "Qf3" , "Nxd4" , "Ba6" , "b6" , "Nxc6" , "Be7" , "c5" , "Qc8" , "Bg2" , "cxd4" , "g3" , "Bb7" , "O-O" , "Qxc6" , "Kxg2" , "Nbd2" , "e3" , "Bxg2" ;
+        chon:nextHalfMove      :hmgamc1MlTaM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agg36c0c .
+
+:rolhgc1MlTaMp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agg36c0c .
+
+:plag36c0c  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:hmgamg36c0cw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgg36c0cwr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf6" , "e6" , "d4" , "c4" , "Nf3" ;
+        chon:nextHalfMove      :hmgamc1MlTaM , :hmgamg36c0cw .
+
+:cgrg36c0c  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agg36c0c  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Smyslov, Vassily" .
+
+:gamg36c0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolg36c0c ;
+        chon:atPlace           :plag36c0c ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamg36c0cw ;
+        chon:hasHalfMove       :hmgamc1MlTaM , :hmgamg36c0cw ;
+        chon:hasLastHalfMove   :hmgamc1MlTaM ;
+        chon:hasOpening        :opeg36c0c ;
+        chon:hasReport         :cgrg36c0c ;
+        chon:hasResult         :resg36c0cw ;
+        chon:subEventOf        :toug36c0 .
+
+:rolg36c0c  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agg36c0c .
+
+:toug36c0  a          chon:hessTournament ;
+        chon:atPlace  :plag36c0c ;
+        chon:hasName  "Amsterdam" .
+
+:opeg36c0c  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:resg36c0cw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

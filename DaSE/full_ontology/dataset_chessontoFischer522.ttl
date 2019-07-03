@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGiMnSa .
+
+chon:HalfMove  chon:subEventOf  :gamGiMnS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGiMnSa .
+
+:plaGiMnSa  a         chon:Place ;
+        chon:hasName  "La Habana" .
+
+:rolhg8kYHfbBz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGiMnSa .
+
+:cgrGiMnSa  a   chon:ChessGameReport .
+
+:resGiMnSaM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamGiMnS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGiMnSa ;
+        chon:atPlace           :plaGiMnSa ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8kYHfbB ;
+        chon:hasHalfMove       :hmgam8kYHfbB ;
+        chon:hasLastHalfMove   :hmgam8kYHfbB ;
+        chon:hasOpening        :opeGiMnSa ;
+        chon:hasReport         :cgrGiMnSa ;
+        chon:hasResult         :resGiMnSaM ;
+        chon:subEventOf        :touGiMnS .
+
+:touGiMnS  a          chon:hessTournament ;
+        chon:atPlace  :plaGiMnSa ;
+        chon:hasName  "La Habana olm prel" .
+
+:agGiMnSa  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Garcia Soruco, Julio" .
+
+:rolGiMnSa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGiMnSa .
+
+:opeGiMnSa  a            chon:ChessOpening ;
+        chon:hasECOCode  "B87" .
+
+:hmgam8kYHfbB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8kYHfbBz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bc4" , "Nxe6" , "f3" , "Kh8" , "Bb7" , "Qc7" , "Kh1" , "cxd4" , "Rg8" , "a3" , "Ne5" , "Nf3" , "Nce2" , "Nbd7" , "Be7" , "Nxd4" , "d6" , "e4" , "a6" , "Nxe4" , "Be3" , "Qd2" , "Qf2" , "Rg6" , "Rag8" , "Bb3" , "Ng3" , "g5" , "h3" , "Nf6" , "Nc3" , "O-O" , "c5" , "e6" , "d4" , "Bxe6" , "b5" , "Rxe6" , "fxe6" , "Rac1" ;
+        chon:nextHalfMove      :hmgam8kYHfbB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agszHRSb  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Bareev, Evgeny" .
+
+:rolszHRSb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agszHRSb .
+
+:hmgamszHRSbq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgszHRSbqi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bc1" , "Rd8" , "Rxf3" , "Qc8" , "Na6" , "Qd3" , "d6" , "Qd4" , "h3" , "Qc6" , "c5" , "c4" , "b6" , "b3" , "Bf4" , "Bxc5" , "Be7" , "Nxc3" , "Ba6" , "Rxc3" , "Nc5" , "Nf6" , "dxc5" , "Rfd1" , "d4" , "e5" , "g3" , "Rac1" , "Bb7" , "e6" , "Qa4" , "exf3" , "Bg2" , "Bf8" , "Re8" , "Bxf3" , "Nc3" , "Rd2" , "Qc2" , "Nh5" , "g5" , "Nf3" , "g4" , "Nce4" , "O-O" , "e4" ;
+        chon:nextHalfMove      :hmgamszHRSbq .
+
+:opeszHRSb  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agszHRSb .
+
+chon:HalfMove  chon:subEventOf  :gamszHRS .
+
+:gamszHRS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolszHRSb ;
+        chon:atPlace           :plaszHRSb ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamszHRSbq ;
+        chon:hasHalfMove       :hmgamszHRSbq ;
+        chon:hasLastHalfMove   :hmgamszHRSbq ;
+        chon:hasOpening        :opeszHRSb ;
+        chon:hasReport         :cgrszHRSb ;
+        chon:hasResult         :resszHRSbq ;
+        chon:subEventOf        :touszHRS .
+
+:resszHRSbq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touszHRS  a          chon:hessTournament ;
+        chon:atPlace  :plaszHRSb ;
+        chon:hasName  "Tilburg" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agszHRSb .
+
+:plaszHRSb  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrszHRSb  a   chon:ChessGameReport .
+
+:rolhgszHRSbqi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agszHRSb .

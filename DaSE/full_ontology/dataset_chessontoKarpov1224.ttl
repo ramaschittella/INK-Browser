@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgJPmGOGta  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJPmGOG .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJPmGOG .
+
+:plaJPmGOG  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:HalfMove  chon:subEventOf  :gamJPmGO .
+
+:cgrJPmGOG  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJPmGOG .
+
+:rolhgFN4PyDKa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJPmGOG .
+
+:agJPmGOG  a          chon:Agent ;
+        chon:hasName  "Van der Wiel, John TH" , "Karpov, Anatoly" .
+
+:rolJPmGOG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJPmGOG .
+
+:hmgamJPmGOGt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFN4PyDKa , :rolhgJPmGOGta , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "Nc3" , "c6" , "Nf3" , "Bxc4" , "Be2" , "d5" , "Qc2" , "e3" , "Bd6" , "e6" , "d4" , "Nf6" , "b5" , "Nbd7" , "dxc4" , "O-O" , "c4" ;
+        chon:nextHalfMove      :hmgamFN4PyDK , :hmgamJPmGOGt .
+
+:opeJPmGOG  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:hmgamFN4PyDK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFN4PyDKa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "exd5" , "Nc5" , "Ra3" , "Bxb4" , "g5" , "Ne4" , "Bxd5" , "Ra6" , "Qc7" , "Ba8" , "Bd2" , "Nd5" , "b3" , "Rexd8" , "Rxa3" , "Qd8" , "Qb8" , "Bc8" , "f6" , "Nd7" , "a3" , "Re7" , "a4" , "Re8" , "Rfd1" , "Rc8" , "Bb3" , "Be1" , "Ra5" , "Ra7" , "Rda1" , "Kd6" , "Qxe4" , "Ke1" , "f3" , "Bxa4" , "Ke7" , "Rac1" , "Ra1" , "axb4" , "Kd2" , "h6" , "bxa4" , "a5" , "Ra8" , "Bf3" , "Qxd8" , "Rb7" , "Bb4" , "Be7" , "Nd2" , "Kf1" , "Bb7" , "Rcc7" , "Nd3" , "Bd1" , "Kf8" , "Nxe4" , "Qh4" , "Nb6" , "f5" ;
+        chon:nextHalfMove      :hmgamFN4PyDK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamJPmGO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJPmGOG ;
+        chon:atPlace           :plaJPmGOG ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJPmGOGt ;
+        chon:hasHalfMove       :hmgamFN4PyDK , :hmgamJPmGOGt ;
+        chon:hasLastHalfMove   :hmgamFN4PyDK ;
+        chon:hasOpening        :opeJPmGOG ;
+        chon:hasReport         :cgrJPmGOG ;
+        chon:hasResult         :resJPmGOGt ;
+        chon:subEventOf        :touJPmGO .
+
+:resJPmGOGt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touJPmGO  a          chon:hessTournament ;
+        chon:atPlace  :plaJPmGOG ;
+        chon:hasName  "Tilburg" .

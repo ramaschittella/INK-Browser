@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:aguduocp  a          chon:Agent ;
+        chon:hasName  "Kamsky,G" , "Karpov,Ana" .
+
+:rolhg8dBX7r6K  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aguduocp .
+
+:resuduocpd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touuduoc  a          chon:hessTournament ;
+        chon:atPlace  :plauduocp ;
+        chon:hasName  "World Blitz" .
+
+:cgruduocp  a   chon:ChessGameReport .
+
+:hmgam8dBX7r6  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8dBX7r6K ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kamsky,G" ;
+        chon:hasSANRecord      "Ba3" , "Nd2" , "Kg6" , "a4" , "Bc2" , "Nb1" , "Bd6" , "b3" , "Bb4" , "Bc3" , "e4" , "Ne4" , "Kf3" , "Bxd6" , "a1=Q" , "a2" , "Nc2" , "e5" , "b2" , "Bxa1" , "d5" , "Bb3" , "a3" , "Nb4" , "Nc3" , "Kg2" , "Bxg7" , "Bxb2" , "Nxa2" , "Kxh5" , "Bxd5" , "Ba2" ;
+        chon:nextHalfMove      :hmgam8dBX7r6 .
+
+:rolhguduocpd0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aguduocp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aguduocp .
+
+:opeuduocp  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+chon:HalfMove  chon:subEventOf  :gamuduoc .
+
+:hmgamuduocpd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhguduocpd0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kamsky,G" ;
+        chon:hasSANRecord      "d4" , "Nf3" , "h3" , "Bg4" , "Bb4" , "e6" , "Nbd7" , "e3" , "Bd3" , "exd5" , "Ba5" , "Qxf3" , "a3" , "d5" , "Bd2" , "Nc3" , "O-O" , "Nf6" , "Bxf3" , "c4" , "cxd5" , "c6" ;
+        chon:nextHalfMove      :hmgamWfEHzr3 , :hmgamuduocpd .
+
+:roluduocp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aguduocp .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plauduocp  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:rolhgWfEHzr3z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aguduocp .
+
+:hmgamWfEHzr3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWfEHzr3z ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kamsky,G" ;
+        chon:hasSANRecord      "Bh4" , "g3" , "Nd6" , "Bxe7" , "h5" , "a4" , "cxb5" , "Bc7" , "Nb6" , "Qg5" , "Rc6" , "Kh6" , "Re7" , "Rxa4" , "Bc6" , "Nc3" , "b6" , "Ra2" , "Ne4" , "O-O" , "f4" , "Qa3" , "Kg2" , "Bd3" , "Qe8" , "f5" , "Qxe7" , "a5" , "Rc2" , "h4" , "gxh4" , "Bb3" , "Re6" , "Kh2" , "Qxc6" , "Be1" , "b4" , "Rc1" , "Bb5" , "Rxc6" , "Na4" , "Re8" , "b5" , "Bc2" , "Qe2" , "Qd1" , "axb5" , "Qe6" , "bxc6" , "Bd6" , "Rc8" , "Qe7" , "Qd6" , "a6" , "Qg2" , "Kh7" , "Nxa4" ;
+        chon:nextHalfMove      :hmgamWfEHzr3 , :hmgam8dBX7r6 .
+
+:gamuduoc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roluduocp ;
+        chon:atPlace           :plauduocp ;
+        chon:atTime            "2007.11.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamuduocpd ;
+        chon:hasHalfMove       :hmgamWfEHzr3 , :hmgamuduocpd , :hmgam8dBX7r6 ;
+        chon:hasLastHalfMove   :hmgam8dBX7r6 ;
+        chon:hasOpening        :opeuduocp ;
+        chon:hasReport         :cgruduocp ;
+        chon:hasResult         :resuduocpd ;
+        chon:subEventOf        :touuduoc .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aguduocp .

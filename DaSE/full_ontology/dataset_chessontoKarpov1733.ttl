@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgUVi478qI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUVi478 .
+
+:rolhg6VfgD0tT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUVi478 .
+
+:hmgamUVi478q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6VfgD0tT , chon:AgentRole , :rolhgUVi478qI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nunn, John DM" ;
+        chon:hasSANRecord      "Nc3" , "d4" , "c4" , "Nf6" , "g6" ;
+        chon:nextHalfMove      :hmgamUVi478q , :hmgam6VfgD0t .
+
+:plaUVi478  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUVi478 .
+
+:hmgam6VfgD0t  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6VfgD0tT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nunn, John DM" ;
+        chon:hasSANRecord      "Be6" , "cxb5" , "f4" , "Kg7" , "Qh7" , "Ra7" , "Re8" , "Rg7" , "Qa5" , "Qd2" , "Qxe8" , "Nbd7" , "O-O" , "dxe7" , "b4" , "b5" , "d5" , "dxe5" , "e5" , "Qf8+" , "Qxe5" , "Bh6" , "f3" , "Rf3" , "Ned7" , "Ng5" , "Be3" , "Nf3" , "c5" , "Qxe7" , "Nxe6" , "Qxh4+" , "axb5" , "Kh1" , "Qe3" , "Nxf3+" , "Re7" , "Qf7+" , "h4" , "Be2" , "Ngxe5" , "fxe6" , "Qe6+" , "hxg6" , "Kg1" , "Bg7" , "Qc5" , "Ne5" , "Rxa2" , "Nd3" , "Kh6" , "e4" , "a6" , "Re3" , "Bxe7" , "Rxf3" , "Ne3" , "Rf1" , "Rh7" , "fxe5" , "Ng4" , "d6" , "Qh8+" , "Bg5" , "Qe7" , "Nd1" , "c4" , "Qd4" , "Bf3" , "Rxg6+" , "Bf8" , "Rxe6" ;
+        chon:nextHalfMove      :hmgam6VfgD0t .
+
+:cgrUVi478  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamUVi47 .
+
+:resUVi478q  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agUVi478  a          chon:Agent ;
+        chon:hasName  "Nunn, John DM" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUVi478 .
+
+:rolUVi478  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUVi478 .
+
+:opeUVi478  a            chon:ChessOpening ;
+        chon:hasECOCode  "E81" .
+
+:gamUVi47  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUVi478 ;
+        chon:atPlace           :plaUVi478 ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUVi478q ;
+        chon:hasHalfMove       :hmgam6VfgD0t , :hmgamUVi478q ;
+        chon:hasLastHalfMove   :hmgam6VfgD0t ;
+        chon:hasOpening        :opeUVi478 ;
+        chon:hasReport         :cgrUVi478 ;
+        chon:hasResult         :resUVi478q ;
+        chon:subEventOf        :touUVi47 .
+
+:touUVi47  a          chon:hessTournament ;
+        chon:atPlace  :plaUVi478 ;
+        chon:hasName  "Wijk m" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

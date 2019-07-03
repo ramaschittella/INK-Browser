@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrdxaDlv  a   chon:ChessGameReport .
+
+:roldxaDlv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdxaDlv .
+
+:hmgamdxaDlv8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdxaDlv8E , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rb8" , "Nf3" , "dxe5" , "d6" , "Bd2" , "Qe7" , "f4" , "Bxc3+" , "Ne7" , "bxc3" , "h6" , "Rb1" , "e3" , "e4" , "Nf6" , "d5" , "Bd1" , "a4" , "Bb4" , "Rxf8+" , "Ng6" , "d4" , "Rxf8" , "Qd3" , "Be3" , "Bxa4" , "O-O" , "Bd3" , "c4" , "Nxg6" , "Nh5" , "Nf4" , "Qc2" , "Kxf8" , "b6" , "Nh4" , "Qe8" , "g5" , "Bd7" , "Rbf2" , "Nc3" , "Nc6" , "fxe5" , "Rb2" , "fxg6" , "c5" , "Bc2" , "e5" , "e6" , "Be1" , "Qg6" , "a5" ;
+        chon:nextHalfMove      :hmgamdxaDlv8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdxaDlv .
+
+:gamdxaDl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldxaDlv ;
+        chon:atPlace           :pladxaDlv ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdxaDlv8 ;
+        chon:hasHalfMove       :hmgamdxaDlv8 ;
+        chon:hasLastHalfMove   :hmgamdxaDlv8 ;
+        chon:hasOpening        :opedxaDlv ;
+        chon:hasReport         :cgrdxaDlv ;
+        chon:hasResult         :resdxaDlv8 ;
+        chon:subEventOf        :toudxaDl .
+
+:pladxaDlv  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:toudxaDl  a          chon:hessTournament ;
+        chon:atPlace  :pladxaDlv ;
+        chon:hasName  "World Championship 28th" .
+
+chon:HalfMove  chon:subEventOf  :gamdxaDl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdxaDlv .
+
+:agdxaDlv  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+:resdxaDlv8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opedxaDlv  a            chon:ChessOpening ;
+        chon:hasECOCode  "E41" .
+
+:rolhgdxaDlv8E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdxaDlv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

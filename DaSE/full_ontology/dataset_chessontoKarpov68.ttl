@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaV3yIQk  a         chon:Place ;
+        chon:hasName  "Caracas" .
+
+:touV3yIQ  a          chon:hessTournament ;
+        chon:atPlace  :plaV3yIQk ;
+        chon:hasName  "Caracas" .
+
+:cgrV3yIQk  a   chon:ChessGameReport .
+
+:resV3yIQki  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgam83vYnjl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg83vYnjlR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "O-O" , "Bg2" , "Bb7" , "cxd5" , "Nxc3" , "Bxc3" , "Ne4" , "Bd2" , "Be7" , "Nf6" , "Nf3" , "Rad1" , "d4" , "Ne5" , "c4" , "Nc3" , "Qa4" , "exd5" , "Qd6" , "d5" , "g3" , "Rd8" , "e6" ;
+        chon:nextHalfMove      :hmgam83vYnjl .
+
+:agV3yIQk  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Benko, Pal C" .
+
+:rolV3yIQk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agV3yIQk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agV3yIQk .
+
+:rolhg83vYnjlR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agV3yIQk .
+
+chon:HalfMove  chon:subEventOf  :gamV3yIQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agV3yIQk .
+
+:gamV3yIQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolV3yIQk ;
+        chon:atPlace           :plaV3yIQk ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam83vYnjl ;
+        chon:hasHalfMove       :hmgam83vYnjl ;
+        chon:hasLastHalfMove   :hmgam83vYnjl ;
+        chon:hasOpening        :opeV3yIQk ;
+        chon:hasReport         :cgrV3yIQk ;
+        chon:hasResult         :resV3yIQki ;
+        chon:subEventOf        :touV3yIQ .
+
+:opeV3yIQk  a            chon:ChessOpening ;
+        chon:hasECOCode  "E17" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

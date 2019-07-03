@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamO4ZtBfx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgO4ZtBfxY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rb1" , "exd5" , "Qxe2" , "Bf3" , "bxc3" , "O-O" , "Rb8" , "axb6" , "c4" , "f4" , "Re7" , "Qf2" , "Qa8" , "Bxe2" , "Rbf8" , "Nxc3" , "Bg2" , "Bxf4" , "Nxd5" , "d4" , "b6" , "R1e2" , "Re2" , "Nd7" , "Rbe1" , "c5" , "g3" , "Rf6" , "Qd8" , "Bd6" , "Rd6" , "f5" , "c3" , "exf4" , "Nf6" , "c6" , "cxb6" , "g4" , "Qxd6" , "h3" , "Qc7" , "Ne5" , "Rfe1" , "Nxf3+" , "Nh4" , "Bxd6" , "Ne2" , "d5" , "Qxf3" , "Bg4" , "d3" , "Ng6" ;
+        chon:nextHalfMove      :hmgamO4ZtBfx .
+
+:resS63g3es  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS63g3e .
+
+chon:HalfMove  chon:subEventOf  :gamS63g3 .
+
+:touS63g3  a          chon:hessTournament ;
+        chon:atPlace  :plaS63g3e ;
+        chon:hasName  "Tilburg" .
+
+:plaS63g3e  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:rolhgO4ZtBfxY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS63g3e .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS63g3e .
+
+:cgrS63g3e  a   chon:ChessGameReport .
+
+:hmgamS63g3es  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgS63g3esL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc3" , "e5" , "e4" ;
+        chon:nextHalfMove      :hmgamO4ZtBfx , :hmgamS63g3es .
+
+:agS63g3e  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Spassky, Boris V" .
+
+:rolS63g3e  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agS63g3e .
+
+:opeS63g3e  a            chon:ChessOpening ;
+        chon:hasECOCode  "C26" .
+
+:rolhgS63g3esL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS63g3e .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamS63g3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolS63g3e ;
+        chon:atPlace           :plaS63g3e ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamS63g3es ;
+        chon:hasHalfMove       :hmgamO4ZtBfx , :hmgamS63g3es ;
+        chon:hasLastHalfMove   :hmgamO4ZtBfx ;
+        chon:hasOpening        :opeS63g3e ;
+        chon:hasReport         :cgrS63g3e ;
+        chon:hasResult         :resS63g3es ;
+        chon:subEventOf        :touS63g3 .

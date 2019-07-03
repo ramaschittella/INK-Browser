@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgfYrfQObB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfYrfQO .
+
+:hmgamfYrfQOb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfYrfQObB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd2" , "Nc3" , "Rc1" , "Bd7" , "Nc6" , "Qc2" , "Rfd1" , "c5" , "d5" , "dxc4" , "Nf6" , "dxc5" , "Rd8" , "Ne4" , "Bxc4" , "O-O" , "Bb4+" , "d4" , "Be8" , "c4" , "e3" , "Qxd2" , "Qxc5" , "Bxd2+" , "e6" , "a3" , "Nf3" , "Qe7" ;
+        chon:nextHalfMove      :hmgamfYrfQOb .
+
+:toufYrfQ  a          chon:hessTournament ;
+        chon:atPlace  :pla4YuZhO ;
+        chon:hasName  "London" .
+
+:agfYrfQO  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Vaganian, Rafael A" .
+
+:rolfYrfQO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfYrfQO .
+
+:opefYrfQO  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfYrfQO .
+
+chon:HalfMove  chon:subEventOf  :gam4YuZh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfYrfQO .
+
+:gam4YuZh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfYrfQO ;
+        chon:atPlace           :pla4YuZhO ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfYrfQOb ;
+        chon:hasHalfMove       :hmgamfYrfQOb ;
+        chon:hasLastHalfMove   :hmgamfYrfQOb ;
+        chon:hasOpening        :opefYrfQO ;
+        chon:hasReport         :cgrfYrfQO ;
+        chon:hasResult         :resfYrfQOb ;
+        chon:subEventOf        :toufYrfQ .
+
+:resfYrfQOb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla4YuZhO  a         chon:Place ;
+        chon:hasName  "London" .
+
+:cgrfYrfQO  a   chon:ChessGameReport .

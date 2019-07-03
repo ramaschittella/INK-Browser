@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgambaHczRx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbaHczRxP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Donald" ;
+        chon:hasSANRecord      "Rd2" , "Rxc8" , "Nc6" , "d5" , "O-O" , "a4" , "f4" , "b6" , "Bb5" , "cxd4" , "Nd7" , "Bxd5" , "g6" , "c5" , "e6" , "d6" , "Qd2" , "Nf3" , "Rfd8" , "Red1" , "Be3" , "exd5" , "Bg7" , "a5" , "Nc3" , "Bxg7" , "Rhe1" , "Rc8" , "Qc7" , "h5" , "Bxc8" , "O-O-O" , "Ba6" , "e4" , "Qe5" , "d4" , "Nf6" , "Bxd4" , "Nxd4" , "f3" , "Bc4" , "Kxg7" , "Be6" , "Qd4" ;
+        chon:nextHalfMove      :hmgammaDq7SA , :hmgambaHczRx .
+
+:agfc14PT  a          chon:Agent ;
+        chon:hasName  "Byrne, Donald" , "Karpov, Anatoly" .
+
+:rolfc14PT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfc14PT .
+
+:rolhgmaDq7SA1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfc14PT .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfc14PT .
+
+chon:HalfMove  chon:subEventOf  :gamfc14P .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfc14PT .
+
+:opefc14PT  a            chon:ChessOpening ;
+        chon:hasECOCode  "B77" .
+
+:hmgammaDq7SA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmaDq7SA1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Donald" ;
+        chon:hasSANRecord      "f5" , "Kf6" , "Rxg6+" , "hxg4" , "Ke3" , "Bd5" , "h4" , "fxe5" , "Re5" , "Re7" , "Nxe4" , "Rd4" , "Qxe5" , "Rc6" , "g4" , "Bxe4" , "Reg5" , "Kg7" , "Rd7" , "Rh7" , "Re2" , "Rc7" , "Ne4" , "exf6+" , "Rc5" , "Rf4+" , "h3" , "b3" , "Kd2" , "Rxg4" , "g3" , "Kxf6" ;
+        chon:nextHalfMove      :hmgammaDq7SA .
+
+:rolhgbaHczRxP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfc14PT .
+
+:plafc14PT  a         chon:Place ;
+        chon:hasName  "San Antonio" .
+
+:resfc14PTg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamfc14P  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfc14PT ;
+        chon:atPlace           :plafc14PT ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambaHczRx ;
+        chon:hasHalfMove       :hmgammaDq7SA , :hmgambaHczRx ;
+        chon:hasLastHalfMove   :hmgammaDq7SA ;
+        chon:hasOpening        :opefc14PT ;
+        chon:hasReport         :cgrfc14PT ;
+        chon:hasResult         :resfc14PTg ;
+        chon:subEventOf        :toufc14P .
+
+:cgrfc14PT  a   chon:ChessGameReport .
+
+:toufc14P  a          chon:hessTournament ;
+        chon:atPlace  :plafc14PT ;
+        chon:hasName  "San Antonio" .

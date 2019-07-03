@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeGS1Z56  a            chon:ChessOpening ;
+        chon:hasECOCode  "B84" .
+
+:hmgamGS1Z560  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSQH9O4pY , chon:AgentRole , :rolhgGS1Z560Y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "d4" , "Nf3" , "d6" , "c5" , "e4" ;
+        chon:nextHalfMove      :hmgamGS1Z560 , :hmgamSQH9O4p .
+
+:plaGS1Z56  a         chon:Place ;
+        chon:hasName  "Turin" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGS1Z56 .
+
+:hmgamSQH9O4p  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSQH9O4pY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Bxb8" , "Nf5" , "Qg4" , "cxd4" , "Qh3" , "Be2" , "Raxb8" , "Bd6" , "Qxb7" , "Nd6" , "O-O" , "Ng5" , "Be7" , "Nxd4" , "Nf6" , "Rc4" , "Nfd7" , "Bf3" , "a6" , "b4" , "b5" , "Qe7" , "Rad1" , "e5" , "f4" , "Rbc8" , "fxe5" , "Nc3" , "dxe5" , "Bf4" , "Bxe5" , "Nxe5" , "Qa7" , "Bxb7" , "Bxh4" , "Qxh4" , "h4" , "Kh1" , "e6" , "Bb7" , "Qg3" , "Ne4" , "Bxg5" , "Qc7" , "Rc8" , "R4c5" , "f6" , "Qd7" ;
+        chon:nextHalfMove      :hmgamSQH9O4p .
+
+chon:HalfMove  chon:subEventOf  :gamGS1Z5 .
+
+:cgrGS1Z56  a   chon:ChessGameReport .
+
+:resGS1Z560  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgSQH9O4pY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGS1Z56 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGS1Z56 .
+
+:agGS1Z56  a          chon:Agent ;
+        chon:hasName  "Ljubojevic, Ljubomir" , "Karpov, Anatoly" .
+
+:rolGS1Z56  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGS1Z56 .
+
+:gamGS1Z5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGS1Z56 ;
+        chon:atPlace           :plaGS1Z56 ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGS1Z560 ;
+        chon:hasHalfMove       :hmgamSQH9O4p , :hmgamGS1Z560 ;
+        chon:hasLastHalfMove   :hmgamSQH9O4p ;
+        chon:hasOpening        :opeGS1Z56 ;
+        chon:hasReport         :cgrGS1Z56 ;
+        chon:hasResult         :resGS1Z560 ;
+        chon:subEventOf        :touGS1Z5 .
+
+:touGS1Z5  a          chon:hessTournament ;
+        chon:atPlace  :plaGS1Z56 ;
+        chon:hasName  "Turin" .
+
+:rolhgGS1Z560Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGS1Z56 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

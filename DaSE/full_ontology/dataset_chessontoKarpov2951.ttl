@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gaml9G9h  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roll9G9hn ;
+        chon:atPlace           :plal9G9hn ;
+        chon:atTime            "2007.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgaml9G9hnx ;
+        chon:hasHalfMove       :hmgaml9G9hnx , :hmgamjnhVsv6 ;
+        chon:hasLastHalfMove   :hmgamjnhVsv6 ;
+        chon:hasOpening        :opel9G9hn ;
+        chon:hasReport         :cgrl9G9hn ;
+        chon:hasResult         :resl9G9hnx ;
+        chon:subEventOf        :toul9G9h .
+
+:toul9G9h  a          chon:hessTournament ;
+        chon:atPlace  :plal9G9hn ;
+        chon:hasName  "ch-Euro Blitz" .
+
+:hmgamjnhVsv6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjnhVsv6M , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Drazic,S" ;
+        chon:hasSANRecord      "Kg6" , "Kh5" , "b4" , "Re4" , "Kf8" , "Nf4" , "Ke8" , "Rg3" , "Rf3" , "Re3" , "Rxb4" , "Qxe3" , "b2" , "Bc4" , "f7" , "h6" , "g6" , "f6" , "Be8" , "Nxg7" , "Qc3" , "Rb3" , "Bxf5" , "Re7" , "Rd7" , "Kg4" , "Kg8" , "Kf7" , "Ke7" , "Kd7" , "Rxf5+" , "Rg2" , "Rf2" , "b3" , "Rxa3" , "Rxe3" , "Rb6" , "h5" , "g5" , "Rg6+" , "f5" , "Kg3" , "Bf7" , "Kg7" , "Re6" , "Rd6" , "Rb5" , "Rb8+" , "Rb7+" , "Re5" , "Rg1" , "Rf1" , "Rg4" , "Rf4" , "Rxa6" , "Rxh6" , "Nh5" , "h4" , "g4" , "f4" , "Be6" , "Nf5" , "Rb1" ;
+        chon:nextHalfMove      :hmgamjnhVsv6 .
+
+:plal9G9hn  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .
+
+:rolhgl9G9hnx5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agl9G9hn .
+
+:hmgaml9G9hnx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgl9G9hnx5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Drazic,S" ;
+        chon:hasSANRecord      "Nf3" , "Qb3" , "Bxd4" , "Ng5" , "Ng3" , "Rfe1" , "d4" , "Ne2" , "Be8" , "Qxd4" , "Bg6" , "cxd5" , "Rd2" , "e4" , "Bb2" , "Qc2" , "Qf7" , "Nd4" , "f3" , "Rad1" , "c5" , "Kh2" , "d5" , "Nc5" , "Nc3" , "Qxd5" , "N5xe4" , "e5" , "Bxe4" , "fxe4" , "b4" , "Qd8" , "Qe6" , "O-O" , "Bd3" , "Qe3" , "Rxd1" , "Nd5" , "Nxe4" , "Qc3" , "a6" , "c4" , "dxc5" , "Ba7" , "Rf7" , "Ne4" , "Qb2" , "a3" , "Bd7" , "e6" , "Nc6" , "Bxc5" , "b5" , "h6" , "Qe7" , "Rd8" , "Rf8" , "e3" , "exd4" , "Qxc5" , "Nf6" , "f5" , "Qc4" , "Kh7" , "h3" , "Qc1" , "Qf6" ;
+        chon:nextHalfMove      :hmgamjnhVsv6 , :hmgaml9G9hnx .
+
+:cgrl9G9hn  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agl9G9hn .
+
+chon:HalfMove  chon:subEventOf  :gaml9G9h .
+
+:agl9G9hn  a          chon:Agent ;
+        chon:hasName  "Drazic,S" , "Karpov,Ana" .
+
+:roll9G9hn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agl9G9hn .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agl9G9hn .
+
+:resl9G9hnx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgjnhVsv6M  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agl9G9hn .
+
+:opel9G9hn  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

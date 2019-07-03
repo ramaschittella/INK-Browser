@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrNSk4Rx  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNSk4Rx .
+
+:hmgamYShhowT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYShhowTX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rxb2" , "Qd6" , "Qxb6" , "Rxa1" , "Nd4" , "Nf5" , "Bf4" , "Nxa1" , "Qxc5" , "Re1" , "Rb8" , "Qc7" , "Nc2" , "Rb7" ;
+        chon:nextHalfMove      :hmgamYShhowT .
+
+:plaNSk4Rx  a         chon:Place ;
+        chon:hasName  "New York" .
+
+chon:HalfMove  chon:subEventOf  :gamNSk4R .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNSk4Rx .
+
+:hmgamNSk4RxQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYShhowTX , chon:AgentRole , :rolhgNSk4RxQM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "e5" , "cxd6" , "c4" , "Ngxe4" , "Nxe4" , "a4" , "Qxd6" , "O-O" , "a5" , "g3" , "Nf3" , "Nc3" , "Bxa8" , "Bg2" , "dxc5" , "d5" , "Nc6" , "Qxa8" , "Ne7" , "d6" , "Bg7" , "b6" , "Nf6" , "Ba6" , "Ng5" , "c5" , "g6" , "d4" , "e4" ;
+        chon:nextHalfMove      :hmgamYShhowT , :hmgamNSk4RxQ .
+
+:rolhgNSk4RxQM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNSk4Rx .
+
+:agNSk4Rx  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Byrne, Robert E" .
+
+:rolNSk4Rx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNSk4Rx .
+
+:opeNSk4Rx  a            chon:ChessOpening ;
+        chon:hasECOCode  "E62" .
+
+:rolhgYShhowTX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNSk4Rx .
+
+:resNSk4RxQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamNSk4R  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNSk4Rx ;
+        chon:atPlace           :plaNSk4Rx ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNSk4RxQ ;
+        chon:hasHalfMove       :hmgamYShhowT , :hmgamNSk4RxQ ;
+        chon:hasLastHalfMove   :hmgamYShhowT ;
+        chon:hasOpening        :opeNSk4Rx ;
+        chon:hasReport         :cgrNSk4Rx ;
+        chon:hasResult         :resNSk4RxQ ;
+        chon:subEventOf        :touNSk4R .
+
+:touNSk4R  a          chon:hessTournament ;
+        chon:atPlace  :plaNSk4Rx ;
+        chon:hasName  "USA-ch" .

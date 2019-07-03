@@ -1,0 +1,85 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgA3jLiyeD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA3jLiy .
+
+:agA3jLiy  a          chon:Agent ;
+        chon:hasName  "Dorfman, Josif D" , "Karpov, Anatoly" .
+
+:opeA3jLiy  a            chon:ChessOpening ;
+        chon:hasECOCode  "B81" .
+
+:hmgamlYifVxF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglYifVxFs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dorfman, Josif D" ;
+        chon:hasSANRecord      "Rf8" , "Qc4" , "Rg8+" , "Ke8" , "Rf1" , "Kd7" , "a5" , "Re7" , "Qd8+" , "Qb7" , "Qg7" , "Qf4" , "f6" , "Qf3" , "Ke7" , "Qf6" , "Ke6" , "Qc4+" , "Kd6" , "Kxe7" , "Kb2" , "Re6" , "Kd5" , "Rg6" , "Qxa5" , "Rxe5" , "Re5" , "dxe7" , "b3" , "Qh8+" , "Qd5" , "Qxh7" , "Qc8+" , "Qh4+" , "Qf5+" , "Rg1" ;
+        chon:nextHalfMove      :hmgamlYifVxF .
+
+:rolhgq1B70xpv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA3jLiy .
+
+:cgrA3jLiy  a   chon:ChessGameReport .
+
+:rolhgB1vkIwsG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA3jLiy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agA3jLiy .
+
+:resA3jLiye  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamN1sxfyv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgq1B70xpv , :rolhgN1sxfyvT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dorfman, Josif D" ;
+        chon:hasSANRecord      "fxe5" , "Rdd3" , "Qf5" , "Re1" , "Qg2" , "Re4" , "Qxg5" , "Rxe3" , "Qxh4" , "Rc4" , "d6" , "Qf4+" , "Qf3" , "Kb1" , "Rhe3" , "Qc4" ;
+        chon:nextHalfMove      :hmgamlYifVxF , :hmgamN1sxfyv .
+
+chon:HalfMove  chon:subEventOf  :gamE5SSy .
+
+:plaE5SSyy  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:touA3jLi  a          chon:hessTournament ;
+        chon:atPlace  :plaE5SSyy ;
+        chon:hasName  "URS-ch44" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolA3jLiy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agA3jLiy .
+
+:rolhglYifVxFs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA3jLiy .
+
+:hmgamA3jLiye  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgA3jLiyeD , :rolhgB1vkIwsG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dorfman, Josif D" ;
+        chon:hasSANRecord      "a6" , "e4" , "Nf3" , "Bf5" , "Nf6" , "Qxc6" , "Bxg7" , "Qe2" , "Bd4" , "Bxh3" , "e6" , "b4" , "Qc7" , "dxe5" , "Rxh3" , "Nc3" , "Be3" , "c5" , "g4" , "Nd5" , "Rg8" , "Nfd7" , "Rc8" , "Nxd4" , "Nxc6" , "Be7" , "f4" , "exd5" , "Bf6" , "g5" , "Nc6" , "d4" , "cxd4" , "O-O-O" , "Bh3" , "b5" , "d6" , "h4" , "Ne5" , "Bxe5" ;
+        chon:nextHalfMove      :hmgamN1sxfyv , :hmgamA3jLiye .
+
+:rolhgN1sxfyvT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA3jLiy .
+
+:gamE5SSy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolA3jLiy ;
+        chon:atPlace           :plaE5SSyy ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamA3jLiye ;
+        chon:hasHalfMove       :hmgamA3jLiye , :hmgamlYifVxF , :hmgamN1sxfyv ;
+        chon:hasLastHalfMove   :hmgamlYifVxF ;
+        chon:hasOpening        :opeA3jLiy ;
+        chon:hasReport         :cgrA3jLiy ;
+        chon:hasResult         :resA3jLiye ;
+        chon:subEventOf        :touA3jLi .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agA3jLiy .

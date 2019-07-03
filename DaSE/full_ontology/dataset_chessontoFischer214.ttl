@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag5T2gtz  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Salas Romo, Julio" .
+
+:ope5T2gtz  a            chon:ChessOpening ;
+        chon:hasECOCode  "E81" .
+
+:cgr5T2gtz  a   chon:ChessGameReport .
+
+:tou5T2gt  a          chon:hessTournament ;
+        chon:atPlace  :pla5T2gtz ;
+        chon:hasName  "Santiago" .
+
+:hmgame8zieEG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhge8zieEGZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Re7+" , "h5" , "Nf5" , "Kxd5" , "Rh3" , "Rg2" , "Ra2" , "Kd3" , "Rc4" , "Rh8" , "Rg7" , "Kxb2" , "e3" , "d5" , "Rxf3" , "h6" , "h4" , "Kxe7" , "Rb2" , "Rd8" , "b2+" , "Ke1" , "Ra3" , "Be7" , "Rc5" , "Rxh7" , "e4" , "Rd7+" , "Ke3" , "Re8" , "Kf5" , "Kd4" , "Rc7" , "Rf8" , "Rxd5" , "Rf7" , "h7" , "Kd2" , "Rc3" , "Ke4" , "Ke2" , "Kc3" , "e2" , "Nxe7" , "Kf6" , "b3" ;
+        chon:nextHalfMove      :hmgame8zieEG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5T2gtz .
+
+:rolhge8zieEGZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5T2gtz .
+
+:res5T2gtz4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gam5T2gt .
+
+:rolhg5T2gtz45  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5T2gtz .
+
+:rolhggTXt2y7h  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5T2gtz .
+
+:rol5T2gtz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5T2gtz .
+
+:hmgamgTXt2y7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhge8zieEGZ , chon:AgentRole , :rolhggTXt2y7h ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rc2+" , "Kg2" , "O-O" , "a6" , "Rxc8" , "Qxb6" , "Bf8" , "Rd1" , "Kxf6" , "fxg3" , "Qa5" , "Rb2" , "Nxg3" , "cxd5" , "Bf5" , "Kg1" , "Bd7" , "Nbxd5" , "Kd7" , "Qb6+" , "fxe4" , "Bxb6" , "Rac8" , "Nc3" , "Kf2" , "Nf6" , "Be3" , "gxf5" , "Bxe4" , "f5" , "Bd3" , "f4" , "Ke7" , "Nh5" , "b5" , "Nbd7" , "Bh6" , "Nxd5" , "b4" , "Bxf6" , "Nf5" , "Rac1" , "Qb7" , "Kf7" , "Nb6" , "Rd2" , "Bb1" , "a4" , "Ne2" , "Ng3" , "Qb6" , "g4" , "axb5" , "Bd8" , "Bxf5" , "b3" , "Rxb3" , "Qd2" , "d5" ;
+        chon:nextHalfMove      :hmgamgTXt2y7 , :hmgame8zieEG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam5T2gt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5T2gtz ;
+        chon:atPlace           :pla5T2gtz ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5T2gtz4 ;
+        chon:hasHalfMove       :hmgamgTXt2y7 , :hmgam5T2gtz4 , :hmgame8zieEG ;
+        chon:hasLastHalfMove   :hmgame8zieEG ;
+        chon:hasOpening        :ope5T2gtz ;
+        chon:hasReport         :cgr5T2gtz ;
+        chon:hasResult         :res5T2gtz4 ;
+        chon:subEventOf        :tou5T2gt .
+
+:hmgam5T2gtz4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5T2gtz45 , :rolhggTXt2y7h , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "c6" , "c4" , "Nc3" , "Bg5" , "Bg7" , "d4" , "O-O" , "d6" , "Nf6" , "f3" , "Nge2" , "e5" , "e4" , "g6" ;
+        chon:nextHalfMove      :hmgamgTXt2y7 , :hmgam5T2gtz4 .
+
+:pla5T2gtz  a         chon:Place ;
+        chon:hasName  "Santiago" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5T2gtz .

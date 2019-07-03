@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgampVDPjcb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAVA4Qdgt , chon:AgentRole , :rolhgpVDPjcbi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qd6" , "Nec5" , "d5" , "Rc1" , "Nb3" , "Kd6" , "Kxg2" , "Rd1+" , "Nd4" , "Nd5" , "Na4" , "Bxf4" , "O-O" , "Ne4" , "Be7" , "Nxc5" , "c4" , "Qc2" , "Rd6" , "Kf3" , "Nd3" , "Nf3" , "a5" , "c5" , "a6" , "Rac1" , "g3" , "Nc5+" , "dxc5" , "Nbd2" , "Bg2" , "Kf8" , "Ke8" , "e6" , "Qxc5" , "Rxc5" , "b4" , "b5" , "Nb6" , "Ndf3" , "Bd6" , "Kd7" , "Bxg2" , "Nbd7" , "Rfc8" , "d4" , "Ne5" , "dxc4" , "Nf6" , "Qxc4" , "e3" , "gxf4" , "e4" , "Na5" , "Ke7" , "Nc6+" , "a3" , "Bb7" , "Bf4" , "Rfd1" ;
+        chon:nextHalfMove      :hmgamAVA4Qdg , :hmgampVDPjcb .
+
+:plapVDPjc  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpVDPjc .
+
+:cgrpVDPjc  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gampVDPj .
+
+:respVDPjcb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agpVDPjc  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Piket, Jeroen" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpVDPjc .
+
+:rolpVDPjc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpVDPjc .
+
+:hmgamAVA4Qdg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAVA4Qdgt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxc4" , "Kf6" , "Ke7" , "Kg2" , "Kf3" , "Kd6" , "Nxc4" , "f3" , "Rxb5" , "Rb3" , "bxc4" , "Kd7" , "h4" , "Rc5" , "Rc7+" , "Ra3+" , "Kg3" , "Ke2" , "axb4" , "h5" , "Rc6" , "Rc3" , "Nc4" , "b5" , "Rb5" , "Rb3+" , "Rc6+" ;
+        chon:nextHalfMove      :hmgamAVA4Qdg .
+
+:gampVDPj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpVDPjc ;
+        chon:atPlace           :plapVDPjc ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampVDPjcb ;
+        chon:hasHalfMove       :hmgampVDPjcb , :hmgamAVA4Qdg ;
+        chon:hasLastHalfMove   :hmgamAVA4Qdg ;
+        chon:hasOpening        :opepVDPjc ;
+        chon:hasReport         :cgrpVDPjc ;
+        chon:hasResult         :respVDPjcb ;
+        chon:subEventOf        :toupVDPj .
+
+:toupVDPj  a          chon:hessTournament ;
+        chon:atPlace  :plapVDPjc ;
+        chon:hasName  "Amber-blind 6th" .
+
+:rolhgAVA4Qdgt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpVDPjc .
+
+:rolhgpVDPjcbi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpVDPjc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opepVDPjc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .

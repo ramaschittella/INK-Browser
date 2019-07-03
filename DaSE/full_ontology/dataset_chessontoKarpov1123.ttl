@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrMfsWop  a   chon:ChessGameReport .
+
+:rolhgXdn0Vok4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMfsWop .
+
+:agMfsWop  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolMfsWop  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMfsWop .
+
+:opeMfsWop  a            chon:ChessOpening ;
+        chon:hasECOCode  "D76" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMfsWop .
+
+:hmgamXdn0Vok  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXdn0Vok4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Nxe3" , "Nxe4" , "Nac4" , "Rxc3" , "Be3" , "O-O" , "Nc4" , "Kg2" , "Re8" , "Rf5" , "Rd2" , "a5" , "gxh5" , "Rac8" , "Rxh5" , "cxb7" , "Qxd8" , "e5" , "Na5" , "c6" , "Rxh7" , "Nxd5" , "Bg7" , "dxc6" , "h5" , "Rxe3" , "Bg2" , "Rc1+" , "Rxb7" , "Nh2" , "f6" , "Nc6" , "d5" , "Bg5" , "Rad1" , "Nxb2" , "Be6" , "e3" , "Nb6" , "h4" , "Bxb7" , "Nd6" , "Rxd8" , "Ree1" , "Bh3" , "Bh6" , "Nc3" , "Re1" , "Rd7" , "Rc2" , "Rxd1" , "Bb3" , "Ne4" , "Rh5" , "e4" , "Kf8" , "Ng4" ;
+        chon:nextHalfMove      :hmgamXdn0Vok .
+
+chon:HalfMove  chon:subEventOf  :gamMfsWo .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMfsWop .
+
+:hmgamMfsWopi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXdn0Vok4 , :rolhgMfsWopiQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Bg7" , "g3" , "Nf6" , "c4" , "cxd5" , "d4" , "g6" , "Nf3" , "d5" ;
+        chon:nextHalfMove      :hmgamXdn0Vok , :hmgamMfsWopi .
+
+:rolhgMfsWopiQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMfsWop .
+
+:gamMfsWo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMfsWop ;
+        chon:atPlace           :plaMfsWop ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMfsWopi ;
+        chon:hasHalfMove       :hmgamXdn0Vok , :hmgamMfsWopi ;
+        chon:hasLastHalfMove   :hmgamXdn0Vok ;
+        chon:hasOpening        :opeMfsWop ;
+        chon:hasReport         :cgrMfsWop ;
+        chon:hasResult         :resMfsWopi ;
+        chon:subEventOf        :touMfsWo .
+
+:touMfsWo  a          chon:hessTournament ;
+        chon:atPlace  :plaMfsWop ;
+        chon:hasName  "Optiebeurs" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resMfsWopi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaMfsWop  a         chon:Place ;
+        chon:hasName  "Amsterdam" .

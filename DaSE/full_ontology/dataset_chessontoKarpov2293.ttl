@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rollINNE8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglINNE8 .
+
+:opelINNE8  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+:rolhgNKX619SS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglINNE8 .
+
+:hmgamNKX619S  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNKX619SS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Staszym, M." ;
+        chon:hasSANRecord      "Rg5" , "f3" , "Bb4+" , "Qxg7" , "Kh8" , "Rd1" , "Bd2" , "d4" , "Ne3" , "a3" , "Kh1" , "Bxf4" , "Be3" , "e6" , "d5" , "Nf3" , "Nxh6" , "Nf5" , "Qxg1" , "Rf5" , "Nc6" , "g3" , "Kg7" , "Nc4" , "Bb5" , "a5" , "dxe5" , "Qxg1+" , "Ne4" , "f5" , "Rg8" , "Rg4" , "Na5" , "c4" , "Bh3" , "Qe7" , "g5" , "Qe3" , "Bh6" , "gxf4" , "Nxe5" , "Bxc3" , "Nd7" , "Kxg1" , "f4" , "c5" , "Rg7" , "Rf7" , "Nc3" , "Qxh6" , "Bg2" , "Rg1" , "a4" , "Qg6" , "Qd2" , "Qc2" , "Bf4" , "Rxg7" , "Bd7" , "bxc3" , "Bc1" , "Rxg1+" , "O-O" , "Nf6" , "Rd4" , "Kf2" , "Ne5" ;
+        chon:nextHalfMove      :hmgamNKX619S .
+
+:gamlINNE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollINNE8 ;
+        chon:atPlace           :plalINNE8 ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNKX619S ;
+        chon:hasHalfMove       :hmgamNKX619S ;
+        chon:hasLastHalfMove   :hmgamNKX619S ;
+        chon:hasOpening        :opelINNE8 ;
+        chon:hasReport         :cgrlINNE8 ;
+        chon:hasResult         :reslINNE8K ;
+        chon:subEventOf        :toulINNE .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglINNE8 .
+
+:toulINNE  a          chon:hessTournament ;
+        chon:atPlace  :plalINNE8 ;
+        chon:hasName  "EE Internet sim" .
+
+chon:HalfMove  chon:subEventOf  :gamlINNE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglINNE8 .
+
+:reslINNE8K  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "*" .
+
+:plalINNE8  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:cgrlINNE8  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:aglINNE8  a          chon:Agent ;
+        chon:hasName  "Staszym, M." , "Karpov, Anatoly" .

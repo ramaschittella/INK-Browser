@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamTljbwvt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTljbwvtq , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Grischuk,A" ;
+        chon:hasSANRecord      "Nxg4" , "Ra5" , "Ra3" , "Bc5" , "Rxa6" , "Kd4" , "Ra3+" , "Ra4+" , "h4" , "Nd1+" , "Na7" , "Qd7+" , "Nd5" , "Ne5" , "a4" , "Rac8" , "Kb1" , "Bg5" , "Rxe5" , "Rxe3" , "Ra1" , "Nf6" , "Ka2" , "Re8" , "Be2" , "Kd2" , "Rd4+" , "Kg7" , "Re4" , "Rd2" , "Re2" , "Rfd8" , "Qe7" , "Nb5" , "Rf5+" , "Nh5" , "a6" , "Ne1" , "Kxd5" , "Qc4" , "Bxg4" , "Bxe3" , "Rh3" , "Nxf2" , "Rc8" , "Kxb2" , "Kc2" , "g4" , "Qxg4" , "Rf4+" , "Nd3" , "Nxe3" , "O-O" , "Nf1" , "Bf3" , "Be3" , "Ng5" , "Kd3" , "f5" , "g5" , "Kd1" , "Bxd5" , "Rf3" , "Nc6" , "Ne4" , "a5" , "Rb7" , "Rc4" , "Be6" , "Nxc5" , "Rxh3" , "axb6" , "Ra4" , "Bb6" , "Rb8" , "b6" , "Kb3" , "Kc3" , "h5" , "Rxb2+" , "h3" , "Ne3+" , "Ree8" , "dxe5" , "Rf1" , "Nf4+" , "Nc4" , "Nd4" , "Qg4" , "Rb3" , "Bd5" , "Rxb6" , "f6" , "g6" , "cxd5" , "Ba5+" , "Rf4" , "Rh2" , "Nc5" , "Ne3" , "Nf3" , "Kc1" , "Kg6" , "Rd3" , "Rd1" ;
+        chon:nextHalfMove      :hmgamTljbwvt .
+
+:resHlnXZto  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaHlnXZt  a         chon:Place ;
+        chon:hasName  "Odessa UKR" .
+
+:gamHlnXZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHlnXZt ;
+        chon:atPlace           :plaHlnXZt ;
+        chon:atTime            "2008.01.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHlnXZto ;
+        chon:hasHalfMove       :hmgamHlnXZto , :hmgamTljbwvt ;
+        chon:hasLastHalfMove   :hmgamTljbwvt ;
+        chon:hasOpening        :opeHlnXZt ;
+        chon:hasReport         :cgrHlnXZt ;
+        chon:hasResult         :resHlnXZto ;
+        chon:subEventOf        :touHlnXZ .
+
+:cgrHlnXZt  a   chon:ChessGameReport .
+
+:touHlnXZ  a          chon:hessTournament ;
+        chon:atPlace  :plaHlnXZt ;
+        chon:hasName  "2nd ACP World Rapid Cup" .
+
+:rolhgHlnXZtod  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHlnXZt .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHlnXZt .
+
+:rolHlnXZt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHlnXZt .
+
+chon:HalfMove  chon:subEventOf  :gamHlnXZ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHlnXZt .
+
+:agHlnXZt  a          chon:Agent ;
+        chon:hasName  "Grischuk,A" , "Karpov,Ana" .
+
+:hmgamHlnXZto  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHlnXZtod , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Grischuk,A" ;
+        chon:hasSANRecord      "Qxe4" , "dxe4" , "d4" , "Bd6" , "c5" , "e3" , "Qc2" , "Nc3" , "e5" , "d5" , "Nf3" , "Nxe4" , "Nf6" , "c4" , "c6" , "e4" , "e6" , "Bc7" , "Nbd7" ;
+        chon:nextHalfMove      :hmgamHlnXZto , :hmgamTljbwvt .
+
+:opeHlnXZt  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgTljbwvtq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHlnXZt .

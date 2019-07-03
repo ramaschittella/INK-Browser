@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgyArSWdSp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFVFnGo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFVFnGo .
+
+:rolhgFVFnGoDb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFVFnGo .
+
+chon:HalfMove  chon:subEventOf  :gamFVFnG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFVFnGo .
+
+:hmgamFVFnGoD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFVFnGoDb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nbd2" , "Be7" , "O-O" , "e5" , "exd4" , "Bb5" , "Bb7" , "h3" , "b5" , "d6" , "Nf6" , "Ba4" , "Nc6" , "a4" , "Re8" , "Bc2" , "Bb3" , "Nf3" , "d4" , "h6" , "Bf8" , "a6" , "c3" , "Re1" , "e4" ;
+        chon:nextHalfMove      :hmgamyArSWdS , :hmgamFVFnGoD .
+
+:plaFVFnGo  a         chon:Place ;
+        chon:hasName  "Seattle" .
+
+:hmgamyArSWdS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyArSWdSp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ng4" , "Bb1" , "Rae6" , "cxd3" , "Qg3" , "Rxa4" , "bxa4" , "Nxg4" , "Qxf3" , "dxc5" , "Bf5" , "Bxd3" , "Rxd3" , "Bxf3" , "Rxe5" , "e5" , "Kh2" , "Rxc1" , "g6" , "Rf5" , "a5" , "Nb4" , "Rd7" , "c5" , "Rxd4" , "Qd4" , "Nd3" , "Rae3" , "c4" , "Ra3" , "Rc5" , "cxd4" , "Nf3" , "Ra6" , "Qxg4" , "Rxe1+" , "Nh2" ;
+        chon:nextHalfMove      :hmgamyArSWdS .
+
+:cgrFVFnGo  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamFVFnG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFVFnGo ;
+        chon:atPlace           :plaFVFnGo ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFVFnGoD ;
+        chon:hasHalfMove       :hmgamFVFnGoD , :hmgamyArSWdS ;
+        chon:hasLastHalfMove   :hmgamyArSWdS ;
+        chon:hasOpening        :opeFVFnGo ;
+        chon:hasReport         :cgrFVFnGo ;
+        chon:hasResult         :resFVFnGoD ;
+        chon:subEventOf        :touFVFnG .
+
+:agFVFnGo  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hjartarson, Johann" .
+
+:touFVFnG  a          chon:hessTournament ;
+        chon:atPlace  :plaFVFnGo ;
+        chon:hasName  "Candidats qf1" .
+
+:rolFVFnGo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFVFnGo .
+
+:resFVFnGoD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeFVFnGo  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .

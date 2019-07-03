@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSisxik74  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSisxik .
+
+:resSisxik7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSisxik .
+
+:hmgamyg0G4hm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyg0G4hm2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nxf3" , "Re3+" , "Nxe6" , "Rb5" , "Nb4" , "Nd4" , "Re2" , "Ng6" , "Qg3" , "h5" , "Qxf3" , "Rc2" , "Nxb4" , "Rc5" , "Qf5" , "b5" , "Qh5" , "Kh7" , "Rb2" , "Nd1" , "Rd4" , "Re8+" , "Rd7" , "Rce2" , "Nc3" , "Ne3" , "dxe6" , "Rcc7" , "Qe4" , "Qg4" , "Kg6" , "Rxe7" , "d5" , "Nd5" , "h3" , "Ne7" , "Qf3" , "Bxc5" , "Nd2" , "Re4" , "Ne4" , "Qc5" , "c5" , "Kg3" , "Re7" , "Kf4" , "Nb3" , "Rb7" , "Nd3" , "Rd2" , "Nf6" , "f4" , "Nc5" , "Ne5" , "b4" , "f5+" , "Rd3" , "cxb6" , "Nc6" , "Qc2" , "Be3" , "Rac8" , "Rxc5" , "Rxg2" , "Kh2" , "axb6" ;
+        chon:nextHalfMove      :hmgamyg0G4hm .
+
+chon:HalfMove  chon:subEventOf  :gamSisxi .
+
+:plaSisxik  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSisxik .
+
+:cgrSisxik  a   chon:ChessGameReport .
+
+:rolhgyg0G4hm2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSisxik .
+
+:agSisxik  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Vaisser, Anatoli" .
+
+:rolSisxik  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSisxik .
+
+:opeSisxik  a            chon:ChessOpening ;
+        chon:hasECOCode  "E54" .
+
+:gamSisxi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSisxik ;
+        chon:atPlace           :plaSisxik ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSisxik7 ;
+        chon:hasHalfMove       :hmgamyg0G4hm , :hmgamSisxik7 ;
+        chon:hasLastHalfMove   :hmgamyg0G4hm ;
+        chon:hasOpening        :opeSisxik ;
+        chon:hasReport         :cgrSisxik ;
+        chon:hasResult         :resSisxik7 ;
+        chon:subEventOf        :touSisxi .
+
+:touSisxi  a          chon:hessTournament ;
+        chon:atPlace  :plaSisxik ;
+        chon:hasName  "Hofmann Cup" .
+
+:hmgamSisxik7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyg0G4hm2 , :rolhgSisxik74 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf6" , "Nxe4" , "Qc7" , "cxd4" , "e6" , "exd4" , "Bxc4" , "d4" , "Bd3" , "Bxc3" , "Nd6" , "Nbd7" , "bxc3" , "Be4" , "Bg5" , "dxc4" , "Qd3" , "Bd2" , "O-O" , "Bh4" , "Nf5" , "Rfd8" , "Nc3" , "d5" , "Rc1" , "b6" , "Nf3" , "h6" , "Rfe1" , "c4" , "Bb7" , "c5" , "Bb4" , "Bxe4" , "e3" ;
+        chon:nextHalfMove      :hmgamSisxik7 , :hmgamyg0G4hm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

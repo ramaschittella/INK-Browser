@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaJem3qA  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:hmgamJem3qAy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJem3qAyw , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Milliet,S" ;
+        chon:hasSANRecord      "cxb5" , "h5" , "Ke2" , "Nf3" , "Kf3" , "e4" , "Kf8" , "Ke8" , "Nb6" , "c4" , "Bxa6" , "Bb4" , "Kxf1" , "Kd7" , "g4" , "Qxb4" , "Qd3" , "c5" , "Bg7" , "Be5+" , "Re3" , "Rxe3" , "Rc8" , "Qxc4" , "cxb4" , "Rf2" , "Qxd2" , "Nfd7" , "Rc8+" , "Qa4" , "b4" , "Bf6" , "Rb3" , "Rcb8" , "Bg5" , "hxg4" , "Kd3" , "Kh2" , "b5" , "Kg2" , "Qa6" , "bxa6" , "Ra8" , "Nd1" , "Kc4" , "d6" , "Re2" , "Bf4" , "Bxf1" , "g6" , "Re1" , "Qd2" , "Qc2" , "Nc4" , "d4" , "Rfb8" , "Nc3" , "Kg1" , "Nf6" , "Bxd2" , "a3" , "Ra2" , "a6" , "Qa5" , "Rc2" , "Ra4" , "d5" , "Kb3" , "Nde5" , "Nbd7" , "h3" , "Nxe5" , "g3" , "Qxd1" , "O-O" , "fxe3" ;
+        chon:nextHalfMove      :hmgamJem3qAy , :hmgamagylNSp .
+
+:cgrJem3qA  a   chon:ChessGameReport .
+
+:rolJem3qA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJem3qA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJem3qA .
+
+chon:HalfMove  chon:subEventOf  :gamJem3q .
+
+:resJem3qAy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgJem3qAyw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJem3qA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJem3qA .
+
+:rolhgagylNSpW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJem3qA .
+
+:hmgamagylNSp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgagylNSpW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Milliet,S" ;
+        chon:hasSANRecord      "Kb6" , "Bxe5" , "e5" , "Re8" , "Ka6" , "Rb1+" , "Kc4" , "Re6" , "g5" , "Kd4" , "Ke4" , "e4" , "a5+" , "Rxd6+" , "Kb5" , "Kd3" , "Rxf7" , "Rxe7+" , "Rf1+" , "Rf8" , "Bxg5" , "Bf6" , "Rc6" , "Rc1" , "Rg6" , "Kxg5" , "Rg1" , "Bxd6" , "a4" , "Rf8+" , "Kc7" , "Ke5" , "Kxa5" , "Rc1+" , "Re8+" , "Kf5" , "Rd1+" ;
+        chon:nextHalfMove      :hmgamagylNSp .
+
+:agJem3qA  a          chon:Agent ;
+        chon:hasName  "Milliet,S" , "Karpov,Ana" .
+
+:opeJem3qA  a            chon:ChessOpening ;
+        chon:hasECOCode  "A58" .
+
+:gamJem3q  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJem3qA ;
+        chon:atPlace           :plaJem3qA ;
+        chon:atTime            "2012.10.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJem3qAy ;
+        chon:hasHalfMove       :hmgamJem3qAy , :hmgamagylNSp ;
+        chon:hasLastHalfMove   :hmgamagylNSp ;
+        chon:hasOpening        :opeJem3qA ;
+        chon:hasReport         :cgrJem3qA ;
+        chon:hasResult         :resJem3qAy ;
+        chon:subEventOf        :touJem3q .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touJem3q  a          chon:hessTournament ;
+        chon:atPlace  :plaJem3qA ;
+        chon:hasName  "Trophee Karpov Preliminary 2012" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgof4Aks83  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcf7mNt .
+
+:plaLdW3qq  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+:toucf7mN  a          chon:hessTournament ;
+        chon:atPlace  :plaLdW3qq ;
+        chon:hasName  "CXSP Simul" .
+
+:cgrcf7mNt  a   chon:ChessGameReport .
+
+:rolhgcf7mNt3P  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcf7mNt .
+
+:rolcf7mNt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcf7mNt .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcf7mNt .
+
+:gamLdW3q  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcf7mNt ;
+        chon:atPlace           :plaLdW3qq ;
+        chon:atTime            "2003.11.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcf7mNt3 ;
+        chon:hasHalfMove       :hmgamcf7mNt3 , :hmgamof4Aks8 ;
+        chon:hasLastHalfMove   :hmgamof4Aks8 ;
+        chon:hasOpening        :opecf7mNt ;
+        chon:hasReport         :cgrcf7mNt ;
+        chon:hasResult         :rescf7mNt3 ;
+        chon:subEventOf        :toucf7mN .
+
+chon:HalfMove  chon:subEventOf  :gamLdW3q .
+
+:hmgamof4Aks8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgof4Aks83 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Villares de Freitas,Celso" ;
+        chon:hasSANRecord      "Kc5" , "a5" , "Kd6" ;
+        chon:nextHalfMove      :hmgamof4Aks8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcf7mNt .
+
+:hmgamcf7mNt3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgof4Aks83 , :rolhgcf7mNt3P , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Villares de Freitas,Celso" ;
+        chon:hasSANRecord      "b5" , "Rxd7+" , "Re7" , "Qxc5" , "g4" , "Rhe8" , "d4" , "Ne8" , "Kd3" , "c6" , "Bxc5" , "Qc7" , "Bf5" , "dxc5" , "Nf4+" , "Rd4+" , "Bxd3" , "Ke4" , "Rd7" , "Bd3" , "Bg6" , "Kg3" , "h5" , "e6" , "Be3" , "Rh4" , "Bd6" , "b6" , "Qxd3" , "Bc3" , "e4" , "fxg4" , "g5" , "exf4" , "c4" , "Ne4" , "Kxd8" , "dxe4" , "Nxh5" , "O-O-O" , "Kxf4" , "Bh7" , "Ngf6" , "Bf4" , "Qa5+" , "Qxe4" , "h3" , "Bd4" , "f5" , "b4" , "h6" , "d5" , "Bd2" , "g3" , "Kb1" , "e5" , "bxc5" , "a4" , "Bxf4" , "c5" , "Ng3" , "Qc6" , "Ne5" , "Bxe5" , "Qe2" , "Nd7" , "Nd2" , "Kc2" , "Nf3" , "Kxd7" , "Rxd8+" , "Nf6" , "Qxe5" , "Nxe4" , "h4" , "f6" ;
+        chon:nextHalfMove      :hmgamof4Aks8 , :hmgamcf7mNt3 .
+
+:agcf7mNt  a          chon:Agent ;
+        chon:hasName  "Villares de Freitas,Celso" , "Karpov,Ana" .
+
+:opecf7mNt  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+:rescf7mNt3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

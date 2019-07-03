@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgnjxl5lan  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbjB9xk .
+
+:hmgambjB9xk8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnjxl5lan , :rolhgbjB9xk8a , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schallopp, Emil" ;
+        chon:hasSANRecord      "Nc3" , "Nh5" , "Nxe4" , "Nd3" , "Nd6" , "e6" , "Be7" , "g5" , "exd5" , "Kg6" , "Nhf6" , "cxd5" , "Ne4" , "Bg4" , "Rxc8" , "f5" , "Qb3+" , "Rxd8" , "Bd5" , "Nf3" , "Be5" , "b6" , "dxc5" , "dxe4" , "Kg7" , "Qe6" , "Nxc5" , "c4" , "a3" , "fxg4" , "Rdxc8" , "Bf4" , "Rfd1" , "Nxf6" , "Bxc8" , "Bf6" , "Rc1" , "Rxc8+" , "Nxe4+" , "Nf4" , "Be6" , "e3" , "Nc5" , "Kh8" , "Nf6" , "Nd7" , "Nxe6" , "Bb7" , "d5" , "Rc8" , "a6" , "c5" , "Ne1" , "Be2" , "O-O" , "Bd4" , "Bg3" , "d4" ;
+        chon:nextHalfMove      :hmgamnjxl5la , :hmgambjB9xk8 .
+
+:rolKhrPbj  a   chon:WhitePlayerRole .
+
+:agbjB9xk  a          chon:Agent ;
+        chon:hasName  "Schallopp, Emil" , "Steinitz, William" .
+
+:rolbjB9xk  a             chon:AuthorRole , chon:BlackPlayerRole ;
+        chon:performedBy  :agbjB9xk .
+
+:hmgamnjxl5la  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnjxl5lan , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schallopp, Emil" ;
+        chon:hasSANRecord      "Bg5" , "Nd6+" , "Kf5" , "Nxe4" , "Kf4" , "Bxe4" , "Nc8" , "Be3+" , "e4+" , "f3" , "Bd8" , "Nf7" , "Nd2" , "gxf3" , "Ne4" , "g4" , "Ke5" , "Nc4" , "Nxb6" , "Kxe4" , "Bd5" , "h5" , "Bb7" , "Kf2" , "fxe4+" , "Ne5+" , "b4" ;
+        chon:nextHalfMove      :hmgamnjxl5la .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbjB9xk .
+
+chon:HalfMove  chon:subEventOf  :gamKhrPb .
+
+:resbjB9xk8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbjB9xk .
+
+:rolhgbjB9xk8a  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbjB9xk .
+
+:opebjB9xk  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:gamKhrPb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKhrPbj , :rolbjB9xk ;
+        chon:atPlace           :plaKhrPbj ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambjB9xk8 ;
+        chon:hasHalfMove       :hmgamnjxl5la , :hmgambjB9xk8 ;
+        chon:hasLastHalfMove   :hmgamnjxl5la ;
+        chon:hasOpening        :opebjB9xk ;
+        chon:hasReport         :cgrbjB9xk ;
+        chon:hasResult         :resbjB9xk8 ;
+        chon:subEventOf        :touKhrPb .
+
+:touKhrPb  a          chon:hessTournament ;
+        chon:atPlace  :plaKhrPbj ;
+        chon:hasName  "Nuremberg" .
+
+:plaKhrPbj  a         chon:Place ;
+        chon:hasName  "Nuremberg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrbjB9xk  a   chon:ChessGameReport .

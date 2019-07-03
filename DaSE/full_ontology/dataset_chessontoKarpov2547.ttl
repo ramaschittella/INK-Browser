@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agQGkOKI  a          chon:Agent ;
+        chon:hasName  "Kasparov,G" , "Karpov,An" .
+
+:rolQGkOKI  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamQGkOK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQGkOKI ;
+        chon:atPlace           :plaQGkOKI ;
+        chon:atTime            "2001.03.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2Gg3hHZ ;
+        chon:hasHalfMove       :hmgam2Gg3hHZ ;
+        chon:hasLastHalfMove   :hmgam2Gg3hHZ ;
+        chon:hasOpening        :opeQGkOKI ;
+        chon:hasReport         :cgr2Gg3hH ;
+        chon:hasResult         :resQGkOKIW ;
+        chon:subEventOf        :touQGkOK .
+
+:opeQGkOKI  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+:touQGkOK  a          chon:hessTournament ;
+        chon:atPlace  :plaQGkOKI ;
+        chon:hasName  "SuperGM" .
+
+:hmgam2Gg3hHZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2Gg3hHZh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov,G" ;
+        chon:hasSANRecord      "Kxg2" , "Nxd2" , "Be4" , "e3" , "O-O" , "Rxd2" , "Rfd8" , "Qc7" , "c4" , "Qe2" , "Na3" , "Bg7" , "h3" , "Bxg2" , "Rac1" , "Kh7" , "Qa6" , "Kg1" , "Nf3" , "Bf5" , "Nc6" , "Bf1" , "c5" , "Qxb6" , "c3" , "Rd1" , "d5" , "Nfd2" , "g6" , "Rc7" , "Na5" , "g3" , "Bg2" , "Nf6" , "Nc4" , "Rcc4" , "exd4" , "e5" , "Rxc1+" , "Rxd4" , "Qd5" , "Nxa5" , "Rxa4" , "d4" , "bxc3" , "Ne4" , "cxd4" , "dxc4" , "h5" , "b6" , "Qb6" , "Qb8+" , "h4" , "Rac8" , "a4" , "Bb2" , "Rdd1" , "Qxd4" , "Kg8" , "Bxd4" , "Kg2" , "Qxa7" , "Qxa5" ;
+        chon:nextHalfMove      :hmgam2Gg3hHZ .
+
+:resQGkOKIW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQGkOKI .
+
+chon:HalfMove  chon:subEventOf  :gamQGkOK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQGkOKI .
+
+:plaQGkOKI  a         chon:Place ;
+        chon:hasName  "Linares ESP" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg2Gg3hHZh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQGkOKI .
+
+:rol2Gg3hH  a             chon:AuthorRole ;
+        chon:performedBy  :ag2Gg3hH .
+
+:cgr2Gg3hH  a   chon:ChessGameReport .

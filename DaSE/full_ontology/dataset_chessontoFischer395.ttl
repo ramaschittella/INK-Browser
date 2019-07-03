@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaoysiul  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+:hmgamkwardjS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkwardjSE , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Najdorf, Miguel" ;
+        chon:hasSANRecord      "Rd1" , "h3" , "Kd8" , "Nd7" , "Re1" , "a6" , "Rxe4" , "Nc3" , "fxe3" , "Qb6" , "Qa4+" , "gxf6" , "Bxc4" , "Bb7" , "Bxe3" , "d5" , "Ke8" , "Ra7" , "e5" , "Nxd4" , "Rd6" , "Nf6" , "Nxf6+" , "Be6" , "Nd5" , "bxc4" , "dxe4" , "Qb3" , "Bc5" , "Bxe4" , "c4" , "Be3" , "Ke7" , "Qd8" , "Ng7+" , "Nf5+" , "Bxf7+" , "b5" , "Nf5" , "Qc7" , "O-O" ;
+        chon:nextHalfMove      :hmgamkwardjS .
+
+:resoysiulS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agoysiul  a          chon:Agent ;
+        chon:hasName  "Najdorf, Miguel" , "Fischer, Robert James" .
+
+:roloysiul  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoysiul .
+
+:opeoysiul  a            chon:ChessOpening ;
+        chon:hasECOCode  "B90" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoysiul .
+
+:touoysiu  a          chon:hessTournament ;
+        chon:atPlace  :plaoysiul ;
+        chon:hasName  "Varna olm" .
+
+:hmgamoysiulS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoysiulSG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Najdorf, Miguel" ;
+        chon:hasSANRecord      "e4" , "d6" , "c5" , "Nf3" , "cxd4" , "d4" ;
+        chon:nextHalfMove      :hmgamoysiulS , :hmgamkwardjS .
+
+:rolhgkwardjSE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoysiul .
+
+chon:HalfMove  chon:subEventOf  :gamoysiu .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoysiul .
+
+:cgroysiul  a   chon:ChessGameReport .
+
+:rolhgoysiulSG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoysiul .
+
+:gamoysiu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloysiul ;
+        chon:atPlace           :plaoysiul ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoysiulS ;
+        chon:hasHalfMove       :hmgamkwardjS , :hmgamoysiulS ;
+        chon:hasLastHalfMove   :hmgamkwardjS ;
+        chon:hasOpening        :opeoysiul ;
+        chon:hasReport         :cgroysiul ;
+        chon:hasResult         :resoysiulS ;
+        chon:subEventOf        :touoysiu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

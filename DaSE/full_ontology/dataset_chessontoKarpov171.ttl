@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhge43IBO8Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age43IBO .
+
+:rese43IBO8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgre43IBO  a   chon:ChessGameReport .
+
+:hmgama2JRlOn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhga2JRlOnW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kh7" , "f4" , "Rd7" , "Ne4" , "Rd8" , "Nf6" , "Rb7" , "h6" , "Rxb7" , "g5" , "Rac1" , "Rxc5" , "Kg2" , "R1c2" , "Kf3" , "Ba3" , "Rc7" ;
+        chon:nextHalfMove      :hmgama2JRlOn .
+
+:pla346u3P  a         chon:Place ;
+        chon:hasName  "San Antonio" .
+
+:role43IBO  a             chon:AuthorRole ;
+        chon:performedBy  :age43IBO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age43IBO .
+
+chon:HalfMove  chon:subEventOf  :gam346u3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age43IBO .
+
+:rol346u3P  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:age43IBO  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Petrosian, Tigran V" .
+
+:opee43IBO  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .
+
+:hmgame43IBO8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhge43IBO8Y , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c4" , "dxc4" , "b6" , "e3" , "Nxa4" , "Nc5" , "Nf6" , "O-O" , "d5" , "Bb2" , "Bxb7" , "Qf3" , "Nc3" , "Be2" , "a4" , "Rxb7" , "Bb7" , "Bd3" , "Rd7" , "Qxf3" , "e6" , "a6" , "d4" , "Qc7" , "gxf3" , "Bxc4" , "c5" , "Qb7" , "Nxd4" , "Bf3" , "bxa4" , "b5" , "Rfc1" , "Nf3" , "cxd4" , "Be7" , "Ra7" , "Bxc5" , "b3" ;
+        chon:nextHalfMove      :hmgama2JRlOn , :hmgame43IBO8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam346u3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol346u3P ;
+        chon:atPlace           :pla346u3P ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgame43IBO8 ;
+        chon:hasHalfMove       :hmgama2JRlOn , :hmgame43IBO8 ;
+        chon:hasLastHalfMove   :hmgama2JRlOn ;
+        chon:hasOpening        :opee43IBO ;
+        chon:hasReport         :cgre43IBO ;
+        chon:hasResult         :rese43IBO8 ;
+        chon:subEventOf        :tou346u3 .
+
+:rolhga2JRlOnW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age43IBO .
+
+:tou346u3  a          chon:hessTournament ;
+        chon:atPlace  :pla346u3P ;
+        chon:hasName  "San Antonio" .

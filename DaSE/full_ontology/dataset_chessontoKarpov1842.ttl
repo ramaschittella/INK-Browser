@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla4WQ0O9  a         chon:Place ;
+        chon:hasName  "San Nicolas" .
+
+:resSWEOu7b  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgSWEOu7bo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSWEOu7 .
+
+:cgrSWEOu7  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSWEOu7 .
+
+:gam4WQ0O  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSWEOu7 ;
+        chon:atPlace           :pla4WQ0O9 ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSWEOu7b ;
+        chon:hasHalfMove       :hmgamSWEOu7b ;
+        chon:hasLastHalfMove   :hmgamSWEOu7b ;
+        chon:hasOpening        :opeSWEOu7 ;
+        chon:hasReport         :cgrSWEOu7 ;
+        chon:hasResult         :resSWEOu7b ;
+        chon:subEventOf        :touSWEOu .
+
+chon:HalfMove  chon:subEventOf  :gam4WQ0O .
+
+:agSWEOu7  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Campora, Daniel H" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSWEOu7 .
+
+:rolSWEOu7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSWEOu7 .
+
+:opeSWEOu7  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamSWEOu7b  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSWEOu7bo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "f6" , "d4" , "Qd5" , "Qxf3" , "Rxf5" , "Rhd8" , "a5" , "O-O-O" , "Rf5" , "Bxf5" , "gxf5" , "g4" , "Bc7" , "Rxd4" , "Be2" , "Re4" , "f5" , "e5" , "Kd6" , "c3" , "exd4" , "Rh5" , "Nxf6+" , "dxe4" , "Nxf6" , "Bg5" , "Bxf3" , "h6" , "Rf4" , "Ngf6" , "O-O" , "d5" , "Nf3" , "Rd7" , "e4" , "Kc7" , "Bd2" , "Kg2" , "cxd4" , "Rh4" , "gxf6" , "Rxa5" , "Nd7" , "Kf3" , "Rxf6" , "Bg4" , "h3" , "g3" , "Bxf6" , "Rfe1" , "e6" , "c6" , "Bf8" , "Bd6" , "Nxe4" , "Nc3" , "Rad1" ;
+        chon:nextHalfMove      :hmgamSWEOu7b .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touSWEOu  a          chon:hessTournament ;
+        chon:atPlace  :pla4WQ0O9 ;
+        chon:hasName  "San Nicolas m" .

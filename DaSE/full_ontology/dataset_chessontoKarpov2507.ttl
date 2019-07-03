@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgwPY2o9st  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglP3MP0 .
+
+:opelP3MP0  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamlP3MP0p  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwPY2o9st , :rolhglP3MP0pg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qe2" , "Qc7" , "Be7" , "Qh5" , "Qxe4" , "e5" , "c6" , "dxe4" , "Ngf6" , "Qh3" , "O-O" , "Bf6" , "Rb4" , "Rb8" , "Be4" , "e4" , "dxc5" , "Qxf3" , "Rd3" , "Rd4" , "Kf8" , "d5" , "Bxf3" , "Nf6" , "Qf7+" , "Qc3" , "Ne4" , "N1f3" , "Qg7" , "Qh4" , "Rhe8" , "Qh5+" , "Nxe4" , "Qe4" , "b6" , "c5" , "Kxe5" , "Kc7" , "c3" , "b3" , "Rae1" , "f5" , "Qg4" , "e6" , "Bb7" , "Bd6" , "Kd6" , "Bxf6" , "h6" , "Bd3" , "Ng5" , "g4" , "Bb2" , "Nd7" , "Kxf6" , "d4" , "Qe1+" , "Rxe5" , "fxe5+" , "Nd2" , "Kf7" , "Qg3+" , "g6" , "Qxg6+" , "f4" , "Qxc3" , "bxc5" ;
+        chon:nextHalfMove      :hmgamwPY2o9s , :hmgamlP3MP0p .
+
+:gamlP3MP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollP3MP0 ;
+        chon:atPlace           :plalP3MP0 ;
+        chon:atTime            "2000.04.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlP3MP0p ;
+        chon:hasHalfMove       :hmgamwPY2o9s , :hmgamlP3MP0p ;
+        chon:hasLastHalfMove   :hmgamwPY2o9s ;
+        chon:hasOpening        :opelP3MP0 ;
+        chon:hasReport         :cgrlP3MP0 ;
+        chon:hasResult         :reslP3MP0p ;
+        chon:subEventOf        :toulP3MP .
+
+:toulP3MP  a          chon:hessTournament ;
+        chon:atPlace  :plalP3MP0 ;
+        chon:hasName  "Japfa Classic" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglP3MP0 .
+
+:plalP3MP0  a         chon:Place ;
+        chon:hasName  "Bali INA" .
+
+chon:HalfMove  chon:subEventOf  :gamlP3MP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglP3MP0 .
+
+:cgrlP3MP0  a   chon:ChessGameReport .
+
+:aglP3MP0  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Timman,J" .
+
+:rollP3MP0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglP3MP0 .
+
+:hmgamwPY2o9s  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwPY2o9st , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Kf6" , "Kb4" , "h5" , "Rxd2+" , "Kf5" , "Qd1+" , "b5" , "Kg6" , "Rd2" , "Kb2" , "Ka3" , "Qxc5" , "Qd5" , "Qf4+" , "Kf4" , "Qe5+" , "Qxa7+" , "Qxg4" , "Qh4+" , "Kd3" , "Qd5+" , "Qc8" , "Kf3" , "Qc7+" , "Kxa2" , "Kb6" , "Kf7" , "Ke3" , "Qd2+" , "Qg3+" , "Qf2+" , "Qxf4" , "b6" , "Rf2+" , "Kf2" , "Qxh2" , "b4+" , "Qc6" , "b7" , "Ka5" , "Qb7+" , "Qxd2" ;
+        chon:nextHalfMove      :hmgamwPY2o9s .
+
+:rolhglP3MP0pg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglP3MP0 .
+
+:reslP3MP0p  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

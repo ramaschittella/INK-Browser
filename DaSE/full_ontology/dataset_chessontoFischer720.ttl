@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrYBNVt3  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYBNVt3 .
+
+:rolhg0BK012Qy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYBNVt3 .
+
+:hmgam0BK012Q  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0BK012Qy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bc3" , "Rg3" , "Rxf4" , "Kg6" , "c5" , "Kf1" , "Rd3" , "Bh5" , "Rb6" , "Ra2" , "Ra2+" , "Re3" , "Rc2" , "Bxc4" , "Kg1" , "Bf4" , "Rf3" , "Kd8" , "Rd2" , "a4" , "Rxa8" , "Re3+" , "Bxa8" , "Re2" , "Ra8" , "Rb4" , "Rh4" , "c4" , "Rxh2+" , "Kc7" , "f4" , "Bd4" , "Bc6" , "Bf3" , "Rb2" , "Bf6" , "Ke2" , "Ra1+" , "Qxc4" , "Ra3" , "Be5" , "Rf8" , "Kf6" , "Bxf7" , "Bb5" , "h5" , "Rxa6" , "Ke7" , "Kd1" , "Re4" , "h4" , "Rh3" , "Kg7" ;
+        chon:nextHalfMove      :hmgam0BK012Q .
+
+chon:HalfMove  chon:subEventOf  :gamYBNVt .
+
+:hmgamYBNVt3N  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYBNVt3Nk , :rolhg0BK012Qy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "c5" , "e4" , "Kh8" , "Nxc8" , "Nc6" , "Bxf6" , "Bg7" , "e6" , "f4" , "cxd4" , "exf5" , "f5" , "Qa3" , "Rb1" , "gxf6" , "d4" , "Qd2" , "Nf6" , "Re8" , "Ne7+" , "Qc5+" , "Rfxc8" , "Nxd4" , "Qxb2" , "Nc3" , "a6" , "Nxc6" , "Qd3" , "bxc6" , "Kh1" , "d6" , "Nf3" , "Qc4" , "Bg5" , "Nd5" , "Be2" , "Rfd1" , "Qb6" , "O-O" ;
+        chon:nextHalfMove      :hmgam0BK012Q , :hmgamYBNVt3N .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYBNVt3 .
+
+:plaYBNVt3  a         chon:Place ;
+        chon:hasName  "Zagreb" .
+
+:rolhgYBNVt3Nk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYBNVt3 .
+
+:resYBNVt3N  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agYBNVt3  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Parma, Bruno" .
+
+:rolYBNVt3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYBNVt3 .
+
+:gamYBNVt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYBNVt3 ;
+        chon:atPlace           :plaYBNVt3 ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYBNVt3N ;
+        chon:hasHalfMove       :hmgamYBNVt3N , :hmgam0BK012Q ;
+        chon:hasLastHalfMove   :hmgam0BK012Q ;
+        chon:hasOpening        :opeYBNVt3 ;
+        chon:hasReport         :cgrYBNVt3 ;
+        chon:hasResult         :resYBNVt3N ;
+        chon:subEventOf        :touYBNVt .
+
+:opeYBNVt3  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .
+
+:touYBNVt  a          chon:hessTournament ;
+        chon:atPlace  :plaYBNVt3 ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

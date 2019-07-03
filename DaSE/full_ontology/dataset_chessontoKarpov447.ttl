@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resUeseukS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:roltegW8k  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:plahekIAj  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+:rolhgUeseukSU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUeseuk , :agtegW8k .
+
+:cgrUeseuk  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtegW8k .
+
+chon:HalfMove  chon:subEventOf  :gamhekIA .
+
+:rolUeseuk  a             chon:AuthorRole ;
+        chon:performedBy  :agUeseuk .
+
+:agUeseuk  a          chon:Agent ;
+        chon:hasName  "Pomar Salamanca, Arturo" .
+
+:agtegW8k  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUeseuk .
+
+:toutegW8  a          chon:hessTournament ;
+        chon:atPlace  :plahekIAj ;
+        chon:hasName  "Las Palmas" .
+
+:opeUeseuk  a            chon:ChessOpening ;
+        chon:hasECOCode  "E19" .
+
+:gamhekIA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltegW8k ;
+        chon:atPlace           :plahekIAj ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUeseukS ;
+        chon:hasHalfMove       :hmgamUeseukS ;
+        chon:hasLastHalfMove   :hmgamUeseukS ;
+        chon:hasOpening        :opeUeseuk ;
+        chon:hasReport         :cgrUeseuk ;
+        chon:hasResult         :resUeseukS ;
+        chon:subEventOf        :toutegW8 .
+
+:hmgamUeseukS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUeseukSU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pomar Salamanca, Arturo" ;
+        chon:hasSANRecord      "Bb2" , "b6" , "Rxe5" , "Rac8" , "Bf6" , "Qa1" , "Rfd8" , "Kf8" , "Qc7" , "Qc6" , "Qf6" , "Qxd6" , "c4" , "e6" , "Bg7" , "h4" , "Nxc3" , "Nf3" , "Rcd8" , "Nf8" , "Bg2" , "Re8" , "Ne4" , "Qb2" , "Nc3" , "b3" , "exd5" , "g6" , "g5" , "Qc8" , "Be7" , "Qxc3" , "Kxg7" , "Bxg7" , "d5" , "Rd1" , "Kg8" , "Nd7" , "Qd1" , "d4" , "Rde2" , "d6" , "O-O" , "Qe2" , "Qc2" , "Nf6" , "Rd2" , "Ne5" , "Re1" , "a6" , "c5" , "g4" , "Bb7" , "e4" , "g3" ;
+        chon:nextHalfMove      :hmgamUeseukS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

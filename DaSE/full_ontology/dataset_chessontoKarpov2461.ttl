@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamZ7Z3TLT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZ7Z3TLTF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lajarige, Helene" ;
+        chon:hasSANRecord      "Bxc7" , "Qxc8" , "Be7" , "Bg5" , "Bb7" , "c6" , "Bh7+" , "Bxc3" , "Rfe8" , "Rb8" , "Nc3" , "O-O" , "b3" , "dxc4" , "h6" , "b6" , "Bxc8" , "d4" , "Ne2" , "Bd3" , "cxd5" , "Bc8" , "Nfd4" , "Bf5" , "e3" , "e6" , "Nf3" , "bxc4" , "Nc7" , "Rd8" , "c4" , "a6" , "dxc5" , "Ndf6" , "Kh8" , "Rac1" , "Qxc7" , "Rxb1" , "Qc2" , "Rb1" , "c5" , "Ne8" , "Nbd7" , "Na4" , "Rfd1" , "Rac8" , "Qxc3" , "Bb4" , "d5" , "bxc5" , "h3" , "Rc1" , "Nf6" , "exd5" , "Bf4" ;
+        chon:nextHalfMove      :hmgamZ7Z3TLT .
+
+:gamZ7Z3T  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZ7Z3TL ;
+        chon:atPlace           :plaZ7Z3TL ;
+        chon:atTime            "1999.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZ7Z3TLT ;
+        chon:hasHalfMove       :hmgamZ7Z3TLT ;
+        chon:hasLastHalfMove   :hmgamZ7Z3TLT ;
+        chon:hasOpening        :opeZ7Z3TL ;
+        chon:hasReport         :cgrZ7Z3TL ;
+        chon:hasResult         :resZ7Z3TLT ;
+        chon:subEventOf        :touZ7Z3T .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ7Z3TL .
+
+chon:HalfMove  chon:subEventOf  :gamZ7Z3T .
+
+:resZ7Z3TLT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeZ7Z3TL  a            chon:ChessOpening ;
+        chon:hasECOCode  "D36" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ7Z3TL .
+
+:rolhgZ7Z3TLTF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ7Z3TL .
+
+:touZ7Z3T  a          chon:hessTournament ;
+        chon:atPlace  :plaZ7Z3TL ;
+        chon:hasName  "Gonfreville sim" .
+
+:plaZ7Z3TL  a         chon:Place ;
+        chon:hasName  "Gonfreville" .
+
+:cgrZ7Z3TL  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agZ7Z3TL  a          chon:Agent ;
+        chon:hasName  "Lajarige, Helene" , "Karpov, Anatoly" .
+
+:rolZ7Z3TL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZ7Z3TL .

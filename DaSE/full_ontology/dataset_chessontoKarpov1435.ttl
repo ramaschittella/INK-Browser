@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrFpTF9B  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFpTF9B .
+
+chon:HalfMove  chon:subEventOf  :gamupXrz .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFpTF9B .
+
+:gamupXrz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFpTF9B ;
+        chon:atPlace           :plaupXrzA ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFpTF9Bp ;
+        chon:hasHalfMove       :hmgamFpTF9Bp ;
+        chon:hasLastHalfMove   :hmgamFpTF9Bp ;
+        chon:hasOpening        :opeFpTF9B ;
+        chon:hasReport         :cgrFpTF9B ;
+        chon:hasResult         :resFpTF9Bp ;
+        chon:subEventOf        :touFpTF9 .
+
+:hmgamFpTF9Bp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFpTF9BpF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c4" , "Nxc7" , "d4" , "Bb7" , "Qxc7" , "Qxc3" , "dxc5" , "Nf3" , "Ne4" , "b6" , "g3" , "Qd2" , "Be7" , "e6" , "Nf6" , "Qc7" , "Na6" , "d6" , "Qf4" , "Bb2" , "Bf6" , "Nxc3" , "O-O" , "Bg2" , "Rad1" , "b3" , "Rd8" , "Qc2" , "c5" , "Nc3" ;
+        chon:nextHalfMove      :hmgamFpTF9Bp .
+
+:rolhgFpTF9BpF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFpTF9B .
+
+:plaupXrzA  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:agFpTF9B  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ribli, Zoltan" .
+
+:rolFpTF9B  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFpTF9B .
+
+:opeFpTF9B  a            chon:ChessOpening ;
+        chon:hasECOCode  "E19" .
+
+:touFpTF9  a          chon:hessTournament ;
+        chon:atPlace  :plaupXrzA ;
+        chon:hasName  "Reggio Emilia91 Top16" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resFpTF9Bp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

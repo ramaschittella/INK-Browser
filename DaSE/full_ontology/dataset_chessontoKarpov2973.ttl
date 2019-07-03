@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhguGWVyanF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA10qhj .
+
+:rolhgA10qhjor  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA10qhj .
+
+:resA10qhjo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrA10qhj  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agA10qhj .
+
+:hmgamuGWVyan  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhguGWVyanF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "Nf3" , "Rc7" , "Nbd7" , "Rfe8" , "Nxe5" , "Rec8" , "e4" , "Bxb2" , "Bh3" , "e6" , "b3" , "e5" , "cxd5" , "Qb1" , "Nf4" , "Qd2" , "Qh2" , "Qf6" , "Rc8" , "Ng1" , "Nxh3+" , "Rcd8" , "Qc2" , "Nf1" , "Bb5" , "Nbd2" , "Rac8" , "Rfe1" , "Rxb7" , "h3" , "Rxa7" , "Bg4" , "Qh6" , "Qe7" , "Qxb2" , "Bb2" , "a4" , "f3" , "Bd3" , "O-O" , "Kf1" , "Be6" , "Bd6" , "Nh5" , "dxe5" , "Rc3" , "Qe5" , "d4" , "Nh2" , "Rac1" , "Bxe5" ;
+        chon:nextHalfMove      :hmgamuGWVyan .
+
+chon:HalfMove  chon:subEventOf  :gamA10qh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agA10qhj .
+
+:hmgamA10qhjo  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgA10qhjor ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "c4" , "e3" , "Nf6" , "d5" , "d4" , "c6" , "Nf3" ;
+        chon:nextHalfMove      :hmgamuGWVyan , :hmgamA10qhjo .
+
+:plaA10qhj  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+:gamA10qh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolA10qhj ;
+        chon:atPlace           :plaA10qhj ;
+        chon:atTime            "2007.10.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamA10qhjo ;
+        chon:hasHalfMove       :hmgamA10qhjo , :hmgamuGWVyan ;
+        chon:hasLastHalfMove   :hmgamuGWVyan ;
+        chon:hasOpening        :opeA10qhj ;
+        chon:hasReport         :cgrA10qhj ;
+        chon:hasResult         :resA10qhjo ;
+        chon:subEventOf        :touA10qh .
+
+:touA10qh  a          chon:hessTournament ;
+        chon:atPlace  :plaA10qhj ;
+        chon:hasName  "Corsica Masters" .
+
+:agA10qhj  a          chon:Agent ;
+        chon:hasName  "Kasimdzhanov,R" , "Karpov,Ana" .
+
+:rolA10qhj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agA10qhj .
+
+:opeA10qhj  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

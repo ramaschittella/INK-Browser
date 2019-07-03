@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrXYx9Jf  a   chon:ChessGameReport .
+
+:resXYx9Jfd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "*" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXYx9Jf .
+
+:rolXYx9Jf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXYx9Jf .
+
+chon:HalfMove  chon:subEventOf  :gamXYx9J .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXYx9Jf .
+
+:rolhgXYx9JfdN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXYx9Jf .
+
+:plaXYx9Jf  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:hmgam9Wumief  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9Wumief1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Juaneda" ;
+        chon:hasSANRecord      "Nb8" , "Ng3" , "Nc6" , "Qd2" , "Nxc6" , "Qe1" , "Bd2" , "Rfc8" , "Bb7" , "Bxc6" , "Bd5" , "Ne5" , "f3" , "Ba5" , "Ne4" ;
+        chon:nextHalfMove      :hmgam9Wumief .
+
+:agXYx9Jf  a          chon:Agent ;
+        chon:hasName  "Juaneda" , "Karpov, Anatoly" .
+
+:gamXYx9J  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXYx9Jf ;
+        chon:atPlace           :plaXYx9Jf ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXYx9Jfd ;
+        chon:hasHalfMove       :hmgam9Wumief , :hmgamXYx9Jfd ;
+        chon:hasLastHalfMove   :hmgam9Wumief ;
+        chon:hasOpening        :opeXYx9Jf ;
+        chon:hasReport         :cgrXYx9Jf ;
+        chon:hasResult         :resXYx9Jfd ;
+        chon:subEventOf        :touXYx9J .
+
+:opeXYx9Jf  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:touXYx9J  a          chon:hessTournament ;
+        chon:atPlace  :plaXYx9Jf ;
+        chon:hasName  "EE Internet sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg9Wumief1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXYx9Jf .
+
+:hmgamXYx9Jfd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXYx9JfdN , chon:AgentRole , :rolhg9Wumief1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Juaneda" ;
+        chon:hasSANRecord      "e6" , "dxc4" , "b5" , "Rd1" , "Bd6" , "c4" , "h3" , "Nf6" , "d4" , "Qe7" , "c5" , "Be2" , "e3" , "c6" , "Nxd6" , "Nc3" , "Qc2" , "Qxd6" , "d5" , "Nf3" , "Ne4" , "Bd3" , "O-O" , "Nbd7" , "a6" , "Bxc4" ;
+        chon:nextHalfMove      :hmgam9Wumief , :hmgamXYx9Jfd .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resVbeEbyM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgnboXxyBc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVbeEby .
+
+:cgrVbeEby  a   chon:ChessGameReport .
+
+:hmgamnboXxyB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnboXxyBc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman,J" ;
+        chon:hasSANRecord      "Qc6" , "fxe6+" , "Qc8" , "Nxb6" , "Qc4" , "Bc6" , "Rxc4" , "Ra2" , "R6c5" , "Nc5" , "Bxg2" , "cxb5" , "Ne1" , "d5" , "Rc6" , "Nf6" , "Rb2" , "Kd8" , "Bb4+" , "Nxg2" , "a4" , "N5xe6" , "Nbd7" , "Bd2" , "Qa6" , "Nbd2" , "Rbc2" , "Nd7" , "Nb6" , "g3" , "Ra7" , "Bd5" , "Rxb6" , "dxe6+" , "a5" , "f4" , "Ba6" , "fxe6" , "Nd4" , "Qc2" , "d6" , "e4" , "b5" , "Rd6+" , "Ke7" , "Bxd2+" , "Qb7" , "O-O" , "Kd7" , "Ne8" , "Qxc4" , "Nc7" , "Qxd2" , "Rb8" , "e5" , "Bg2" , "Nf3" , "h6" , "Rb6" , "f5" , "Nba6" , "Kf8" , "b3" , "Ne3" , "Rfc1" , "b6" , "c4" , "e6" , "Qxc7" , "Bxb5" , "a3" , "Nb8" , "d4" ;
+        chon:nextHalfMove      :hmgamnboXxyB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVbeEby .
+
+chon:HalfMove  chon:subEventOf  :gamVbeEb .
+
+:plaVbeEby  a         chon:Place ;
+        chon:hasName  "Groningen NED" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVbeEby .
+
+:agVbeEby  a          chon:Agent ;
+        chon:hasName  "Timman,J" , "Karpov,Ana" .
+
+:rolVbeEby  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVbeEby .
+
+:opeVbeEby  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamVbeEb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVbeEby ;
+        chon:atPlace           :plaVbeEby ;
+        chon:atTime            "2013.12.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnboXxyB ;
+        chon:hasHalfMove       :hmgamnboXxyB ;
+        chon:hasLastHalfMove   :hmgamnboXxyB ;
+        chon:hasOpening        :opeVbeEby ;
+        chon:hasReport         :cgrVbeEby ;
+        chon:hasResult         :resVbeEbyM ;
+        chon:subEventOf        :touVbeEb .
+
+:touVbeEb  a          chon:hessTournament ;
+        chon:atPlace  :plaVbeEby ;
+        chon:hasName  "Karpov-Timman Match 2013" .

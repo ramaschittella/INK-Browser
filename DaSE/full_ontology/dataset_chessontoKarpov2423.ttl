@@ -1,0 +1,77 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaScZXGi  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agScZXGi .
+
+:rolhgScZXGigc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agScZXGi .
+
+:opeScZXGi  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+:cgrScZXGi  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamScZXG .
+
+:hmgamfc7wSi9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfc7wSi9O , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qg8+" , "Qh7+" , "Qh4" , "Qe3+" , "Qb4" , "Kg6" , "f4" , "Bc3" , "Qb6" , "Qg1+" , "Qb6+" , "Kg4" , "Qh2+" , "a6" , "Kf4" , "Kb3" , "Qxh2" , "a4" , "Qc5" , "e1=Q" , "Qd3+" , "g5" , "Qb5" , "Kh7" , "Qd4+" , "e2" , "Qd4" , "f5" , "Kf5" , "a5" , "Qc6" , "Qg3" , "Qxe1" , "Qb3" , "Qxb6+" , "f3" , "Bb2" , "Qd3" , "Ka2" , "Qe4" ;
+        chon:nextHalfMove      :hmgamfc7wSi9 .
+
+:resScZXGig  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgfc7wSi9O  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agScZXGi .
+
+:gamScZXG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolScZXGi ;
+        chon:atPlace           :plaScZXGi ;
+        chon:atTime            "1999.04.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamScZXGig ;
+        chon:hasHalfMove       :hmgamNbVbfhj , :hmgamfc7wSi9 , :hmgamScZXGig ;
+        chon:hasLastHalfMove   :hmgamfc7wSi9 ;
+        chon:hasOpening        :opeScZXGi ;
+        chon:hasReport         :cgrScZXGi ;
+        chon:hasResult         :resScZXGig ;
+        chon:subEventOf        :touScZXG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamScZXGig  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgScZXGigc , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamNbVbfhj .
+
+:rolhgNbVbfhjo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agScZXGi .
+
+:hmgamNbVbfhj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNbVbfhjo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e3" , "e4" , "Ng3" , "Kg8" , "Rxd8" , "h5" , "Qc7" , "Nxf5" , "Bh7" , "Qd8+" , "Nbd7" , "Ndxe5" , "Bc1" , "Qxe5" , "Qxb5" , "Qxf5" , "Ne3" , "Qf3" , "Qh4+" , "Nxh4" , "Qe7" , "f4" , "Nxg4" , "Qxa7" , "Bd3" , "Bxe5" , "Rad8" , "Ne5" , "Ng2" , "Bxd3" , "Nd3" , "b6" , "Bd2" , "dxe5" , "Nf4" , "Rxd1" , "d5" , "Ne2" , "Qe5" , "e6" , "Kb1" , "Nf6" , "Bf5" , "Kh7" , "O-O-O" , "d4" , "h4" , "Qd7" , "Bd6" , "e5" , "Rd1" , "b4" , "b5" , "Qb4" , "Qxc5" , "h6" , "dxe4" , "Nf3" , "g4" , "Nxe4" , "Qxd1" , "Bg6" , "O-O" , "Nf5" , "Qxd3" , "Qf5" , "f6" , "h2" , "c5" , "c6" , "Nd2" , "fxe5" , "h3" ;
+        chon:nextHalfMove      :hmgamNbVbfhj , :hmgamfc7wSi9 .
+
+:rolScZXGi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agScZXGi .
+
+:agScZXGi  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Illescas Cordoba, Miguel" .
+
+:touScZXG  a          chon:hessTournament ;
+        chon:atPlace  :plaScZXGi ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agScZXGi .

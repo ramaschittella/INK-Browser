@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamSlFm5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSlFm5p ;
+        chon:atPlace           :plaSlFm5p ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamL1sQleq ;
+        chon:hasHalfMove       :hmgamL1sQleq ;
+        chon:hasLastHalfMove   :hmgamL1sQleq ;
+        chon:hasOpening        :opeSlFm5p ;
+        chon:hasReport         :cgrL1sQle ;
+        chon:hasResult         :resL1sQleq ;
+        chon:subEventOf        :touSlFm5 .
+
+:hmgamL1sQleq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgL1sQleqK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bb2" , "Be6" , "Qc6" , "Qg3" , "Na4" , "a6" , "Nc3" , "a3" , "Bh6" , "Kh1" , "Bf4+" , "Be3" , "Bxd3" , "Be7" , "Bd3" , "Rad1" , "Qg6" , "Qc7" , "Rd2" , "bxc3" , "Kh8" , "Bc1" , "Kh2" , "Na5" , "e4" , "f4" , "Qf3" , "Nb3" , "d6" , "Nbd7" , "fxe5" , "Rc8" , "Bc4" , "O-O" , "Ne8" , "d4" , "Nb6" , "cxd4" , "e5" , "f5" , "h3" , "Nxc3" , "Nxd4" , "Nxe4" , "b5" , "c5" , "Nh5+" , "Rfd1" , "Bg5" , "Nf6" , "Qe1" , "Rxd3" , "Nf3" , "Ng3+" , "dxe5" , "Rd3" , "Be2" ;
+        chon:nextHalfMove      :hmgamL1sQleq .
+
+:rolhgL1sQleqK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSlFm5p .
+
+:rolSlFm5p  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrL1sQle  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSlFm5p .
+
+chon:HalfMove  chon:subEventOf  :gamSlFm5 .
+
+:plaSlFm5p  a         chon:Place ;
+        chon:hasName  "Siegen" .
+
+:resL1sQleq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSlFm5p .
+
+:touSlFm5  a          chon:hessTournament ;
+        chon:atPlace  :plaSlFm5p ;
+        chon:hasName  "Siegen olm" .
+
+:agSlFm5p  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Miyasaki, Yukio" .
+
+:opeSlFm5p  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+:rolL1sQle  a             chon:AuthorRole ;
+        chon:performedBy  :agL1sQle .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

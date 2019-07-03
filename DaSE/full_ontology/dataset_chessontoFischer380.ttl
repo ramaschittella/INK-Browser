@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgraOViKs  a   chon:ChessGameReport .
+
+:rolhgaOViKsRa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaOViKs .
+
+:agaOViKs  a          chon:Agent ;
+        chon:hasName  "Schweber, Samuel" , "Fischer, Robert James" .
+
+:rolaOViKs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaOViKs .
+
+:gamaOViK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaOViKs ;
+        chon:atPlace           :plaaOViKs ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaOViKsR ;
+        chon:hasHalfMove       :hmgamaOViKsR , :hmgam6MErts9 ;
+        chon:hasLastHalfMove   :hmgam6MErts9 ;
+        chon:hasOpening        :opeaOViKs ;
+        chon:hasReport         :cgraOViKs ;
+        chon:hasResult         :resaOViKsR ;
+        chon:subEventOf        :touaOViK .
+
+:resaOViKsR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaOViKs .
+
+chon:HalfMove  chon:subEventOf  :gamaOViK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaOViKs .
+
+:rolhg6MErts99  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaOViKs .
+
+:opeaOViKs  a            chon:ChessOpening ;
+        chon:hasECOCode  "B70" .
+
+:touaOViK  a          chon:hessTournament ;
+        chon:atPlace  :plaaOViKs ;
+        chon:hasName  "Stockholm Interzonal" .
+
+:hmgam6MErts9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6MErts99 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schweber, Samuel" ;
+        chon:hasSANRecord      "Qa1+" , "Kh2" , "Qxd4" , "a5" , "b5" , "Re3" , "Rg3" , "Nf6" , "g6" , "Nd7" , "h3" , "cxb4" , "Raa7" , "Qg4" , "Qh4" , "d4" , "Bf5" , "Qc8" , "Rxg5" , "Bxb3" , "Qd4" , "Qc5" , "Nxd4" , "Nb3" , "Bxd4+" , "Nc3" , "a6" , "Be6" , "Rbb7" , "Qxb2" , "Re1" , "Rf1" , "cxd4" , "f4" , "Rfe1" , "Rge3" , "Bc4" , "Bd4" , "Qf5" , "Qg5" , "Ra7" , "Kh8" , "Qe2" , "d6" , "Ra8" , "Be2" , "Qf6" , "Ra4" , "Qd7" , "Ng8" , "Nxd5" , "Nd5" , "exd5" , "f5" , "g5" , "Kh1" , "b4" , "e6" , "Qxf5" , "axb3" , "Rd3" , "Qd2" , "Bg7" , "axb4" , "Rb8" , "Rxf7" , "Be3" , "c3" , "Qg7" , "Rd4" , "Qc7" , "Bc2" , "O-O" ;
+        chon:nextHalfMove      :hmgam6MErts9 .
+
+:hmgamaOViKsR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6MErts99 , chon:AgentRole , :rolhgaOViKsRa ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schweber, Samuel" ;
+        chon:hasSANRecord      "e4" , "c5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamaOViKsR , :hmgam6MErts9 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaaOViKs  a         chon:Place ;
+        chon:hasName  "Stockholm" .

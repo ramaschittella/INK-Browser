@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agSgTUY1  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+:rolSgTUY1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSgTUY1 .
+
+:opeSgTUY1  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+:touSgTUY  a          chon:hessTournament ;
+        chon:atPlace  :plaGgWGp1 ;
+        chon:hasName  "Roquebrune" .
+
+:hmgamji4dl1Y  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgji4dl1Yq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Qxf7" , "Ke7" , "Re4+" , "Na5" , "exf7" , "Rxa4" , "Qf7+" ;
+        chon:nextHalfMove      :hmgamji4dl1Y .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSgTUY1 .
+
+:gamGgWGp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSgTUY1 ;
+        chon:atPlace           :plaGgWGp1 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSgTUY19 ;
+        chon:hasHalfMove       :hmgamSgTUY19 , :hmgamji4dl1Y ;
+        chon:hasLastHalfMove   :hmgamji4dl1Y ;
+        chon:hasOpening        :opeSgTUY1 ;
+        chon:hasReport         :cgrSgTUY1 ;
+        chon:hasResult         :resSgTUY19 ;
+        chon:subEventOf        :touSgTUY .
+
+:rolhgji4dl1Yq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSgTUY1 .
+
+chon:HalfMove  chon:subEventOf  :gamGgWGp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSgTUY1 .
+
+:rolhgSgTUY192  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSgTUY1 .
+
+:hmgamSgTUY19  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSgTUY192 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "e5" , "Kxf1" , "Qd1" , "Qxc2" , "Bd5" , "a4" , "Re8" , "a3" , "Bg6" , "Bxb4" , "b6" , "Nd2" , "Ng5+" , "Nxc2" , "Qxg4" , "Kf7" , "h5" , "Nd7" , "Bd2" , "Bxa8" , "Qc7" , "Rxe6" , "Nf3" , "h3" , "Bf5" , "a5" , "d5" , "O-O" , "Nd2+" , "Nf1" , "Re7" , "Na6" , "f4" , "Qc3" , "Nxc4" , "Rf1" , "Nb8" , "Ke2" , "g4" , "d4" , "Nf6" , "Re5" , "c5" , "Qc2" , "Nxf3" , "Bxf1" , "dxe6" , "Nc6" , "c4" , "Bg2" , "cxb4" , "Nxb4" , "d6" , "Nb3" , "Ra8" , "e4" , "Kg8" , "e3" , "Ra3" , "exf3" , "Bd3" , "Nc5" , "f6" , "Nc2" , "Bb4+" , "Ne6" , "Qg6" , "b5" , "b4" , "Nbd2" , "Kf8" , "Rfc1" , "e6" , "Ne3" , "Rc8" , "g3" , "Qa3" , "axb4" , "Bd7" , "hxg4" ;
+        chon:nextHalfMove      :hmgamSgTUY19 , :hmgamji4dl1Y .
+
+:plaGgWGp1  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resSgTUY19  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrSgTUY1  a   chon:ChessGameReport .

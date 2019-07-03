@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resAFSBn5y  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgukE5EVxr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAFSBn5 .
+
+:plaAFSBn5  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:cgrAFSBn5  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAFSBn5 .
+
+chon:HalfMove  chon:subEventOf  :gamAFSBn .
+
+:agAFSBn5  a          chon:Agent ;
+        chon:hasName  "Ljubojevic, Ljubomir" , "Karpov, Anatoly" .
+
+:rolAFSBn5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAFSBn5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAFSBn5 .
+
+:opeAFSBn5  a            chon:ChessOpening ;
+        chon:hasECOCode  "D36" .
+
+:gamAFSBn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAFSBn5 ;
+        chon:atPlace           :plaAFSBn5 ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamukE5EVx ;
+        chon:hasHalfMove       :hmgamukE5EVx ;
+        chon:hasLastHalfMove   :hmgamukE5EVx ;
+        chon:hasOpening        :opeAFSBn5 ;
+        chon:hasReport         :cgrAFSBn5 ;
+        chon:hasResult         :resAFSBn5y ;
+        chon:subEventOf        :touAFSBn .
+
+:touAFSBn  a          chon:hessTournament ;
+        chon:atPlace  :plaAFSBn5 ;
+        chon:hasName  "Linares" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamukE5EVx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgukE5EVxr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Rxe7" , "R5a6+" , "Kxa6" , "Kb5" , "b5" , "Rc5" , "Ne5" , "Rea8" , "a6" , "d4" , "Rb6" , "Rg5+" , "Re8" , "Qc2" , "Rb2+" , "Ra7" , "Kc6" , "Rc5+" , "Qxe7" , "Rad8" , "c4" , "Rh8" , "Bd3" , "Nxg6" , "c6" , "Ke7" , "Nf6" , "Bxe7" , "Nf3" , "Rd6" , "Kb7" , "Rxa5+" , "Be7" , "a5" , "Ka7" , "Bxe4" , "b4" , "d5" , "Ne4" , "Qd7" , "h4" , "exd5" , "Rh5" , "Nbd7" , "Rxf7" , "dxe4" , "Rb2" , "Qxd7" , "Kf8" , "Re7" , "cxb5" , "Rxd7" , "Nc3" , "Nf8" , "Kh2" , "Rxh4+" , "hxg6" , "Kg3" , "Rc6" , "e6" , "Rca6" , "Rab1" , "Bg5" , "Ra7+" , "cxd5" , "Kd7" , "Kb8" , "O-O" , "Nxe4" , "a4" , "Rb7" , "bxa6" , "Qa4" , "Ra5" , "Ra2" , "Kc7" , "e3" , "axb5" , "Kf4" , "Ng6" , "Bf5" , "Rfc1" ;
+        chon:nextHalfMove      :hmgamukE5EVx .

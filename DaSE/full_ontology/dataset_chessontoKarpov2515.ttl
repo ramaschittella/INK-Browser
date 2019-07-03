@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opetSAXJc  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamtSAXJcm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtSAXJcmM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "e4" , "d5" , "Bd3" , "h6" , "c6" , "Nd7" , "e6" , "Nxe4" , "Qe2" , "N1f3" , "Ne4" , "dxe4" , "d4" , "Ngf6" , "Ng5" , "Nd2" , "Bd6" ;
+        chon:nextHalfMove      :hmgamtSAXJcm , :hmgamESubgbp .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtSAXJc .
+
+:rolhgESubgbpX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtSAXJc .
+
+chon:HalfMove  chon:subEventOf  :gamtSAXJ .
+
+:restSAXJcm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtSAXJc .
+
+:gamtSAXJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltSAXJc ;
+        chon:atPlace           :platSAXJc ;
+        chon:atTime            "2000.09.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtSAXJcm ;
+        chon:hasHalfMove       :hmgamESubgbp , :hmgamtSAXJcm ;
+        chon:hasLastHalfMove   :hmgamESubgbp ;
+        chon:hasOpening        :opetSAXJc ;
+        chon:hasReport         :cgrtSAXJc ;
+        chon:hasResult         :restSAXJcm ;
+        chon:subEventOf        :toutSAXJ .
+
+:toutSAXJ  a          chon:hessTournament ;
+        chon:atPlace  :platSAXJc ;
+        chon:hasName  "Super Final" .
+
+:platSAXJc  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:cgrtSAXJc  a   chon:ChessGameReport .
+
+:rolhgtSAXJcmM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtSAXJc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agtSAXJc  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Leitao,R" .
+
+:roltSAXJc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtSAXJc .
+
+:hmgamESubgbp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgESubgbpX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qh4" , "Nxe4" , "Qxe4" , "c5" , "Be4" , "Qg4" , "b3" , "Kf8" , "Bd6" , "b6" , "O-O" , "Rb8" , "Qf4" , "Qc7" , "Be7" ;
+        chon:nextHalfMove      :hmgamESubgbp .

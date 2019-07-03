@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaVhn4Ii  a         chon:Place ;
+        chon:hasName  "Nuremberg" .
+
+:gamVhn4I  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVhn4Ii ;
+        chon:atPlace           :plaVhn4Ii ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVhn4Iij ;
+        chon:hasHalfMove       :hmgam8hkhhko , :hmgamVhn4Iij ;
+        chon:hasLastHalfMove   :hmgam8hkhhko ;
+        chon:hasOpening        :opeVhn4Ii ;
+        chon:hasReport         :cgrVhn4Ii ;
+        chon:hasResult         :resVhn4Iij ;
+        chon:subEventOf        :touVhn4I .
+
+:cgrVhn4Ii  a   chon:ChessGameReport .
+
+:touVhn4I  a          chon:hessTournament ;
+        chon:atPlace  :plaVhn4Ii ;
+        chon:hasName  "Nuremberg" .
+
+:hmgam8hkhhko  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8hkhhko9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Showalter, Jackson Whipps" ;
+        chon:hasSANRecord      "c5" , "Na5" , "Kc7" , "Qe6" , "Qh3" , "Rd1" , "Bc3" , "Bd6" , "Qd7" , "Qg2" , "Rf1" , "a4" , "Qh5" , "Qb3" , "Bh6+" , "f6" , "b6" , "Bf4" , "Nb3" , "Kb1" , "a5" , "Qf3" , "Bd4" , "c6" , "Qf7+" ;
+        chon:nextHalfMove      :hmgam8hkhhko .
+
+:agVhn4Ii  a          chon:Agent ;
+        chon:hasName  "Showalter, Jackson Whipps" , "Steinitz, William" .
+
+:rolVhn4Ii  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVhn4Ii .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVhn4Ii .
+
+chon:HalfMove  chon:subEventOf  :gamVhn4I .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVhn4Ii .
+
+:rolhg8hkhhko9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVhn4Ii .
+
+:hmgamVhn4Iij  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8hkhhko9 , :rolhgVhn4IijW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Showalter, Jackson Whipps" ;
+        chon:hasSANRecord      "Bg2" , "Qf6" , "Rxd1+" , "e5" , "d5" , "Qxe6" , "h4" , "exf4" , "gxf3" , "g5" , "Ne5" , "Be3" , "dxe5" , "Bxe6+" , "Qxf3" , "Nc6" , "Qxd5" , "Nf3" , "Rxd1" , "e4" , "Bd5" , "Nc4" , "f4" , "Qe2" , "g4" , "Nd2" , "Bh3+" , "Nxe5" , "Be6" , "Qxe5" , "O-O-O" , "exd5" , "f3" , "d4" , "Qe6" ;
+        chon:nextHalfMove      :hmgamVhn4Iij , :hmgam8hkhhko .
+
+:opeVhn4Ii  a            chon:ChessOpening ;
+        chon:hasECOCode  "C39" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resVhn4Iij  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgVhn4IijW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVhn4Ii .

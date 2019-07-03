@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgTNd0KKBt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIOhVcL .
+
+:plaIOhVcL  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:cgrTNd0KK  a   chon:ChessGameReport .
+
+:resIOhVcLw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIOhVcL .
+
+:hmgamTNd0KKB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTNd0KKBt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Piket, Jeroen" ;
+        chon:hasSANRecord      "h5" , "Bf2" , "a4" , "exd5" , "Ra7" , "Nxh5" , "b6" , "Bg7" , "Rd1" , "e6" , "d5" , "e4" , "Nf6" , "R8e5" , "Qg5" , "Qxc2" , "cxd4" , "Bf4" , "a6" , "Bc2" , "Kh7" , "Bxe6" , "Rxd4" , "Qxd5" , "Re6" , "Qxd3" , "d4" , "Qc2" , "Be4" , "h6" , "c5" , "Bxd5" , "Rae7" , "O-O" , "f3" , "c4" , "Ng3" , "Qe8" , "d6" , "Na5" , "g6" , "Be3" , "dxe6" , "Nd4" , "Qg6" , "Nc6" , "cxd5" , "Nd5" , "Nc3" , "Qf6" , "Nge2" , "Qb1" , "Nxd5" , "Qd2" , "Re8" , "Bg3" , "Nf4" , "Nb3" , "Qb3" , "Bb3" , "Qf7" , "Re2" , "f4" , "Qf8" , "Qe3" , "gxh5" , "Qd1" , "f5" , "Bg5" , "Bd3" , "Qxf5" , "d3" , "h4" , "Rxc2" ;
+        chon:nextHalfMove      :hmgamTNd0KKB .
+
+chon:HalfMove  chon:subEventOf  :gamIOhVc .
+
+:rolTNd0KK  a             chon:AuthorRole ;
+        chon:performedBy  :agTNd0KK .
+
+:rolIOhVcL  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIOhVcL .
+
+:agIOhVcL  a          chon:Agent ;
+        chon:hasName  "Piket, Jeroen" , "Karpov, Anatoly" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeIOhVcL  a            chon:ChessOpening ;
+        chon:hasECOCode  "E82" .
+
+:gamIOhVc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIOhVcL ;
+        chon:atPlace           :plaIOhVcL ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTNd0KKB ;
+        chon:hasHalfMove       :hmgamTNd0KKB ;
+        chon:hasLastHalfMove   :hmgamTNd0KKB ;
+        chon:hasOpening        :opeIOhVcL ;
+        chon:hasReport         :cgrTNd0KK ;
+        chon:hasResult         :resIOhVcLw ;
+        chon:subEventOf        :touIOhVc .
+
+:touIOhVc  a          chon:hessTournament ;
+        chon:atPlace  :plaIOhVcL ;
+        chon:hasName  "Amber-blind 2nd" .

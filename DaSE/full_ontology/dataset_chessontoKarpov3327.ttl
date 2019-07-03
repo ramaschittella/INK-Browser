@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opemKJRMP  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .
+
+:hmgammKJRMPd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmKJRMPdD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nc3" , "Qh3" , "Bxb7" , "Be7" , "Qd6+" , "Rh7+" , "Qa3" , "a6" , "b5" , "b4" , "e3" , "Nd7" , "Nxe3" , "d4" , "Bd3" , "Bf2" , "Nh5" , "Rh6" , "Rxb7" , "Nf1" , "Bxe4" , "c4" , "Ne4" , "Nf3" , "Qxe7" , "Nbd2" , "Qe2" , "c5" , "Qf1" , "Rf6" , "exf5" , "f5" , "f4" , "g4" , "Qxc3" , "Bc6" , "h3" , "Bf4" , "Bg3" , "O-O" , "Nhf6" , "Nxd1" , "Rb7" , "Qxe3+" , "Kg5" , "d5" , "fxe4" , "Ne5" , "Rd1" , "Qf4" , "Qg3" , "Be5" , "f6" , "g6" , "hxg6" , "h5" , "h4" , "a3" , "Bh4" , "bxc3" , "Qe8" , "Nc6" , "c3" , "Bc2" , "Ng4" , "Rb8" , "Kf7" , "Kg6" , "Bxf6" , "e6" , "gxf5" , "Nf6" , "Qxe3" , "Nxe7+" , "Nef3" ;
+        chon:nextHalfMove      :hmgammKJRMPd .
+
+:plabKNDfQ  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbKNDfQ .
+
+:rolhgmKJRMPdD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmKJRMP , :agbKNDfQ .
+
+chon:HalfMove  chon:subEventOf  :gambKNDf .
+
+:cgrmKJRMP  a   chon:ChessGameReport .
+
+:resmKJRMPd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolbKNDfQ  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmKJRMP .
+
+:rolmKJRMP  a             chon:AuthorRole ;
+        chon:performedBy  :agmKJRMP .
+
+:agbKNDfQ  a          chon:Agent ;
+        chon:hasName  "Rebane,Raul" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gambKNDf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbKNDfQ ;
+        chon:atPlace           :plabKNDfQ ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammKJRMPd ;
+        chon:hasHalfMove       :hmgammKJRMPd ;
+        chon:hasLastHalfMove   :hmgammKJRMPd ;
+        chon:hasOpening        :opemKJRMP ;
+        chon:hasReport         :cgrmKJRMP ;
+        chon:hasResult         :resmKJRMPd ;
+        chon:subEventOf        :toubKNDf .
+
+:toubKNDf  a          chon:hessTournament ;
+        chon:atPlace  :plabKNDfQ ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+:agmKJRMP  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" .

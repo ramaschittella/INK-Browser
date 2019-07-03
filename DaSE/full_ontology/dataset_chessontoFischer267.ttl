@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touERBIf  a          chon:hessTournament ;
+        chon:atPlace  :pladProS1 ;
+        chon:hasName  "Leipzig olm prel" .
+
+:rolERBIf1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agERBIf1 .
+
+:resERBIf1P  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agERBIf1 .
+
+chon:HalfMove  chon:subEventOf  :gamdProS .
+
+:agERBIf1  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Letelier, Rene" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agERBIf1 .
+
+:opeERBIf1  a            chon:ChessOpening ;
+        chon:hasECOCode  "E70" .
+
+:gamdProS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolERBIf1 ;
+        chon:atPlace           :pladProS1 ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamERBIf1P ;
+        chon:hasHalfMove       :hmgamERBIf1P ;
+        chon:hasLastHalfMove   :hmgamERBIf1P ;
+        chon:hasOpening        :opeERBIf1 ;
+        chon:hasReport         :cgrERBIf1 ;
+        chon:hasResult         :resERBIf1P ;
+        chon:subEventOf        :touERBIf .
+
+:pladProS1  a         chon:Place ;
+        chon:hasName  "Leipzig" .
+
+:hmgamERBIf1P  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgERBIf1PD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ne8" , "Rxe3" , "Re1" , "Ne4" , "d4" , "exd6" , "c4" , "Bg7" , "gxf3" , "Kxe3" , "Qc7" , "Be3" , "f5" , "Bf3" , "e5" , "fxe6" , "dxc5" , "O-O" , "Nc3" , "Qxf4+" , "Nf6" , "e4" , "Be6" , "d6" , "Be2" , "f4" , "Kf2" , "cxd6" , "Nc6" , "Rae8" , "Bf5" , "Rxe6" , "dxe5" , "Ng3" , "Qb1" , "Nf3" , "Rfe8" , "g6" , "exf3" , "c5" ;
+        chon:nextHalfMove      :hmgamERBIf1P .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrERBIf1  a   chon:ChessGameReport .
+
+:rolhgERBIf1PD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agERBIf1 .

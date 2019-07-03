@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam9eiTLFm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9eiTLFmI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Forintos, Gyozo V" ;
+        chon:hasSANRecord      "Rfd8" , "Kg5" , "Ke8" , "f4" , "cxd4" , "Rc3" , "Nbc4" , "Bxe4" , "Rxd8" , "f5" , "g4" , "a5" , "Rf5" , "Be7" , "Bb7" , "Kf2" , "Bf6" , "Bc6" , "Nfd5" , "Bc5" , "Nxe5" , "Bd4" , "hxg4" , "exd4" , "Nxf6+" , "Bd5" , "Rxd8+" , "Nd2" , "Nxc6" , "Nf1" , "Rd1" , "Rg2+" , "Rd5" , "Rd4" , "Nh4" , "Nb4" , "Nhf3" , "Rg5" , "Nbd7" , "c5" , "h5" , "Raxd1" , "Nh5" , "Qxd1" , "dxc6" , "Na5" , "Re1" , "Be3" , "d5" , "Rd3" , "Kg3" , "Rd2" , "Be5" , "f3" , "gxf6" , "Bxc4" , "Nxc4" , "Ne5" , "Nb6" , "Rh3" , "Rd2+" , "Ng3" , "Kh4" , "Rxe5" , "dxe5" , "a4" , "a3" , "Re3" , "Kf8" , "Bxf6" ;
+        chon:nextHalfMove      :hmgam9eiTLFm .
+
+:reschBK2F7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opechBK2F  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:rolhgchBK2F7L  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agchBK2F .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agchBK2F .
+
+chon:HalfMove  chon:subEventOf  :gamchBK2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agchBK2F .
+
+:plachBK2F  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:rolhg9eiTLFmI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agchBK2F .
+
+:cgrchBK2F  a   chon:ChessGameReport .
+
+:agchBK2F  a          chon:Agent ;
+        chon:hasName  "Forintos, Gyozo V" , "Fischer, Robert James" .
+
+:rolchBK2F  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agchBK2F .
+
+:hmgamchBK2F7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9eiTLFmI , chon:AgentRole , :rolhgchBK2F7L ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Forintos, Gyozo V" ;
+        chon:hasSANRecord      "b5" , "Ba4" , "Bb3" , "Nf3" , "d4" , "e5" , "Nc6" , "h3" , "Be7" , "e4" , "O-O" , "Bb5" , "Nf6" , "a6" , "d6" , "Nb8" , "c3" , "Re1" ;
+        chon:nextHalfMove      :hmgamchBK2F7 , :hmgam9eiTLFm .
+
+:gamchBK2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolchBK2F ;
+        chon:atPlace           :plachBK2F ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamchBK2F7 ;
+        chon:hasHalfMove       :hmgam9eiTLFm , :hmgamchBK2F7 ;
+        chon:hasLastHalfMove   :hmgam9eiTLFm ;
+        chon:hasOpening        :opechBK2F ;
+        chon:hasReport         :cgrchBK2F ;
+        chon:hasResult         :reschBK2F7 ;
+        chon:subEventOf        :touchBK2 .
+
+:touchBK2  a          chon:hessTournament ;
+        chon:atPlace  :plachBK2F ;
+        chon:hasName  "Monte Carlo" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

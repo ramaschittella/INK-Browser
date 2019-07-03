@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toujdTTx  a          chon:hessTournament ;
+        chon:atPlace  :plajdTTxP ;
+        chon:hasName  "World Championship 2nd" .
+
+:cgrf0A3hP  a   chon:ChessGameReport .
+
+:resf0A3hPw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agf0A3hP  a          chon:Agent ;
+        chon:hasName  "Chigorin, Mikhail" , "Steinitz, William" .
+
+:rolf0A3hP  a             chon:AuthorRole ;
+        chon:performedBy  :agf0A3hP .
+
+:opef0A3hP  a            chon:ChessOpening ;
+        chon:hasECOCode  "D02" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agf0A3hP .
+
+:rolhgf0A3hPwq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agf0A3hP .
+
+chon:HalfMove  chon:subEventOf  :gamjdTTx .
+
+:rolhgr0xgOOzD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agf0A3hP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agf0A3hP .
+
+:plajdTTxP  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:hmgamr0xgOOz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgr0xgOOzD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Qc1+" , "b8=Q" ;
+        chon:nextHalfMove      :hmgamr0xgOOz .
+
+:roljdTTxP  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamf0A3hPw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgr0xgOOzD , :rolhgf0A3hPwq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Nxd2" , "Qxd1+" , "e4" , "f4" , "Nc6" , "Kd4" , "Rxd2" , "Bxc6" , "Nc3" , "Bxf7" , "Nf4" , "Kc1" , "c4" , "d4" , "Rf3" , "b7" , "dxc4" , "Rxf5+" , "Nge7" , "h5" , "Bb6" , "gxf3" , "Bg4" , "Nd4" , "a4" , "Rf8" , "h2" , "e5" , "Bb3" , "Rxd8+" , "axb6" , "Kc5" , "dxe5" , "Kxd1" , "h1=Q" , "Ne2+" , "Nxf4" , "Kd2" , "bxc6" , "d5" , "Bxc4" , "Rd8+" , "Rf2+" , "Kxd8" , "Nd5" , "Rg1" , "a5" , "Rh3+" , "exf5" , "h3" , "Rb5" , "Bxf2" , "e6" , "Ke3" , "Ba4" , "Ng6" , "c6" , "Rg5" , "Rf5" , "Bc5" , "Rxh2" , "Nf3" , "Ke7" , "Nxb6" , "Rg2" , "h4" , "Bd2" , "Bxf3" ;
+        chon:nextHalfMove      :hmgamf0A3hPw , :hmgamr0xgOOz .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamjdTTx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljdTTxP ;
+        chon:atPlace           :plajdTTxP ;
+        chon:atTime            "1889.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamf0A3hPw ;
+        chon:hasHalfMove       :hmgamr0xgOOz , :hmgamf0A3hPw ;
+        chon:hasLastHalfMove   :hmgamr0xgOOz ;
+        chon:hasOpening        :opef0A3hP ;
+        chon:hasReport         :cgrf0A3hP ;
+        chon:hasResult         :resf0A3hPw ;
+        chon:subEventOf        :toujdTTx .

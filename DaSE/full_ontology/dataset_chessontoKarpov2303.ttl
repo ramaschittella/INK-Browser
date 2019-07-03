@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolrYVm4K  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrYVm4K .
+
+:tourYVm4  a          chon:hessTournament ;
+        chon:atPlace  :plarYVm4K ;
+        chon:hasName  "Amber-rapid 7th" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrYVm4K .
+
+chon:HalfMove  chon:subEventOf  :gamrYVm4 .
+
+:hmgamDYSAAJ0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDYSAAJ0t ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov, Alexei" ;
+        chon:hasSANRecord      "Ne5" , "Ba4" , "a6" , "O-O" , "Nd2" , "c5" , "Nc6" , "bxc4" , "Re8" , "Qc2" , "Re1" , "Bd7" , "Bg2" , "d5" , "e4" , "Nf3" , "Nc3" , "g3" , "Bf5" , "Rb8" , "a3" , "Rxb1" , "b5" , "Bg7" , "Rb1" , "Qb6" , "d6" , "Nd1" , "f4" , "Qxa4" , "Ncxb1" , "Nxe1" , "h3" , "Na5" , "Nd3" , "b3" , "Ng4" ;
+        chon:nextHalfMove      :hmgamDYSAAJ0 , :hmgamyWzJjJp .
+
+:plarYVm4K  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:rolhgyWzJjJpt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrYVm4K .
+
+:hmgamyWzJjJp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyWzJjJpt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov, Alexei" ;
+        chon:hasSANRecord      "e5" , "Rxa3" , "h4" , "Rb3" , "h5" , "Kh2" , "Nxe1" , "Qd8+" , "Qd2+" , "Qb1" , "Bf3" , "Ng2" , "Rxf3" , "Qxa5" , "Qxe7" , "Bd4+" , "Qxc1" , "dxe5" , "Qxd1" , "Kg7" ;
+        chon:nextHalfMove      :hmgamyWzJjJp .
+
+:agrYVm4K  a          chon:Agent ;
+        chon:hasName  "Shirov, Alexei" , "Karpov, Anatoly" .
+
+:operYVm4K  a            chon:ChessOpening ;
+        chon:hasECOCode  "E63" .
+
+:rolhgrYVm4K7i  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrYVm4K .
+
+:cgrrYVm4K  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resrYVm4K7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamrYVm4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrYVm4K ;
+        chon:atPlace           :plarYVm4K ;
+        chon:atTime            "1998.03.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrYVm4K7 ;
+        chon:hasHalfMove       :hmgamyWzJjJp , :hmgamrYVm4K7 , :hmgamDYSAAJ0 ;
+        chon:hasLastHalfMove   :hmgamyWzJjJp ;
+        chon:hasOpening        :operYVm4K ;
+        chon:hasReport         :cgrrYVm4K ;
+        chon:hasResult         :resrYVm4K7 ;
+        chon:subEventOf        :tourYVm4 .
+
+:hmgamrYVm4K7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrYVm4K7i , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov, Alexei" ;
+        chon:hasSANRecord      "g6" , "Nf6" , "d4" , "c4" ;
+        chon:nextHalfMove      :hmgamrYVm4K7 , :hmgamDYSAAJ0 .
+
+:rolhgDYSAAJ0t  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrYVm4K .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrYVm4K .

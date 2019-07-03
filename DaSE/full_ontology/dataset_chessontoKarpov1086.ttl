@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resEnFW1Yq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agEnFW1Y  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Sokolov, Andrei" .
+
+:rolEnFW1Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEnFW1Y .
+
+:opeEnFW1Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:rolhgQnSaxXtL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEnFW1Y .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEnFW1Y .
+
+chon:HalfMove  chon:subEventOf  :gamEnFW1 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEnFW1Y .
+
+:hmgamQnSaxXt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQnSaxXtL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "N5f3" , "Kc2" , "Rxd3" , "Rb8" , "Nbd7" , "Nb6" , "Ke2" , "Rd2" , "Bd2" , "a5" , "Rae1" , "Bd6" , "Bb5" , "dxc5" , "Ke8" , "bxa3" , "Nxd7" , "Bc4" , "Bxc5" , "Ngf3" , "Rb8+" , "Kd3" , "h6" , "O-O" , "Nd2" , "Rb7" , "d5" , "Nxd3" , "Ra8" , "Nxb4" , "Nd5" , "Rd1" , "a3" , "a4" , "Qxe5" , "Ree1" , "Qc7" , "Ke7" , "c3" , "Rd7" , "Rb3" , "Ngf6" , "Bxb5" , "Kb3" , "axb4" , "Kf1" , "Rxd2" , "Rfd8" , "e4" , "Nxe4" , "Ne5" , "b4" , "b5" , "Kc4" , "Qe2" , "Kf8" , "Nd7" , "d4" , "Bd3" , "dxe4" , "c5" , "c6" , "Rb7+" , "Rc5" , "Bxe5" , "Rxa3" , "Rxd1" , "g3" , "Bxd7" , "Ng5" , "Rc8" , "e6" , "Rxe5" ;
+        chon:nextHalfMove      :hmgamQnSaxXt .
+
+:gamEnFW1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEnFW1Y ;
+        chon:atPlace           :plaEnFW1Y ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQnSaxXt ;
+        chon:hasHalfMove       :hmgamQnSaxXt ;
+        chon:hasLastHalfMove   :hmgamQnSaxXt ;
+        chon:hasOpening        :opeEnFW1Y ;
+        chon:hasReport         :cgrEnFW1Y ;
+        chon:hasResult         :resEnFW1Yq ;
+        chon:subEventOf        :touEnFW1 .
+
+:plaEnFW1Y  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:touEnFW1  a          chon:hessTournament ;
+        chon:atPlace  :plaEnFW1Y ;
+        chon:hasName  "Linares cf" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrEnFW1Y  a   chon:ChessGameReport .

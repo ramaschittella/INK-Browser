@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrywHHK1  a   chon:ChessGameReport .
+
+:resywHHK1b  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:playwHHK1  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agywHHK1 .
+
+:rolhgywHHK1bi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agywHHK1 .
+
+chon:HalfMove  chon:subEventOf  :gamywHHK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agywHHK1 .
+
+:agywHHK1  a          chon:Agent ;
+        chon:hasName  "Malaniuk, Vladimir P" , "Karpov, Anatoly" .
+
+:rolywHHK1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agywHHK1 .
+
+:rolhguuoQuYth  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agywHHK1 .
+
+:opeywHHK1  a            chon:ChessOpening ;
+        chon:hasECOCode  "A88" .
+
+:gamywHHK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolywHHK1 ;
+        chon:atPlace           :playwHHK1 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamywHHK1b ;
+        chon:hasHalfMove       :hmgamywHHK1b , :hmgamuuoQuYt ;
+        chon:hasLastHalfMove   :hmgamuuoQuYt ;
+        chon:hasOpening        :opeywHHK1 ;
+        chon:hasReport         :cgrywHHK1 ;
+        chon:hasResult         :resywHHK1b ;
+        chon:subEventOf        :touywHHK .
+
+:touywHHK  a          chon:hessTournament ;
+        chon:atPlace  :playwHHK1 ;
+        chon:hasName  "URS-ch55" .
+
+:hmgamuuoQuYt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhguuoQuYth ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Malaniuk, Vladimir P" ;
+        chon:hasSANRecord      "d6" , "Rxe7" , "g4" , "Kf7" , "Rxe5" , "Rf6" , "Kg8" , "hxg4" , "dxe5" , "Bxe6" , "h5" , "Bb2" , "Re3" , "Bd3" , "Qd4" , "Bd5+" , "Bxe7" , "d5" , "Qxe5" , "Rf5" , "Rde1" , "c5" , "Bd7" , "Re5" , "Qf8" , "Nxe6" , "Bf5" ;
+        chon:nextHalfMove      :hmgamuuoQuYt .
+
+:hmgamywHHK1b  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhguuoQuYth , :rolhgywHHK1bi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Malaniuk, Vladimir P" ;
+        chon:hasSANRecord      "Ne6" , "Nxe4" , "Na6" , "g3" , "b3" , "Rfe1" , "Re2" , "c4" , "Nxf6" , "Nf3" , "fxe4" , "d6" , "Ng5" , "c6" , "Bc8" , "Qd2" , "Qe8" , "Ba3" , "Rd8" , "g6" , "d4" , "Bg2" , "Bxf6" , "f5" , "h3" , "Nc3" , "Qd3" , "Qg8" , "Rad1" , "Bf5" , "Nc7" , "Bd7" , "Qf7" , "e4" , "Nf6" , "Bg7" , "Kh8" , "O-O" , "Qe3" ;
+        chon:nextHalfMove      :hmgamywHHK1b , :hmgamuuoQuYt .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

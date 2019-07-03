@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agPf72wS  a          chon:Agent ;
+        chon:hasName  "Nakamura,Hi" , "Karpov,Ana" .
+
+:rolPf72wS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPf72wS .
+
+:opePf72wS  a            chon:ChessOpening ;
+        chon:hasECOCode  "A87" .
+
+:rolhg2f3g4SNQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPf72wS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPf72wS .
+
+chon:HalfMove  chon:subEventOf  :gamPf72w .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPf72wS .
+
+:gamPf72w  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPf72wS ;
+        chon:atPlace           :plaPf72wS ;
+        chon:atTime            "2008.10.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2f3g4SN ;
+        chon:hasHalfMove       :hmgam2f3g4SN ;
+        chon:hasLastHalfMove   :hmgam2f3g4SN ;
+        chon:hasOpening        :opePf72wS ;
+        chon:hasReport         :cgrPf72wS ;
+        chon:hasResult         :resPf72wSI ;
+        chon:subEventOf        :touPf72w .
+
+:touPf72w  a          chon:hessTournament ;
+        chon:atPlace  :plaPf72wS ;
+        chon:hasName  "Trophee CCAS GpB" .
+
+:resPf72wSI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgam2f3g4SN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2f3g4SNQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nakamura,Hi" ;
+        chon:hasSANRecord      "Kxe4" , "Nxe6" , "Rf8" , "Rb7" , "Ra7" , "Rbe8" , "Bg2" , "b4" , "Nf6" , "Bxc4" , "f5" , "e5" , "Qd2" , "b5" , "Rc8+" , "Rf1" , "Qg4+" , "c4" , "Qxf7" , "Rc6" , "Kg3" , "Be2" , "Kg7" , "Rd7+" , "d4" , "Kg2" , "Qf5" , "Be6" , "Qxh4" , "Bf1" , "Re7" , "Na6" , "Be5" , "Nxe4" , "Bxf4" , "Nf3" , "a4" , "e3" , "Rxd5" , "Bxd5+" , "h4" , "a6" , "Bxb7" , "axb5" , "Nc5" , "Bg5" , "Rd6" , "Kg5" , "Ra1" , "Ne4" , "Rb1" , "Nd4" , "gxf4" , "Rfb1" , "d6" , "Rh1" , "Qe8" , "Bxe6" , "Rab8" , "Bf4" , "O-O" , "Qf7" , "Ra8" , "b6" , "Rc5" , "Kf4" , "Nc3" , "Bc4" , "Bh3" , "Rg2" , "dxe6" , "g3" , "Bg7" , "Rf7" , "Qxf4" , "Rxf2+" , "Rc7" , "g6" , "Qf6" , "h5" , "Rxf4" , "fxe4" , "cxb6" , "d5" , "Rxf7" , "Bxd5" , "Kd4" , "Rg1+" , "Rxb6" , "Be3" ;
+        chon:nextHalfMove      :hmgam2f3g4SN .
+
+:plaPf72wS  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrPf72wS  a   chon:ChessGameReport .

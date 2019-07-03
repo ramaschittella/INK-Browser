@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamvrFiS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvrFiSW ;
+        chon:atPlace           :plavrFiSW ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvrFiSWO ;
+        chon:hasHalfMove       :hmgamvrFiSWO ;
+        chon:hasLastHalfMove   :hmgamvrFiSWO ;
+        chon:hasOpening        :opevrFiSW ;
+        chon:hasReport         :cgrvrFiSW ;
+        chon:hasResult         :resvrFiSWO ;
+        chon:subEventOf        :touvrFiS .
+
+:touvrFiS  a          chon:hessTournament ;
+        chon:atPlace  :plavrFiSW ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+:hmgamvrFiSWO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvrFiSWO4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kovacevic, Vlatko" ;
+        chon:hasSANRecord      "O-O-O" , "Rh1" , "Nbd7" , "f3" , "Rxh2" , "O-O" , "Rh8" , "d4" , "h6" , "Ngf4" , "Nxf4" , "Bd2" , "Rg8" , "Bxf4" , "Ng6" , "Rf2" , "Bb7" , "Qb5" , "Nf8" , "Qxg7" , "Qh4+" , "a3" , "e6" , "a6" , "Bxc3+" , "b6" , "Qe3" , "Bg5" , "Bb4" , "d5" , "dxe4" , "Nf1" , "Re1" , "Kd2" , "Nd5" , "Qh4" , "Qh6" , "Nc3" , "Kf2" , "Rdg8" , "Ng3" , "Qe7" , "e4" , "e3" , "Qxh2" , "bxc3" , "Qxh6" , "Be2" , "Ne2" , "Rxg2+" , "Qg5" , "Ke1" , "Qg4" , "Qd3" , "Bxe3" , "Nf6" ;
+        chon:nextHalfMove      :hmgamvrFiSWO .
+
+:agvrFiSW  a          chon:Agent ;
+        chon:hasName  "Kovacevic, Vlatko" , "Fischer, Robert James" .
+
+:rolvrFiSW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvrFiSW .
+
+:opevrFiSW  a            chon:ChessOpening ;
+        chon:hasECOCode  "C15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvrFiSW .
+
+chon:HalfMove  chon:subEventOf  :gamvrFiS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvrFiSW .
+
+:rolhgvrFiSWO4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvrFiSW .
+
+:cgrvrFiSW  a   chon:ChessGameReport .
+
+:resvrFiSWO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plavrFiSW  a         chon:Place ;
+        chon:hasName  "Zagreb" .

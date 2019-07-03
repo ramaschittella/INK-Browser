@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgNTSeWo1W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSTV1pp .
+
+:gamGVeRF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSTV1pp ;
+        chon:atPlace           :plaGVeRFr ;
+        chon:atTime            "1874.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSTV1ppV ;
+        chon:hasHalfMove       :hmgamSTV1ppV , :hmgamNTSeWo1 ;
+        chon:hasLastHalfMove   :hmgamNTSeWo1 ;
+        chon:hasOpening        :opeSTV1pp ;
+        chon:hasReport         :cgrSTV1pp ;
+        chon:hasResult         :resSTV1ppV ;
+        chon:subEventOf        :touGVeRF .
+
+:resSTV1ppV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touGVeRF  a          chon:hessTournament ;
+        chon:atPlace  :plaGVeRFr ;
+        chon:hasName  "GBR tour sim" .
+
+:hmgamSTV1ppV  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNTSeWo1W , :rolhgSTV1ppVL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Bc5" , "f5" , "h3" , "e5" , "Nf6" , "Nf3" , "Bc4" , "Nc6" , "f4" , "e4" , "d3" , "Qe2" , "c3" ;
+        chon:nextHalfMove      :hmgamSTV1ppV , :hmgamNTSeWo1 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSTV1pp .
+
+chon:HalfMove  chon:subEventOf  :gamGVeRF .
+
+:opeSTV1pp  a            chon:ChessOpening ;
+        chon:hasECOCode  "C50" .
+
+:agSTV1pp  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Simon" .
+
+:rolSTV1pp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSTV1pp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSTV1pp .
+
+:plaGVeRFr  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+:hmgamNTSeWo1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNTSeWo1W ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "a5" , "Kd1" , "Nxg3" , "fxe3" , "h5" , "b4" , "g3" , "Ng5" , "Bxe6" , "Rg8" , "Rf1" , "Nf5+" , "d4" , "Nd8" , "Nd2" , "Nh2" , "Qg1" , "d6" , "c4" , "Qe1" , "Nhf1" , "Ngxe4" , "Be6" , "a4" , "Bb6" , "Kf7" , "Ne3" , "hxg4" , "d5" , "Bxe3+" , "O-O-O" , "Qf5" , "Qf2" , "Rxh8" , "b5" , "Qd3+" , "Qd7" , "h6" , "Nf7" , "g5" , "g4" , "Nbd2" , "Ke7" , "Rh3" , "f3" , "Rh8" , "Bb2" , "Qxe6" , "Nb3" , "Nxe4" , "Qe7" ;
+        chon:nextHalfMove      :hmgamNTSeWo1 .
+
+:rolhgSTV1ppVL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSTV1pp .
+
+:cgrSTV1pp  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamMbpA7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMbpA7W ;
+        chon:atPlace           :plaMbpA7W ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMbpA7Wz ;
+        chon:hasHalfMove       :hmgamH09JPVS , :hmgamMbpA7Wz ;
+        chon:hasLastHalfMove   :hmgamH09JPVS ;
+        chon:hasOpening        :opeMbpA7W ;
+        chon:hasReport         :cgrMbpA7W ;
+        chon:hasResult         :resMbpA7Wz ;
+        chon:subEventOf        :touMbpA7 .
+
+:touMbpA7  a          chon:hessTournament ;
+        chon:atPlace  :plaMbpA7W ;
+        chon:hasName  "Vienna" .
+
+:plaMbpA7W  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:rolhgH09JPVS1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMbpA7W .
+
+:hmgamH09JPVS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgH09JPVS1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nxe1" , "Rxa3" , "Nxe6" , "Nd7" , "Bd6" , "Kf7" , "Ra1" , "Nxg5" , "Bxd8" , "Ba5" , "Kh2" , "a3" , "h5" , "Nf2" , "Bb6" , "Rae1" , "Nf8" , "Be7" , "Rxb3" , "b4" , "Bb3" , "fxg5" , "Bxa7" , "Nxd3" , "Nb2" , "Rxe1+" , "f6" , "Qg5" , "Be5" , "Rxe1" , "Bxd4" , "Rcd8" ;
+        chon:nextHalfMove      :hmgamH09JPVS .
+
+:cgrMbpA7W  a   chon:ChessGameReport .
+
+:rolhgMbpA7Wz3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMbpA7W .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMbpA7W .
+
+:hmgamMbpA7Wz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMbpA7Wz3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nc3" , "Ba4" , "d5" , "Ne7" , "O-O" , "Bg3" , "c3" , "b4" , "c6" , "cxb4" , "Nc4" , "Bc2" , "Nbc6" , "h4" , "Be6" , "e4" , "exf4" , "Bb4" , "cxd5" , "Bxb4" , "b5" , "Nf4" , "Ng6" , "exd5" , "Be7" , "Qd3" , "e5" , "Bb5+" , "Nd1" , "Re8" , "f4" , "Nge2" , "Na5" , "Bxf4" , "Bc4" , "Rc8" , "d4" ;
+        chon:nextHalfMove      :hmgamH09JPVS , :hmgamMbpA7Wz .
+
+:agMbpA7W  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Marco, Georg" .
+
+:rolMbpA7W  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMbpA7W .
+
+chon:HalfMove  chon:subEventOf  :gamMbpA7 .
+
+:opeMbpA7W  a            chon:ChessOpening ;
+        chon:hasECOCode  "C33" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMbpA7W .
+
+:resMbpA7Wz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

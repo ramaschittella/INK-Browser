@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaGOUVpD  a         chon:Place ;
+        chon:hasName  "Polanica Zdroj" .
+
+:res8Q7eLFv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8Q7eLF .
+
+chon:HalfMove  chon:subEventOf  :gamGOUVp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8Q7eLF .
+
+:gamGOUVp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8Q7eLF ;
+        chon:atPlace           :plaGOUVpD ;
+        chon:atTime            "1998.08.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8Q7eLFv ;
+        chon:hasHalfMove       :hmgam8Q7eLFv ;
+        chon:hasLastHalfMove   :hmgam8Q7eLFv ;
+        chon:hasOpening        :ope8Q7eLF ;
+        chon:hasReport         :cgr8Q7eLF ;
+        chon:hasResult         :res8Q7eLFv ;
+        chon:subEventOf        :touGOUVp .
+
+:cgr8Q7eLF  a   chon:ChessGameReport .
+
+:hmgam8Q7eLFv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8Q7eLFv3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd2" , "Re1" , "Bxd4" , "Qc8" , "Nh4" , "Ba6" , "Kg2" , "Bxc3" , "Qb7" , "b6" , "cxd4" , "Nxg2" , "b3" , "e4" , "Nxd5" , "c5" , "f6" , "Nc3" , "d5" , "f3" , "e6" , "g3" , "Nbd7" , "cxb5" , "Ne3" , "Qxd5" , "Bg2" , "e5" , "exd5" , "Bxg2" , "Rc8" , "d4" , "Bb4" , "Bc6" , "c4" , "Bc3" , "Rxc1" , "d6" , "Bd5" , "Bxb5" , "Qc2" , "h6" , "b5" , "Nf6" , "Qe2" , "Qb2" , "Rc1" , "Nf3" , "O-O" ;
+        chon:nextHalfMove      :hmgam8Q7eLFv .
+
+:ag8Q7eLF  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Oll, Lembit" .
+
+:rol8Q7eLF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8Q7eLF .
+
+:ope8Q7eLF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touGOUVp  a          chon:hessTournament ;
+        chon:atPlace  :plaGOUVpD ;
+        chon:hasName  "Rubinstein mem 35th" .
+
+:rolhg8Q7eLFv3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8Q7eLF .

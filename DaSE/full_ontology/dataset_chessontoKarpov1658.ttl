@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touxlSaj  a          chon:hessTournament ;
+        chon:atPlace  :plaxlSaj2 ;
+        chon:hasName  "Amber-rapid 2nd" .
+
+:resxlSaj2j  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaxlSaj2  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:cgrxlSaj2  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxlSaj2 .
+
+:agxlSaj2  a          chon:Agent ;
+        chon:hasName  "Seirawan, Yasser" , "Karpov, Anatoly" .
+
+:rolxlSaj2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxlSaj2 .
+
+:rolhgxlSaj2jy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxlSaj2 .
+
+chon:HalfMove  chon:subEventOf  :gamxlSaj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxlSaj2 .
+
+:hmgamIlOoQ3m  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIlOoQ3mJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan, Yasser" ;
+        chon:hasSANRecord      "Rc8" , "Rxa7" , "bxa5" , "a4" , "Nb5" , "g6" , "Qc6" , "Qa4" , "h6" , "Re6" , "Rd5" , "a5" , "Nc3" , "Nxc7" , "Ne8" , "Qe7" , "Qc8" , "Qc7" , "Nxd6" , "Qxd8" , "Rd7" , "Qxc7" , "Rxd8+" , "h3" , "Ne1" ;
+        chon:nextHalfMove      :hmgamIlOoQ3m .
+
+:rolhgIlOoQ3mJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxlSaj2 .
+
+:hmgamxlSaj2j  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxlSaj2jy , chon:AgentRole , :rolhgIlOoQ3mJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan, Yasser" ;
+        chon:hasSANRecord      "Nc3" , "d4" , "Nf6" , "b6" , "Bg4" , "Nf3" , "exd5" , "d5" , "Qd4" , "Qxd2" , "Rfd1" , "Nc6" , "Rad8" , "Na5" , "Qf6" , "cxd4" , "Rac1" , "c4" , "Qxg4" , "c5" , "Be2" , "Bd2" , "Nxc3" , "Bxd2+" , "bxc3" , "d6" , "e6" , "Nb7" , "Rfe8" , "e4" , "Bb4+" , "Rxe2" , "Bc4" , "Nxd5" , "O-O" , "cxd5" ;
+        chon:nextHalfMove      :hmgamxlSaj2j , :hmgamIlOoQ3m .
+
+:opexlSaj2  a            chon:ChessOpening ;
+        chon:hasECOCode  "D41" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamxlSaj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxlSaj2 ;
+        chon:atPlace           :plaxlSaj2 ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxlSaj2j ;
+        chon:hasHalfMove       :hmgamIlOoQ3m , :hmgamxlSaj2j ;
+        chon:hasLastHalfMove   :hmgamIlOoQ3m ;
+        chon:hasOpening        :opexlSaj2 ;
+        chon:hasReport         :cgrxlSaj2 ;
+        chon:hasResult         :resxlSaj2j ;
+        chon:subEventOf        :touxlSaj .

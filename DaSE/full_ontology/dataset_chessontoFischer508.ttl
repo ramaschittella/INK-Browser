@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag3FfZqm  a          chon:Agent ;
+        chon:hasName  "Zuckerman, Bernard" , "Fischer, Robert James" .
+
+:ope3FfZqm  a            chon:ChessOpening ;
+        chon:hasECOCode  "B87" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3FfZqm .
+
+chon:HalfMove  chon:subEventOf  :gam3FfZq .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3FfZqm .
+
+:gam3FfZq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3FfZqm ;
+        chon:atPlace           :pla3FfZqm ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3FfZqmz ;
+        chon:hasHalfMove       :hmgameFbcXlS , :hmgam3FfZqmz ;
+        chon:hasLastHalfMove   :hmgameFbcXlS ;
+        chon:hasOpening        :ope3FfZqm ;
+        chon:hasReport         :cgr3FfZqm ;
+        chon:hasResult         :res3FfZqmz ;
+        chon:subEventOf        :tou3FfZq .
+
+:hmgam3FfZqmz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3FfZqmza , :rolhgeFbcXlSl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zuckerman, Bernard" ;
+        chon:hasSANRecord      "Bb7" , "e6" , "f5" , "a6" , "d4" , "c5" , "d6" , "f4" , "Nxf6" , "Be7" , "Nf6" , "Bb3" , "cxd4" , "Bxf6" , "Nbd7" , "Bc4" , "Nc3" , "b5" , "e5" , "Nde2" , "e4" , "Nxd4" , "Nf3" , "Qd3" , "Bg5" ;
+        chon:nextHalfMove      :hmgam3FfZqmz , :hmgameFbcXlS .
+
+:tou3FfZq  a          chon:hessTournament ;
+        chon:atPlace  :pla3FfZqm ;
+        chon:hasName  "USA-ch" .
+
+:pla3FfZqm  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:rolhg3FfZqmza  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3FfZqm .
+
+:cgr3FfZqm  a   chon:ChessGameReport .
+
+:rolhgeFbcXlSl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3FfZqm .
+
+:hmgameFbcXlS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeFbcXlSl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zuckerman, Bernard" ;
+        chon:hasSANRecord      "exd5" , "Be7" , "Bxd5" , "b3" , "Bb5" , "a4" , "d4" , "Rxc5" , "Ng3" , "Kf8" , "Qd3" , "Rb8" , "Rc5" , "Qd5" , "Nxe4" , "Kg6" , "Ka7" , "Kh5" , "Qd6" , "Qc5" , "Bf6" , "Kb6" , "h6" , "Qb6" , "Qg4" , "Qxd4+" , "Qf7+" , "Bf8" , "b4" , "Kc7" , "Kb8" , "Qxc5" , "Kh2" , "Bb6" , "Bc6" , "Kh1" , "a5" , "Bd6" , "Qb5+" , "Qc3" , "Kg2" , "Rae1" , "Kxh6" , "Qe8" , "Qc6" , "Qg6" , "Qxe4" , "Kb7" , "Rc8" , "Kd8" , "g3" , "Qd8" , "Bc7" , "R8xc6" , "Ne4" , "Qe2" , "Kh3" , "Rbc8" , "Re2" , "f6" , "Rd2" , "O-O" , "Re4" , "dxc6" , "Nd5" , "Kxg7" , "d5" , "Qxc6" , "Rc4" , "Kg4" , "Ke7" , "Ba6" , "Rf2" , "Rg2" , "Rfc8" , "Bc4" , "h4" ;
+        chon:nextHalfMove      :hmgameFbcXlS .
+
+:res3FfZqmz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rol3FfZqm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3FfZqm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

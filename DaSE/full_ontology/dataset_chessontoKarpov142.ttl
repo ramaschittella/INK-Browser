@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhghdZnln6R  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agafl14o , :agmfieSn .
+
+:hmgamhdZnln6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghdZnln6R , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a3" , "bxa3" , "Rxa3" , "Qc5" , "Bc6" , "Bb5" , "Qf5" , "Rb3" , "Rc3" , "Qb4" ;
+        chon:nextHalfMove      :hmgamhdZnln6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmfieSn .
+
+:gamafl14  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolafl14o ;
+        chon:atPlace           :plaafl14o ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammfieSnP ;
+        chon:hasHalfMove       :hmgamhdZnln6 , :hmgammfieSnP ;
+        chon:hasLastHalfMove   :hmgamhdZnln6 ;
+        chon:hasOpening        :opemfieSn ;
+        chon:hasReport         :cgrmfieSn ;
+        chon:hasResult         :resmfieSnP ;
+        chon:subEventOf        :touafl14 .
+
+:plaafl14o  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:HalfMove  chon:subEventOf  :gamafl14 .
+
+:resmfieSnP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agafl14o  a          chon:Agent ;
+        chon:hasName  "Byrne, Robert E" .
+
+:agmfieSn  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:cgrmfieSn  a   chon:ChessGameReport .
+
+:hmgammfieSnP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmfieSnPT , :rolhghdZnln6R , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf6" , "e4" , "a6" , "Nf3" , "c5" , "Nf2" , "Nd1" , "Kh1" , "Nc6" , "Ng4" , "d6" , "Qe2" , "b5" , "Bc5" , "Bxc5" , "d4" , "Qxc5+" , "Nc3" , "e5" , "b4" , "Be3" , "cxd4" , "Bxd4" , "Qxg4" , "e6" , "Nxd4" , "O-O" , "Bb7" , "f4" , "Nxg4" , "Bd3" , "Qc7" ;
+        chon:nextHalfMove      :hmgamhdZnln6 , :hmgammfieSnP .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touafl14  a          chon:hessTournament ;
+        chon:atPlace  :plaafl14o ;
+        chon:hasName  "Moscow" .
+
+:opemfieSn  a            chon:ChessOpening ;
+        chon:hasECOCode  "B48" .
+
+:rolhgmfieSnPT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmfieSn , :agafl14o .
+
+:rolmfieSn  a             chon:AuthorRole ;
+        chon:performedBy  :agmfieSn .
+
+:rolafl14o  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agafl14o .

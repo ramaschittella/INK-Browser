@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr3TrbZa  a   chon:ChessGameReport .
+
+:hmgam3TrbZa2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3TrbZa2T ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Bd6" , "d5" , "e6" , "Ngf6" , "d4" , "e4" , "c6" , "Nd7" , "Ng5" , "dxe4" , "N1f3" , "Bd3" , "Nc3" , "Nxe4" ;
+        chon:nextHalfMove      :hmgam3TrbZa2 , :hmgamtVDvmbQ .
+
+:rolhgtVDvmbQk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3TrbZa .
+
+:gam3TrbZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3TrbZa ;
+        chon:atPlace           :pla3TrbZa ;
+        chon:atTime            "2000.04.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3TrbZa2 ;
+        chon:hasHalfMove       :hmgamtVDvmbQ , :hmgam3TrbZa2 ;
+        chon:hasLastHalfMove   :hmgamtVDvmbQ ;
+        chon:hasOpening        :ope3TrbZa ;
+        chon:hasReport         :cgr3TrbZa ;
+        chon:hasResult         :res3TrbZa2 ;
+        chon:subEventOf        :tou3TrbZ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3TrbZa .
+
+:tou3TrbZ  a          chon:hessTournament ;
+        chon:atPlace  :pla3TrbZa ;
+        chon:hasName  "Japfa Classic" .
+
+:hmgamtVDvmbQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtVDvmbQk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Rxg4" , "Rf6" , "Qe1" , "Qh4" , "b6" , "Re8" , "hxg4" , "Bf5" , "Bd4+" , "Kf8" , "Nxc4" , "a5" , "Qxa7" , "c5" , "e5" , "g5" , "Rh4" , "Qg4" , "Qc7" , "Kf1" , "Qe5+" , "g4" , "Kg7" , "fxg5" , "Qa4" , "Nd2" , "f4" , "Rxe3" , "Ne4" , "Nb6" , "Rxe5" , "Bxc2" , "Qb4+" , "Be3" , "O-O" , "Qd4" , "Qb6" , "Bxe3" , "b3" , "a4" , "Re7" , "Bxe5" , "Nc4" , "dxe5" , "h6" , "Qf2" , "Qe2" , "Qe7" , "Qd8" , "Kg1" , "Qxe4" , "Qxe5" , "Bg6" , "h3" , "Nxe4" , "Rae1" , "Re1" , "hxg5" , "Rf4+" , "Bxc4" ;
+        chon:nextHalfMove      :hmgamtVDvmbQ .
+
+chon:HalfMove  chon:subEventOf  :gam3TrbZ .
+
+:pla3TrbZa  a         chon:Place ;
+        chon:hasName  "Bali INA" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3TrbZa .
+
+:ag3TrbZa  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Polgar,Ju" .
+
+:rol3TrbZa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3TrbZa .
+
+:ope3TrbZa  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:rolhg3TrbZa2T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3TrbZa .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res3TrbZa2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

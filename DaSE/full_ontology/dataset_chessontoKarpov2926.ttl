@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamjVSPJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljVSPJM ;
+        chon:atPlace           :plajVSPJM ;
+        chon:atTime            "2007.05.04"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjVSPJMH ;
+        chon:hasHalfMove       :hmgamjVSPJMH ;
+        chon:hasLastHalfMove   :hmgamjVSPJMH ;
+        chon:hasOpening        :opejVSPJM ;
+        chon:hasReport         :cgrjVSPJM ;
+        chon:hasResult         :resjVSPJMH ;
+        chon:subEventOf        :toujVSPJ .
+
+:cgrjVSPJM  a   chon:ChessGameReport .
+
+:toujVSPJ  a          chon:hessTournament ;
+        chon:atPlace  :plajVSPJM ;
+        chon:hasName  "TCh-RUS" .
+
+:hmgamjVSPJMH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjVSPJMHe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Grischuk,A" ;
+        chon:hasSANRecord      "Nh4" , "Nf3" , "d5" , "Bf5" , "Qc3" , "Bg6" , "Ra7" , "e3" , "Nf6" , "c4" , "Be4" , "f3" , "e6" , "a6" , "Qb3" , "Nbd2" , "d4" , "c6" ;
+        chon:nextHalfMove      :hmgamjVSPJMH .
+
+:agjVSPJM  a          chon:Agent ;
+        chon:hasName  "Grischuk,A" , "Karpov,Ana" .
+
+:roljVSPJM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjVSPJM .
+
+:rolhgjVSPJMHe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjVSPJM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjVSPJM .
+
+chon:HalfMove  chon:subEventOf  :gamjVSPJ .
+
+:resjVSPJMH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjVSPJM .
+
+:opejVSPJM  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plajVSPJM  a         chon:Place ;
+        chon:hasName  "Sochi RUS" .

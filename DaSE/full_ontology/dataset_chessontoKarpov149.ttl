@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plak8jTok  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrk8jTok  a   chon:ChessGameReport .
+
+:agk8jTok  a          chon:Agent ;
+        chon:hasName  "Olafsson, Fridrik" , "Karpov, Anatoly" .
+
+:rolk8jTok  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agk8jTok .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agk8jTok .
+
+:opek8jTok  a            chon:ChessOpening ;
+        chon:hasECOCode  "B44" .
+
+:gamk8jTo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolk8jTok ;
+        chon:atPlace           :plak8jTok ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamk8jTokH ;
+        chon:hasHalfMove       :hmgamk8jTokH , :hmgamg4238iX ;
+        chon:hasLastHalfMove   :hmgamg4238iX ;
+        chon:hasOpening        :opek8jTok ;
+        chon:hasReport         :cgrk8jTok ;
+        chon:hasResult         :resk8jTokH ;
+        chon:subEventOf        :touk8jTo .
+
+chon:HalfMove  chon:subEventOf  :gamk8jTo .
+
+:touk8jTo  a          chon:hessTournament ;
+        chon:atPlace  :plak8jTok ;
+        chon:hasName  "Moscow" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agk8jTok .
+
+:hmgamk8jTokH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgg4238iXY , :rolhgk8jTokH1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Olafsson, Fridrik" ;
+        chon:hasSANRecord      "Nc6" , "Nxd4" , "d4" , "Nb5" , "d6" , "cxd4" , "Nf3" , "c4" , "c5" , "e4" , "Nf6" , "e6" ;
+        chon:nextHalfMove      :hmgamg4238iX , :hmgamk8jTokH .
+
+:rolhgg4238iXY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agk8jTok .
+
+:hmgamg4238iX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgg4238iXY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Olafsson, Fridrik" ;
+        chon:hasSANRecord      "f3" , "Nxd5" , "Bxd5" , "Qxe5" , "Nxe3" , "Bb7" , "Rfd1" , "Rb8" , "N1c3" , "cxd5" , "Rc1" , "Qxe3" , "Na3" , "a6" , "d5" , "Ne5" , "Be7" , "Be2" , "Qd2" , "Qe8" , "O-O" , "Be3" , "exd5" , "b6" ;
+        chon:nextHalfMove      :hmgamg4238iX .
+
+:rolhgk8jTokH1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agk8jTok .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resk8jTokH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

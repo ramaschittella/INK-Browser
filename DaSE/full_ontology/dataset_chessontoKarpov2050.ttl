@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrBBqklo  a   chon:ChessGameReport .
+
+:rolhgNBmySnIR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBBqklo .
+
+:gamBBqkl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBBqklo ;
+        chon:atPlace           :plaBBqklo ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNBmySnI ;
+        chon:hasHalfMove       :hmgamNBmySnI ;
+        chon:hasLastHalfMove   :hmgamNBmySnI ;
+        chon:hasOpening        :opeBBqklo ;
+        chon:hasReport         :cgrBBqklo ;
+        chon:hasResult         :resBBqkloF ;
+        chon:subEventOf        :touBBqkl .
+
+:rolBBqklo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBBqklo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBBqklo .
+
+:plaBBqklo  a         chon:Place ;
+        chon:hasName  "Helsinki" .
+
+:hmgamNBmySnI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNBmySnIR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Yrjola, Jouni" ;
+        chon:hasSANRecord      "Be7" , "Qe8" , "Nf3" , "Nf5" , "e4" , "Kxf7" , "Rc3" , "Qf5" , "h3" , "Bf3" , "h5" , "Bf5" , "Rc4" , "Ngxe4" , "Bxf6" , "Qd2" , "Rf1" , "Qxf7+" , "Qc8+" , "g3" , "Bd8" , "Re1" , "e5" , "Qxd6" , "d5" , "Raf8" , "Qc2" , "R4f6" , "Nxe2+" , "Rc7" , "Kg7" , "Qd1" , "f5" , "N4g3" , "Rxa2" , "Qe6+" , "g5" , "Nf6" , "R6f7" , "Bg4" , "Qe2" , "Rb2" , "g6" , "h4" , "O-O" , "Ne7" , "Kf8" , "Rxe2" , "Nh5" , "Qg5+" , "cxd6" , "d4" , "Bg5" , "d6" , "Bg7" , "b4" , "Bd3" , "Qe6" , "Qxg5+" , "Bh4" , "Ng5" , "Kg2" , "Nc3" , "Bd5+" , "Rfc8" , "Rc2" , "Rf4" , "Qf6" , "c5" , "Rae1" , "Qd7" , "Bxc2" , "Bb6" , "Nd4" , "Rxb4" , "Be2" , "Be4" , "Qd8+" , "fxe4" , "Qxh4" , "Qg7" , "Qg6+" , "Qc1" , "Qf7" , "Ne2" , "Rxc2" , "Qf8" , "Nc6" , "Bxe2" , "c4" , "Bd4" , "Qf6+" ;
+        chon:nextHalfMove      :hmgamNBmySnI .
+
+chon:HalfMove  chon:subEventOf  :gamBBqkl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBBqklo .
+
+:agBBqklo  a          chon:Agent ;
+        chon:hasName  "Yrjola, Jouni" , "Karpov, Anatoly" .
+
+:touBBqkl  a          chon:hessTournament ;
+        chon:atPlace  :plaBBqklo ;
+        chon:hasName  "Helsinki sim" .
+
+:opeBBqklo  a            chon:ChessOpening ;
+        chon:hasECOCode  "E97" .
+
+:resBBqkloF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

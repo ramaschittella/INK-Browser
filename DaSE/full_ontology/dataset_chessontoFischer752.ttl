@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamybg36Ot  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgybg36Otm , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Qxe4" , "f4" , "Nxd4" , "O-O" , "Qf3" , "Kd3" , "c4" , "g6" , "Bc3" , "Ke7" , "Bd7" , "d6" , "Bd2" , "Bxc3" , "Bf6" , "h5" , "a6" , "Bxd5" , "a4" , "Ra7" , "Bxa5" , "Nf6" , "Bxg3" , "f5" , "cxd4" , "Rfe8" , "Kd6" , "Kd4" , "Re1" , "c5" , "Re7" , "e6" , "Be5" , "Ke6" , "d4" , "Rf3" , "exf5" , "Kxc3" , "Rac8" , "a7" , "Bc4" , "Bxb2" , "Rcxc4" , "a5" , "fxe4" , "Bd6" , "Nxe4" , "Bxc4" , "Rxe6" , "Qc8" , "h4" , "Kb7" , "Qc6" , "Ke2" , "e4" , "Be3" , "f6" , "Bb3" , "Kd5" , "Bc7" , "Rd3" , "Be6" , "Nc3" , "Kf1" , "g3" , "d5" , "Nc6" , "Rxc4" , "Kf8" , "Rg3" , "Rc5" , "Ra6" , "Kc6" , "Rxa5" , "Nf3" , "Rxe4" , "Rxb7" , "Bxd4" , "Re3" , "Rd4" , "Be7" ;
+        chon:nextHalfMove      :hmgamybg36Ot .
+
+:gamybg36  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolybg36O ;
+        chon:atPlace           :playbg36O ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamybg36Ot ;
+        chon:hasHalfMove       :hmgamybg36Ot ;
+        chon:hasLastHalfMove   :hmgamybg36Ot ;
+        chon:hasOpening        :opeybg36O ;
+        chon:hasReport         :cgrybg36O ;
+        chon:hasResult         :resybg36Ot ;
+        chon:subEventOf        :touybg36 .
+
+:playbg36O  a         chon:Place ;
+        chon:hasName  "Denver" .
+
+:touybg36  a          chon:hessTournament ;
+        chon:atPlace  :playbg36O ;
+        chon:hasName  "Candidats sf1" .
+
+:rolhgybg36Otm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agybg36O .
+
+:cgrybg36O  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agybg36O .
+
+chon:HalfMove  chon:subEventOf  :gamybg36 .
+
+:agybg36O  a          chon:Agent ;
+        chon:hasName  "Larsen, Bent" , "Fischer, Robert James" .
+
+:rolybg36O  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agybg36O .
+
+:opeybg36O  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agybg36O .
+
+:resybg36Ot  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

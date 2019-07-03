@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgfpE0Zzgh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOnsRFz .
+
+:cgrOnsRFz  a   chon:ChessGameReport .
+
+:resOnsRFzp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamOnsRF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOnsRFz ;
+        chon:atPlace           :plaOnsRFz ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOnsRFzp ;
+        chon:hasHalfMove       :hmgamfpE0Zzg , :hmgamOnsRFzp ;
+        chon:hasLastHalfMove   :hmgamfpE0Zzg ;
+        chon:hasOpening        :opeOnsRFz ;
+        chon:hasReport         :cgrOnsRFz ;
+        chon:hasResult         :resOnsRFzp ;
+        chon:subEventOf        :touOnsRF .
+
+:rolOnsRFz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOnsRFz .
+
+:touOnsRF  a          chon:hessTournament ;
+        chon:atPlace  :plaOnsRFz ;
+        chon:hasName  "London" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOnsRFz .
+
+chon:HalfMove  chon:subEventOf  :gamOnsRF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOnsRFz .
+
+:agOnsRFz  a          chon:Agent ;
+        chon:hasName  "Chigorin, Mikhail" , "Steinitz, William" .
+
+:opeOnsRFz  a            chon:ChessOpening ;
+        chon:hasECOCode  "D07" .
+
+:hmgamfpE0Zzg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfpE0Zzgh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Qxc2+" , "h5" , "Ke6" , "dxe5" , "Kg8" , "Re7+" , "Be2" , "Re6+" , "Qg2" , "Rg7" , "Rf7" , "a3" , "hxg6" , "f4" , "Kd7" , "Bd4" , "Nxe2" , "Rad8" , "Rg1" , "Nf4" , "Qd3+" , "c6" , "Rdg7" , "Rh1" , "Rfd7" , "Kc1" , "Qd7" , "Rh6" , "Bd2" , "Bb5" , "Bxc3" , "Kxc2" , "Nd5" , "Qg4+" , "Qxf2" , "Kc4" , "a5" , "Kd6" , "Bc3" , "Rd8" , "Kxe2" , "Qxc2" , "Qf5" , "Kb3" , "h4" , "Re8" , "Kf7" , "g6" , "Nxc2" , "O-O" , "Re1" , "Nd4" , "Rc2" , "Kd1" , "b4" , "a4" , "Kc5" , "a6" , "Rd5" , "Rd7" , "Rg8" , "Qc4" , "Nge7" , "f5" , "e5" , "Rc1" , "Qa4" ;
+        chon:nextHalfMove      :hmgamfpE0Zzg .
+
+:hmgamOnsRFzp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOnsRFzpT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "c4" , "Bxf3" , "Qxd5" , "e6" , "gxf3" , "Nf3" , "Nc3" , "d4" , "e3" , "d5" , "Bg4" , "Nc6" , "Bb4" , "cxd5" ;
+        chon:nextHalfMove      :hmgamfpE0Zzg , :hmgamOnsRFzp .
+
+:rolhgOnsRFzpT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOnsRFz .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaOnsRFz  a         chon:Place ;
+        chon:hasName  "London" .

@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgc35qKk41  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag258adl .
+
+:ag258adl  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Prie,E" .
+
+:ope258adl  a            chon:ChessOpening ;
+        chon:hasECOCode  "A47" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag258adl .
+
+:tou258ad  a          chon:hessTournament ;
+        chon:atPlace  :pla258adl ;
+        chon:hasName  "ch-Euro Blitz" .
+
+chon:HalfMove  chon:subEventOf  :gam258ad .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag258adl .
+
+:hmgamc35qKk4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgc35qKk41 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "a5" , "Bxc6" , "Nd6" , "Nxe5" , "h3" , "e3" , "Nf3" , "Rb8" , "Qe2" , "Qc2+" , "Bxe5" , "Bb7" , "Bd3" , "Rec1" , "Kxh7" , "b6" , "Kg6" , "a3" , "Rc5" , "Nc3" , "Nc4" , "Bxh7+" , "d5" , "Nb1" , "Qxc6" , "a6" , "e6" , "Rc7" , "Rc8" , "Bg3" , "c3" , "b5" , "cxd4" , "Ne5" , "Qd7" , "Bd6" , "Be7" , "Nc6" , "Nd7" , "Bxg3" , "Rac1" , "Rc6" , "d4" , "c5" , "Rfe1" , "Na5" , "Nf6" , "Rxc6" , "b3" , "fxg3" , "Bf4" , "O-O" , "Ne4" , "Rc2" ;
+        chon:nextHalfMove      :hmgamc35qKk4 .
+
+:cgrc35qKk  a   chon:ChessGameReport .
+
+:rol258adl  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam258ad  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol258adl ;
+        chon:atPlace           :pla258adl ;
+        chon:atTime            "2007.10.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamc35qKk4 ;
+        chon:hasHalfMove       :hmgamc35qKk4 ;
+        chon:hasLastHalfMove   :hmgamc35qKk4 ;
+        chon:hasOpening        :ope258adl ;
+        chon:hasReport         :cgrc35qKk ;
+        chon:hasResult         :resc35qKk4 ;
+        chon:subEventOf        :tou258ad .
+
+:resc35qKk4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolc35qKk  a             chon:AuthorRole ;
+        chon:performedBy  :agc35qKk .
+
+:pla258adl  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .

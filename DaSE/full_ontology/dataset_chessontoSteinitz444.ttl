@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamvrsgNrF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHrpumqKA , :rolhgvrsgNrFp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Albin, Adolf" ;
+        chon:hasSANRecord      "e3" , "O-O" , "f5" , "Nc3" , "c4" , "e5" , "d4" , "Qxb4" , "d6" , "Qa4" , "Nd5" , "Bb4" , "Bd3" , "Ne2" , "e6" , "Nd7" , "Nxd5" , "Qh4" , "cxd5" , "Nf6" ;
+        chon:nextHalfMove      :hmgamvrsgNrF , :hmgamHrpumqK .
+
+:gam5pgXs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvrsgNr ;
+        chon:atPlace           :pla5pgXsq ;
+        chon:atTime            "1895.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvrsgNrF ;
+        chon:hasHalfMove       :hmgamvrsgNrF , :hmgamHrpumqK ;
+        chon:hasLastHalfMove   :hmgamHrpumqK ;
+        chon:hasOpening        :opevrsgNr ;
+        chon:hasReport         :cgrvrsgNr ;
+        chon:hasResult         :resvrsgNrF ;
+        chon:subEventOf        :touvrsgN .
+
+:hmgamHrpumqK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHrpumqKA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Albin, Adolf" ;
+        chon:hasSANRecord      "Rg6" , "h3" , "Bb5" , "Qf7" , "Qf6" , "Rd8" , "e6" , "c6" , "Rh6" , "Ne4" , "Ba6" , "Rg3" , "Ra3" , "e5" , "Nc5" , "e4" , "Qe8" , "Ng3" , "fxe4" , "Bd7" , "Rd1" , "Nf5" , "Rf6" , "Qxe5" , "dxe5" , "Qd4" , "Bxe4" , "a5" , "a4" , "Qxe4" ;
+        chon:nextHalfMove      :hmgamHrpumqK .
+
+:rolhgHrpumqKA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvrsgNr .
+
+:cgrvrsgNr  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvrsgNr .
+
+:rolhgvrsgNrFp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvrsgNr .
+
+chon:HalfMove  chon:subEventOf  :gam5pgXs .
+
+:agvrsgNr  a          chon:Agent ;
+        chon:hasName  "Albin, Adolf" , "Steinitz, William" .
+
+:rolvrsgNr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvrsgNr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvrsgNr .
+
+:pla5pgXsq  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+:touvrsgN  a          chon:hessTournament ;
+        chon:atPlace  :pla5pgXsq ;
+        chon:hasName  "Hastings" .
+
+:resvrsgNrF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opevrsgNr  a            chon:ChessOpening ;
+        chon:hasECOCode  "A85" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

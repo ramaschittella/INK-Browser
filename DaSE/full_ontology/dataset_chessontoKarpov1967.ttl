@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgYcVQRHsu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxaLyxG .
+
+:hmgamYcVQRHs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYcVQRHsu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "axb3" , "Qd6" , "Bxd4+" , "d4" , "Qg4" , "Ng3" , "Bxc3" , "Ng8" , "Bb6" , "c3" , "Kc2" , "Rff2" , "Kc3" , "Bd2" , "Kxb4" , "Rxg2" , "Bc1" , "Rh3" , "Qxd7+" , "Qxd7" , "Rg3" , "gxf6" , "Bxd7+" , "Kxd7" , "Rxg1" , "Bc3+" , "Rg2+" , "Nc3" , "Bd4" , "Bc5" , "Bxg1" , "Ke6" , "Bxh6" , "Rdf8" , "f5" , "b5" , "Nf6" , "Be3+" , "f4" , "b4" , "bxa4" , "Bxe5" , "Kd5" , "Bc3" , "Ke5" , "Kb1" , "fxe5" , "Rg1" , "axb4" , "Ba7" , "Kc4" , "Nxe4" , "b3" , "Rhg8" , "Rf1" , "Na4" , "dxc3" , "Nxh5" ;
+        chon:nextHalfMove      :hmgamYcVQRHs .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxaLyxG .
+
+:rolhgxaLyxGS4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxaLyxG .
+
+:opexaLyxG  a            chon:ChessOpening ;
+        chon:hasECOCode  "B11" .
+
+:touxaLyx  a          chon:hessTournament ;
+        chon:atPlace  :plaxaLyxG ;
+        chon:hasName  "San Giorgio sim rapid" .
+
+chon:HalfMove  chon:subEventOf  :gamxaLyx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxaLyxG .
+
+:hmgamxaLyxGS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYcVQRHsu , chon:AgentRole , :rolhgxaLyxGS4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf3" , "Bg2" , "d4" , "c6" , "O-O-O" , "e4" , "e6" , "Qxf3" , "Nb1" , "Qc5" , "Qe2" , "Nf6" , "g4" , "Bh3" , "Bg4" , "Ne7" , "Qf3" , "e5" , "Ng8" , "h3" , "h5" , "g3" , "g5" , "Bxf3" , "d3" , "d5" , "Bd2" , "Nc3" , "Nbd7" , "Bb4" , "h4" , "h6" , "a5" , "Qb6" ;
+        chon:nextHalfMove      :hmgamYcVQRHs , :hmgamxaLyxGS .
+
+:plaxaLyxG  a         chon:Place ;
+        chon:hasName  "San Giorgio" .
+
+:cgrxaLyxG  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resxaLyxGS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agxaLyxG  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Bellia, Fabrizio" .
+
+:rolxaLyxG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxaLyxG .
+
+:gamxaLyx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxaLyxG ;
+        chon:atPlace           :plaxaLyxG ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxaLyxGS ;
+        chon:hasHalfMove       :hmgamxaLyxGS , :hmgamYcVQRHs ;
+        chon:hasLastHalfMove   :hmgamYcVQRHs ;
+        chon:hasOpening        :opexaLyxG ;
+        chon:hasReport         :cgrxaLyxG ;
+        chon:hasResult         :resxaLyxGS ;
+        chon:subEventOf        :touxaLyx .

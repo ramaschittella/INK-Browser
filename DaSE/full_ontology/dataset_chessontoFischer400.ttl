@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeqjPvic  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+:gamqjPvi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqjPvic ;
+        chon:atPlace           :plaqjPvic ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqjPvic2 ;
+        chon:hasHalfMove       :hmgamqjPvic2 ;
+        chon:hasLastHalfMove   :hmgamqjPvic2 ;
+        chon:hasOpening        :opeqjPvic ;
+        chon:hasReport         :cgrqjPvic ;
+        chon:hasResult         :resqjPvic2 ;
+        chon:subEventOf        :touqjPvi .
+
+:touqjPvi  a          chon:hessTournament ;
+        chon:atPlace  :plaqjPvic ;
+        chon:hasName  "Varna olm" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqjPvic .
+
+chon:HalfMove  chon:subEventOf  :gamqjPvi .
+
+:plaqjPvic  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+:hmgamqjPvic2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqjPvic2W , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Robatsch, Karl" ;
+        chon:hasSANRecord      "Nf6" , "h5" , "Bxg7+" , "Kh8" , "h4" , "O-O" , "Qd2" , "Bh6" , "Bg7" , "g6" , "Qxd5" , "Nxg7" , "Rg5" , "Qa5" , "O-O-O" , "d4" , "Rg8" , "Nf5" , "Bd3" , "Rdg1" , "Rd8" , "e4" , "Bxf5" , "Nc3" , "exd5" , "gxh5" , "Bf4" , "c6" , "g4" , "Rhg1" , "Qd8" , "d5" , "Nf8" , "Nbd7" , "Qh6" , "Ne6" , "Nge2" ;
+        chon:nextHalfMove      :hmgamqjPvic2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqjPvic .
+
+:cgrqjPvic  a   chon:ChessGameReport .
+
+:agqjPvic  a          chon:Agent ;
+        chon:hasName  "Robatsch, Karl" , "Fischer, Robert James" .
+
+:rolqjPvic  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqjPvic .
+
+:rolhgqjPvic2W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqjPvic .
+
+:resqjPvic2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

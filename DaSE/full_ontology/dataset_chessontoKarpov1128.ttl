@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opealiIIt  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:rolhgaliIItx8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaliIIt .
+
+:hmgamaliIItx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgaliIItx8 , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamlleWgsA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaliIIt .
+
+chon:HalfMove  chon:subEventOf  :gamaliII .
+
+:plaaliIIt  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaliIIt .
+
+:cgraliIIt  a   chon:ChessGameReport .
+
+:agaliIIt  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Van der Wiel, John TH" .
+
+:rolaliIIt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaliIIt .
+
+:hmgamlleWgsA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglleWgsAi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bg4" , "Qc7" , "Rd1" , "Bf4" , "Re1+" , "O-O" , "Ne5" , "Bxb5" , "Bc6" , "d5" , "Rd7" , "g3" , "Bg6" , "d4" , "Be7" , "Re8" , "Bh5" , "Rd8" , "Nxd7" , "Qb3" , "Bf6" , "Qc8" , "Nf6" , "Bd2" , "Qd8" , "Qa5" , "cxd5" , "N1f3" , "h6" , "Bxe4" , "Nd7" , "a6" , "e6" , "Be5" , "Re7" , "Rb8" , "Ng5" , "Re8+" , "Kg2" , "axb5" , "a4" , "Rad1" , "Rxd5" , "Bf3" , "dxe4" , "Qb6" , "Nc4" , "Qxd7" , "Be3" , "Bd3" , "Rfxd8" , "Bd6" , "Be4+" , "b5" , "exd5" , "Ndf6" , "Kh7" , "c4" , "c3" , "Qa4" , "Ne4" , "Nd2" , "Qxd8" , "f3" , "Re1" , "Nxe4" , "Rxd7" , "c6" , "Bxb2" ;
+        chon:nextHalfMove      :hmgamlleWgsA .
+
+:rolhglleWgsAi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaliIIt .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamaliII  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaliIIt ;
+        chon:atPlace           :plaaliIIt ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaliIItx ;
+        chon:hasHalfMove       :hmgamaliIItx , :hmgamlleWgsA ;
+        chon:hasLastHalfMove   :hmgamlleWgsA ;
+        chon:hasOpening        :opealiIIt ;
+        chon:hasReport         :cgraliIIt ;
+        chon:hasResult         :resaliIItx ;
+        chon:subEventOf        :toualiII .
+
+:resaliIItx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:toualiII  a          chon:hessTournament ;
+        chon:atPlace  :plaaliIIt ;
+        chon:hasName  "Optiebeurs" .

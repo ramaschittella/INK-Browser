@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:platjuDhN  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:toury9sv  a          chon:hessTournament ;
+        chon:atPlace  :platjuDhN ;
+        chon:hasName  "Tilburg rapid20" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agry9svV .
+
+chon:HalfMove  chon:subEventOf  :gamtjuDh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agry9svV .
+
+:hmgamry9svVs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgry9svVsA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kurajica, Bojan" ;
+        chon:hasSANRecord      "Qg4" , "Be7" , "exd5" , "Nxg4" , "Qxg4" , "e3" , "Bxc1" , "Ba6" , "cxd5" , "Nc2" , "Nb4" , "Bc5" , "Na6" , "Rac8" , "Ng4" , "Nf3" , "Ne5" , "Rfe1" , "Bb4+" , "Qd3" , "c5" , "Ra8" , "O-O" , "d4" , "Bg2" , "cxd4" , "Rxc1" , "Bd4" , "Nb5" , "Qc2" , "a4" , "Qc4" , "h6" , "Qf5" , "d5" , "b4" , "Rc1" , "Bxd5" , "Re8" , "Rc8" , "Ba3" , "Rd8" , "Nxa7" , "Bd2" , "Nc3" , "Bf8" , "Qb1" , "a3" , "Bb7" , "Bxb4" , "g3" , "Rcd1" , "Ne1" , "Nf6" , "e6" , "Qf6" , "c4" , "Qxd4" , "b6" , "Rf1" , "b3" ;
+        chon:nextHalfMove      :hmgamry9svVs .
+
+:gamtjuDh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolry9svV ;
+        chon:atPlace           :platjuDhN ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamry9svVs ;
+        chon:hasHalfMove       :hmgamry9svVs ;
+        chon:hasLastHalfMove   :hmgamry9svVs ;
+        chon:hasOpening        :opery9svV ;
+        chon:hasReport         :cgrry9svV ;
+        chon:hasResult         :resry9svVs ;
+        chon:subEventOf        :toury9sv .
+
+:cgrry9svV  a   chon:ChessGameReport .
+
+:resry9svVs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agry9svV  a          chon:Agent ;
+        chon:hasName  "Kurajica, Bojan" , "Karpov, Anatoly" .
+
+:rolry9svV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agry9svV .
+
+:rolhgry9svVsA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agry9svV .
+
+:opery9svV  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .

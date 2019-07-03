@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opee9Fd2P  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamp7StAOT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgp7StAOTA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxg5" , "Kd6" , "Re2" , "Re1" , "c3" , "Ke8" , "Nb6" , "a4" , "a3" , "Rxh2" , "Nxf6" , "Kd8" , "Kd7" , "Bxg5" , "Rf5" , "Kg2" , "Kf1" , "hxg5" , "Nxg5" , "a5" , "Rg8" , "Qxe6" , "Rh5" , "Nbd5" , "g3" , "Rf7" , "Rae1" , "O-O" , "R6e5" , "Rxe6" , "Be7" , "b5" , "Qe7" , "Bxf7+" , "Bxe6" , "Bxf6" , "Nd5" ;
+        chon:nextHalfMove      :hmgamp7StAOT .
+
+:hmgame9Fd2PQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgp7StAOTA , chon:AgentRole , :rolhge9Fd2PQp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ng5" , "N1f3" , "Nd2" , "Qe2" , "d4" , "Nd7" , "d5" , "e6" , "Bg6" , "h6" , "Qc7" , "Ngf6" , "e4" , "c6" , "Nxe4" , "dxe4" , "Bd3" ;
+        chon:nextHalfMove      :hmgame9Fd2PQ , :hmgamp7StAOT .
+
+:game9Fd2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :role9Fd2P ;
+        chon:atPlace           :plae9Fd2P ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgame9Fd2PQ ;
+        chon:hasHalfMove       :hmgamp7StAOT , :hmgame9Fd2PQ ;
+        chon:hasLastHalfMove   :hmgamp7StAOT ;
+        chon:hasOpening        :opee9Fd2P ;
+        chon:hasReport         :cgre9Fd2P ;
+        chon:hasResult         :rese9Fd2PQ ;
+        chon:subEventOf        :toue9Fd2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age9Fd2P .
+
+:toue9Fd2  a          chon:hessTournament ;
+        chon:atPlace  :plae9Fd2P ;
+        chon:hasName  "Euwe mem" .
+
+chon:HalfMove  chon:subEventOf  :game9Fd2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age9Fd2P .
+
+:rolhgp7StAOTA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age9Fd2P .
+
+:rese9Fd2PQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plae9Fd2P  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:rolhge9Fd2PQp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age9Fd2P .
+
+:cgre9Fd2P  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:age9Fd2P  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Van der Wiel, John TH" .
+
+:role9Fd2P  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :age9Fd2P .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touRAKRc  a          chon:hessTournament ;
+        chon:atPlace  :plaRAKRcY ;
+        chon:hasName  "Bugojno" .
+
+:rolhgjSUcw1gV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRAKRcY .
+
+:cgrRAKRcY  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRAKRcY .
+
+chon:HalfMove  chon:subEventOf  :gamRAKRc .
+
+:rolRAKRcY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRAKRcY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRAKRcY .
+
+:plaRAKRcY  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+:resRAKRcYp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamRAKRc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRAKRcY ;
+        chon:atPlace           :plaRAKRcY ;
+        chon:atTime            "1978.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjSUcw1g ;
+        chon:hasHalfMove       :hmgamjSUcw1g ;
+        chon:hasLastHalfMove   :hmgamjSUcw1g ;
+        chon:hasOpening        :opeRAKRcY ;
+        chon:hasReport         :cgrRAKRcY ;
+        chon:hasResult         :resRAKRcYp ;
+        chon:subEventOf        :touRAKRc .
+
+:agRAKRcY  a          chon:Agent ;
+        chon:hasName  "Ljubojevic, Ljubomir" , "Karpov, Anatoly" .
+
+:hmgamjSUcw1g  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjSUcw1gV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Nfd7" , "axb5" , "Nc4" , "Qe1" , "e5" , "Re5" , "Nf6+" , "Rxb5" , "Ra3" , "Nd5" , "fxg6" , "Qa5" , "f5" , "Qc1" , "Ne2" , "cxd4" , "Rac8" , "Rc5" , "Kg3" , "bxa5" , "a6" , "exd4" , "g6" , "h4" , "Qf2" , "Nf3" , "b3" , "Qxc2" , "Qf7" , "Rxf3" , "Na5" , "fxg6+" , "Nf6" , "Qc6" , "g4" , "Qb1" , "Rb4" , "d4" , "Qd2" , "Bc6" , "O-O" , "Nxd4" , "Bg7" , "Nef4" , "Ng2" , "Be5" , "Nbd7" , "Be2" , "Qb6" , "Nb6" , "Qd7" , "Nxe4" , "Ne3" , "Kh7" , "Nc5" , "Kh1" , "Nde2" , "h5" , "d6" , "Nc3" , "b4" , "Bd7" , "Qc4" , "Bf3" , "Qc7" , "Rb5" , "Qe3" , "a4" , "Qb4" , "Qd3" , "Ra2" , "Nd4" , "Qe8" , "c5" , "f4" , "Nxh5+" , "Nxa4" , "Be3" , "Bd4" , "Kg7" , "Rf5" , "Bxf3+" , "Kg2" , "Rxf4" , "e4" , "Qe4" , "Nd1" , "e6" , "g5" , "h3" , "Nb3" , "Rxa4" , "Re8" ;
+        chon:nextHalfMove      :hmgamjSUcw1g .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeRAKRcY  a            chon:ChessOpening ;
+        chon:hasECOCode  "B84" .

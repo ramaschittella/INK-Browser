@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolQi76Un  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQi76Un .
+
+:plaQi76Un  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:rolhgQi76UnGj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQi76Un .
+
+:rolhghkgqenvJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQi76Un .
+
+:resQi76UnG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQi76Un .
+
+:hmgamhkgqenv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghkgqenvJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov,V" ;
+        chon:hasSANRecord      "fxe5" , "Rf3" , "Rad8" , "Rd2" , "Rxf3" , "Qd8" , "Bc4" , "Qc8" , "Qxb2" , "Bxc4" , "e5" , "Qd2" , "Qg5" , "Kh2" , "Qd4+" , "Rf8" , "Qf4" , "Nxc4" , "Bb3" , "Rad1" , "Qe4" , "R7e3" , "Ne4" , "a3" , "Kg1" , "b6" , "Rf5" , "Re7" , "Qe3" , "Qxe5" , "Qa6" , "Qe7" , "Re4" , "f6" , "Rxf2+" , "Rdf8" , "g4" , "Rde2" , "Qh4" , "Rf7" , "Bxe5" ;
+        chon:nextHalfMove      :hmgamhkgqenv .
+
+chon:HalfMove  chon:subEventOf  :gamQi76U .
+
+:agQi76Un  a          chon:Agent ;
+        chon:hasName  "Topalov,V" , "Karpov,An" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQi76Un .
+
+:opeQi76Un  a            chon:ChessOpening ;
+        chon:hasECOCode  "E69" .
+
+:gamQi76U  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQi76Un ;
+        chon:atPlace           :plaQi76Un ;
+        chon:atTime            "2000.03.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQi76UnG ;
+        chon:hasHalfMove       :hmgamhkgqenv , :hmgamQi76UnG ;
+        chon:hasLastHalfMove   :hmgamhkgqenv ;
+        chon:hasOpening        :opeQi76Un ;
+        chon:hasReport         :cgrQi76Un ;
+        chon:hasResult         :resQi76UnG ;
+        chon:subEventOf        :touQi76U .
+
+:touQi76U  a          chon:hessTournament ;
+        chon:atPlace  :plaQi76Un ;
+        chon:hasName  "Amber Blindfold" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrQi76Un  a   chon:ChessGameReport .
+
+:hmgamQi76UnG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQi76UnGj , chon:AgentRole , :rolhghkgqenvJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov,V" ;
+        chon:hasSANRecord      "g3" , "Nc3" , "c6" , "c4" , "Nf3" , "Ne5" , "Nxd4" , "Re1" , "e5" , "Bxd6" , "Bg2" , "c5" , "Bf4" , "Nxf3+" , "e4" , "O-O" , "g6" , "Nbd7" , "d6" , "Re8" , "exd4" , "h3" , "Bg7" , "Nf6" , "Be6" , "d4" , "Qxf3" , "Qa5" , "Bf1" , "Be3" , "Nd7" ;
+        chon:nextHalfMove      :hmgamhkgqenv , :hmgamQi76UnG .

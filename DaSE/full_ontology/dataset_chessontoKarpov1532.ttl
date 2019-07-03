@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeqjAZwx  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:touqjAZw  a          chon:hessTournament ;
+        chon:atPlace  :plaqjAZwx ;
+        chon:hasName  "Moscow rapid g/15" .
+
+:rolShwd4w  a             chon:AuthorRole ;
+        chon:performedBy  :agShwd4w .
+
+:rolhgShwd4wOH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqjAZwx .
+
+:hmgamShwd4wO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgShwd4wOH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanov, Alexander" ;
+        chon:hasSANRecord      "Rb4" , "Ne5" , "bxc4" , "Nxd7" , "Bxd3" , "Rb7" , "Qd7" , "Qc7" , "Be7" , "Ba5" , "Ba6" , "b5" , "c4" , "e4" , "Rab8" , "Bf1" , "Bxa5" , "Reb1" , "Rxb1" , "Rxa5" , "Qd6" , "d4" , "g3" , "c5" , "Qa4" , "c6" , "Nf6" , "Bd3" , "Bg2" , "Nfd7" , "Nc4" , "Rb5" , "Qf6" , "Bxc4" , "d5" , "b3" , "Kg2" , "Nf3" , "Bb4+" , "h4" , "Nxc4" , "g6" , "Qf3" , "Rfb8" , "Bd8" , "Qe7" , "O-O" , "Qxd3" , "Bg6" , "e5" , "Kg7" , "Bd2" , "Bc3" , "Qd2" , "Qc8" , "Nb6" , "Nd2" , "e6" , "Re1" , "b6" , "a4" , "h5" , "Qd1" ;
+        chon:nextHalfMove      :hmgamShwd4wO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqjAZwx .
+
+:plaqjAZwx  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:HalfMove  chon:subEventOf  :gamqjAZw .
+
+:resqjAZwxL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqjAZwx .
+
+:rolqjAZwx  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrShwd4w  a   chon:ChessGameReport .
+
+:agqjAZwx  a          chon:Agent ;
+        chon:hasName  "Ivanov, Alexander" , "Karpov, Anatoly" .
+
+:gamqjAZw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqjAZwx ;
+        chon:atPlace           :plaqjAZwx ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamShwd4wO ;
+        chon:hasHalfMove       :hmgamShwd4wO ;
+        chon:hasLastHalfMove   :hmgamShwd4wO ;
+        chon:hasOpening        :opeqjAZwx ;
+        chon:hasReport         :cgrShwd4w ;
+        chon:hasResult         :resqjAZwxL ;
+        chon:subEventOf        :touqjAZw .

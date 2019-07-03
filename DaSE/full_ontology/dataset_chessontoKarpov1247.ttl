@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamnTya2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljRgjLb ;
+        chon:atPlace           :planTya2d ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjRgjLbk ;
+        chon:hasHalfMove       :hmgamjRgjLbk ;
+        chon:hasLastHalfMove   :hmgamjRgjLbk ;
+        chon:hasOpening        :opejRgjLb ;
+        chon:hasReport         :cgrjRgjLb ;
+        chon:hasResult         :resjRgjLbk ;
+        chon:subEventOf        :toujRgjL .
+
+:agjRgjLb  a          chon:Agent ;
+        chon:hasName  "Schippers, W." , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjRgjLb .
+
+:opejRgjLb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:planTya2d  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+chon:HalfMove  chon:subEventOf  :gamnTya2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjRgjLb .
+
+:hmgamjRgjLbk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjRgjLbkK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schippers, W." ;
+        chon:hasSANRecord      "Be7" , "d4" , "Nfd7" , "Bxc4" , "Ne4" , "d5" , "Rd1" , "O-O" , "Nc3" , "Qc7" , "Qxf3" , "Nxe5" , "dxc5" , "Qb8" , "Bg5" , "Kh8" , "Rac1" , "c4" , "Nf6" , "a6" , "e5" , "Bxg7+" , "Bb3" , "dxc4" , "Qe2" , "Nxf3+" , "Rxc6" , "Nc6" , "e6" , "Bf4" , "Bxc5" , "e4" , "Nf6+" , "Nf3" , "c5" , "Ba7" , "Bh6" , "Bb7" , "b5" ;
+        chon:nextHalfMove      :hmgamjRgjLbk .
+
+:rolhgjRgjLbkK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjRgjLb .
+
+:cgrjRgjLb  a   chon:ChessGameReport .
+
+:toujRgjL  a          chon:hessTournament ;
+        chon:atPlace  :planTya2d ;
+        chon:hasName  "Zuerich sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resjRgjLbk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:roljRgjLb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjRgjLb .

@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:reswSuPjTF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgIAr4QUI1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBENGAV .
+
+:cgrwSuPjT  a   chon:ChessGameReport .
+
+:touBENGA  a          chon:hessTournament ;
+        chon:atPlace  :plaBENGAV ;
+        chon:hasName  "Candidats Tournament" .
+
+:hmgamIAr4QUI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIAr4QUI1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Rae8" , "Qe3" , "g7" , "Nxa6" , "Nxd5" , "Rg8+" , "exd5" , "Nf4" , "Bd1" , "Bxc5+" , "Qg3+" , "Kxg2" , "Qc7" , "Kxg7" , "Qxe2" , "d5" , "Nxe2+" , "g6" , "Nxc5" , "Nec5" , "Kh8" , "Ne4" , "Re6" , "Qg7" , "Rfe1" , "Bxc5" , "c4" , "Bxg2" , "f5" , "Kh3" , "fxg6" , "Re2" , "Qa7+" ;
+        chon:nextHalfMove      :hmgamIAr4QUI .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBENGAV .
+
+:rolwSuPjT  a             chon:AuthorRole ;
+        chon:performedBy  :agwSuPjT .
+
+chon:HalfMove  chon:subEventOf  :gamBENGA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBENGAV .
+
+:plaBENGAV  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+:hmgamwSuPjTF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIAr4QUI1 , :rolhgwSuPjTFN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Be7" , "Nf3" , "Nc3" , "Qb7" , "c5" , "b5" , "Ne2" , "b4" , "Bb7" , "Bf2" , "Ng3" , "e5" , "Bc6" , "O-O" , "a6" , "e6" , "Nbd7" , "Qc7" , "Nxd4" , "e4" , "Bb3" , "cxd4" , "f5" , "Qf3" , "Na4" , "Nf6" , "d6" , "Be3" , "f4" , "d4" , "Bc4" ;
+        chon:nextHalfMove      :hmgamwSuPjTF , :hmgamIAr4QUI .
+
+:gamBENGA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBENGAV ;
+        chon:atPlace           :plaBENGAV ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwSuPjTF ;
+        chon:hasHalfMove       :hmgamIAr4QUI , :hmgamwSuPjTF ;
+        chon:hasLastHalfMove   :hmgamIAr4QUI ;
+        chon:hasOpening        :opewSuPjT ;
+        chon:hasReport         :cgrwSuPjT ;
+        chon:hasResult         :reswSuPjTF ;
+        chon:subEventOf        :touBENGA .
+
+:opewSuPjT  a            chon:ChessOpening ;
+        chon:hasECOCode  "B86" .
+
+:rolhgwSuPjTFN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBENGAV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agBENGAV  a          chon:Agent ;
+        chon:hasName  "Tal, Mihail" , "Fischer, Robert James" .
+
+:rolBENGAV  a   chon:BlackPlayerRole , chon:WhitePlayerRole .

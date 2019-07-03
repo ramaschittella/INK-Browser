@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resoO6reVY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamQOhLyYQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQOhLyYQQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Na5" , "Qb7" , "g4" , "Qc3" , "Nf3" , "Kg7" , "Qb6" , "Qd4+" , "b4" , "Bxc5+" , "Ke2" , "Rxd4" , "Nxc6" , "e6" , "h5" , "a5" , "dxc5" , "Ra3" , "Rd2" , "Qxd4" , "Ne3" , "d4" , "Rac1" , "Rfc1" , "Qc7" , "Nd1" , "Rfd8" , "c5" , "gxf3" , "a4" , "b3" , "Bb2" , "cxd4" , "Nc4" , "Bg2" , "d6" , "Bc6" , "Qxc6" , "a6" , "Nf6" , "c4" , "Kf2" , "Qxb4" , "bxc5" , "Rxc8" , "Be7" , "g3" , "Qxc5" , "Nxd4" , "Rc8+" , "Bb7" , "Qxb2" , "b5" , "Rxc8+" , "Rc2" , "O-O" , "g5" , "e4" , "f3" , "Nc3" , "Rd3" , "Nc6" , "Bxf3" ;
+        chon:nextHalfMove      :hmgamQOhLyYQ .
+
+:opeoO6reV  a            chon:ChessOpening ;
+        chon:hasECOCode  "B47" .
+
+:gamoO6re  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloO6reV ;
+        chon:atPlace           :plaoO6reV ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQOhLyYQ ;
+        chon:hasHalfMove       :hmgamQOhLyYQ ;
+        chon:hasLastHalfMove   :hmgamQOhLyYQ ;
+        chon:hasOpening        :opeoO6reV ;
+        chon:hasReport         :cgroO6reV ;
+        chon:hasResult         :resoO6reVY ;
+        chon:subEventOf        :touoO6re .
+
+:touoO6re  a          chon:hessTournament ;
+        chon:atPlace  :plaoO6reV ;
+        chon:hasName  "Candidats Tournament" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoO6reV .
+
+chon:HalfMove  chon:subEventOf  :gamoO6re .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoO6reV .
+
+:plaoO6reV  a         chon:Place ;
+        chon:hasName  "Curacao" .
+
+:cgroO6reV  a   chon:ChessGameReport .
+
+:rolhgQOhLyYQQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoO6reV .
+
+:agoO6reV  a          chon:Agent ;
+        chon:hasName  "Petrosian, Tigran V" , "Fischer, Robert James" .
+
+:roloO6reV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoO6reV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

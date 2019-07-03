@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgif5lFVNO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agif5lFV .
+
+:cgrif5lFV  a   chon:ChessGameReport .
+
+:agif5lFV  a          chon:Agent ;
+        chon:hasName  "Gipslis, Aivars" , "Karpov, Anatoly" .
+
+:rolif5lFV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agif5lFV .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agif5lFV .
+
+:hmgamif5lFVN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgif5lFVNO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gipslis, Aivars" ;
+        chon:hasSANRecord      "O-O-O" , "f3" , "d4" , "g4" , "Nf6" , "Kb1" , "Qa5" , "Bh6" , "Bg7" , "b5" , "c6" , "g6" , "Kxg7" , "Bxg7" , "e5" , "Nc3" , "d6" , "h5" , "Nh3" , "Qd2" , "Re8" , "Bg5" , "g5" , "Nb6" , "h4" , "Nf2" , "e4" , "Nfd7" , "Nbd7" , "O-O" ;
+        chon:nextHalfMove      :hmgamif5lFVN , :hmgamuf2zeUQ .
+
+chon:HalfMove  chon:subEventOf  :gamif5lF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agif5lFV .
+
+:gamif5lF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolif5lFV ;
+        chon:atPlace           :plaif5lFV ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamif5lFVN ;
+        chon:hasHalfMove       :hmgamuf2zeUQ , :hmgamif5lFVN ;
+        chon:hasLastHalfMove   :hmgamuf2zeUQ ;
+        chon:hasOpening        :opeif5lFV ;
+        chon:hasReport         :cgrif5lFV ;
+        chon:hasResult         :resif5lFVN ;
+        chon:subEventOf        :touif5lF .
+
+:touif5lF  a          chon:hessTournament ;
+        chon:atPlace  :plaif5lFV ;
+        chon:hasName  "URS-chT Moscow" .
+
+:opeif5lFV  a            chon:ChessOpening ;
+        chon:hasECOCode  "B07" .
+
+:resif5lFVN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhguf2zeUQ1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agif5lFV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamuf2zeUQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhguf2zeUQ1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gipslis, Aivars" ;
+        chon:hasSANRecord      "Na2" , "hxg4" , "Rd2" , "Rf2" , "Qf5" , "Kg8" , "Rc8" , "b4" , "Rg1" , "axb4" , "Ne1" , "cxd4" , "Be6" , "N5g4" , "Nc4" , "Qd3" , "Qe1" , "c5" , "Qe5" , "exf4" , "Qe4" , "Bd1" , "Qd2" , "Bf5" , "Rxf4" , "Rb8" , "Nxf4" , "Ne5" , "Be2" , "Nd3" , "Qh2" , "Rxe4" , "Bxg4" , "Qa6" , "Nac1" , "f4" , "a3" , "Ne3" ;
+        chon:nextHalfMove      :hmgamuf2zeUQ .
+
+:plaif5lFV  a         chon:Place ;
+        chon:hasName  "Moscow" .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag8jpcZ5  a          chon:Agent ;
+        chon:hasName  "Jussupow, Artur" , "Karpov, Anatoly" .
+
+:ope8jpcZ5  a            chon:ChessOpening ;
+        chon:hasECOCode  "E19" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8jpcZ5 .
+
+:gam8jpcZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8jpcZ5 ;
+        chon:atPlace           :pla8jpcZ5 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8jpcZ5Z ;
+        chon:hasHalfMove       :hmgamcY0TOT2 , :hmgamjjmpw53 , :hmgam8jpcZ5Z ;
+        chon:hasLastHalfMove   :hmgamcY0TOT2 ;
+        chon:hasOpening        :ope8jpcZ5 ;
+        chon:hasReport         :cgr8jpcZ5 ;
+        chon:hasResult         :res8jpcZ5Z ;
+        chon:subEventOf        :tou8jpcZ .
+
+:cgr8jpcZ5  a   chon:ChessGameReport .
+
+:rolhgcY0TOT2E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8jpcZ5 .
+
+:rolhgjjmpw53q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8jpcZ5 .
+
+chon:HalfMove  chon:subEventOf  :gam8jpcZ .
+
+:hmgamjjmpw53  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjjmpw53q , chon:AgentRole , :rolhgcY0TOT2E ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jussupow, Artur" ;
+        chon:hasSANRecord      "Qc6" , "Bxa6" , "f6" , "Kc3" , "Bf1" , "Ra3" , "Be6" , "Be8" , "Nd7" , "Kf2" , "Bd1" , "c5" , "Ke6" , "Kf8" , "Bc8" , "Bxf4" , "Bh7" , "Rxa1" , "h6" , "Ke3" , "gxf4" , "Bd3" , "Bc3" , "Bf3" , "Be3" , "Bb7" , "Qxc6" , "Raa8" , "Qb5" , "Qc7" , "g5" , "cxb5" , "axb4" , "Ke1" , "b4" , "Qa6" , "Bh3" , "Bg3" , "Ke7" , "Kg8" , "Bg6" , "Nf6" , "Qa8+" , "Reb8" , "h5" , "Kd2" , "Bc2" , "Be2" , "Ra6" , "Ra8" , "Qxb5" , "Ne5" , "Qe8" , "f4" , "e4" , "Rxa6" , "Kd8" , "Kd4" , "Bg2" , "Bf2" , "Bf7" , "Bd2" , "Ra1" , "dxc6" , "Qc3" , "Qb3" , "Qa3" , "Qe7" , "Kf4" , "Bd4" , "f3" , "exf4" , "Kh7" ;
+        chon:nextHalfMove      :hmgamcY0TOT2 , :hmgamjjmpw53 .
+
+:res8jpcZ5Z  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:tou8jpcZ  a          chon:hessTournament ;
+        chon:atPlace  :pla8jpcZ5 ;
+        chon:hasName  "Baden-Baden" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol8jpcZ5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8jpcZ5 .
+
+:hmgam8jpcZ5Z  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8jpcZ5Zc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jussupow, Artur" ;
+        chon:hasSANRecord      "e6" , "e5" , "Re8" , "Nxc3" , "Be7" , "Bb7" , "Nf3" , "O-O" , "d6" , "Bxd4" , "c4" , "Qc2" , "Qd8" , "Bf6" , "a5" , "Nf6" , "b3" , "Ra7" , "Nc3" , "Rxd4" , "Qc8" , "Nd7" , "d5" , "Ne4" , "d4" , "Bb2" , "Rd1" , "b6" , "Bg2" , "Qxc3" , "a3" , "g3" , "Nd4" , "Rb1" ;
+        chon:nextHalfMove      :hmgam8jpcZ5Z , :hmgamjjmpw53 .
+
+:rolhg8jpcZ5Zc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8jpcZ5 .
+
+:hmgamcY0TOT2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcY0TOT2E , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jussupow, Artur" ;
+        chon:hasSANRecord      "Kh4" , "Bd2" , "Bg6" , "Be3" , "Ke7" , "Bc3" , "Bc6" , "Ne5" , "Bb5" , "Bf3" , "Ng6+" , "Bxe5" , "Bxb5" , "Kg3" , "Bg2" , "Kf2" , "Ke6" , "Be2" , "Be8" , "Bxb6" , "Bh3+" , "dxe5" ;
+        chon:nextHalfMove      :hmgamcY0TOT2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8jpcZ5 .
+
+:pla8jpcZ5  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .

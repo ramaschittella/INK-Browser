@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamWqURSJ1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWqURSJ1k ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ellison, Derek George" ;
+        chon:hasSANRecord      "d3" , "Nd5" , "axb4" , "Rc8" , "Kc1" , "Qxe4" , "O-O-O" , "Kb1" , "Bxd3" , "Nb4" , "Be7" , "c5" , "Qe2" , "Qd2" , "Rxb2+" , "Nf6" , "Qe4+" , "Bg5+" , "Kxh7" , "Bxf6" , "d4" , "Bxe4" , "Bd3" , "dxe4" , "Bf6" , "Qe3" , "e6" , "Kg8" , "Bb7" , "Nc3" , "c4" , "g3" , "Rxd8" , "Rxc4" , "Rdd2" , "b6" , "Bxh7+" , "a3" , "Qf4" , "Nxe4" , "Nd7" , "Bg5" , "e4" , "Nf3" , "h4" , "Be4" , "d5" , "Nc6" , "Rxb4" , "Ne5" , "cxd4" , "O-O" ;
+        chon:nextHalfMove      :hmgamWqURSJ1 .
+
+:cgrWqURSJ  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWqURSJ .
+
+:gamWqURS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWqURSJ ;
+        chon:atPlace           :plaWqURSJ ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWqURSJ1 ;
+        chon:hasHalfMove       :hmgamWqURSJ1 ;
+        chon:hasLastHalfMove   :hmgamWqURSJ1 ;
+        chon:hasOpening        :opeWqURSJ ;
+        chon:hasReport         :cgrWqURSJ ;
+        chon:hasResult         :resWqURSJ1 ;
+        chon:subEventOf        :touWqURS .
+
+chon:HalfMove  chon:subEventOf  :gamWqURS .
+
+:resWqURSJ1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWqURSJ .
+
+:plaWqURSJ  a         chon:Place ;
+        chon:hasName  "Cleveland" .
+
+:agWqURSJ  a          chon:Agent ;
+        chon:hasName  "Ellison, Derek George" , "Fischer, Robert James" .
+
+:rolWqURSJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWqURSJ .
+
+:rolhgWqURSJ1k  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWqURSJ .
+
+:opeWqURSJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C11" .
+
+:touWqURS  a          chon:hessTournament ;
+        chon:atPlace  :plaWqURSJ ;
+        chon:hasName  "Cleveland sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolbyUynx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbyUynx .
+
+:opebyUynx  a            chon:ChessOpening ;
+        chon:hasECOCode  "D38" .
+
+:gambyUyn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbyUynx ;
+        chon:atPlace           :plabyUynx ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambyUynxo ;
+        chon:hasHalfMove       :hmgambyUynxo , :hmgamSA5RKyd ;
+        chon:hasLastHalfMove   :hmgamSA5RKyd ;
+        chon:hasOpening        :opebyUynx ;
+        chon:hasReport         :cgrbyUynx ;
+        chon:hasResult         :resbyUynxo ;
+        chon:subEventOf        :toubyUyn .
+
+:rolhgbyUynxop  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbyUynx .
+
+:hmgamSA5RKyd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSA5RKydQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik, Vladimir" ;
+        chon:hasSANRecord      "Bxg6" , "Nd1" , "a4" , "a3" , "Qf2" , "Qg8" , "Ne3" , "Kg2" , "Bxe6" , "h6" , "Qf7" , "e4" , "Nd4" , "Bf7" , "Qd4" , "Kf1" , "Be3+" , "Bg5" , "Nd5" , "Nxb3" , "a5" , "Kc1" , "Na3+" , "d2" , "Kd1" , "Rf1" , "Nc2+" , "e5" , "Re8" , "Qd8" , "Bg6" , "Qh2" , "Nc4" , "Qh4" , "Nc3" , "b3" , "Qxd7" , "Nxd2+" , "e6" , "Nxf1" , "Bd7" , "exd7" , "Ka2" , "Qxe4" , "Ke1" , "Qd5" , "Kb1" , "g6" , "Qc4+" , "Qh3" , "Kg7" , "Rd8" , "b4" , "Nxa3+" , "Qd7" , "Qb3+" , "Qf8+" , "Bh5" , "Bxe8" , "Ka1" , "Nxd2" , "Nc5" ;
+        chon:nextHalfMove      :hmgamSA5RKyd .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbyUynx .
+
+:rolhgSA5RKydQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbyUynx .
+
+:hmgambyUynxo  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbyUynxop , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik, Vladimir" ;
+        chon:hasSANRecord      "Nxe6" , "Ne4" , "O-O" , "Qb3" , "g3" , "Ke1" , "fxe4" , "dxc5" , "Nd6" , "c5" , "Kd2" , "Nf3" , "f3" , "c4" , "Ba7" , "Nc6" , "d3+" , "Bf1" , "Rad1" , "d4" , "Qh4" , "Kxf2" , "Bc1" , "Nc3" , "Nd4" , "Bd2" , "Rxf2" , "Bxc5" , "Rf2" , "Qxg3+" , "Nb1" , "d5" , "e6" , "Be6" , "exd5" , "Kb1" , "Kc2" , "a3" , "e3" , "Kh8" , "Qg2" , "Ne5" , "Qxh2+" , "Bb4" , "a6" , "Be2" , "Qe7" , "Qa2" , "Qg5" , "fxe6" , "Bh3" , "b5" , "Rad8" , "Na2" , "Rd6" , "cxd5" , "Qh3" , "Nf6" ;
+        chon:nextHalfMove      :hmgamSA5RKyd , :hmgambyUynxo .
+
+chon:HalfMove  chon:subEventOf  :gambyUyn .
+
+:cgrbyUynx  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbyUynx .
+
+:toubyUyn  a          chon:hessTournament ;
+        chon:atPlace  :plabyUynx ;
+        chon:hasName  "Amber-blind 6th" .
+
+:resbyUynxo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plabyUynx  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agbyUynx  a          chon:Agent ;
+        chon:hasName  "Kramnik, Vladimir" , "Karpov, Anatoly" .

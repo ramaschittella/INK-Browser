@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrAojAGn  a   chon:ChessGameReport .
+
+:agAojAGn  a          chon:Agent ;
+        chon:hasName  "Christiansen, Larry Mark" , "Karpov, Anatoly" .
+
+:rolAojAGn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAojAGn .
+
+:opeAojAGn  a            chon:ChessOpening ;
+        chon:hasECOCode  "A57" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAojAGn .
+
+chon:HalfMove  chon:subEventOf  :gamAojAG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAojAGn .
+
+:hmgamMmgOfmM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMmgOfmM8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Christiansen, Larry Mark" ;
+        chon:hasSANRecord      "Bf3" , "Bd5" , "Rxa2" , "Rb7" , "Bxa2" , "Rxa6" , "Be5" , "Rb5" , "Bc3" , "Bb4" , "Rc1" , "Rxc6" , "Ra5" , "Rc5" , "Bxc7" , "bxc7" , "Rb1" , "Be6" , "Rxc7" , "Ra1" , "Kg2" , "Rc8" , "g6" , "Ba5" , "Bd7" , "Rb2" ;
+        chon:nextHalfMove      :hmgamMmgOfmM .
+
+:rolhgMmgOfmM8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAojAGn .
+
+:rolhgAojAGnKW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAojAGn .
+
+:gamAojAG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAojAGn ;
+        chon:atPlace           :plaAojAGn ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAojAGnK ;
+        chon:hasHalfMove       :hmgamAojAGnK , :hmgamMmgOfmM ;
+        chon:hasLastHalfMove   :hmgamMmgOfmM ;
+        chon:hasOpening        :opeAojAGn ;
+        chon:hasReport         :cgrAojAGn ;
+        chon:hasResult         :resAojAGnK ;
+        chon:subEventOf        :touAojAG .
+
+:hmgamAojAGnK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMmgOfmM8 , :rolhgAojAGnKW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Christiansen, Larry Mark" ;
+        chon:hasSANRecord      "Kf3" , "Kg3" , "Kxg3" , "Nc6" , "Qxd8" , "b6" , "b3" , "Bf6" , "Rd4" , "h5" , "Ne5" , "cxb5" , "Nf6" , "Be6" , "Nf3" , "Rxd8" , "exd5" , "Rd1" , "bxc4" , "Bf4" , "Bc7" , "b5" , "Be2" , "Nxd5" , "Bd5+" , "Ke2" , "Kh3" , "Bxc4+" , "e6" , "c4" , "Be6+" , "dxc6" , "h4+" , "Bc3+" , "a6" , "O-O" , "Rb4" , "d4" , "Nxc6" , "hxg3+" , "Nc3" , "d5" , "e3" , "Be7" , "c5" , "g4" , "Qxd5" ;
+        chon:nextHalfMove      :hmgamMmgOfmM , :hmgamAojAGnK .
+
+:touAojAG  a          chon:hessTournament ;
+        chon:atPlace  :plaAojAGn ;
+        chon:hasName  "Wijk m rapid" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaAojAGn  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:resAojAGnK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

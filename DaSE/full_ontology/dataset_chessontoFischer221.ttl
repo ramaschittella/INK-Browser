@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaf7LRDE  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:cgrf7LRDE  a   chon:ChessGameReport .
+
+:rolhgr7I8cGWe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agf7LRDE .
+
+:hmgamr7I8cGW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgr7I8cGWe ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rh8" , "Bg2" , "Bxf6" , "h7" , "Red1" , "Ke7" , "Kxh7" , "h4" , "gxf6" , "O-O-O" , "Qf1" , "Rhe1" , "b5" , "Rxd3" , "a6" , "a3" , "d4" , "e4" , "Qg2" , "cxd4" , "d6" , "e6" , "Bb7" , "Kf8" , "Qh1" , "c4" , "Nxd5" , "Rd3" , "h6" , "Rxh5" , "Ne2" , "Qb6" , "exd5" , "g4" , "Qf3" , "Kxc8" , "Kb1" , "Qxh8+" , "f5" , "Rc3" , "Rxd5" , "Be7" , "Nf6" , "Kb8" , "Qxd4" , "Nf3" , "Rxc8+" , "Bc5" , "Bxd5" , "b4" , "d5" , "Bd4" , "Qh8" , "Nbd7" , "Nxd4" , "Kxh8" , "Be3+" , "Qc7" , "h5" , "Rc8" , "Qa8+" , "c5" , "Kg7" , "Nc3" , "Bg5" , "Nb6" , "gxh5" , "f4" , "Kd8" ;
+        chon:nextHalfMove      :hmgamr7I8cGW .
+
+:rolf7LRDE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agf7LRDE .
+
+:gamf7LRD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolf7LRDE ;
+        chon:atPlace           :plaf7LRDE ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamr7I8cGW ;
+        chon:hasHalfMove       :hmgamr7I8cGW ;
+        chon:hasLastHalfMove   :hmgamr7I8cGW ;
+        chon:hasOpening        :opef7LRDE ;
+        chon:hasReport         :cgrf7LRDE ;
+        chon:hasResult         :resf7LRDEU ;
+        chon:subEventOf        :touf7LRD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agf7LRDE .
+
+:touf7LRD  a          chon:hessTournament ;
+        chon:atPlace  :plaf7LRDE ;
+        chon:hasName  "Zuerich" .
+
+chon:HalfMove  chon:subEventOf  :gamf7LRD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agf7LRDE .
+
+:agf7LRDE  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Gligoric, Svetozar" .
+
+:opef7LRDE  a            chon:ChessOpening ;
+        chon:hasECOCode  "B99" .
+
+:resf7LRDEU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

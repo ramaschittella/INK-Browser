@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrO7PAse  a   chon:ChessGameReport .
+
+:rolhgO7PAsess  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTa9qJg .
+
+:rolO7PAse  a             chon:AuthorRole ;
+        chon:performedBy  :agO7PAse .
+
+:agTa9qJg  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gelfand, Boris" .
+
+:gamTa9qJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTa9qJg ;
+        chon:atPlace           :plaTa9qJg ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamO7PAses ;
+        chon:hasHalfMove       :hmgamO7PAses ;
+        chon:hasLastHalfMove   :hmgamO7PAses ;
+        chon:hasOpening        :opeTa9qJg ;
+        chon:hasReport         :cgrO7PAse ;
+        chon:hasResult         :resTa9qJgb ;
+        chon:subEventOf        :touTa9qJ .
+
+:rolTa9qJg  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:opeTa9qJg  a            chon:ChessOpening ;
+        chon:hasECOCode  "E54" .
+
+:hmgamO7PAses  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgO7PAsess , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "dxc4" , "hxg6" , "Qa1" , "b6" , "exd5" , "Qxf4" , "Bb4" , "d4" , "a4" , "Qc3" , "c4" , "Qc1" , "Ra5" , "Qe4" , "Bg3" , "Ra3" , "Bxg6" , "Nf8" , "Qf2" , "Qe3+" , "Ng6" , "Ne5" , "Kh1" , "Rc2" , "Qc7" , "O-O" , "Qd8" , "Bc8" , "Rfc8" , "Re1" , "Qf8" , "Rh3" , "Qd4" , "b5" , "d5" , "Bb3" , "Qd2" , "Bd3" , "gxf6" , "cxd5" , "Bh4" , "Qb1" , "b4" , "e6" , "Rc8" , "Be4" , "e4" , "Re8" , "Bxf6" , "Rc7" , "Rc5" , "Nb3" , "Nf6" , "Qa3" , "Rxa2" , "Qxb4" , "c6" , "Qe8" , "Bc4" , "Bg5" , "a5" , "c5" , "f5" , "Bf5" , "Bxc4" , "Rb3" , "f4" , "Bb1" , "Bxc3" , "bxc3" , "Ne7" , "Nbd7" , "Rec3" , "Nc3" , "Nf3" , "Rc1" , "Nd4" , "Nd2" , "Qb6" , "Qb4" , "Re3" , "Bb7" , "Rd1" , "Qd6" ;
+        chon:nextHalfMove      :hmgamO7PAses .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTa9qJg .
+
+chon:HalfMove  chon:subEventOf  :gamTa9qJ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTa9qJg .
+
+:touTa9qJ  a          chon:hessTournament ;
+        chon:atPlace  :plaTa9qJg ;
+        chon:hasName  "Linares" .
+
+:resTa9qJgb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaTa9qJg  a         chon:Place ;
+        chon:hasName  "Linares" .

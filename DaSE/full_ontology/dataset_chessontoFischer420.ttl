@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope7GYDZU  a            chon:ChessOpening ;
+        chon:hasECOCode  "D83" .
+
+:hmgamiEUTwTY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiEUTwTYs ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kh2" , "Qxe5" , "Rxe5" , "Re5" , "Qd1+" ;
+        chon:nextHalfMove      :hmgamiEUTwTY .
+
+:hmgam7GYDZUT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7GYDZUTh , :rolhgiEUTwTYs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "h6" , "Qb5" , "Nf6" , "Na6" , "d4" , "Rc6" , "dxc4" , "Qg4" , "b5" , "b4" , "Ne2" , "e6" , "Bf3" , "dxc6" , "Bxc4" , "Re6" , "Bd5" , "Re1" , "Nc3" , "Rac8" , "Qc2" , "Nc5" , "Qxc1" , "c6" , "Nc7" , "Bf4" , "Qe3" , "g6" , "Bxd5" , "Nxf4" , "Nh5" , "c4" , "Rc1" , "Na4" , "O-O" , "Rxd5" , "Nd5" , "Qd7" , "Re5" , "Nd7" , "h5" , "Rxc7" , "h4" , "Qb3" , "Bxc1" , "c7" , "Qd5" , "Be6" , "b3" , "Bxf4" , "d5" , "Bg7" , "exd5" , "Be2" , "e4" , "e3" , "Qa5" , "Bh6" , "Rf6" ;
+        chon:nextHalfMove      :hmgamiEUTwTY , :hmgam7GYDZUT .
+
+:pla7GYDZU  a         chon:Place ;
+        chon:hasName  "New York" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7GYDZU .
+
+:rolhg7GYDZUTh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7GYDZU .
+
+chon:HalfMove  chon:subEventOf  :gam7GYDZ .
+
+:cgr7GYDZU  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7GYDZU .
+
+:ag7GYDZU  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Fine, Reuben" .
+
+:rol7GYDZU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7GYDZU .
+
+:res7GYDZUT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gam7GYDZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7GYDZU ;
+        chon:atPlace           :pla7GYDZU ;
+        chon:atTime            "1963.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7GYDZUT ;
+        chon:hasHalfMove       :hmgam7GYDZUT , :hmgamiEUTwTY ;
+        chon:hasLastHalfMove   :hmgamiEUTwTY ;
+        chon:hasOpening        :ope7GYDZU ;
+        chon:hasReport         :cgr7GYDZU ;
+        chon:hasResult         :res7GYDZUT ;
+        chon:subEventOf        :tou7GYDZ .
+
+:tou7GYDZ  a          chon:hessTournament ;
+        chon:atPlace  :pla7GYDZU ;
+        chon:hasName  "Manhattan blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgiEUTwTYs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7GYDZU .

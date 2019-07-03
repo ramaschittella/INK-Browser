@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgreNMM77  a   chon:ChessGameReport .
+
+:ageNMM77  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Bernstein, Yaacov" .
+
+:roleNMM77  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageNMM77 .
+
+:opeeNMM77  a            chon:ChessOpening ;
+        chon:hasECOCode  "B25" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageNMM77 .
+
+chon:HalfMove  chon:subEventOf  :gameNMM7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageNMM77 .
+
+:rolhgeNMM77uo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageNMM77 .
+
+:hmgameNMM77u  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeNMM77uo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "cxb4" , "c5" , "Bg7" , "Nf3" , "Qf4" , "Nc3" , "Ng5" , "Ba6" , "fxe4" , "d3" , "Nc6" , "b4" , "Bxf1" , "Rae1" , "b5" , "Bg2" , "O-O-O" , "Rf5" , "e5" , "dxe4" , "Nf6" , "Nxe5" , "Kh1" , "fxe5" , "g3" , "g6" , "d6" , "Bb5" , "Nf7" , "Rxe5" , "a3" , "Be3" , "Qd2" , "b6" , "f4" , "Bxc6" , "Bg1" , "Qd7" , "f5" , "O-O" , "axb4" , "Qxc6" , "Bb7" , "Bd4" , "Rde8" , "Rhe8" , "e4" , "Kb8" ;
+        chon:nextHalfMove      :hmgameNMM77u .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gameNMM7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleNMM77 ;
+        chon:atPlace           :plaeNMM77 ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameNMM77u ;
+        chon:hasHalfMove       :hmgameNMM77u ;
+        chon:hasLastHalfMove   :hmgameNMM77u ;
+        chon:hasOpening        :opeeNMM77 ;
+        chon:hasReport         :cgreNMM77 ;
+        chon:hasResult         :reseNMM77u ;
+        chon:subEventOf        :toueNMM7 .
+
+:plaeNMM77  a         chon:Place ;
+        chon:hasName  "Netanya" .
+
+:reseNMM77u  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:toueNMM7  a          chon:hessTournament ;
+        chon:atPlace  :plaeNMM77 ;
+        chon:hasName  "Netanya-A" .

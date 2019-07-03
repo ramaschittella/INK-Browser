@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrYPwGWe  a   chon:ChessGameReport .
+
+:hmgamYPwGWeN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYPwGWeN4 , :rolhgqPG2jhSu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nf6" , "e6" , "d4" , "c4" ;
+        chon:nextHalfMove      :hmgamYPwGWeN , :hmgamqPG2jhS .
+
+:rolhgYPwGWeN4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYPwGWe .
+
+:rolhgqPG2jhSu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYPwGWe .
+
+:gamYPwGW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYPwGWe ;
+        chon:atPlace           :plaYPwGWe ;
+        chon:atTime            "2006.02.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYPwGWeN ;
+        chon:hasHalfMove       :hmgamqPG2jhS , :hmgamYPwGWeN ;
+        chon:hasLastHalfMove   :hmgamqPG2jhS ;
+        chon:hasOpening        :opeYPwGWe ;
+        chon:hasReport         :cgrYPwGWe ;
+        chon:hasResult         :resYPwGWeN ;
+        chon:subEventOf        :touYPwGW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYPwGWe .
+
+:plaYPwGWe  a         chon:Place ;
+        chon:hasName  "Novi Sad SCG" .
+
+:hmgamqPG2jhS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqPG2jhSu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "cxd5" , "O-O" , "h3" , "d5" , "Rac8" , "b3" , "Bd6" , "Bxc5" , "Nxc5" , "Bb7" , "Qxb2" , "Rfd1" , "Be7" , "h6" , "b4" , "Bd3" , "Qe2" , "Rac1" , "Nxd5" , "Bxb2" , "dxc5" , "c5" , "Qe7" , "Bf6" , "Nbd7" , "a3" , "Ne4" , "e3" , "b6" , "Bb2" , "Nbd2" , "Nf3" ;
+        chon:nextHalfMove      :hmgamqPG2jhS .
+
+:touYPwGW  a          chon:hessTournament ;
+        chon:atPlace  :plaYPwGWe ;
+        chon:hasName  "Gligoric 83rd g/20 Match" .
+
+chon:HalfMove  chon:subEventOf  :gamYPwGW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYPwGWe .
+
+:resYPwGWeN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agYPwGWe  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Portisch,L" .
+
+:rolYPwGWe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYPwGWe .
+
+:opeYPwGWe  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

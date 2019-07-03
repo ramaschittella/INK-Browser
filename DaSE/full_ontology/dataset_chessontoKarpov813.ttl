@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou2u7oO  a          chon:hessTournament ;
+        chon:atPlace  :pla2u7oOo ;
+        chon:hasName  "URS-ch50" .
+
+:ag2u7oOo  a          chon:Agent ;
+        chon:hasName  "Tukmakov, Vladimir B" , "Karpov, Anatoly" .
+
+:rol2u7oOo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2u7oOo .
+
+:ope2u7oOo  a            chon:ChessOpening ;
+        chon:hasECOCode  "C88" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2u7oOo .
+
+:hmgam2u7oOov  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZIHdZw4r , :rolhg2u7oOovH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tukmakov, Vladimir B" ;
+        chon:hasSANRecord      "e5" , "e4" , "Nf3" ;
+        chon:nextHalfMove      :hmgam2u7oOov , :hmgamZIHdZw4 .
+
+chon:HalfMove  chon:subEventOf  :gam2u7oO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2u7oOo .
+
+:rolhg2u7oOovH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2u7oOo .
+
+:res2u7oOov  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgZIHdZw4r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2u7oOo .
+
+:pla2u7oOo  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamZIHdZw4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZIHdZw4r ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tukmakov, Vladimir B" ;
+        chon:hasSANRecord      "Na5" , "Ba4" , "c5" , "b5" , "Be7" , "Bb7" , "cxb3" , "d6" , "Ne2" , "Ng3" , "Nc3" , "a4" , "Nxb3" , "O-O" , "a6" , "a5" , "Nf6" , "Bb3" , "Re1" , "Bxb3" , "b3" , "Bb5" , "Nc6" , "b4" , "Ba2" , "d3" ;
+        chon:nextHalfMove      :hmgamZIHdZw4 .
+
+:cgr2u7oOo  a   chon:ChessGameReport .
+
+:gam2u7oO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2u7oOo ;
+        chon:atPlace           :pla2u7oOo ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2u7oOov ;
+        chon:hasHalfMove       :hmgamZIHdZw4 , :hmgam2u7oOov ;
+        chon:hasLastHalfMove   :hmgamZIHdZw4 ;
+        chon:hasOpening        :ope2u7oOo ;
+        chon:hasReport         :cgr2u7oOo ;
+        chon:hasResult         :res2u7oOov ;
+        chon:subEventOf        :tou2u7oO .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgUpV1OZdN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUpV1OZ .
+
+:gamUpV1O  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUpV1OZ ;
+        chon:atPlace           :plaUpV1OZ ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUpV1OZd ;
+        chon:hasHalfMove       :hmgamUpV1OZd ;
+        chon:hasLastHalfMove   :hmgamUpV1OZd ;
+        chon:hasOpening        :opeUpV1OZ ;
+        chon:hasReport         :cgrUpV1OZ ;
+        chon:hasResult         :resUpV1OZd ;
+        chon:subEventOf        :touUpV1O .
+
+:hmgamUpV1OZd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUpV1OZdN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Qxd6" , "Rfb8" , "g6" , "Nc3" , "Qb3" , "Bg2" , "Bd2" , "c6" , "e3" , "Nf3" , "Ra2" , "Qe8" , "Nb6" , "Nf5" , "Bf1" , "Bg7" , "Nfd7" , "Rfc1" , "Ne7" , "Nxd6" , "Qd7" , "d5" , "d4" , "O-O" , "Be3" , "Bd7" , "g4" , "cxd5" , "Nc6" , "f6" , "h6" , "Ne5" , "Nd6" , "Nf6" , "b3" , "Bf2" , "a4" , "c4" , "e6" , "Qc2" , "g5" , "Be1" , "a5" , "g3" , "Bc6" , "Rac2" , "Qd1" , "f4" , "Nb5" , "Nbc8" , "Bd3" , "Bf8" , "Rc8" ;
+        chon:nextHalfMove      :hmgamUpV1OZd .
+
+:touUpV1O  a          chon:hessTournament ;
+        chon:atPlace  :plaUpV1OZ ;
+        chon:hasName  "World Championship 34th-KK4" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUpV1OZ .
+
+chon:HalfMove  chon:subEventOf  :gamUpV1O .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUpV1OZ .
+
+:resUpV1OZd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaUpV1OZ  a         chon:Place ;
+        chon:hasName  "Sevilla" .
+
+:cgrUpV1OZ  a   chon:ChessGameReport .
+
+:agUpV1OZ  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolUpV1OZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUpV1OZ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeUpV1OZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .

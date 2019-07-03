@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touyuJyI  a          chon:hessTournament ;
+        chon:atPlace  :playuJyIW ;
+        chon:hasName  "Vinkovci" .
+
+:rolhgKuGOhXne  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyuJyIW .
+
+:cgryuJyIW  a   chon:ChessGameReport .
+
+:hmgamKuGOhXn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKuGOhXne , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Robatsch, Karl" ;
+        chon:hasSANRecord      "a4" , "Nxf2" , "b3" , "Nd3" , "Nh5" , "O-O" , "Nh4" , "Ne4+" , "Ra2" , "Ra1" , "Bxd8" , "Kf8" , "exd4" , "Ng8" , "Nef6" , "Kg3" , "Kh2" , "Nc3" , "Rxc7" , "Nxc7" , "Bd5" , "Bd4" , "a7" , "dxc5" , "Rc2" , "Bf4" , "Ra6" , "a5" , "bxa4" , "b4" , "hxg4" , "Nh6" , "Kg7" , "Rf4" , "d4" , "Rc1+" , "Rxa4" , "g4" , "Nc5" , "Rc6" , "c5" , "Bd6" , "Nf5" , "Rc4" , "Ra7" , "Nc6" , "Nb6" , "Rxe8+" , "Nf3" , "Kd6" , "bxa5" , "Nbd7" , "Bf6" , "Nxd5" , "Nxd4" , "Nxe4" , "g6" , "g5" , "Nd7+" , "h5" , "Rf1" , "Rc8" , "Rc7" , "cxd4" , "Nf6" , "h3" , "Nb2" , "Bxd5" , "Rxc6" , "Bxd4" , "Ke5" , "Kf4" , "Nb8" , "Nc7" , "Ng3" , "a6" , "Bb7" , "Nxe8" , "Re8" , "Ra4" , "Rxa7" , "Bxc5" , "Qxd8" ;
+        chon:nextHalfMove      :hmgamKuGOhXn .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyuJyIW .
+
+:rolyuJyIW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyuJyIW .
+
+chon:HalfMove  chon:subEventOf  :gamyuJyI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyuJyIW .
+
+:playuJyIW  a         chon:Place ;
+        chon:hasName  "Vinkovci" .
+
+:hmgamyuJyIWk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyuJyIWk2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Robatsch, Karl" ;
+        chon:hasSANRecord      "Be7" , "d6" , "c3" , "b5" , "Bb3" , "O-O" , "Nf6" , "Re1" , "Ba4" , "a6" , "Bb5" , "e5" , "e4" , "Nf3" , "Nc6" ;
+        chon:nextHalfMove      :hmgamKuGOhXn , :hmgamyuJyIWk .
+
+:rolhgyuJyIWk2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyuJyIW .
+
+:agyuJyIW  a          chon:Agent ;
+        chon:hasName  "Robatsch, Karl" , "Fischer, Robert James" .
+
+:opeyuJyIW  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resyuJyIWk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamyuJyI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyuJyIW ;
+        chon:atPlace           :playuJyIW ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyuJyIWk ;
+        chon:hasHalfMove       :hmgamKuGOhXn , :hmgamyuJyIWk ;
+        chon:hasLastHalfMove   :hmgamKuGOhXn ;
+        chon:hasOpening        :opeyuJyIW ;
+        chon:hasReport         :cgryuJyIW ;
+        chon:hasResult         :resyuJyIWk ;
+        chon:subEventOf        :touyuJyI .

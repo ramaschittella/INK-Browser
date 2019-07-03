@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrDiE7Ik  a   chon:ChessGameReport .
+
+:agDiE7Ik  a          chon:Agent ;
+        chon:hasName  "Ivanchuk, Vassily" , "Karpov, Anatoly" .
+
+:rolDiE7Ik  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDiE7Ik .
+
+:opeDiE7Ik  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDiE7Ik .
+
+:gamDiE7I  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDiE7Ik ;
+        chon:atPlace           :plaDiE7Ik ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzelfsiA ;
+        chon:hasHalfMove       :hmgamzelfsiA ;
+        chon:hasLastHalfMove   :hmgamzelfsiA ;
+        chon:hasOpening        :opeDiE7Ik ;
+        chon:hasReport         :cgrDiE7Ik ;
+        chon:hasResult         :resDiE7Ikj ;
+        chon:subEventOf        :touDiE7I .
+
+chon:HalfMove  chon:subEventOf  :gamDiE7I .
+
+:touDiE7I  a          chon:hessTournament ;
+        chon:atPlace  :plaDiE7Ik ;
+        chon:hasName  "Tilburg rapid20" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDiE7Ik .
+
+:rolhgzelfsiA4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDiE7Ik .
+
+:resDiE7Ikj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamzelfsiA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzelfsiA4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "Rxe7" , "Bb7" , "Nxc5" , "Nf6" , "c4" , "c5" , "bxa4" , "O-O" , "e6" , "Rxc6" , "Bxe7" , "Ke7" , "Bg5" , "Qc7" , "Rxc4" , "Nxe2" , "Be2" , "Rd2" , "e4" , "Ba6" , "a5" , "d4" , "Rfe8" , "Qxe4" , "Qc2" , "Bxe2" , "Nb4" , "Rcc4" , "Nxc3" , "Rc4" , "Rb4" , "Qh4" , "Rac1" , "c6" , "Ke2" , "h4" , "Bd6" , "bxc5" , "Rd8" , "Qxe7" , "Nd4" , "Nxe4" , "a3" , "Rxa3" , "Rc5" , "dxc5" , "Nf3" , "Rd3" , "Rd4" , "Na6" , "Nbd7" , "Kf1" , "Rb7" , "g6" , "Nc3" , "Rxc3" , "dxe4" , "Be7" , "d5" , "Kf8" , "Rc7+" , "a4" , "b3" , "b6" , "Rd1" , "Nd5" , "e3" ;
+        chon:nextHalfMove      :hmgamzelfsiA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaDiE7Ik  a         chon:Place ;
+        chon:hasName  "Tilburg" .

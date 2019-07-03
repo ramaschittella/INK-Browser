@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag2ykkDF  a          chon:Agent ;
+        chon:hasName  "Salov, Valery" , "Karpov, Anatoly" .
+
+:ope2ykkDF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E17" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2ykkDF .
+
+:hmgam2ykkDFc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtAuDYF4g , :rolhg2ykkDFcQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Salov, Valery" ;
+        chon:hasSANRecord      "Rc8" , "Re8" , "Ne1" , "dxc6" , "Nf7" , "O-O" , "axb4" , "cxb4" , "Bxb7" , "f5" , "Bf4" , "a3" , "b3" , "Be7" , "c4" , "Rxd4" , "Rad8" , "Nd6" , "Nf6" , "Qxb7" , "d4" , "Bf6" , "Bb7" , "g3" , "Be3" , "e6" , "Be5" , "Nb8" , "Ra1" , "Qc5" , "Qc2" , "Nd4" , "Nd5" , "Nf4" , "dxc4" , "b6" , "Bxd4" , "Rxc4" , "c5" , "c6" , "Qc4" , "Ne4" , "Bg2" , "Qxc4" , "Rd1" , "Qb3" , "Nfd5" , "Bd2" , "Nd3" , "Nf3" , "b4" , "b5" , "d5" , "Na6" , "Nc6" , "Qe7" , "Nc3" , "Rd3" , "Qa2" , "exd5" ;
+        chon:nextHalfMove      :hmgam2ykkDFc , :hmgamtAuDYF4 .
+
+chon:HalfMove  chon:subEventOf  :gam2ykkD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2ykkDF .
+
+:cgr2ykkDF  a   chon:ChessGameReport .
+
+:rolhg2ykkDFcQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2ykkDF .
+
+:rol2ykkDF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2ykkDF .
+
+:res2ykkDFc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:pla2ykkDF  a         chon:Place ;
+        chon:hasName  "Madrid" .
+
+:hmgamtAuDYF4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtAuDYF4g , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Salov, Valery" ;
+        chon:hasSANRecord      "Re5" , "a5" , "a4" , "Rh7" , "Rd5" , "Rd7" , "Rhd7" , "Rdd7" , "Nxb5" , "h6" , "Kg8" , "Rxg7+" , "a3" , "Rxe3" , "Rxf5" , "Rcd1" , "Ne3" , "Rc1" , "Kf8" , "Ra7" , "Rb4" , "Nd6" , "Nc4" , "Na5" ;
+        chon:nextHalfMove      :hmgamtAuDYF4 .
+
+:rolhgtAuDYF4g  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2ykkDF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam2ykkD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2ykkDF ;
+        chon:atPlace           :pla2ykkDF ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2ykkDFc ;
+        chon:hasHalfMove       :hmgamtAuDYF4 , :hmgam2ykkDFc ;
+        chon:hasLastHalfMove   :hmgamtAuDYF4 ;
+        chon:hasOpening        :ope2ykkDF ;
+        chon:hasReport         :cgr2ykkDF ;
+        chon:hasResult         :res2ykkDFc ;
+        chon:subEventOf        :tou2ykkD .
+
+:tou2ykkD  a          chon:hessTournament ;
+        chon:atPlace  :pla2ykkDF ;
+        chon:hasName  "Madrid" .

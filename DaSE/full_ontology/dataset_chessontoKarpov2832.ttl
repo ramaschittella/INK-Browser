@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plazsPctA  a         chon:Place ;
+        chon:hasName  "Mainz GER" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzsPctA .
+
+:agzsPctA  a          chon:Agent ;
+        chon:hasName  "Spassky,B" , "Karpov,Ana" .
+
+:cgrzsPctA  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamzsPct .
+
+:rolhgzsPctAV1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzsPctA .
+
+:opezsPctA  a            chon:ChessOpening ;
+        chon:hasECOCode  "D55" .
+
+:hmgam1uZuQAL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcsWKpzQB , :rolhg1uZuQALq , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky,B" ;
+        chon:hasSANRecord      "bxc5" , "c5" , "O-O" , "Rc8" , "Ne4" , "Rfd1" , "dxe4" , "Nc5" , "Bxe4" , "Re8" , "Nd7" , "Qxd4" , "Bxd4" , "Bf3" , "h3" , "Nxe4" , "cxd4" , "Nxd4" , "Rxd4" , "Rab1" ;
+        chon:nextHalfMove      :hmgam1uZuQAL , :hmgamcsWKpzQ .
+
+:gamzsPct  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzsPctA ;
+        chon:atPlace           :plazsPctA ;
+        chon:atTime            "2005.08.10"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzsPctAV ;
+        chon:hasHalfMove       :hmgamzsPctAV , :hmgam1uZuQAL , :hmgamcsWKpzQ ;
+        chon:hasLastHalfMove   :hmgamcsWKpzQ ;
+        chon:hasOpening        :opezsPctA ;
+        chon:hasReport         :cgrzsPctA ;
+        chon:hasResult         :reszsPctAV ;
+        chon:subEventOf        :touzsPct .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reszsPctAV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolzsPctA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzsPctA .
+
+:hmgamcsWKpzQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcsWKpzQB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky,B" ;
+        chon:hasSANRecord      "h5" , "R4e7" , "Raxa7" , "Rc4" , "Bxa2" , "Ra1" , "Rxa2" , "Rd7" , "Rxd7" , "Rcxe4" ;
+        chon:nextHalfMove      :hmgamcsWKpzQ .
+
+:hmgamzsPctAV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzsPctAV1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky,B" ;
+        chon:hasSANRecord      "d5" , "e3" , "Bg5" , "Be7" , "cxd5" , "Bxf6" , "Be2" , "Nf3" , "e6" , "exd5" , "Nf6" , "d4" , "b6" , "O-O" , "Nc3" , "Be6" , "b4" , "c4" , "h6" , "Qd2" ;
+        chon:nextHalfMove      :hmgamzsPctAV , :hmgam1uZuQAL .
+
+:rolhg1uZuQALq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzsPctA .
+
+:rolhgcsWKpzQB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzsPctA .
+
+:touzsPct  a          chon:hessTournament ;
+        chon:atPlace  :plazsPctA ;
+        chon:hasName  "Unzicker 80" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzsPctA .

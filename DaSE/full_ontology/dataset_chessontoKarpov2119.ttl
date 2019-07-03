@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resQxre9xJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamMv9nSxZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMv9nSxZ7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nouro, Mikael" ;
+        chon:hasSANRecord      "Ne3" , "Ke8" , "f4" , "Rb1+" , "Ng4" , "Nd1" , "f5" , "Qb4" , "Qc7" , "Bg7" , "Qb3" , "Nxf5" , "Bxf3" , "b6" , "Bxa7" , "Rc4" , "Bb2" , "Be3" , "a4" , "Kh2" , "Rb4" , "Nh6" , "Rb8" , "gxf5" , "Nc6" , "Nfd7" , "Rf4+" , "h3" , "exf5" , "bxa5" , "Be2" , "Nbc4" , "Qxa5" , "Kf8" , "Rf8" , "Rb2" , "O-O" , "cxd5" , "Nc5" , "Rc8" , "Qxd2" , "d5" , "c6" , "Rf7" , "Bh5+" , "Nd2" , "Qa5" , "Nce5" , "Nf6" , "Nb6" , "Rc1" , "Rxa4" , "Kd7" , "Nd7" , "Qb5" , "Bxb2" , "Rb1" , "Rg4+" , "Qxa7" , "Bg4" , "Bf6" , "Rxc8" , "Rfc1" , "Ne4" ;
+        chon:nextHalfMove      :hmgamMv9nSxZ .
+
+:plaQxre9x  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQxre9x .
+
+:cgrQxre9x  a   chon:ChessGameReport .
+
+:rolhgMv9nSxZ7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQxre9x .
+
+chon:HalfMove  chon:subEventOf  :gamQxre9 .
+
+:agQxre9x  a          chon:Agent ;
+        chon:hasName  "Nouro, Mikael" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQxre9x .
+
+:rolQxre9x  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQxre9x .
+
+:hmgamQxre9xJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMv9nSxZ7 , chon:AgentRole , :rolhgQxre9xJ9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nouro, Mikael" ;
+        chon:hasSANRecord      "Be2" , "g6" , "c4" , "Nc3" , "Nf3" , "e4" , "Bg7" , "d6" , "Nf6" , "d4" , "O-O" ;
+        chon:nextHalfMove      :hmgamQxre9xJ , :hmgamMv9nSxZ .
+
+:gamQxre9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQxre9x ;
+        chon:atPlace           :plaQxre9x ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQxre9xJ ;
+        chon:hasHalfMove       :hmgamMv9nSxZ , :hmgamQxre9xJ ;
+        chon:hasLastHalfMove   :hmgamMv9nSxZ ;
+        chon:hasOpening        :opeQxre9x ;
+        chon:hasReport         :cgrQxre9x ;
+        chon:hasResult         :resQxre9xJ ;
+        chon:subEventOf        :touQxre9 .
+
+:rolhgQxre9xJ9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQxre9x .
+
+:touQxre9  a          chon:hessTournament ;
+        chon:atPlace  :plaQxre9x ;
+        chon:hasName  "Valkeakoski sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeQxre9x  a            chon:ChessOpening ;
+        chon:hasECOCode  "E91" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg0964fhsX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0964fh .
+
+:res0964fhs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgr0964fh  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0964fh .
+
+chon:HalfMove  chon:subEventOf  :gamH7TLU .
+
+:ag0964fh  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Byrne, Robert E" .
+
+:rol0964fh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0964fh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0964fh .
+
+:plaH7TLUh  a         chon:Place ;
+        chon:hasName  "Sousse" .
+
+:gamH7TLU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0964fh ;
+        chon:atPlace           :plaH7TLUh ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0964fhs ;
+        chon:hasHalfMove       :hmgam0964fhs ;
+        chon:hasLastHalfMove   :hmgam0964fhs ;
+        chon:hasOpening        :ope0964fh ;
+        chon:hasReport         :cgr0964fh ;
+        chon:hasResult         :res0964fhs ;
+        chon:subEventOf        :tou0964f .
+
+:tou0964f  a          chon:hessTournament ;
+        chon:atPlace  :plaH7TLUh ;
+        chon:hasName  "Sousse Interzonal+" .
+
+:hmgam0964fhs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0964fhsX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "exd5" , "Bxd5" , "Nf6" , "h5" , "Rc8" , "Bb3" , "Qg5" , "a6" , "Nxh5" , "e5" , "Qxh3" , "d4" , "Nde2" , "Rh4" , "Kd8" , "Be7" , "Nc5" , "f5" , "Bg3" , "f4" , "Bh2+" , "Qd3" , "O-O" , "Qf4" , "Rf3" , "Qf3" , "Rxh3" , "Nf3" , "Ng3" , "e4" , "axb3" , "Ng7+" , "Nxd4" , "Rh3" , "Nd5" , "Nc3" , "cxd4" , "d6" , "c5" , "Bb7" , "Bxh4" , "Nxb3" , "Qxf6+" , "Kf1" , "h4" , "Bg5" , "Bc4" , "Bxf6" , "f6" , "b5" , "b4" , "e6" , "g6" , "Ke1" , "Nbd7" ;
+        chon:nextHalfMove      :hmgam0964fhs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope0964fh  a            chon:ChessOpening ;
+        chon:hasECOCode  "B87" .

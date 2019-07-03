@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:reseQ3NgGT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:ageQ3NgG  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Lobron, Eric" .
+
+:opeeQ3NgG  a            chon:ChessOpening ;
+        chon:hasECOCode  "A20" .
+
+:rolhgGSd7SGIS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageQ3NgG .
+
+:toueQ3Ng  a          chon:hessTournament ;
+        chon:atPlace  :plaeQ3NgG ;
+        chon:hasName  "Walldorf m rap" .
+
+:hmgamGSd7SGI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGSd7SGIS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e2" , "gxf5" , "b5" , "a6" , "Bxa6" , "e1=Q" , "cxd5" , "Ne5" , "d6" , "h5" , "Nc4" , "Bxf2" , "Ra8" , "Kd7" , "Nf7" , "Bc5" , "exf5" , "b3" , "a4" , "e3" , "Rc1" , "Bf5+" , "Bxh6" , "Nh6" , "Nd7" , "h3" , "O-O-O" , "Kxc5" , "Kc6" , "b4+" , "Kb1" , "e4" , "Nd2" , "Bb7+" , "Bxa8" , "f6" , "Nc5+" , "Na5" , "Kxb4" , "Bb2" , "Nd5" , "Bf1" , "Rhf1" , "Nb7+" , "Rxh6" , "Rc8" , "Bc1" , "Rxf5" , "bxa4" , "Bxg3" ;
+        chon:nextHalfMove      :hmgamGSd7SGI .
+
+:hmgameQ3NgGT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeQ3NgGTe , chon:AgentRole , :rolhgGSd7SGIS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "dxe5" , "g3" , "Qxd8+" , "Be6" , "d4" , "Bg2" , "Nc3" , "d6" , "Nf3" , "g6" , "e5" , "c4" , "Kxd8" , "c6" ;
+        chon:nextHalfMove      :hmgamGSd7SGI , :hmgameQ3NgGT .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageQ3NgG .
+
+chon:HalfMove  chon:subEventOf  :gameQ3Ng .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageQ3NgG .
+
+:cgreQ3NgG  a   chon:ChessGameReport .
+
+:roleQ3NgG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageQ3NgG .
+
+:gameQ3Ng  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleQ3NgG ;
+        chon:atPlace           :plaeQ3NgG ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameQ3NgGT ;
+        chon:hasHalfMove       :hmgameQ3NgGT , :hmgamGSd7SGI ;
+        chon:hasLastHalfMove   :hmgamGSd7SGI ;
+        chon:hasOpening        :opeeQ3NgG ;
+        chon:hasReport         :cgreQ3NgG ;
+        chon:hasResult         :reseQ3NgGT ;
+        chon:subEventOf        :toueQ3Ng .
+
+:plaeQ3NgG  a         chon:Place ;
+        chon:hasName  "Walldorf" .
+
+:rolhgeQ3NgGTe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageQ3NgG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

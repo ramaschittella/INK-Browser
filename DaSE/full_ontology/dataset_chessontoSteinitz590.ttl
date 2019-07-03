@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agfvvyU8  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Janowsky, Dawid Markelowicz" .
+
+:opefvvyU8  a            chon:ChessOpening ;
+        chon:hasECOCode  "C62" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfvvyU8 .
+
+chon:HalfMove  chon:subEventOf  :gamfvvyU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfvvyU8 .
+
+:plafvvyU8  a         chon:Place ;
+        chon:hasName  "London" .
+
+:rolhgfvvyU8Id  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfvvyU8 .
+
+:cgrfvvyU8  a   chon:ChessGameReport .
+
+:resfvvyU8I  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolfvvyU8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfvvyU8 .
+
+:gamfvvyU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfvvyU8 ;
+        chon:atPlace           :plafvvyU8 ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfvvyU8I ;
+        chon:hasHalfMove       :hmgamfvvyU8I ;
+        chon:hasLastHalfMove   :hmgamfvvyU8I ;
+        chon:hasOpening        :opefvvyU8 ;
+        chon:hasReport         :cgrfvvyU8 ;
+        chon:hasResult         :resfvvyU8I ;
+        chon:subEventOf        :toufvvyU .
+
+:toufvvyU  a          chon:hessTournament ;
+        chon:atPlace  :plafvvyU8 ;
+        chon:hasName  "London" .
+
+:hmgamfvvyU8I  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfvvyU8Id , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Kf7" , "Ne2" , "Bxg7" , "Qc4" , "Rxc2" , "Nxd4" , "Qf3" , "d5" , "Nc5" , "Qxd4" , "Rxg7" , "Re2" , "Qd2" , "Qxg7" , "Kd7" , "Qc5" , "Rg7" , "h6" , "exd5" , "Ng6" , "d4" , "R1d2" , "Rf1" , "Rxd5" , "f4" , "Nd1" , "e5" , "Rf4" , "Be3" , "a5" , "Rhg1" , "Ne3" , "axb4+" , "Qa5" , "Ne6" , "Bb5" , "Ng2" , "Kc3" , "d6" , "Qxd5" , "axb4" , "Bh3" , "Rcd2" , "Bg4" , "h4" , "c6" , "Kb1" , "Bc4" , "Nge7" , "b4+" , "fxe6" , "Bxd4" , "Bxe6" , "Rf2" , "Rd3" , "a3" , "Kf6" , "f5" , "Bxf3" , "Ke7" , "Rg4" , "Red1" , "Rg1+" , "b5" , "gxf3" , "Nf1" , "Kc1" , "Ng3" , "Nc3" , "Re1" , "Rd2" , "Rd4" , "Nf3" , "Nge5" , "O-O-O" , "h5" , "exd4" , "Rdd2" , "Kb2" , "Rd7" , "Rh4" , "Rhg8" , "Qc7" , "Nd7" , "Qg4" , "Bd7" , "Nc6" , "f3" , "e4" , "Rg2" , "Be2" , "b3" ;
+        chon:nextHalfMove      :hmgamfvvyU8I .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

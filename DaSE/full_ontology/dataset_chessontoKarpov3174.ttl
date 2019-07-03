@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla4uEKkI  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:hmgamfsAYRI4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfsAYRI4N , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Re1" , "f3" , "a3" , "Nh2" , "Bxc6" , "Qxf3" , "Bb5" , "Ra2" , "Bd5" , "Kf7" , "Rc1" , "Nxc5" , "Nd4" , "Ne7" , "Bh6" , "b4" , "dxc5" , "Qb6" , "h4" , "Rgf8" , "Be3" , "cxd5" , "axb4" , "Bf5" , "exd5" , "h5" , "Ng4" , "Rxf3" , "Bxc5" , "fxe6" , "Kxh5" , "Ng3" , "Rf6" , "Bc5" , "c4" , "e4" , "O-O" , "Qxd5" , "Nf1" , "Qf3" , "Bd3" , "Kg7" , "Nxe4+" , "Kg6" , "Kf6" , "c6" , "Bg6" , "Qxb4" , "Nf3" , "a5" , "c5" , "Be2" , "Kg5" , "Bb2" , "Nec6" , "Nd7" , "Bxe4" , "Bxg7" , "Rg8" , "c3" , "e6" , "d5" , "Qg4" , "Ne5+" , "Rc7" , "Nxf3" , "Rxa3" , "Nc6" , "Qa5" , "Be7" , "d4" , "Nbd2" , "bxc6" , "cxb4" , "Qxc5" , "Ne4" , "e5" , "Rc5+" , "Ne3" , "a4" ;
+        chon:nextHalfMove      :hmgamfsAYRI4 .
+
+:gam4uEKk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4uEKkI ;
+        chon:atPlace           :pla4uEKkI ;
+        chon:atTime            "2009.11.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfsAYRI4 ;
+        chon:hasHalfMove       :hmgamfsAYRI4 ;
+        chon:hasLastHalfMove   :hmgamfsAYRI4 ;
+        chon:hasOpening        :opefsAYRI ;
+        chon:hasReport         :cgrfsAYRI ;
+        chon:hasResult         :resfsAYRI4 ;
+        chon:subEventOf        :tou4uEKk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfsAYRI .
+
+:cgrfsAYRI  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam4uEKk .
+
+:agfsAYRI  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Karjakin,Sergey" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfsAYRI .
+
+:rolfsAYRI  a             chon:AuthorRole ;
+        chon:performedBy  :agfsAYRI .
+
+:rolhgfsAYRI4N  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfsAYRI .
+
+:tou4uEKk  a          chon:hessTournament ;
+        chon:atPlace  :pla4uEKkI ;
+        chon:hasName  "World Blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opefsAYRI  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:rol4uEKkI  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resfsAYRI4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamVfw27  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVfw27f ;
+        chon:atPlace           :plaVfw27f ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVfw27fz ;
+        chon:hasHalfMove       :hmgamRddaPcP , :hmgamVfw27fz ;
+        chon:hasLastHalfMove   :hmgamRddaPcP ;
+        chon:hasOpening        :opeVfw27f ;
+        chon:hasReport         :cgrVfw27f ;
+        chon:hasResult         :resVfw27fz ;
+        chon:subEventOf        :touVfw27 .
+
+:resVfw27fz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touVfw27  a          chon:hessTournament ;
+        chon:atPlace  :plaVfw27f ;
+        chon:hasName  "Tungsram Budapest" .
+
+:plaVfw27f  a         chon:Place ;
+        chon:hasName  "Budapest" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVfw27f .
+
+:cgrVfw27f  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamVfw27 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVfw27f .
+
+:rolVfw27f  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVfw27f .
+
+:rolhgRddaPcPM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVfw27f .
+
+:hmgamVfw27fz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRddaPcPM , :rolhgVfw27fzO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Adorjan, Andras" ;
+        chon:hasSANRecord      "e6" , "exd5" , "g3" , "Ne4" , "Ne7" , "c5" , "Qd2" , "Nc6" , "Nh3" , "Nf6" , "cxd5" , "c4" , "O-O" , "Bg7" , "e3" , "Nf4" , "Bg2" , "g6" , "Bg5" , "d4" , "Nc3" , "h6" , "d5" , "Nf3" , "Nxg5" ;
+        chon:nextHalfMove      :hmgamRddaPcP , :hmgamVfw27fz .
+
+:agVfw27f  a          chon:Agent ;
+        chon:hasName  "Adorjan, Andras" , "Karpov, Anatoly" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgVfw27fzO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVfw27f .
+
+:opeVfw27f  a            chon:ChessOpening ;
+        chon:hasECOCode  "D91" .
+
+:hmgamRddaPcP  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRddaPcPM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Adorjan, Andras" ;
+        chon:hasSANRecord      "Be6" , "Ba3" , "dxe3" , "Rxa8" , "a5" , "Nde3" , "Rxa5" , "Nxd1" , "f3" , "d4" , "Rd8" , "Nxe3" , "Nxa5" , "h4" , "Nf2" , "Rb5" , "Nd3" , "Rab1" , "c6" , "Ne5" , "Bd6" , "Qxd2+" , "Nd1" , "Nxc6" , "Bxb7" , "Bc7" , "Ra8" , "Bxa5+" , "Bxa8" , "Bf5" , "dxc5" , "Kc2" , "Nd5+" , "Rxd1" , "Kc3" , "Ne7" , "a3" , "Bxf3" , "Be2" , "Bd3" , "Kb2" , "a4" , "gxh4" , "Rab8" , "Nxf3" , "h5" , "Bxb2" , "Nc4" , "Kxd2" , "Rhd1" ;
+        chon:nextHalfMove      :hmgamRddaPcP .

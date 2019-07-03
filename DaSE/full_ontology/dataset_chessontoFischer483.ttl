@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla5ZW7tu  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:ag5ZW7tu  a          chon:Agent ;
+        chon:hasName  "O'Kelly de Galway, Alberic" , "Fischer, Robert James" .
+
+:ope5ZW7tu  a            chon:ChessOpening ;
+        chon:hasECOCode  "C89" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ZW7tu .
+
+:cgr5ZW7tu  a   chon:ChessGameReport .
+
+:gam5ZW7t  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5ZW7tu ;
+        chon:atPlace           :pla5ZW7tu ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5ZW7tuE ;
+        chon:hasHalfMove       :hmgamfXTj2wG , :hmgamHZ6Snww , :hmgam5ZW7tuE ;
+        chon:hasLastHalfMove   :hmgamHZ6Snww ;
+        chon:hasOpening        :ope5ZW7tu ;
+        chon:hasReport         :cgr5ZW7tu ;
+        chon:hasResult         :res5ZW7tuE ;
+        chon:subEventOf        :tou5ZW7t .
+
+:hmgam5ZW7tuE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5ZW7tuES , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "O'Kelly de Galway, Alberic" ;
+        chon:hasSANRecord      "Nd2" , "Bxd5" , "Ra7" , "Bh3" , "Be3" , "Bb5" , "Rxe5" , "exd5" , "Re8" , "Re1" , "g3" , "e5" , "Nxe5" , "Nxd5" , "Bf6" , "Ba4" , "Re7" , "O-O" , "d5" , "Qf3" , "e4" , "d4" , "Be7" , "c6" , "Rxe7" , "a6" , "Qxe7" , "cxd5" , "Nc6" , "Nf3" , "Bb3" , "Nf6" , "Qe6" , "c3" , "b5" ;
+        chon:nextHalfMove      :hmgam5ZW7tuE , :hmgamfXTj2wG .
+
+:rolhgfXTj2wG6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5ZW7tu .
+
+chon:HalfMove  chon:subEventOf  :gam5ZW7t .
+
+:hmgamfXTj2wG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfXTj2wG6 , chon:AgentRole , :rolhgHZ6Snwwt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "O'Kelly de Galway, Alberic" ;
+        chon:hasSANRecord      "Nf1" , "Qa2" , "Kc6" , "a3" , "Qf8" , "Kh2" , "Qd4" , "Qb1" , "Kf7" , "Ne3" , "Bg7" , "Qf3" , "Qf4" , "Bh6" , "g4" , "Bf5" , "Qe1" , "Bg4" , "Kb8" , "Ng2" , "Qh1" , "Bxe5" , "dxe5" , "Kd7" , "b4" , "Be7" , "Bh8" , "Nf4" , "Be3" , "h4" , "fxe6" , "h5" , "Qf2" , "Kg2" , "Qc4" , "Ke8" , "Qd3" , "Be5" , "Be6" , "Qc1" , "Ka8" , "Qg2" , "Re6" , "Kb7" , "Bh3" , "Rxe1" , "Re1" , "Bd6" , "Qf5" , "Bxe1" , "g6" , "Qe2" , "Qd2" , "Qe3" , "f3" , "Bf2" , "Nxe6" ;
+        chon:nextHalfMove      :hmgamfXTj2wG , :hmgamHZ6Snww .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou5ZW7t  a          chon:hessTournament ;
+        chon:atPlace  :pla5ZW7tu ;
+        chon:hasName  "Capablanca mem" .
+
+:hmgamHZ6Snww  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHZ6Snwwt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "O'Kelly de Galway, Alberic" ;
+        chon:hasSANRecord      "f4" , "gxh5" ;
+        chon:nextHalfMove      :hmgamHZ6Snww .
+
+:rol5ZW7tu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5ZW7tu .
+
+:rolhg5ZW7tuES  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5ZW7tu .
+
+:res5ZW7tuE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ZW7tu .
+
+:rolhgHZ6Snwwt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5ZW7tu .

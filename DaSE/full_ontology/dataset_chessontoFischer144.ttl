@@ -1,0 +1,91 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam8htbj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8htbjV ;
+        chon:atPlace           :pla8htbjV ;
+        chon:atTime            "1958.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKhzHdVN ;
+        chon:hasHalfMove       :hmgamKhzHdVN , :hmgamLiOiDV2 , :hmgamziR35WY , :hmgam9gFJHV0 ;
+        chon:hasLastHalfMove   :hmgamLiOiDV2 ;
+        chon:hasOpening        :ope8htbjV ;
+        chon:hasReport         :cgr8htbjV ;
+        chon:hasResult         :res8htbjVV ;
+        chon:subEventOf        :tou8htbj .
+
+:rol8htbjV  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:tou8htbj  a          chon:hessTournament ;
+        chon:atPlace  :pla8htbjV ;
+        chon:hasName  "Portoroz Interzonal" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8htbjV .
+
+chon:HalfMove  chon:subEventOf  :gam8htbj .
+
+:pla8htbjV  a         chon:Place ;
+        chon:hasName  "Portoroz" .
+
+:hmgamziR35WY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgziR35WYN , :rolhgLiOiDV2Y , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Kf7" , "Be3" , "Nh6+" , "Qxe6+" , "Rxb4" , "Rd2" , "Rdc8" , "Rc4" , "Qg4" , "Nf8" , "cxb4" , "Rad1" , "Kxe6" , "Bxh6" ;
+        chon:nextHalfMove      :hmgamLiOiDV2 , :hmgamziR35WY .
+
+:hmgam9gFJHV0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9gFJHV0n , :rolhgziR35WYN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "f6" , "Nh4" , "Nf3" , "Nf5" , "O-O" , "Re1" , "g6" , "Bf8" , "Rfd8" , "Bb3" , "Be3" , "Qd6" , "Nd2" , "b5" , "d4" , "Nxe5" , "d6" , "Qe6" , "dxe5" , "c5" , "Be7" , "Ba4" , "Red1" , "Qh5" , "b4" , "c3" , "h3" , "Bxb3" , "Be6" , "Bg5" , "Nb6" , "Nf6" , "Nd7" , "axb3" ;
+        chon:nextHalfMove      :hmgam9gFJHV0 , :hmgamziR35WY .
+
+:ag8htbjV  a          chon:Agent ;
+        chon:hasName  "Tal, Mihail" , "Fischer, Robert James" .
+
+:ope8htbjV  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:rolhgKhzHdVNW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8htbjV .
+
+:cgr8htbjV  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolyjFtFV  a             chon:AuthorRole ;
+        chon:performedBy  :agyjFtFV .
+
+:hmgamLiOiDV2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLiOiDV2Y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Rhg7+" , "a5" , "Rdd6" , "Rxh7" , "Rh7+" , "Rb6" , "Kf7" , "Ra8" , "Rxb2" , "a4" , "Rxf6" , "Rd6+" , "Ra7" , "Re8" , "Ne6" , "Kg8" , "Rff7" , "Rb7+" , "Kh8" ;
+        chon:nextHalfMove      :hmgamLiOiDV2 .
+
+:rolhg9gFJHV0n  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8htbjV .
+
+:hmgamKhzHdVN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKhzHdVNW , chon:AgentRole , :rolhg9gFJHV0n ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "e5" , "a6" , "Nf3" , "Nc6" , "e4" , "Bb5" ;
+        chon:nextHalfMove      :hmgamKhzHdVN , :hmgam9gFJHV0 .
+
+:rolhgziR35WYN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8htbjV .
+
+:rolhgLiOiDV2Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8htbjV .
+
+:res8htbjVV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8htbjV .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resvLbcVTT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolvLbcVT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvLbcVT .
+
+:plajLeYmU  a         chon:Place ;
+        chon:hasName  "Montilla" .
+
+:hmgamE1JfD2w  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgE1JfD2wK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bellon Lopez, Juan Manuel" ;
+        chon:hasSANRecord      "Ke3" , "Kg3" , "Ng5+" , "Kd6" , "Rh3+" , "Kg4" , "Kf8" , "b5" , "Ra7" , "Kf3" , "Bc6" , "h6" , "Kxh3" , "Rh4+" , "Rxh7" , "Bd8" , "Bxd4+" , "Kf4" , "Rh1" , "Bf6" , "h4" , "Bd4+" , "Nxh7" , "Ra1" , "h5" , "Ke7" , "Be2" , "cxd4" , "Bxb5" , "Rxb2" , "Bxd5" , "Rb1" , "Ne4" ;
+        chon:nextHalfMove      :hmgamE1JfD2w .
+
+:hmgamvLbcVTT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvLbcVTTP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bellon Lopez, Juan Manuel" ;
+        chon:hasSANRecord      "Bb5" , "e4" , "Nc3" , "Nc6" , "Nd4" , "Nf3" , "e5" , "f5" ;
+        chon:nextHalfMove      :hmgamvLbcVTT , :hmgamt1MZ73r .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvLbcVT .
+
+:gamjLeYm  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvLbcVT ;
+        chon:atPlace           :plajLeYmU ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvLbcVTT ;
+        chon:hasHalfMove       :hmgamE1JfD2w , :hmgamvLbcVTT , :hmgamt1MZ73r ;
+        chon:hasLastHalfMove   :hmgamE1JfD2w ;
+        chon:hasOpening        :opevLbcVT ;
+        chon:hasReport         :cgrvLbcVT ;
+        chon:hasResult         :resvLbcVTT ;
+        chon:subEventOf        :touvLbcV .
+
+:rolhgE1JfD2wK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvLbcVT .
+
+chon:HalfMove  chon:subEventOf  :gamjLeYm .
+
+:rolhgvLbcVTTP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvLbcVT .
+
+:hmgamt1MZ73r  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgE1JfD2wK , :rolhgt1MZ73rz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bellon Lopez, Juan Manuel" ;
+        chon:hasSANRecord      "Ne6" , "Qe1" , "Ne5" , "Qxf5" , "b6" , "cxb6" , "Qxe5" , "d3" , "h3" , "Bd6" , "Nxd4" , "Qg6" , "d5" , "Bb3" , "Qc7" , "g4" , "Qh4" , "Bc7" , "exf5" , "Kg7" , "Kg2" , "d4" , "Bc5" , "Ba4" , "Bxd3" , "Rxa2" , "Rxf5" , "Nd6" , "axb6" , "Nf5" , "Ng4" , "c6" , "c5" , "Ng3" , "g6" , "Nf3" , "Qh6" , "Nc5" , "c3" , "Ne4" , "Ng5" , "Qa5" , "Nh6" , "Ba6" , "f5" , "Nd8" , "f4" , "Rxe1" , "Ne2" , "gxf5" , "O-O" , "Kf3" , "Be3" , "Bc2" , "Nf7" , "Nf6" , "Rad1" , "Qxe1" , "Rf1" , "Nxe5" , "Nd3" , "dxc5" ;
+        chon:nextHalfMove      :hmgamt1MZ73r , :hmgamE1JfD2w .
+
+:agvLbcVT  a          chon:Agent ;
+        chon:hasName  "Bellon Lopez, Juan Manuel" , "Karpov, Anatoly" .
+
+:cgrvLbcVT  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opevLbcVT  a            chon:ChessOpening ;
+        chon:hasECOCode  "C63" .
+
+:touvLbcV  a          chon:hessTournament ;
+        chon:atPlace  :plajLeYmU ;
+        chon:hasName  "Montilla" .
+
+:rolhgt1MZ73rz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvLbcVT .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvLbcVT .

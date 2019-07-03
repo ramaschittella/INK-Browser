@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plafN0xbq  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:cgrGPkSyr  a   chon:ChessGameReport .
+
+:hmgamGPkSyrB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGPkSyrBF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bilek, Istvan" ;
+        chon:hasSANRecord      "Rg3" , "Bxf3" , "O-O" , "Rxh7" , "h7" , "Nxf6+" , "Qf4" , "Rxg7" , "Qg4+" , "Qxh6" , "e6" , "Re7" , "f6" , "Rac8" , "Qd3" , "b6" , "Nf6" , "e4" , "Kb2" , "Bb5" , "a4" , "Rh5" , "Qxf5+" , "Qxf6" , "Rf7" , "Qxd7" , "h6" , "Ke8" , "Rdg1" , "O-O-O" , "Qd5+" , "Qe7" , "Bg5" , "Qh8" , "f4" , "Nc3" , "f5" , "Re6" , "Qg6+" , "Kd8" , "Qxg7" , "Qd2" , "Bb7" , "Rh3" , "fxe5" , "dxc5" , "Ke7" , "Nbd7" , "h4" , "d4" , "Ke6" , "Rg5" , "Kxg7" , "h5" , "Rxc5" , "Kh8" , "c5" , "dxe4" , "b3" , "Nf3" , "Nxe4" , "Qd7+" , "Kf7" , "Qh7+" , "Kf8" , "e5" , "Bxf6" , "d5" , "gxf3" , "Bxd7" , "Be7" ;
+        chon:nextHalfMove      :hmgamGPkSyrB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGPkSyr .
+
+:agGPkSyr  a          chon:Agent ;
+        chon:hasName  "Bilek, Istvan" , "Fischer, Robert James" .
+
+:rolGPkSyr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGPkSyr .
+
+:touGPkSy  a          chon:hessTournament ;
+        chon:atPlace  :plafN0xbq ;
+        chon:hasName  "Capablanca mem" .
+
+chon:HalfMove  chon:subEventOf  :gamfN0xb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGPkSyr .
+
+:resGPkSyrB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamfN0xb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGPkSyr ;
+        chon:atPlace           :plafN0xbq ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGPkSyrB ;
+        chon:hasHalfMove       :hmgamGPkSyrB ;
+        chon:hasLastHalfMove   :hmgamGPkSyrB ;
+        chon:hasOpening        :opeGPkSyr ;
+        chon:hasReport         :cgrGPkSyr ;
+        chon:hasResult         :resGPkSyrB ;
+        chon:subEventOf        :touGPkSy .
+
+:rolhgGPkSyrBF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGPkSyr .
+
+:opeGPkSyr  a            chon:ChessOpening ;
+        chon:hasECOCode  "C11" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

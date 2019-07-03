@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res2v9rvYm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gam2v9rv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2v9rvY ;
+        chon:atPlace           :pla2v9rvY ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2v9rvYm ;
+        chon:hasHalfMove       :hmgam2v9rvYm ;
+        chon:hasLastHalfMove   :hmgam2v9rvYm ;
+        chon:hasOpening        :ope2v9rvY ;
+        chon:hasReport         :cgr2v9rvY ;
+        chon:hasResult         :res2v9rvYm ;
+        chon:subEventOf        :tou2v9rv .
+
+:ag2v9rvY  a          chon:Agent ;
+        chon:hasName  "Rubinstein, Jose" , "Fischer, Robert James" .
+
+:tou2v9rv  a          chon:hessTournament ;
+        chon:atPlace  :pla2v9rvY ;
+        chon:hasName  "Buenos Aires sim" .
+
+:rol2v9rvY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2v9rvY .
+
+:ope2v9rvY  a            chon:ChessOpening ;
+        chon:hasECOCode  "B89" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2v9rvY .
+
+chon:HalfMove  chon:subEventOf  :gam2v9rv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2v9rvY .
+
+:rolhg2v9rvYmu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2v9rvY .
+
+:cgr2v9rvY  a   chon:ChessGameReport .
+
+:hmgam2v9rvYm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2v9rvYmu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rubinstein, Jose" ;
+        chon:hasSANRecord      "Ke2" , "d4" , "Nc6" , "Bf8" , "Ra1+" , "Nc3" , "Nf3" , "Qh6" , "Qh5" , "Nce2" , "Rh3" , "gxf5" , "g4" , "b5" , "b4" , "Bb3" , "Bxf5" , "e5" , "Kd1" , "Be7" , "Qf2" , "Be3" , "Nf6" , "cxd4" , "Rhg1" , "Qc1" , "Nc5" , "exf5" , "a6" , "O-O-O" , "g6" , "g5" , "a4" , "Nxd4" , "cxb3" , "Rg3" , "Rfc8" , "Rh6" , "Bg7" , "f4" , "Rd2" , "Qc7" , "Nd7" , "Qh4" , "a5" , "axb3" , "Qe2" , "Rc2" , "e6" , "Nxb3+" , "d6" , "e4" , "c5" , "Bc4" , "Nf5" , "O-O" ;
+        chon:nextHalfMove      :hmgam2v9rvYm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla2v9rvY  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .

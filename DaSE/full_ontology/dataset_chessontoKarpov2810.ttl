@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamPbmwM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPbmwMV ;
+        chon:atPlace           :plaPbmwMV ;
+        chon:atTime            "2005.03.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2bjJjUx ;
+        chon:hasHalfMove       :hmgam2bjJjUx ;
+        chon:hasLastHalfMove   :hmgam2bjJjUx ;
+        chon:hasOpening        :opePbmwMV ;
+        chon:hasReport         :cgrPbmwMV ;
+        chon:hasResult         :resPbmwMVu ;
+        chon:subEventOf        :touPbmwM .
+
+:opePbmwMV  a            chon:ChessOpening ;
+        chon:hasECOCode  "A40" .
+
+:touPbmwM  a          chon:hessTournament ;
+        chon:atPlace  :plaPbmwMV ;
+        chon:hasName  "Match Rapid" .
+
+:resPbmwMVu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgam2bjJjUx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2bjJjUxI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Istratescu,A" ;
+        chon:hasSANRecord      "Qc7" , "d6" , "Ne5" , "a4" , "f3" , "Qc3" , "Qc2" , "Rc1" , "Qg7" , "Qb7" , "Qb8" , "Bg2" , "Rf2" , "Nf6" , "Rd2" , "h6" , "e4" , "Bc8" , "Re8" , "Ne2" , "Bg7" , "Rxe5" , "Rb8" , "Bxe5" , "R6e7" , "Nd2" , "Rxe6" , "O-O" , "dxe6" , "c3" , "c5" , "a5" , "Nc3" , "Ba6" , "c4" , "f5" , "Kh2" , "a6" , "Nc4" , "Nxd5" , "Rxf6" , "Rxd6" , "Rf8" , "axb6" , "g3" , "g5" , "Bg4" , "g6" , "e6" , "Rxh6" , "Qa5" , "d4" , "b6" , "fxe4" , "Nxe5" , "Ree8" , "Bb7" , "d5" , "cxd5" , "Rcf1" , "Nxb6" , "Nfd7" , "Re5" , "Bf4" , "h4" , "Nbd7" , "Qxc5" , "Rd1" , "Nd5" , "Rbe8" , "Rf6" , "Rfe8" , "Qc6" , "Na3" ;
+        chon:nextHalfMove      :hmgam2bjJjUx .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPbmwMV .
+
+:plaPbmwMV  a         chon:Place ;
+        chon:hasName  "Bucharest ROM" .
+
+chon:HalfMove  chon:subEventOf  :gamPbmwM .
+
+:rolhg2bjJjUxI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPbmwMV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPbmwMV .
+
+:cgrPbmwMV  a   chon:ChessGameReport .
+
+:agPbmwMV  a          chon:Agent ;
+        chon:hasName  "Istratescu,A" , "Karpov,Ana" .
+
+:rolPbmwMV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2bjJjU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

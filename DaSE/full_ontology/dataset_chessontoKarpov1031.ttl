@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamP1QrH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolP1QrHL ;
+        chon:atPlace           :plaP1QrHL ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam21LEgKD ;
+        chon:hasHalfMove       :hmgam21LEgKD ;
+        chon:hasLastHalfMove   :hmgam21LEgKD ;
+        chon:hasOpening        :opeP1QrHL ;
+        chon:hasReport         :cgrP1QrHL ;
+        chon:hasResult         :resP1QrHLA ;
+        chon:subEventOf        :touP1QrH .
+
+:touP1QrH  a          chon:hessTournament ;
+        chon:atPlace  :plaP1QrHL ;
+        chon:hasName  "Vienna op" .
+
+:hmgam21LEgKD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg21LEgKDj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Rg2" , "Rd8" , "bxc5" , "b4" , "Ra1" , "Re3" , "c4" , "Kc5" , "b5" , "Kb6" , "Rha8" , "Ra2" , "Kxc8" , "Nxf4" , "Bd2" , "Qxd2" , "f4" , "Rxf6" , "c6" , "c8=Q" , "Kc7" , "Rh3" , "Rad1" , "Ke8" , "Nc3" , "Ng6" , "cxb5" , "axb4+" , "Bb3" , "Rhe1" , "dxc5+" , "Kxd2" , "g5" , "Nd7" , "Re1" , "Rxh6" , "Bc4" , "Ba6" , "d5" , "b3" , "Rb5" , "Kb4" , "Kd6" , "gxf4" , "Nxe4" , "Nf8" , "Ra3+" , "Rxa6" , "Rg5" , "Ke7" , "Rf5" , "Kd8" , "Rg8" , "f3" , "dxe4" , "a5" , "b2" , "Ngf6" , "Kb3" , "Rxh2" , "Ra8" , "Rh8" , "Ne5" , "Bxd2+" , "e5" , "Rxa2" , "Nd3" , "Bb4+" , "Bc2" , "Bxe4" , "Rxg5" , "Bb7" , "Nf6" , "Rxe5+" , "b6" , "Kb7" , "Rd2" , "Bxa6" , "Rg6" , "Rf1" , "a3" , "Rxc8" , "Rf7+" , "Qa5" , "f6" , "Qxd2+" , "Rh5" , "e4" , "c7" , "Kb2" , "axb4" , "Kc8" , "h6" , "d4" , "c5+" , "Nf3" , "Bd3" , "g4" , "e6" , "Kc3" ;
+        chon:nextHalfMove      :hmgam21LEgKD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP1QrHL .
+
+chon:HalfMove  chon:subEventOf  :gamP1QrH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP1QrHL .
+
+:plaP1QrHL  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:cgrP1QrHL  a   chon:ChessGameReport .
+
+:agP1QrHL  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+:rolP1QrHL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag21LEgK .
+
+:opeP1QrHL  a            chon:ChessOpening ;
+        chon:hasECOCode  "D31" .
+
+:rolhg21LEgKDj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP1QrHL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resP1QrHLA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

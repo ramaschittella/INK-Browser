@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agu2BKew  a          chon:Agent ;
+        chon:hasName  "Cmilyte,V" , "Karpov,Ana" .
+
+:opeu2BKew  a            chon:ChessOpening ;
+        chon:hasECOCode  "D90" .
+
+:rolhgV4L6zwUX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agu2BKew .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agu2BKew .
+
+:hmgamu2BKew5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgu2BKew5x , :rolhgV4L6zwUX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Cmilyte,V" ;
+        chon:hasSANRecord      "Rxa2" , "Rxe6" , "h5" , "Bxe2" , "f5" , "Rxb4" , "f4" , "Ba6" , "Nxg6" , "Ba5" , "Rb1" , "Bg7" , "Be7" , "a5" , "Bh4+" , "Rh4+" , "Bd8" , "Nxa5" , "Bxb4" , "O-O" , "Kg7" , "Nd5" , "Nc4" , "Nc3" , "Kf3" , "Rab8" , "Nb6" , "Rg7" , "g4" , "Bxf6" , "Nxe2" , "e3" , "bxc6" , "Bb5" , "d5" , "Bb4" , "Rfxd8" , "d4" , "Bf6" , "Rcc6" , "f6" , "Nxd5" , "Kg3" , "Nxd4" , "Kg2" , "Re6" , "Kh6" , "Rhe7" , "Rh4" , "Nf6" , "hxg4+" , "c4" , "exd4" , "Rc1" , "Nb3" , "hxg4" , "Bd6" , "Ke2" , "gxf6+" , "Nc6" , "Rbc5" , "Kg5" , "Kg4" , "Rb8" , "Rb2+" , "Rh7" , "Rh6" , "h3" , "g6" , "Rxc6" , "Be5" , "g5" , "e5" , "Bxb2" , "Bd2" , "Bxc6" , "Nf3" , "Rh3+" , "Nc1" , "Qxd8" , "Rb5" , "Ne5" , "cxd5" , "Nb4" , "Nce2" , "Ke4" , "Rd7" , "Rh2" ;
+        chon:nextHalfMove      :hmgamu2BKew5 , :hmgamV4L6zwU .
+
+chon:HalfMove  chon:subEventOf  :gamu2BKe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agu2BKew .
+
+:cgru2BKew  a   chon:ChessGameReport .
+
+:rolhgu2BKew5x  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agu2BKew .
+
+:resu2BKew5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolu2BKew  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agu2BKew .
+
+:gamu2BKe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolu2BKew ;
+        chon:atPlace           :plau2BKew ;
+        chon:atTime            "2008.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamu2BKew5 ;
+        chon:hasHalfMove       :hmgamu2BKew5 , :hmgamV4L6zwU ;
+        chon:hasLastHalfMove   :hmgamV4L6zwU ;
+        chon:hasOpening        :opeu2BKew ;
+        chon:hasReport         :cgru2BKew ;
+        chon:hasResult         :resu2BKew5 ;
+        chon:subEventOf        :touu2BKe .
+
+:plau2BKew  a         chon:Place ;
+        chon:hasName  "Marianske Lazne CZE" .
+
+:touu2BKe  a          chon:hessTournament ;
+        chon:atPlace  :plau2BKew ;
+        chon:hasName  "Snowdrops vs Old-hands" .
+
+:hmgamV4L6zwU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgV4L6zwUX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Cmilyte,V" ;
+        chon:hasSANRecord      "Rf1+" , "Ra7" , "Ke6" , "Rxc5" , "Be7" , "Rd1" , "Ra4" , "Rc8" , "Kd5" , "Nd7" , "Rg6+" , "Rc7" , "c5" , "Bg5" , "Rd4+" , "Kf5" , "Bf8" , "Rc6" , "Kh5" , "Bh6" , "e4" , "f6" , "Ne5" ;
+        chon:nextHalfMove      :hmgamV4L6zwU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

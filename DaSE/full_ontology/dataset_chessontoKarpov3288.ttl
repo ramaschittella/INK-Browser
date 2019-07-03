@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agWPdmWm  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Karjakin,Sergey" .
+
+:rolWPdmWm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWPdmWm .
+
+:opeWPdmWm  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+:hmgamLPh0nkA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLPh0nkAT , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamGNYi9kR .
+
+:resWPdmWmD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWPdmWm .
+
+chon:HalfMove  chon:subEventOf  :gamWPdmW .
+
+:rolhgLPh0nkAT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWPdmWm .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWPdmWm .
+
+:hmgamGNYi9kR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGNYi9kRT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qe6+" , "a3" , "Ne4" , "Nd5" , "f4" , "Kxg7" , "Nc3" , "Rc1" , "Qe4" , "cxd5" , "d4" , "Bh3" , "Kh7" , "Kg8" , "d5" , "Nb4" , "Kf7" , "Nxa6" , "Bxg7" , "Qe2" , "Ng5+" , "hxg5" , "h6" , "Be3" , "h4" , "f3" , "Rg8" , "Qxd5" , "Nf6" , "Nxf6+" , "c4" , "Nba6" , "hxg5+" , "c6" , "Rh6" , "Bxc8" , "Qd8" , "exd5" , "Kg7" , "Rh6+" , "Bd4" , "g3" , "Bg7" , "Qxc8" , "f6" , "Rxg6+" , "Nc7" , "Rf8" , "Nf3" , "g6" , "Qb6" , "Qd6" , "Nc5" , "Qe5+" , "Qe6" , "N4a6" ;
+        chon:nextHalfMove      :hmgamGNYi9kR .
+
+:cgrWPdmWm  a   chon:ChessGameReport .
+
+:gamWPdmW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWPdmWm ;
+        chon:atPlace           :plaWPdmWm ;
+        chon:atTime            "2013.06.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLPh0nkA ;
+        chon:hasHalfMove       :hmgamLPh0nkA , :hmgamGNYi9kR ;
+        chon:hasLastHalfMove   :hmgamGNYi9kR ;
+        chon:hasOpening        :opeWPdmWm ;
+        chon:hasReport         :cgrWPdmWm ;
+        chon:hasResult         :resWPdmWmD ;
+        chon:subEventOf        :touWPdmW .
+
+:touWPdmW  a          chon:hessTournament ;
+        chon:atPlace  :plaWPdmWm ;
+        chon:hasName  "Sberbank GM Rapid" .
+
+:rolhgGNYi9kRT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWPdmWm .
+
+:plaWPdmWm  a         chon:Place ;
+        chon:hasName  "Kiev UKR" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

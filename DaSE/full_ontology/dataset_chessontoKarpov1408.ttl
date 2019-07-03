@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plarBvjsb  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+:gamrBvjs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrBvjsb ;
+        chon:atPlace           :plarBvjsb ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSDFBOb5 ;
+        chon:hasHalfMove       :hmgamSDFBOb5 ;
+        chon:hasLastHalfMove   :hmgamSDFBOb5 ;
+        chon:hasOpening        :operBvjsb ;
+        chon:hasReport         :cgrrBvjsb ;
+        chon:hasResult         :resrBvjsbc ;
+        chon:subEventOf        :tourBvjs .
+
+:tourBvjs  a          chon:hessTournament ;
+        chon:atPlace  :plarBvjsb ;
+        chon:hasName  "Candidats qf4" .
+
+:hmgamSDFBOb5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSDFBOb5E ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "Qe7" , "Rd8" , "Be3" , "Bg4" , "Rxc4" , "c5" , "Ra6" , "Ke3" , "Nxe5" , "Rf2" , "Na4" , "Rcd1" , "Ke6" , "Nxc5" , "Bb4" , "Rdc8" , "R5c6" , "e4" , "f4" , "Qb1" , "Ra6+" , "Nc4" , "b5" , "Bxc6" , "Rd6" , "Rb3" , "Bc2" , "c4" , "d4" , "h4" , "Kd6" , "Rxc6" , "Nd7" , "Bc5" , "Rad1" , "Qh5" , "Bd1" , "Kf7" , "axb5" , "Qc2" , "Nge5" , "Nd4" , "Ra3" , "dxc4" , "Rd2" , "Rxc5" , "c6" , "Ra7" , "Bd6" , "Rac8" , "Qc7" , "O-O" , "Bd3" , "Ke7" , "d5" , "Rg6" , "Nd2" , "Ne2" , "Ne8" , "Ba2" , "Bf2" , "Rfe1" , "Ne5" , "a3" , "Bxc4" , "Qe3" , "Rc4" , "Rd4" , "Nf6" , "Ng6" , "e5" , "Nc4+" , "Bc6" , "Bd2" , "Rc1" , "Nf3" , "Qd3" , "Rb4" , "Qxc5" , "Nxe4" , "Kf8" , "a6" , "Rfd8" , "Rf1" , "Bb6" , "dxc5" , "Be2" , "f6" , "Bb3" , "Bb7" , "e3" , "Bd4" , "Nc3" , "h6" , "Bxc5" , "Qc5" , "Nbd7" , "Bd7" , "g3" , "h3" , "Kf2" , "Nd6" , "fxe5" , "Qh4" , "a4" , "b4" , "Rc5" , "Rd5" , "e6" , "Rc2" ;
+        chon:nextHalfMove      :hmgamSDFBOb5 .
+
+:cgrrBvjsb  a   chon:ChessGameReport .
+
+:agrBvjsb  a          chon:Agent ;
+        chon:hasName  "Anand, Viswanathan" , "Karpov, Anatoly" .
+
+:rolrBvjsb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrBvjsb .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrBvjsb .
+
+:resrBvjsbc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgSDFBOb5E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrBvjsb .
+
+chon:HalfMove  chon:subEventOf  :gamrBvjs .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrBvjsb .
+
+:operBvjsb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

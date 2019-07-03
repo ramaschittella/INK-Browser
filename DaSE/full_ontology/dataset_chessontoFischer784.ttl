@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaqF6c0A  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:cgrqF6c0A  a   chon:ChessGameReport .
+
+:resqF6c0Ai  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agqF6c0A  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+:rolqF6c0A  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqF6c0A .
+
+:opeqF6c0A  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqF6c0A .
+
+:gamqF6c0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqF6c0A ;
+        chon:atPlace           :plaqF6c0A ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqF6c0Ai ;
+        chon:hasHalfMove       :hmgamqF6c0Ai , :hmgammDMlSyA ;
+        chon:hasLastHalfMove   :hmgammDMlSyA ;
+        chon:hasOpening        :opeqF6c0A ;
+        chon:hasReport         :cgrqF6c0A ;
+        chon:hasResult         :resqF6c0Ai ;
+        chon:subEventOf        :touqF6c0 .
+
+chon:HalfMove  chon:subEventOf  :gamqF6c0 .
+
+:touqF6c0  a          chon:hessTournament ;
+        chon:atPlace  :plaqF6c0A ;
+        chon:hasName  "World Championship 28th" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqF6c0A .
+
+:rolhgmDMlSyAH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqF6c0A .
+
+:hmgammDMlSyA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmDMlSyAH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bd7" , "d6" , "Be7" , "Qxb2" , "Qa3" , "exd5" , "a4" , "Bg5" , "Nf6" , "O-O" , "Nb3" , "f4" , "Qf6" , "Qb6" , "Qb4" , "a6" , "c5" , "Bc8" , "Nxd4" , "Be2" , "Rfe1" , "Qc3" , "c4" , "Nc3" , "Kxg2" , "Qd2" , "Nd6" , "fxg4" , "f5" , "gxf6" , "Rh3" , "Qb5" , "c6" , "h5" , "Rxe6" , "fxe6" , "h3" , "hxg2+" , "Bg4" , "e6" , "Qe3" , "N1d2" , "d5" , "Qd3" , "Ne7" , "Kh1" , "cxd4" , "d4" , "Nc6" , "axb5" , "Nb1" , "a3" , "Nf5" , "Nf3" , "Bxf6" , "dxe6" , "h4" ;
+        chon:nextHalfMove      :hmgammDMlSyA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamqF6c0Ai  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmDMlSyAH , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgammDMlSyA .

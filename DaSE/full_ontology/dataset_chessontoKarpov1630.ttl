@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeKa5Yzr  a            chon:ChessOpening ;
+        chon:hasECOCode  "D36" .
+
+:rolhgWa1c7ql9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKa5Yzr .
+
+:rolhgKa5YzriX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKa5Yzr .
+
+:resKa5Yzri  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKa5Yzr .
+
+:hmgamWa1c7ql  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWa1c7ql9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ekstroem, Roland" ;
+        chon:hasSANRecord      "Bxg4" , "Rg8" , "Rxg5" , "Rc8" , "cxb7" , "hxg4" ;
+        chon:nextHalfMove      :hmgamWa1c7ql .
+
+chon:HalfMove  chon:subEventOf  :gamKa5Yz .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKa5Yzr .
+
+:plaKa5Yzr  a         chon:Place ;
+        chon:hasName  "Hilversum" .
+
+:cgrKa5Yzr  a   chon:ChessGameReport .
+
+:gamKa5Yz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKa5Yzr ;
+        chon:atPlace           :plaKa5Yzr ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKa5Yzri ;
+        chon:hasHalfMove       :hmgamWa1c7ql , :hmgamKa5Yzri ;
+        chon:hasLastHalfMove   :hmgamWa1c7ql ;
+        chon:hasOpening        :opeKa5Yzr ;
+        chon:hasReport         :cgrKa5Yzr ;
+        chon:hasResult         :resKa5Yzri ;
+        chon:subEventOf        :touKa5Yz .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touKa5Yz  a          chon:hessTournament ;
+        chon:atPlace  :plaKa5Yzr ;
+        chon:hasName  "EUCup f" .
+
+:hmgamKa5Yzri  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKa5YzriX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ekstroem, Roland" ;
+        chon:hasSANRecord      "Qg3" , "Rg7" , "Qf7" , "Nxg2" , "a3" , "a4" , "d4" , "Nf8" , "Rab1" , "Bxd6" , "axb5" , "g5" , "bxc6" , "Be6" , "Bd3" , "Qxe4" , "c4" , "Qh4" , "Re8" , "Qxd6" , "Nf6" , "b5" , "Ne4" , "Rdg8" , "Rad8" , "b4" , "dxe4" , "h3" , "Rfc1" , "Qxg2" , "d5" , "Bd6" , "f6" , "Nc3" , "exd5" , "e3" , "Bf4" , "Nbd7" , "c6" , "Kh8" , "Qe7" , "cxd5" , "Nb6" , "g4" , "Rc5" , "Be7" , "Na4" , "O-O" , "Nh4" , "Bg5" , "a6" , "e6" , "Rg8" , "Ng5" , "Ng6" , "Rxg5" , "Rbc1" , "Bxe4" , "Nf3" , "Qc2" ;
+        chon:nextHalfMove      :hmgamKa5Yzri , :hmgamWa1c7ql .
+
+:agKa5Yzr  a          chon:Agent ;
+        chon:hasName  "Ekstroem, Roland" , "Karpov, Anatoly" .
+
+:rolKa5Yzr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKa5Yzr .

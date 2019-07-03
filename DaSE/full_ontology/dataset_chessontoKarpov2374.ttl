@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou2TFqT  a          chon:hessTournament ;
+        chon:atPlace  :pla2TFqTG ;
+        chon:hasName  "Bastia sim" .
+
+:rolhg2TFqTGqW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2TFqTG .
+
+:hmgam2TFqTGq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2TFqTGqW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kolega, M." ;
+        chon:hasSANRecord      "Qg7" , "g5" , "Nd5" , "Nc6" , "Be6" , "e4" , "Bg5" , "Nf5" , "Nce5" , "Kd8" , "Qg6" , "g4" , "Nf3" , "Bf4" , "hxg5" , "Nxf6" , "d4" , "exd4" , "Be5" , "Ne2" , "Nd4" , "O-O-O" , "f3" , "Qd2" , "Nd7" , "Be3" , "Bc5" , "c3" , "Bxa2" , "Be7" , "Qg8" , "h4" , "Bc4" , "Bf6" , "Nc3" , "d6" , "Bf2" , "Qxg5" , "Nf6" , "Nb3" , "e5" , "Be2" , "Nxd4" , "Nf4" ;
+        chon:nextHalfMove      :hmgam2TFqTGq .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2TFqTG .
+
+chon:HalfMove  chon:subEventOf  :gam2TFqT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2TFqTG .
+
+:pla2TFqTG  a         chon:Place ;
+        chon:hasName  "Bastia" .
+
+:res2TFqTGq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgr2TFqTG  a   chon:ChessGameReport .
+
+:ag2TFqTG  a          chon:Agent ;
+        chon:hasName  "Kolega, M." , "Karpov, Anatoly" .
+
+:rol2TFqTG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2TFqTG .
+
+:ope2TFqTG  a            chon:ChessOpening ;
+        chon:hasECOCode  "C45" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam2TFqT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2TFqTG ;
+        chon:atPlace           :pla2TFqTG ;
+        chon:atTime            "1998.11.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2TFqTGq ;
+        chon:hasHalfMove       :hmgam2TFqTGq ;
+        chon:hasLastHalfMove   :hmgam2TFqTGq ;
+        chon:hasOpening        :ope2TFqTG ;
+        chon:hasReport         :cgr2TFqTG ;
+        chon:hasResult         :res2TFqTGq ;
+        chon:subEventOf        :tou2TFqT .

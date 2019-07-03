@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgOXY9aY5T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOXY9aY .
+
+:cgrOXY9aY  a   chon:ChessGameReport .
+
+:gamOXY9a  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOXY9aY ;
+        chon:atPlace           :plaOXY9aY ;
+        chon:atTime            "2010.12.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOXY9aY5 ;
+        chon:hasHalfMove       :hmgamfZ9rxYT , :hmgamOXY9aY5 ;
+        chon:hasLastHalfMove   :hmgamfZ9rxYT ;
+        chon:hasOpening        :opeOXY9aY ;
+        chon:hasReport         :cgrOXY9aY ;
+        chon:hasResult         :resOXY9aY5 ;
+        chon:subEventOf        :touOXY9a .
+
+:resOXY9aY5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOXY9aY .
+
+:rolhgfZ9rxYTh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOXY9aY .
+
+chon:HalfMove  chon:subEventOf  :gamOXY9a .
+
+:plaOXY9aY  a         chon:Place ;
+        chon:hasName  "Nis SRB" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOXY9aY .
+
+:hmgamfZ9rxYT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfZ9rxYTh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miljkovic,Mir1" ;
+        chon:hasSANRecord      "h5" , "Re8" , "Re6" , "Ne7" , "g3" , "Bd6" , "Na5" , "Kh3" , "a5" , "Qxf6" , "c5" , "Ne4" , "Rac8" , "Kf8" , "Bb3" , "Bc3" , "Bd3" , "exf4" , "dxc5" , "Rb7" , "Kc5" , "Bd2" , "Rh2" , "Kb3" , "Kc3" , "Kd3" , "Ke3" , "f7" , "Bxc4" , "Ra4" , "Rd1" , "Re1" , "Ke2" , "Kf2" , "f6" , "h6" , "Rac1" , "h4" , "Bxf6" , "Nb6" , "Nc6" , "Nxc5" , "f3" , "Kg4" , "Be1" , "Rxb2" , "a3" , "gxf4" , "Kd6" , "Kc4" , "Bxc5" , "Rg2+" , "Rxb7" , "O-O" , "Ra5" , "Qg5" , "Re2" , "Rd2" , "Rf2" , "Rb5" , "Nbd7" , "Ra3" , "Rb3" , "Rc1+" , "Red8" , "Kg6" , "Rxa4" , "Rxf6" , "Qe2" , "e4" , "f4" , "Rd7" , "Rxb3" , "Rxd1" , "Ra7+" , "exf6" , "Nxb3" , "gxf6" , "a6" , "Kg2" , "a4" , "Nc3" , "Kh2" , "Rc2" , "Qxf3" , "Kf5" , "Qe7" , "dxc4" , "Re3" , "Ra6" , "Rb6" , "Kb4" , "Rh3" , "Rb4" , "Qxc5" , "Kd2" , "e6" , "Kg7" , "Qf3" , "Nbd5" , "Ra1" , "Rb1" , "e5" ;
+        chon:nextHalfMove      :hmgamfZ9rxYT .
+
+:touOXY9a  a          chon:hessTournament ;
+        chon:atPlace  :plaOXY9aY ;
+        chon:hasName  "Rapid Match" .
+
+:agOXY9aY  a          chon:Agent ;
+        chon:hasName  "Miljkovic,Mir1" , "Karpov,Ana" .
+
+:rolOXY9aY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOXY9aY .
+
+:opeOXY9aY  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+:hmgamOXY9aY5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOXY9aY5T ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miljkovic,Mir1" ;
+        chon:hasSANRecord      "c6" , "c4" , "Bxf3" , "d4" , "Bg4" , "Nf6" , "Nf3" , "d5" , "h3" , "e3" ;
+        chon:nextHalfMove      :hmgamOXY9aY5 , :hmgamfZ9rxYT .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

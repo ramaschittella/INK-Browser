@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla8RPegf  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .
+
+:cgr8RPegf  a   chon:ChessGameReport .
+
+:hmgam8RPegfc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiPJsPefi , :rolhg8RPegfc8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qe6" , "bxc3" , "Nh5" , "Bxc3" , "c4" , "Kb8" , "Bd4" , "Rhe8" , "d6" , "Nf4" , "f5" , "d4" , "Qf6" , "g4" , "dxc5" , "Bh4" , "h6" , "Bb4" , "b6" , "Bg5" , "e6" , "Kb1" , "Bb7" , "e4" , "Nb3" , "Bc6" , "f3" , "c5" , "Nbd7" , "Nd2" , "Bg3" , "g5" , "Ba6" , "O-O-O" , "Bb5" , "Qc2" , "Bf2" , "Nc3" , "exf5" , "Nf3" , "Nf6" ;
+        chon:nextHalfMove      :hmgam8RPegfc , :hmgamiPJsPef .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8RPegf .
+
+:ag8RPegf  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Milov,V" .
+
+:rol8RPegf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8RPegf .
+
+chon:HalfMove  chon:subEventOf  :gam8RPeg .
+
+:ope8RPegf  a            chon:ChessOpening ;
+        chon:hasECOCode  "E13" .
+
+:gam8RPeg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8RPegf ;
+        chon:atPlace           :pla8RPegf ;
+        chon:atTime            "2007.10.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8RPegfc ;
+        chon:hasHalfMove       :hmgam8RPegfc , :hmgamiPJsPef ;
+        chon:hasLastHalfMove   :hmgamiPJsPef ;
+        chon:hasOpening        :ope8RPegf ;
+        chon:hasReport         :cgr8RPegf ;
+        chon:hasResult         :res8RPegfc ;
+        chon:subEventOf        :tou8RPeg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8RPegf .
+
+:tou8RPeg  a          chon:hessTournament ;
+        chon:atPlace  :pla8RPegf ;
+        chon:hasName  "ch-Euro Blitz" .
+
+:rolhgiPJsPefi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8RPegf .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamiPJsPef  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiPJsPefi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bb4" , "Bxc5" , "Ka8" , "Rxg2" , "Ka2" , "cxb4" , "Rxe1" , "exf5" , "Rb8" , "Be4+" , "bxc5" , "Qxa6" , "Qc4" , "a4" , "Qe8+" , "c5" , "fxe4" , "Rc8" , "Rhe1" , "Qe4+" , "Rxb4+" , "Nc5+" , "Rc2+" , "Ka1" , "Qb2+" , "f6" , "Qxe4" , "Kb3" , "Qe2" , "Rc1+" , "Nd3" , "Qd2" , "Rxe4" , "Nxc5" ;
+        chon:nextHalfMove      :hmgamiPJsPef .
+
+:rolhg8RPegfc8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8RPegf .
+
+:res8RPegfc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

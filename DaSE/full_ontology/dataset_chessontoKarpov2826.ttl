@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrsGVz3G  a   chon:ChessGameReport .
+
+:gamsGVz3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsGVz3G ;
+        chon:atPlace           :plasGVz3G ;
+        chon:atTime            "2005.07.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsGVz3Gx ;
+        chon:hasHalfMove       :hmgamsGVz3Gx , :hmgamnSSIMEN ;
+        chon:hasLastHalfMove   :hmgamnSSIMEN ;
+        chon:hasOpening        :opesGVz3G ;
+        chon:hasReport         :cgrsGVz3G ;
+        chon:hasResult         :ressGVz3Gx ;
+        chon:subEventOf        :tousGVz3 .
+
+:ressGVz3Gx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolsGVz3G  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsGVz3G .
+
+:rolhgnSSIMEND  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsGVz3G .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsGVz3G .
+
+chon:HalfMove  chon:subEventOf  :gamsGVz3 .
+
+:rolhgsGVz3GxF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsGVz3G .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsGVz3G .
+
+:agsGVz3G  a          chon:Agent ;
+        chon:hasName  "Navara,D" , "Karpov,Ana" .
+
+:tousGVz3  a          chon:hessTournament ;
+        chon:atPlace  :plasGVz3G ;
+        chon:hasName  "CEZ Trophy Match" .
+
+:opesGVz3G  a            chon:ChessOpening ;
+        chon:hasECOCode  "D76" .
+
+:hmgamnSSIMEN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnSSIMEND , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Navara,D" ;
+        chon:hasSANRecord      "Qxh3" , "Bg2" , "Qxd5" , "Qh5" , "Rxa4" , "f3" , "Rc2" , "Kg7" , "g5" , "Rd5" , "Rd4" , "Kg3" , "Kg2" , "Rb8" , "Rb5" , "Nxd4" , "Rf4" , "Qa6" , "Qe2" , "hxg4" , "Nd5" , "h5" , "Nxc6" , "Qd5" , "Rbd8" , "Rxa5" , "Rc3" , "Qd7" , "Bxb7" , "Ra7" , "Qd3" , "Ra3" , "Qc6+" , "Bg4" , "Bxe2" , "Rxc6" , "Rfe1" , "f5" , "Rc4" , "Rxe8+" , "g4" , "Ra4" , "Qxe2" , "Bxd5" , "Qc4" , "Qxc6" , "Qg4" , "Rxe8" , "Bxd4" , "a4" , "Rxg5+" , "Kf6" , "Rxf5" , "Qxd4" , "Rd2" , "Ra5" , "Nce2" , "Re6" , "Rad1" , "h3" , "Rxg4" , "Rxb3" , "a5" , "exd4" , "e5" ;
+        chon:nextHalfMove      :hmgamnSSIMEN .
+
+:hmgamsGVz3Gx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnSSIMEND , :rolhgsGVz3GxF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Navara,D" ;
+        chon:hasSANRecord      "Bb2" , "Nf6" , "Bg2" , "Nxd5" , "g3" , "c4" , "Rc8" , "Bd7" , "c6" , "Nc3" , "cxd5" , "Nf3" , "dxc6" , "Bg7" , "Re8" , "O-O" , "e3" , "Nc6" , "d5" , "Na5" , "d4" , "Nb6" , "Nd4" , "g6" , "b3" ;
+        chon:nextHalfMove      :hmgamsGVz3Gx , :hmgamnSSIMEN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plasGVz3G  a         chon:Place ;
+        chon:hasName  "Prague CZE" .

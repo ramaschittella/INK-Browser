@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resM7W22R9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaM7W22R  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+:rolhgT3zokQsE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agM7W22R .
+
+:touM7W22  a          chon:hessTournament ;
+        chon:atPlace  :plaM7W22R ;
+        chon:hasName  "Hastings7172" .
+
+:rolhgH3DaLPpt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agM7W22R .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM7W22R .
+
+:agM7W22R  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gligoric, Svetozar" .
+
+:rolM7W22R  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agM7W22R .
+
+chon:HalfMove  chon:subEventOf  :gamM7W22 .
+
+:opeM7W22R  a            chon:ChessOpening ;
+        chon:hasECOCode  "E56" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM7W22R .
+
+:hmgamH3DaLPp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgH3DaLPpt , chon:AgentRole , :rolhgT3zokQsE ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxc4" , "Nf6" , "Bc5" , "Bf5" , "Bxd3" , "d5" , "d4" , "Bc7" , "Rfe1" , "c5" , "e6" , "Nc6" , "exd5" , "Qxd3" , "Bb4" , "Ba5" , "Re8" , "Bb6" , "Bd2" , "Qd7" , "Be3" , "dxc4" , "c4" , "O-O" , "e3" , "Nf3" , "cxd4" , "a3" , "h3" , "Nxd5" , "Bd3" , "Nd5" , "Bxe7" , "exd4" , "Ne7" , "Nc3" , "f6" , "Bg5" ;
+        chon:nextHalfMove      :hmgamH3DaLPp , :hmgamT3zokQs .
+
+:hmgamT3zokQs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgT3zokQsE , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kf1" , "Rxe7" , "Qb5" , "Bd6" , "Qf7" , "Qxe7" ;
+        chon:nextHalfMove      :hmgamT3zokQs .
+
+:gamM7W22  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolM7W22R ;
+        chon:atPlace           :plaM7W22R ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamH3DaLPp ;
+        chon:hasHalfMove       :hmgamH3DaLPp , :hmgamT3zokQs ;
+        chon:hasLastHalfMove   :hmgamT3zokQs ;
+        chon:hasOpening        :opeM7W22R ;
+        chon:hasReport         :cgrM7W22R ;
+        chon:hasResult         :resM7W22R9 ;
+        chon:subEventOf        :touM7W22 .
+
+:cgrM7W22R  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

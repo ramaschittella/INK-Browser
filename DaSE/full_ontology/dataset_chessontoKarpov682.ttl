@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agH99SqK  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kortschnoj, Viktor" .
+
+:rolH99SqK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agH99SqK .
+
+:opeH99SqK  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+:hmgamH99SqKP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgH99SqKPL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "bxc5" , "Rxb7" , "Bb7" , "Rf5" , "g3" , "Nf6" , "Qd5" , "Qf6" , "Nf4" , "Re1" , "Qb5" , "Re5" , "Rxb2" , "e6" , "Rc1" , "e3" , "exd5" , "h6" , "a4" , "Qe6" , "Qxe7" , "Bh4" , "dxc5" , "Bxb7" , "h4" , "Nd3" , "Nd7" , "Qf3" , "Bg5" , "Nc3" , "Nf8" , "cxd4" , "Rc2" , "Rfd1" , "Ne1" , "d4" , "Qa3" , "Rab8" , "O-O" , "Bxe7" , "Rce2" , "c4" , "Rfb8" , "Bg2" , "Qf5" , "c5" , "Ba6" , "a5" , "Qa5" , "Be7" , "Nf3" , "Qb3" , "Nxd5" , "cxd5" , "b6" , "exd4" ;
+        chon:nextHalfMove      :hmgamH99SqKP .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agH99SqK .
+
+chon:HalfMove  chon:subEventOf  :gamH99Sq .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agH99SqK .
+
+:rolhgH99SqKPL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agH99SqK .
+
+:gamH99Sq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolH99SqK ;
+        chon:atPlace           :plaH99SqK ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamH99SqKP ;
+        chon:hasHalfMove       :hmgamH99SqKP ;
+        chon:hasLastHalfMove   :hmgamH99SqKP ;
+        chon:hasOpening        :opeH99SqK ;
+        chon:hasReport         :cgrH99SqK ;
+        chon:hasResult         :resH99SqKP ;
+        chon:subEventOf        :touH99Sq .
+
+:plaH99SqK  a         chon:Place ;
+        chon:hasName  "Merano" .
+
+:touH99Sq  a          chon:hessTournament ;
+        chon:atPlace  :plaH99SqK ;
+        chon:hasName  "World Championship 30th" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resH99SqKP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrH99SqK  a   chon:ChessGameReport .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolyzYoek  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyzYoek .
+
+:opeyzYoek  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+:rolhgJzVSLjhX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyzYoek .
+
+:hmgamyzYoeke  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJzVSLjhX , :rolhgyzYoekeM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dely, Peter" ;
+        chon:hasSANRecord      "cxd4" , "d4" , "Nxd4" , "Nc6" , "c5" , "Qa5" , "a6" , "Nf6" , "e4" , "e6" , "Bc4" , "O-O" , "Bb3" , "Nf3" , "Nc3" , "f4" , "d6" ;
+        chon:nextHalfMove      :hmgamJzVSLjh , :hmgamyzYoeke .
+
+:touyzYoe  a          chon:hessTournament ;
+        chon:atPlace  :playzYoek ;
+        chon:hasName  "Skopje" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyzYoek .
+
+chon:HalfMove  chon:subEventOf  :gamyzYoe .
+
+:resyzYoeke  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyzYoek .
+
+:hmgamJzVSLjh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJzVSLjhX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dely, Peter" ;
+        chon:hasSANRecord      "f5" , "Nxe4" , "Nxd4" , "Qb4" , "Qxf8" , "dxe4" , "Qa4+" , "Be3" , "Rxf8+" , "fxe6" , "d5" , "Qxd4" , "Bxe6" ;
+        chon:nextHalfMove      :hmgamJzVSLjh .
+
+:rolhgyzYoekeM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyzYoek .
+
+:gamyzYoe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyzYoek ;
+        chon:atPlace           :playzYoek ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyzYoeke ;
+        chon:hasHalfMove       :hmgamyzYoeke , :hmgamJzVSLjh ;
+        chon:hasLastHalfMove   :hmgamJzVSLjh ;
+        chon:hasOpening        :opeyzYoek ;
+        chon:hasReport         :cgryzYoek ;
+        chon:hasResult         :resyzYoeke ;
+        chon:subEventOf        :touyzYoe .
+
+:playzYoek  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:cgryzYoek  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agyzYoek  a          chon:Agent ;
+        chon:hasName  "Dely, Peter" , "Fischer, Robert James" .

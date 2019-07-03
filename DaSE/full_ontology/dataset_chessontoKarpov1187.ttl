@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touhI6p9  a          chon:hessTournament ;
+        chon:atPlace  :plaiutSVZ ;
+        chon:hasName  "URS-ch55" .
+
+:aghI6p98  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:gamiutSV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhI6p98 ;
+        chon:atPlace           :plaiutSVZ ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhI6p98W ;
+        chon:hasHalfMove       :hmgamhI6p98W ;
+        chon:hasLastHalfMove   :hmgamhI6p98W ;
+        chon:hasOpening        :opehI6p98 ;
+        chon:hasReport         :cgrhI6p98 ;
+        chon:hasResult         :reshI6p98W ;
+        chon:subEventOf        :touhI6p9 .
+
+:rolhI6p98  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghI6p98 .
+
+:opehI6p98  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghI6p98 .
+
+chon:HalfMove  chon:subEventOf  :gamiutSV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghI6p98 .
+
+:hmgamhI6p98W  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghI6p98WO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Bf1" , "e3" , "Bb2" , "dxc4" , "Nf3" , "b3" , "bxc4" , "Ra7" , "Nxf4" , "a6" , "a5" , "cxd4" , "Rc7" , "c5" , "Nbd7" , "Bc6" , "Qf4" , "Nd5" , "f3" , "Rc8" , "Ne7" , "e6" , "b4" , "Ra4" , "Bb4" , "Rcc1" , "Qc2" , "Nc4" , "Nc3" , "exd4" , "b5" , "d4" , "Rc4" , "Raa1" , "d5" , "Nd6" , "Be2" , "Qc7" , "Rfc1" , "Bxc3+" , "Rfd8" , "Nf6" , "a4" , "a3" , "Qd2" , "b6" , "Nd2" , "c4" , "Nb8" , "Qxf4" , "O-O" , "Qxc3" , "Bb7" ;
+        chon:nextHalfMove      :hmgamhI6p98W .
+
+:cgrhI6p98  a   chon:ChessGameReport .
+
+:rolhghI6p98WO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghI6p98 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reshI6p98W  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaiutSVZ  a         chon:Place ;
+        chon:hasName  "Moscow" .

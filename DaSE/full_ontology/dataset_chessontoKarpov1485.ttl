@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgs2oXBUNR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ags2oXBU .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ags2oXBU .
+
+:ress2oXBUN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamw6FOS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ags2oXBU .
+
+:cgrs2oXBU  a   chon:ChessGameReport .
+
+:hmgams2oXBUN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgs2oXBUNR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rd1" , "Re7" , "O-O-O" , "Be3" , "gxf4" , "Kxd8" , "Kb1" , "f3" , "Bf2" , "Ra1" , "Bc3" , "Rxd8+" , "a4" , "Nf4" , "e5" , "d4" , "Be6" , "h4" , "Bh6" , "Bxc6" , "b6" , "Ng6" , "Bf8" , "Rg1" , "b3" , "Bb5" , "Bh8" , "c5" , "g6" , "Bxe7" , "Ne7+" , "bxc4" , "g3" , "Nxd4" , "a5" , "Nf5" , "Be7" , "h5" , "Rg2" , "Bg7" , "Kb7" , "Kc8" , "Nc4" , "Kb3" , "Bxc4" , "Rg7" , "f5" , "Qxd4" , "Ne7" , "Ka2" , "Re6" , "Nd2" , "Nc6" , "dxc6" , "a6" , "Bd7" , "exd4" , "Bf6" , "Nf3" , "e4" , "Rg8" , "f6" ;
+        chon:nextHalfMove      :hmgams2oXBUN .
+
+:ags2oXBU  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Miles, Anthony J" .
+
+:rols2oXBU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ags2oXBU .
+
+:opes2oXBU  a            chon:ChessOpening ;
+        chon:hasECOCode  "C68" .
+
+:tous2oXB  a          chon:hessTournament ;
+        chon:atPlace  :plaw6FOSW ;
+        chon:hasName  "Biel" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamw6FOS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rols2oXBU ;
+        chon:atPlace           :plaw6FOSW ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgams2oXBUN ;
+        chon:hasHalfMove       :hmgams2oXBUN ;
+        chon:hasLastHalfMove   :hmgams2oXBUN ;
+        chon:hasOpening        :opes2oXBU ;
+        chon:hasReport         :cgrs2oXBU ;
+        chon:hasResult         :ress2oXBUN ;
+        chon:subEventOf        :tous2oXB .
+
+:plaw6FOSW  a         chon:Place ;
+        chon:hasName  "Biel" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agrw7brZ  a          chon:Agent ;
+        chon:hasName  "Minic, Dragoljub" , "Fischer, Robert James" .
+
+:operw7brZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C33" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrw7brZ .
+
+:rolhgrw7brZYS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrw7brZ .
+
+:hmgamrw7brZY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrw7brZYS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Minic, Dragoljub" ;
+        chon:hasSANRecord      "e5" , "Bxf4" , "Ne5" , "Qe2" , "Qxf4" , "Bxf1" , "c4" , "e4" , "Bb4+" , "d4" , "f4" , "Rxf1" , "Nd7" , "exf4" , "Nf4" , "Nxe4" , "Rxf7" , "Nxf7" , "Ne7" , "Bc4" , "Nc7" , "Qxf6" , "dxe4" , "Kf2" , "g3" , "Qe7" , "Be7" , "Nc3" , "c6" , "Nf6" , "Nf3" , "Nxf6+" , "Kg1" , "Ne6" , "Be3" , "Bb3" , "Rhf1" , "Bh3" , "d5" , "Rad8" , "Qh6" , "O-O" , "c5" , "Bd2" , "Rf3" , "Nd5" ;
+        chon:nextHalfMove      :hmgamrw7brZY .
+
+:gamrw7br  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrw7brZ ;
+        chon:atPlace           :plarw7brZ ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrw7brZY ;
+        chon:hasHalfMove       :hmgamrw7brZY ;
+        chon:hasLastHalfMove   :hmgamrw7brZY ;
+        chon:hasOpening        :operw7brZ ;
+        chon:hasReport         :cgrrw7brZ ;
+        chon:hasResult         :resrw7brZY ;
+        chon:subEventOf        :tourw7br .
+
+chon:HalfMove  chon:subEventOf  :gamrw7br .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrw7brZ .
+
+:plarw7brZ  a         chon:Place ;
+        chon:hasName  "Vinkovci" .
+
+:resrw7brZY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrrw7brZ  a   chon:ChessGameReport .
+
+:rolrw7brZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrw7brZ .
+
+:tourw7br  a          chon:hessTournament ;
+        chon:atPlace  :plarw7brZ ;
+        chon:hasName  "Vinkovci" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

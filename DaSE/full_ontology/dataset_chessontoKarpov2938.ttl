@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrOQmexJ  a   chon:ChessGameReport .
+
+:agOQmexJ  a          chon:Agent ;
+        chon:hasName  "Gutknecht,Tatiana" , "Karpov,Ana" .
+
+:rolOQmexJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOQmexJ .
+
+:opeOQmexJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A10" .
+
+:rolhgfSyzSKbe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOQmexJ .
+
+:gamOQmex  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOQmexJ ;
+        chon:atPlace           :plaOQmexJ ;
+        chon:atTime            "2007.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfSyzSKb ;
+        chon:hasHalfMove       :hmgamfSyzSKb ;
+        chon:hasLastHalfMove   :hmgamfSyzSKb ;
+        chon:hasOpening        :opeOQmexJ ;
+        chon:hasReport         :cgrOQmexJ ;
+        chon:hasResult         :resOQmexJm ;
+        chon:subEventOf        :touOQmex .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOQmexJ .
+
+:touOQmex  a          chon:hessTournament ;
+        chon:atPlace  :plaOQmexJ ;
+        chon:hasName  "ch-Euro Blitz" .
+
+chon:HalfMove  chon:subEventOf  :gamOQmex .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOQmexJ .
+
+:hmgamfSyzSKb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfSyzSKbe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gutknecht,Tatiana" ;
+        chon:hasSANRecord      "Kxd8" , "Nxf6" , "Qc8+" , "Nxg5" , "g5" , "Bb7" , "g6" , "Ng5" , "Bxf6+" , "Kf8" , "Bf4" , "Rd1" , "e6" , "Nxd6+" , "d4" , "Rg8" , "cxd5" , "Nd7" , "Qc6" , "a5" , "b5" , "Qc2+" , "a6" , "Ngf6" , "h6" , "c4" , "Bd6" , "Nc3" , "Bxg5" , "Nf3" , "Nxd8" , "Bxb7" , "Kc7" , "Bxc6" , "Nf7+" , "Nxe6" , "d5" , "b6" , "c6" , "Rxg5" , "fxe6" , "g3" , "Kd8" , "Rf8" , "Bxa8" , "Ke7" , "Bg2" , "Nxb5" , "dxe6" ;
+        chon:nextHalfMove      :hmgamfSyzSKb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaOQmexJ  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .
+
+:resOQmexJm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

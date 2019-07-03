@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plad3JjHY  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+:gamd3JjH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolp3DxeX ;
+        chon:atPlace           :plad3JjHY ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamp3DxeXv ;
+        chon:hasHalfMove       :hmgamp3DxeXv ;
+        chon:hasLastHalfMove   :hmgamp3DxeXv ;
+        chon:hasOpening        :opep3DxeX ;
+        chon:hasReport         :cgrp3DxeX ;
+        chon:hasResult         :resp3DxeXv ;
+        chon:subEventOf        :toup3Dxe .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agp3DxeX .
+
+chon:HalfMove  chon:subEventOf  :gamd3JjH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agp3DxeX .
+
+:hmgamp3DxeXv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgp3DxeXvn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Taliharm,Andrus" ;
+        chon:hasSANRecord      "Ra8" , "Nxg3" , "Qb6" , "cxd5" , "Qc2" , "Bd7" , "Bb7" , "e6" , "Bg5" , "Nbd7" , "Qc6" , "c6" , "Nf3" , "Nxd7" , "a5" , "Rxa1" , "g6" , "Na4" , "Ba6" , "Bh4" , "Be7" , "Qxf6" , "Nb6" , "b4" , "Nc3" , "Nf6" , "Qb7" , "d5" , "b5" , "Ra7" , "O-O" , "Nh5" , "d4" , "Bxc6" , "exd5" , "Re8" , "Rc8" , "Bf6" , "Bd3" , "Bb5" , "Bg3" , "c4" , "a3" , "axb4" , "Nc5" , "Qc7" , "bxc6" , "Nf8" , "e3" , "hxg3" , "Rc1" , "h6" ;
+        chon:nextHalfMove      :hmgamp3DxeXv .
+
+:rolhgp3DxeXvn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agp3DxeX .
+
+:cgrp3DxeX  a   chon:ChessGameReport .
+
+:toup3Dxe  a          chon:hessTournament ;
+        chon:atPlace  :plad3JjHY ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+:resp3DxeXv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agp3DxeX  a          chon:Agent ;
+        chon:hasName  "Taliharm,Andrus" , "Karpov,Ana" .
+
+:rolp3DxeX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agp3DxeX .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opep3DxeX  a            chon:ChessOpening ;
+        chon:hasECOCode  "D35" .

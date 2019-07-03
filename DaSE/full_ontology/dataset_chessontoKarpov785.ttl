@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ressqnjgRS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrsqnjgR  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsqnjgR .
+
+:hmgamEqkxNSX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEqkxNSXq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qd7" , "Qd8" , "Kg7" , "Rd6" , "a5" , "a6" , "g3" , "Rac1" , "Be7" , "Be4" , "Nf3" , "e3" , "Rxd1" , "Kg1" , "Qc4" , "dxc4" , "Rfd1" , "d5" , "Qe5" , "Bf3" , "Raa1" , "O-O" , "d4" , "Rxa3" , "Nd2" , "Ba3" , "Bg2" , "a4" , "R8d7" , "Nf6" , "Qc2" , "Qc3" , "Rcd8" , "b3" , "Qxd1" , "Nxc4" , "c4" , "Bd7" , "Nxc6" , "Qe2" , "Rfd8" , "Bxa3" , "Rac8" , "g6" , "Ne5" , "Qxc4" , "Qxc5" , "h5" , "Na5" , "e6" , "Kg2" , "Qb2" , "b6" , "h4" , "Qe7" , "Nb4" , "Kh2" , "dxc5" , "Bc6" , "Nd5" , "c5" , "c6" , "Qc7" ;
+        chon:nextHalfMove      :hmgamEqkxNSX .
+
+chon:HalfMove  chon:subEventOf  :gamsqnjg .
+
+:plasqnjgR  a         chon:Place ;
+        chon:hasName  "Bath" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsqnjgR .
+
+:rolhgEqkxNSXq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsqnjgR .
+
+:agsqnjgR  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Rogers, Ian" .
+
+:rolsqnjgR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEqkxNS .
+
+:opesqnjgR  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:gamsqnjg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsqnjgR ;
+        chon:atPlace           :plasqnjgR ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEqkxNSX ;
+        chon:hasHalfMove       :hmgamEqkxNSX ;
+        chon:hasLastHalfMove   :hmgamEqkxNSX ;
+        chon:hasOpening        :opesqnjgR ;
+        chon:hasReport         :cgrsqnjgR ;
+        chon:hasResult         :ressqnjgRS ;
+        chon:subEventOf        :tousqnjg .
+
+:tousqnjg  a          chon:hessTournament ;
+        chon:atPlace  :plasqnjgR ;
+        chon:hasName  "Bath TV-A" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

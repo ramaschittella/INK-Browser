@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plau29sFS  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee NED" .
+
+:cgru29sFS  a   chon:ChessGameReport .
+
+:hmgamGZ6FeRW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGZ6FeRWA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Kc3" , "a3" , "Bc3" , "Bg2" , "Rdc3" , "Rc8" , "Kc2" , "Re8" , "Re6" , "Rc5" , "Rec8" , "Rb8" , "exd5" , "Qa5" , "O-O" , "Ra5" , "Rc1" , "Nf6" , "Rcb8+" , "d5" , "bxc6" , "Bd7" , "Nxd5" , "g3" , "cxd5" , "Kd6" , "b4" , "Bb6" , "Rd1" , "Nxd4" , "Bf3" , "Bb4" , "Rfb8" , "Bd4" , "Rdc2" , "Kc1" , "Ra8" , "Rac5" , "Rb7" , "Rc3" , "Qb6" , "Nxc6" , "f6" , "Nc3" , "Qb3" , "Kf7" , "h4" , "Rcb8" , "Rd3" , "Nf3" , "Kc7" , "Ke7" , "c5" , "Ka3" , "Bg4" , "Bc5" , "cxd4" , "e3" , "b3" , "Be3" , "d4" , "Kd2" , "Bb2" , "Rab8" , "Ke1" , "Nc6" , "Rd4" , "Qxc6" , "e6" , "Rc2" , "Qa6" , "Ree8" , "Re4" , "Bxc3+" , "h5" , "Kb4" , "Kd7" , "Bxd5" , "a6" , "Kb2" , "Qxc3" , "a4" , "Rd2" , "c4" ;
+        chon:nextHalfMove      :hmgamGZ6FeRW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agu29sFS .
+
+:agu29sFS  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Topalov,V" .
+
+:rolu29sFS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agu29sFS .
+
+chon:HalfMove  chon:subEventOf  :gamu29sF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agu29sFS .
+
+:gamu29sF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolu29sFS ;
+        chon:atPlace           :plau29sFS ;
+        chon:atTime            "2003.01.19"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGZ6FeRW ;
+        chon:hasHalfMove       :hmgamGZ6FeRW ;
+        chon:hasLastHalfMove   :hmgamGZ6FeRW ;
+        chon:hasOpening        :opeu29sFS ;
+        chon:hasReport         :cgru29sFS ;
+        chon:hasResult         :resu29sFST ;
+        chon:subEventOf        :touu29sF .
+
+:touu29sF  a          chon:hessTournament ;
+        chon:atPlace  :plau29sFS ;
+        chon:hasName  "GMA" .
+
+:rolhgGZ6FeRWA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agu29sFS .
+
+:resu29sFST  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeu29sFS  a            chon:ChessOpening ;
+        chon:hasECOCode  "E20" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

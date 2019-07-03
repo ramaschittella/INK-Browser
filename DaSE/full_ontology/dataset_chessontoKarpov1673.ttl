@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaLHBrdI  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:cgrcJNJzJ  a   chon:ChessGameReport .
+
+:agLHBrdI  a          chon:Agent ;
+        chon:hasName  "Ljubojevic, Ljubomir" , "Karpov, Anatoly" .
+
+:rolLHBrdI  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:opeLHBrdI  a            chon:ChessOpening ;
+        chon:hasECOCode  "E16" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLHBrdI .
+
+:rolcJNJzJ  a             chon:AuthorRole ;
+        chon:performedBy  :agcJNJzJ .
+
+:rescJNJzJY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gamLHBrd .
+
+:gamLHBrd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLHBrdI ;
+        chon:atPlace           :plaLHBrdI ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcJNJzJY ;
+        chon:hasHalfMove       :hmgamoJKZ0I1 , :hmgamcJNJzJY ;
+        chon:hasLastHalfMove   :hmgamoJKZ0I1 ;
+        chon:hasOpening        :opeLHBrdI ;
+        chon:hasReport         :cgrcJNJzJ ;
+        chon:hasResult         :rescJNJzJY ;
+        chon:subEventOf        :touLHBrd .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLHBrdI .
+
+:hmgamoJKZ0I1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgoJKZ0I13 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Ba3" , "cxb2" , "Kc4" , "Rc2" , "Kd2" , "Bb4+" , "Rd1" , "Re4+" , "g4" , "Rd3" , "Kf6" , "Re1" , "Re7" , "Rxb1" , "Rf4+" , "Kd5" , "Ke3" , "Ke2" , "Rb1" , "Ke4" , "Bc5+" , "Rc1+" , "Re2" , "Ke1" , "c3" , "d3+" , "f4" , "d2" , "Kf1" , "Ke5" ;
+        chon:nextHalfMove      :hmgamoJKZ0I1 .
+
+:hmgamcJNJzJY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcJNJzJYP , :rolhgoJKZ0I13 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Kg7" , "Qxc4" , "Qg4" , "g3" , "exf7+" , "a5" , "Rd3" , "g6" , "Be7" , "d4" , "Qc3" , "Ne5" , "Kf6" , "Ba6" , "Nd6" , "Bd2" , "R3d2" , "Qf3" , "c6" , "dxc4" , "Bb4+" , "Re1+" , "Rad8" , "a3" , "Qb3" , "Kxe6" , "Bg2" , "Rfd1" , "e6" , "Bg4+" , "Ke5" , "O-O" , "Rd7" , "Nfd7" , "Kxf7" , "Nf3" , "Qc7" , "f3" , "Na6" , "e4" , "Bc5" , "d5" , "Qd7" , "Nc3" , "Bf4" , "Ne6+" , "Nb5" , "Ne2" , "Bxf3" , "a4" , "Rxd7" , "Nd5+" , "Nxe5" , "Nc7" , "Nxc7" , "h4" , "b6" , "Re4" , "Qxd6" , "Kf5" , "Rad1" , "Bb7" , "Nf4" , "Rfd8" , "c5" , "Qc8" , "Bxd7" , "c4" , "e5" , "Bxe5" , "Bxd6" , "exd5" , "Nf6" ;
+        chon:nextHalfMove      :hmgamoJKZ0I1 , :hmgamcJNJzJY .
+
+:rolhgoJKZ0I13  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLHBrdI .
+
+:rolhgcJNJzJYP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLHBrdI .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touLHBrd  a          chon:hessTournament ;
+        chon:atPlace  :plaLHBrdI ;
+        chon:hasName  "Amber-rapid 2nd" .

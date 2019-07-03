@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam8IZn34L  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8IZn34LI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fritz, Alexander" ;
+        chon:hasSANRecord      "Na5" , "a4" , "b4" , "Rf2+" , "Qd6" , "Ka6" , "Qxc6" , "Qd8+" , "Ke4" , "Kc5" , "Kc3" , "Qg7" , "Qxg2" , "Nc6" , "Rxf1" , "a6" , "Kxh2" , "Qa8+" , "g3" , "Qxe4" , "Be4" , "Nf3+" , "Be2" , "Nxf1" , "Kb4" , "b5" , "Qxd6+" , "Qc7" , "Nd2" , "Qxc2+" , "Qf2" , "Bd3" , "Qd4" , "a7" , "Kg2" , "c6" , "Qa4+" , "a5" , "Qd4+" , "Nd4" , "Kh1" , "Qd5+" , "Kf3" , "a3" , "Kxd6" , "Kd7" , "Kd5" , "Bf1" , "Qxd4+" , "Na7" , "Nxb5" , "Bd1" , "Rf1" , "Bh5" , "Qe1+" , "Nb3" , "Rxf4" , "Kb6" , "g4" , "d4" , "g2" , "Ke6" ;
+        chon:nextHalfMove      :hmgam8IZn34L .
+
+:hmgamGGN5F3U  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8IZn34LI , chon:AgentRole , :rolhgGGN5F3Ui ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fritz, Alexander" ;
+        chon:hasSANRecord      "Bd6" , "Bh5+" , "Rdf8" , "Raf1" , "d4" , "Nf3" , "Rd8" , "Ng6" , "Nf6" , "Kd7" , "Rhf8" , "d5" , "hxg6" , "Qd2" , "Bxe5" , "Qe3" , "f6" , "Qxf6" , "Bf4" , "Kc8" , "d3" , "e5" , "Nc6" , "Qxd4+" , "Qe5+" , "Nce2" , "Qxa7" , "Nfg4" , "Qf2" , "Nxe5" , "Nc3" , "Bg4" , "Bxg6+" , "Ng3" , "g5" , "fxe5" , "R8f6" , "Rf4" , "f4" , "e4" , "Qh4" , "Kd2" , "Be2" ;
+        chon:nextHalfMove      :hmgam8IZn34L , :hmgamGGN5F3U .
+
+:gamGGN5F  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGGN5F3 ;
+        chon:atPlace           :plaGGN5F3 ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGGN5F3U ;
+        chon:hasHalfMove       :hmgamGGN5F3U , :hmgam8IZn34L ;
+        chon:hasLastHalfMove   :hmgam8IZn34L ;
+        chon:hasOpening        :opeGGN5F3 ;
+        chon:hasReport         :cgrGGN5F3 ;
+        chon:hasResult         :resGGN5F3U ;
+        chon:subEventOf        :touGGN5F .
+
+:touGGN5F  a          chon:hessTournament ;
+        chon:atPlace  :plaGGN5F3 ;
+        chon:hasName  "DSB-11. Kongress" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGGN5F3 .
+
+:agGGN5F3  a          chon:Agent ;
+        chon:hasName  "Fritz, Alexander" , "Steinitz, William" .
+
+chon:HalfMove  chon:subEventOf  :gamGGN5F .
+
+:resGGN5F3U  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeGGN5F3  a            chon:ChessOpening ;
+        chon:hasECOCode  "C29" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGGN5F3 .
+
+:rolhg8IZn34LI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGGN5F3 .
+
+:plaGGN5F3  a         chon:Place ;
+        chon:hasName  "Koeln" .
+
+:cgrGGN5F3  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgGGN5F3Ui  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGGN5F3 .
+
+:rolGGN5F3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGGN5F3 .

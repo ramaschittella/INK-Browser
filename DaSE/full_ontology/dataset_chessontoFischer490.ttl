@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg9RwaUrr4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9RwaUr .
+
+:pla9RwaUr  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:ag9RwaUr  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Robatsch, Karl" .
+
+:gam9RwaU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9RwaUr ;
+        chon:atPlace           :pla9RwaUr ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9RwaUrr ;
+        chon:hasHalfMove       :hmgam9RwaUrr , :hmgam4PdjErH ;
+        chon:hasLastHalfMove   :hmgam4PdjErH ;
+        chon:hasOpening        :ope9RwaUr ;
+        chon:hasReport         :cgr9RwaUr ;
+        chon:hasResult         :res9RwaUrr ;
+        chon:subEventOf        :tou9RwaU .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9RwaUr .
+
+:tou9RwaU  a          chon:hessTournament ;
+        chon:atPlace  :pla9RwaUr ;
+        chon:hasName  "Capablanca mem" .
+
+chon:HalfMove  chon:subEventOf  :gam9RwaU .
+
+:ope9RwaUr  a            chon:ChessOpening ;
+        chon:hasECOCode  "B86" .
+
+:hmgam9RwaUrr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9RwaUrr4 , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgam4PdjErH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9RwaUr .
+
+:hmgam4PdjErH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4PdjErH4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qb5" , "a6" , "Qxb6+" , "Nf3" , "exd5" , "c5" , "Bd8" , "axb5" , "Ra6" , "Qxb4" , "O-O" , "Nh5+" , "Qe3" , "Ne8+" , "Qe2" , "Nf6" , "Be3" , "Kh1" , "Nh5" , "Bxb6" , "d6" , "Rxe8" , "Ng3" , "cxd4" , "a4" , "Rf2" , "Nxd5" , "Bb7" , "fxg6" , "a3" , "Nxd4" , "Bb6" , "f5" , "Rc8" , "Kh6" , "Bc4" , "Rfe1" , "f4" , "Be7" , "Nb6" , "Nc3" , "Nd5" , "hxg6" , "Nde2" , "b5" , "Ra8" , "Bxd5" , "Qxd6" , "b4" , "d4" , "e6" , "g6" , "Kg7" , "Rxc2" , "e5" , "Qg4" , "Nbd7" , "Ba2" , "Raa1" , "Nf6+" ;
+        chon:nextHalfMove      :hmgam4PdjErH .
+
+:res9RwaUrr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgr9RwaUr  a   chon:ChessGameReport .
+
+:rolhg4PdjErH4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9RwaUr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol9RwaUr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9RwaUr .

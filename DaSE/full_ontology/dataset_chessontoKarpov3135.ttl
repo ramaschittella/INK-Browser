@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgBSmKAXVM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBSmKAX .
+
+:cgrBSmKAX  a   chon:ChessGameReport .
+
+:agBSmKAX  a          chon:Agent ;
+        chon:hasName  "Movsesian,S" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBSmKAX .
+
+:rolBSmKAX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBSmKAX .
+
+:hmgamBSmKAXV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBSmKAXVM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Movsesian,S" ;
+        chon:hasSANRecord      "Nf6" , "Bxc3" , "c3" , "d5" , "Bc2" , "Qh2" , "g5" , "f5" , "Qg2" , "cxd5" , "Nd7" , "axb4" , "Nxf6" , "Nf8" , "Rh8" , "e6" , "Nb6" , "a3" , "Bb4" , "Rxf6" , "Bxf3" , "h3" , "Nf3" , "h5" , "O-O-O" , "c6" , "c4" , "Ba5" , "Rh6" , "bxc3" , "f4" , "Qxf6" , "Qe7" , "Rhe8" , "h7" , "Nb5" , "Ba3" , "Ne2" , "g4" , "c5" , "b5" , "Kb1" , "Bxh7" , "Bxb4" , "f3" , "e3" , "exd5" , "Nc3" , "d4" , "Bc1" , "Bd3" , "Qc6" , "g6" , "f6" , "Ne6" , "Nd6" , "Bd6" , "Bd2" , "Rfxf6" , "Qxc2+" , "Rf1" , "Bg4" , "Qxf3" , "Nc7" , "b4" , "Ka2" , "Nbd7" , "h4" , "h6" ;
+        chon:nextHalfMove      :hmgamBSmKAXV .
+
+:opeBSmKAX  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+chon:HalfMove  chon:subEventOf  :gamqSpw4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBSmKAX .
+
+:plaqSpw4W  a         chon:Place ;
+        chon:hasName  "Donostia ESP" .
+
+:resBSmKAXV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamqSpw4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBSmKAX ;
+        chon:atPlace           :plaqSpw4W ;
+        chon:atTime            "2009.07.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBSmKAXV ;
+        chon:hasHalfMove       :hmgamBSmKAXV ;
+        chon:hasLastHalfMove   :hmgamBSmKAXV ;
+        chon:hasOpening        :opeBSmKAX ;
+        chon:hasReport         :cgrBSmKAX ;
+        chon:hasResult         :resBSmKAXV ;
+        chon:subEventOf        :touBSmKA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touBSmKA  a          chon:hessTournament ;
+        chon:atPlace  :plaqSpw4W ;
+        chon:hasName  "City of Culture GM" .

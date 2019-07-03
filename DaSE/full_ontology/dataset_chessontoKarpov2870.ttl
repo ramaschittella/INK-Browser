@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamco6lu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolco6lu3 ;
+        chon:atPlace           :placo6lu3 ;
+        chon:atTime            "2006.08.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamco6lu3l ;
+        chon:hasHalfMove       :hmgamDqfGP5d , :hmgamco6lu3l ;
+        chon:hasLastHalfMove   :hmgamDqfGP5d ;
+        chon:hasOpening        :opeco6lu3 ;
+        chon:hasReport         :cgrco6lu3 ;
+        chon:hasResult         :resco6lu3l ;
+        chon:subEventOf        :touco6lu .
+
+:touco6lu  a          chon:hessTournament ;
+        chon:atPlace  :placo6lu3 ;
+        chon:hasName  "Lichthof Champions Blitz" .
+
+:agco6lu3  a          chon:Agent ;
+        chon:hasName  "Kasparov,G" , "Karpov,Ana" .
+
+:hmgamco6lu3l  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgco6lu3lG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov,G" ;
+        chon:hasSANRecord      "Nf3" , "c5" , "Nf6" , "Be6" , "c4" , "Ba2" , "Na5" , "dxc4" , "d4" , "Be7" , "Nxd5" , "exd5" , "Qxd1" , "e6" , "Nc3" , "Nc6" , "Bxc4" , "d5" , "a6" , "a4" , "O-O" , "e3" , "Nxe7" ;
+        chon:nextHalfMove      :hmgamco6lu3l , :hmgamDqfGP5d .
+
+:opeco6lu3  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agco6lu3 .
+
+chon:HalfMove  chon:subEventOf  :gamco6lu .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agco6lu3 .
+
+:resco6lu3l  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamDqfGP5d  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDqfGP5d7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov,G" ;
+        chon:hasSANRecord      "Nxd2" , "Ne4" , "Bxb3" , "Nb3" , "Nd2" , "Kxe7" , "Bxd2" , "c4" , "Bd2" , "Bc3" , "Rxd1" , "Rdc1" , "f6" ;
+        chon:nextHalfMove      :hmgamDqfGP5d .
+
+:cgrco6lu3  a   chon:ChessGameReport .
+
+:rolhgDqfGP5d7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agco6lu3 .
+
+:rolco6lu3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agco6lu3 .
+
+:rolhgco6lu3lG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agco6lu3 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:placo6lu3  a         chon:Place ;
+        chon:hasName  "Zurich SUI" .

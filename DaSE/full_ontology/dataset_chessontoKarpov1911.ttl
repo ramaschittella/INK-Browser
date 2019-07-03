@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag8Rnef6  a          chon:Agent ;
+        chon:hasName  "Illescas Cordoba, Miguel" , "Karpov, Anatoly" .
+
+:rolhgjPkrO6Ub  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8Rnef6 .
+
+:ope8Rnef6  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8Rnef6 .
+
+chon:HalfMove  chon:subEventOf  :gam8Rnef .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8Rnef6 .
+
+:rolhg8Rnef6P1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8Rnef6 .
+
+:hmgam8Rnef6P  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8Rnef6P1 , :rolhgjPkrO6Ub ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Illescas Cordoba, Miguel" ;
+        chon:hasSANRecord      "Rb3" , "Rxb5" , "Rd5" , "d3" , "Rxc3" , "Rd7" , "Rc7" , "c4" , "e5" , "bxc5" , "Ng6" , "R1c2" , "Nf6" , "Ba3" , "b4" , "a4" , "a6" , "h3" , "g3" , "Nxc3" , "Qa4" , "Nc6" , "cxb6" , "R2b5" , "e4" , "Rb2" , "axb5" , "Rc4" , "Rad8" , "Rb7" , "Red8" , "d6" , "Nf3" , "Qc2" , "Kh7" , "Nf8" , "b3" , "Rdb8" , "R4c3" , "Ra8" , "Ba7" , "Qe2" , "Qa3" , "Kxg2" , "Qa5" , "Qb2" , "Rb1" , "R1b5" , "Qf6" , "Qe6" , "Bd5" , "Bc5" , "e3" , "Kh2" , "Bg2" , "f6" , "Ne7" , "Nxd5" , "Rd6" , "cxd5" , "Rd8" , "Rc8" , "d5" , "Bb6" , "Qa2" , "Nc3" , "O-O" , "h6" , "b5" , "Re8" , "Bxg2" , "Ne1" , "Bxc5" , "Be6" , "Rc1" ;
+        chon:nextHalfMove      :hmgamjPkrO6U , :hmgam8Rnef6P .
+
+:cgr8Rnef6  a   chon:ChessGameReport .
+
+:hmgamjPkrO6U  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjPkrO6Ub , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Illescas Cordoba, Miguel" ;
+        chon:hasSANRecord      "Qa3" , "Re8" , "Rd8" , "Rd6" , "Qb7" , "Ra8" , "Qd7" , "Rb6" , "Qc7" , "Qa4" , "Qc6" ;
+        chon:nextHalfMove      :hmgamjPkrO6U .
+
+:rol8Rnef6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8Rnef6 .
+
+:res8Rnef6P  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gam8Rnef  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8Rnef6 ;
+        chon:atPlace           :pla8Rnef6 ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8Rnef6P ;
+        chon:hasHalfMove       :hmgamjPkrO6U , :hmgam8Rnef6P ;
+        chon:hasLastHalfMove   :hmgamjPkrO6U ;
+        chon:hasOpening        :ope8Rnef6 ;
+        chon:hasReport         :cgr8Rnef6 ;
+        chon:hasResult         :res8Rnef6P ;
+        chon:subEventOf        :tou8Rnef .
+
+:pla8Rnef6  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou8Rnef  a          chon:hessTournament ;
+        chon:atPlace  :pla8Rnef6 ;
+        chon:hasName  "Dos Hermanas" .

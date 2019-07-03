@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resnnFgM7M  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agWltWq6  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hertneck, Gerald" .
+
+:rolWltWq6  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrnnFgM7  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWltWq6 .
+
+:rolhgnnFgM7Ms  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWltWq6 .
+
+:rolnnFgM7  a             chon:AuthorRole ;
+        chon:performedBy  :agnnFgM7 .
+
+chon:HalfMove  chon:subEventOf  :gamWltWq .
+
+:opennFgM7  a            chon:ChessOpening ;
+        chon:hasECOCode  "E39" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWltWq6 .
+
+:gamWltWq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWltWq6 ;
+        chon:atPlace           :plaWltWq6 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnnFgM7M ;
+        chon:hasHalfMove       :hmgamnnFgM7M ;
+        chon:hasLastHalfMove   :hmgamnnFgM7M ;
+        chon:hasOpening        :opennFgM7 ;
+        chon:hasReport         :cgrnnFgM7 ;
+        chon:hasResult         :resnnFgM7M ;
+        chon:subEventOf        :touWltWq .
+
+:touWltWq  a          chon:hessTournament ;
+        chon:atPlace  :plaWltWq6 ;
+        chon:hasName  "Baden-Baden" .
+
+:hmgamnnFgM7M  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnnFgM7Ms , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "R4d3" , "g6" , "f6" , "Qf6" , "Ra5" , "a4" , "Qc2" , "g3" , "e5" , "Nxc5" , "Qxh5" , "Rh6" , "Nf3" , "Rab1" , "Rf5" , "Nce4" , "Rd5" , "Nf6" , "gxh5" , "fxg5" , "Qe2" , "g5" , "Nxe5" , "Rf8" , "Re8" , "Rb4" , "Rbd4" , "Bb4" , "Kg7" , "Ne8" , "Qb6+" , "d4" , "c4" , "Rd1" , "Qg2" , "h5" , "Ra6" , "a5" , "Qc7" , "Qh5" , "Nh3" , "Be7" , "f4" , "Na6" , "e4" , "Qg4" , "exf4" , "c5" , "bxc3" , "Bg2" , "Nxc3" , "Nf7" , "Rh4" , "Bxd6" , "dxc5" , "h4" , "g4" , "Nxd6" , "e6" , "d6" , "Nf4" , "Qxc4" , "Rf6" , "O-O" , "Be4" , "Bf4" , "Bd6" , "dxe5" , "Nd3" , "Nc3" ;
+        chon:nextHalfMove      :hmgamnnFgM7M .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaWltWq6  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .

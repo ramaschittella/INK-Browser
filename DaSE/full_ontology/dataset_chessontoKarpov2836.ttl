@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resBecnirn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamFgvey  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBecnir ;
+        chon:atPlace           :plaFgveyu ;
+        chon:atTime            "2005.09.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBecnirn ;
+        chon:hasHalfMove       :hmgamBecnirn ;
+        chon:hasLastHalfMove   :hmgamBecnirn ;
+        chon:hasOpening        :opeBecnir ;
+        chon:hasReport         :cgrBecnir ;
+        chon:hasResult         :resBecnirn ;
+        chon:subEventOf        :touBecni .
+
+:plaFgveyu  a         chon:Place ;
+        chon:hasName  "Villa Martelli ARG" .
+
+:touBecni  a          chon:hessTournament ;
+        chon:atPlace  :plaFgveyu ;
+        chon:hasName  "Karpov Simul" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBecnir .
+
+:cgrBecnir  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamFgvey .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBecnir .
+
+:agBecnir  a          chon:Agent ;
+        chon:hasName  "Scarella,E" , "Karpov,Ana" .
+
+:rolBecnir  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBecnir .
+
+:rolhgBecnirng  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBecnir .
+
+:opeBecnir  a            chon:ChessOpening ;
+        chon:hasECOCode  "E61" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamBecnirn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBecnirng , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Scarella,E" ;
+        chon:hasSANRecord      "Rb5" , "Bxd4+" , "Nb7" , "Nb6" , "a3" , "Bc3" , "Nh4" , "Rf7" , "Kg8" , "Qb3" , "c4" , "Rd1" , "Rfd1" , "Nc6" , "Ba4" , "Ne3" , "Qa8" , "Kh8" , "Bd2" , "Qh4" , "Rb8" , "Qf6" , "Ke8" , "Qxa7" , "Rc1" , "Bc1" , "g6" , "Qh3" , "bxc4" , "Bxb5" , "Nf3" , "Bg7" , "Be2" , "Nc3" , "Na5" , "Kf8" , "Bb2" , "Rc7" , "Rxd4" , "Qa2" , "Bd7" , "e5" , "b6" , "Nd2" , "Rac8" , "Rc2" , "f5" , "d6" , "Nf6" , "Nd8" , "f4" , "c5" , "Rae1" , "Ba1" , "Rb6" , "Ne8" , "Na4" , "O-O" , "Kh1" , "d4" , "g3" , "exf5" , "Qd4" , "Qc2" , "e4" , "b5" , "gxf5" , "Ba6" , "Nd1" , "Nc7" , "e3" , "b4" , "Qh6" , "Nhg2" , "Bd4" , "Qd2" , "cxd4" , "Qh5" , "Bxc4" , "d5" , "Qf7" , "Na8" , "Re1" ;
+        chon:nextHalfMove      :hmgamBecnirn .

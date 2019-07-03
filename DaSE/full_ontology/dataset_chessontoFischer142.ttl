@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plarl27nY  a         chon:Place ;
+        chon:hasName  "Portoroz" .
+
+:rolhgSlWkWXuL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrl27nY .
+
+:cgrrl27nY  a   chon:ChessGameReport .
+
+:hmgamrl27nYr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSlWkWXuL , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamSlWkWXu .
+
+:rolrl27nY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrl27nY .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrl27nY .
+
+chon:HalfMove  chon:subEventOf  :gamrl27n .
+
+:hmgamSlWkWXu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSlWkWXuL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Panno, Oscar" ;
+        chon:hasSANRecord      "Nxd4" , "Nxc6" , "Qb5" , "O-O" , "Bc4" , "Nxe4" , "d4" , "Raxc8" , "Bb3" , "Nxe7+" , "Rcd8" , "Nc6" , "Qa5+" , "Be3" , "c3" , "Qc2" , "Qb6" , "Kg8" , "f3" , "Nf6" , "Bf2" , "Bxc5" , "Kh8" , "cxd4" , "Nxc8" , "Rd1" , "a5" , "c5" , "Nd5" , "Nf3" , "Rxd8" , "Bg7" , "Re8" , "Rfd1" , "Nc5" , "Nc3" , "dxc6" , "g6" ;
+        chon:nextHalfMove      :hmgamSlWkWXu .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrl27nY .
+
+:resrl27nYr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamrl27n  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrl27nY ;
+        chon:atPlace           :plarl27nY ;
+        chon:atTime            "1958.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrl27nYr ;
+        chon:hasHalfMove       :hmgamSlWkWXu , :hmgamrl27nYr ;
+        chon:hasLastHalfMove   :hmgamSlWkWXu ;
+        chon:hasOpening        :operl27nY ;
+        chon:hasReport         :cgrrl27nY ;
+        chon:hasResult         :resrl27nYr ;
+        chon:subEventOf        :tourl27n .
+
+:agrl27nY  a          chon:Agent ;
+        chon:hasName  "Panno, Oscar" , "Fischer, Robert James" .
+
+:tourl27n  a          chon:hessTournament ;
+        chon:atPlace  :plarl27nY ;
+        chon:hasName  "Portoroz Interzonal" .
+
+:operl27nY  a            chon:ChessOpening ;
+        chon:hasECOCode  "B35" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

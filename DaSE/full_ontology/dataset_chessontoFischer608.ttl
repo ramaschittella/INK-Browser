@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrc2qzhe  a   chon:ChessGameReport .
+
+:rolhgD5AUEfTx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agc2qzhe .
+
+:resc2qzhe3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolc2qzhe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agc2qzhe .
+
+:touc2qzh  a          chon:hessTournament ;
+        chon:atPlace  :plac2qzhe ;
+        chon:hasName  "Athens sim" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agc2qzhe .
+
+:plac2qzhe  a         chon:Place ;
+        chon:hasName  "Athens" .
+
+chon:HalfMove  chon:subEventOf  :gamc2qzh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agc2qzhe .
+
+:hmgamD5AUEfT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgD5AUEfTx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bd6" , "f3" , "d6" , "Ne5" , "Nxg3" , "Qf3" , "e5" , "Kb8" , "Nxg4" , "Bh4" , "Rxd4" , "Bd1" , "Nd7" , "Bh5" , "Rc4" , "hxg3" , "Bb3" , "Qxg5" , "Bb7" , "Kc7" , "g5" , "a3" , "cxd4" , "g4" , "a4" , "Rh2" , "Kd1" , "d4" , "a6" , "Bd3" , "h6" , "Kc2" , "Bxd4" , "Nd4" , "f4" , "Bc8" , "Na4" , "Bg3" , "Rhe1" , "Rg5" , "Be5" , "Rb4+" , "Be6" , "Nb3" , "Qxg4" , "e6" , "Nf3" , "Kb1" , "Kc8" , "Nc3" , "Nc5" , "Rc8" , "hxg5" , "c3" , "Bg7" , "Bc2" , "Re2" , "a5" , "Nb7" , "Nxd4" , "Ra4" , "Nxa5" , "O-O-O" , "d5" , "Rxg5" , "Rg2" , "e4" , "c5" , "Bg5" , "Nxc3" , "Rg1+" , "Nf6" , "b4" , "Nc6" , "Red2" , "Be2" , "Rxg2" , "b5" , "bxc3" , "Nxe4" , "fxg5" , "Bc4" , "Qg5+" ;
+        chon:nextHalfMove      :hmgamD5AUEfT .
+
+:agc2qzhe  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Kokkoris, L." .
+
+:opec2qzhe  a            chon:ChessOpening ;
+        chon:hasECOCode  "B95" .
+
+:gamc2qzh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolc2qzhe ;
+        chon:atPlace           :plac2qzhe ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamD5AUEfT ;
+        chon:hasHalfMove       :hmgamD5AUEfT ;
+        chon:hasLastHalfMove   :hmgamD5AUEfT ;
+        chon:hasOpening        :opec2qzhe ;
+        chon:hasReport         :cgrc2qzhe ;
+        chon:hasResult         :resc2qzhe3 ;
+        chon:subEventOf        :touc2qzh .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

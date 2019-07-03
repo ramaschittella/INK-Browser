@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg0DkmHvdt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0DkmHv .
+
+:pla0DkmHv  a         chon:Place ;
+        chon:hasName  "Belgrade" .
+
+:cgr0DkmHv  a   chon:ChessGameReport .
+
+:res0DkmHvd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ag0DkmHv  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+:rol0DkmHv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0DkmHv .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0DkmHv .
+
+:ope0DkmHv  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+chon:HalfMove  chon:subEventOf  :gam0DkmH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0DkmHv .
+
+:gam0DkmH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0DkmHv ;
+        chon:atPlace           :pla0DkmHv ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0DkmHvd ;
+        chon:hasHalfMove       :hmgam0DkmHvd ;
+        chon:hasLastHalfMove   :hmgam0DkmHvd ;
+        chon:hasOpening        :ope0DkmHv ;
+        chon:hasReport         :cgr0DkmHv ;
+        chon:hasResult         :res0DkmHvd ;
+        chon:subEventOf        :tou0DkmH .
+
+:tou0DkmH  a          chon:hessTournament ;
+        chon:atPlace  :pla0DkmHv ;
+        chon:hasName  "St Stefan/Belgrade m" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam0DkmHvd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0DkmHvdt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "c5" , "Bc7" , "Bd6" , "Kf1" , "e6" , "Bd3" , "Na5" , "Rxc1" , "Nd7" , "Nc4" , "exf4" , "Nf6" , "Rxc8+" , "Ndb3" , "Nf3" , "Be7" , "Bxc5" , "Nbd7" , "f6" , "Bb2" , "dxc5" , "Nb6" , "Ke7" , "Nbc5" , "Be4" , "a6" , "h3" , "b5" , "Bb7" , "Rac1" , "a3" , "Be6" , "Bxc4" , "Nb8" , "c4" , "Kf8" , "dxc4" , "bxc5" , "Rxd1" , "e3" , "Bc1" , "Qxd1" , "Be2" , "Nxc5" , "Kf2" , "Rfc8" , "Rc8" , "Nc5" , "Kd7" , "g6" , "d4" , "Nb3" , "b4" , "Bb6" , "O-O" , "Nfd7" , "d5" , "Nb7" , "Nfd4" , "Bxc8" , "e5" , "f4" , "Nd3" , "Nbd2" , "Bf3" ;
+        chon:nextHalfMove      :hmgam0DkmHvd .

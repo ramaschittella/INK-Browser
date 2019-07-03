@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrOxeDsE  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOxeDsE .
+
+:hmgamOxeDsEl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOxeDsElH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lipke, Paul" ;
+        chon:hasSANRecord      "Ng3" , "Qxd4" , "Nf5" , "Qd2" , "Kd6" , "Bxd6" , "Nf3" , "e6" , "Bb1" , "c4" , "Nc3" , "Re8" , "Rc8" , "dxc5" , "Nxd4" , "Ke7" , "Ba4" , "f3" , "Ne6" , "Bc2" , "Nxc5" , "Ba6" , "Re5" , "Rad8" , "d4" , "Bg3" , "Rcd1" , "O-O" , "Nce2" , "d5" , "Rc1" , "Nbd7" , "exd5" , "Kf8" , "Rxd4" , "Qe6" , "f5" , "Bb5" , "Bd6" , "Rfd1" , "e3" , "Nh4" , "Nd1" , "c5" , "a5" , "Bd3" , "Qxd6" , "Bb3" , "Kf2" , "Bb7" , "Nf6" , "Nge2" , "Qd4" , "b6" , "g6" , "Bf4" , "Rc4" , "Ne4" , "a6" , "cxd5" , "Qe5" ;
+        chon:nextHalfMove      :hmgamOxeDsEl , :hmgamfzoVPEa .
+
+:rolOxeDsE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOxeDsE .
+
+chon:HalfMove  chon:subEventOf  :gamOxeDs .
+
+:gamOxeDs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOxeDsE ;
+        chon:atPlace           :plaOxeDsE ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOxeDsEl ;
+        chon:hasHalfMove       :hmgamfzoVPEa , :hmgamOxeDsEl ;
+        chon:hasLastHalfMove   :hmgamfzoVPEa ;
+        chon:hasOpening        :opeOxeDsE ;
+        chon:hasReport         :cgrOxeDsE ;
+        chon:hasResult         :resOxeDsEl ;
+        chon:subEventOf        :touOxeDs .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOxeDsE .
+
+:touOxeDs  a          chon:hessTournament ;
+        chon:atPlace  :plaOxeDsE ;
+        chon:hasName  "Vienna" .
+
+:plaOxeDsE  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:rolhgfzoVPEa9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOxeDsE .
+
+:hmgamfzoVPEa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfzoVPEa9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lipke, Paul" ;
+        chon:hasSANRecord      "Bb3" , "Nd4+" , "Re7" , "Be2" , "b4+" , "h4" , "Kc6" , "b5" , "Nc7" , "Nxb3" , "Ne2" , "Rd6" , "Nd4" , "axb4+" , "Ke5" , "Na6" , "Na8" , "Ne8" , "h3" , "h5" , "Rc1" , "axb4" , "Bd7" , "Rd3" , "Bf7" , "Rc5" , "Rd7" , "Kg3" , "Nxc5" , "Kf4" , "Kb7" , "Bd1" , "Nf4" , "a3" , "Kxd6" , "Rd1" , "Kc5" , "Bc6" , "Rd4" , "Be8" ;
+        chon:nextHalfMove      :hmgamfzoVPEa .
+
+:resOxeDsEl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agOxeDsE  a          chon:Agent ;
+        chon:hasName  "Lipke, Paul" , "Steinitz, William" .
+
+:opeOxeDsE  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:rolhgOxeDsElH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOxeDsE .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

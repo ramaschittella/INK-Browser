@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamQqEkfAe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQqEkfAeQ , chon:AgentRole , :rolhg2oAyOAh2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc1" , "Ba6" , "Nbd7" , "Bb4" , "exd4" , "Rfe8" , "Rac8" , "e6" , "Ne5" , "Bg5" , "Red8" , "e3" , "Bxc4" , "b6" , "d4" , "dxc4" , "Ng6" , "Qb7" , "Bb7" , "Rc7" , "Qxc6" , "Nf6" , "Qc7" , "c4" , "Re1" , "Nc3" , "h3" , "Bg3" , "Qg5" , "Bd3" , "cxd4" , "c5" , "O-O" , "Nxc6" , "bxc3" , "d5" , "Bh4" , "Bb5" , "Re7" , "Qd5" , "Bxc3" , "Nf8" , "Bc6" , "Qe2" , "Nf3" ;
+        chon:nextHalfMove      :hmgam2oAyOAh , :hmgamQqEkfAe .
+
+:plaQqEkfA  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+:hmgam2oAyOAh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2oAyOAh2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxa8" , "Kh1" , "Rf1" , "Rec1" , "Nf4" , "Bc6" , "Nd5" , "h5" , "Ra8" , "Qe4" , "Qa6" , "Qc8" , "Rxd5" , "Rxc5" , "f6" , "Rg5" , "Rc8+" , "Bxf4" , "Qf6" , "Be5" , "bxc5" , "h4" , "Kg6" , "Kf7" , "Qh4" , "Rg1" , "Bxd5" , "Bg3" , "Qxf4" , "Qxd4" , "c5" ;
+        chon:nextHalfMove      :hmgam2oAyOAh .
+
+:rolhg2oAyOAh2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQqEkfA .
+
+:cgrQqEkfA  a   chon:ChessGameReport .
+
+:agQqEkfA  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Speelman, Jonathan S" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQqEkfA .
+
+:gamQqEkf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQqEkfA ;
+        chon:atPlace           :plaQqEkfA ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQqEkfAe ;
+        chon:hasHalfMove       :hmgamQqEkfAe , :hmgam2oAyOAh ;
+        chon:hasLastHalfMove   :hmgam2oAyOAh ;
+        chon:hasOpening        :opeQqEkfA ;
+        chon:hasReport         :cgrQqEkfA ;
+        chon:hasResult         :resQqEkfAe ;
+        chon:subEventOf        :touQqEkf .
+
+:touQqEkf  a          chon:hessTournament ;
+        chon:atPlace  :plaQqEkfA ;
+        chon:hasName  "Roquebrune rapid" .
+
+:rolQqEkfA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQqEkfA .
+
+:resQqEkfAe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeQqEkfA  a            chon:ChessOpening ;
+        chon:hasECOCode  "E54" .
+
+chon:HalfMove  chon:subEventOf  :gamQqEkf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQqEkfA .
+
+:rolhgQqEkfAeQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQqEkfA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resxGnGWba  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgxGnGWbad  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxGnGWb .
+
+:hmgamxGnGWba  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxGnGWbad , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "cxd4" , "Be2" , "c5" , "Nf3" , "Nh5" , "h6" , "d5" , "Qf6" , "Bh4" , "Ne4" , "Rc1" , "Nc3" , "Nf4" , "Nf6" , "O-O" , "c4" , "Ng3" , "Bxe7" , "a4" , "a6" , "b6" , "Bxc4" , "Qe2" , "e6" , "exd4" , "d4" , "Bb7" , "Qe3" , "Be7" , "Qf5" , "Nbd7" , "dxc4" , "Bg5" , "e3" , "Qxe7" ;
+        chon:nextHalfMove      :hmgamxGnGWba .
+
+:plaxGnGWb  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxGnGWb .
+
+:cgrxGnGWb  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamxGnGW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxGnGWb .
+
+:agxGnGWb  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolxGnGWb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxGnGWb .
+
+:opexGnGWb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .
+
+:gamxGnGW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxGnGWb ;
+        chon:atPlace           :plaxGnGWb ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxGnGWba ;
+        chon:hasHalfMove       :hmgamxGnGWba ;
+        chon:hasLastHalfMove   :hmgamxGnGWba ;
+        chon:hasOpening        :opexGnGWb ;
+        chon:hasReport         :cgrxGnGWb ;
+        chon:hasResult         :resxGnGWba ;
+        chon:subEventOf        :touxGnGW .
+
+:touxGnGW  a          chon:hessTournament ;
+        chon:atPlace  :plaxGnGWb ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

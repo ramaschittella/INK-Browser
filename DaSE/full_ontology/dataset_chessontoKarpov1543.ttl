@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gameM6gj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleM6gjh ;
+        chon:atPlace           :plaeM6gjh ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameM6gjhR ;
+        chon:hasHalfMove       :hmgameM6gjhR ;
+        chon:hasLastHalfMove   :hmgameM6gjhR ;
+        chon:hasOpening        :opeeM6gjh ;
+        chon:hasReport         :cgreM6gjh ;
+        chon:hasResult         :reseM6gjhR ;
+        chon:subEventOf        :toueM6gj .
+
+:toueM6gj  a          chon:hessTournament ;
+        chon:atPlace  :plaeM6gjh ;
+        chon:hasName  "Alekhine mem" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageM6gjh .
+
+chon:HalfMove  chon:subEventOf  :gameM6gj .
+
+:hmgameM6gjhR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeM6gjhRP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf3" , "Be2" , "c5" , "d4" , "d5" , "Nf6" , "Kf1" , "dxc5" , "e6" , "h6" , "Bb2" , "O-O" , "Bxc4" , "e3" , "Nbd7" , "Rxd1" , "Bb7" , "Nc3" , "c4" , "b5" , "Rac1" , "Bxc5" , "Qxd1" , "b3" , "Rac8" , "a6" , "dxc4" ;
+        chon:nextHalfMove      :hmgameM6gjhR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageM6gjh .
+
+:plaeM6gjh  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgreM6gjh  a   chon:ChessGameReport .
+
+:reseM6gjhR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ageM6gjh  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Salov, Valery" .
+
+:roleM6gjh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageM6gjh .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeeM6gjh  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+:rolhgeM6gjhRP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageM6gjh .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaJ39Dlm  a         chon:Place ;
+        chon:hasName  "FRA" .
+
+:cgrJ39Dlm  a   chon:ChessGameReport .
+
+:hmgamJ39Dlm0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJ39Dlm05 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Belotti, Bruno" ;
+        chon:hasSANRecord      "b6" , "Nf3" , "Nc4" , "c5" , "Nd2" , "d5" , "cxb5" , "Bf4" , "d6" , "Rc1" , "O-O" , "Qxb6" , "d4" , "a5" , "Nf6" , "Nb6" , "Nbd7" , "Ne3" , "Bg7" , "g6" , "a6" , "Be2" , "e4" , "Nfd7" , "c4" , "Qc7" , "Nc3" , "b5" ;
+        chon:nextHalfMove      :hmgamJ39Dlm0 , :hmgamV35RSlb .
+
+:agJ39Dlm  a          chon:Agent ;
+        chon:hasName  "Belotti, Bruno" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJ39Dlm .
+
+:rolJ39Dlm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJ39Dlm .
+
+:opeJ39Dlm  a            chon:ChessOpening ;
+        chon:hasECOCode  "A57" .
+
+chon:HalfMove  chon:subEventOf  :gamJ39Dl .
+
+:hmgamV35RSlb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgV35RSlbf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Belotti, Bruno" ;
+        chon:hasSANRecord      "Kg2" , "Rdf1" , "Nb5" , "e5" , "Kxh7" , "Nxc4" , "Qg7" , "Ng4" , "Ba6" , "b3" , "Nh7" , "f5" , "Rce1" , "Ne8" , "Rf3" , "Rh6" , "Nh5" , "Nb4" , "Be3" , "O-O" , "Kxg6" , "Rfd1" , "d6" , "Bxc4" , "Na3" , "Qe2" , "Qh6" , "Nd7" , "dxe5" , "Qd2" , "Bxe3" , "Nc7" , "g3" , "h5" , "Na6" , "fxg6+" , "f4" , "Qf8" , "Bc4" , "Rfb8" , "Rd1" , "Ra7" , "Bd4" , "Rf5" , "Rh8" , "Bh6" , "Re1" , "a4" , "Qd7" , "Nf2" , "Qh5" , "Ng5" , "f6" , "Kh1" , "f3" , "Rxe5" , "Nxh7" , "Rd8" , "Nh3" , "Nf6" , "Qd8" , "Rxe3" , "Nb8" ;
+        chon:nextHalfMove      :hmgamV35RSlb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJ39Dlm .
+
+:resJ39Dlm0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamJ39Dl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJ39Dlm ;
+        chon:atPlace           :plaJ39Dlm ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJ39Dlm0 ;
+        chon:hasHalfMove       :hmgamJ39Dlm0 , :hmgamV35RSlb ;
+        chon:hasLastHalfMove   :hmgamV35RSlb ;
+        chon:hasOpening        :opeJ39Dlm ;
+        chon:hasReport         :cgrJ39Dlm ;
+        chon:hasResult         :resJ39Dlm0 ;
+        chon:subEventOf        :touJ39Dl .
+
+:touJ39Dl  a          chon:hessTournament ;
+        chon:atPlace  :plaJ39Dlm ;
+        chon:hasName  "FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgV35RSlbf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJ39Dlm .
+
+:rolhgJ39Dlm05  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJ39Dlm .

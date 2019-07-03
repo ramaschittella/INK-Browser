@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resSnYOjpX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touWqhFz  a          chon:hessTournament ;
+        chon:atPlace  :plazsoctq ;
+        chon:hasName  "Amber Blindfold" .
+
+:rolhg4nV3So1r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSnYOjp .
+
+:gamzsoct  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSnYOjp ;
+        chon:atPlace           :plazsoctq ;
+        chon:atTime            "1999.03.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSnYOjpX ;
+        chon:hasHalfMove       :hmgam4nV3So1 , :hmgamSnYOjpX ;
+        chon:hasLastHalfMove   :hmgam4nV3So1 ;
+        chon:hasOpening        :opeSnYOjp ;
+        chon:hasReport         :cgrSnYOjp ;
+        chon:hasResult         :resSnYOjpX ;
+        chon:subEventOf        :touWqhFz .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSnYOjp .
+
+:rolhgSnYOjpXe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSnYOjp .
+
+:cgrSnYOjp  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamzsoct .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSnYOjp .
+
+:agSnYOjp  a          chon:Agent ;
+        chon:hasName  "Kramnik, Vladimir" , "Karpov, Anatoly" .
+
+:rolSnYOjp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSnYOjp .
+
+:opeSnYOjp  a            chon:ChessOpening ;
+        chon:hasECOCode  "E04" .
+
+:hmgamSnYOjpX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSnYOjpXe ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik, Vladimir" ;
+        chon:hasSANRecord      "c4" , "Qd2" , "a4" , "Qc5" , "Kg2" , "Kf8" , "Nxe2+" , "Nf3" , "Nd3" , "Nxb4" , "Rxa2" , "Kh7" , "Nxa2" , "d4" , "Rxe6" , "e6" , "Nf6" , "Nd6" , "Nxe3" , "Kf1" , "Ra7" , "Rd8" , "h6" , "Ne1" , "f6" , "Kg8" , "Raa8" , "dxc4" , "g4" , "e4" , "d5" , "b5" , "Ne7+" , "Nxd4" , "Qxe3" , "Qd1" , "a3" , "Qa4" , "Bb4+" , "bxa3" , "Bxe4" , "Nc3" , "Nb6" , "Ra3" , "Qe3" , "O-O" , "a6" , "Rad1" , "Nf5" , "Nd5" , "Rxc4" , "Ra6" , "Rd7" , "Nb4" , "h5" , "Bc6" , "Rd2" , "Ba6" , "g3" , "Kf3" , "b4" , "Rfd1" , "Re8" , "Nc2" , "Qe7" , "Nb5" , "Na2" , "Rxe4" , "c5" , "a5" , "Rb7" , "Nf4" , "Rxd2" , "axb4" , "Rxa3" , "Ra5" , "Rad8" , "Bb7" , "Rd6" , "Bxb4" , "h4" , "f4" , "Bd2" , "Nf7" , "Bf1" , "Rc8+" , "Ra8" , "Rc7" , "Nc6" , "Ng6+" , "cxd4" , "Bg2" , "Be2" , "Ra1" , "Ne5" ;
+        chon:nextHalfMove      :hmgam4nV3So1 , :hmgamSnYOjpX .
+
+:plazsoctq  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam4nV3So1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4nV3So1r , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik, Vladimir" ;
+        chon:hasSANRecord      "Rc3" , "Nd8" , "Kf7" , "Re7" , "Nh8" , "Nh4" , "Rxe7" , "Nf7" , "Kf8" , "Rc7" , "Kd5" , "Nxe7+" , "Nf5" , "Ng6+" , "Re8" , "Ke4" , "Rc5" , "Kg8" ;
+        chon:nextHalfMove      :hmgam4nV3So1 .

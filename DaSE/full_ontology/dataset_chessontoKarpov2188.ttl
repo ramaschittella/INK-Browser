@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSAJLQ6S9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSAJLQ6 .
+
+:agSAJLQ6  a          chon:Agent ;
+        chon:hasName  "Pljasunov, Aleksey" , "Karpov, Anatoly" .
+
+:plaGANxj7  a         chon:Place ;
+        chon:hasName  "Koszalin" .
+
+:rolSAJLQ6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSAJLQ6 .
+
+:gamGANxj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSAJLQ6 ;
+        chon:atPlace           :plaGANxj7 ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSAJLQ6S ;
+        chon:hasHalfMove       :hmgamSAJLQ6S ;
+        chon:hasLastHalfMove   :hmgamSAJLQ6S ;
+        chon:hasOpening        :opeSAJLQ6 ;
+        chon:hasReport         :cgrSAJLQ6 ;
+        chon:hasResult         :resSAJLQ6S ;
+        chon:subEventOf        :touSAJLQ .
+
+:opeSAJLQ6  a            chon:ChessOpening ;
+        chon:hasECOCode  "B05" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSAJLQ6 .
+
+chon:HalfMove  chon:subEventOf  :gamGANxj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSAJLQ6 .
+
+:touSAJLQ  a          chon:hessTournament ;
+        chon:atPlace  :plaGANxj7 ;
+        chon:hasName  "Koszalin sim1" .
+
+:resSAJLQ6S  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrSAJLQ6  a   chon:ChessGameReport .
+
+:hmgamSAJLQ6S  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSAJLQ6S9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pljasunov, Aleksey" ;
+        chon:hasSANRecord      "Bg4" , "e5" , "Rd8" , "Ng5" , "Nf6+" , "Ke2" , "Rxd8" , "Qg4" , "g4" , "Bxe2" , "Kf1" , "Nd7" , "exf5" , "a3" , "Nf6" , "exf6" , "Be7" , "Nc3" , "a4" , "Bxd8" , "e6" , "Be2" , "Qf5" , "Nd2" , "g5" , "Qc8" , "Nd8" , "h4" , "Bxc5" , "d6" , "h5" , "a5" , "Na6" , "Nc5" , "b4" , "Nf3" , "O-O" , "c3" , "Qxa5" , "Qg6" , "Nd5" , "Kh8" , "Qc3" , "Qh5" , "Ne4" , "Rxd1+" , "Be3" , "dxe5" , "gxh6" , "Qxe2" , "Kh7" , "c5" , "Nc6" , "Ne5" , "h6" , "Qf8" , "d4" , "Qg8+" , "c4" , "Qe4" , "e4" , "Ndb4" , "b6" , "Qf3" , "Qxf5+" , "Rd1" , "Bxf6" , "Rxd1" ;
+        chon:nextHalfMove      :hmgamSAJLQ6S .

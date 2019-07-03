@@ -1,0 +1,91 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plahcSzZl  a         chon:Place ;
+        chon:hasName  "Habana" .
+
+:rolhgmRBgQbrR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghcSzZl .
+
+:hmgamZTIOJbl  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZTIOJblt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Ba2" , "Rxb1" , "b2" , "h4" , "g4" , "Rb6" , "Kc6" , "Rg6+" , "Bxb1" , "Kc4" , "Rxg7" , "h5" , "b1=Q" , "Rf7+" , "Kc5" , "Bf7" ;
+        chon:nextHalfMove      :hmgamZTIOJbl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghcSzZl .
+
+:aghcSzZl  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Golmayo Zupide, Celso" .
+
+:opehcSzZl  a            chon:ChessOpening ;
+        chon:hasECOCode  "C45" .
+
+:rolhgZTIOJblt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghcSzZl .
+
+:hmgamtcPNyms  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtcPNymsD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nc5" , "exd4" , "Nb5" , "O-O" , "Qf6" , "Qxe4+" , "e4" , "Nxd4" , "Kd8" , "e5" , "h5" , "Qh6" , "Bd2" , "Nc6" , "Nf3" , "Qxd2" , "Rxd2" , "Qd2" , "g3" , "h4" , "Nge7" , "Nxd2" , "Qh4" , "Bb4+" , "Be2" , "Rad1" , "Nb3" , "Bxd2" , "c3" , "d4" , "Qf4" ;
+        chon:nextHalfMove      :hmgamtcPNyms , :hmgammRBgQbr .
+
+:cgrtcPNym  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamhcSzZ .
+
+:hmgamyRytnbw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyRytnbw3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rdc2" , "R8d7" , "b3" , "Rf2" , "Rd2" , "cxb5" , "Ke3" , "Rc7+" , "c6" , "d3" , "d5" , "Bg2" , "Rxd7" , "Rd1" , "e4" , "Bxb3" , "b5" , "a5" , "Rf6" , "Rxd7+" , "c4" , "Bf1" , "Rfd6" , "Rc1" , "Kxd7" , "Bc2" , "Bd5" , "Rd8" , "Raf8" , "b4" , "a4" , "Kf2" , "Bxd7" , "d4" , "Bh3" ;
+        chon:nextHalfMove      :hmgamyRytnbw , :hmgamZTIOJbl .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhcSzZl  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:restcPNyms  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:roltcPNym  a             chon:AuthorRole ;
+        chon:performedBy  :agtcPNym .
+
+:hmgammRBgQbr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyRytnbw3 , :rolhgmRBgQbrR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nd4" , "R5d2" , "f6" , "Nf3" , "Ne4" , "d6" , "Ke7" , "b6" , "Bc4" , "fxe5" , "Nxe5" , "Ng5" , "hxg3" , "Rxd4" , "Rfd1" , "Ne5" , "Nxd4" , "Rd5" , "Bb7" , "fxg3" , "Nc6" , "a6" ;
+        chon:nextHalfMove      :hmgamyRytnbw , :hmgammRBgQbr .
+
+:gamhcSzZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhcSzZl ;
+        chon:atPlace           :plahcSzZl ;
+        chon:atTime            "1883.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtcPNyms ;
+        chon:hasHalfMove       :hmgamyRytnbw , :hmgammRBgQbr , :hmgamZTIOJbl , :hmgamtcPNyms ;
+        chon:hasLastHalfMove   :hmgamZTIOJbl ;
+        chon:hasOpening        :opehcSzZl ;
+        chon:hasReport         :cgrtcPNym ;
+        chon:hasResult         :restcPNyms ;
+        chon:subEventOf        :touhcSzZ .
+
+:rolhgyRytnbw3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghcSzZl .
+
+:touhcSzZ  a          chon:hessTournament ;
+        chon:atPlace  :plahcSzZl ;
+        chon:hasName  "Habana m" .
+
+:rolhgtcPNymsD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghcSzZl .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghcSzZl .

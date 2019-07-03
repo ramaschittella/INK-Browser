@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla7XK3fa  a         chon:Place ;
+        chon:hasName  "Bali INA" .
+
+:cgr7XK3fa  a   chon:ChessGameReport .
+
+:res7XK3faK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ag7XK3fa  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Seirawan,Y" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7XK3fa .
+
+:rol7XK3fa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7XK3fa .
+
+chon:HalfMove  chon:subEventOf  :gam7XK3f .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7XK3fa .
+
+:gam7XK3f  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7XK3fa ;
+        chon:atPlace           :pla7XK3fa ;
+        chon:atTime            "2000.04.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7XK3faK ;
+        chon:hasHalfMove       :hmgam7XK3faK ;
+        chon:hasLastHalfMove   :hmgam7XK3faK ;
+        chon:hasOpening        :ope7XK3fa ;
+        chon:hasReport         :cgr7XK3fa ;
+        chon:hasResult         :res7XK3faK ;
+        chon:subEventOf        :tou7XK3f .
+
+:tou7XK3f  a          chon:hessTournament ;
+        chon:atPlace  :pla7XK3fa ;
+        chon:hasName  "Japfa Classic" .
+
+:ope7XK3fa  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+:rolhg7XK3faKV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7XK3fa .
+
+:hmgam7XK3faK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7XK3faKV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "dxc5" , "dxc4" , "Kxd8" , "Be2" , "e6" , "c4" , "b3" , "O-O" , "Bxc5" , "c5" , "Nf6" , "Bxc4" , "d5" , "Rac1" , "Nf3" , "Ke7" , "Nc3" , "Bb2" , "a6" , "Qxd8+" , "e3" , "d4" , "b5" , "Nbd7" , "Bb7" ;
+        chon:nextHalfMove      :hmgam7XK3faK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

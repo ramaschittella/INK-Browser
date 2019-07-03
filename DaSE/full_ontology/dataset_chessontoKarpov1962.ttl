@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgQ6l9nE2s  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQ6l9nE .
+
+:hmgamQ6l9nE2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQ6l9nE2s ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bacrot, Etienne" ;
+        chon:hasSANRecord      "Qc3" , "bxa5" , "Bc5" , "Rxa5" , "Kg2" , "Qb2" , "d4" , "Bb4" , "Kh8" , "Qf3" , "Nc3" , "Nb5" , "Bxb6" , "Ra8" , "h4" , "Qxc1" , "Bg4" , "b5" , "Bxe4" , "Qd6" , "b4" , "Bxc1" , "Rd8" , "Qc5" , "a5" , "f5" , "Re8" , "Ba3" , "O-O" , "exd4" , "f4" , "Nf6" , "Bxh7" , "Rea8" , "d5" , "e5" , "d3" , "Rfc1" , "Be3" , "g3" , "b2" , "a4" , "Bd6" , "a3" , "h5" , "h3" , "e4" , "Bf8" , "cxd5" , "Bg2" , "b3" , "Qb3" , "e3" , "cxb6" , "Qd4" , "c4" , "Qb1" , "Na7" , "Qxd3" , "Rf8" , "Nxa7" , "Rxa7" , "Nf3" , "Nb6" , "Bxf3" , "fxe4" , "Qd7" , "Be7" , "Bd5" , "Nxd5" , "Nc6" ;
+        chon:nextHalfMove      :hmgamQ6l9nE2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ6l9nE .
+
+chon:HalfMove  chon:subEventOf  :gamQ6l9n .
+
+:opeQ6l9nE  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ6l9nE .
+
+:gamQ6l9n  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQ6l9nE ;
+        chon:atPlace           :plaQ6l9nE ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQ6l9nE2 ;
+        chon:hasHalfMove       :hmgamQ6l9nE2 ;
+        chon:hasLastHalfMove   :hmgamQ6l9nE2 ;
+        chon:hasOpening        :opeQ6l9nE ;
+        chon:hasReport         :cgrQ6l9nE ;
+        chon:hasResult         :resQ6l9nE2 ;
+        chon:subEventOf        :touQ6l9n .
+
+:touQ6l9n  a          chon:hessTournament ;
+        chon:atPlace  :plaQ6l9nE ;
+        chon:hasName  "Blindfold sim" .
+
+:plaQ6l9nE  a         chon:Place ;
+        chon:hasName  "Paris" .
+
+:resQ6l9nE2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrQ6l9nE  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agQ6l9nE  a          chon:Agent ;
+        chon:hasName  "Bacrot, Etienne" , "Karpov, Anatoly" .
+
+:rolQ6l9nE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQ6l9nE .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou221wI  a          chon:hessTournament ;
+        chon:atPlace  :pla74inZj ;
+        chon:hasName  "WchT U26" .
+
+:rolhgdZWKgir1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag221wIh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag221wIh .
+
+:rolhgE276Sjgo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag221wIh .
+
+:ag221wIh  a          chon:Agent ;
+        chon:hasName  "Hug, Werner" , "Karpov, Anatoly" .
+
+:ope221wIh  a            chon:ChessOpening ;
+        chon:hasECOCode  "B33" .
+
+chon:HalfMove  chon:subEventOf  :gam74inZ .
+
+:pla74inZj  a         chon:Place ;
+        chon:hasName  "Graz" .
+
+:cgr221wIh  a   chon:ChessGameReport .
+
+:res221wIho  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhg221wIhoN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag221wIh .
+
+:gam74inZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol221wIh ;
+        chon:atPlace           :pla74inZj ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam221wIho ;
+        chon:hasHalfMove       :hmgamdZWKgir , :hmgam221wIho , :hmgamE276Sjg ;
+        chon:hasLastHalfMove   :hmgamE276Sjg ;
+        chon:hasOpening        :ope221wIh ;
+        chon:hasReport         :cgr221wIh ;
+        chon:hasResult         :res221wIho ;
+        chon:subEventOf        :tou221wI .
+
+:hmgam221wIho  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg221wIhoN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hug, Werner" ;
+        chon:hasSANRecord      "Bxd5" , "Nc3" , "Bb3" , "Nd6+" , "Qxe7+" , "Nf3" , "O-O-O" , "Nc6" , "c5" , "Be6" , "d6" , "Bc4" , "cxd4" , "h6" , "Nxd4" , "a6" , "e5" , "Ndb5" , "e4" , "Na5" , "Qxd6" , "Nd5+" , "Qe7" , "b5" , "d4" , "Be3" , "Kxe7" , "Bxd6" , "Nf6" , "exd5" ;
+        chon:nextHalfMove      :hmgamdZWKgir , :hmgam221wIho .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamE276Sjg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgE276Sjgo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hug, Werner" ;
+        chon:hasSANRecord      "Rd8" , "g6" , "Rca8" , "Kc2" , "Rg1" , "Nf8" , "f6" , "Kb1" , "Rda8" ;
+        chon:nextHalfMove      :hmgamE276Sjg .
+
+:rol221wIh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag221wIh .
+
+:hmgamdZWKgir  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdZWKgir1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hug, Werner" ;
+        chon:hasSANRecord      "cxb3" , "Rhc8" , "Bb4+" , "h5" , "Nxb3+" , "Ke8" , "Nb6" , "Ra6" , "Kb1" , "dxe5" , "g4" , "g5" , "axb3" , "Bd2" , "f3" , "Rf1" , "f4" , "Rhe1" , "h4" , "Nd7" , "a4" , "a5" , "fxe5" ;
+        chon:nextHalfMove      :hmgamE276Sjg , :hmgamdZWKgir .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag221wIh .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toummdQW  a          chon:hessTournament ;
+        chon:atPlace  :plammdQWz ;
+        chon:hasName  "Essent" .
+
+:agmmdQWz  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Sokolov,I" .
+
+:opemmdQWz  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:resmmdQWzN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamNop9gAS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNop9gASk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ke8" , "Ne2" , "Bg5" , "Qh4" , "Raf1" , "Nxe4" , "Qd7" , "e6" , "Ng7" , "Bc6" , "Nc6" , "g6" , "Nc3" , "Kh8" , "d4" , "Nf5" , "Qf3" , "Bd3" , "Rcf8" , "h5" , "Bxb7" , "Ne6" , "c5" , "Rxf7" , "e5" , "Qc7" , "Qe7" , "Qg4" , "Rc8" , "Bc4" , "f4" , "Nc5" , "Rf7" , "Be7" , "Qd8" , "fxe5" , "Na5" , "g5" , "Kf7" , "Nd7" , "Qf2" , "Rf3" , "b6" , "Bg7" , "Kg8" , "bxc3" , "Bf8" , "Be3" , "Be6" , "Bb4" , "d6" , "O-O" , "Bxc3+" , "cxd6" , "f6" , "Qc2" , "Bxg5" , "c4" , "Kh2" , "e4" , "a3" , "Nab7" , "Qf7" , "Nf6" , "Bg6" , "h4" , "h6" , "Ng3" , "Ba6" , "Qxb7" , "Bxf7" , "Qc8" , "d5" , "Bb5" ;
+        chon:nextHalfMove      :hmgamNop9gAS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmmdQWz .
+
+chon:HalfMove  chon:subEventOf  :gammmdQW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmmdQWz .
+
+:rolhgNop9gASk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmmdQWz .
+
+:cgrmmdQWz  a   chon:ChessGameReport .
+
+:gammmdQW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmmdQWz ;
+        chon:atPlace           :plammdQWz ;
+        chon:atTime            "2003.10.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNop9gAS ;
+        chon:hasHalfMove       :hmgamNop9gAS ;
+        chon:hasLastHalfMove   :hmgamNop9gAS ;
+        chon:hasOpening        :opemmdQWz ;
+        chon:hasReport         :cgrmmdQWz ;
+        chon:hasResult         :resmmdQWzN ;
+        chon:subEventOf        :toummdQW .
+
+:rolmmdQWz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmmdQWz .
+
+:plammdQWz  a         chon:Place ;
+        chon:hasName  "Hoogeveen NED" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

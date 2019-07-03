@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamLRnd3L4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcTxvpOSG , :rolhgLRnd3L4f ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lapalus, P." ;
+        chon:hasSANRecord      "Bb4+" , "b6" , "c4" , "Nf3" , "g3" , "Bb7" , "e6" , "d4" , "Bg2" , "Nf6" ;
+        chon:nextHalfMove      :hmgamLRnd3L4 , :hmgamcTxvpOS .
+
+:agLRnd3L  a          chon:Agent ;
+        chon:hasName  "Lapalus, P." , "Karpov, Anatoly" .
+
+:rolLRnd3L  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLRnd3L .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLRnd3L .
+
+chon:HalfMove  chon:subEventOf  :gamLRnd3 .
+
+:rolhgLRnd3L4f  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLRnd3L .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLRnd3L .
+
+:gamLRnd3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLRnd3L ;
+        chon:atPlace           :plaLRnd3L ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLRnd3L4 ;
+        chon:hasHalfMove       :hmgamLRnd3L4 , :hmgamcTxvpOS ;
+        chon:hasLastHalfMove   :hmgamcTxvpOS ;
+        chon:hasOpening        :opeLRnd3L ;
+        chon:hasReport         :cgrLRnd3L ;
+        chon:hasResult         :resLRnd3L4 ;
+        chon:subEventOf        :touLRnd3 .
+
+:opeLRnd3L  a            chon:ChessOpening ;
+        chon:hasECOCode  "E16" .
+
+:touLRnd3  a          chon:hessTournament ;
+        chon:atPlace  :plaLRnd3L ;
+        chon:hasName  "St Martin simul" .
+
+:hmgamcTxvpOS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcTxvpOSG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lapalus, P." ;
+        chon:hasSANRecord      "Qxf6" , "Qxg6" , "Qc2" , "dxc4" , "Qg6" , "g5" , "O-O" , "Rxc4" , "Nf5" , "Bd2" , "Rac1" , "Rb4" , "Rdc1" , "Rfxc7" , "a5" , "h6" , "Rc8" , "Ne5" , "Ke7" , "b6" , "Kxg2" , "Be7" , "Rf7" , "Rc4" , "Bxf6" , "e3" , "Qe7" , "Bxg2" , "cxb6" , "Bg5" , "Kd3" , "Ra2" , "exd5" , "fxg6" , "d5" , "Kf8" , "Ke6" , "bxc7" , "g4" , "Bd6" , "Nd6" , "Rc6" , "Rc1" , "Nxd5" , "Rd1" , "Nc3" , "Nd3" , "d2" , "Nc6" , "a4" , "b4" , "Bf6" , "Ke4" , "Rxc7" , "Rc2" , "Ne7" , "h3" , "Rh1" , "Rxd2" , "a6" , "Rfd1" , "Kf3" , "b5" , "c5" , "cxd3" , "Nc4" ;
+        chon:nextHalfMove      :hmgamcTxvpOS .
+
+:resLRnd3L4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaLRnd3L  a         chon:Place ;
+        chon:hasName  "St Martin" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgcTxvpOSG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLRnd3L .
+
+:cgrLRnd3L  a   chon:ChessGameReport .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agkpdP3o  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Walbrodt, Carl August" .
+
+:hmgamkpdP3oy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkpdP3oye , chon:AgentRole , :rolhgvp06BnDp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "c3" , "Qf6" , "Bb5" , "O-O" , "Bc5" , "Nc6" , "h6" , "b4" , "e5" , "Nbd2" , "Nf3" , "d3" , "Nge7" , "e4" ;
+        chon:nextHalfMove      :hmgamkpdP3oy , :hmgamvp06BnD .
+
+:opekpdP3o  a            chon:ChessOpening ;
+        chon:hasECOCode  "C64" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkpdP3o .
+
+chon:HalfMove  chon:subEventOf  :gamkpdP3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkpdP3o .
+
+:reskpdP3oy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrkpdP3o  a   chon:ChessGameReport .
+
+:hmgamvp06BnD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvp06BnDp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rd7" , "Qe2+" , "Kg1" , "Na7" , "gxh6" , "Be3" , "d5" , "Nc2" , "Nc6" , "d4" , "Ng6" , "Qb3" , "a6" , "g5" , "g6" , "Qh5" , "Re8" , "Bxe6" , "Be6" , "Rf1" , "Nf8" , "Nxb6" , "Re7" , "Ne6" , "Kh1" , "Qd7" , "Kh7" , "a4" , "Bf4" , "Rc1" , "Qe7" , "Nb6" , "exd4" , "Bb3" , "Na3" , "Rxa8" , "Na4" , "Qe6" , "Rf8" , "exf5" , "cxb6" , "b5" , "Bc4" , "Rxd8" , "Qd2+" , "Nd7" , "Nxb5" , "Rxf5" , "Nc3" , "Nc4" , "d6" , "Rd8" , "axb5" , "g4" , "Qd1" , "Qg4+" , "Bb6" , "Kg2" , "Bd2" , "cxd4" , "f5" , "Qe5" , "Bg3" , "Qa2" , "Nxd8" , "Qd1+" , "f4" , "fxe6" , "Ne1" ;
+        chon:nextHalfMove      :hmgamvp06BnD .
+
+:rolhgkpdP3oye  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkpdP3o .
+
+:gamkpdP3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkpdP3o ;
+        chon:atPlace           :plakpdP3o ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkpdP3oy ;
+        chon:hasHalfMove       :hmgamkpdP3oy , :hmgamvp06BnD ;
+        chon:hasLastHalfMove   :hmgamvp06BnD ;
+        chon:hasOpening        :opekpdP3o ;
+        chon:hasReport         :cgrkpdP3o ;
+        chon:hasResult         :reskpdP3oy ;
+        chon:subEventOf        :toukpdP3 .
+
+:toukpdP3  a          chon:hessTournament ;
+        chon:atPlace  :plakpdP3o ;
+        chon:hasName  "Nuremberg" .
+
+:rolkpdP3o  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkpdP3o .
+
+:plakpdP3o  a         chon:Place ;
+        chon:hasName  "Nuremberg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgvp06BnDp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkpdP3o .

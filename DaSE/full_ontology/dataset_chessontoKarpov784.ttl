@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgIuDo4SGq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIuDo4S .
+
+:resIuDo4SG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamTsAEARJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTsAEARJD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rogers, Ian" ;
+        chon:hasSANRecord      "Re3" , "b4" , "Qd6" , "Rxd8" , "Bxf5" , "Nxe5" , "Qxe5" , "dxe5" , "Bf3" , "Qf4+" , "Qxf3" , "Nd4" , "Nd7" , "O-O-O" , "Be1" , "Qc5" , "Rh3" , "Nf5" , "Rxd8+" , "Qxf7" , "Bc3" , "c4" , "Bd3" ;
+        chon:nextHalfMove      :hmgamTsAEARJ .
+
+:rolhgTsAEARJD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIuDo4S .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIuDo4S .
+
+chon:HalfMove  chon:subEventOf  :gamIuDo4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIuDo4S .
+
+:plaIuDo4S  a         chon:Place ;
+        chon:hasName  "Bath" .
+
+:cgrIuDo4S  a   chon:ChessGameReport .
+
+:hmgamIuDo4SG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIuDo4SGq , :rolhgTsAEARJD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rogers, Ian" ;
+        chon:hasSANRecord      "Rh3" , "d5" , "h4" , "Bg4" , "Ne5" , "Ne4" , "Qg4" , "Bxc3" , "Bd2" , "Bb4" , "h3" , "Be4" , "Nf6" , "Bh5" , "g5" , "d4" , "Nc3" , "g4" , "e6" , "Qa5" , "Nd6" , "Bd5" , "h5" , "Bg6" , "c6" , "Qb6" , "exd5" , "Nf3" , "e4" , "Qxd5" , "Re3" ;
+        chon:nextHalfMove      :hmgamIuDo4SG , :hmgamTsAEARJ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agIuDo4S  a          chon:Agent ;
+        chon:hasName  "Rogers, Ian" , "Karpov, Anatoly" .
+
+:rolIuDo4S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIuDo4S .
+
+:opeIuDo4S  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+:gamIuDo4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIuDo4S ;
+        chon:atPlace           :plaIuDo4S ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIuDo4SG ;
+        chon:hasHalfMove       :hmgamTsAEARJ , :hmgamIuDo4SG ;
+        chon:hasLastHalfMove   :hmgamTsAEARJ ;
+        chon:hasOpening        :opeIuDo4S ;
+        chon:hasReport         :cgrIuDo4S ;
+        chon:hasResult         :resIuDo4SG ;
+        chon:subEventOf        :touIuDo4 .
+
+:touIuDo4  a          chon:hessTournament ;
+        chon:atPlace  :plaIuDo4S ;
+        chon:hasName  "Bath TV-A" .

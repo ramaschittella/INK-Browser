@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resWk2uIby  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agWk2uIb  a          chon:Agent ;
+        chon:hasName  "Bednarski, Jacek B" , "Fischer, Robert James" .
+
+:rolWk2uIb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWk2uIb .
+
+:opeWk2uIb  a            chon:ChessOpening ;
+        chon:hasECOCode  "B86" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWk2uIb .
+
+chon:HalfMove  chon:subEventOf  :gamWk2uI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWk2uIb .
+
+:rolhgWk2uIbyo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWk2uIb .
+
+:cgrWk2uIb  a   chon:ChessGameReport .
+
+:hmgamWk2uIby  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWk2uIbyo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bednarski, Jacek B" ;
+        chon:hasSANRecord      "Qxf7" , "Qh4+" , "Nxg3" , "e4" , "Qe8" , "Nc3" , "Ke8" , "Bxe6+" , "d6" , "O-O-O" , "Kd8" , "Nxe6" , "fxe6" , "cxd4" , "Nf4" , "c5" , "Qh5" , "Bg5+" , "d4" , "Nfxe4" , "Nf6" , "Kd7" , "g6" , "Qe2+" , "g3" , "Qe4" , "Nxd4" , "Nf3" , "Nc5" , "Be6" , "Nf5" , "e6" , "f4" , "f5" , "Rg1" , "Bc4" , "Nd5" , "Nbd7" , "a6" , "exf7+" , "Bb3" ;
+        chon:nextHalfMove      :hmgamWk2uIby .
+
+:gamWk2uI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWk2uIb ;
+        chon:atPlace           :plaWk2uIb ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWk2uIby ;
+        chon:hasHalfMove       :hmgamWk2uIby ;
+        chon:hasLastHalfMove   :hmgamWk2uIby ;
+        chon:hasOpening        :opeWk2uIb ;
+        chon:hasReport         :cgrWk2uIb ;
+        chon:hasResult         :resWk2uIby ;
+        chon:subEventOf        :touWk2uI .
+
+:touWk2uI  a          chon:hessTournament ;
+        chon:atPlace  :plaWk2uIb ;
+        chon:hasName  "La Habana olm prel" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaWk2uIb  a         chon:Place ;
+        chon:hasName  "La Habana" .

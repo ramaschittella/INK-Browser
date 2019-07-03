@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resG4NNzJV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgG4NNzJVB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agG4NNzJ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agG4NNzJ .
+
+:rolhgSZvWlHbz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agG4NNzJ .
+
+chon:HalfMove  chon:subEventOf  :gamG4NNz .
+
+:opeG4NNzJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A37" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agG4NNzJ .
+
+:hmgamG4NNzJV  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgG4NNzJVB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d5" , "Nc6" , "b6" , "cxb4" , "O-O" , "Nc3" , "Bd2" , "e6" , "Nf3" , "axb4" , "a3" , "b4" , "Bb7" , "c4" , "g3" , "Rb1" , "g6" , "Bg7" , "Bg2" , "Rc8" , "Nge7" , "dxc4" , "d3" , "c5" ;
+        chon:nextHalfMove      :hmgamG4NNzJV , :hmgamSZvWlHb .
+
+:plaG4NNzJ  a         chon:Place ;
+        chon:hasName  "Belgrade" .
+
+:gamG4NNz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolG4NNzJ ;
+        chon:atPlace           :plaG4NNzJ ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamG4NNzJV ;
+        chon:hasHalfMove       :hmgamSZvWlHb , :hmgamG4NNzJV ;
+        chon:hasLastHalfMove   :hmgamSZvWlHb ;
+        chon:hasOpening        :opeG4NNzJ ;
+        chon:hasReport         :cgrG4NNzJ ;
+        chon:hasResult         :resG4NNzJV ;
+        chon:subEventOf        :touG4NNz .
+
+:touG4NNz  a          chon:hessTournament ;
+        chon:atPlace  :plaG4NNzJ ;
+        chon:hasName  "Belgrade URS-World" .
+
+:hmgamSZvWlHb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSZvWlHbz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Na6" , "hxg6" , "h5" , "Bg2" , "Na5" , "Bxd3" , "h4" , "Kd2" , "Bf3" , "Bc6" , "Rxd7" , "Kc3" , "Bd4" , "Rc5" , "Kxf7" , "a2" , "Nb6" , "Nc6" , "Nc5" , "e5" , "f5" , "Nb7" , "Kf3" , "Nb2" , "Nd7" , "f4" , "Qxd3" , "Nd6" , "Bb1" , "Be7" , "fxg6" , "Ke3" , "Rd1" , "Qc7" , "Nxa2+" , "Rc8" , "Kc4" , "a3" , "a4" , "Bc4+" , "Nf6" , "Qxd7" , "Bxc5" , "Qxe7" , "Bxa2" , "Ne8" , "bxc5" , "Ra2" , "Nc4" , "Rxf7+" , "Kg1" , "Qa3" , "Ned3" , "Bg5" , "Qc2" , "Ra1" , "Nd3" , "Kb2" , "Ne1" , "Kd6" , "Rc1+" , "Rd8" , "Rxc5" , "a5" , "Na4" , "Rfc1" , "g4" , "Qb3" , "Rc4" , "Nxc5" , "Qd7" , "Bf1" , "Kg2" , "Kh2" , "Rc3" , "Kg7" , "Kf6" , "Ke6" , "Qa5" , "Ra7" , "Bb5" , "c5" , "Ng4+" , "Ke7" , "Nd5" , "Nb4" , "Qc4" , "Qd4" , "Qd3" , "e4" , "Bxe7" , "gxh5" , "Nd4" ;
+        chon:nextHalfMove      :hmgamSZvWlHb .
+
+:cgrG4NNzJ  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agG4NNzJ  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Petrosian, Tigran V" .
+
+:rolG4NNzJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agG4NNzJ .

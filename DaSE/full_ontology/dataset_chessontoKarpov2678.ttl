@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamrE0OUcV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrE0OUcVF , :rolhgSD65rbYT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov,A" ;
+        chon:hasSANRecord      "h3" , "Bd3" , "Nf3" , "c4" , "e3" , "Qe2" , "Nbd7" , "Nxe5" , "Nd3" , "b3" , "Nd4" , "Nxc1" , "Bd7" , "Bxd7+" , "Qxd7" , "e6" , "dxe5" , "Qd3" , "cxd5" , "Bb5+" , "c6" , "O-O" , "Raxc1" , "g6" , "a6" , "Rac8" , "Nbd2" , "d4" , "e5" , "Bd6" , "Nf6" , "d5" ;
+        chon:nextHalfMove      :hmgamSD65rbY , :hmgamrE0OUcV .
+
+:rolhgrE0OUcVF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrE0OUc .
+
+:gamrE0OU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrE0OUc ;
+        chon:atPlace           :plarE0OUc ;
+        chon:atTime            "2002.11.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrE0OUcV ;
+        chon:hasHalfMove       :hmgamrE0OUcV , :hmgamSD65rbY ;
+        chon:hasLastHalfMove   :hmgamSD65rbY ;
+        chon:hasOpening        :operE0OUc ;
+        chon:hasReport         :cgrrE0OUc ;
+        chon:hasResult         :resrE0OUcV ;
+        chon:subEventOf        :tourE0OU .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrE0OUc .
+
+:tourE0OU  a          chon:hessTournament ;
+        chon:atPlace  :plarE0OUc ;
+        chon:hasName  "6th Corsica Masters" .
+
+:agrE0OUc  a          chon:Agent ;
+        chon:hasName  "Shirov,A" , "Karpov,An" .
+
+:rolhgSD65rbYT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrE0OUc .
+
+chon:HalfMove  chon:subEventOf  :gamrE0OU .
+
+:operE0OUc  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrE0OUc .
+
+:hmgamSD65rbY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSD65rbYT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov,A" ;
+        chon:hasSANRecord      "Qxc3" , "g4" , "Qa5" , "Qc5" , "hxg4" , "Kf1" , "Rxc8+" , "Bc7" , "f3" , "Qb1" , "Qd1" , "Ng1" , "Kg8" , "Be5" , "a4" , "Qe6" , "Rxc1" , "Qxb5" , "Qd7" , "Ne4" , "Nfd4" , "Rc8" , "axb5" , "Nf3" , "Nc3" , "Kf8" , "N2f3" , "Qxc8" , "Kg2" , "Bb4" , "h5" , "Ne2" , "Qd3" , "Nxc3" , "Bc3" , "b5" ;
+        chon:nextHalfMove      :hmgamSD65rbY .
+
+:plarE0OUc  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+:cgrrE0OUc  a   chon:ChessGameReport .
+
+:resrE0OUcV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolrE0OUc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrE0OUc .

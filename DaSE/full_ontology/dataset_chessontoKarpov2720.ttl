@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agvfZaOt  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Macieja,B" .
+
+:opevfZaOt  a            chon:ChessOpening ;
+        chon:hasECOCode  "C33" .
+
+:gamvfZaO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvfZaOt ;
+        chon:atPlace           :plavfZaOt ;
+        chon:atTime            "2003.04.10"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvfZaOtv ;
+        chon:hasHalfMove       :hmgamHdWnnuy , :hmgamvfZaOtv ;
+        chon:hasLastHalfMove   :hmgamHdWnnuy ;
+        chon:hasOpening        :opevfZaOt ;
+        chon:hasReport         :cgrvfZaOt ;
+        chon:hasResult         :resvfZaOtv ;
+        chon:subEventOf        :touvfZaO .
+
+:hmgamHdWnnuy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHdWnnuym ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "a5" , "Rxd8" , "Kh1" , "Kg1" , "Rxd4" , "Qxb6" , "Rhf1" , "Qb3" , "Qd4" , "c3" , "Bd6" , "h3" , "c5" , "Kg7" , "Rxe4" , "c4" , "Qd2" , "Qc2" , "Nxb6" , "Rad8" , "g6" , "f6" , "Bxe4" , "Nc4" , "Qxd8" , "Qe2" , "Qc5" , "Bd5" , "Qd6" , "Be5" , "Rf2" , "Nb6" , "Re8" , "Bc7" , "Qd1" , "Bc4" , "g4" , "b3" , "Re1+" , "b6" , "Qg4" , "Qc7" , "cxd4" , "Qg3" , "Re7" ;
+        chon:nextHalfMove      :hmgamHdWnnuy .
+
+:rolhgHdWnnuym  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvfZaOt .
+
+:hmgamvfZaOtv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvfZaOtvb , :rolhgHdWnnuym , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bxh6" , "dxe4" , "d5" , "Qh4+" , "Ne5" , "Qxh6+" , "e5" , "Nh6" , "Qf4" , "d4" , "Ke3" , "Bc4" , "Nd5" , "Bf5" , "Nxe4" , "Nc3" , "f4" , "Bd3" , "Bxf4" , "O-O" , "Ke2" , "Qd2" , "Nf3" , "Qe6" , "exf4" , "Nb6" , "e4" , "Kf2" , "Be7" , "c6" , "Rae1" , "Qg6" , "Nd7" , "Qc1" , "Qh5" ;
+        chon:nextHalfMove      :hmgamHdWnnuy , :hmgamvfZaOtv .
+
+:rolhgvfZaOtvb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvfZaOt .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvfZaOt .
+
+chon:HalfMove  chon:subEventOf  :gamvfZaO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvfZaOt .
+
+:cgrvfZaOt  a   chon:ChessGameReport .
+
+:resvfZaOtv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touvfZaO  a          chon:hessTournament ;
+        chon:atPlace  :plavfZaOt ;
+        chon:hasName  "PlusGSM Rapid Match" .
+
+:rolvfZaOt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvfZaOt .
+
+:plavfZaOt  a         chon:Place ;
+        chon:hasName  "Warsaw POL" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

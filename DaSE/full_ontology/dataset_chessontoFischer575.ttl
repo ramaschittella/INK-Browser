@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamwQBdpsM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwQBdpsMw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "O-O" , "f6" , "Nf3" , "Bxc6" , "e4" , "e5" , "Nc6" , "a6" , "dxc6" , "Bb5" ;
+        chon:nextHalfMove      :hmgamwQBdpsM , :hmgamXQMvMsB .
+
+:rolhgwQBdpsMw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwQBdps .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwQBdps .
+
+chon:HalfMove  chon:subEventOf  :gamwQBdp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwQBdps .
+
+:hmgamXQMvMsB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXQMvMsBU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Kf3" , "Bxf6" , "bxc4" , "f3" , "bxc3" , "Bb4" , "Nc3" , "a5" , "c5" , "c4" , "Rb5" , "fxe5" , "Re3" , "Ke3" , "Bxf3" , "b5" , "h5" , "hxg4" , "Kf1" , "Bg5" , "Rxf6" , "dxe5" , "Kd2" , "Bxc3" , "Rd8" , "Rf8" , "Rf3" , "Qxd1" , "Rh1" , "Ke6" , "Ke7" , "Ke2" , "Rxd1" , "Rc3" , "Ra3" , "Kd6" , "a3" , "gxf6" , "g4" , "Rh8" , "Re2" , "Rg2" , "Kc1" , "Nf6" , "h3" , "Rg8" , "Bg4" , "Rxf3" , "d4" , "Rd3" , "Rxc4" , "Rb8" , "Rd1" , "Kc6" , "Kc5" ;
+        chon:nextHalfMove      :hmgamXQMvMsB .
+
+:rolhgXQMvMsBU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwQBdps .
+
+:plawQBdps  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:gamwQBdp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwQBdps ;
+        chon:atPlace           :plawQBdps ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwQBdpsM ;
+        chon:hasHalfMove       :hmgamwQBdpsM , :hmgamXQMvMsB ;
+        chon:hasLastHalfMove   :hmgamXQMvMsB ;
+        chon:hasOpening        :opewQBdps ;
+        chon:hasReport         :cgrwQBdps ;
+        chon:hasResult         :reswQBdpsM ;
+        chon:subEventOf        :touwQBdp .
+
+:touwQBdp  a          chon:hessTournament ;
+        chon:atPlace  :plawQBdps ;
+        chon:hasName  "Monte Carlo" .
+
+:cgrwQBdps  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reswQBdpsM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agwQBdps  a          chon:Agent ;
+        chon:hasName  "Smyslov, Vassily" , "Fischer, Robert James" .
+
+:rolwQBdps  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwQBdps .
+
+:opewQBdps  a            chon:ChessOpening ;
+        chon:hasECOCode  "C69" .

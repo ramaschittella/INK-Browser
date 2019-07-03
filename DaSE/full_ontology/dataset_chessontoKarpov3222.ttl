@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou52bdX  a          chon:hessTournament ;
+        chon:atPlace  :pla52bdXZ ;
+        chon:hasName  "UNAM Selected Simul" .
+
+:rolhgv2nvk1Fu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag52bdXZ .
+
+:res52bdXZQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag52bdXZ .
+
+chon:HalfMove  chon:subEventOf  :gam52bdX .
+
+:ope52bdXZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C55" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag52bdXZ .
+
+:rolhg52bdXZQ7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag52bdXZ .
+
+:gam52bdX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol52bdXZ ;
+        chon:atPlace           :pla52bdXZ ;
+        chon:atTime            "2010.11.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam52bdXZQ ;
+        chon:hasHalfMove       :hmgamv2nvk1F , :hmgam52bdXZQ ;
+        chon:hasLastHalfMove   :hmgamv2nvk1F ;
+        chon:hasOpening        :ope52bdXZ ;
+        chon:hasReport         :cgr52bdXZ ;
+        chon:hasResult         :res52bdXZQ ;
+        chon:subEventOf        :tou52bdX .
+
+:pla52bdXZ  a         chon:Place ;
+        chon:hasName  "Mexico City MEX" .
+
+:cgr52bdXZ  a   chon:ChessGameReport .
+
+:hmgam52bdXZQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg52bdXZQ7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lopez De Nava,Hernandez" ;
+        chon:hasSANRecord      "Bg4" , "Nf6" , "e4" , "O-O" , "Be7" , "Ne3" , "Nf1" , "Nc6" , "e5" , "Re8" , "h3" , "Bg6" , "d3" , "Bc4" , "Nbd2" , "d6" , "Bh5" , "Re1" , "Nf3" , "Bb5" , "Na5" , "c3" ;
+        chon:nextHalfMove      :hmgam52bdXZQ , :hmgamv2nvk1F .
+
+:hmgamv2nvk1F  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgv2nvk1Fu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lopez De Nava,Hernandez" ;
+        chon:hasSANRecord      "Bxe6+" , "cxb4" , "Rc1+" , "Be3" , "Nf5" , "Nxf7+" , "R3c7" , "axb5" , "Bh7" , "Bd5" , "b5" , "Ne6" , "b4" , "Qd1" , "Ra7" , "Ng5" , "Kg8" , "Kh8" , "Bf8" , "Bb6" , "Rec8" , "a6" , "Nh4" , "Rac8" , "c6" , "c5" , "Qd8" , "Qd7" , "hxg4" , "Bc2" , "Qf3" , "Rc7" , "Nb7" , "Rxa7" , "Rea1" , "Ba4" , "Bb3" , "Qc8" , "Rh1+" , "Rc3" , "Kh2" , "Qxg5" , "Qc1+" , "Ng4" , "h6" , "a4" , "Nxg4" , "Ra6" , "Nxh6+" , "Ra1" , "Kxh1" , "Nd8" ;
+        chon:nextHalfMove      :hmgamv2nvk1F .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag52bdXZ  a          chon:Agent ;
+        chon:hasName  "Lopez De Nava,Hernandez" , "Karpov,Ana" .
+
+:rol52bdXZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag52bdXZ .

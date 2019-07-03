@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaUSXrOE  a         chon:Place ;
+        chon:hasName  "Beijing" .
+
+:cgrUSXrOE  a   chon:ChessGameReport .
+
+:rolhgmU8KaG6d  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUSXrOE .
+
+:agUSXrOE  a          chon:Agent ;
+        chon:hasName  "Zhu Chen" , "Karpov, Anatoly" .
+
+:rolUSXrOE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUSXrOE .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUSXrOE .
+
+:hmgamUSXrOEf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmU8KaG6d , chon:AgentRole , :rolhgUSXrOEfP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zhu Chen" ;
+        chon:hasSANRecord      "Nc5" , "Nb6" , "Ra3" , "Ra4" , "Nd4" , "c4" , "Qg3" , "a6" , "Nc3" , "dxc4" , "f3" , "e3" , "Be7" , "Rac8" , "Re7" , "Nf3" , "Bd6" , "Ne4" , "b5" , "Bc5" , "Bb6" , "O-O" , "Qc2" , "Qxe4" , "Be5" , "Qc7" , "Rb1" , "Nxc4" , "Rd7" , "g6" , "b3" , "a3" , "Bb7" , "a4" , "Bd2" , "Nbd7" , "Nf6" , "Rfe8" , "Nxe4" , "e6" , "Bxc5" , "bxc4" , "d4" , "d5" , "Nd6" , "Qh4" , "Nd7" , "Rd1" , "dxc5" , "Bd3" , "Bc4" , "Ba5" , "Rec7" , "Bxd4" , "Be2" , "Qxg3" , "Rxa4" , "c5" , "c6" , "bxa4" , "Bf6" , "Bxc4" , "hxg3" ;
+        chon:nextHalfMove      :hmgamUSXrOEf , :hmgammU8KaG6 .
+
+:touUSXrO  a          chon:hessTournament ;
+        chon:atPlace  :plaUSXrOE ;
+        chon:hasName  "Beijing sim" .
+
+chon:HalfMove  chon:subEventOf  :gamUSXrO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUSXrOE .
+
+:resUSXrOEf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeUSXrOE  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:hmgammU8KaG6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmU8KaG6d , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zhu Chen" ;
+        chon:hasSANRecord      "Be5" , "Rb6" , "c5" , "Rxf5" , "Kg8" , "Rxg5" , "Raa6" , "Rxh6+" , "exf5" , "a5" , "Ke8" , "g5" , "Kf2" , "Rc1+" , "Kg6" , "Bf6" , "Rf7" , "Ba8" , "Kf8" , "Bd5" , "gxf5+" , "Rxa5" , "h6" , "Rab4" , "Rag6+" , "Kh7" , "Rxc5" , "Bd6" , "g4" , "f5" , "Ra6" ;
+        chon:nextHalfMove      :hmgammU8KaG6 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamUSXrO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUSXrOE ;
+        chon:atPlace           :plaUSXrOE ;
+        chon:atTime            "1998.05.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUSXrOEf ;
+        chon:hasHalfMove       :hmgammU8KaG6 , :hmgamUSXrOEf ;
+        chon:hasLastHalfMove   :hmgammU8KaG6 ;
+        chon:hasOpening        :opeUSXrOE ;
+        chon:hasReport         :cgrUSXrOE ;
+        chon:hasResult         :resUSXrOEf ;
+        chon:subEventOf        :touUSXrO .
+
+:rolhgUSXrOEfP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUSXrOE .

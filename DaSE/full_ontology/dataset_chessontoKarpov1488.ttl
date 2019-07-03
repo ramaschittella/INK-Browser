@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resxG7GsLR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgxG7GsLRg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxG7GsL .
+
+:hmgamJG3UZKU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJG3UZKUt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Nxe5" , "Nf3" , "Qd8" , "exd4" , "Bf1" , "c4" , "e5" , "Rf4" , "c6" , "e6" , "g6" , "Nf4" , "Bb2" , "Rd4" , "fxe6" , "Qb6" , "Qxe6" , "Ra7" , "Kh8" , "Ne6" , "b3" , "Ra3" , "Bxd4" , "Bc3" , "Ra5" , "Bf8" , "Rae3" , "d2" , "Bg7" , "dxe5" , "Qc7" , "Nxd2" , "Qc2" , "b4" , "axb5" , "Nh5" , "Nd4" , "Qa2" , "Rxb4" , "d3" , "Rad8" , "Qb8" , "c5" , "Ne4" , "Rxe6" , "Qe5+" ;
+        chon:nextHalfMove      :hmgamJG3UZKU .
+
+:plaxG7GsL  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:hmgamxG7GsLR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxG7GsLRg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "h3" , "Nbd7" , "b5" , "d4" , "Nf3" , "Bb5" , "O-O" , "Bf8" , "Nbd2" , "Bd3" , "e4" , "a4" , "Ba4" , "Re8" , "Re1" , "e5" , "Nf6" , "Bb3" , "Bc2" , "Nc6" , "Nb8" , "d6" , "c3" , "Bb7" , "Be7" , "a6" ;
+        chon:nextHalfMove      :hmgamxG7GsLR , :hmgamJG3UZKU .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxG7GsL .
+
+chon:HalfMove  chon:subEventOf  :gamxG7Gs .
+
+:cgrxG7GsL  a   chon:ChessGameReport .
+
+:gamxG7Gs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxG7GsL ;
+        chon:atPlace           :plaxG7GsL ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxG7GsLR ;
+        chon:hasHalfMove       :hmgamxG7GsLR , :hmgamJG3UZKU ;
+        chon:hasLastHalfMove   :hmgamJG3UZKU ;
+        chon:hasOpening        :opexG7GsL ;
+        chon:hasReport         :cgrxG7GsL ;
+        chon:hasResult         :resxG7GsLR ;
+        chon:subEventOf        :touxG7Gs .
+
+:agxG7GsL  a          chon:Agent ;
+        chon:hasName  "Beliavsky, Alexander G" , "Karpov, Anatoly" .
+
+:touxG7Gs  a          chon:hessTournament ;
+        chon:atPlace  :plaxG7GsL ;
+        chon:hasName  "Biel" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxG7GsL .
+
+:rolxG7GsL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxG7GsL .
+
+:opexG7GsL  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+:rolhgJG3UZKUt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxG7GsL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

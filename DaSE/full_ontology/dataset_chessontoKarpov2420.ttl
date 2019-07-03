@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamwZIMddm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwZIMddmh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Svidler, Peter" ;
+        chon:hasSANRecord      "h6" , "h4" , "Nb7" , "Qh3" , "Nc6" , "Be3" , "Nc5" , "Nc3" , "d5" , "Rc2" , "g3" , "d4" , "Rxc1" , "Rxa6" , "Rxc1+" , "Rf8" , "fxe6" , "Nf3" , "Nfd7" , "Qxe6" , "Ng5" , "Qc4" , "Nb4" , "Nd8" , "c4" , "e4" , "Qd6" , "Qb3" , "Rxb2" , "N4d5" , "Kh8" , "Bxe6+" , "Rb8" , "bxa4" , "Nf6" , "Bxe6" , "Bd2" , "e6" , "Nb6" , "dxc4" , "b5" , "Rxa4" , "e5" , "Nce4" , "Qd7" , "Bc4" , "Kh7" , "Rd6" , "Bg7" , "Qxd7" , "Nxd7" , "O-O" , "Ne5" , "Rfc1" , "Rf6" , "Qxc4" , "Raa1" , "g6" , "a6" , "a4" ;
+        chon:nextHalfMove      :hmgamwZIMddm , :hmgamY2U7yde .
+
+:plawZIMdd  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:touwZIMd  a          chon:hessTournament ;
+        chon:atPlace  :plawZIMdd ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwZIMdd .
+
+:hmgamY2U7yde  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgY2U7ydeI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Svidler, Peter" ;
+        chon:hasSANRecord      "Rh4" , "Nc8" , "Nd7" , "Bxe5" , "Rxh5" , "Rd5" , "Rd8" , "e6" , "Rxd7" , "dxe5" , "Re6" , "Bd4" , "Bc1" , "c4" , "gxh5" , "Ra8" , "Ng6" , "Rxh6+" , "Nb6" , "Rxc4" , "Rc6" , "Kg2" , "c5" , "Nxd7" , "Be3" , "Kg7" , "h5" , "Ne7" , "Kf3" , "Rc2" ;
+        chon:nextHalfMove      :hmgamY2U7yde .
+
+:rolhgwZIMddmh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwZIMdd .
+
+chon:HalfMove  chon:subEventOf  :gamwZIMd .
+
+:agwZIMdd  a          chon:Agent ;
+        chon:hasName  "Svidler, Peter" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwZIMdd .
+
+:rolwZIMdd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwZIMdd .
+
+:opewZIMdd  a            chon:ChessOpening ;
+        chon:hasECOCode  "D97" .
+
+:gamwZIMd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwZIMdd ;
+        chon:atPlace           :plawZIMdd ;
+        chon:atTime            "1999.04.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwZIMddm ;
+        chon:hasHalfMove       :hmgamY2U7yde , :hmgamwZIMddm ;
+        chon:hasLastHalfMove   :hmgamY2U7yde ;
+        chon:hasOpening        :opewZIMdd ;
+        chon:hasReport         :cgrwZIMdd ;
+        chon:hasResult         :reswZIMddm ;
+        chon:subEventOf        :touwZIMd .
+
+:rolhgY2U7ydeI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwZIMdd .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrwZIMdd  a   chon:ChessGameReport .
+
+:reswZIMddm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

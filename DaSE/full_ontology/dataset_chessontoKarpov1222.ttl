@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgqTM6YH8O  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqTM6YH .
+
+:plaqTM6YH  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:cgrqTM6YH  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqTM6YH .
+
+:agqTM6YH  a          chon:Agent ;
+        chon:hasName  "Short, Nigel D" , "Karpov, Anatoly" .
+
+:rolqTM6YH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqTM6YH .
+
+chon:HalfMove  chon:subEventOf  :gamqTM6Y .
+
+:opeqTM6YH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:rolhgSTJjvHa2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqTM6YH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqTM6YH .
+
+:resqTM6YH8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamqTM6Y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqTM6YH ;
+        chon:atPlace           :plaqTM6YH ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqTM6YH8 ;
+        chon:hasHalfMove       :hmgamSTJjvHa , :hmgamqTM6YH8 ;
+        chon:hasLastHalfMove   :hmgamSTJjvHa ;
+        chon:hasOpening        :opeqTM6YH ;
+        chon:hasReport         :cgrqTM6YH ;
+        chon:hasResult         :resqTM6YH8 ;
+        chon:subEventOf        :touqTM6Y .
+
+:hmgamSTJjvHa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSTJjvHa2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short, Nigel D" ;
+        chon:hasSANRecord      "exd4" , "e4" , "bxa2" , "Qd1" , "Rd3" , "Qxd2" , "Qa8" , "Kd4" , "Qxb4" , "b3" , "h4" , "Nf4" , "Bc4" , "Rd2" , "h6" , "Rb2+" , "Rb1" , "Nxa2" , "Kf4" , "d5" , "Rc1" , "Bg5" , "Bf1" , "Rf2" , "Nxd4" , "Nd3" , "Nc2" , "Rab1" , "Ra2" , "dxc6" , "Qxe3" , "Ra4" , "Ra6" , "Qa3" , "Ke5" , "Rxd2" , "Bxe3+" , "Nb4" , "e5" , "Bd7" , "Be6" , "f6+" , "b4" , "Ne1" , "Bc5" , "g5" , "Ne2" , "Rc3" , "Rb2" , "Nc6" , "g4" , "Nf8" , "gxh6" , "Rc4" , "a5" , "Nc1" , "axb4" , "Ba2" , "Nd4" , "Ra3" , "Qe1" , "Bxe6" , "Qe7" , "Qa7" , "Be3" , "Na2" , "c6" , "Bh3" , "Rd1" , "Kg2" , "Kg3" , "Qc7" , "Nd8" , "f3" , "Rxb4" , "Rxf3" , "Nd7" , "Ne6" , "Qf2" , "Bxc6" , "Kf7" ;
+        chon:nextHalfMove      :hmgamSTJjvHa .
+
+:touqTM6Y  a          chon:hessTournament ;
+        chon:atPlace  :plaqTM6YH ;
+        chon:hasName  "Tilburg" .
+
+:hmgamqTM6YH8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSTJjvHa2 , :rolhgqTM6YH8O ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short, Nigel D" ;
+        chon:hasSANRecord      "a3" , "c4" , "Be7" , "e6" , "Nc3" , "Bg2" , "Qc2" , "d5" , "e3" , "Rc8" , "d4" , "a6" , "Qxc4" , "g3" , "Bd2" , "dxc4" , "Bb7" , "b5" , "Nf3" , "Qb8" , "O-O" , "Nc6" , "Nf6" ;
+        chon:nextHalfMove      :hmgamSTJjvHa , :hmgamqTM6YH8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

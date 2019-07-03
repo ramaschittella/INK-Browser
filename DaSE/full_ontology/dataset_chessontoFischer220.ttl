@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamv92Yq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolv92YqG ;
+        chon:atPlace           :plav92YqG ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamv92YqGG ;
+        chon:hasHalfMove       :hmgamv92YqGG , :hmgam9a9umHy , :hmgamG9YcZHJ ;
+        chon:hasLastHalfMove   :hmgam9a9umHy ;
+        chon:hasOpening        :opev92YqG ;
+        chon:hasReport         :cgrv92YqG ;
+        chon:hasResult         :resv92YqGG ;
+        chon:subEventOf        :touv92Yq .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agv92YqG .
+
+:opev92YqG  a            chon:ChessOpening ;
+        chon:hasECOCode  "E93" .
+
+:rolhgG9YcZHJs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agv92YqG .
+
+chon:HalfMove  chon:subEventOf  :gamv92Yq .
+
+:resv92YqGG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touv92Yq  a          chon:hessTournament ;
+        chon:atPlace  :plav92YqG ;
+        chon:hasName  "Zuerich" .
+
+:rolv92YqG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agv92YqG .
+
+:hmgamG9YcZHJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgG9YcZHJs , :rolhg9a9umHyS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Be3" , "Bf2" , "Rxg7" , "Rxg7+" , "Rg1+" , "Bxa4" , "Rxf5" , "h3" , "c5" , "Qc3+" , "h6" , "b3" , "f3" , "g4" , "Nb1" , "Kd1" , "Qc2" , "Bxh6" , "f2" , "d5" , "e4" , "Be2" , "gxf5" , "Nbd7" , "Kh8" , "Nh7" , "Qxe5+" , "a6" , "Bd7" , "Rh1" , "bxc4" , "Kxg7" , "Re5" , "Bg5" , "Bh4" , "b5" , "f5" , "Bxg7" , "e3" , "dxe5" , "Na4" , "Bxf5" , "O-O-O" , "Rdg1" , "O-O" , "Ng5" , "exf3" , "Nc5" , "h4" , "Nxa4" , "Qd2" , "Nf3" , "exf5" , "e5" , "Nf6" , "Bd3" , "Ra7" , "Qe5" , "d6" , "Nd2" , "Qe8" , "Nf1" ;
+        chon:nextHalfMove      :hmgamG9YcZHJ , :hmgam9a9umHy .
+
+:rolhg9a9umHyS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agv92YqG .
+
+:hmgamv92YqGG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgG9YcZHJs , :rolhgv92YqGGg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nc3" , "Nf6" , "d4" , "g6" , "Bg7" , "c4" ;
+        chon:nextHalfMove      :hmgamG9YcZHJ , :hmgamv92YqGG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plav92YqG  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:agv92YqG  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Olafsson, Fridrik" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agv92YqG .
+
+:hmgam9a9umHy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9a9umHyS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "e2" , "Kf3" , "Nh5" , "Ke2" ;
+        chon:nextHalfMove      :hmgam9a9umHy .
+
+:rolhgv92YqGGg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agv92YqG .
+
+:cgrv92YqG  a   chon:ChessGameReport .

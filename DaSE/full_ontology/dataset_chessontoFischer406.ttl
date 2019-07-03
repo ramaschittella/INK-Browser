@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agc2YBh6  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Padevsky, Nikola" .
+
+:rolc2YBh6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agD4aUE6 .
+
+:opec2YBh6  a            chon:ChessOpening ;
+        chon:hasECOCode  "B23" .
+
+:hmgamD4aUE6y  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgD4aUE6yp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kh1" , "b6" , "Rad8" , "Be7" , "Ba3" , "e5" , "g3" , "Nf6" , "Qe2" , "O-O" , "Rd7" , "Bg2" , "Qc5" , "bxc3" , "Qxe3" , "Nc3" , "a4" , "c4" , "h6" , "h4" , "Qe3" , "Ne4" , "Raa1" , "Rab1" , "Nxc3" , "Rxa3" , "Kh2" , "Qa5" , "Bb7" , "c5" , "d5" , "Nc6" , "Bxa3" , "dxe3" , "Nf3" , "e6" , "e4" , "f4" ;
+        chon:nextHalfMove      :hmgamD4aUE6y .
+
+:resc2YBh6H  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agc2YBh6 .
+
+chon:HalfMove  chon:subEventOf  :gamc2YBh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agc2YBh6 .
+
+:gamc2YBh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolc2YBh6 ;
+        chon:atPlace           :plac2YBh6 ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamD4aUE6y ;
+        chon:hasHalfMove       :hmgamD4aUE6y ;
+        chon:hasLastHalfMove   :hmgamD4aUE6y ;
+        chon:hasOpening        :opec2YBh6 ;
+        chon:hasReport         :cgrc2YBh6 ;
+        chon:hasResult         :resc2YBh6H ;
+        chon:subEventOf        :touc2YBh .
+
+:touc2YBh  a          chon:hessTournament ;
+        chon:atPlace  :plac2YBh6 ;
+        chon:hasName  "Varna olm" .
+
+:plac2YBh6  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrc2YBh6  a   chon:ChessGameReport .
+
+:rolhgD4aUE6yp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agc2YBh6 .

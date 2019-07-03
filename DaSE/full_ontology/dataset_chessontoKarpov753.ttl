@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeSpuGhl  a            chon:ChessOpening ;
+        chon:hasECOCode  "B22" .
+
+:gamSpuGh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSpuGhl ;
+        chon:atPlace           :plaSpuGhl ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkpEZEmT ;
+        chon:hasHalfMove       :hmgamkpEZEmT ;
+        chon:hasLastHalfMove   :hmgamkpEZEmT ;
+        chon:hasOpening        :opeSpuGhl ;
+        chon:hasReport         :cgrSpuGhl ;
+        chon:hasResult         :resSpuGhl4 ;
+        chon:subEventOf        :touSpuGh .
+
+:touSpuGh  a          chon:hessTournament ;
+        chon:atPlace  :plaSpuGhl ;
+        chon:hasName  "Mar del Plata" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSpuGhl .
+
+:hmgamkpEZEmT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkpEZEmT5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "h4" , "b6" , "Kf4" , "d5" , "a4" , "g6" , "Nb4" , "Kg4" , "Nf6" , "Bh6" , "Qd3" , "Rxd1+" , "Rd1" , "Ne4" , "Rc2+" , "Qd1+" , "Qb2" , "fxe3" , "Qg3" , "Bd4" , "Qc5" , "Rc3" , "c3" , "Rxf2+" , "Qf3" , "e5" , "Rf1" , "Qc2+" , "h3" , "b5" , "Kf3" , "h5" , "Nc3" , "Qe7" , "Bxc6" , "Qg2+" , "Re5" , "Kxg7" , "O-O" , "Ng7" , "a3" , "Be7" , "Bxh2" , "Kg3" , "Bxg7" , "Nf3" , "Bb5" , "Bb7" , "Qd2" , "Qxc6" , "Qh2" , "Qd8" , "d4" , "Rac8" , "Qg4" , "Bd3" , "Rxe5" , "Nbd5" , "Ng3" , "e4" , "Rxd1" , "Nf1" , "Rc5" , "Rc7" , "Bc4" , "Qb5" , "Bc6" , "Qb7" , "Rf3" , "hxg2+" , "Kg2" , "Kxf2" , "Bh4" , "Nxe3" , "dxe5" , "cxd4" , "Qh1" , "a5" , "Ne8" , "e6" , "exd5" , "Ne3" , "Bf6" , "Bg5" , "Ne5" , "bxa4" , "Qc2" , "Kxg2" , "c5" , "Be4" , "Nc6" , "Rd8" , "Qxd5" , "Qc8" , "b3" , "Kh1" , "Kh3" , "Qf4" , "Qg1+" , "Rf2" , "Be5" , "Qe2" , "Bb1" , "Qf2+" ;
+        chon:nextHalfMove      :hmgamkpEZEmT .
+
+chon:HalfMove  chon:subEventOf  :gamSpuGh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSpuGhl .
+
+:plaSpuGhl  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:resSpuGhl4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrSpuGhl  a   chon:ChessGameReport .
+
+:rolhgkpEZEmT5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSpuGhl .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agSpuGhl  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Braga, Fernando" .
+
+:rolSpuGhl  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSpuGhl .

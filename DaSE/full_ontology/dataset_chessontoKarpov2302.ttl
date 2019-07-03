@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resS18EnLV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS18EnL .
+
+:rolhgS18EnLVG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS18EnL .
+
+chon:HalfMove  chon:subEventOf  :gamH1brQ .
+
+:touS18En  a          chon:hessTournament ;
+        chon:atPlace  :plaH1brQL ;
+        chon:hasName  "Amber-blind 7th" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS18EnL .
+
+:cgrS18EnL  a   chon:ChessGameReport .
+
+:plaH1brQL  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:agS18EnL  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Shirov, Alexei" .
+
+:rolS18EnL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agS18EnL .
+
+:opeS18EnL  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamS18EnLV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgS18EnLVG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxc3" , "O-O" , "Rd8" , "Nf4+" , "Rxe4" , "Qxf3" , "Qe6" , "gxh5" , "Rxd6" , "Be7" , "g3" , "N1f3" , "Qa2" , "a4" , "Kh8" , "Bd3" , "Red1" , "Bxg6" , "Re3" , "Bb7" , "b6" , "hxg6" , "Nxd7" , "cxd4" , "Kf6" , "Qd8+" , "Rh6" , "Rc5" , "Kf8" , "Rc7" , "Rc8" , "Nb6" , "e4" , "Qd5" , "Qxb6" , "Rd3" , "Qe2" , "Rxf4+" , "Kg6" , "h5" , "d5" , "Qf3+" , "Bxf3" , "Rg6" , "Rd2" , "Nxe4" , "c5" , "Ba6" , "a5" , "Qf5" , "Kh7" , "Nd5" , "Bb4" , "Rc2" , "Rf3" , "c6" , "d4" , "Qc7" , "Ng5" , "Rd4" , "Ngf6" , "Qd7" , "dxe4" , "e6" , "Rd5" , "Kg2" , "f3" , "Qxa4" , "Rae1" , "Be2" , "fxg6" , "e5" , "Rb5" , "Qxg6" , "Qxd7" , "g4" , "g6" , "h4" , "Nd7" , "d6" , "h6" , "Re1" , "Nc3" , "Qg4" , "Qe4" , "Ng4" , "Kg8" , "Bc3" , "Ne4" , "c3" , "Qxe4" , "Bd2" , "Qh3" , "Nf6" , "Bd6" ;
+        chon:nextHalfMove      :hmgamS18EnLV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamH1brQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolS18EnL ;
+        chon:atPlace           :plaH1brQL ;
+        chon:atTime            "1998.03.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamS18EnLV ;
+        chon:hasHalfMove       :hmgamS18EnLV ;
+        chon:hasLastHalfMove   :hmgamS18EnLV ;
+        chon:hasOpening        :opeS18EnL ;
+        chon:hasReport         :cgrS18EnL ;
+        chon:hasResult         :resS18EnLV ;
+        chon:subEventOf        :touS18En .

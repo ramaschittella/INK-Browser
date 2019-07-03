@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrEGYAbz  a   chon:ChessGameReport .
+
+:resEGYAbzw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agEGYAbz  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gelfand, Boris" .
+
+:rolEGYAbz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEGYAbz .
+
+:opeEGYAbz  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEGYAbz .
+
+chon:HalfMove  chon:subEventOf  :gamEGYAb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEGYAbz .
+
+:rolhg7I9TxAmb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEGYAbz .
+
+:gamEGYAb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEGYAbz ;
+        chon:atPlace           :plaEGYAbz ;
+        chon:atTime            "1998.08.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7I9TxAm ;
+        chon:hasHalfMove       :hmgam7I9TxAm ;
+        chon:hasLastHalfMove   :hmgam7I9TxAm ;
+        chon:hasOpening        :opeEGYAbz ;
+        chon:hasReport         :cgrEGYAbz ;
+        chon:hasResult         :resEGYAbzw ;
+        chon:subEventOf        :touEGYAb .
+
+:touEGYAb  a          chon:hessTournament ;
+        chon:atPlace  :plaEGYAbz ;
+        chon:hasName  "Rubinstein mem 35th" .
+
+:hmgam7I9TxAm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7I9TxAmb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxd8" , "Bd7" , "Bxc5" , "Be7" , "Rxd8" , "g4" , "a3" , "Kd6" , "dxc5" , "exd5" , "Nf6" , "e3" , "h4" , "Bxc4" , "Ke7" , "Rd1" , "Nc6" , "Rg1" , "dxc4" , "Bxe7" , "Nfd5" , "Rc1" , "c5" , "Bxd5" , "Kf8" , "O-O" , "Bf4" , "Kd2" , "c4" , "Rxc1" , "Nc3" , "Nd4" , "Rhg1" , "g5" , "g6" , "Rac8" , "Nh5" , "Nf3" , "Nxe7" , "Nxd5" , "Bg5" , "d4" , "d5" , "e6" ;
+        chon:nextHalfMove      :hmgam7I9TxAm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaEGYAbz  a         chon:Place ;
+        chon:hasName  "Polanica Zdroj" .

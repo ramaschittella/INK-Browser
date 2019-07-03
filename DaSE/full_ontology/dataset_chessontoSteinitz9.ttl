@@ -1,0 +1,94 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgPDwrgIM0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6FMv4H , :agGk62A4 .
+
+:rolhgUFPiuIvb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGk62A4 , :ag6FMv4H .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6FMv4H .
+
+:rolGk62A4  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgIHS5XJsY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGk62A4 , :ag6FMv4H .
+
+:touGk62A  a          chon:hessTournament ;
+        chon:atPlace  :plaGk62A4 ;
+        chon:hasName  "Vienna m1" .
+
+:rol6FMv4H  a             chon:AuthorRole ;
+        chon:performedBy  :ag6FMv4H .
+
+chon:HalfMove  chon:subEventOf  :gamGk62A .
+
+:rolhghFIJAIBz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6FMv4H , :agGk62A4 .
+
+:hmgamIHS5XJs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIHS5XJsY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Be6" , "h3" , "Qe7" , "d6" , "Kd7" , "Ng5" , "h6" , "O-O" , "Qb3" , "fxe6" , "d4" , "Bb6" , "Bxe6" , "Nxe6" , "d3" ;
+        chon:nextHalfMove      :hmgamUFPiuIv , :hmgamIHS5XJs .
+
+:ag6FMv4H  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" .
+
+:res6FMv4Hy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamhFIJAIB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIHS5XJsY , :rolhghFIJAIBz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Bc5" , "e4" , "Nf3" , "e5" , "Nc6" , "Nf6" , "c3" , "Bc4" ;
+        chon:nextHalfMove      :hmgamIHS5XJs , :hmgamhFIJAIB .
+
+:plaGk62A4  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agGk62A4  a          chon:Agent ;
+        chon:hasName  "Jeney, E." .
+
+:hmgamPDwrgIM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPDwrgIM0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qc4" , "Raf8" , "Re3" , "Qa3" ;
+        chon:nextHalfMove      :hmgamPDwrgIM .
+
+:ope6FMv4H  a            chon:ChessOpening ;
+        chon:hasECOCode  "C54" .
+
+:cgr6FMv4H  a   chon:ChessGameReport .
+
+:hmgamUFPiuIv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPDwrgIM0 , :rolhgUFPiuIvb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qa5" , "exd4" , "Kc6" , "Nxd4" , "Be3" , "Nc3" , "Qf7+" , "Kxb6" , "Rae1" , "Qxd4" , "b4" , "Qxe4" , "Bxb6" , "cxd4" , "Qe5" ;
+        chon:nextHalfMove      :hmgamUFPiuIv , :hmgamPDwrgIM .
+
+:gamGk62A  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGk62A4 ;
+        chon:atPlace           :plaGk62A4 ;
+        chon:atTime            "1860.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhFIJAIB ;
+        chon:hasHalfMove       :hmgamhFIJAIB , :hmgamPDwrgIM , :hmgamUFPiuIv , :hmgamIHS5XJs ;
+        chon:hasLastHalfMove   :hmgamPDwrgIM ;
+        chon:hasOpening        :ope6FMv4H ;
+        chon:hasReport         :cgr6FMv4H ;
+        chon:hasResult         :res6FMv4Hy ;
+        chon:subEventOf        :touGk62A .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGk62A4 .

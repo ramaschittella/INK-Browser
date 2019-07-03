@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag3k8n7N  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gheorghiu, Florin" .
+
+:res3k8n7Nb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ope3k8n7N  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:rolhg3k8n7NbR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3k8n7N .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3k8n7N .
+
+chon:HalfMove  chon:subEventOf  :gam3k8n7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3k8n7N .
+
+:cgr3k8n7N  a   chon:ChessGameReport .
+
+:rol3k8n7N  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3k8n7N .
+
+:hmgam3k8n7Nb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3k8n7NbR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "O-O" , "Bb7" , "d4" , "e3" , "Nf6" , "c4" , "Bc3" , "dxc5" , "Bd2" , "Bxc5" , "c6" , "Bb5+" , "cxd5" , "Nxd5" , "Nc3" , "a3" , "e6" , "b6" , "d5" , "Nf3" , "Qxd5" , "Bd3" , "Ke7" , "a5" , "Be7" , "Kf8" , "Rd8" , "Qe2" ;
+        chon:nextHalfMove      :hmgam3k8n7Nb .
+
+:gam3k8n7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3k8n7N ;
+        chon:atPlace           :pla3k8n7N ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3k8n7Nb ;
+        chon:hasHalfMove       :hmgam3k8n7Nb ;
+        chon:hasLastHalfMove   :hmgam3k8n7Nb ;
+        chon:hasOpening        :ope3k8n7N ;
+        chon:hasReport         :cgr3k8n7N ;
+        chon:hasResult         :res3k8n7Nb ;
+        chon:subEventOf        :tou3k8n7 .
+
+:tou3k8n7  a          chon:hessTournament ;
+        chon:atPlace  :pla3k8n7N ;
+        chon:hasName  "Moscow" .
+
+:pla3k8n7N  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

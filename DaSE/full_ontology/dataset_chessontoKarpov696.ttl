@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHDaBsX .
+
+:agTD8P2W  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+chon:HalfMove  chon:subEventOf  :gamHDaBs .
+
+:opeTD8P2W  a            chon:ChessOpening ;
+        chon:hasECOCode  "D55" .
+
+:plaHDaBsX  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTD8P2W .
+
+:rolhgTD8P2Wqp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTD8P2W , :agHDaBsX .
+
+:hmgamTD8P2Wq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTD8P2Wqp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rfc1" , "Ne7" , "Qd6" , "b4" , "a6" , "Ra2" , "a4" , "d4" , "Qb3" , "Be7" , "Qd2" , "Ng6" , "e3" , "Nf3" , "Nf6" , "exd5" , "d5" , "Bf5" , "b5" , "Rfe8" , "Bxf6" , "c6" , "Be2" , "cxd5" , "Nc6" , "O-O" , "Bg5" , "e6" , "h6" , "Nc3" , "Qb2" , "c4" ;
+        chon:nextHalfMove      :hmgamTD8P2Wq .
+
+:agHDaBsX  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" .
+
+:rolHDaBsX  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrTD8P2W  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolTD8P2W  a             chon:AuthorRole ;
+        chon:performedBy  :agTD8P2W .
+
+:gamHDaBs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHDaBsX ;
+        chon:atPlace           :plaHDaBsX ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTD8P2Wq ;
+        chon:hasHalfMove       :hmgamTD8P2Wq ;
+        chon:hasLastHalfMove   :hmgamTD8P2Wq ;
+        chon:hasOpening        :opeTD8P2W ;
+        chon:hasReport         :cgrTD8P2W ;
+        chon:hasResult         :resTD8P2Wq ;
+        chon:subEventOf        :touHDaBs .
+
+:resTD8P2Wq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touHDaBs  a          chon:hessTournament ;
+        chon:atPlace  :plaHDaBsX ;
+        chon:hasName  "Moscow" .

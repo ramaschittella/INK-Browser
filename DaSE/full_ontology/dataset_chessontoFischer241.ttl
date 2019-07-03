@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam4HKK3qR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4HKK3qRd ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "dxe5" , "Nh3" , "Kh7" , "Bxe3" , "Qxf3" , "Ne5" , "Rd8" , "b6" , "Rd3" , "h6" , "e6" , "Bc4" , "Bf4" , "f3" , "Bxh3" , "e3" , "Ng4" , "bxc7" , "Nxe5" , "Qxc7" , "Bxe5" , "Qd2" , "Rxd8" , "c5" , "Nf7" , "Rb6" , "Rfd8" , "Ngxe5" , "d4" , "Qe3" , "Bxg2" , "dxe3" , "Rab8" , "Qc1" , "a4" , "Qc6" , "Be6" , "Re1" , "Qf2" , "Rd6" , "Rxd3" , "Nf6" , "Bd5" ;
+        chon:nextHalfMove      :hmgam4HKK3qR .
+
+:rolWL7nJr  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamSHNwvrO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSHNwvrOZ , :rolhg4HKK3qRd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "O-O" , "e5" , "h4" , "d6" , "Neg5" , "b4" , "Nf6" , "Nd7" , "b5" , "Bd2" , "Nd8" , "d3" , "Rb1" , "f5" , "d4" , "Bg7" , "Qc1" , "Bg2" , "c4" , "Nc6" , "Ne4" , "Nc3" , "g3" , "e6" , "Qe7" , "Nf3" , "a5" , "g6" , "d5" ;
+        chon:nextHalfMove      :hmgam4HKK3qR , :hmgamSHNwvrO .
+
+chon:HalfMove  chon:subEventOf  :gamWL7nJ .
+
+:cgrSHNwvr  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSHNwvr .
+
+:rolSHNwvr  a             chon:AuthorRole ;
+        chon:performedBy  :agSHNwvr .
+
+:plaWL7nJr  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:agSHNwvr  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Wexler, Bernardo" .
+
+:opeSHNwvr  a            chon:ChessOpening ;
+        chon:hasECOCode  "A16" .
+
+:touWL7nJ  a          chon:hessTournament ;
+        chon:atPlace  :plaWL7nJr ;
+        chon:hasName  "Buenos Aires" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSHNwvr .
+
+:rolhg4HKK3qRd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSHNwvr .
+
+:rolhgSHNwvrOZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSHNwvr .
+
+:resSHNwvrO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamWL7nJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWL7nJr ;
+        chon:atPlace           :plaWL7nJr ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSHNwvrO ;
+        chon:hasHalfMove       :hmgamSHNwvrO , :hmgam4HKK3qR ;
+        chon:hasLastHalfMove   :hmgam4HKK3qR ;
+        chon:hasOpening        :opeSHNwvr ;
+        chon:hasReport         :cgrSHNwvr ;
+        chon:hasResult         :resSHNwvrO ;
+        chon:subEventOf        :touWL7nJ .

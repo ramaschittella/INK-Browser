@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSP5S5hFU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHR9Fxg .
+
+:agHR9Fxg  a          chon:Agent ;
+        chon:hasName  "Korchnoi,V" , "Karpov,Ana" .
+
+:resHR9FxgS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeHR9Fxg  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHR9Fxg .
+
+:hmgamSP5S5hF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSP5S5hFU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Korchnoi,V" ;
+        chon:hasSANRecord      "Ra8" , "Qxe5" , "h4" , "Rf8" , "Re6" , "a3" , "a4" , "Qf7" , "f4" , "Qxc5" , "Qe5" , "c7" , "Rbb8" , "Nc2" , "Kg6" , "Kg7" , "d8=Q" , "a1=Q" , "Rf5" , "Qxa4" , "Rb8" , "Qxd6" , "Qc7+" , "Qd2" , "a2" , "Re2" , "Qc4" , "c5" , "c6" , "Qd1" , "Kg1" , "Bf2" , "Rb2" , "Qe8" , "Rb3" , "fxe5" , "Qe2" , "Qf4+" , "Bg3" , "exf4" , "Qd7" , "Rxf6" , "gxf6" , "Rfe4" , "d7" , "Rb7" , "Kh2" , "Re8" , "Kf7" , "Qg3+" , "Rxe4" , "Qf3" , "Qf4" , "d6" , "c8=Q" , "Rf6" , "Rxf4" ;
+        chon:nextHalfMove      :hmgamSP5S5hF .
+
+chon:HalfMove  chon:subEventOf  :gamHR9Fx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHR9Fxg .
+
+:gamHR9Fx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHR9Fxg ;
+        chon:atPlace           :plaHR9Fxg ;
+        chon:atTime            "2006.08.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHR9FxgS ;
+        chon:hasHalfMove       :hmgamSP5S5hF , :hmgamHR9FxgS ;
+        chon:hasLastHalfMove   :hmgamSP5S5hF ;
+        chon:hasOpening        :opeHR9Fxg ;
+        chon:hasReport         :cgrHR9Fxg ;
+        chon:hasResult         :resHR9FxgS ;
+        chon:subEventOf        :touHR9Fx .
+
+:touHR9Fx  a          chon:hessTournament ;
+        chon:atPlace  :plaHR9Fxg ;
+        chon:hasName  "Lichthof Champions Blitz" .
+
+:plaHR9Fxg  a         chon:Place ;
+        chon:hasName  "Zurich SUI" .
+
+:cgrHR9Fxg  a   chon:ChessGameReport .
+
+:rolhgHR9FxgSJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHR9Fxg .
+
+:rolHR9Fxg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHR9Fxg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamHR9FxgS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHR9FxgSJ , chon:AgentRole , :rolhgSP5S5hFU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Korchnoi,V" ;
+        chon:hasSANRecord      "bxc4" , "Rbe8" , "Rfe8" , "d6" , "Qf7" , "Re2" , "Re1" , "Nxe4" , "e6" , "c5" , "Na6" , "Qxf1" , "Bg6" , "Qxd2" , "d4" , "Qd2" , "O-O" , "Nd2" , "b5" , "Bxf1" , "Bf5" , "Bxf5" , "Nb8" , "Rb2" , "Rae8" , "Nbd2" , "Qe7" , "Rf8" , "Re3" , "Qc3" , "Bb4+" , "Qc7" , "Nb1" , "Qc1" , "f3" , "Rf1" , "Nc3" , "Kg1" , "Nb5" , "a4" , "e5" , "a3" , "Bc3" , "b6" , "Nf3" , "h6" , "Ra1" , "Ne4" , "Be2" , "Be1" , "Kh1" , "Nh7" , "Rd2" , "Bxd2+" , "Bb2" , "Na2" , "Qd7" , "Rc1" , "Nbd7" , "Qc8" , "f5" , "Qc2" , "d5" , "Nf6" , "Qg6" , "Rfd1" , "Rb8" , "Rd8" , "Rac1" , "Nb4" , "Nf4" , "Bf1" , "Bb7" , "Bh7" , "Rfe1" , "Rxe4" , "Nh5" , "exf5" , "Bc8" , "b3" , "Bd3" , "Na3" , "a5" , "Qd1" , "e4" , "c4" , "e3" ;
+        chon:nextHalfMove      :hmgamSP5S5hF , :hmgamHR9FxgS .

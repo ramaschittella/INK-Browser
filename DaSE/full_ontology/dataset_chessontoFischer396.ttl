@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla9wddGj  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+:res9wddGjN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhg7KQ3Ssna  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9wddGj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9wddGj .
+
+:cgr9wddGj  a   chon:ChessGameReport .
+
+:rolhg9wddGjNs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9wddGj .
+
+chon:HalfMove  chon:subEventOf  :gam9wddG .
+
+:ag9wddGj  a          chon:Agent ;
+        chon:hasName  "Padevsky, Nikola" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9wddGj .
+
+:rol9wddGj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9wddGj .
+
+:hmgam7KQ3Ssn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7KQ3Ssna , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Padevsky, Nikola" ;
+        chon:hasSANRecord      "O-O-O" , "Qxd3" , "Bf6" , "cxd3" , "Qd4" , "Qxg6" , "Ra3" , "Bg5" , "Rah3" , "Rxg6" , "Kb8" , "d4" , "a6" , "Qxf8" , "Rxf8" , "dxe5" , "Rh8" , "Qe5+" , "Qf6" , "Bg4" , "Kf1" , "exf6" , "Rdf8" , "Bc6" , "d3" , "Qe1" , "Qg7" , "Qe8" , "Rxf6" , "Ka8" , "Rf8" , "R3h6" , "Qxc3+" , "Rxh6" , "Rxh7" , "Qxf6" , "g3" , "Ng6" ;
+        chon:nextHalfMove      :hmgam7KQ3Ssn .
+
+:gam9wddG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9wddGj ;
+        chon:atPlace           :pla9wddGj ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9wddGjN ;
+        chon:hasHalfMove       :hmgam7KQ3Ssn , :hmgam9wddGjN ;
+        chon:hasLastHalfMove   :hmgam7KQ3Ssn ;
+        chon:hasOpening        :ope9wddGj ;
+        chon:hasReport         :cgr9wddGj ;
+        chon:hasResult         :res9wddGjN ;
+        chon:subEventOf        :tou9wddG .
+
+:hmgam9wddGjN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9wddGjNs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Padevsky, Nikola" ;
+        chon:hasSANRecord      "Nf3" , "bxc3" , "gxh6" , "fxe5" , "f6" , "Bd2" , "Ne7" , "Bxc3+" , "e4" , "e5" , "d5" , "Nbc6" , "c5" , "Qa5" , "a3" , "h5" , "c4" , "h4" , "Be2" , "h6" , "a4" , "Bd7" , "Nxe5" , "d4" , "e6" , "Bb4" , "Nc3" ;
+        chon:nextHalfMove      :hmgam7KQ3Ssn , :hmgam9wddGjN .
+
+:tou9wddG  a          chon:hessTournament ;
+        chon:atPlace  :pla9wddGj ;
+        chon:hasName  "Varna olm" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope9wddGj  a            chon:ChessOpening ;
+        chon:hasECOCode  "C19" .

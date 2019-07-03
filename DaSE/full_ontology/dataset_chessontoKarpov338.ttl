@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamSoLGNMn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkqW18Mc2 , :rolhgSoLGNMnB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Garcia Martinez, Silvino" ;
+        chon:hasSANRecord      "Be3" , "f3" , "Nf3" , "e4" , "Nc3" , "Nc6" , "O-O-O" , "cxd4" , "O-O" , "d4" , "Rfc8" , "Bc4" , "Qd2" , "d6" , "Bb3" , "Bg7" , "h4" , "b5" , "Kb1" , "Nf6" , "g6" , "Ne5" , "Qa6" , "Bd7" , "Qa5" , "c5" , "Nxd4" , "Ncxb5" ;
+        chon:nextHalfMove      :hmgamSoLGNMn , :hmgamkqW18Mc .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSoLGNM .
+
+chon:HalfMove  chon:subEventOf  :gamSoLGN .
+
+:gamSoLGN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSoLGNM ;
+        chon:atPlace           :plaSoLGNM ;
+        chon:atTime            "1975.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSoLGNMn ;
+        chon:hasHalfMove       :hmgamSoLGNMn , :hmgamkqW18Mc ;
+        chon:hasLastHalfMove   :hmgamkqW18Mc ;
+        chon:hasOpening        :opeSoLGNM ;
+        chon:hasReport         :cgrSoLGNM ;
+        chon:hasResult         :resSoLGNMn ;
+        chon:subEventOf        :touSoLGN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSoLGNM .
+
+:resSoLGNMn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamkqW18Mc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkqW18Mc2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Garcia Martinez, Silvino" ;
+        chon:hasSANRecord      "Bh6" , "Rxh6" , "Rab8" , "g4" , "e6" , "Rh8+" , "Bxh6" , "Qd1" , "Kg7" , "Rh7+" , "Qd4" , "Qf2" , "Rxc8" , "Ke7" , "Nxf3" , "Qb7" , "Ne5" , "Rxb3" , "Bxc8" , "h5" , "Nf4" , "Qe7+" , "a3" , "fxg6" , "Nxg6+" , "g5" , "Qd3" , "Kf8" , "Nde2" , "Bc1" , "Qxd6" , "hxg6" , "Nfd7" , "Rb4" , "Kd8" , "Qb6" , "cxb3" , "Nc4" , "Nc3" , "Rdh1" ;
+        chon:nextHalfMove      :hmgamkqW18Mc .
+
+:plaSoLGNM  a         chon:Place ;
+        chon:hasName  "Ljubljana" .
+
+:rolhgkqW18Mc2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSoLGNM .
+
+:rolhgSoLGNMnB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSoLGNM .
+
+:cgrSoLGNM  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agSoLGNM  a          chon:Agent ;
+        chon:hasName  "Garcia Martinez, Silvino" , "Karpov, Anatoly" .
+
+:rolSoLGNM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSoLGNM .
+
+:touSoLGN  a          chon:hessTournament ;
+        chon:atPlace  :plaSoLGNM ;
+        chon:hasName  "Portoroz/Ljubljana" .
+
+:opeSoLGNM  a            chon:ChessOpening ;
+        chon:hasECOCode  "B79" .

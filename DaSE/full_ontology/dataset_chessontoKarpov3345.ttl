@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag5fQmIA  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Edouard,R" .
+
+:ope5fQmIA  a            chon:ChessOpening ;
+        chon:hasECOCode  "A45" .
+
+:gam5fQmI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5fQmIA ;
+        chon:atPlace           :pla5fQmIA ;
+        chon:atTime            "2014.10.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5fQmIAd ;
+        chon:hasHalfMove       :hmgam5fQmIAd , :hmgam1dxvryt ;
+        chon:hasLastHalfMove   :hmgam1dxvryt ;
+        chon:hasOpening        :ope5fQmIA ;
+        chon:hasReport         :cgr5fQmIA ;
+        chon:hasResult         :res5fQmIAd ;
+        chon:subEventOf        :tou5fQmI .
+
+:res5fQmIAd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:tou5fQmI  a          chon:hessTournament ;
+        chon:atPlace  :pla5fQmIA ;
+        chon:hasName  "3rd Karpov Trophy Rapid" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5fQmIA .
+
+:rolhg1dxvrytO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5fQmIA .
+
+chon:HalfMove  chon:subEventOf  :gam5fQmI .
+
+:pla5fQmIA  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5fQmIA .
+
+:cgr5fQmIA  a   chon:ChessGameReport .
+
+:hmgam1dxvryt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg1dxvrytO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qe4" , "Kc3" , "Rhh8" , "f5" , "Kxf6" , "Kxa5" , "Qb6" , "d5" , "Kd6" , "Re4" , "Ke8" , "Rb1" , "b1=Q" , "Rxa4" , "Kf5" , "f8=N+" , "b4" , "Kb5" , "Kb6" , "Rh5" , "Ra8" , "Rh1" , "Rd1" , "Kc4" , "f6" , "Re3" , "c4" , "Kc5" , "Kb8" , "Kxb2" , "Rxd5" , "Kg7" , "Kxc4" , "Rg1+" , "Ka7" , "Rxe7" , "Qf4" , "Ke4" , "Qxf3" , "Rb3" , "b5+" , "Ke5" , "a4" , "Qc2" , "Kg4" , "Kf7" , "Kxf4" , "Ra6+" , "Rh6" , "exd5" , "Kd8" , "Rxb1" , "Rhd8" , "Kd4" , "Qc4" , "Rc3" , "Ke6" , "a5" , "Rb5" , "Qc7" , "Ke7" , "a6" , "Ra7+" , "h5" , "Rf5" , "Ra1" , "Kd3" , "Rd7" , "Re8+" , "b2" , "b3" , "Rh3" , "Qxe4+" , "c5" , "f7" , "Rxh5" , "Kc2" , "f4" , "Rxe4" , "Re1" ;
+        chon:nextHalfMove      :hmgam1dxvryt .
+
+:rolhg5fQmIAdQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5fQmIA .
+
+:rol5fQmIA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5fQmIA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam5fQmIAd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5fQmIAdQ , :rolhg1dxvrytO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "d4" , "gxf6" , "Bg5" , "Bxe2" , "h5" , "Rxc4" , "Nxc4" , "O-O-O" , "Kb1" , "Rc1" , "Rxh5" , "Nb6" , "Nf6" , "Nf3" , "g4" , "Be7" , "Bg4" , "e4" , "Nd2" , "dxc4" , "h4" , "Bxf6" , "c6" , "d5" , "Nbd7" , "Qxe2" , "gxh5" , "Qa5" , "e6" , "e3" , "Rh7" , "Be2" , "Rhc1" , "c4" , "Qb5" ;
+        chon:nextHalfMove      :hmgam5fQmIAd , :hmgam1dxvryt .

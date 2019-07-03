@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgeHqmtQPz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageHqmtQ .
+
+:ageHqmtQ  a          chon:Agent ;
+        chon:hasName  "Seirawan,Y" , "Karpov,Ana" .
+
+:roleHqmtQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageHqmtQ .
+
+:opeeHqmtQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A41" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageHqmtQ .
+
+:hmgampHnz3PS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpHnz3PSN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan,Y" ;
+        chon:hasSANRecord      "b5" , "Qe4" , "bxc4" , "Ng5" , "Nh3" , "c4" , "b3" , "c6" , "Qb7" , "f3" , "Nf6" , "Qe8" , "g4" , "Qd3" , "Qxc4" , "h6" , "Nd5" , "Qf7" ;
+        chon:nextHalfMove      :hmgampHnz3PS .
+
+chon:HalfMove  chon:subEventOf  :gameHqmt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageHqmtQ .
+
+:hmgameHqmtQP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeHqmtQPz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan,Y" ;
+        chon:hasSANRecord      "Rae1" , "Kxg2" , "Kh8" , "d4" , "Nf3" , "a6" , "h4" , "Bd7" , "Bg2" , "Nh2" , "Na3" , "d6" , "Ne3" , "Rxf6" , "Bg5" , "Bxg2" , "a4" , "Rfe1" , "Nh6+" , "e6" , "Qe4" , "Rd1" , "Qd7" , "Bg7" , "dxe5" , "Bh3" , "Bxf6" , "R3f6" , "Rf8" , "Qe6" , "Nb6" , "g6" , "e5" , "Qc8" , "Qe2" , "Nc4" , "Qd5+" , "Nxf5" , "Qc2" , "Ne7" , "Qb5" , "f6" , "Qxa5" , "Nbc6" , "Nf5" , "c3" , "g3" , "a5" , "Ng4" , "exf6" , "Rf3" , "Raf8" , "Nd2" , "O-O" , "Rxf5" , "Qc6" , "Rf5" , "Nd5" , "e4" ;
+        chon:nextHalfMove      :hmgameHqmtQP , :hmgampHnz3PS .
+
+:gameHqmt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleHqmtQ ;
+        chon:atPlace           :plaeHqmtQ ;
+        chon:atTime            "2012.06.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameHqmtQP ;
+        chon:hasHalfMove       :hmgameHqmtQP , :hmgampHnz3PS ;
+        chon:hasLastHalfMove   :hmgampHnz3PS ;
+        chon:hasOpening        :opeeHqmtQ ;
+        chon:hasReport         :cgreHqmtQ ;
+        chon:hasResult         :reseHqmtQP ;
+        chon:subEventOf        :toueHqmt .
+
+:rolhgpHnz3PSN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageHqmtQ .
+
+:toueHqmt  a          chon:hessTournament ;
+        chon:atPlace  :plaeHqmtQ ;
+        chon:hasName  "Blitz Exhibition Match" .
+
+:cgreHqmtQ  a   chon:ChessGameReport .
+
+:reseHqmtQP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaeHqmtQ  a         chon:Place ;
+        chon:hasName  "Saint Louis USA" .

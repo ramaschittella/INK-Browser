@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamiiKJ6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliiKJ6R ;
+        chon:atPlace           :plaiiKJ6R ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiiKJ6RB ;
+        chon:hasHalfMove       :hmgamiiKJ6RB , :hmgamugHXERE ;
+        chon:hasLastHalfMove   :hmgamugHXERE ;
+        chon:hasOpening        :opeiiKJ6R ;
+        chon:hasReport         :cgriiKJ6R ;
+        chon:hasResult         :resiiKJ6RB ;
+        chon:subEventOf        :touiiKJ6 .
+
+:resiiKJ6RB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaiiKJ6R  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiiKJ6R .
+
+:cgriiKJ6R  a   chon:ChessGameReport .
+
+:rolhgiiKJ6RBZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiiKJ6R .
+
+chon:HalfMove  chon:subEventOf  :gamiiKJ6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiiKJ6R .
+
+:roliiKJ6R  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiiKJ6R .
+
+:rolhgugHXEREa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiiKJ6R .
+
+:touiiKJ6  a          chon:hessTournament ;
+        chon:atPlace  :plaiiKJ6R ;
+        chon:hasName  "Buenos Aires" .
+
+:hmgamugHXERE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgugHXEREa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rxf2+" , "Bg4" , "Rxf2" , "Kg7" , "Re3" , "Rf3" , "Rxe4" , "Nd1" , "Re2" , "Rc8+" , "Kg1" ;
+        chon:nextHalfMove      :hmgamugHXERE .
+
+:agiiKJ6R  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Szabo, Laszlo" .
+
+:hmgamiiKJ6RB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgugHXEREa , chon:AgentRole , :rolhgiiKJ6RBZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ra7" , "Nd4" , "Bf5" , "Rxd4" , "d5" , "cxb4" , "Rd8" , "Nxb5" , "Rc2" , "Rb4" , "e3" , "e4" , "Bxd4" , "Nb4" , "Nc7" , "b4" , "Bb5" , "b5" , "Rxb4" , "Rxc7" , "Re1" , "Nc3" , "Rdd2" , "c4" , "a6" , "Qc5" , "Bg7" , "d4" , "Nb3" , "Nc6" , "b3" , "a3" , "Rc5" , "g6" , "Qc7" , "axb5" , "O-O" , "Bd7" , "Nxd5" , "Bh3" , "g3" , "Qd4" , "Nf6" , "Qxc5" , "Nxc1" , "d6" , "cxb5" , "Na5" , "Kf1" , "Ne2+" , "Rxb5" , "axb4" , "c5" , "Rb1" , "Bg2" , "dxc5" , "Nge2" ;
+        chon:nextHalfMove      :hmgamiiKJ6RB , :hmgamugHXERE .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeiiKJ6R  a            chon:ChessOpening ;
+        chon:hasECOCode  "E61" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamJnfuJSY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJnfuJSY8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc6" , "Nf4" , "e6" , "Bb7" , "b6" , "Be1" , "Kb2" , "Be6" , "Bf5" , "Rg1" , "Be2" , "Bh3" , "Qa5+" , "f3" , "Ke8" , "Qc8" , "Qg7+" , "Bc5" , "Nf7" , "Bc6" , "Qa4" , "dxc5" , "g5" , "Nf6" , "Rad8" , "Qe7" , "Be3" , "h5" , "Nh5" , "Be8" , "Nd2" , "Nh8" , "h4" , "Bb4" , "Nb3" , "Rxe6" , "f5" , "Qc2" , "Qh7" , "Nc6" , "Bh4" , "bxc3+" , "f4" , "Bf1" , "Bxe6" , "Qd6" , "c5" , "Nfg6" , "gxh4" , "Kf8" , "Rh6" , "g3" , "Bxc3+" , "Kxe7" , "Kf7" , "Qg7" , "Nf3" , "Ba4" , "Rxd8" , "Bg3" , "Qg2" , "d4" , "Rg5" , "Ne7" , "b5" , "Kc1" , "h6" , "Kg7" , "Kxc3" , "Qd7" , "e4" , "b4" , "Qe2" , "Rd6" , "bxc3" , "Bxe7" , "Qd8" , "Bf7" , "Nc3" , "Qc7" , "Bf2" , "Rh8" , "Qf1" , "Qd2" , "c3" , "Bxc4" , "c4" , "Kc2" , "Bg5" , "Bd7" , "d6" , "e5" , "O-O-O" ;
+        chon:nextHalfMove      :hmgamJnfuJSY .
+
+:plaOpykXU  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:gamOpykX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOpykXU ;
+        chon:atPlace           :plaOpykXU ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJnfuJSY ;
+        chon:hasHalfMove       :hmgamJnfuJSY ;
+        chon:hasLastHalfMove   :hmgamJnfuJSY ;
+        chon:hasOpening        :opeOpykXU ;
+        chon:hasReport         :cgrOpykXU ;
+        chon:hasResult         :resOpykXUH ;
+        chon:subEventOf        :touOpykX .
+
+:touOpykX  a          chon:hessTournament ;
+        chon:atPlace  :plaOpykXU ;
+        chon:hasName  "Amber-blind 3rd" .
+
+:cgrOpykXU  a   chon:ChessGameReport .
+
+:agOpykXU  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Piket, Jeroen" .
+
+:rolOpykXU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOpykXU .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOpykXU .
+
+chon:HalfMove  chon:subEventOf  :gamOpykX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOpykXU .
+
+:opeOpykXU  a            chon:ChessOpening ;
+        chon:hasECOCode  "E13" .
+
+:rolhgJnfuJSY8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOpykXU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resOpykXUH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamNeoGt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNeoGty ;
+        chon:atPlace           :plaNeoGty ;
+        chon:atTime            "2013.12.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNeoGtyd ;
+        chon:hasHalfMove       :hmgamJc6Pdyt , :hmgamNeoGtyd ;
+        chon:hasLastHalfMove   :hmgamJc6Pdyt ;
+        chon:hasOpening        :opeNeoGty ;
+        chon:hasReport         :cgrNeoGty ;
+        chon:hasResult         :resNeoGtyd ;
+        chon:subEventOf        :touNeoGt .
+
+:touNeoGt  a          chon:hessTournament ;
+        chon:atPlace  :plaNeoGty ;
+        chon:hasName  "Karpov-Timman Match 2013" .
+
+:agNeoGty  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Timman,J" .
+
+:opeNeoGty  a            chon:ChessOpening ;
+        chon:hasECOCode  "C67" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNeoGty .
+
+:hmgamNeoGtyd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNeoGtydA , chon:AgentRole , :rolhgJc6Pdyty ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nc6" , "e5" , "Nf3" , "Bb5" , "e4" ;
+        chon:nextHalfMove      :hmgamJc6Pdyt , :hmgamNeoGtyd .
+
+chon:HalfMove  chon:subEventOf  :gamNeoGt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNeoGty .
+
+:plaNeoGty  a         chon:Place ;
+        chon:hasName  "Groningen NED" .
+
+:cgrNeoGty  a   chon:ChessGameReport .
+
+:resNeoGtyd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgJc6Pdyty  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNeoGty .
+
+:hmgamJc6Pdyt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJc6Pdyty , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "dxe5" , "Re7" , "h5" , "Bxd6" , "Bxe6" , "Be5" , "Kf6" , "O-O" , "Qxd8+" , "Be6" , "Nh4" , "h3" , "Nxh4" , "Nxe4" , "Ne4" , "Nf5+" , "Bd6" , "Ne4+" , "Bxc6" , "Kg6" , "c5" , "Bxc7" , "Kh2" , "Bf5" , "Kxf5" , "Nf5" , "Nxd6+" , "Be7" , "Bxd7" , "Nxf5" , "dxc6" , "Bb2" , "b6" , "Nd6" , "f5+" , "h4" , "Rd7" , "Bxh4" , "Rg8" , "Nf6" , "Rad1" , "d4" , "Rd1+" , "Rxa7" , "Ke7" , "Rd8" , "e6" , "Rfe1" , "b3" , "Ke5" , "a4" , "Bxf5" , "f4" , "Ng3" , "Bb8" , "Kxd8" , "Nc3" , "Ke8" , "Rxd7" ;
+        chon:nextHalfMove      :hmgamJc6Pdyt .
+
+:rolNeoGty  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNeoGty .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgNeoGtydA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNeoGty .

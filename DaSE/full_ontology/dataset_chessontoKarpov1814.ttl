@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamDW0A7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDW0A7a ;
+        chon:atPlace           :plaDW0A7a ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDW0A7as ;
+        chon:hasHalfMove       :hmgamDW0A7as , :hmgamBdMphi3 ;
+        chon:hasLastHalfMove   :hmgamBdMphi3 ;
+        chon:hasOpening        :opeDW0A7a ;
+        chon:hasReport         :cgrDW0A7a ;
+        chon:hasResult         :resDW0A7as ;
+        chon:subEventOf        :touDW0A7 .
+
+:touDW0A7  a          chon:hessTournament ;
+        chon:atPlace  :plaDW0A7a ;
+        chon:hasName  "Amber-rapid 3rd" .
+
+:hmgamBdMphi3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBdMphi39 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan, Yasser" ;
+        chon:hasSANRecord      "gxh5" , "exd5" , "Kh7" , "Bf2" , "Bxd4" , "Qf6" , "Qd7" , "Nxe6" , "Qxh5+" , "hxg4" , "Nxf4" , "f4" , "Kf1" , "Bxg4" , "Bf4" , "Ne6" , "Bxd6" , "f5" , "b6" , "Qd5+" , "Nxd5" , "Be6+" , "Bxb6" , "c4" , "h5" , "a5" , "Nd8" , "d6" , "Nd4" , "Qxd4" , "Kg8" , "cxd6" , "Be3" , "Qe7" , "Qxd1" , "g4" , "Bc1" , "Bg7" , "h4" , "Nc5" , "Rd7" , "Rxd1+" , "exf4" , "Qe8" , "Bf3" , "Ned5" ;
+        chon:nextHalfMove      :hmgamBdMphi3 .
+
+:plaDW0A7a  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDW0A7a .
+
+:cgrDW0A7a  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamDW0A7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDW0A7a .
+
+:rolhgDW0A7asq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDW0A7a .
+
+:rolDW0A7a  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDW0A7a .
+
+:resDW0A7as  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgBdMphi39  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDW0A7a .
+
+:hmgamDW0A7as  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDW0A7asq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan, Yasser" ;
+        chon:hasSANRecord      "Nf3" , "dxe5" , "Bg2" , "g3" , "Qc8" , "e4" , "Bd7" , "g6" , "Ba3" , "Nbd2" , "Rxd1" , "Qe2" , "Nc6" , "Bf8" , "Ne3" , "c3" , "O-O" , "d4" , "Rd8" , "f6" , "Red1" , "Nc4" , "Bg7" , "e5" , "Nge7" , "Ne1" , "b3" , "Be6" , "Nd3" , "d6" , "Qe8" , "Qd7" , "Re1" ;
+        chon:nextHalfMove      :hmgamDW0A7as , :hmgamBdMphi3 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agDW0A7a  a          chon:Agent ;
+        chon:hasName  "Seirawan, Yasser" , "Karpov, Anatoly" .
+
+:opeDW0A7a  a            chon:ChessOpening ;
+        chon:hasECOCode  "A41" .

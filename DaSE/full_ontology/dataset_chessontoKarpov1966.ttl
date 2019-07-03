@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resFgmf2K7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgFgmf2K78  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFgmf2K .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFgmf2K .
+
+:rolhgBc5oNIm6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFgmf2K .
+
+:hmgamFgmf2K7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFgmf2K78 , :rolhgBc5oNIm6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tortarolo, Massimiliano" ;
+        chon:hasSANRecord      "d4" , "Qe4" , "Bxc4" , "bxc6" , "Bf8" , "Qd5" , "Kh2" , "a5" , "Rb7" , "e4" , "Ne5" , "Kxf8" , "Rc5" , "Ra4" , "axb4" , "c6" , "Qd8" , "e6" , "Nd7" , "Bf1" , "Bf4" , "h5" , "Kg7" , "g3" , "Nc6" , "Reb8" , "Re1" , "b3" , "Bd6" , "Nf6" , "Rb5" , "cxd5" , "Bxf8" , "Nxc5" , "Rba7" , "Qe7" , "Bxc5" , "exd5" , "Re8" , "Bg2" , "Qc3" , "Rc1" , "h4" , "Bc8" , "c4" , "O-O" , "Qd7" , "e5" , "Qb3" , "Bb5" , "b4" , "Nc5" , "Bg7" , "g6" , "Kg8" , "a4" , "Ra1" , "Qd2" , "Bc4" , "Qa5" , "Na4" , "Rxd5" , "Qc4" , "d5" , "Rxc4" , "Rc4" , "Ra6" , "Nc3" , "dxc4" , "Rxc6" , "R6a7" , "Nxc6" , "Nf3" , "Ba6" ;
+        chon:nextHalfMove      :hmgamFgmf2K7 , :hmgamBc5oNIm .
+
+chon:HalfMove  chon:subEventOf  :gamFgmf2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFgmf2K .
+
+:gamFgmf2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFgmf2K ;
+        chon:atPlace           :plaFgmf2K ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFgmf2K7 ;
+        chon:hasHalfMove       :hmgamBc5oNIm , :hmgamFgmf2K7 ;
+        chon:hasLastHalfMove   :hmgamBc5oNIm ;
+        chon:hasOpening        :opeFgmf2K ;
+        chon:hasReport         :cgrFgmf2K ;
+        chon:hasResult         :resFgmf2K7 ;
+        chon:subEventOf        :touFgmf2 .
+
+:plaFgmf2K  a         chon:Place ;
+        chon:hasName  "San Giorgio" .
+
+:hmgamBc5oNIm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBc5oNIm6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tortarolo, Massimiliano" ;
+        chon:hasSANRecord      "Rxa5" , "Raxb4" , "Rb7" , "Kg2" , "Kf8" , "Rf5" , "Kh7" , "e7+" , "Ra6" , "Qf6" , "Rc5" , "Rd4" , "Qe5" , "Kg8" , "Qe8" , "Kg1" , "Rd8" , "Rcc8" , "R6a7" , "Rbd7" , "Qe4" , "e6" ;
+        chon:nextHalfMove      :hmgamBc5oNIm .
+
+:touFgmf2  a          chon:hessTournament ;
+        chon:atPlace  :plaFgmf2K ;
+        chon:hasName  "San Giorgio sim rapid" .
+
+:cgrFgmf2K  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agFgmf2K  a          chon:Agent ;
+        chon:hasName  "Tortarolo, Massimiliano" , "Karpov, Anatoly" .
+
+:rolFgmf2K  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFgmf2K .
+
+:opeFgmf2K  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrpdUOwv  a   chon:ChessGameReport .
+
+:rolhgl0BXfvWB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpdUOwv .
+
+:agpdUOwv  a          chon:Agent ;
+        chon:hasName  "Ehlvest, Jaan" , "Karpov, Anatoly" .
+
+:rolpdUOwv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpdUOwv .
+
+:opepdUOwv  a            chon:ChessOpening ;
+        chon:hasECOCode  "D85" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpdUOwv .
+
+:hmgaml0BXfvW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgl0BXfvWB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ehlvest, Jaan" ;
+        chon:hasSANRecord      "Bf4" , "h5" , "Be7" , "Nf6+" , "Qe5" , "Rc7" , "Qb3" , "Bd6+" ;
+        chon:nextHalfMove      :hmgaml0BXfvW .
+
+:hmgampdUOwvG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpdUOwvGD , :rolhgl0BXfvWB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ehlvest, Jaan" ;
+        chon:hasSANRecord      "b5" , "Nf3" , "e6" , "Qc7" , "Nb6" , "Qf8" , "Bb7" , "Qb3" , "Qxf5" , "Na4" , "e4" , "Rc1" , "Bh8" , "Nxd5" , "Qe3" , "h4" , "Bd5" , "Ne5" , "Bh6" , "cxd4" , "Ng4" , "Rac8" , "c5" , "Re8" , "Bf8" , "Nf6" , "f5" , "Bd3" , "Qf4" , "Be3" , "Qb7" , "h3" , "c4" , "Qa5" , "d4" , "O-O" , "Qb1+" , "g6" , "Rfe1" , "Kh2" , "Rec1" , "Bb3" , "Nc3" , "Bxa4" , "Bf4" , "f3" , "Rc5" , "Rxc5" , "a3" , "Nd7" , "d5" , "Qe7" , "exf5" , "Bc4" , "cxd5" , "Nxc3" , "bxc3" , "bxa4" , "Bg7" , "Qd2" , "Bg5" , "Rc3" ;
+        chon:nextHalfMove      :hmgaml0BXfvW , :hmgampdUOwvG .
+
+chon:HalfMove  chon:subEventOf  :gamedYBW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpdUOwv .
+
+:gamedYBW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpdUOwv ;
+        chon:atPlace           :plaedYBWw ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampdUOwvG ;
+        chon:hasHalfMove       :hmgampdUOwvG , :hmgaml0BXfvW ;
+        chon:hasLastHalfMove   :hmgaml0BXfvW ;
+        chon:hasOpening        :opepdUOwv ;
+        chon:hasReport         :cgrpdUOwv ;
+        chon:hasResult         :respdUOwvG ;
+        chon:subEventOf        :toupdUOw .
+
+:respdUOwvG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:toupdUOw  a          chon:hessTournament ;
+        chon:atPlace  :plaedYBWw ;
+        chon:hasName  "World Cup" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgpdUOwvGD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpdUOwv .
+
+:plaedYBWw  a         chon:Place ;
+        chon:hasName  "Reykjavik" .

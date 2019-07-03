@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolZSX6RS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZSX6RS .
+
+:plaZSX6RS  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:resZSX6RSU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZSX6RS .
+
+:agZSX6RS  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Epishin, Vladimir" .
+
+chon:HalfMove  chon:subEventOf  :gamZSX6R .
+
+:opeZSX6RS  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZSX6RS .
+
+:gamZSX6R  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZSX6RS ;
+        chon:atPlace           :plaZSX6RS ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZSX6RSU ;
+        chon:hasHalfMove       :hmgamZSX6RSU ;
+        chon:hasLastHalfMove   :hmgamZSX6RSU ;
+        chon:hasOpening        :opeZSX6RS ;
+        chon:hasReport         :cgrZSX6RS ;
+        chon:hasResult         :resZSX6RSU ;
+        chon:subEventOf        :touZSX6R .
+
+:touZSX6R  a          chon:hessTournament ;
+        chon:atPlace  :plaZSX6RS ;
+        chon:hasName  "Dos Hermanas" .
+
+:rolhgZSX6RSUR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZSX6RS .
+
+:cgrZSX6RS  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamZSX6RSU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZSX6RSUR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kc3" , "e4" , "c4" , "cxd4" , "Rxd8+" , "Ba6" , "Bxd2+" , "Bxe4" , "g3" , "b6" , "Nbd2" , "e5" , "dxc6" , "e6" , "c5" , "Kxd2" , "Ne4" , "Nxe4" , "Bxf3" , "Bb4+" , "d4" , "Qxd8+" , "Nf3" , "Bb7" , "Bd2" , "Nc6" , "Nf6" , "Bxc6" , "Qxd4" , "Bg2" ;
+        chon:nextHalfMove      :hmgamZSX6RSU .

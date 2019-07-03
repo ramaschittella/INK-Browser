@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agVzGEh0  a          chon:Agent ;
+        chon:hasName  "Ponomariov,R" , "Karpov,An" .
+
+:rolVzGEh0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVzGEh0 .
+
+:opeVzGEh0  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+:gamVzGEh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVzGEh0 ;
+        chon:atPlace           :plaVzGEh0 ;
+        chon:atTime            "2002.11.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVzGEh0k ;
+        chon:hasHalfMove       :hmgamVzGEh0k , :hmgam7zSSQ9p ;
+        chon:hasLastHalfMove   :hmgam7zSSQ9p ;
+        chon:hasOpening        :opeVzGEh0 ;
+        chon:hasReport         :cgrVzGEh0 ;
+        chon:hasResult         :resVzGEh0k ;
+        chon:subEventOf        :touVzGEh .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVzGEh0 .
+
+:touVzGEh  a          chon:hessTournament ;
+        chon:atPlace  :plaVzGEh0 ;
+        chon:hasName  "Superstars Hotel Bali" .
+
+:rolhg7zSSQ9pq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVzGEh0 .
+
+chon:HalfMove  chon:subEventOf  :gamVzGEh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVzGEh0 .
+
+:cgrVzGEh0  a   chon:ChessGameReport .
+
+:hmgamVzGEh0k  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7zSSQ9pq , :rolhgVzGEh0kf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ponomariov,R" ;
+        chon:hasSANRecord      "c4" , "Be7" , "Bxc5" , "Bb2" , "Nbd2" , "d4" , "Na5" , "Kf8" , "Rxc5" , "Nc5" , "Nc4" , "Ba8" , "Kxd8" , "b4" , "Nbd7" , "O-O" , "Ne4" , "Ne1" , "Be2" , "Bxc4" , "Bxc1" , "Ke7" , "a6" , "a3" , "dxc5" , "Bxd1" , "Rac8" , "b6" , "b3" , "Rac1" , "Rxc1" , "Nd3" , "Rhd8" , "Bb7" , "Rfd1" , "d5" , "Qxd8+" , "Nf6" , "dxc4" , "Nf3" , "Nxc5" , "Rxd1+" , "b5" , "e6" , "e3" , "c5" ;
+        chon:nextHalfMove      :hmgam7zSSQ9p , :hmgamVzGEh0k .
+
+:plaVzGEh0  a         chon:Place ;
+        chon:hasName  "Benidorm ESP" .
+
+:hmgam7zSSQ9p  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7zSSQ9pq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ponomariov,R" ;
+        chon:hasSANRecord      "Nc4" , "Bf1" , "Bxc4" , "Bd4" , "Bxa5" , "Kd7" , "Ke3" , "f6" , "f3" , "e4" , "Kf2" , "Nd6" , "f4" , "bxa5" , "g3" , "a4" , "Bc3" , "h5" , "Bd8" , "Ke7" , "Nxa5" , "axb5" , "Bc6" , "Kd4" , "Bxb5" , "Bb3" ;
+        chon:nextHalfMove      :hmgam7zSSQ9p .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resVzGEh0k  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgVzGEh0kf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVzGEh0 .

@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamLTT61  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLTT61K ;
+        chon:atPlace           :plaLTT61K ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXTOixJc ;
+        chon:hasHalfMove       :hmgamXTOixJc ;
+        chon:hasLastHalfMove   :hmgamXTOixJc ;
+        chon:hasOpening        :opeXTOixJ ;
+        chon:hasReport         :cgrXTOixJ ;
+        chon:hasResult         :resXTOixJc ;
+        chon:subEventOf        :touLTT61 .
+
+:touLTT61  a          chon:hessTournament ;
+        chon:atPlace  :plaLTT61K ;
+        chon:hasName  "San Antonio" .
+
+:resXTOixJc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLTT61K .
+
+:plaLTT61K  a         chon:Place ;
+        chon:hasName  "San Antonio" .
+
+chon:HalfMove  chon:subEventOf  :gamLTT61 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXTOixJ .
+
+:agLTT61K  a          chon:Agent ;
+        chon:hasName  "Hort, Vlastimil" .
+
+:rolLTT61K  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgXTOixJcR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXTOixJ , :agLTT61K .
+
+:cgrXTOixJ  a   chon:ChessGameReport .
+
+:agXTOixJ  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:rolXTOixJ  a             chon:AuthorRole ;
+        chon:performedBy  :agXTOixJ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeXTOixJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "B46" .
+
+:hmgamXTOixJc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXTOixJcR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d4" , "Nc3" , "Qa5" , "e6" , "a3" , "b5" , "d6" , "Qe3" , "Rac1" , "a5" , "Nc6" , "Be7" , "Rd8" , "c5" , "Qxd4" , "Qd2" , "Nf3" , "a6" , "Nxd4" , "Nf4" , "Rb8" , "Bb2" , "Qb6" , "b3" , "cxd4" , "e4" , "Bg2" , "O-O" , "Ne2" , "Nge7" , "g3" , "Rfd1" ;
+        chon:nextHalfMove      :hmgamXTOixJc .

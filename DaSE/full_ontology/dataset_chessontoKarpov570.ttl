@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plagg80ai  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:hmgamgg80aiw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgse5nJkzr , :rolhggg80aiwg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "O-O" , "Nf3" , "Nc6" , "Bb5" , "b5" , "Be7" , "Bf8" , "d6" , "Nbd2" , "Nf6" , "a6" , "Bb3" , "e4" , "Re8" , "Re1" , "c3" , "d4" , "Ba4" , "e5" , "h3" , "Bb7" ;
+        chon:nextHalfMove      :hmgamse5nJkz , :hmgamgg80aiw .
+
+:cgrgg80ai  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggg80ai .
+
+:aggg80ai  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+:rolgg80ai  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggg80ai .
+
+chon:HalfMove  chon:subEventOf  :gamgg80a .
+
+:opegg80ai  a            chon:ChessOpening ;
+        chon:hasECOCode  "C93" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggg80ai .
+
+:resgg80aiw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamse5nJkz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgse5nJkzr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc4" , "Qxd8" , "Bc2" , "Rxd8" , "Nb6" , "N4f3" , "axb5" , "cxb5" , "Nbd7" , "c5" , "Rc1" , "c4" , "g6" , "Nb8" , "Bc6" , "a3" , "Rxc6" , "Rc8" , "c6" , "a4" , "h6" , "Bxc6" , "Bb2" , "Bxa4" , "bxa4" , "Nxd4" , "exd4" , "dxc5" , "b4" , "bxc5" ;
+        chon:nextHalfMove      :hmgamse5nJkz .
+
+:gamgg80a  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgg80ai ;
+        chon:atPlace           :plagg80ai ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgg80aiw ;
+        chon:hasHalfMove       :hmgamgg80aiw , :hmgamse5nJkz ;
+        chon:hasLastHalfMove   :hmgamse5nJkz ;
+        chon:hasOpening        :opegg80ai ;
+        chon:hasReport         :cgrgg80ai ;
+        chon:hasResult         :resgg80aiw ;
+        chon:subEventOf        :tougg80a .
+
+:tougg80a  a          chon:hessTournament ;
+        chon:atPlace  :plagg80ai ;
+        chon:hasName  "Tilburg" .
+
+:rolhggg80aiwg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggg80ai .
+
+:rolhgse5nJkzr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggg80ai .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

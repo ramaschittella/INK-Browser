@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plax7xULY  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:rolhgx7xULYtn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx7xULY .
+
+:hmgamx7xULYt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgx7xULYtn , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamJ7u9iXw .
+
+:agx7xULY  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Zhang Pengxiang" .
+
+:opex7xULY  a            chon:ChessOpening ;
+        chon:hasECOCode  "C54" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx7xULY .
+
+:hmgamJ7u9iXw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJ7u9iXwy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Rxf5" , "Rd5" , "Kg1" , "h6" , "Rb8" , "g5" , "Nf6" , "Ne7" , "Qc5" , "Rbf8" , "Rae1" , "Ng6" , "Qxd4" , "R8e6" , "Nxd5" , "Kg8" , "Bxb3" , "cxd4" , "R8f7" , "Re8" , "Be6" , "f5" , "Qd4" , "Bc5" , "Be3" , "Kh8" , "Qa4" , "h5" , "Re7" , "Qc6+" , "Kf8" , "e5" , "Qxb3" , "dxe5" , "d4" , "Qb3" , "Qb4" , "exf5" , "Nxe3" , "Rce2" , "Qd7" , "Bc4" , "Rc2" , "Nf1" , "c6" , "Re8+" , "Kh7" , "Kg7" , "c3" , "g3" , "Nd5" , "Bxe3" , "Re1" , "Re2" , "d3" , "h3" , "Nf3" , "d6" , "Nxe5" , "Nbd2" , "Rxe5" , "Kg2" , "Ba7" , "O-O" , "Nc6" , "Qxd5" , "Qd5" , "R6e4" , "a5" , "a6" , "Bb3" ;
+        chon:nextHalfMove      :hmgamJ7u9iXw .
+
+chon:HalfMove  chon:subEventOf  :gamx7xUL .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx7xULY .
+
+:cgrx7xULY  a   chon:ChessGameReport .
+
+:rolhgJ7u9iXwy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx7xULY .
+
+:resx7xULYt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamx7xUL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolx7xULY ;
+        chon:atPlace           :plax7xULY ;
+        chon:atTime            "2001.11.27"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamx7xULYt ;
+        chon:hasHalfMove       :hmgamJ7u9iXw , :hmgamx7xULYt ;
+        chon:hasLastHalfMove   :hmgamJ7u9iXw ;
+        chon:hasOpening        :opex7xULY ;
+        chon:hasReport         :cgrx7xULY ;
+        chon:hasResult         :resx7xULYt ;
+        chon:subEventOf        :toux7xUL .
+
+:rolx7xULY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agx7xULY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toux7xUL  a          chon:hessTournament ;
+        chon:atPlace  :plax7xULY ;
+        chon:hasName  "FIDE WCh KO" .

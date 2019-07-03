@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamiN3nX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliN3nXU ;
+        chon:atPlace           :plaiN3nXU ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiN3nXUD ;
+        chon:hasHalfMove       :hmgamuLYDuTF , :hmgamiN3nXUD ;
+        chon:hasLastHalfMove   :hmgamuLYDuTF ;
+        chon:hasOpening        :opeiN3nXU ;
+        chon:hasReport         :cgriN3nXU ;
+        chon:hasResult         :resiN3nXUD ;
+        chon:subEventOf        :touiN3nX .
+
+:touiN3nX  a          chon:hessTournament ;
+        chon:atPlace  :plaiN3nXU ;
+        chon:hasName  "Amsterdam" .
+
+:rolhguLYDuTFN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiN3nXU .
+
+:resiN3nXUD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiN3nXU .
+
+:agiN3nXU  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Olafsson, Fridrik" .
+
+chon:HalfMove  chon:subEventOf  :gamiN3nX .
+
+:opeiN3nXU  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiN3nXU .
+
+:hmgamuLYDuTF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhguLYDuTFN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Be7" , "Bf8" , "Qd3" , "Re1" , "Bh6" , "Bxc4" , "Bg5" , "b6" , "Bc2" , "Rc8" , "g6" , "a3" , "Re8" , "Rad1" , "Bd3" , "Nc6" , "Bb7" ;
+        chon:nextHalfMove      :hmgamuLYDuTF .
+
+:rolhgiN3nXUDz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiN3nXU .
+
+:plaiN3nXU  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:hmgamiN3nXUD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiN3nXUDz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e3" , "e6" , "d4" , "Bb4" , "Bd3" , "Nf6" , "c4" , "exd4" , "cxd4" , "c5" , "Nf3" , "Nc3" , "dxc4" , "d5" , "O-O" ;
+        chon:nextHalfMove      :hmgamuLYDuTF , :hmgamiN3nXUD .
+
+:cgriN3nXU  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:roliN3nXU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiN3nXU .

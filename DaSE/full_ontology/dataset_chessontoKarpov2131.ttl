@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaq8SlKl  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:hmgamR05F6me  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgR05F6mez , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "h5" , "Rd7" , "Ba3" , "Rd1" , "g4" , "Be3" , "h6" ;
+        chon:nextHalfMove      :hmgamR05F6me .
+
+:cgrq8SlKl  a   chon:ChessGameReport .
+
+:hmgamq8SlKlp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgq8SlKlp0 , :rolhgR05F6mez ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bf2" , "Qxd1" , "O-O" , "Nc6" , "Nd4" , "Rxa2" , "Ne7" , "Nf3" , "Ba3" , "Nbc6" , "Bxf5+" , "Nxe5" , "f6" , "Rxb7" , "Re2" , "Bxc4" , "Kh1" , "Bxf2+" , "c5" , "d4" , "Rxd1" , "Rab8" , "exf5" , "Nxf5" , "R8xe7" , "g6" , "Bxg6" , "e5" , "Bb5+" , "Nc3" , "Re7" , "Rd1" , "Bd6" , "Bxe7" , "f5" , "Rab1" , "Bd3" , "dxc5" , "Re1" , "Be3" , "Bf5" , "d5" , "Rhe8" , "Kg6" , "Rd7+" , "e6" , "Nd5" , "Kh6" , "g5" , "Rc7" , "Ng6" , "Rf1" , "e4" , "Nxc3" , "Bc2" , "Ne5" , "Kf7" , "Kxg6" , "c4" , "f4" , "dxc4" , "Bxc5" , "Rc2" , "bxc3" , "h3" , "Be2" , "c6" , "Rbe8" , "Rxa7" ;
+        chon:nextHalfMove      :hmgamq8SlKlp , :hmgamR05F6me .
+
+:gamq8SlK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolq8SlKl ;
+        chon:atPlace           :plaq8SlKl ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamq8SlKlp ;
+        chon:hasHalfMove       :hmgamR05F6me , :hmgamq8SlKlp ;
+        chon:hasLastHalfMove   :hmgamR05F6me ;
+        chon:hasOpening        :opeq8SlKl ;
+        chon:hasReport         :cgrq8SlKl ;
+        chon:hasResult         :resq8SlKlp ;
+        chon:subEventOf        :touq8SlK .
+
+:agq8SlKl  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Shirov, Alexei" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agq8SlKl .
+
+:rolq8SlKl  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agq8SlKl .
+
+:rolhgR05F6mez  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agq8SlKl .
+
+:opeq8SlKl  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:HalfMove  chon:subEventOf  :gamq8SlK .
+
+:rolhgq8SlKlp0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agq8SlKl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agq8SlKl .
+
+:resq8SlKlp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touq8SlK  a          chon:hessTournament ;
+        chon:atPlace  :plaq8SlKl ;
+        chon:hasName  "Vienna Millenium" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

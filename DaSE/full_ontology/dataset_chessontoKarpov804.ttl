@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaDSM58B  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:rolhgPSJiGAa8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDSM58B .
+
+:rolhgDSM58B8W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDSM58B .
+
+:cgrDSM58B  a   chon:ChessGameReport .
+
+:gamDSM58  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDSM58B ;
+        chon:atPlace           :plaDSM58B ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDSM58B8 ;
+        chon:hasHalfMove       :hmgamPSJiGAa , :hmgamDSM58B8 ;
+        chon:hasLastHalfMove   :hmgamPSJiGAa ;
+        chon:hasOpening        :opeDSM58B ;
+        chon:hasReport         :cgrDSM58B ;
+        chon:hasResult         :resDSM58B8 ;
+        chon:subEventOf        :touDSM58 .
+
+:resDSM58B8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touDSM58  a          chon:hessTournament ;
+        chon:atPlace  :plaDSM58B ;
+        chon:hasName  "Linares" .
+
+:agDSM58B  a          chon:Agent ;
+        chon:hasName  "Jussupow, Artur" , "Karpov, Anatoly" .
+
+:rolDSM58B  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDSM58B .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDSM58B .
+
+chon:HalfMove  chon:subEventOf  :gamDSM58 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDSM58B .
+
+:hmgamPSJiGAa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPSJiGAa8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jussupow, Artur" ;
+        chon:hasSANRecord      "Rad1" , "h5" , "h3" , "Ne4" , "Rc8" , "Rb3" , "Bg5" , "Bxe6" , "Rad8" , "Qc2" , "cxd4" , "Rg8" , "a3" , "Ra7" , "Ra6+" , "Be7" , "Qf2" , "h6" , "Rxb5" , "g5" , "h4" , "Rxa6" , "Qc8" , "Ncxd4" , "Nc5" , "fxe3" , "Rxb2" , "Nxe3" , "Qd5" , "Kh2" , "Qxf7+" , "Qxe4" , "Rc6" , "d4" , "Qe7" , "Rc1" , "Ra4" , "Rxe3" , "Rd8" , "Rff7" , "g3" , "Kh7" , "Kg6" , "Be3" , "Rfb7" , "Kh8" , "Qxe6" , "Raa7" , "Re2" , "c3" , "Nf5" , "c5" , "Nh2" , "Qb7" , "Re8" , "Rbxb5" , "O-O" , "Bxe3" , "Rxc5" , "Qxe5" , "Kh1" , "Rf8" , "Ra5" , "Nxe6" , "Ra8" , "Qxc5" , "Qf7" , "Ng4" ;
+        chon:nextHalfMove      :hmgamPSJiGAa .
+
+:opeDSM58B  a            chon:ChessOpening ;
+        chon:hasECOCode  "C80" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamDSM58B8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDSM58B8W , :rolhgPSJiGAa8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jussupow, Artur" ;
+        chon:hasSANRecord      "e5" , "a6" , "Nc6" , "Bb3" , "Nf6" , "dxe5" , "Nbd2" , "Ba4" , "Nxe4" , "b5" , "d4" , "e4" , "d5" , "Bb5" , "Nf3" , "O-O" , "Be6" ;
+        chon:nextHalfMove      :hmgamDSM58B8 , :hmgamPSJiGAa .

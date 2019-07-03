@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrpS5bSa  a   chon:ChessGameReport .
+
+:rolpS5bSa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpS5bSa .
+
+:respS5bSaM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamdE0V6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpS5bSa ;
+        chon:atPlace           :pladE0V6b ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampS5bSaM ;
+        chon:hasHalfMove       :hmgampS5bSaM ;
+        chon:hasLastHalfMove   :hmgampS5bSaM ;
+        chon:hasOpening        :opepS5bSa ;
+        chon:hasReport         :cgrpS5bSa ;
+        chon:hasResult         :respS5bSaM ;
+        chon:subEventOf        :toupS5bS .
+
+:toupS5bS  a          chon:hessTournament ;
+        chon:atPlace  :pladE0V6b ;
+        chon:hasName  "Biel" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpS5bSa .
+
+:pladE0V6b  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+chon:HalfMove  chon:subEventOf  :gamdE0V6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpS5bSa .
+
+:agpS5bSa  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Georgiev, Kiril" .
+
+:rolhgpS5bSaM0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpS5bSa .
+
+:opepS5bSa  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgampS5bSaM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpS5bSaM0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc3" , "Qxf3" , "e4" , "Bxf3" , "Nxe4" , "O-O" , "dxe4" , "h3" , "Bc4" , "Nf3" , "Bd6" , "Nxf6+" , "d5" , "c3" , "d4" , "Nd5" , "Bg4" , "e6" , "c6" , "Ngf6" , "Re1" , "Nd7" , "Nxf6" ;
+        chon:nextHalfMove      :hmgampS5bSaM .

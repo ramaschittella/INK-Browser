@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agE8DMgc  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Torre, Eugenio" .
+
+:opeE8DMgc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:gamE8DMg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolE8DMgc ;
+        chon:atPlace           :plaE8DMgc ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQ8y1PbK ;
+        chon:hasHalfMove       :hmgamQ8y1PbK ;
+        chon:hasLastHalfMove   :hmgamQ8y1PbK ;
+        chon:hasOpening        :opeE8DMgc ;
+        chon:hasReport         :cgrE8DMgc ;
+        chon:hasResult         :resE8DMgcH ;
+        chon:subEventOf        :touE8DMg .
+
+:hmgamQ8y1PbK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQ8y1PbKT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxd1" , "Bd6" , "h3" , "g3" , "b3" , "Nd5" , "d4" , "Qg4" , "Bxd4" , "dxc4" , "e6" , "Kg2" , "Rfe5" , "Bc5" , "Bd2" , "Bxg2" , "Qd3" , "Kxg2" , "Qf3" , "Rf5" , "Kh8" , "Kg8" , "Qb7+" , "Qa8+" , "Qf4" , "Qa4" , "Bb7" , "Rxd4" , "Rd8" , "Rf8" , "Kf1" , "Bg2" , "Rf3" , "Qxa6" , "Kh2" , "Nf3" , "Na6" , "d5" , "Nc6" , "e4" , "h6" , "Nxf7" , "b6" , "Nxe6" , "Rad1" , "cxd4" , "Re2" , "Rd2" , "Qa8" , "Re1" , "Qc8" , "Nd2" , "Nf4+" , "c6" , "Ba6" , "a5" , "c5" , "Nh2+" , "Ke1" , "Qd8" , "Kg1" , "c4" , "Qb7" , "Qd7" , "Qf8" , "Bc3" , "Bb4+" , "Rd3" , "Nd6" , "Qf7" , "Nf6" , "Nxd4" , "O-O" , "Ne5" , "Ng5" , "exd5" , "Rd6" , "Qg6" , "Qc6" , "R5e3" , "Rd1" , "Ng4" , "Be7" , "Re6" , "Qf5" , "Rd1+" , "Qe4+" , "Ndxc4" , "Rf4" , "Kh7" , "Kxf7" ;
+        chon:nextHalfMove      :hmgamQ8y1PbK .
+
+:touE8DMg  a          chon:hessTournament ;
+        chon:atPlace  :plaE8DMgc ;
+        chon:hasName  "Tilburg" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agE8DMgc .
+
+chon:HalfMove  chon:subEventOf  :gamE8DMg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agE8DMgc .
+
+:cgrE8DMgc  a   chon:ChessGameReport .
+
+:rolE8DMgc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agE8DMgc .
+
+:rolhgQ8y1PbKT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agE8DMgc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resE8DMgcH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaE8DMgc  a         chon:Place ;
+        chon:hasName  "Tilburg" .

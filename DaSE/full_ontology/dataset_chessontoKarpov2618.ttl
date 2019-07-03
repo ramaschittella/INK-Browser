@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrXQ193O  a   chon:ChessGameReport .
+
+:rolhgXQ193Oe5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXQ193O .
+
+:agXQ193O  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Van Wely,L" .
+
+:rolXQ193O  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXQ193O .
+
+:opeXQ193O  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXQ193O .
+
+:hmgamXQ193Oe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXQ193Oe5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Nxc3" , "Bg5" , "Bb8" , "Rd8" , "Ne7" , "Qe1" , "h4" , "O-O" , "Bf6" , "d4" , "Qc8" , "Bc6" , "a3" , "Bh4" , "dxc4" , "Kf7" , "Bxe3" , "h6" , "Kh2" , "Nf6" , "Qxd7" , "Bd1" , "Bf4" , "Kg5" , "Qa4+" , "e4" , "d5" , "Rd1" , "e3" , "Nxc2" , "Be7" , "Rc8" , "fxe3" , "Ne5" , "Bb7" , "gxh4" , "h3" , "exf6" , "Ne3" , "b6" , "Nf3" , "Bb5" , "Bg3" , "Qxc3" , "c5" , "h5" , "Bc2" , "c4" , "axb4" , "Rxd1" , "Nd4" , "Bxc4" , "a5" , "Ba2" , "f6" , "g6" , "Nd5" , "Bxd7" , "g5" , "Kxh4" , "Nxd4" , "Ba4" , "b4" , "Qd7" , "Qe8" , "b5" , "Kh3" , "cxd4" , "e5" , "Bg7" , "Bc7" , "Bb1" , "Bxf6" , "Qxd1" , "Bd4" , "Ng4" , "e6" , "Qd2" , "Qc2" , "Rc1" , "Nc3" , "Nc6" ;
+        chon:nextHalfMove      :hmgamXQ193Oe .
+
+:gamXQ193  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXQ193O ;
+        chon:atPlace           :plaXQ193O ;
+        chon:atTime            "2002.04.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXQ193Oe ;
+        chon:hasHalfMove       :hmgamXQ193Oe ;
+        chon:hasLastHalfMove   :hmgamXQ193Oe ;
+        chon:hasOpening        :opeXQ193O ;
+        chon:hasReport         :cgrXQ193O ;
+        chon:hasResult         :resXQ193Oe ;
+        chon:subEventOf        :touXQ193 .
+
+chon:HalfMove  chon:subEventOf  :gamXQ193 .
+
+:touXQ193  a          chon:hessTournament ;
+        chon:atPlace  :plaXQ193O ;
+        chon:hasName  "FIDE GP" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXQ193O .
+
+:resXQ193Oe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaXQ193O  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .

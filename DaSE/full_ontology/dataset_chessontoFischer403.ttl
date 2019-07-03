@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamOqGhS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1qDv0h ;
+        chon:atPlace           :plaOqGhSg ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1qDv0hm ;
+        chon:hasHalfMove       :hmgamrsNOwib , :hmgam1qDv0hm ;
+        chon:hasLastHalfMove   :hmgamrsNOwib ;
+        chon:hasOpening        :ope1qDv0h ;
+        chon:hasReport         :cgr1qDv0h ;
+        chon:hasResult         :res1qDv0hm ;
+        chon:subEventOf        :tou1qDv0 .
+
+:plaOqGhSg  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+:rolhg1qDv0hmo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1qDv0h .
+
+:cgr1qDv0h  a   chon:ChessGameReport .
+
+:tou1qDv0  a          chon:hessTournament ;
+        chon:atPlace  :plaOqGhSg ;
+        chon:hasName  "Varna olm" .
+
+:rolhgrsNOwibP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1qDv0h .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1qDv0h .
+
+:rol1qDv0h  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1qDv0h .
+
+chon:HalfMove  chon:subEventOf  :gamOqGhS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1qDv0h .
+
+:hmgamrsNOwib  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrsNOwibP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Donner, Jan Hein" ;
+        chon:hasSANRecord      "Rh7" , "Re6" , "a4" , "Rb6" , "axb3" , "Rd7+" , "Rxh6" , "Bf8" , "Kg2" , "Kd4" , "Kf6" , "Kf3" , "g4" , "Kf7" , "b3" , "Bc5" , "Kd3" , "Ke5" , "g5" ;
+        chon:nextHalfMove      :hmgamrsNOwib .
+
+:res1qDv0hm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:ag1qDv0h  a          chon:Agent ;
+        chon:hasName  "Donner, Jan Hein" , "Fischer, Robert James" .
+
+:ope1qDv0h  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam1qDv0hm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrsNOwibP , :rolhg1qDv0hmo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Donner, Jan Hein" ;
+        chon:hasSANRecord      "Rxe8" , "Ra6" , "dxc6" , "O-O" , "Rd4" , "Na4" , "Bc3" , "e5" , "Rd8+" , "Qxe4" , "Bf5" , "Bg7" , "gxh6" , "Be5" , "Ng3" , "Bd2" , "Qxe8" , "Qe3" , "d5" , "Nxe4" , "Qc7" , "f5" , "Bxd3" , "fxe4" , "Nf5" , "Qxd3" , "exd4" , "Nf3" , "Nc3" , "Bd6" , "Qf7" , "Nd4" , "Bf4" , "Bd3" , "Rad1" , "c4" , "dxe3" , "Nxh6+" , "Qa7" , "Rfe8" , "bxc6" , "exf5" , "e4" , "d4" , "Qe3+" , "Bf8" , "f3" , "Ne4" , "Rfd1" , "h6" , "a5" , "Nd7" , "Qa5+" , "h4" , "c6" , "Qg3+" , "Ngf6" , "e6" , "Rd8" , "Nc5" , "Qxe3" , "Bd4" , "dxe4" , "Bg6" ;
+        chon:nextHalfMove      :hmgam1qDv0hm , :hmgamrsNOwib .

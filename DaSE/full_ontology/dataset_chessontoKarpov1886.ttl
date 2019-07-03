@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope3lphgk  a            chon:ChessOpening ;
+        chon:hasECOCode  "B11" .
+
+:res3lphgkI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3lphgk .
+
+:rolhg3lphgkIp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3lphgk .
+
+:hmgamelmvNjN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgelmvNjNA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxc2" , "d3" , "Kf1" , "Rxg6" , "Re2+" , "Kf5" , "c5" , "Rxf7" , "Rxh7" , "Kxg3" , "Rh1" , "Rxd3+" , "Rxb2" , "g7" , "Rb7+" , "Nf5" , "Nxg3+" , "b5" , "Rc1" , "Kg1" , "Nd1" , "Kd6" , "Kg4" , "g3" , "Rf6+" , "d4" , "Kf2" , "Rb6" , "Kf6" , "g6" , "Rg2+" , "Rd2" , "b4" , "Rxd1" , "Ke7" , "axb4" ;
+        chon:nextHalfMove      :hmgamelmvNjN .
+
+chon:HalfMove  chon:subEventOf  :gam3lphg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3lphgk .
+
+:pla3lphgk  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+:gam3lphg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3lphgk ;
+        chon:atPlace           :pla3lphgk ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3lphgkI ;
+        chon:hasHalfMove       :hmgam3lphgkI , :hmgamelmvNjN ;
+        chon:hasLastHalfMove   :hmgamelmvNjN ;
+        chon:hasOpening        :ope3lphgk ;
+        chon:hasReport         :cgr3lphgk ;
+        chon:hasResult         :res3lphgkI ;
+        chon:subEventOf        :tou3lphg .
+
+:cgr3lphgk  a   chon:ChessGameReport .
+
+:tou3lphg  a          chon:hessTournament ;
+        chon:atPlace  :pla3lphgk ;
+        chon:hasName  "Alma-Ata m2" .
+
+:ag3lphgk  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tkachiev, Vladislav" .
+
+:rol3lphgk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3lphgk .
+
+:rolhgelmvNjNA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3lphgk .
+
+:hmgam3lphgkI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3lphgkIp , chon:AgentRole , :rolhgelmvNjNA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kf8" , "Nf5" , "d5" , "a5" , "Rxe5" , "Kf1" , "Bxe5" , "Be2" , "Qd6" , "Nxe5" , "Re8" , "f4" , "c6" , "O-O" , "Qg3" , "Qxf3" , "Nf3" , "Rxd6" , "Rc1" , "e4" , "g5" , "Bg7" , "Re6" , "Kf2" , "a3" , "Be3" , "d3" , "Nd7" , "Qxd6" , "Bd1" , "Kd6" , "e6" , "Nc3" , "Ke7" , "g6" , "Ne7" , "Bg4" , "Re1" , "h3" , "Nd4" , "Bf4" , "hxg4" , "Be5" , "Qh2" , "exd5" , "Re7" , "Re5" , "f3" , "Bxf3" , "Nxg4" ;
+        chon:nextHalfMove      :hmgamelmvNjN , :hmgam3lphgkI .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

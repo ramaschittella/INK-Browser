@@ -1,0 +1,84 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:roli1llAi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agi1llAi .
+
+:rolhgu1iB0hLR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi1llAi .
+
+:gamR1b4g  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roli1llAi ;
+        chon:atPlace           :plaR1b4gf ;
+        chon:atTime            "1886.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgami1llAiI ;
+        chon:hasHalfMove       :hmgamBYVYqg5 , :hmgamu1iB0hL , :hmgampYZKTf2 , :hmgami1llAiI ;
+        chon:hasLastHalfMove   :hmgamBYVYqg5 ;
+        chon:hasOpening        :opei1llAi ;
+        chon:hasReport         :cgri1llAi ;
+        chon:hasResult         :resi1llAiI ;
+        chon:subEventOf        :toui1llA .
+
+:resi1llAiI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgpYZKTf2P  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi1llAi .
+
+:agi1llAi  a          chon:Agent ;
+        chon:hasName  "Zukertort, Johannes Hermann" , "Steinitz, William" .
+
+:hmgampYZKTf2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpYZKTf2P ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zukertort, Johannes Hermann" ;
+        chon:hasSANRecord      "Rae1" , "Nd1" , "Bb2" , "Bd7" , "Qd6" , "Rxa8" , "Nf7" , "Bf6" , "b3" , "Re8" , "d5" , "Re2" , "c6" ;
+        chon:nextHalfMove      :hmgamBYVYqg5 , :hmgampYZKTf2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi1llAi .
+
+:rolhgBYVYqg51  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi1llAi .
+
+:hmgamu1iB0hL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgu1iB0hLR , :rolhgpYZKTf2P , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zukertort, Johannes Hermann" ;
+        chon:hasSANRecord      "Qh5" , "Nf3" , "Nf6" , "Re1" , "f5" , "g6" , "Bd3" , "e5" , "O-O" , "Bb5" , "Nxe5" , "Be7" , "Nc3" , "Qf3" , "Rxe5" , "Nd6" , "Nxe4" , "Nc6" ;
+        chon:nextHalfMove      :hmgampYZKTf2 , :hmgamu1iB0hL .
+
+:toui1llA  a          chon:hessTournament ;
+        chon:atPlace  :plaR1b4gf ;
+        chon:hasName  "World Championship 1st" .
+
+chon:HalfMove  chon:subEventOf  :gamR1b4g .
+
+:opei1llAi  a            chon:ChessOpening ;
+        chon:hasECOCode  "C67" .
+
+:cgri1llAi  a   chon:ChessGameReport .
+
+:hmgami1llAiI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgu1iB0hLR , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamu1iB0hL .
+
+:plaR1b4gf  a         chon:Place ;
+        chon:hasName  "USA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamBYVYqg5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBYVYqg51 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zukertort, Johannes Hermann" ;
+        chon:hasSANRecord      "Qf1" , "Qe2" , "Bxb2" , "Nxb2" , "Rxe8+" , "Re8" , "Bxe8" , "Ng5" ;
+        chon:nextHalfMove      :hmgamBYVYqg5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi1llAi .

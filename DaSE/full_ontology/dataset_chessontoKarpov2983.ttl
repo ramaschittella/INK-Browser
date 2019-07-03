@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:planlJoQZ  a         chon:Place ;
+        chon:hasName  "Vitoria Gasteiz ESP" .
+
+:cgrnlJoQZ  a   chon:ChessGameReport .
+
+:rolhgOnTHb1bj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnlJoQZ .
+
+:agnlJoQZ  a          chon:Agent ;
+        chon:hasName  "Polgar,Ju" , "Karpov,Ana" .
+
+:rolnlJoQZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnlJoQZ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnlJoQZ .
+
+:openlJoQZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "E17" .
+
+chon:HalfMove  chon:subEventOf  :gamnlJoQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnlJoQZ .
+
+:gamnlJoQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnlJoQZ ;
+        chon:atPlace           :planlJoQZ ;
+        chon:atTime            "2007.11.10"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOnTHb1b ;
+        chon:hasHalfMove       :hmgamOnTHb1b ;
+        chon:hasLastHalfMove   :hmgamOnTHb1b ;
+        chon:hasOpening        :openlJoQZ ;
+        chon:hasReport         :cgrnlJoQZ ;
+        chon:hasResult         :resnlJoQZm ;
+        chon:subEventOf        :tounlJoQ .
+
+:tounlJoQ  a          chon:hessTournament ;
+        chon:atPlace  :planlJoQZ ;
+        chon:hasName  "Chess Champions League" .
+
+:resnlJoQZm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamOnTHb1b  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOnTHb1bj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Ju" ;
+        chon:hasSANRecord      "Qc1+" , "c4" , "f4" , "Rd2" , "Nc3" , "Qb8" , "Qxd5" , "exd5" , "Nxb5" , "Ng7" , "Bg2" , "e6" , "Kg2" , "h4" , "Qc2" , "Nba6" , "Nb5" , "Rfe8" , "cxd5" , "e5" , "a3" , "Ra2" , "Nb4" , "Bxd5" , "Rh2" , "Kg1" , "Qa2" , "Ne6" , "d5" , "Be1" , "Kf1" , "Re3" , "Nd4" , "e4" , "Rd1" , "Qa8" , "Rxd5" , "dxc5" , "d4" , "Bf2" , "Nac7" , "Nc6" , "Ndb5" , "Rc3" , "Qc8" , "Rad2" , "Qd7" , "Nxc5" , "Nc5" , "b4" , "Qb1+" , "Qf3" , "Bb7" , "Rd8" , "Be3" , "Qb3" , "Be7" , "Qe4" , "Qb2" , "Nf6" , "Ne4" , "Nf3" , "g3" , "Qb1" , "b6" , "c5" , "O-O" , "Rad8" , "Nxa7" , "Qe3" , "Rc1" , "Nxf2" , "Bf8" , "Rd3" , "g6" ;
+        chon:nextHalfMove      :hmgamOnTHb1b .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

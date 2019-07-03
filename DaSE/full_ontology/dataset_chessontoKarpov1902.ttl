@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhga8hTJe8K  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agI88Bnd .
+
+:touI88Bn  a          chon:hessTournament ;
+        chon:atPlace  :plaI88Bnd ;
+        chon:hasName  "Dortmund" .
+
+:resI88Bndh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agI88Bnd .
+
+chon:HalfMove  chon:subEventOf  :gamI88Bn .
+
+:hmgama8hTJe8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhga8hTJe8K ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Qa5" , "Nd7" , "Rb3" , "Rb2" , "Qa3" , "Bd3" , "Ra5" , "Kh2" , "Qc1" , "Qc4" , "Bc6" , "Qb2" , "a5" , "Ra8" , "bxa4" , "Qf2" , "d7" , "Rc4" , "Qd1" , "b6" , "Qc6" , "Rxb6" , "h4" , "a4" , "Qe4" , "Rd3" , "Bxe4" , "Qb3" , "Qd2" , "Qd5" , "Bb1" , "Qa7" , "Bd7" , "Qa6" , "Qxa4" , "Qe3" , "Qe2" , "Rd4" , "Rc2" , "Rd2" , "Rc8" , "h3" , "Qa4" , "f6" , "Be4" , "Qc2" , "Nf8" , "Qd4" , "Rb4" , "Rb8" , "Rxe4" ;
+        chon:nextHalfMove      :hmgama8hTJe8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agI88Bnd .
+
+:plaI88Bnd  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:cgrI88Bnd  a   chon:ChessGameReport .
+
+:gamI88Bn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolI88Bnd ;
+        chon:atPlace           :plaI88Bnd ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamI88Bndh ;
+        chon:hasHalfMove       :hmgama8hTJe8 , :hmgamI88Bndh ;
+        chon:hasLastHalfMove   :hmgama8hTJe8 ;
+        chon:hasOpening        :opeI88Bnd ;
+        chon:hasReport         :cgrI88Bnd ;
+        chon:hasResult         :resI88Bndh ;
+        chon:subEventOf        :touI88Bn .
+
+:rolhgI88Bndhl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agI88Bnd .
+
+:agI88Bnd  a          chon:Agent ;
+        chon:hasName  "Beliavsky, Alexander G" , "Karpov, Anatoly" .
+
+:rolI88Bnd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agI88Bnd .
+
+:hmgamI88Bndh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhga8hTJe8K , :rolhgI88Bndhl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Ne4" , "Nf3" , "f3" , "e3" , "Nd4" , "e4" , "Bxd6" , "d5" , "dxc4" , "h6" , "Kh1" , "Nf8" , "Be7" , "Be8" , "Bb1" , "Rd1" , "Rfd8" , "Qb6" , "Bc6" , "Rcd1" , "e6" , "Rd5" , "c5" , "O-O" , "Nc3" , "Bxd5" , "Bh4" , "Bg5" , "c4" , "Rc1" , "Nf6" , "Qe2" , "Qb4" , "Qa5" , "Bd3" , "Nc6" , "d4" , "Qd8" , "cxd4" , "Rxd4" , "Rxd5" , "a6" , "Nh7" , "Nb3" , "Bxc4" , "Bg3" , "Nxd4" , "e5" , "Nd6" , "exd6" , "b3" , "Bd7" , "Rc8" ;
+        chon:nextHalfMove      :hmgamI88Bndh , :hmgama8hTJe8 .
+
+:opeI88Bnd  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamgpcYapS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggpcYapSN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "exd5" , "b5" , "Rb7" , "Rxe1" , "Bxf3" , "e6" , "Nh6" , "f4" , "Nf3" , "e4" , "c4" , "h4" , "Ne5" , "g5" , "Rbe1" , "Bg4" , "b3" , "Qxf3" , "Bd3" , "Qd1" , "Bc1" , "Bd2" , "Kg2" , "O-O" , "Nf6" , "f5" , "d5" , "g6" , "Qb8" , "Bg7" , "Re8" , "a6" , "Ne8" , "Rb8" , "g4" , "Nf7" , "Nc7" , "Be2" , "Qc2" , "d4" , "Rb1" , "Nbd7" , "c5" , "d6" , "Nc3" , "h3" ;
+        chon:nextHalfMove      :hmgamgpcYapS , :hmgamsp0cKoF .
+
+:aggpcYap  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+:opegpcYap  a            chon:ChessOpening ;
+        chon:hasECOCode  "E90" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggpcYap .
+
+:resgpcYapS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamgpcYa  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgpcYap ;
+        chon:atPlace           :plagpcYap ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgpcYapS ;
+        chon:hasHalfMove       :hmgamsp0cKoF , :hmgamgpcYapS ;
+        chon:hasLastHalfMove   :hmgamsp0cKoF ;
+        chon:hasOpening        :opegpcYap ;
+        chon:hasReport         :cgrgpcYap ;
+        chon:hasResult         :resgpcYapS ;
+        chon:subEventOf        :tougpcYa .
+
+chon:HalfMove  chon:subEventOf  :gamgpcYa .
+
+:rolhggpcYapSN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggpcYap .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggpcYap .
+
+:hmgamsp0cKoF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsp0cKoFZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bd4" , "hxg6" , "Bc2" , "Kb7" , "Ke7" , "Qxb1" , "Ka5" , "Kc8" , "Rb1" , "Ng3" , "h5" , "Kb3" , "Be8" , "Ne8" , "Nf7" , "Re7" , "Qb8" , "Bxb1" , "Na8+" , "Bd2" , "Kc7" , "Qd8" , "Kf8" , "Bf6" , "Kb6" , "Bh4" , "Nh1" , "Ka4" , "Bb2" , "Nh8" , "Kd7" , "Kd1" , "Bd7" , "Kb8" , "Kxa6" , "Bxd8" , "Kb5" , "Rxb1" , "Ne2" , "Ba4" , "Rb7" , "Bc3" , "Bxg6" , "Ke2" , "Nc7" , "Kf3" , "h6" , "Na8" , "Nd8" , "Bh8" , "Kc2" , "Bf2" , "Nc7+" , "bxc4" ;
+        chon:nextHalfMove      :hmgamsp0cKoF .
+
+:cgrgpcYap  a   chon:ChessGameReport .
+
+:rolhgsp0cKoFZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggpcYap .
+
+:rolgpcYap  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggpcYap .
+
+:tougpcYa  a          chon:hessTournament ;
+        chon:atPlace  :plagpcYap ;
+        chon:hasName  "St Stefan/Belgrade m" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plagpcYap  a         chon:Place ;
+        chon:hasName  "Belgrade" .

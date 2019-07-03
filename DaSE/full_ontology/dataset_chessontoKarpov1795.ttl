@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resofDAkjK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agofDAkj .
+
+:gamLdu5q  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLdu5qh ;
+        chon:atPlace           :plaLdu5qh ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamofDAkjK ;
+        chon:hasHalfMove       :hmgamofDAkjK ;
+        chon:hasLastHalfMove   :hmgamofDAkjK ;
+        chon:hasOpening        :opeofDAkj ;
+        chon:hasReport         :cgrofDAkj ;
+        chon:hasResult         :resofDAkjK ;
+        chon:subEventOf        :touLdu5q .
+
+:plaLdu5qh  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+:touLdu5q  a          chon:hessTournament ;
+        chon:atPlace  :plaLdu5qh ;
+        chon:hasName  "Las Palmas" .
+
+chon:HalfMove  chon:subEventOf  :gamLdu5q .
+
+:hmgamofDAkjK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgofDAkjKU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kamsky, Gata" ;
+        chon:hasSANRecord      "Kg3" , "Rxd6" , "Nbd7" , "Bc2" , "Nh4" , "Rd7" , "Rxc3" , "a4" , "c4" , "Rxb1" , "Qe3" , "a3" , "Ne2" , "bxc4" , "Qa7" , "Qc7" , "Bd2" , "h4" , "Rc3" , "d4" , "Rb1" , "Kf8" , "Ba6" , "Bc6" , "Ng5+" , "Rd3" , "Kh7" , "O-O" , "Rc1" , "Ba5" , "Kh3" , "Rxd5" , "Rxd8" , "Bd3" , "Nc5" , "b5" , "d5" , "dxc4" , "Bxc4" , "Bxe4" , "g6" , "Nf3" , "Nxf7" , "Qf3" , "e5" , "Ncxe4" , "Qd8" , "Nxd6" , "Rd4" , "Qe1" , "f3" , "h3" , "Qxd8" , "Rc2" , "Nxe4" , "Rhe8" , "Nxc3" , "Kg8" , "Bd6" , "Nh7" , "Kh6" , "e6" , "Kh2" , "a6" , "c6" , "Nf6" , "Bc3" , "Rb8" , "Kh1" , "Qg5" , "a5" , "c5" , "Ne4" , "Bb1" , "Qg4" , "Nc3" , "b3" , "h6" , "Ng3" , "Qd2" , "Ngf5" , "e4" , "Nxh6+" , "Qb6" , "e3" , "Bc8" , "Kh5" , "Kg7" , "Bb5" ;
+        chon:nextHalfMove      :hmgamofDAkjK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agofDAkj .
+
+:rolLdu5qh  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrofDAkj  a   chon:ChessGameReport .
+
+:agofDAkj  a          chon:Agent ;
+        chon:hasName  "Kamsky, Gata" , "Karpov, Anatoly" .
+
+:rolofDAkj  a             chon:AuthorRole ;
+        chon:performedBy  :agofDAkj .
+
+:opeofDAkj  a            chon:ChessOpening ;
+        chon:hasECOCode  "D48" .
+
+:rolhgofDAkjKU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agofDAkj .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

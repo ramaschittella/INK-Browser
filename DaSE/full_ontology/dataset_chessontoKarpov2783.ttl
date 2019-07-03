@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrkOaBEe  a   chon:ChessGameReport .
+
+:rolhggKRKncWn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkOaBEe .
+
+:gamkOaBE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkOaBEe ;
+        chon:atPlace           :plakOaBEe ;
+        chon:atTime            "2004.08.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkOaBEeG ;
+        chon:hasHalfMove       :hmgamgKRKncW , :hmgamkOaBEeG ;
+        chon:hasLastHalfMove   :hmgamgKRKncW ;
+        chon:hasOpening        :opekOaBEe ;
+        chon:hasReport         :cgrkOaBEe ;
+        chon:hasResult         :reskOaBEeG ;
+        chon:subEventOf        :toukOaBE .
+
+:rolkOaBEe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkOaBEe .
+
+:hmgamkOaBEeG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkOaBEeGp , chon:AgentRole ;
+        chon:hasSANRecord      "Nf3" ;
+        chon:nextHalfMove      :hmgamgKRKncW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkOaBEe .
+
+:plakOaBEe  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+chon:HalfMove  chon:subEventOf  :gamkOaBE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkOaBEe .
+
+:agkOaBEe  a          chon:Agent ;
+        chon:hasName  "Milos,G" , "Karpov,Ana" .
+
+:hmgamgKRKncW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhggKRKncWn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Milos,G" ;
+        chon:hasSANRecord      "b6" , "Nxc3" , "a3" , "Bg2" , "Kf3" , "Re2" , "Kd5" , "Be7" , "f5+" , "Nb5" , "Nxd4" , "Kd7" , "Nxa7" , "h4" , "exf6" , "Kf8" , "Nc3" , "Bf2" , "c4" , "Red2" , "Bd4" , "Ke8" , "Rxd8+" , "Ne2" , "Na5" , "Bxd8" , "Rxd8" , "fxg5" , "a4" , "Nc6" , "c5" , "Bxc3" , "Nb4" , "N8c6" , "Nxd5" , "cxd4" , "Be3" , "Bxg5" , "d5" , "Rxd1" , "Nxf6+" , "Rfd8" , "a5" , "Nc4" , "Kd3" , "Ne5" , "Ke2" , "Bb7" , "g4" , "e6" , "Bxg2" , "f4" , "Nd5" , "Ke4" , "Kc6" , "Kxg2" , "Qxd1+" , "Re1" , "Nxb2" , "hxg3" , "Bxd4" , "e4" , "d4" , "g5" , "Kc4" , "Be1" , "Nd4+" , "Bf6" , "cxd5" , "h5" , "g3" , "Nf6" , "e5" , "O-O" ;
+        chon:nextHalfMove      :hmgamgKRKncW .
+
+:toukOaBE  a          chon:hessTournament ;
+        chon:atPlace  :plakOaBEe ;
+        chon:hasName  "Rapid" .
+
+:opekOaBEe  a            chon:ChessOpening ;
+        chon:hasECOCode  "A30" .
+
+:reskOaBEeG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgkOaBEeGp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkOaBEe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

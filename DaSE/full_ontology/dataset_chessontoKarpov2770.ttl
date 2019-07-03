@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag7VTP5i  a          chon:Agent ;
+        chon:hasName  "Stefansson,H" , "Karpov,Ana" .
+
+:rolhg7VTP5i24  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7VTP5i .
+
+:ope7VTP5i  a            chon:ChessOpening ;
+        chon:hasECOCode  "A22" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7VTP5i .
+
+chon:HalfMove  chon:subEventOf  :gam7VTP5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7VTP5i .
+
+:hmgam7VTP5i2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7VTP5i24 , chon:AgentRole , :rolhg3SAZOgh2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Stefansson,H" ;
+        chon:hasSANRecord      "Na6" , "Bxf3" , "Qb3" , "e5" , "d3" , "Bd2" , "c4" , "Qb2" , "Qxc3" , "Bb4" , "Qxe5" , "Nf3" , "Bxc3" , "Nf6" , "cxd5" , "Rc8" , "Nc7" , "Bg4" , "g3" , "d5" , "a3" , "b4" , "a4" , "Ne6" , "c6" , "Nc3" , "Bg2" , "O-O" , "Re8" ;
+        chon:nextHalfMove      :hmgam3SAZOgh , :hmgam7VTP5i2 .
+
+:gam7VTP5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7VTP5i ;
+        chon:atPlace           :pla7VTP5i ;
+        chon:atTime            "2004.03.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7VTP5i2 ;
+        chon:hasHalfMove       :hmgam7VTP5i2 , :hmgam3SAZOgh ;
+        chon:hasLastHalfMove   :hmgam3SAZOgh ;
+        chon:hasOpening        :ope7VTP5i ;
+        chon:hasReport         :cgr7VTP5i ;
+        chon:hasResult         :res7VTP5i2 ;
+        chon:subEventOf        :tou7VTP5 .
+
+:tou7VTP5  a          chon:hessTournament ;
+        chon:atPlace  :pla7VTP5i ;
+        chon:hasName  "Rapid" .
+
+:pla7VTP5i  a         chon:Place ;
+        chon:hasName  "Reykjavik ISL" .
+
+:cgr7VTP5i  a   chon:ChessGameReport .
+
+:hmgam3SAZOgh  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3SAZOgh2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Stefansson,H" ;
+        chon:hasSANRecord      "g4" , "Na4" , "Ke4" , "Ke5" , "Bc6" , "d4" , "Bxc1" , "Nd7" , "Rxc1+" , "Kd3" , "Nxb5" , "Kf8" , "Qb2" , "Nc5" , "Bxb7" , "Nxc1" , "Qxc1" , "Rc5" , "Nc3" , "e4" , "Bxd5" , "Qxc8+" , "Kd2" , "Nb6" , "Ke7" , "Qf4" , "Rc8+" , "Nc3+" , "Qb8+" , "Rc4" , "Rc7+" , "Rc1" , "b5" , "Rxa4" , "Qd4" , "Qc8" , "Rb3" , "Rc8" , "Nb3" , "g5" , "Qd7" , "Rxc8" , "Rc2" , "Ra3+" ;
+        chon:nextHalfMove      :hmgam3SAZOgh .
+
+:rolhg3SAZOgh2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7VTP5i .
+
+:rol7VTP5i  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7VTP5i .
+
+:res7VTP5i2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

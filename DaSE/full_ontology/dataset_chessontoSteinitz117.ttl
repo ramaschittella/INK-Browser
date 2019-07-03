@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:respyHv8Nq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gampyHv8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpyHv8N ;
+        chon:atPlace           :plapyHv8N ;
+        chon:atTime            "1866.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampyHv8Nq ;
+        chon:hasHalfMove       :hmgamAyEIENt , :hmgampyHv8Nq ;
+        chon:hasLastHalfMove   :hmgamAyEIENt ;
+        chon:hasOpening        :opepyHv8N ;
+        chon:hasReport         :cgrpyHv8N ;
+        chon:hasResult         :respyHv8Nq ;
+        chon:subEventOf        :toupyHv8 .
+
+:plapyHv8N  a         chon:Place ;
+        chon:hasName  "London" .
+
+:toupyHv8  a          chon:hessTournament ;
+        chon:atPlace  :plapyHv8N ;
+        chon:hasName  "London m2" .
+
+:cgrpyHv8N  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpyHv8N .
+
+:hmgampyHv8Nq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpyHv8NqU , :rolhgAyEIENt7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bird, Henry Edward" ;
+        chon:hasSANRecord      "Nc3" , "d4" , "e6" , "e4" , "Nf6" , "d5" ;
+        chon:nextHalfMove      :hmgampyHv8Nq , :hmgamAyEIENt .
+
+chon:HalfMove  chon:subEventOf  :gampyHv8 .
+
+:agpyHv8N  a          chon:Agent ;
+        chon:hasName  "Bird, Henry Edward" , "Steinitz, William" .
+
+:rolpyHv8N  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpyHv8N .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpyHv8N .
+
+:opepyHv8N  a            chon:ChessOpening ;
+        chon:hasECOCode  "C01" .
+
+:rolhgAyEIENt7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpyHv8N .
+
+:rolhgpyHv8NqU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpyHv8N .
+
+:hmgamAyEIENt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAyEIENt7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bird, Henry Edward" ;
+        chon:hasSANRecord      "gxf3" , "Kh2" , "Qd6" , "Qg8" , "Rab8" , "Bg5" , "Qc4" , "c4" , "Qg6" , "O-O" , "Qf3+" , "h5" , "Bxf3" , "Nc6" , "Qf4+" , "Qe2" , "Nxd5" , "fxe4" , "h3" , "Ne4" , "Nf4" , "Rae1" , "Ne2" , "Bxc5" , "Rd1" , "d5" , "Qxd5" , "Qg7" , "Bg4" , "Be3" , "g5" , "Kh8" , "cxb7" , "Bd6" , "dxc6" , "Nf3" , "Be7" , "Bd3" , "Qg3+" , "c5" , "Bxe3" , "Qf7" , "Kh1" , "Bf4" , "Qe5" , "Be2" , "exd5" , "c3" , "f5" , "Bc8" ;
+        chon:nextHalfMove      :hmgamAyEIENt .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

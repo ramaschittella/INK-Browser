@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamd6ruV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rold6ruVb ;
+        chon:atPlace           :plad6ruVb ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamd6ruVbR ;
+        chon:hasHalfMove       :hmgamd6ruVbR ;
+        chon:hasLastHalfMove   :hmgamd6ruVbR ;
+        chon:hasOpening        :oped6ruVb ;
+        chon:hasReport         :cgrd6ruVb ;
+        chon:hasResult         :resd6ruVbR ;
+        chon:subEventOf        :toud6ruV .
+
+:toud6ruV  a          chon:hessTournament ;
+        chon:atPlace  :plad6ruVb ;
+        chon:hasName  "Tilburg" .
+
+:hmgamd6ruVbR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgd6ruVbRi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc1" , "O-O" , "d5" , "Rxc1" , "Kxg2" , "dxc4" , "Nbd5" , "g3" , "Bxc5" , "Qd2" , "Bb7" , "Nc6" , "a6" , "e6" , "Bxg2" , "Na5" , "c5" , "Nf6" , "Nb4" , "Bf4" , "d4" , "Qc8" , "Qc2" , "Qxc4" , "Be7" , "Nbd2" , "Bd5" , "b5" , "c4" , "Qe8" , "a3" , "Nd4" , "Nb3" , "Nf3" , "dxc5" , "Bg2" , "Rc8" , "Rac1" , "Rd1" ;
+        chon:nextHalfMove      :hmgamd6ruVbR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agd6ruVb .
+
+chon:HalfMove  chon:subEventOf  :gamd6ruV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agd6ruVb .
+
+:plad6ruVb  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:cgrd6ruVb  a   chon:ChessGameReport .
+
+:resd6ruVbR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgd6ruVbRi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agd6ruVb .
+
+:agd6ruVb  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Andersson, Ulf" .
+
+:rold6ruVb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agd6ruVb .
+
+:oped6ruVb  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

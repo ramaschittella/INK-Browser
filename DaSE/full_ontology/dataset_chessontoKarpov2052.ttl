@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrZcJBZb  a   chon:ChessGameReport .
+
+:agZcJBZb  a          chon:Agent ;
+        chon:hasName  "Raaste, Eero J" , "Karpov, Anatoly" .
+
+:rolZcJBZb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZcJBZb .
+
+:opeZcJBZb  a            chon:ChessOpening ;
+        chon:hasECOCode  "A85" .
+
+:hmgamVaqLJbl  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgVaqLJblr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Raaste, Eero J" ;
+        chon:hasSANRecord      "b7" , "Bd3" , "g5" , "Rg5" , "Rga8" , "Rxe3" , "Rd7+" , "Kh8" , "Ne4" , "Nc3" , "Ra1" , "a4" , "Nf6" , "Nd6" , "Rxe6" , "Qg7" , "Qd2" , "Qe7" , "Ne2" , "b6" , "Kf2" , "fxg4" , "Qg5" , "Rf6" , "f5" , "f4" , "Rf4" , "Ng6+" , "Qxg6" , "Nf7" , "Bxd7" , "Kg7" , "Rxb7" , "Be7" , "Kg6" , "Re7" , "Qe1" , "Qf6" , "Bg5" , "Bxe7" , "Ng4" , "g4" , "e3" , "Nh6" , "Qxh6+" , "dxe4" , "h6" , "Ng1" , "Rh6" , "Qxf6" , "Kh1" , "Ne5" , "Kh6" , "Rxa5" , "c6" , "c5" , "Qxe4+" , "a5" , "Ra8" , "Kg8" , "Bxe4" , "Rc1" , "Bh5" , "Rg6" , "Rd6" , "Qc4" , "axb6" , "cxb6" , "Qe2" , "Rxf6" , "Qc2" , "Ra6" , "Rb8" , "Rf2" , "Rac8" , "Nd7" , "Rxf4" , "gxf4" , "Rb3" , "b5" , "b4" , "g3" , "Kh7" , "Kf7" , "Nf3" , "Qf7" , "Rae1" , "Qxe7" , "Qa5" , "O-O" , "Kg2" , "Nxd7" , "Bxg6" , "Be8" , "f3" , "Rg8" , "Rg7" ;
+        chon:nextHalfMove      :hmgamVaqLJbl .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZcJBZb .
+
+:rolhgVaqLJblr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZcJBZb .
+
+chon:HalfMove  chon:subEventOf  :gamZcJBZ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZcJBZb .
+
+:hmgamZcJBZb6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVaqLJblr , :rolhgZcJBZb6r , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Raaste, Eero J" ;
+        chon:hasSANRecord      "d4" , "e6" , "c4" , "d5" ;
+        chon:nextHalfMove      :hmgamZcJBZb6 , :hmgamVaqLJbl .
+
+:rolhgZcJBZb6r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZcJBZb .
+
+:gamZcJBZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZcJBZb ;
+        chon:atPlace           :plaZcJBZb ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZcJBZb6 ;
+        chon:hasHalfMove       :hmgamZcJBZb6 , :hmgamVaqLJbl ;
+        chon:hasLastHalfMove   :hmgamVaqLJbl ;
+        chon:hasOpening        :opeZcJBZb ;
+        chon:hasReport         :cgrZcJBZb ;
+        chon:hasResult         :resZcJBZb6 ;
+        chon:subEventOf        :touZcJBZ .
+
+:resZcJBZb6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touZcJBZ  a          chon:hessTournament ;
+        chon:atPlace  :plaZcJBZb ;
+        chon:hasName  "Helsinki sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaZcJBZb  a         chon:Place ;
+        chon:hasName  "Helsinki" .

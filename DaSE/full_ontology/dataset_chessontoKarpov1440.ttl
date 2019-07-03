@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resSvz07EN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaSvz07E  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:rolhgOvvnDESJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSvz07E .
+
+:cgrSvz07E  a   chon:ChessGameReport .
+
+:hmgamOvvnDES  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOvvnDESJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ra7" , "Nf6" , "Ne4" , "Bc3" , "Ne6" , "Bf5" , "Rb8" , "b5" , "Ra1" , "Bxf6" , "Qd8" , "Nc5" , "d4" , "Bb2" , "Ba1" , "Nxf6+" , "Nxe4" , "exd4" ;
+        chon:nextHalfMove      :hmgamOvvnDES .
+
+:agSvz07E  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ehlvest, Jaan" .
+
+:rolSvz07E  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSvz07E .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSvz07E .
+
+chon:HalfMove  chon:subEventOf  :gamSvz07 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSvz07E .
+
+:hmgamSvz07EN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSvz07ENw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nd8" , "d6" , "e3" , "g3" , "g6" , "Nf3" , "h3" , "Nc3" , "Nd5" , "e5" , "Kh2" , "Bg7" , "Nd2" , "Nf6" , "d3" , "h6" , "Bg2" , "b4" , "Rb1" , "Bd7" , "Bg4" , "O-O" , "c4" , "Nh7" , "a3" , "Nc6" , "Qc8" , "axb4" , "a5" , "Re8" ;
+        chon:nextHalfMove      :hmgamOvvnDES , :hmgamSvz07EN .
+
+:opeSvz07E  a            chon:ChessOpening ;
+        chon:hasECOCode  "A26" .
+
+:rolhgSvz07ENw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSvz07E .
+
+:gamSvz07  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSvz07E ;
+        chon:atPlace           :plaSvz07E ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSvz07EN ;
+        chon:hasHalfMove       :hmgamOvvnDES , :hmgamSvz07EN ;
+        chon:hasLastHalfMove   :hmgamOvvnDES ;
+        chon:hasOpening        :opeSvz07E ;
+        chon:hasReport         :cgrSvz07E ;
+        chon:hasResult         :resSvz07EN ;
+        chon:subEventOf        :touSvz07 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touSvz07  a          chon:hessTournament ;
+        chon:atPlace  :plaSvz07E ;
+        chon:hasName  "Reggio Emilia91 Top16" .

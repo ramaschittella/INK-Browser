@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plalFEVth  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:cgrlFEVth  a   chon:ChessGameReport .
+
+:gamlFEVt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollFEVth ;
+        chon:atPlace           :plalFEVth ;
+        chon:atTime            "2013.11.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlFEVthy ;
+        chon:hasHalfMove       :hmgamlFEVthy , :hmgamNHQdQin ;
+        chon:hasLastHalfMove   :hmgamNHQdQin ;
+        chon:hasOpening        :opelFEVth ;
+        chon:hasReport         :cgrlFEVth ;
+        chon:hasResult         :reslFEVthy ;
+        chon:subEventOf        :toulFEVt .
+
+:toulFEVt  a          chon:hessTournament ;
+        chon:atPlace  :plalFEVth ;
+        chon:hasName  "2nd Karpov Trophy KO" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglFEVth .
+
+:aglFEVth  a          chon:Agent ;
+        chon:hasName  "Muzychuk,M" , "Karpov,Ana" .
+
+:rollFEVth  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglFEVth .
+
+chon:HalfMove  chon:subEventOf  :gamlFEVt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglFEVth .
+
+:hmgamNHQdQin  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNHQdQin7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Muzychuk,M" ;
+        chon:hasSANRecord      "g4" , "Qf2+" , "e5" , "fxg4" , "Qf6+" , "Qb6" , "Kb4" , "Ka4" , "Ka5" , "Qf8+" , "Kf4" , "Ke4" , "Bb6" , "Ka7" , "Qd5" , "Qd6" , "Kg4" , "Nf3" , "c5" , "c2" , "Qa5+" , "Qb6+" , "Qe8+" , "Kg6" , "Qb3+" , "c4" , "Qc7+" , "Qa3" , "Qd7" , "e4" , "Qc6" , "Kd3" , "g7" , "Kd4" , "Kc4" , "Kc8" , "Qc8" , "Ne1" , "Kb7" , "a5" , "c1=Q" , "Qb2+" , "Kf7" , "Qc4+" , "Qc3+" , "Bxd4" , "Kg5" , "Qb5+" , "Qb4+" , "Nd4" , "a7" , "Kxa5" , "Qf4+" , "Qc1+" , "Qd8+" , "Qc5" , "Qb5" , "Qe6+" , "Qa4+" , "g5" , "g6" , "Kc6" , "Kc7" , "g8=Q" , "Qc7" , "Kb5" , "a4" , "Kb6" , "Qf7+" , "Kf5" , "Bc7" , "Kc5" , "Kb8" , "Qc5+" , "Kxe5" , "c3" , "Nd3" , "a6" , "Bf2" , "Kxd4" , "Qd7+" , "Qe7+" ;
+        chon:nextHalfMove      :hmgamNHQdQin .
+
+:hmgamlFEVthy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNHQdQin7 , chon:AgentRole , :rolhglFEVthyG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Muzychuk,M" ;
+        chon:hasSANRecord      "Be7" , "Nf3" , "Rh7" , "Rxd7" , "Bxc4" , "Nd3" , "f5" , "Nc3" , "Bxd8" , "Rd5" , "Rxd8" , "Rxc6+" , "Be6" , "Bd8" , "d5" , "h6" , "Nxd5" , "Bg7" , "Qa5" , "cxd5" , "Ne1" , "Rh1" , "Nf6" , "Bc4" , "Rc1" , "e4" , "Kc4" , "Rxd4" , "e6" , "f3" , "Nc5+" , "hxg5" , "Rhd8" , "Nc6" , "Ba3" , "c4" , "Qd2" , "h4" , "Nxc3" , "Ke2" , "Bc7" , "Rb1" , "Kxd2" , "Qxd2+" , "cxd4" , "Bf8" , "Be3" , "bxc3" , "Kc3" , "c5" , "d4" , "Bxg5" , "Rxc4" , "Ke7" , "g6" , "g5" , "bxc6" , "Kxd7" , "Bb6" , "Kd2" , "Rd7" , "g3" , "e5" , "O-O-O" ;
+        chon:nextHalfMove      :hmgamNHQdQin , :hmgamlFEVthy .
+
+:opelFEVth  a            chon:ChessOpening ;
+        chon:hasECOCode  "A15" .
+
+:rolhgNHQdQin7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglFEVth .
+
+:rolhglFEVthyG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglFEVth .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reslFEVthy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

@@ -1,0 +1,76 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamFGLsDWX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFGLsDWX8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e3" , "Be7" , "c4" , "O-O" , "Nxd5" , "Nf6" , "a3" , "d4" , "d5" , "cxd5" , "Ne2" , "Bb4" , "e6" , "Nc3" ;
+        chon:nextHalfMove      :hmgamQGGGcWZ , :hmgamFGLsDWX .
+
+:rolhgFGLsDWX8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFGLsDW .
+
+:hmgamQGGGcWZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQGGGcWZl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "Rd8" , "Qg3" , "Bxc5" , "b3" , "Qb6" , "Qf3" , "Rxb3" , "Qe1" , "Nxc3" , "Bf6" , "Bf8" , "Bb5" , "Bb7" , "a4" , "a6" , "f5" , "Rd1" , "Rb8" , "Rd5" , "Rd7" , "Qc7" , "Rc3" , "Bxc4" , "Ne4" , "Bxc6" , "Rxc4" , "h4" , "Kh2" , "Nc4" , "f4" , "Rfc1" , "Be5" , "Rcd8" , "Nc6" , "Rbc8" , "Qxc4" , "Rc2" , "Rxc1" , "Bd5" , "bxc6" , "c4" , "Bc3" , "Rd3" , "Rc7" , "Qb5" , "Qf4" , "Nd2" , "f3" , "Qe2" , "dxc5" , "Bd2" , "O-O" , "Rc1" , "f6" , "Be7" , "Rxe3" ;
+        chon:nextHalfMove      :hmgamQGGGcWZ , :hmgamMSnPVVg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFGLsDW .
+
+:plaFGLsDW  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:gamFGLsD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFGLsDW ;
+        chon:atPlace           :plaFGLsDW ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFGLsDWX ;
+        chon:hasHalfMove       :hmgamMSnPVVg , :hmgamQGGGcWZ , :hmgamFGLsDWX ;
+        chon:hasLastHalfMove   :hmgamMSnPVVg ;
+        chon:hasOpening        :opeFGLsDW ;
+        chon:hasReport         :cgrFGLsDW ;
+        chon:hasResult         :resFGLsDWX ;
+        chon:subEventOf        :touFGLsD .
+
+:rolhgQGGGcWZl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFGLsDW .
+
+:touFGLsD  a          chon:hessTournament ;
+        chon:atPlace  :plaFGLsDW ;
+        chon:hasName  "Leningrad Interzonal" .
+
+chon:HalfMove  chon:subEventOf  :gamFGLsD .
+
+:agFGLsDW  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Taimanov, Mark E" .
+
+:rolhgMSnPVVgi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFGLsDW .
+
+:hmgamMSnPVVg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMSnPVVgi , chon:AgentRole ;
+        chon:hasSANRecord      "Bxf6" .
+
+:cgrFGLsDW  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeFGLsDW  a            chon:ChessOpening ;
+        chon:hasECOCode  "E46" .
+
+:resFGLsDWX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolFGLsDW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFGLsDW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFGLsDW .

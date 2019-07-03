@@ -1,0 +1,1 @@
+use this folder to hold your images, extra pdfs etc.

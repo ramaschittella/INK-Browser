@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeXveWsK  a            chon:ChessOpening ;
+        chon:hasECOCode  "A40" .
+
+:resXveWsKS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamXveWs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXveWsK ;
+        chon:atPlace           :plaXveWsK ;
+        chon:atTime            "2012.10.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9vbaZJX ;
+        chon:hasHalfMove       :hmgam9vbaZJX ;
+        chon:hasLastHalfMove   :hmgam9vbaZJX ;
+        chon:hasOpening        :opeXveWsK ;
+        chon:hasReport         :cgr9vbaZJ ;
+        chon:hasResult         :resXveWsKS ;
+        chon:subEventOf        :touXveWs .
+
+:cgr9vbaZJ  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXveWsK .
+
+chon:HalfMove  chon:subEventOf  :gamXveWs .
+
+:rol9vbaZJ  a             chon:AuthorRole ;
+        chon:performedBy  :ag9vbaZJ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXveWsK .
+
+:touXveWs  a          chon:hessTournament ;
+        chon:atPlace  :plaXveWsK ;
+        chon:hasName  "Trans-Europa-Schach-Express 2012" .
+
+:rolXveWsK  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhg9vbaZJXG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXveWsK .
+
+:plaXveWsK  a         chon:Place ;
+        chon:hasName  "Potsdam GER" .
+
+:hmgam9vbaZJX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9vbaZJXG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Paehtz,E" ;
+        chon:hasSANRecord      "Nfe4" , "Bxe6" , "Nc7" , "Nf4" , "e6" , "Nf6" , "Qg7" , "Qe7" , "Rc8" , "Rb1" , "dxe6" , "Nh3" , "Qxg7+" , "Bg2" , "Qe3" , "cxb4" , "Nxb5" , "Rad8" , "Kd7" , "fxe5" , "Bb7" , "Kf2" , "Rxd2" , "g3" , "a3" , "Qf7" , "Bc4" , "Rd8" , "bxc8=Q+" , "Nxe4" , "Nd3" , "Qxg5+" , "Ke6" , "Ke8" , "Nb5" , "cxb5" , "Rfe8" , "O-O" , "b4" , "e4" , "Be3" , "Qb3" , "b5" , "Nc3" , "Nc5" , "b7" , "Ke3" , "Kf7" , "Bd5" , "Bxe4" , "Kxg7" , "Nd2" , "axb4" , "Bxa7" , "c4" , "c5" , "Be4" , "Be5" , "Bc5" , "Nxe6" , "Bc7" , "Kxc8" , "Red8" , "f4" , "Na6" , "d4" , "Rbd1" , "f5" , "Rxd1" , "Rd1" , "b6" , "Rd7" , "Kf4" , "g5" , "Bd6" , "Ng2" , "d5" ;
+        chon:nextHalfMove      :hmgam9vbaZJX .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agXveWsK  a          chon:Agent ;
+        chon:hasName  "Paehtz,E" , "Karpov,Ana" .

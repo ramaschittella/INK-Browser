@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgzB0YitvJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoBdKLu .
+
+:resoBdKLus  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoBdKLu .
+
+:gamoBdKL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloBdKLu ;
+        chon:atPlace           :plaoBdKLu ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzB0Yitv ;
+        chon:hasHalfMove       :hmgamzB0Yitv ;
+        chon:hasLastHalfMove   :hmgamzB0Yitv ;
+        chon:hasOpening        :opeoBdKLu ;
+        chon:hasReport         :cgrzB0Yit ;
+        chon:hasResult         :resoBdKLus ;
+        chon:subEventOf        :touoBdKL .
+
+chon:HalfMove  chon:subEventOf  :gamoBdKL .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoBdKLu .
+
+:hmgamzB0Yitv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzB0YitvJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov, Veselin" ;
+        chon:hasSANRecord      "Qb3" , "Kg1" , "Nf3" , "Bxe6" , "c5" , "Ba2" , "Be6" , "Rxd8+" , "dxc4" , "e3" , "Qe4" , "Qxd1+" , "c4" , "O-O" , "Bf6" , "Qb1" , "Nf6" , "Kh2" , "a6" , "exd5" , "fxe6" , "Nc6" , "Rd1+" , "Qe2" , "Qd5" , "Rxd8" , "Bc3" , "Qc2" , "Nc4" , "d5" , "h3" , "Na5" , "a4" , "Rxd1" , "Nc3" , "Qb6" , "d4" , "Nxd5" , "Rd8" , "Qd6+" , "Be7" , "Bxc4" , "Bxc3" , "Rd1" , "Qc7" , "Bd2" , "e6" , "Qxc3" , "Qd1+" , "Rxd5" ;
+        chon:nextHalfMove      :hmgamzB0Yitv .
+
+:cgrzB0Yit  a   chon:ChessGameReport .
+
+:plaoBdKLu  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+:rolzB0Yit  a             chon:AuthorRole ;
+        chon:performedBy  :agzB0Yit .
+
+:touoBdKL  a          chon:hessTournament ;
+        chon:atPlace  :plaoBdKLu ;
+        chon:hasName  "Las Palmas" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agoBdKLu  a          chon:Agent ;
+        chon:hasName  "Topalov, Veselin" , "Karpov, Anatoly" .
+
+:roloBdKLu  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:opeoBdKLu  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .

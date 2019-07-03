@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resPVVA5t5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrPVVA5t  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPVVA5t .
+
+:gamPVVA5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPVVA5t ;
+        chon:atPlace           :plaPVVA5t ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPVVA5t5 ;
+        chon:hasHalfMove       :hmgamPVVA5t5 ;
+        chon:hasLastHalfMove   :hmgamPVVA5t5 ;
+        chon:hasOpening        :opePVVA5t ;
+        chon:hasReport         :cgrPVVA5t ;
+        chon:hasResult         :resPVVA5t5 ;
+        chon:subEventOf        :touPVVA5 .
+
+chon:HalfMove  chon:subEventOf  :gamPVVA5 .
+
+:touPVVA5  a          chon:hessTournament ;
+        chon:atPlace  :plaPVVA5t ;
+        chon:hasName  "Capablanca mem" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPVVA5t .
+
+:plaPVVA5t  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:hmgamPVVA5t5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgPVVA5t5H ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "exf3" , "gxf4" , "Nge7" , "e6" , "exd4" , "Bxb7" , "Nc6" , "f2" , "O-O" , "e3" , "Rf6" , "dxe6" , "Ng6" , "f5" , "Rg8" , "Ne5" , "Bxb2" , "Qxb2" , "d4" , "Nb5" , "Qg7" , "Nd2" , "Rd4" , "Qh3" , "Qa1+" , "Qd2" , "e4" , "Nd4" , "Nf3" , "Rh4" , "Nxd4" , "f3" , "Rg6" , "Ne6" , "Bg7" , "g5" , "Nc3" , "h6" , "d5" , "Bd5" , "Rhf5" , "Qe7" , "cxd4" , "Bxe6" , "Kh8" , "Be4" , "Qg2" , "Rad1" , "Qh7" , "f4" , "Bxf3" , "b3" , "Kh1" , "Bb2" , "e5" , "g6" , "g3" , "c4" , "a6" , "Bg2" , "c5" , "Raf8" , "Rxf2" , "Rh5" , "d6" ;
+        chon:nextHalfMove      :hmgamPVVA5t5 .
+
+:agPVVA5t  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Doda, Zbigniew" .
+
+:rolPVVA5t  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPVVA5t .
+
+:opePVVA5t  a            chon:ChessOpening ;
+        chon:hasECOCode  "A36" .
+
+:rolhgPVVA5t5H  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPVVA5t .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agi5gM5z  a          chon:Agent ;
+        chon:hasName  "Rodriguez, Ruben" , "Fischer, Robert James" .
+
+:roli5gM5z  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agi5gM5z .
+
+:rolhgK7s6qA7r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi5gM5z .
+
+:opei5gM5z  a            chon:ChessOpening ;
+        chon:hasECOCode  "A08" .
+
+:hmgami5gM5zh  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgi5gM5zh4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rodriguez, Ruben" ;
+        chon:hasSANRecord      "Bg7" , "Bh6" , "Qe2" , "c3" , "d3" , "d5" , "Bg2" , "e6" , "e4" , "Nc6" , "g4" , "O-O" , "exf6" , "Qc7" , "Re8" , "e5" , "dxe4" , "c4" , "g3" , "g6" , "f5" , "h3" , "Nf3" , "c5" , "Bxf6" , "Nge7" ;
+        chon:nextHalfMove      :hmgami5gM5zh , :hmgamK7s6qA7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi5gM5z .
+
+chon:HalfMove  chon:subEventOf  :gami5gM5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi5gM5z .
+
+:rolhgi5gM5zh4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi5gM5z .
+
+:hmgamK7s6qA7  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgK7s6qA7r ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rodriguez, Ruben" ;
+        chon:hasSANRecord      "Nd5" , "dxe4" , "Qd3" , "Kxg2" , "Rfe1" , "Rad8" , "Bc6" , "Nexf6" , "Kf1" , "Kh8" , "Rxe1" , "Ndf5" , "Nge4" , "Bd7" , "Qc3" , "Nxf6" , "Rad1" , "Nh4+" , "Bxg2" , "Ng8" , "Qc6" , "Ng5" , "Rxe1+" , "Nd4" , "Nc3" , "Qxe4" ;
+        chon:nextHalfMove      :hmgamK7s6qA7 .
+
+:resi5gM5zh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gami5gM5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roli5gM5z ;
+        chon:atPlace           :plai5gM5z ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgami5gM5zh ;
+        chon:hasHalfMove       :hmgamK7s6qA7 , :hmgami5gM5zh ;
+        chon:hasLastHalfMove   :hmgamK7s6qA7 ;
+        chon:hasOpening        :opei5gM5z ;
+        chon:hasReport         :cgri5gM5z ;
+        chon:hasResult         :resi5gM5zh ;
+        chon:subEventOf        :toui5gM5 .
+
+:plai5gM5z  a         chon:Place ;
+        chon:hasName  "Meralco" .
+
+:toui5gM5  a          chon:hessTournament ;
+        chon:atPlace  :plai5gM5z ;
+        chon:hasName  "Meralco" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgri5gM5z  a   chon:ChessGameReport .

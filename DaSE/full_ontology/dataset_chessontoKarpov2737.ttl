@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou8XoBG  a          chon:hessTournament ;
+        chon:atPlace  :plabZHsXm ;
+        chon:hasName  "Essent" .
+
+:gambZHsX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8XoBGm ;
+        chon:atPlace           :plabZHsXm ;
+        chon:atTime            "2003.10.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8XoBGmj ;
+        chon:hasHalfMove       :hmgam8XoBGmj ;
+        chon:hasLastHalfMove   :hmgam8XoBGmj ;
+        chon:hasOpening        :ope8XoBGm ;
+        chon:hasReport         :cgr8XoBGm ;
+        chon:hasResult         :res8XoBGmj ;
+        chon:subEventOf        :tou8XoBG .
+
+:hmgam8XoBGmj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8XoBGmj6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bg3" , "Bb4" , "Be7" , "e6" , "d6" , "exd6" , "Qe3" , "Qxb7" , "Ra7" , "bxc5" , "b6" , "e5" , "Ne5" , "Nxd6" , "Be2" , "Rd4" , "Kg8" , "dxc5" , "Ne8" , "Bh7+" , "Nf3" , "Bxf6" , "Kh8" , "O-O" , "e4" , "Bd6" , "Bd3" , "Rd2" , "Bg5" , "Qc2" , "Na4" , "Bxc5" , "Qc8" , "d4" , "c4" , "gxf6" , "c5" , "Rd8" , "Kg7" , "Qc6" , "Rfd1" , "Nxc5" , "Re8" , "Ng4" , "Be4" , "Bb7" , "Rd1" , "Bh4" , "Bxb7" , "Bc5" , "Rh8" , "Qe4" , "a6" , "Nc3" , "Qc7" , "h6" , "Nf6" ;
+        chon:nextHalfMove      :hmgam8XoBGmj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8XoBGm .
+
+:cgr8XoBGm  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gambZHsX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8XoBGm .
+
+:res8XoBGmj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plabZHsXm  a         chon:Place ;
+        chon:hasName  "Hoogeveen NED" .
+
+:rolhg8XoBGmj6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8XoBGm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag8XoBGm  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Aronian,L" .
+
+:rol8XoBGm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8XoBGm .
+
+:ope8XoBGm  a            chon:ChessOpening ;
+        chon:hasECOCode  "E39" .

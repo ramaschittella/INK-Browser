@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pladcLJuZ  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:rolhgdcLJuZSW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdcLJuZ .
+
+:hmgamFeV4R1H  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFeV4R1Hm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ricardi,P" ;
+        chon:hasSANRecord      "Bxa6" , "Nd7" , "c5" , "Nb6" , "bxc4" , "Ne2" , "Nc3" , "Red1" , "Nf4" , "Bc6" , "bxa6" , "Ra4" , "Qd7" , "Rd5" , "d5" , "R6d4" , "O-O" , "f4" , "Qd3" , "Nbd7" , "Rxd5" , "Qxe6" , "Qe7" , "Bxb2" , "Nxf3+" , "Qxf3" , "Rbd2" , "Rd1" , "Bb2" , "Qb6" , "b5" , "Na6" , "c4" , "d6" , "Ne5" , "Nc5" , "Qc3" , "Qf6" , "Rab1" , "Kh1" , "e4" , "Nxc4" , "Qe2" , "Qc2" , "dxe6" , "Bxa4" , "Bg2" , "a4" , "Rd2" , "Rxd6" , "a6" , "Bg7" , "Nc7" , "Rb2" , "Bxd5" , "Ne8" , "Nf3" , "e6" , "Nd5" , "Nh4" , "Bb7" , "Rxb2" , "Qe5" , "Rfb8" , "g3" , "cxb5" , "b3" , "Re1" ;
+        chon:nextHalfMove      :hmgamFeV4R1H .
+
+:cgrdcLJuZ  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamdcLJu .
+
+:resdcLJuZS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdcLJuZ .
+
+:agdcLJuZ  a          chon:Agent ;
+        chon:hasName  "Ricardi,P" , "Karpov,An" .
+
+:roldcLJuZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdcLJuZ .
+
+:opedcLJuZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A58" .
+
+:gamdcLJu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldcLJuZ ;
+        chon:atPlace           :pladcLJuZ ;
+        chon:atTime            "2000.09.27"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdcLJuZS ;
+        chon:hasHalfMove       :hmgamdcLJuZS , :hmgamFeV4R1H ;
+        chon:hasLastHalfMove   :hmgamFeV4R1H ;
+        chon:hasOpening        :opedcLJuZ ;
+        chon:hasReport         :cgrdcLJuZ ;
+        chon:hasResult         :resdcLJuZS ;
+        chon:subEventOf        :toudcLJu .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdcLJuZ .
+
+:toudcLJu  a          chon:hessTournament ;
+        chon:atPlace  :pladcLJuZ ;
+        chon:hasName  "Super Final" .
+
+:hmgamdcLJuZS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdcLJuZSW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ricardi,P" ;
+        chon:hasSANRecord      "d4" , "g6" , "c4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamdcLJuZS , :hmgamFeV4R1H .
+
+:rolhgFeV4R1Hm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdcLJuZ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

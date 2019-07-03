@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg224RsOHj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag65mIIQ .
+
+:res65mIIQr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag65mIIQ  a          chon:Agent ;
+        chon:hasName  "Ribli, Zoltan" , "Karpov, Anatoly" .
+
+:ope65mIIQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A30" .
+
+:gam65mII  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol65mIIQ ;
+        chon:atPlace           :pla65mIIQ ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam65mIIQr ;
+        chon:hasHalfMove       :hmgam65mIIQr , :hmgam224RsOH ;
+        chon:hasLastHalfMove   :hmgam224RsOH ;
+        chon:hasOpening        :ope65mIIQ ;
+        chon:hasReport         :cgr65mIIQ ;
+        chon:hasResult         :res65mIIQr ;
+        chon:subEventOf        :tou65mII .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag65mIIQ .
+
+chon:HalfMove  chon:subEventOf  :gam65mII .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag65mIIQ .
+
+:pla65mIIQ  a         chon:Place ;
+        chon:hasName  "Dubai" .
+
+:cgr65mIIQ  a   chon:ChessGameReport .
+
+:tou65mII  a          chon:hessTournament ;
+        chon:atPlace  :pla65mIIQ ;
+        chon:hasName  "Dubai ol (Men)" .
+
+:rolhg65mIIQrl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag65mIIQ .
+
+:rol65mIIQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag65mIIQ .
+
+:hmgam65mIIQr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg65mIIQrl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ribli, Zoltan" ;
+        chon:hasSANRecord      "Nf3" , "Qc7" , "O-O" , "Nd2" , "Bb2" , "Rd1" , "Bb7" , "c4" , "c5" , "g3" , "Bg2" , "Red8" , "Ba8" , "Nc3" , "Rac8" , "h3" , "cxd4" , "Be7" , "b4" , "Nf6" , "Qxd4" , "Qe3" , "a6" , "Rfe8" , "e4" , "Qc8" , "e6" , "Qb8" , "d6" , "a3" , "d4" , "Nbd7" , "b6" , "b3" , "Rac1" ;
+        chon:nextHalfMove      :hmgam224RsOH , :hmgam65mIIQr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam224RsOH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg224RsOHj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ribli, Zoltan" ;
+        chon:hasSANRecord      "Rd1" , "d6" , "Rh2+" , "Rh8+" , "Nd4" , "Rcd2" , "Kh2" , "a5" , "Kg3" , "Nd2" , "axb4" , "Rb2" , "Nxb5" , "Qe7" , "Rxb5" , "Rc7" , "Ndc3" , "Qb7" , "Bf6" , "h6" , "hxg5" , "Qa8" , "Qb8" , "Re1" , "Rc5" , "Nf1" , "Rcc8" , "Bxb2" , "Kg8" , "h4" , "Bg5" , "Qh2" , "Nb3" , "Rdc8" , "Nxb2" , "Nh7" , "Bb7" , "Rd8" , "Qxh7+" , "Ne8" , "Rec1" , "Bc6" , "e5" , "f5" , "Qc4" , "Nb5" , "d5" , "f4" , "Rc2" , "g4" , "Qe2" , "Qd3" , "Rdh1" , "Bxb5" , "Bf3" , "Nef6" , "Nd1" , "Ndf6" , "Kg1" , "Kxh7" , "Ba8" , "g5" , "Qxb4" , "f6" , "cxd5" ;
+        chon:nextHalfMove      :hmgam224RsOH .

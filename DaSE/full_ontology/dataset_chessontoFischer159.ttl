@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvkrAIr .
+
+:rolvkrAIr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvkrAIr .
+
+:resvkrAIrH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgam5ifgmqR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5ifgmqRg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qd7+" , "dxe5" , "e5" ;
+        chon:nextHalfMove      :hmgam5ifgmqR .
+
+:hmgam9my7StB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9my7StBi , :rolhg5ifgmqRg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ra8" , "R8f6" , "Rxf4" , "Qc4" , "Qxg4" , "Bg4" , "Qh4" , "Kh7" , "Bxf4" , "Ne6+" , "Kh1" , "Be3" , "Qd4+" , "Kh8" , "Rcf1" , "Rf3" , "Raf8" , "Bxg4" , "Rf7" , "Qg5" , "Nxb5" , "axb5" , "Nxf4" , "g3" , "Nd4" , "a4" , "Be5" , "gxf4" , "exf4" , "Kg7" , "Rc8" ;
+        chon:nextHalfMove      :hmgam9my7StB , :hmgam5ifgmqR .
+
+:gamvkrAI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvkrAIr ;
+        chon:atPlace           :plavkrAIr ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvkrAIrH ;
+        chon:hasHalfMove       :hmgam9my7StB , :hmgamvkrAIrH , :hmgam5ifgmqR , :hmgamWmBT6ry ;
+        chon:hasLastHalfMove   :hmgam5ifgmqR ;
+        chon:hasOpening        :opevkrAIr ;
+        chon:hasReport         :cgrvkrAIr ;
+        chon:hasResult         :resvkrAIrH ;
+        chon:subEventOf        :touvkrAI .
+
+chon:HalfMove  chon:subEventOf  :gamvkrAI .
+
+:hmgamvkrAIrH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvkrAIrHG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d6" , "g6" , "Nd2" , "e4" , "e5" , "Be2" , "h6" , "Bg5" , "Nf6" , "Bh4" , "c4" , "Bg7" , "Nh7" , "Nbd7" , "O-O" , "d4" , "Qe8" , "a6" , "d5" , "Nf3" , "Nc3" ;
+        chon:nextHalfMove      :hmgamWmBT6ry , :hmgamvkrAIrH .
+
+:rolhgvkrAIrHG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvkrAIr .
+
+:plavkrAIr  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agvkrAIr  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Tal, Mihail" .
+
+:opevkrAIr  a            chon:ChessOpening ;
+        chon:hasECOCode  "E93" .
+
+:rolhgWmBT6ry6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvkrAIr .
+
+:cgrvkrAIr  a   chon:ChessGameReport .
+
+:touvkrAI  a          chon:hessTournament ;
+        chon:atPlace  :plavkrAIr ;
+        chon:hasName  "Candidats Tournament" .
+
+:rolhg9my7StBi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvkrAIr .
+
+:hmgamWmBT6ry  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9my7StBi , :rolhgWmBT6ry6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nh5" , "c6" , "Bd7" , "b4" , "f3" , "Nf6" , "Qg5" , "Ng5" , "Bf3" , "dxc6" , "Nf4" , "b5" , "Ndxe4" , "Rc1" , "bxc6" , "Qc2" , "f5" , "Qe7" , "c5" , "Nxe4" , "Bf2" , "fxe4" ;
+        chon:nextHalfMove      :hmgam9my7StB , :hmgamWmBT6ry .
+
+:rolhg5ifgmqRg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvkrAIr .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvkrAIr .

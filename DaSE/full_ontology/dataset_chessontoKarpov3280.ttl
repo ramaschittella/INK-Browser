@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrjsASUG  a   chon:ChessGameReport .
+
+:rolhgjsASUGIP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjsASUG .
+
+:agjsASUG  a          chon:Agent ;
+        chon:hasName  "Tomashevsky,E" , "Karpov,Ana" .
+
+:roljsASUG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjsASUG .
+
+:resjsASUGI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjsASUG .
+
+:rolhge9n8bvH4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjsASUG .
+
+chon:HalfMove  chon:subEventOf  :gamjsASU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjsASUG .
+
+:hmgamjsASUGI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhge9n8bvH4 , :rolhgjsASUGIP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tomashevsky,E" ;
+        chon:hasSANRecord      "d4" , "d5" , "h3" , "Ne5" , "Bd6" , "b3" , "O-O" , "e6" , "Nbd2" , "Bb2" , "Bh5" , "Nxe4" , "Nbd7" , "c4" , "Nf3" , "f5" , "dxe4" , "e3" , "Nf6" , "c6" , "Ne4" , "Bxe2" , "Be2" , "Bg4" , "Qxe2" ;
+        chon:nextHalfMove      :hmgame9n8bvH , :hmgamjsASUGI .
+
+:hmgame9n8bvH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhge9n8bvH4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tomashevsky,E" ;
+        chon:hasSANRecord      "Rf4+" , "Qxf3" , "a6" , "e4" , "Rd8" , "f3" , "Ke6" , "Ke2" , "Re1" , "Rxe4" , "fxe4" , "Kf2" , "Kf7" , "Qxd7" , "Qxf7" , "Rd7" , "g6" , "Rh4" , "exd4" , "Qxf7+" , "Be7" , "Rxf7" , "Re4+" , "e5" , "Rd4" , "Bb6" , "Bxd4" , "Kxf7" , "exf3" , "Rf7" , "Nxd7" ;
+        chon:nextHalfMove      :hmgame9n8bvH .
+
+:opejsASUG  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+:gamjsASU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljsASUG ;
+        chon:atPlace           :plajsASUG ;
+        chon:atTime            "2013.06.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjsASUGI ;
+        chon:hasHalfMove       :hmgame9n8bvH , :hmgamjsASUGI ;
+        chon:hasLastHalfMove   :hmgame9n8bvH ;
+        chon:hasOpening        :opejsASUG ;
+        chon:hasReport         :cgrjsASUG ;
+        chon:hasResult         :resjsASUGI ;
+        chon:subEventOf        :toujsASU .
+
+:toujsASU  a          chon:hessTournament ;
+        chon:atPlace  :plajsASUG ;
+        chon:hasName  "Sberbank GM Rapid" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plajsASUG  a         chon:Place ;
+        chon:hasName  "Kiev UKR" .

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <meta charset="UTF-8">
+    <table class="sparql"  border="1">
+        <tr>
+          <th>e</th>
+          <th>label</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            {% for e, value in result.items() %}
+            <td>{{value}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+
+<html lang="en">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>D3JS</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+<div style="background-color:lightblue">
+<h1 style="font-size:40px;">Dbpedia Sparql WebPage</h1>
+    <meta charset="UTF-8">
+    <table class="sparql"  border="1">
+        <tr>
+          <th>e</th>
+          <th>label</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            {% for e, value in result.items() %}
+            <td><a href="{{value.value}}"</a>{{value.value}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div>
+    <script type="text/javascript">
+    d3.select("body").style("background-color", "yellow");
+
+
+    </script>
+</div>
+</body>
+</html>

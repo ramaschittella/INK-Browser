@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamEsUKukk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEsUKukkl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e6" , "e4" , "Nge7" , "f4" , "O-O" , "Bg2" , "Nh4" , "Nf3" , "g3" , "g6" , "f5" , "Na3" , "c5" , "exf5" , "Nc6" , "Rb8" , "c3" , "d3" , "Bg7" , "d5" ;
+        chon:nextHalfMove      :hmgamEsUKukk .
+
+:plaIwdBKm  a         chon:Place ;
+        chon:hasName  "Budapest" .
+
+:cgrIwdBKm  a   chon:ChessGameReport .
+
+:rolhgEsUKukkl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIwdBKm .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIwdBKm .
+
+:agIwdBKm  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ciocaltea, Victor" .
+
+:rolIwdBKm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIwdBKm .
+
+chon:HalfMove  chon:subEventOf  :gamIwdBK .
+
+:opeIwdBKm  a            chon:ChessOpening ;
+        chon:hasECOCode  "A04" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIwdBKm .
+
+:resIwdBKm5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamIwdBK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIwdBKm ;
+        chon:atPlace           :plaIwdBKm ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEsUKukk ;
+        chon:hasHalfMove       :hmgamEsUKukk ;
+        chon:hasLastHalfMove   :hmgamEsUKukk ;
+        chon:hasOpening        :opeIwdBKm ;
+        chon:hasReport         :cgrIwdBKm ;
+        chon:hasResult         :resIwdBKm5 ;
+        chon:subEventOf        :touIwdBK .
+
+:touIwdBK  a          chon:hessTournament ;
+        chon:atPlace  :plaIwdBKm ;
+        chon:hasName  "Tungsram Budapest" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

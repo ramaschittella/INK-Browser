@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agQyf7AU  a          chon:Agent ;
+        chon:hasName  "Chen De" , "Karpov, Anatoly" .
+
+:rolQyf7AU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQyf7AU .
+
+:gamQyf7A  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQyf7AU ;
+        chon:atPlace           :plaQyf7AU ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQyf7AU8 ;
+        chon:hasHalfMove       :hmgamQyf7AU8 , :hmgam3ybm8Vc ;
+        chon:hasLastHalfMove   :hmgam3ybm8Vc ;
+        chon:hasOpening        :opeQyf7AU ;
+        chon:hasReport         :cgrQyf7AU ;
+        chon:hasResult         :resQyf7AU8 ;
+        chon:subEventOf        :touQyf7A .
+
+:touQyf7A  a          chon:hessTournament ;
+        chon:atPlace  :plaQyf7AU ;
+        chon:hasName  "Hannover" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQyf7AU .
+
+:hmgamQyf7AU8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQyf7AU8u , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chen De" ;
+        chon:hasSANRecord      "Nfd7" , "Bh4" , "e5" , "c3" , "Nxf6" , "cxd4" , "g3" , "Kh8" , "Re1" , "Nd2" , "Nxf4" , "Nh5" , "Nc3" , "Bg3" , "Nxg3" , "exf6" , "c5" , "Nf3" , "Bd6" , "Bg5" , "Ne2" , "d5" , "Ne4" , "O-O" , "Bf4" , "d4" , "a6" , "Nf6" , "Nc6" , "Bd3" , "e4" , "f6" , "e6" , "Qc7" ;
+        chon:nextHalfMove      :hmgam3ybm8Vc , :hmgamQyf7AU8 .
+
+chon:HalfMove  chon:subEventOf  :gamQyf7A .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQyf7AU .
+
+:opeQyf7AU  a            chon:ChessOpening ;
+        chon:hasECOCode  "C06" .
+
+:hmgam3ybm8Vc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3ybm8VcF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chen De" ;
+        chon:hasSANRecord      "Nxe5" , "Bxe4" , "Qg5+" , "Kh1" , "Rg1" , "gxf4" , "Qd1" , "dxe4" , "Rxf4" , "Qxd7" , "Rf8" , "Rxf2" , "Bd7" , "Qxf4" , "Ne5" , "dxe5" ;
+        chon:nextHalfMove      :hmgam3ybm8Vc .
+
+:rolhg3ybm8VcF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQyf7AU .
+
+:resQyf7AU8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgQyf7AU8u  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQyf7AU .
+
+:plaQyf7AU  a         chon:Place ;
+        chon:hasName  "Hannover" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrQyf7AU  a   chon:ChessGameReport .

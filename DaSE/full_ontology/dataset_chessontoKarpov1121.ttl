@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr5ySEEz  a   chon:ChessGameReport .
+
+:res5ySEEzm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamSyqmh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5ySEEz ;
+        chon:atPlace           :plaSyqmhz ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5ySEEzm ;
+        chon:hasHalfMove       :hmgam5ySEEzm ;
+        chon:hasLastHalfMove   :hmgam5ySEEzm ;
+        chon:hasOpening        :ope5ySEEz ;
+        chon:hasReport         :cgr5ySEEz ;
+        chon:hasResult         :res5ySEEzm ;
+        chon:subEventOf        :tou5ySEE .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ySEEz .
+
+chon:HalfMove  chon:subEventOf  :gamSyqmh .
+
+:hmgam5ySEEzm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5ySEEzmP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxa4" , "O-O" , "Kg7" , "cxd4" , "Qa5" , "b4" , "Kf2" , "Nd7" , "Nc3" , "Bg5" , "Bh4" , "Bb7" , "Nxf6+" , "Rxc1+" , "Ba4" , "gxf6" , "c5" , "Rfc8" , "h6" , "c4" , "Nc6" , "b6" , "Rfc1" , "Qa4" , "Bxf6" , "dxe3" , "Rxb8" , "Ndb5" , "Rb1" , "exd5" , "cxd5" , "fxe3" , "bxc5" , "Be7" , "Nxa4" , "e6" , "d5" , "Nc5" , "Nf3" , "Rab8" , "Bc6" , "Ne7" , "Nf6" , "e3" , "Bxb5" , "Rc7" , "Nxd4" , "Be2" , "d4" ;
+        chon:nextHalfMove      :hmgam5ySEEzm .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ySEEz .
+
+:ag5ySEEz  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+:rol5ySEEz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5ySEEz .
+
+:ope5ySEEz  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .
+
+:tou5ySEE  a          chon:hessTournament ;
+        chon:atPlace  :plaSyqmhz ;
+        chon:hasName  "Optiebeurs" .
+
+:rolhg5ySEEzmP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5ySEEz .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaSyqmhz  a         chon:Place ;
+        chon:hasName  "Amsterdam" .

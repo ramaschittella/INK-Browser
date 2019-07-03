@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag29Nrzg  a          chon:Agent ;
+        chon:hasName  "Quinteros, Miguel A" , "Karpov, Anatoly" .
+
+:gamQ9Rd1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol29Nrzg ;
+        chon:atPlace           :plaQ9Rd1f ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam29NrzgT ;
+        chon:hasHalfMove       :hmgam29NrzgT ;
+        chon:hasLastHalfMove   :hmgam29NrzgT ;
+        chon:hasOpening        :ope29Nrzg ;
+        chon:hasReport         :cgr29Nrzg ;
+        chon:hasResult         :res29NrzgT ;
+        chon:subEventOf        :tou29Nrz .
+
+:ope29Nrzg  a            chon:ChessOpening ;
+        chon:hasECOCode  "E01" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag29Nrzg .
+
+:hmgam29NrzgT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg29NrzgT6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Quinteros, Miguel A" ;
+        chon:hasSANRecord      "Bxf3" , "axb4" , "Ne4" , "Bf4" , "Kg1" , "Qd7" , "Bxd6" , "Qe2" , "e6" , "e5" , "Qd3" , "O-O" , "d5" , "b5" , "d4" , "b4" , "h6" , "Nc6" , "Rxe7" , "cxd4" , "Qxd4" , "Qc5" , "Rfd8" , "Kg6" , "Kh2" , "exd4" , "c5" , "a5" , "Qb1+" , "Rd4" , "Kf6" , "Kf5" , "Qd6" , "Bg2" , "Kh7" , "b6" , "Nf6" , "Ne6" , "fxe6" , "Be7" , "Nxc5" , "Qxd6" , "Qe4" , "Qxb6" , "Rd1" , "Bd6" , "Rd8+" , "g3" , "Qc7" , "h3" , "e3" , "Kf1" , "Qd1" , "Nb3" , "Rxd4" , "Rd7" , "Qf5" , "Nxd4" , "Nd2" , "Bg4" , "Bh3" , "Rc1" , "Qd6+" , "Qb7" , "Re7" , "c4" , "Bxe6" , "Qe6" , "a3" , "Qxe7" , "Qf1" , "Nf3" , "Re1" , "h5" , "h4" , "Rad8" ;
+        chon:nextHalfMove      :hmgam29NrzgT .
+
+chon:HalfMove  chon:subEventOf  :gamQ9Rd1 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag29Nrzg .
+
+:cgr29Nrzg  a   chon:ChessGameReport .
+
+:plaQ9Rd1f  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:tou29Nrz  a          chon:hessTournament ;
+        chon:atPlace  :plaQ9Rd1f ;
+        chon:hasName  "Linares" .
+
+:res29NrzgT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rol29Nrzg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag29Nrzg .
+
+:rolhg29NrzgT6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag29Nrzg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

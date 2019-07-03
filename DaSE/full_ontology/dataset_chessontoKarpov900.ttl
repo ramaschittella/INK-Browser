@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg7fBe0XDc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7fBe0X .
+
+:tou7fBe0  a          chon:hessTournament ;
+        chon:atPlace  :playiNywX ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+:ag7fBe0X  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:ope7fBe0X  a            chon:ChessOpening ;
+        chon:hasECOCode  "B84" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7fBe0X .
+
+chon:HalfMove  chon:subEventOf  :gamyiNyw .
+
+:gamyiNyw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7fBe0X ;
+        chon:atPlace           :playiNywX ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7fBe0XD ;
+        chon:hasHalfMove       :hmgam7fBe0XD ;
+        chon:hasLastHalfMove   :hmgam7fBe0XD ;
+        chon:hasOpening        :ope7fBe0X ;
+        chon:hasReport         :cgr7fBe0X ;
+        chon:hasResult         :res7fBe0XD ;
+        chon:subEventOf        :tou7fBe0 .
+
+:playiNywX  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:hmgam7fBe0XD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7fBe0XDc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "a6" , "Qc7" , "Bg5" , "Bxf3" , "exf7+" , "Nxf3" , "Nf6" , "Kh1" , "f5" , "f4" , "Rxf1+" , "Bf8" , "e5" , "Ne8" , "e6" , "c5" , "e4" , "Bb7" , "Nd6" , "Re1" , "Be7" , "Nf3" , "Nxd4" , "d6" , "cxd4" , "Nd7" , "b5" , "Qe1" , "Bf3" , "Nd2" , "Qc6" , "dxe5" , "d4" , "fxe6" , "Re8" , "O-O" , "Nc3" , "Qxf1" , "a3" , "Be2" , "Rxf7" ;
+        chon:nextHalfMove      :hmgam7fBe0XD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7fBe0X .
+
+:cgr7fBe0X  a   chon:ChessGameReport .
+
+:res7fBe0XD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rol7fBe0X  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7fBe0X .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

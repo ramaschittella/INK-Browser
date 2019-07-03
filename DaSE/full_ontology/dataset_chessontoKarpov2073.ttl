@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla9dsWBH  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:hmgam9dsWBH5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9dsWBH5A ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik, Vladimir" ;
+        chon:hasSANRecord      "dxc5" , "Bxb7" , "Qa4" , "Bb7" , "d5" , "a3" , "bxa3" , "Rxb7" , "c6" , "Bxc5" , "Ne5" , "Qxc5" , "dxc4" , "Nxe4" , "Bb4" , "d4" , "c4" , "Qb6" , "Rfb8" , "e3" , "Qe4" , "Qc3" , "c5" , "b5" , "Bxe4" , "Bxc4" , "Rac1" , "Ne4" , "Nd4" , "e6" , "Bd2" , "Nc3" , "Bd3" , "Qc5" , "Nbd7" , "Bd6" , "Rb8" , "b4" , "Qd2" , "O-O" , "Qc2" , "Nf3" , "h3" , "Qd5" , "Nf6" , "h6" ;
+        chon:nextHalfMove      :hmgam9dsWBH5 .
+
+:cgr9dsWBH  a   chon:ChessGameReport .
+
+:ag9dsWBH  a          chon:Agent ;
+        chon:hasName  "Kramnik, Vladimir" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9dsWBH .
+
+:rol9dsWBH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9dsWBH .
+
+:ope9dsWBH  a            chon:ChessOpening ;
+        chon:hasECOCode  "D47" .
+
+chon:HalfMove  chon:subEventOf  :gam9dsWB .
+
+:res9dsWBH5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9dsWBH .
+
+:rolhg9dsWBH5A  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9dsWBH .
+
+:gam9dsWB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9dsWBH ;
+        chon:atPlace           :pla9dsWBH ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9dsWBH5 ;
+        chon:hasHalfMove       :hmgam9dsWBH5 ;
+        chon:hasLastHalfMove   :hmgam9dsWBH5 ;
+        chon:hasOpening        :ope9dsWBH ;
+        chon:hasReport         :cgr9dsWBH ;
+        chon:hasResult         :res9dsWBH5 ;
+        chon:subEventOf        :tou9dsWB .
+
+:tou9dsWB  a          chon:hessTournament ;
+        chon:atPlace  :pla9dsWBH ;
+        chon:hasName  "Amber-rapid 5th" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

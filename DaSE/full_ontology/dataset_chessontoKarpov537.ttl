@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agS0VDXL  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Portisch, Lajos" .
+
+:rolS0VDXL  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resS0VDXLX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeS0VDXL  a            chon:ChessOpening ;
+        chon:hasECOCode  "E54" .
+
+:cgrO0STuM  a   chon:ChessGameReport .
+
+:gamS0VDX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolS0VDXL ;
+        chon:atPlace           :plaS0VDXL ;
+        chon:atTime            "1978.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamO0STuMZ ;
+        chon:hasHalfMove       :hmgamO0STuMZ ;
+        chon:hasLastHalfMove   :hmgamO0STuMZ ;
+        chon:hasOpening        :opeS0VDXL ;
+        chon:hasReport         :cgrO0STuM ;
+        chon:hasResult         :resS0VDXLX ;
+        chon:subEventOf        :touS0VDX .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS0VDXL .
+
+:touS0VDX  a          chon:hessTournament ;
+        chon:atPlace  :plaS0VDXL ;
+        chon:hasName  "Bugojno" .
+
+chon:HalfMove  chon:subEventOf  :gamS0VDX .
+
+:hmgamO0STuMZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgO0STuMZR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e5" , "Qe1" , "Ba2" , "Nc3" , "Nd6" , "Ne6" , "e6" , "Qe5" , "Kf8" , "Qd5" , "Kh2" , "Nxa4" , "Qf4" , "Qc7" , "Bf5" , "Qg3" , "d4" , "Bxf3" , "Qxf3" , "Bxc3" , "Nf3" , "Ne3" , "b6" , "Nxe8" , "Nf6" , "Rxe8+" , "Kg8" , "cxd4" , "Rfe8" , "Qd4" , "Be5" , "Kh1" , "Qc6" , "Bb4" , "d5" , "O-O" , "Bg3" , "Bd2" , "Nbd7" , "d3" , "Bb1" , "h3" , "Rc1" , "Rd2" , "h6" , "c5" , "Nc5" , "c4" , "Bg5" , "Nc4" , "dxc4" , "Bb7" , "Qe2" , "Bf2" , "Rd8" , "Rc8" , "Qe6" , "f3" , "e3" , "exd4" , "Qc1" , "bxc3" , "a4" , "Bxc4" , "Re8" , "Qe4" , "Qxc4" , "Bd3" , "Bf4" , "Qf6" , "Re1" , "Rd1" ;
+        chon:nextHalfMove      :hmgamO0STuMZ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS0VDXL .
+
+:rolhgO0STuMZR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS0VDXL .
+
+:rolO0STuM  a             chon:AuthorRole ;
+        chon:performedBy  :agO0STuM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaS0VDXL  a         chon:Place ;
+        chon:hasName  "Bugojno" .

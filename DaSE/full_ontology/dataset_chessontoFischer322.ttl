@@ -1,0 +1,76 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res4YF5Y5i  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4YF5Y5 .
+
+:hmgam4YF5Y5i  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4YF5Y5iX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Reshevsky, Samuel Herman" ;
+        chon:hasSANRecord      "Nxd4" , "c5" , "cxd4" , "e4" , "Nc6" , "g6" , "Nc3" , "Nf3" , "Bg7" , "d4" ;
+        chon:nextHalfMove      :hmgam4YF5Y5i , :hmgamfYSkx6n .
+
+:hmgamfYSkx6n  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfYSkx6n9 , :rolhgG1MSR7cy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Reshevsky, Samuel Herman" ;
+        chon:hasSANRecord      "Ng4" , "Qh2" , "Be6" , "Bf4" , "Qd6" , "g3" , "Nb3" , "h3" , "Bxd5" , "fxg6" , "Bxh3" , "Rxg7" , "Qe4" , "O-O-O" , "f5" , "fxg4" , "Rfe8" , "Rad8" , "Rf7" , "Rhg1" , "Bg2" , "Rd7" , "Qg5" , "Qd2" , "Nb4" , "d5" , "Kg8" , "Kh8" , "Be2" , "Nxd5" , "Na6" , "Nd4" , "O-O" , "Rxg3" , "Rg1+" , "Kd2" , "Rf1+" , "gxf5" , "Qg6" , "Be5" , "Be3" , "Bf3" , "Nxe6" , "Qd3" , "d6" , "Kxg7" , "Rh1" , "g4" , "Qh6+" , "Ne3" , "Rxg6+" , "exd5" , "Bc8" , "e6" , "f4" , "Rxe6" , "a3" , "Bg4" , "h5" , "Nf6" ;
+        chon:nextHalfMove      :hmgamfYSkx6n , :hmgamG1MSR7c .
+
+:pla4YF5Y5  a         chon:Place ;
+        chon:hasName  "Los Angeles" .
+
+chon:HalfMove  chon:subEventOf  :gam4YF5Y .
+
+:tou4YF5Y  a          chon:hessTournament ;
+        chon:atPlace  :pla4YF5Y5 ;
+        chon:hasName  "New York/Los Angeles m" .
+
+:ag4YF5Y5  a          chon:Agent ;
+        chon:hasName  "Reshevsky, Samuel Herman" , "Fischer, Robert James" .
+
+:ope4YF5Y5  a            chon:ChessOpening ;
+        chon:hasECOCode  "B72" .
+
+:hmgamG1MSR7c  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgG1MSR7cy , chon:AgentRole ;
+        chon:hasSANRecord      "Qd8+" .
+
+:rolhgG1MSR7cy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4YF5Y5 .
+
+:cgr4YF5Y5  a   chon:ChessGameReport .
+
+:rolhgfYSkx6n9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4YF5Y5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg4YF5Y5iX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4YF5Y5 .
+
+:rol4YF5Y5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4YF5Y5 .
+
+:gam4YF5Y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4YF5Y5 ;
+        chon:atPlace           :pla4YF5Y5 ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4YF5Y5i ;
+        chon:hasHalfMove       :hmgamG1MSR7c , :hmgamfYSkx6n , :hmgam4YF5Y5i ;
+        chon:hasLastHalfMove   :hmgamG1MSR7c ;
+        chon:hasOpening        :ope4YF5Y5 ;
+        chon:hasReport         :cgr4YF5Y5 ;
+        chon:hasResult         :res4YF5Y5i ;
+        chon:subEventOf        :tou4YF5Y .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4YF5Y5 .

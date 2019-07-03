@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamB1Isg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolB1Isg0 ;
+        chon:atPlace           :plaB1Isg0 ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamB1Isg03 ;
+        chon:hasHalfMove       :hmgamB1Isg03 , :hmgamwXrB10i ;
+        chon:hasLastHalfMove   :hmgamwXrB10i ;
+        chon:hasOpening        :opeB1Isg0 ;
+        chon:hasReport         :cgrB1Isg0 ;
+        chon:hasResult         :resB1Isg03 ;
+        chon:subEventOf        :touB1Isg .
+
+:agB1Isg0  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Christiansen, Larry Mark" .
+
+:rolhgB1Isg03j  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agB1Isg0 .
+
+:opeB1Isg0  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:hmgamB1Isg03  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgB1Isg03j ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf6" , "Nf3" , "c4" , "e6" ;
+        chon:nextHalfMove      :hmgamwXrB10i , :hmgamB1Isg03 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agB1Isg0 .
+
+chon:HalfMove  chon:subEventOf  :gamB1Isg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agB1Isg0 .
+
+:touB1Isg  a          chon:hessTournament ;
+        chon:atPlace  :plaB1Isg0 ;
+        chon:hasName  "Wijk m rapid" .
+
+:resB1Isg03  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrB1Isg0  a   chon:ChessGameReport .
+
+:rolB1Isg0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agB1Isg0 .
+
+:rolhgwXrB10ij  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agB1Isg0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamwXrB10i  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwXrB10ij , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rb3" , "Nf4" , "Kf6" , "Bxf4" , "Rhg1" , "Rg1" , "Nxc5" , "Bh4" , "d4" , "Bb7" , "g5" , "Rhb8" , "Qxf4+" , "Rb8" , "O-O-O" , "f3" , "Bc2" , "d6" , "Bc8" , "Be2" , "h6" , "Qe7" , "gxf4" , "Nd2" , "Rb1" , "Qe3" , "Bb4" , "e5" , "Rxb6" , "g3" , "Rb6" , "Qe2" , "bxc5" , "exf4" , "Ke7" , "Re8" , "Qxf4" , "Nbd7" , "a5" , "Bg5" , "e4" , "Nh5" , "Bd3" , "e3" , "d5" , "Qc2" , "Nc5" , "b6" , "Ke5" , "Nb3" , "a4" , "Bg3" , "a3" , "Kd2" , "Bxc3+" , "Qf6" , "bxc3" , "Nc3" , "Rh8" , "cxb6" , "Bd7" ;
+        chon:nextHalfMove      :hmgamwXrB10i .
+
+:plaB1Isg0  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agENG847  a          chon:Agent ;
+        chon:hasName  "Lasker, Emanuel" , "Steinitz, William" .
+
+:rolENG847  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agENG847 .
+
+:opeENG847  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agENG847 .
+
+:gamENG84  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolENG847 ;
+        chon:atPlace           :plaENG847 ;
+        chon:atTime            "1894.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamENG847x ;
+        chon:hasHalfMove       :hmgamENG847x , :hmgamQLBlB6A ;
+        chon:hasLastHalfMove   :hmgamQLBlB6A ;
+        chon:hasOpening        :opeENG847 ;
+        chon:hasReport         :cgrENG847 ;
+        chon:hasResult         :resENG847x ;
+        chon:subEventOf        :touENG84 .
+
+:touENG84  a          chon:hessTournament ;
+        chon:atPlace  :plaENG847 ;
+        chon:hasName  "World Championship 5th" .
+
+chon:HalfMove  chon:subEventOf  :gamENG84 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agENG847 .
+
+:resENG847x  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgENG847xb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agENG847 .
+
+:hmgamQLBlB6A  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQLBlB6Ao ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lasker, Emanuel" ;
+        chon:hasSANRecord      "Kf2" , "Bb3" , "Kf6" , "bxc3" , "Rxg3+" , "Rg6+" , "Be4" , "Rb2" , "Kf8" , "Rf7" , "Rxg7" , "Ra6" , "Kxg7" , "Nxc3" , "Kg7" , "Re2+" , "h5" , "Ke4" , "bxc6" , "Kd3" , "Rbe8" , "Ne4" , "d6" , "Kd4" , "Rxc6" , "c7" , "Kg1" , "Rb8" , "Re7" , "fxg3" , "Kf3" , "Rxe6" , "Rxg2" , "Bxd1" , "Rg1" , "Bc4" , "c6" , "Rg7" , "Bd3" , "d5" , "c5" , "Bxf5" , "Rg8" , "Rd8" , "Qxg3+" ;
+        chon:nextHalfMove      :hmgamQLBlB6A .
+
+:hmgamENG847x  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQLBlB6Ao , :rolhgENG847xb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lasker, Emanuel" ;
+        chon:hasSANRecord      "Bd7" , "Nf3" , "Be8" , "c6" , "Qg7" , "Bc3" , "Bxh2+" , "Kxh2" , "Re1" , "Nxe4" , "Nxc6" , "e3" , "Bd6" , "Qh3" , "e4" , "Qe3" , "Nc3" , "O-O" , "Rad1" , "e6" , "Bd3" , "Qc7" , "Bh5" , "Qxg3" , "g4" , "d4" , "d5" , "Qd3" , "h6" , "Bd2" , "g5" , "Nbd7" , "Bc2" , "Bxe4" , "g3+" , "Ne5" , "Nf6" , "dxe4" , "c4" , "f5" ;
+        chon:nextHalfMove      :hmgamQLBlB6A , :hmgamENG847x .
+
+:plaENG847  a         chon:Place ;
+        chon:hasName  "USA/CAN" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgQLBlB6Ao  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agENG847 .
+
+:cgrENG847  a   chon:ChessGameReport .

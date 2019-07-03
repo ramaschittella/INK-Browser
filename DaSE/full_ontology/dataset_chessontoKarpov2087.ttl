@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agIdAaZd  a          chon:Agent ;
+        chon:hasName  "Rogers, Ian" , "Karpov, Anatoly" .
+
+:rolIdAaZd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIdAaZd .
+
+:opeIdAaZd  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIdAaZd .
+
+:rolhgIdAaZdaa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIdAaZd .
+
+chon:HalfMove  chon:subEventOf  :gamwfpm2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIdAaZd .
+
+:gamwfpm2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIdAaZd ;
+        chon:atPlace           :plaIdAaZd ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIdAaZda ;
+        chon:hasHalfMove       :hmgamIdAaZda ;
+        chon:hasLastHalfMove   :hmgamIdAaZda ;
+        chon:hasOpening        :opeIdAaZd ;
+        chon:hasReport         :cgrIdAaZd ;
+        chon:hasResult         :resIdAaZda ;
+        chon:subEventOf        :touIdAaZ .
+
+:hmgamIdAaZda  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIdAaZdaa ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rogers, Ian" ;
+        chon:hasSANRecord      "Rxd6" , "Ke2" , "Rxc3" , "Rb2+" , "g6" , "Qb1+" , "Nxc3" , "Kxf1" , "Ne3" , "Bb4+" , "d4" , "h3" , "Rd4" , "Qxb5" , "b5" , "Rd2" , "Kg2" , "Qd7" , "Bd5" , "Re8" , "Ne4" , "fxe6" , "b4" , "Kd2" , "Nf6" , "Re7" , "O-O" , "Nxe3" , "Rb7" , "Bg2" , "Qxc3" , "f4" , "Bxc3" , "e6" , "Qe7" , "cxb5" , "Qb4" , "h5" , "Rd6" , "Rc3" , "dxe6" , "Kf1" , "Rd7" , "Bf1" , "e3" , "Qd2" , "e4" , "Nd7" , "d5" , "Nf3" , "Rc1" , "Nb8" , "Qa3" , "Bf7" , "Rd3+" , "Bxb5" , "Bxf1" , "Bd2" , "Qb5" , "Nd5" , "Rb3" , "Nc2" , "Qxa7" , "Qxe3" , "g3" , "Ke1" , "Re5" , "Nd4" , "Rc5" , "Nc6" , "Bc6" , "Qg5" , "Rd1" , "e5" , "c4" , "Rac8" , "Bxa2" , "d6" , "c6" , "Nc3" , "Be6" ;
+        chon:nextHalfMove      :hmgamIdAaZda .
+
+:plaIdAaZd  a         chon:Place ;
+        chon:hasName  "Oropesa del Mar" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrIdAaZd  a   chon:ChessGameReport .
+
+:touIdAaZ  a          chon:hessTournament ;
+        chon:atPlace  :plaIdAaZd ;
+        chon:hasName  "ESP-chT" .
+
+:resIdAaZda  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

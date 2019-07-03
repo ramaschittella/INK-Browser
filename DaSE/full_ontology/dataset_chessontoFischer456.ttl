@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resRLb9MUZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamiNns9VO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiNns9VOj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Puto, E." ;
+        chon:hasSANRecord      "Bxg4" , "Bg5" , "e5" , "g5" , "Qh3+" , "d6" , "Bc4" , "Kg7" , "Nc6" , "Qxh4+" , "a3" , "Bxf7+" , "Bc3+" , "Kg2" , "Bxd4" , "Ba2" , "Ne2" , "b5" , "Nf6" , "h6" , "e4" , "g4" , "Nc3" , "Kf2" , "d3" , "Bxb2" , "Nxd4" , "c6" , "Bc5" , "a5" , "Bh4" , "Nf3" , "Nd4" , "f4" , "Kg1" , "f5" , "dxe4" , "fxg6" , "Rb1" , "Qe3+" , "Nxe4+" , "O-O" ;
+        chon:nextHalfMove      :hmgamiNns9VO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRLb9MU .
+
+chon:HalfMove  chon:subEventOf  :gamRLb9M .
+
+:opeRLb9MU  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+:gamRLb9M  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRLb9MU ;
+        chon:atPlace           :plaRLb9MU ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiNns9VO ;
+        chon:hasHalfMove       :hmgamiNns9VO ;
+        chon:hasLastHalfMove   :hmgamiNns9VO ;
+        chon:hasOpening        :opeRLb9MU ;
+        chon:hasReport         :cgrRLb9MU ;
+        chon:hasResult         :resRLb9MUZ ;
+        chon:subEventOf        :touRLb9M .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRLb9MU .
+
+:touRLb9M  a          chon:hessTournament ;
+        chon:atPlace  :plaRLb9MU ;
+        chon:hasName  "Cicero sim" .
+
+:rolhgiNns9VOj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRLb9MU .
+
+:plaRLb9MU  a         chon:Place ;
+        chon:hasName  "Cicero" .
+
+:cgrRLb9MU  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agRLb9MU  a          chon:Agent ;
+        chon:hasName  "Puto, E." , "Fischer, Robert James" .
+
+:rolRLb9MU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRLb9MU .

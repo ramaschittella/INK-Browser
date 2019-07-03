@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg4giSelI6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4giSel .
+
+:hmgam4giSelI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4giSelI6 , :rolhgujuVzmyw , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Bb5" , "Qe8" , "Be7" , "Nf1" , "Nd7" , "a6" , "c3" , "Nb8" , "Ng8" , "Nf3" , "Ne7" , "Nf5" , "Bc2" , "Nbd2" , "Kh8" , "Kg2" , "O-O" , "d4" , "Nc6" , "Bd7" , "Bg4" , "Be3" , "e4" , "Nb6" , "Ng6" , "g4" , "d5" , "b3" , "Bd8" , "Ba4" , "Ng3" , "h3" , "Bc8" , "e5" , "Re1" , "d6" ;
+        chon:nextHalfMove      :hmgam4giSelI , :hmgamujuVzmy .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4giSel .
+
+chon:HalfMove  chon:subEventOf  :gam4giSe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4giSel .
+
+:res4giSelI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:pla4giSel  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+:hmgamujuVzmy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgujuVzmyw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "e5" , "g6" , "Qxe5+" , "Nc8" , "Rd1" , "hxg4" , "Nf5" , "Qc3" , "dxe5" , "Qg5" , "Be6" , "Nce7" , "Bxe2" , "Bh3+" , "Re2" , "Qf7" , "Nxe2+" , "fxg4" , "Qd2" , "Bxf6+" , "Bd4" , "c5" , "Nxe5" , "Bxg4" , "f5" , "Qd7" , "Kg1" , "Bxd8" , "Nf6" , "Kg8" , "Bxc4" , "Bc4" , "Bf6" , "Nf4" , "Bd1" , "c4" , "Nxd5" ;
+        chon:nextHalfMove      :hmgamujuVzmy .
+
+:gam4giSe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4giSel ;
+        chon:atPlace           :pla4giSel ;
+        chon:atTime            "1895.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4giSelI ;
+        chon:hasHalfMove       :hmgam4giSelI , :hmgamujuVzmy ;
+        chon:hasLastHalfMove   :hmgamujuVzmy ;
+        chon:hasOpening        :ope4giSel ;
+        chon:hasReport         :cgr4giSel ;
+        chon:hasResult         :res4giSelI ;
+        chon:subEventOf        :tou4giSe .
+
+:cgr4giSel  a   chon:ChessGameReport .
+
+:tou4giSe  a          chon:hessTournament ;
+        chon:atPlace  :pla4giSel ;
+        chon:hasName  "Hastings" .
+
+:rolhgujuVzmyw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4giSel .
+
+:ag4giSel  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Lasker, Emanuel" .
+
+:rol4giSel  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4giSel .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope4giSel  a            chon:ChessOpening ;
+        chon:hasECOCode  "C75" .

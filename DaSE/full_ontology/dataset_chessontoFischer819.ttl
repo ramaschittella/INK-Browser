@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamFy4LvsS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFy4LvsS6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nf6" , "Kxg2" , "Bb6" , "Rxb2" , "a3" , "Bg7" , "Rb8" , "Bxc6" , "Kg1" , "Nc7" , "h3" , "e4" , "Bd7" , "Nbc3" , "Rxb4" , "d4" , "Ne8" , "Na4" , "Bg2" , "e5" , "Be3" , "Qxd6" , "Qe8" , "Rxc2" , "cxd4" , "Rxc2+" , "Rxa7" , "axb4" , "Bxg2" , "Qxa4" , "exd6" , "Nxd4" , "d6" , "Qxc2+" , "c5" , "g6" , "Nxc6" , "Rxc7" , "b4" , "Ne2" , "Nc6" , "f4" , "g3" , "Bf2" , "b5" , "Ra2" , "Qe4+" , "d3" , "O-O" ;
+        chon:nextHalfMove      :hmgamFy4LvsS .
+
+:rolhgFy4LvsS6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFy4Lvs .
+
+:opeFy4Lvs  a            chon:ChessOpening ;
+        chon:hasECOCode  "B25" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFy4Lvs .
+
+chon:HalfMove  chon:subEventOf  :gamFy4Lv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFy4Lvs .
+
+:plaFy4Lvs  a         chon:Place ;
+        chon:hasName  "Belgrade" .
+
+:cgrFy4Lvs  a   chon:ChessGameReport .
+
+:resFy4LvsS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamFy4Lv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFy4Lvs ;
+        chon:atPlace           :plaFy4Lvs ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFy4LvsS ;
+        chon:hasHalfMove       :hmgamFy4LvsS ;
+        chon:hasLastHalfMove   :hmgamFy4LvsS ;
+        chon:hasOpening        :opeFy4Lvs ;
+        chon:hasReport         :cgrFy4Lvs ;
+        chon:hasResult         :resFy4LvsS ;
+        chon:subEventOf        :touFy4Lv .
+
+:agFy4Lvs  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+:touFy4Lv  a          chon:hessTournament ;
+        chon:atPlace  :plaFy4Lvs ;
+        chon:hasName  "St Stefan/Belgrade m" .
+
+:rolFy4Lvs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFy4Lvs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

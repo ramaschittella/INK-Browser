@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaAvcaiw  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:cgrAvcaiw  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAvcaiw .
+
+chon:HalfMove  chon:subEventOf  :gamAvcai .
+
+:agAvcaiw  a          chon:Agent ;
+        chon:hasName  "Kosonen, Markku" , "Karpov, Anatoly" .
+
+:gamAvcai  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAvcaiw ;
+        chon:atPlace           :plaAvcaiw ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAvcaiwX ;
+        chon:hasHalfMove       :hmgamAvcaiwX ;
+        chon:hasLastHalfMove   :hmgamAvcaiwX ;
+        chon:hasOpening        :opeAvcaiw ;
+        chon:hasReport         :cgrAvcaiw ;
+        chon:hasResult         :resAvcaiwX ;
+        chon:subEventOf        :touAvcai .
+
+:rolAvcaiw  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAvcaiw .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAvcaiw .
+
+:resAvcaiwX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgAvcaiwXS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAvcaiw .
+
+:touAvcai  a          chon:hessTournament ;
+        chon:atPlace  :plaAvcaiw ;
+        chon:hasName  "Valkeakoski sim" .
+
+:opeAvcaiw  a            chon:ChessOpening ;
+        chon:hasECOCode  "A81" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamAvcaiwX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAvcaiwXS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kosonen, Markku" ;
+        chon:hasSANRecord      "Nc7" , "Ra7" , "d5" , "Bg7" , "Nd6" , "e4" , "Nf6" , "a4" , "Be6" , "Re8" , "c3" , "f3" , "g3" , "Kb1" , "Nxe4" , "Nxf6+" , "Na6" , "Rae7" , "Nf4" , "b6" , "Rxe7" , "g6" , "Nc3" , "c6" , "Nb5" , "Be3" , "Bh3" , "exf6" , "a5" , "Bc1" , "O-O" , "O-O-O" , "Rhe1" , "d4" , "h4" , "f5" , "Bf7" , "Ne2" , "Bg2" , "Qb3" , "fxe4" ;
+        chon:nextHalfMove      :hmgamAvcaiwX .

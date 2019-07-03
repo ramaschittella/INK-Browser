@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrvSQiK8  a   chon:ChessGameReport .
+
+:gamvSQiK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvSQiK8 ;
+        chon:atPlace           :plavSQiK8 ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvSQiK8w ;
+        chon:hasHalfMove       :hmgamvSQiK8w , :hmgamryzrv6N ;
+        chon:hasLastHalfMove   :hmgamryzrv6N ;
+        chon:hasOpening        :opevSQiK8 ;
+        chon:hasReport         :cgrvSQiK8 ;
+        chon:hasResult         :resvSQiK8w ;
+        chon:subEventOf        :touvSQiK .
+
+:touvSQiK  a          chon:hessTournament ;
+        chon:atPlace  :plavSQiK8 ;
+        chon:hasName  "Koszalin sim1" .
+
+:agvSQiK8  a          chon:Agent ;
+        chon:hasName  "Orzech, Dominik" , "Karpov, Anatoly" .
+
+:rolvSQiK8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvSQiK8 .
+
+:resvSQiK8w  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opevSQiK8  a            chon:ChessOpening ;
+        chon:hasECOCode  "B30" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvSQiK8 .
+
+:rolhgvSQiK8wJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvSQiK8 .
+
+chon:HalfMove  chon:subEventOf  :gamvSQiK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvSQiK8 .
+
+:rolhgryzrv6NH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvSQiK8 .
+
+:hmgamryzrv6N  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgryzrv6NH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Orzech, Dominik" ;
+        chon:hasSANRecord      "Bxc4" , "Kg7" , "dxe5" , "Re8+" , "Rxd1+" , "Re1" , "Qc7" , "a5" , "Qc2" , "Nd2" , "Rd5" , "Kh1" , "Rd2" , "Nxd1" , "R5d7" , "Kg1" , "Re4" , "b3" , "Qa1" , "h3" , "Nxf4" , "Qb5+" , "Qa4" , "a4" , "Qc1" , "Bxc6+" , "Rxc4" , "g6" , "Ne3" , "Rd4" , "Qf6" , "Nf4" , "bxc6" , "Qc3+" , "Nf6" , "Kh2" , "Rf4" , "Qxe5" , "Ncd2" , "Qc4" , "Rh4" , "Ra4" , "d4" , "Rxf2+" , "Rad1" , "Bd6" , "Nc4" , "Qf5" , "g3" , "Ba6" , "e5" , "Kf1" , "Qb6" , "Rbd8" , "Bxf4" , "Ng4" , "Nd5" , "Rd6" , "Rd8" , "Rb8" , "Qc3" , "d3" , "Nbd2" , "Rd3" , "Bf4" , "cxd4" , "Nh5" , "O-O" ;
+        chon:nextHalfMove      :hmgamryzrv6N .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamvSQiK8w  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvSQiK8wJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Orzech, Dominik" ;
+        chon:hasSANRecord      "exd5" , "Nxd5" , "Nf3" , "Nc6" , "a6" , "c5" , "e6" , "c3" , "Bb5" , "O-O" , "Nge7" , "e4" , "d5" , "Ba4" ;
+        chon:nextHalfMove      :hmgamvSQiK8w , :hmgamryzrv6N .
+
+:plavSQiK8  a         chon:Place ;
+        chon:hasName  "Koszalin" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touM3cIt  a          chon:hessTournament ;
+        chon:atPlace  :plal11q8K ;
+        chon:hasName  "Tilburg" .
+
+:rolhgY38Y1KZc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agM3cItL .
+
+:agM3cItL  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Sosonko, Gennadi" .
+
+:rolM3cItL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agM3cItL .
+
+:opeM3cItL  a            chon:ChessOpening ;
+        chon:hasECOCode  "E04" .
+
+:rolhgM3cItLUZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agM3cItL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM3cItL .
+
+chon:HalfMove  chon:subEventOf  :gaml11q8 .
+
+:gaml11q8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolM3cItL ;
+        chon:atPlace           :plal11q8K ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamM3cItLU ;
+        chon:hasHalfMove       :hmgamY38Y1KZ , :hmgamM3cItLU ;
+        chon:hasLastHalfMove   :hmgamY38Y1KZ ;
+        chon:hasOpening        :opeM3cItL ;
+        chon:hasReport         :cgrM3cItL ;
+        chon:hasResult         :resM3cItLU ;
+        chon:subEventOf        :touM3cIt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM3cItL .
+
+:hmgamY38Y1KZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgY38Y1KZc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxb4" , "Rhd8" , "Rd6" , "fxe6" , "Nxe6" , "Rfe1" , "Qxe6" , "Rb8" , "Be7" , "Kf7" , "Na7" , "Nc6" , "Nd5" , "Ng5" , "Ndb6" , "Qf7" , "Nxb5" , "Nac4" , "Nc4" , "Rxd8" , "e6" , "Rad1" , "Nxa3" , "Nc7" , "Nac7" , "Nxb6" , "Bf6" ;
+        chon:nextHalfMove      :hmgamY38Y1KZ .
+
+:plal11q8K  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:resM3cItLU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrM3cItL  a   chon:ChessGameReport .
+
+:hmgamM3cItLU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgM3cItLUZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "hxg3" , "Bg2" , "Nxb7" , "Qc7" , "Bb7" , "Na5" , "b4" , "Nxc4" , "Qxc5" , "Qh5" , "e4" , "e6" , "Nd2" , "Nb4" , "Nb6" , "c5" , "Qe5" , "Rc8" , "d4" , "dxc5" , "c4" , "Be7" , "b3" , "Nfd7" , "Ne5" , "Nc5" , "e3" , "O-O" , "Qe2" , "a6" , "d5" , "Nf6" , "dxc4" , "exf4" , "Nxa6" , "Nc6" , "b5" , "a3" , "g3" , "fxg3" , "Nbd5" , "e5" , "Nf3" , "Bf4" ;
+        chon:nextHalfMove      :hmgamY38Y1KZ , :hmgamM3cItLU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

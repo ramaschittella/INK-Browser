@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrX096Lf  a   chon:ChessGameReport .
+
+:resX096LfQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolX096Lf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agX096Lf .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agX096Lf .
+
+chon:HalfMove  chon:subEventOf  :gamLbcRc .
+
+:plaX096Lf  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agX096Lf .
+
+:hmgamX096LfQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgX096LfQw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Bb2" , "fxg3" , "Qc3" , "Nge2" , "Nc6" , "Qc2" , "g6" , "Rc8" , "e5" , "Rbd1" , "d3" , "Qc7" , "a4" , "h5" , "g3" , "Bh6" , "Rf2" , "Bg4" , "axb5" , "a6" , "Nf4" , "h4" , "Be6" , "d6" , "Kh2" , "b5" , "Bc5" , "c4" , "Bg7" , "a3" , "cxd5" , "Bc8" , "Rb2" , "e4" , "Qe1" , "N4c3" , "Qc4" , "bxc6" , "c6" , "Qd7" , "b4" , "Qc5" , "h3" , "d5" , "Rb1" , "Nxd5" , "d4" , "Rad8" , "Ba6" , "hxg3+" , "O-O" , "Ne7" , "Nf6" , "Ned5" , "Bd3" , "Rf7" , "Ncxd5" , "f5" , "Ne4" , "Nc3" , "e3" , "Qe7" , "Bg2" , "Ba3" ;
+        chon:nextHalfMove      :hmgamX096LfQ .
+
+:gamLbcRc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolX096Lf ;
+        chon:atPlace           :plaX096Lf ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamX096LfQ ;
+        chon:hasHalfMove       :hmgamX096LfQ ;
+        chon:hasLastHalfMove   :hmgamX096LfQ ;
+        chon:hasOpening        :opeX096Lf ;
+        chon:hasReport         :cgrX096Lf ;
+        chon:hasResult         :resX096LfQ ;
+        chon:subEventOf        :touX096L .
+
+:agX096Lf  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:opeX096Lf  a            chon:ChessOpening ;
+        chon:hasECOCode  "A25" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgX096LfQw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agX096Lf .
+
+:touX096L  a          chon:hessTournament ;
+        chon:atPlace  :plaX096Lf ;
+        chon:hasName  "Alma-Ata m3" .

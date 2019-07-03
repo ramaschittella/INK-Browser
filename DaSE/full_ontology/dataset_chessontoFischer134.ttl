@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeMZ6v7h  a            chon:ChessOpening ;
+        chon:hasECOCode  "C67" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMZ6v7h .
+
+:plaMZ6v7h  a         chon:Place ;
+        chon:hasName  "Portoroz" .
+
+:rolhgXX3LDgQu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMZ6v7h .
+
+chon:HalfMove  chon:subEventOf  :gamMZ6v7 .
+
+:cgrMZ6v7h  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMZ6v7h .
+
+:agMZ6v7h  a          chon:Agent ;
+        chon:hasName  "Neikirkh, Oleg" , "Fischer, Robert James" .
+
+:rolMZ6v7h  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMZ6v7h .
+
+:resMZ6v7hN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamMZ6v7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMZ6v7h ;
+        chon:atPlace           :plaMZ6v7h ;
+        chon:atTime            "1958.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXX3LDgQ ;
+        chon:hasHalfMove       :hmgamXX3LDgQ ;
+        chon:hasLastHalfMove   :hmgamXX3LDgQ ;
+        chon:hasOpening        :opeMZ6v7h ;
+        chon:hasReport         :cgrMZ6v7h ;
+        chon:hasResult         :resMZ6v7hN ;
+        chon:subEventOf        :touMZ6v7 .
+
+:touMZ6v7  a          chon:hessTournament ;
+        chon:atPlace  :plaMZ6v7h ;
+        chon:hasName  "Portoroz Interzonal" .
+
+:hmgamXX3LDgQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXX3LDgQu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Neikirkh, Oleg" ;
+        chon:hasSANRecord      "c3" , "Nf5" , "Nd6" , "Qe2" , "Bg4" , "Bf5" , "bxa5" , "cxb4" , "Qxd4" , "Ne4" , "Bxc6" , "a5" , "dxc6" , "d4" , "Bb4" , "Qe3" , "dxe5" , "e4" , "Nc6" , "Nf6" , "Nf3" , "Nd4" , "O-O" , "Bxe3" , "Nc3" , "Rxa5" , "Nxe4" , "Bb5" , "e5" , "Nxd4" , "Qxe3" , "Bxe4" ;
+        chon:nextHalfMove      :hmgamXX3LDgQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

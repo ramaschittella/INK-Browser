@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolz9pxOd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agz9pxOd .
+
+:rolhgL9lNleRP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agz9pxOd .
+
+:plaz9pxOd  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agz9pxOd .
+
+:hmgamL9lNleR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgL9lNleRP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Bg7" , "Ne4" , "Rc8" , "O-O" , "Bxf4" , "Bf1" , "Rb1" , "c5" , "Rbe3" , "Nc3" , "h5" , "Nf3" , "Bh3+" , "Rxf8+" , "Kf6" , "Bg2" , "bxa6" , "Kf3" , "exf4" , "f4" , "cxb5" , "Qb6" , "Kxf8" , "Re1" , "Kg2" , "Kd7" , "Bxf3" , "Bd8" , "d6" , "exf3" , "g6" , "gxf4" , "c4" , "g5" , "g3" , "Bc3" , "b6" , "Bh3" , "Bxb2" , "a6" , "Re8+" , "a4" , "Nxe4" , "e5" , "Ba5" , "Bxe4" , "Rb3" , "d5" , "Bf6" , "Nf6" , "Qa4" , "Re8" , "b5" , "Bb7" , "Ke7" , "Kg7" , "d4" , "Qxb5" ;
+        chon:nextHalfMove      :hmgamL9lNleR .
+
+chon:HalfMove  chon:subEventOf  :gamz9pxO .
+
+:agz9pxOd  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agz9pxOd .
+
+:gamz9pxO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolz9pxOd ;
+        chon:atPlace           :plaz9pxOd ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamL9lNleR ;
+        chon:hasHalfMove       :hmgamL9lNleR ;
+        chon:hasLastHalfMove   :hmgamL9lNleR ;
+        chon:hasOpening        :opez9pxOd ;
+        chon:hasReport         :cgrz9pxOd ;
+        chon:hasResult         :resz9pxOdO ;
+        chon:subEventOf        :touz9pxO .
+
+:touz9pxO  a          chon:hessTournament ;
+        chon:atPlace  :plaz9pxOd ;
+        chon:hasName  "Amsterdam" .
+
+:opez9pxOd  a            chon:ChessOpening ;
+        chon:hasECOCode  "A30" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrz9pxOd  a   chon:ChessGameReport .
+
+:resz9pxOdO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgZvWgsOpy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNx13VO .
+
+:plaNx13VO  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:hmgamZvWgsOp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZvWgsOpy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Qe2" , "Rad8" , "Ne4" , "Nxb7+" , "Qxd5" , "Kxd5" , "Bg6" , "g6" , "Bf4" , "Nxe7" , "Bd3" , "Re2" , "Rd2" , "gxf5" , "Bh5" , "Re1" , "Rxd5" , "Qc2" , "Qe6" , "Rd3" , "Ne7+" , "b3" , "f5" , "h5" , "Rxe2" , "Qd1" , "Qb6" , "Qxe7" , "Qxe2" , "Nxa6" , "c4" , "Qe4" , "Bd6" , "Rd1" , "Kf6" , "Kg7" , "g4" , "Kf1" , "Ke7" , "Rd6" , "Bc7" , "cxd5" , "Bxd3" , "Qxd3" , "Rfe8" , "Kg2" , "Nc5" , "hxg4" , "Kc4" , "Bb6" , "Nf5" , "Nc6" , "b4" , "Kd6" , "Nd2" ;
+        chon:nextHalfMove      :hmgamVtDpcLG , :hmgamZvWgsOp .
+
+:hmgamVtDpcLG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgVtDpcLGy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Nc5" , "Kb5" , "Nb3" , "Ka3" , "Kxb4" ;
+        chon:nextHalfMove      :hmgamVtDpcLG .
+
+:rolhgVtDpcLGy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNx13VO .
+
+:rolhgNx13VOln  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNx13VO .
+
+:agNx13VO  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNx13VO .
+
+:opeNx13VO  a            chon:ChessOpening ;
+        chon:hasECOCode  "C09" .
+
+:cgrNx13VO  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamNx13V .
+
+:gamNx13V  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNx13VO ;
+        chon:atPlace           :plaNx13VO ;
+        chon:atTime            "1974.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNx13VOl ;
+        chon:hasHalfMove       :hmgamZvWgsOp , :hmgamNx13VOl , :hmgamVtDpcLG ;
+        chon:hasLastHalfMove   :hmgamVtDpcLG ;
+        chon:hasOpening        :opeNx13VO ;
+        chon:hasReport         :cgrNx13VO ;
+        chon:hasResult         :resNx13VOl ;
+        chon:subEventOf        :touNx13V .
+
+:touNx13V  a          chon:hessTournament ;
+        chon:atPlace  :plaNx13VO ;
+        chon:hasName  "Candidats final" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolNx13VO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNx13VO .
+
+:resNx13VOl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamNx13VOl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNx13VOln , :rolhgZvWgsOpy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Re1" , "c3" , "dxc5" , "a6" , "h3" , "Bd6" , "Bg4" , "Nxe7" , "Bg6" , "Bxe7" , "h6" , "Nc6" , "Nd2" , "Ne7" , "Bb5" , "exd5" , "d4" , "Qa4" , "Bh5" , "c5" , "Bxc5" , "Ngf3" , "Nb3" , "Bg5" , "d5" , "e4" , "Qc7" , "Rad1" , "e6" , "Bf1" , "Nbd4" , "O-O" ;
+        chon:nextHalfMove      :hmgamNx13VOl , :hmgamZvWgsOp .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNx13VO .

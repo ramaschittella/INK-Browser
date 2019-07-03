@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgyEALSrkK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7Ensgq .
+
+:hmgamyEALSrk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyEALSrkK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nxd5" , "Bb5+" , "d5" , "Bxd7+" , "e4" , "Rfd8" , "f3" , "b3" , "exd5" , "c4" , "c5" , "Rf2" , "Nc6" , "d6" , "Be3" , "Qxd5" , "d4" , "Nc3" , "cxd4" , "Nf3" , "Nf6" , "Rac8" , "Rad1" , "Qf2" , "Qc5" , "O-O" , "g6" , "Rff1" , "Nxd4" , "Nb8" , "a6" , "Bg7" , "Qxd7" , "Bd7" , "Qd2" ;
+        chon:nextHalfMove      :hmgamyEALSrk , :hmgamJEwZcqp .
+
+:rolyEALSr  a             chon:AuthorRole ;
+        chon:performedBy  :agyEALSr .
+
+:rolhgJEwZcqpX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7Ensgq .
+
+:opeyEALSr  a            chon:ChessOpening ;
+        chon:hasECOCode  "B52" .
+
+:hmgamJEwZcqp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJEwZcqpX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rcd1" , "Bc5" , "Rdxc6" , "Nxc6" , "Qb4" , "bxa6" , "R8d7" , "Rd6" , "b5" , "Rc6" , "Rc1" , "Bf6" , "Rbd7" , "Bb4" , "f4" , "Rfd1" , "Re1" , "Rd2" , "Qxc5" , "Bb6" , "Rb1" , "Bc3" , "g3" , "Qa5" , "Rd3" , "Qc3" , "Kh2" , "Qa1" , "Re6" , "h3" , "cxb5" , "Nc6" , "Bxc7" , "R6c7" , "Rb7" , "Rh1+" , "Rd7" , "Rd8+" , "a7" , "Kg7" , "Rxc7" ;
+        chon:nextHalfMove      :hmgamJEwZcqp .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7Ensgq .
+
+chon:HalfMove  chon:subEventOf  :gam7Ensg .
+
+:resyEALSrk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gam7Ensg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7Ensgq ;
+        chon:atPlace           :pla7Ensgq ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyEALSrk ;
+        chon:hasHalfMove       :hmgamJEwZcqp , :hmgamyEALSrk ;
+        chon:hasLastHalfMove   :hmgamJEwZcqp ;
+        chon:hasOpening        :opeyEALSr ;
+        chon:hasReport         :cgryEALSr ;
+        chon:hasResult         :resyEALSrk ;
+        chon:subEventOf        :tou7Ensg .
+
+:tou7Ensg  a          chon:hessTournament ;
+        chon:atPlace  :pla7Ensgq ;
+        chon:hasName  "Mar del Plata" .
+
+:pla7Ensgq  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7Ensgq .
+
+:cgryEALSr  a   chon:ChessGameReport .
+
+:ag7Ensgq  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Redolfi, Argentino Rodolfo" .
+
+:rol7Ensgq  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

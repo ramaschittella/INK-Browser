@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgriAoiA3  a   chon:ChessGameReport .
+
+:resiAoiA3c  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgiAoiA3cw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiAoiA3 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiAoiA3 .
+
+:plaiAoiA3  a         chon:Place ;
+        chon:hasName  "Singapore" .
+
+chon:HalfMove  chon:subEventOf  :gamiAoiA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiAoiA3 .
+
+:gamiAoiA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliAoiA3 ;
+        chon:atPlace           :plaiAoiA3 ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiAoiA3c ;
+        chon:hasHalfMove       :hmgamiAoiA3c ;
+        chon:hasLastHalfMove   :hmgamiAoiA3c ;
+        chon:hasOpening        :opeiAoiA3 ;
+        chon:hasReport         :cgriAoiA3 ;
+        chon:hasResult         :resiAoiA3c ;
+        chon:subEventOf        :touiAoiA .
+
+:agiAoiA3  a          chon:Agent ;
+        chon:hasName  "Yip Fong Ling" , "Karpov, Anatoly" .
+
+:roliAoiA3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiAoiA3 .
+
+:opeiAoiA3  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+:hmgamiAoiA3c  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiAoiA3cw , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Yip Fong Ling" ;
+        chon:hasSANRecord      "Rce8" , "Kf2" , "Nh5" , "h5" , "hxg5" , "Bh3" , "Bd6" , "d5" , "Nxg6" , "Rad8" , "Be5" , "Bc6" , "d4" , "Nb6" , "g4" , "Ref1" , "Qf3" , "Nbd7" , "Nf4" , "O-O" , "Nc3" , "a6" , "Qa5" , "c4" , "Rd2" , "h4" , "Bc2" , "Qc8" , "Qxd6" , "Nd7" , "Bd5" , "Rc8" , "Bf1" , "Bd2" , "Bg5" , "c6" , "c3" , "Bf5" , "Rf2" , "e6" , "f5" , "Qb8" , "Rfe8" , "Qxd5" , "Rad1" , "Qe2" , "Ba4" , "Qxg3+" , "b5" , "Nf6" , "Nb5" , "Rfe2" , "Qd8" , "Rf8" , "h6" , "Nf3" , "a5" , "Bc4" , "Bh4" , "Ng6" , "Qg3" , "h3" , "g5" , "e4" , "Qc7" , "c5" , "Re1" , "Bc7" , "Nd5" , "f4" , "Bxg6" , "Nxd6+" , "Bxg3" , "exd5" , "Ne5" , "fxg5" , "Bg3" ;
+        chon:nextHalfMove      :hmgamiAoiA3c .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touiAoiA  a          chon:hessTournament ;
+        chon:atPlace  :plaiAoiA3 ;
+        chon:hasName  "Singapore sim" .

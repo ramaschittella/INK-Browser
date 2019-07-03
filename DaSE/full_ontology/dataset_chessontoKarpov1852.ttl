@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr43HwJE  a   chon:ChessGameReport .
+
+:ag43HwJE  a          chon:Agent ;
+        chon:hasName  "Shabalov, Alexander" , "Karpov, Anatoly" .
+
+:rol43HwJE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag43HwJE .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag43HwJE .
+
+:ope43HwJE  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:HalfMove  chon:subEventOf  :gamS3Kic .
+
+:rolhgv5TQ7Gk9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag43HwJE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag43HwJE .
+
+:gamS3Kic  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol43HwJE ;
+        chon:atPlace           :plaS3KicF ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam43HwJEu ;
+        chon:hasHalfMove       :hmgam43HwJEu , :hmgamv5TQ7Gk ;
+        chon:hasLastHalfMove   :hmgamv5TQ7Gk ;
+        chon:hasOpening        :ope43HwJE ;
+        chon:hasReport         :cgr43HwJE ;
+        chon:hasResult         :res43HwJEu ;
+        chon:subEventOf        :tou43HwJ .
+
+:hmgamv5TQ7Gk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgv5TQ7Gk9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shabalov, Alexander" ;
+        chon:hasSANRecord      "Bxh6" , "Qf6" , "Qb6" , "b6" , "c5" , "Rfe1" , "Ne5" , "Bxd1" , "Qb3" , "a4" , "Nxh6+" , "Rg4" , "Rxb5" , "Bb5" , "Nf6" , "Bxf8" , "Ng5" , "Nc5" , "Bxc5" , "Ne4" , "Nf3" , "exd5" , "Rd7" , "Bc1" , "Re6" , "g3" , "gxh6" , "Qf3" , "Bc3" , "Rad1" , "Nc4" , "Bd2" , "Qd8" , "Rg6" , "a3" , "Nd7" , "Qe4" , "Be7" , "Bb4" , "Nf5" , "Re8" , "Ne3" , "Bf3" , "Qf5" , "Bxb2" , "Qe3" , "Bc2" , "Ba5" , "O-O" , "cxd4" , "Rxb2" , "Re4" , "Qd2" , "Bf8" , "e4" , "Rad8" , "Be6" , "Qxe4" , "Qa8" , "Bb3" , "h6" , "a5" , "Rc1" , "Ree5" , "Qf4" , "Rd5" , "Bc4" , "dxe4" , "Bd3" ;
+        chon:nextHalfMove      :hmgamv5TQ7Gk .
+
+:res43HwJEu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaS3KicF  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:hmgam43HwJEu  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgv5TQ7Gk9 , :rolhg43HwJEuH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shabalov, Alexander" ;
+        chon:hasSANRecord      "Nf3" , "d5" , "Nxd2" , "Nbd2" , "e3" , "e6" , "cxd5" , "c6" , "Bxd2" , "Nf6" , "d4" , "Ne4" , "c4" ;
+        chon:nextHalfMove      :hmgamv5TQ7Gk , :hmgam43HwJEu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou43HwJ  a          chon:hessTournament ;
+        chon:atPlace  :plaS3KicF ;
+        chon:hasName  "Tilburg" .
+
+:rolhg43HwJEuH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag43HwJE .

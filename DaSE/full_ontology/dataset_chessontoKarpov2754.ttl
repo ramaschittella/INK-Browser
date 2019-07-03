@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgPSeQpae7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPSeQpa , :agQnB2d5 .
+
+:gamQnB2d  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQnB2d5 ;
+        chon:atPlace           :plaQnB2d5 ;
+        chon:atTime            "2003.11.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPSeQpae ;
+        chon:hasHalfMove       :hmgamPSeQpae ;
+        chon:hasLastHalfMove   :hmgamPSeQpae ;
+        chon:hasOpening        :opePSeQpa ;
+        chon:hasReport         :cgrPSeQpa ;
+        chon:hasResult         :resPSeQpae ;
+        chon:subEventOf        :touQnB2d .
+
+:touQnB2d  a          chon:hessTournament ;
+        chon:atPlace  :plaQnB2d5 ;
+        chon:hasName  "CEU Simul" .
+
+:cgrPSeQpa  a   chon:ChessGameReport .
+
+:rolPSeQpa  a             chon:AuthorRole ;
+        chon:performedBy  :agPSeQpa .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQnB2d5 .
+
+chon:HalfMove  chon:subEventOf  :gamQnB2d .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPSeQpa .
+
+:hmgamPSeQpae  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPSeQpae7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Figueiredo,Marco Antonio" ;
+        chon:hasSANRecord      "Ke3" , "c6" , "Nd2" , "a5" , "axb4" , "Nc7" , "Ba6" , "e6" , "Kf2" , "Ng3" , "Bd3" , "Nxc6" , "Qxc7" , "Ke6" , "Nf3" , "Rxa1" , "Ne6" , "gxh5" , "Bd8" , "e3" , "Nf5" , "Ke8" , "Nf8" , "Nc3" , "h3" , "f5" , "Kd8" , "Qb2" , "Ra8" , "Nf5+" , "h5" , "Kc3" , "a3" , "Bc2" , "Na4" , "Ra1" , "Nb6" , "Nxc7" , "Nbd7" , "d4" , "Kf6" , "Bxa8" , "Nb3" , "e4" , "Nf6" , "Be2" , "Bc7" , "f3" , "Kf8" , "f6" , "Kg6" , "Ne7" , "Bh2" , "Bf4" , "g4" , "Be7" , "g5" , "h6" , "Na5" , "Nxa8" , "d5" , "Qxa1" , "Kd3" , "b6" , "c5" , "Bxc7" , "Ba4" , "bxc5" , "Kf7" , "Ne8" , "Ne3" , "Rxa8" , "O-O" , "Ne7+" , "Bb7" , "Ke7" , "Nxd5" , "Qd7" , "fxg4" , "Ng6" , "Qb6" , "hxg4" , "g6" , "g3" , "e5" , "c4" , "Bxc6" , "Kxf3" , "exf3" , "b4" , "Nb5" ;
+        chon:nextHalfMove      :hmgamPSeQpae .
+
+:agPSeQpa  a          chon:Agent ;
+        chon:hasName  "Figueiredo,Marco Antonio" .
+
+:plaQnB2d5  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+:opePSeQpa  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agQnB2d5  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" .
+
+:rolQnB2d5  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resPSeQpae  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

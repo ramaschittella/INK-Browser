@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gami8FU5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roli8FU5N ;
+        chon:atPlace           :plai8FU5N ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamu8S8DMy ;
+        chon:hasHalfMove       :hmgamu8S8DMy ;
+        chon:hasLastHalfMove   :hmgamu8S8DMy ;
+        chon:hasOpening        :opei8FU5N ;
+        chon:hasReport         :cgru8S8DM ;
+        chon:hasResult         :resi8FU5Nv ;
+        chon:subEventOf        :toui8FU5 .
+
+:toui8FU5  a          chon:hessTournament ;
+        chon:atPlace  :plai8FU5N ;
+        chon:hasName  "Tilburg" .
+
+:agi8FU5N  a          chon:Agent ;
+        chon:hasName  "Miles, Anthony J" , "Karpov, Anatoly" .
+
+:roli8FU5N  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamu8S8DMy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgu8S8DMyS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "Nxd4" , "Qa6" , "f5" , "Ne5" , "g3" , "Bb4" , "Nxa8" , "e6" , "Qe2" , "Rxc8" , "d4" , "Bxc3+" , "Bxe5" , "Nb3" , "Nb6" , "Nf6" , "c5" , "Qc6" , "fxe4" , "Qb6" , "f3" , "Nf3" , "Nc3" , "Nxc8" , "Nc7" , "Nxe4" , "e5" , "Nb5" , "Qc5+" , "c4" , "Nxc4" , "a5" , "dxe4" , "Rd1" , "Ncd6" , "O-O" , "Nc6" , "d5" , "Qd6" , "Bd4" , "e4" , "Nd4" , "Bg2" , "cxd4" , "Be3" , "bxc3" ;
+        chon:nextHalfMove      :hmgamu8S8DMy .
+
+:rolhgu8S8DMyS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi8FU5N .
+
+:rolu8S8DM  a             chon:AuthorRole ;
+        chon:performedBy  :agu8S8DM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi8FU5N .
+
+chon:HalfMove  chon:subEventOf  :gami8FU5 .
+
+:resi8FU5Nv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi8FU5N .
+
+:opei8FU5N  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .
+
+:cgru8S8DM  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plai8FU5N  a         chon:Place ;
+        chon:hasName  "Tilburg" .

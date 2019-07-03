@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou0yeXJ  a          chon:hessTournament ;
+        chon:atPlace  :plaYAiJct ;
+        chon:hasName  "Nuremberg" .
+
+:ope0yeXJs  a            chon:ChessOpening ;
+        chon:hasECOCode  "D31" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0yeXJs .
+
+:plaYAiJct  a         chon:Place ;
+        chon:hasName  "Nuremberg" .
+
+:rolhg6vV7tqWR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0yeXJs .
+
+chon:HalfMove  chon:subEventOf  :gamYAiJc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0yeXJs .
+
+:rolhg0yeXJsFT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0yeXJs .
+
+:res0yeXJsF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgr0yeXJs  a   chon:ChessGameReport .
+
+:ag0yeXJs  a          chon:Agent ;
+        chon:hasName  "Marco, Georg" , "Steinitz, William" .
+
+:rol0yeXJs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0yeXJs .
+
+:gamYAiJc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0yeXJs ;
+        chon:atPlace           :plaYAiJct ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0yeXJsF ;
+        chon:hasHalfMove       :hmgam0yeXJsF , :hmgam6vV7tqW ;
+        chon:hasLastHalfMove   :hmgam6vV7tqW ;
+        chon:hasOpening        :ope0yeXJs ;
+        chon:hasReport         :cgr0yeXJs ;
+        chon:hasResult         :res0yeXJsF ;
+        chon:subEventOf        :tou0yeXJ .
+
+:hmgam0yeXJsF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6vV7tqWR , chon:AgentRole , :rolhg0yeXJsFT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Marco, Georg" ;
+        chon:hasSANRecord      "Qc7" , "Nf8" , "Kb1" , "Bb4+" , "Qxf6" , "Bd3" , "e5" , "f4" , "dxc5" , "c5" , "Rhe1" , "c4" , "Re8" , "e6" , "d4" , "Qxc5" , "Ne5" , "Re7" , "Nd6" , "f6" , "d5" , "Nc4" , "e4" , "Nxe4" , "Qxd2" , "Bd2" , "Nd7" , "Bd7" , "Nxf6+" , "Qf5" , "Nf3" , "dxe4" , "Qe3" , "c6" , "Nf6" , "f5" , "Nc3" , "Bxd2+" , "O-O" , "O-O-O" ;
+        chon:nextHalfMove      :hmgam6vV7tqW , :hmgam0yeXJsF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam6vV7tqW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6vV7tqWR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Marco, Georg" ;
+        chon:hasSANRecord      "Qxh6+" , "fxg5" , "bxc5" , "Kh8" , "Nf7+" , "Rxh7" , "Nxh7" , "Kh7" , "b6" , "Rxe5" , "Qxf6+" , "Rg7" , "g5" , "g4" , "gxf6" , "Qh5" , "Bc4+" , "Bc6" , "h6" , "Ng5+" , "Qxg5" , "Nh7" , "f6" ;
+        chon:nextHalfMove      :hmgam6vV7tqW .

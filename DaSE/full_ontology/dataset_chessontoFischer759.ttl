@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaSfNZ0R  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:hmgamjhZiwSO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjhZiwSO2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Robert E" ;
+        chon:hasSANRecord      "Rb7" , "Qd6" , "Rc3" , "R1b3" , "Nxh5" , "Rxe7" , "Qf3" , "f5" , "Kf7" , "exf5+" , "h4" , "fxe6" , "Ng3" , "h5" , "d5" , "Kg6" , "a5" , "exf5" , "a4" , "Rdb1" ;
+        chon:nextHalfMove      :hmgamjhZiwSO .
+
+:cgrSfNZ0R  a   chon:ChessGameReport .
+
+:rolhgSfNZ0RZB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSfNZ0R .
+
+:hmgamSfNZ0RZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjhZiwSO2 , :rolhgSfNZ0RZB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Robert E" ;
+        chon:hasSANRecord      "Ne2" , "Bc4" , "Nxd4" , "e6" , "Qc5" , "Qxb2" , "bxc6" , "Nf3" , "gxf6" , "Be7" , "Bxe6" , "Be6" , "cxd4" , "Bf4" , "Nxc6" , "Qd3" , "Rfd1" , "Bxf6" , "Qb6" , "Bg5" , "d4" , "Rab1" , "O-O" , "Nf6" , "e5" , "Nc6" , "c5" , "Nc3" , "e4" , "Qb4" , "d6" ;
+        chon:nextHalfMove      :hmgamjhZiwSO , :hmgamSfNZ0RZ .
+
+:agSfNZ0R  a          chon:Agent ;
+        chon:hasName  "Byrne, Robert E" , "Fischer, Robert James" .
+
+:rolSfNZ0R  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSfNZ0R .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSfNZ0R .
+
+:opeSfNZ0R  a            chon:ChessOpening ;
+        chon:hasECOCode  "B57" .
+
+:gamSfNZ0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSfNZ0R ;
+        chon:atPlace           :plaSfNZ0R ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSfNZ0RZ ;
+        chon:hasHalfMove       :hmgamSfNZ0RZ , :hmgamjhZiwSO ;
+        chon:hasLastHalfMove   :hmgamjhZiwSO ;
+        chon:hasOpening        :opeSfNZ0R ;
+        chon:hasReport         :cgrSfNZ0R ;
+        chon:hasResult         :resSfNZ0RZ ;
+        chon:subEventOf        :touSfNZ0 .
+
+chon:HalfMove  chon:subEventOf  :gamSfNZ0 .
+
+:touSfNZ0  a          chon:hessTournament ;
+        chon:atPlace  :plaSfNZ0R ;
+        chon:hasName  "Manhattan blitz" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSfNZ0R .
+
+:rolhgjhZiwSO2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSfNZ0R .
+
+:resSfNZ0RZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

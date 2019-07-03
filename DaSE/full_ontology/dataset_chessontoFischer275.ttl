@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamazxKqRI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgazxKqRIs ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rd1" , "Bb2" , "bxc4" , "b3" , "Qd7" , "Qxa2" , "Rbc8" , "Bd3" , "Bxc4" , "Rfc8" , "e4" , "Rxd3" , "Qxd3" , "Qc2" , "f6" , "Bb5" , "Rxa1" , "Qb3" , "Qe6" , "Qxd5" , "Bf3" , "Qc6" , "Qxb5" , "Rxc1+" , "Nxc4" , "Rb8" , "Ne5" , "Bd4" , "Qc3" , "Ba3" , "Be2" , "Qb5" , "Rc6" , "Bxa1" , "Nd5" , "Bxc6" , "Rc1" , "Kg2" , "Ba6" , "Qa5" , "Qa4" , "Be3" , "Qb7" , "a5" , "Rc7" ;
+        chon:nextHalfMove      :hmgamazxKqRI .
+
+:rolhgZzAwRSFf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZzAwRS .
+
+:agZzAwRS  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Saadi, Julio" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZzAwRS .
+
+:opeZzAwRS  a            chon:ChessOpening ;
+        chon:hasECOCode  "A39" .
+
+:rolhgazxKqRIs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZzAwRS .
+
+chon:HalfMove  chon:subEventOf  :gamZzAwR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZzAwRS .
+
+:hmgamZzAwRSF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgazxKqRIs , :rolhgZzAwRSFf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nc6" , "Nxd4" , "Nf3" , "c5" , "g6" , "d4" , "c4" , "Nc3" , "bxc6" , "Ng4" , "d6" , "O-O" , "g3" , "Nxc6" , "e3" , "cxd4" , "Bg2" , "Nf6" , "Bg7" ;
+        chon:nextHalfMove      :hmgamZzAwRSF , :hmgamazxKqRI .
+
+:gamZzAwR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZzAwRS ;
+        chon:atPlace           :plaZzAwRS ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZzAwRSF ;
+        chon:hasHalfMove       :hmgamazxKqRI , :hmgamZzAwRSF ;
+        chon:hasLastHalfMove   :hmgamazxKqRI ;
+        chon:hasOpening        :opeZzAwRS ;
+        chon:hasReport         :cgrZzAwRS ;
+        chon:hasResult         :resZzAwRSF ;
+        chon:subEventOf        :touZzAwR .
+
+:plaZzAwRS  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:touZzAwR  a          chon:hessTournament ;
+        chon:atPlace  :plaZzAwRS ;
+        chon:hasName  "Mar del Plata" .
+
+:cgrZzAwRS  a   chon:ChessGameReport .
+
+:resZzAwRSF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolZzAwRS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZzAwRS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

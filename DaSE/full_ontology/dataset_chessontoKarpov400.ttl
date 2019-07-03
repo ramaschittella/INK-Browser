@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrn7eA0A  a   chon:ChessGameReport .
+
+:resn7eA0AN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamy7bOGzS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgy7bOGzSx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Taimanov, Mark E" ;
+        chon:hasSANRecord      "Bxf6" , "Bd7" , "Qd3" , "Rxf2" , "d5" , "Bh4" , "Bf3" , "cxd4" , "Bg5" , "Re8" , "Nc2" , "Nd4" , "Nb3" , "Na7" , "Bxf2+" , "Bc6" , "Nd7" , "Nxb5" , "axb5" , "c4" , "Qb8" , "Bb7" , "Be2" , "f4" , "d6" , "dxe4" , "Be7" , "O-O" , "e5" , "Nxd4" , "Nd2" , "Nb4" , "a3" , "N5c3" , "a6" , "b5" , "Nf6" , "d4" , "Bf2" , "e6" , "cxb5" , "Be3" , "f5" , "Bc5+" , "Nb5" , "b6" , "Bxb4" ;
+        chon:nextHalfMove      :hmgamy7bOGzS .
+
+:roln7eA0A  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agn7eA0A .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agn7eA0A .
+
+:rolhgy7bOGzSx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agn7eA0A .
+
+:plan7eA0A  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:hmgamn7eA0AN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgy7bOGzSx , chon:AgentRole , :rolhgn7eA0ANl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Taimanov, Mark E" ;
+        chon:hasSANRecord      "Nc6" , "e4" , "c5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamy7bOGzS , :hmgamn7eA0AN .
+
+chon:HalfMove  chon:subEventOf  :gamn7eA0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agn7eA0A .
+
+:rolhgn7eA0ANl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agn7eA0A .
+
+:agn7eA0A  a          chon:Agent ;
+        chon:hasName  "Taimanov, Mark E" , "Karpov, Anatoly" .
+
+:open7eA0A  a            chon:ChessOpening ;
+        chon:hasECOCode  "B44" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamn7eA0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roln7eA0A ;
+        chon:atPlace           :plan7eA0A ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamn7eA0AN ;
+        chon:hasHalfMove       :hmgamy7bOGzS , :hmgamn7eA0AN ;
+        chon:hasLastHalfMove   :hmgamy7bOGzS ;
+        chon:hasOpening        :open7eA0A ;
+        chon:hasReport         :cgrn7eA0A ;
+        chon:hasResult         :resn7eA0AN ;
+        chon:subEventOf        :toun7eA0 .
+
+:toun7eA0  a          chon:hessTournament ;
+        chon:atPlace  :plan7eA0A ;
+        chon:hasName  "URS-ch44" .

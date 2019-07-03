@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamxxTqSMw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxxTqSMwO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Re7" , "Qc8" , "Nxe4" , "Qc5" , "Nc2" , "Bd4" , "Nxe3" , "d6" , "Rce8" , "e4" , "c4" , "Ne5" , "Nbd7" , "Qxd6" , "a6" , "b5" , "Rb1" , "Bg2" , "Re1" , "Qc7" , "h3" , "Nxd4" , "Nc4" , "Nf6" , "Rc8" , "Rd7" , "Nf3" , "Qe2" , "Nxc5" , "c6" , "Rxe3" , "Qd3" , "Kh2" , "Re8" , "d4" , "Rb3" , "g6" , "Rxc5" , "b4" , "Rd1" , "g3" , "Nc3" , "Rc7" , "Bg7" , "e5" , "f4" , "Bb7" , "cxb5" , "O-O" , "exd4" , "Bxe4" , "Ne3" ;
+        chon:nextHalfMove      :hmgamxxTqSMw .
+
+:tou6vJ8y  a          chon:hessTournament ;
+        chon:atPlace  :pla6vJ8yL ;
+        chon:hasName  "Santa Monica" .
+
+:pla6vJ8yL  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+:ag6vJ8yL  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Donner, Jan Hein" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6vJ8yL .
+
+:ope6vJ8yL  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .
+
+chon:HalfMove  chon:subEventOf  :gam6vJ8y .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6vJ8yL .
+
+:rolhgxxTqSMwO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6vJ8yL .
+
+:res6vJ8yLH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgr6vJ8yL  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol6vJ8yL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6vJ8yL .
+
+:gam6vJ8y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6vJ8yL ;
+        chon:atPlace           :pla6vJ8yL ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxxTqSMw ;
+        chon:hasHalfMove       :hmgamxxTqSMw ;
+        chon:hasLastHalfMove   :hmgamxxTqSMw ;
+        chon:hasOpening        :ope6vJ8yL ;
+        chon:hasReport         :cgr6vJ8yL ;
+        chon:hasResult         :res6vJ8yLH ;
+        chon:subEventOf        :tou6vJ8y .

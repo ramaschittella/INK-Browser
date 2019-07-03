@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamlTcvg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollTcvgL ;
+        chon:atPlace           :plalTcvgL ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxT0JPND ;
+        chon:hasHalfMove       :hmgamxT0JPND ;
+        chon:hasLastHalfMove   :hmgamxT0JPND ;
+        chon:hasOpening        :opelTcvgL ;
+        chon:hasReport         :cgrlTcvgL ;
+        chon:hasResult         :reslTcvgLA ;
+        chon:subEventOf        :toulTcvg .
+
+:cgrlTcvgL  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglTcvgL .
+
+chon:HalfMove  chon:subEventOf  :gamlTcvg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglTcvgL .
+
+:toulTcvg  a          chon:hessTournament ;
+        chon:atPlace  :plalTcvgL ;
+        chon:hasName  "URS-chT" .
+
+:plalTcvgL  a         chon:Place ;
+        chon:hasName  "URS" .
+
+:reslTcvgLA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgxT0JPNDt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglTcvgL .
+
+:hmgamxT0JPND  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxT0JPNDt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "Qa5" , "Nxd2" , "Bg5" , "Nc6" , "Bxd2+" , "Bf4" , "cxd4" , "Qb6" , "Nbd2" , "Qb3" , "g5" , "e3" , "Bb4+" , "e6" , "Nf6" , "c3" , "d4" , "Nf3" , "Bxg5" , "Ne4" ;
+        chon:nextHalfMove      :hmgamxT0JPND .
+
+:aglTcvgL  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Sangla, P." .
+
+:rollTcvgL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglTcvgL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opelTcvgL  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .

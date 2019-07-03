@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFcLOik .
+
+:opeFcLOik  a            chon:ChessOpening ;
+        chon:hasECOCode  "B87" .
+
+:rolhgFcLOikes  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFcLOik .
+
+chon:HalfMove  chon:subEventOf  :gamFcLOi .
+
+:hmgamFcLOike  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFcLOikes ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rubinetti, Jorge A" ;
+        chon:hasSANRecord      "c5" , "Nf3" , "e4" , "d6" , "d4" ;
+        chon:nextHalfMove      :hmgamFcLOike , :hmgamRaH2Qjj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFcLOik .
+
+:rolhgRaH2QjjD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFcLOik .
+
+:gamFcLOi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFcLOik ;
+        chon:atPlace           :plaFcLOik ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFcLOike ;
+        chon:hasHalfMove       :hmgamRaH2Qjj , :hmgamFcLOike ;
+        chon:hasLastHalfMove   :hmgamRaH2Qjj ;
+        chon:hasOpening        :opeFcLOik ;
+        chon:hasReport         :cgrFcLOik ;
+        chon:hasResult         :resFcLOike ;
+        chon:subEventOf        :touFcLOi .
+
+:touFcLOi  a          chon:hessTournament ;
+        chon:atPlace  :plaFcLOik ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+:plaFcLOik  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .
+
+:cgrFcLOik  a   chon:ChessGameReport .
+
+:resFcLOike  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamRaH2Qjj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRaH2QjjD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rubinetti, Jorge A" ;
+        chon:hasSANRecord      "c5" , "O-O" , "Kc8" , "Bc6" , "Qa4+" , "dxc5" , "Nc3" , "b5" , "Qb3" , "Nf6" , "Bc4" , "h6" , "Re1" , "g5" , "Bh4" , "Bg5" , "b4" , "Qd7" , "a6" , "Na4" , "Nxc6" , "Nh5" , "exd5" , "Nxd4" , "Bg3" , "Qxd5" , "cxd4" , "Nc5" , "bxc5" , "Nbd7" , "Kd7" , "Re8+" , "Bb3" , "Bb7" , "Qxa4" , "c4" , "e6" , "Nxa4" , "bxa4" , "Bd5" , "exd5+" ;
+        chon:nextHalfMove      :hmgamRaH2Qjj .
+
+:agFcLOik  a          chon:Agent ;
+        chon:hasName  "Rubinetti, Jorge A" , "Fischer, Robert James" .
+
+:rolFcLOik  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFcLOik .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plarcVb3Z  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+:rolhgDcQozYzQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrcVb3Z .
+
+:gamrcVb3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrcVb3Z ;
+        chon:atPlace           :plarcVb3Z ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDcQozYz ;
+        chon:hasHalfMove       :hmgamDcQozYz ;
+        chon:hasLastHalfMove   :hmgamDcQozYz ;
+        chon:hasOpening        :opercVb3Z ;
+        chon:hasReport         :cgrrcVb3Z ;
+        chon:hasResult         :resrcVb3Zw ;
+        chon:subEventOf        :tourcVb3 .
+
+:hmgamDcQozYz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDcQozYzQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "Rd8" , "Bf2" , "e5" , "Qf7" , "Qf8" , "Nf3" , "h3" , "Rad1" , "Nxe6" , "Nd4" , "c6" , "Be1" , "Bxe5" , "Be2" , "Bc7" , "Rxd1" , "Bxe6" , "Bd2" , "d5" , "Rxe3" , "Ba7" , "O-O" , "dxe5" , "Nc3" , "Qe7" , "Nf5" , "Nh7" , "Bxc4" , "f4" , "c4" , "Bh4" , "e6" , "a3" , "Nxa5" , "Ndf6" , "dxc4" , "Nbd7" , "Be6" , "Re8" , "Bd6" , "d4" , "Nb5" , "Qe8" , "Qxb3" , "Nxg7" , "Qb3" , "a5" , "Bxe3" , "fxe6" , "e3" , "Nf6" , "h6" , "Nh4" , "Nxb3" , "Ba2" , "Bb8" , "Qc2" ;
+        chon:nextHalfMove      :hmgamDcQozYz .
+
+:cgrrcVb3Z  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrcVb3Z .
+
+chon:HalfMove  chon:subEventOf  :gamrcVb3 .
+
+:resrcVb3Zw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agrcVb3Z  a          chon:Agent ;
+        chon:hasName  "Anand, Viswanathan" , "Karpov, Anatoly" .
+
+:rolrcVb3Z  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrcVb3Z .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrcVb3Z .
+
+:tourcVb3  a          chon:hessTournament ;
+        chon:atPlace  :plarcVb3Z ;
+        chon:hasName  "Candidats qf4" .
+
+:opercVb3Z  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

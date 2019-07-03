@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamsBS7zvv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsBS7zvv7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "a6" , "Ba8" , "e5" , "a3" , "d6" , "Rc2" , "Rac8" , "c4" , "Rf8" , "Nd7" , "Nh7" , "Nf6" , "Nc3" , "Rc1" , "Bf6" , "h6" , "h4" , "Be7" , "Qb8" , "Bb7" , "Be4" , "g4" , "dxe5" , "Qg2" , "Nxd4" , "b4" , "Rfc1" , "O-O" , "e4" , "Be3" , "Qf2" , "Nf3" , "c5" , "Kh8" , "h5" , "Bxf4" , "h3" , "Bd3" , "d4" , "Rfe8" , "gxh7+" , "Bh4" , "Be5" , "Ngf8" , "Nc6" , "cxd4" , "Nd2" , "hxg6" , "f4" , "exf4" , "fxg6" , "Be2" , "Qe2" , "Ng6" , "Bd8" , "Nxc4" , "Nb3" , "e6" , "g5" , "g6" , "g3" , "Qc7" , "Ne5" , "Rf1" ;
+        chon:nextHalfMove      :hmgamsBS7zvv .
+
+:ope2zGLdv  a            chon:ChessOpening ;
+        chon:hasECOCode  "B41" .
+
+:gam2zGLd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2zGLdv ;
+        chon:atPlace           :pla2zGLdv ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsBS7zvv ;
+        chon:hasHalfMove       :hmgamsBS7zvv ;
+        chon:hasLastHalfMove   :hmgamsBS7zvv ;
+        chon:hasOpening        :ope2zGLdv ;
+        chon:hasReport         :cgr2zGLdv ;
+        chon:hasResult         :res2zGLdvD ;
+        chon:subEventOf        :tou2zGLd .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2zGLdv .
+
+:tou2zGLd  a          chon:hessTournament ;
+        chon:atPlace  :pla2zGLdv ;
+        chon:hasName  "Bad Lauterberg" .
+
+chon:HalfMove  chon:subEventOf  :gam2zGLd .
+
+:pla2zGLdv  a         chon:Place ;
+        chon:hasName  "Bad Lauterberg" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2zGLdv .
+
+:cgr2zGLdv  a   chon:ChessGameReport .
+
+:ag2zGLdv  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Torre, Eugenio" .
+
+:rol2zGLdv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2zGLdv .
+
+:rolhgsBS7zvv7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2zGLdv .
+
+:res2zGLdvD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

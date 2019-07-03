@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opexn1drx  a            chon:ChessOpening ;
+        chon:hasECOCode  "C66" .
+
+:rolhgxn1drxpB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxn1drx .
+
+:resxn1drxp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgYpcwLye3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxn1drx .
+
+:hmgamYpcwLye  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYpcwLye3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Ng3" , "Qe6" , "Bc6" , "Rb8" , "Rh7" , "h4" , "hxg6" , "Bf3" , "Rc4" , "Nf2" , "cxb6" , "cxd5" , "Qf2" , "d7" , "Rfe1" , "Qe8" , "Rxc3" , "Re2" , "Bd3" , "Qc6" , "b3" , "Be2" , "Be1" , "Rd8" , "Bc5" , "Qg8" , "a5" , "g5" , "Rg2" , "Qf1" , "Ra4" , "Bxd5" , "Rb6" , "Bb4" , "Rh8" , "Bd2" , "Qf3" , "Rd1" , "Bxc3" , "Bb7" , "Rc8" , "Bd5" , "Kg7" , "h5" , "Kg6" , "e6" , "Qd3" , "dxc3" , "Ne4" , "Rhd8" , "Qg6" , "Qf7" , "Bf8" , "bxc4" , "c4" , "Qe2" , "Rg1" , "Nc3" , "Qxg6" , "d6" , "Rd2" , "a4" , "a3" , "Rc2" , "g4" , "Qc7" , "Rxb6" , "Ra6" , "Rd5" ;
+        chon:nextHalfMove      :hmgamYpcwLye .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxn1drx .
+
+chon:HalfMove  chon:subEventOf  :gamxn1dr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxn1drx .
+
+:gamxn1dr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxn1drx ;
+        chon:atPlace           :plaxn1drx ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxn1drxp ;
+        chon:hasHalfMove       :hmgamxn1drxp , :hmgamYpcwLye ;
+        chon:hasLastHalfMove   :hmgamYpcwLye ;
+        chon:hasOpening        :opexn1drx ;
+        chon:hasReport         :cgrxn1drx ;
+        chon:hasResult         :resxn1drxp ;
+        chon:subEventOf        :touxn1dr .
+
+:touxn1dr  a          chon:hessTournament ;
+        chon:atPlace  :plaxn1drx ;
+        chon:hasName  "Vienna" .
+
+:plaxn1drx  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:hmgamxn1drxp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxn1drxpB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "c4" , "Nh3" , "Ne6" , "Rf1" , "Ne8" , "f4" , "O-O" , "Bb5" , "Nf6" , "Nf3" , "Nc5" , "Be7" , "Bc8" , "Rad1" , "h4" , "Kf8" , "Kg7" , "Qb8" , "Bc2" , "exd4" , "d4" , "Rd8" , "c5" , "d6" , "g6" , "Ne2" , "g3" , "Qf3" , "Rag8" , "Rh8" , "h6" , "Nxd4" , "e5" , "Nc6" , "c3" , "Be6" , "Bd7" , "f5" , "Qe2" , "d5" , "Ne4" , "Kg2" , "Ng7" , "Qb6+" , "h5" , "bxc6" , "Nc3" , "Bc1" , "Qg2" , "Bd2" , "Kh2" , "Qa6" , "Ng1" , "Re1" , "e4" , "Nxc6" , "Bd3" ;
+        chon:nextHalfMove      :hmgamYpcwLye , :hmgamxn1drxp .
+
+:cgrxn1drx  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agxn1drx  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Walbrodt, Carl August" .
+
+:rolxn1drx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxn1drx .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toubD1D3  a          chon:hessTournament ;
+        chon:atPlace  :plabD1D3Y ;
+        chon:hasName  "Buenos Aires" .
+
+:agbD1D3Y  a          chon:Agent ;
+        chon:hasName  "Quinteros, Miguel A" , "Karpov, Anatoly" .
+
+:rolbD1D3Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbD1D3Y .
+
+:opebD1D3Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "B25" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbD1D3Y .
+
+:rolhg8AHMMW0K  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbD1D3Y .
+
+:hmgambD1D3YT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbD1D3YTM , :rolhg8AHMMW0K , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Quinteros, Miguel A" ;
+        chon:hasSANRecord      "Bxf3" , "Bg2" , "Nc6" , "e6" , "c5" , "Nc3" , "f4" , "O-O" , "Nf3" , "Nxf3+" , "g3" , "Nec6" , "Ne2" , "d3" , "Be3" , "Nge7" , "d6" , "Rb1" , "e4" , "Bg7" , "g6" , "Nd4" ;
+        chon:nextHalfMove      :hmgambD1D3YT , :hmgam8AHMMW0 .
+
+chon:HalfMove  chon:subEventOf  :gambD1D3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbD1D3Y .
+
+:gambD1D3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbD1D3Y ;
+        chon:atPlace           :plabD1D3Y ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambD1D3YT ;
+        chon:hasHalfMove       :hmgambD1D3YT , :hmgam8AHMMW0 ;
+        chon:hasLastHalfMove   :hmgam8AHMMW0 ;
+        chon:hasOpening        :opebD1D3Y ;
+        chon:hasReport         :cgrbD1D3Y ;
+        chon:hasResult         :resbD1D3YT ;
+        chon:subEventOf        :toubD1D3 .
+
+:hmgam8AHMMW0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8AHMMW0K , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Quinteros, Miguel A" ;
+        chon:hasSANRecord      "Qg3" , "d4" , "g4" , "hxg4" , "Rf7" , "e5" , "Nf4" , "Rff8" , "d5" , "Kh8" , "fxg6+" , "Ba6" , "Rac8" , "a5" , "Nc4" , "h5" , "Qd2" , "gxf5" , "Qe3" , "Kf7" , "Rh1" , "b6" , "gxh7+" , "a3" , "a4" , "Bb7" , "Na5" , "Kg8" , "Rh8" , "f5" , "Rbh1" , "Rxf5" , "c3" , "h3" , "Rfe1" , "Rh7" , "Kg2" , "Bf2" , "Nxb2" , "Rxh7" , "Bg4" , "cxd4" , "Qe7" ;
+        chon:nextHalfMove      :hmgam8AHMMW0 .
+
+:rolhgbD1D3YTM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbD1D3Y .
+
+:resbD1D3YT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plabD1D3Y  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrbD1D3Y  a   chon:ChessGameReport .

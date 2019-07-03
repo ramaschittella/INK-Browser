@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agDAdfSL  a          chon:Agent ;
+        chon:hasName  "Rosenthal, Samuel" , "Steinitz, William" .
+
+:cgrDAdfSL  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDAdfSL .
+
+:gamDAdfS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDAdfSL ;
+        chon:atPlace           :plaDAdfSL ;
+        chon:atTime            "1873.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDAdfSLI ;
+        chon:hasHalfMove       :hmgamgSkNNKS , :hmgamDAdfSLI , :hmgam5SpyeLx ;
+        chon:hasLastHalfMove   :hmgamgSkNNKS ;
+        chon:hasOpening        :opeDAdfSL ;
+        chon:hasReport         :cgrDAdfSL ;
+        chon:hasResult         :resDAdfSLI ;
+        chon:subEventOf        :touDAdfS .
+
+:rolhggSkNNKSF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDAdfSL .
+
+chon:HalfMove  chon:subEventOf  :gamDAdfS .
+
+:opeDAdfSL  a            chon:ChessOpening ;
+        chon:hasECOCode  "A20" .
+
+:hmgam5SpyeLx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5SpyeLxt , chon:AgentRole , :rolhggSkNNKSF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rosenthal, Samuel" ;
+        chon:hasSANRecord      "Ng4" , "Nxd5" , "Nc3" , "Qxh3+" , "Nxc3" , "h6" , "a5" , "Re1" , "Bb2" , "Nh2" , "Bxh3" , "cxd4" , "Bd6" , "Bf1" , "a4" , "Nf6" , "Qh4" , "d4" , "O-O" , "a6" , "h3" , "d5" , "gxh3" , "Kh1" , "Rb8" , "Nxf1" , "Qg5+" , "Nf3" , "Nd7" , "bxc3" , "c5" , "Bf5" , "Nd2" , "Bc4" , "exd4" ;
+        chon:nextHalfMove      :hmgamgSkNNKS , :hmgam5SpyeLx .
+
+:rolDAdfSL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDAdfSL .
+
+:resDAdfSLI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touDAdfS  a          chon:hessTournament ;
+        chon:atPlace  :plaDAdfSL ;
+        chon:hasName  "Vienna" .
+
+:hmgamDAdfSLI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDAdfSLI4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rosenthal, Samuel" ;
+        chon:hasSANRecord      "e3" , "e5" , "d5" , "a3" , "c4" , "Nf6" , "cxd5" ;
+        chon:nextHalfMove      :hmgamDAdfSLI , :hmgam5SpyeLx .
+
+:hmgamgSkNNKS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggSkNNKSF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rosenthal, Samuel" ;
+        chon:hasSANRecord      "h5" , "Kg1" , "Kg5" , "Be5" , "h3" , "Rb2" , "Kg6" , "Rxb7" , "g4" , "Rg2" , "Ne2" , "Rbd8" , "e6" , "g5" , "Kh4" , "Rxd1" , "Kh7" , "fxe5" , "Bxe5" , "Rb6+" , "Rh2" , "f5" , "f4" , "Kg3" , "Nf4" , "h4" , "Rh7+" , "Rfe8" , "Ng3" , "Qg4+" , "Re2" , "Qxd1" , "Rf1" ;
+        chon:nextHalfMove      :hmgamgSkNNKS .
+
+:rolhgDAdfSLI4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDAdfSL .
+
+:rolhg5SpyeLxt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDAdfSL .
+
+:plaDAdfSL  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDAdfSL .

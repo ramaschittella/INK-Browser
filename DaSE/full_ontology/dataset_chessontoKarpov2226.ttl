@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgbv2bu1Wu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZv5VV1 .
+
+:agZv5VV1  a          chon:Agent ;
+        chon:hasName  "Upero, Jussi" , "Karpov, Anatoly" .
+
+:rolZv5VV1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZv5VV1 .
+
+:resZv5VV1T  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeZv5VV1  a            chon:ChessOpening ;
+        chon:hasECOCode  "C45" .
+
+:hmgambv2bu1W  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbv2bu1Wu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Upero, Jussi" ;
+        chon:hasSANRecord      "Qe2" , "Qxd4" , "Bxd4" , "Qb6" , "f3" , "Qxb5" , "Bc4" , "Kf8" , "c3" , "d6" , "Nd4" , "c6" , "Qb5" , "Rd2" , "Rd7" , "Be3" , "Rad8" , "Rfd1" , "Rd1" , "Rfd8" , "Qf6" , "Nc3" , "Nc8" , "Bxb5" , "Bb6" , "Bd7" , "Nb3" , "Bc5" , "Kf2" , "Nge7" , "Nxd4" , "O-O" , "Nxb5" ;
+        chon:nextHalfMove      :hmgambv2bu1W .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZv5VV1 .
+
+chon:HalfMove  chon:subEventOf  :gamZv5VV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZv5VV1 .
+
+:gamZv5VV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZv5VV1 ;
+        chon:atPlace           :plaZv5VV1 ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZv5VV1T ;
+        chon:hasHalfMove       :hmgambv2bu1W , :hmgamZv5VV1T ;
+        chon:hasLastHalfMove   :hmgambv2bu1W ;
+        chon:hasOpening        :opeZv5VV1 ;
+        chon:hasReport         :cgrZv5VV1 ;
+        chon:hasResult         :resZv5VV1T ;
+        chon:subEventOf        :touZv5VV .
+
+:rolhgZv5VV1Tj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZv5VV1 .
+
+:touZv5VV  a          chon:hessTournament ;
+        chon:atPlace  :plaZv5VV1 ;
+        chon:hasName  "Karpov sim" .
+
+:hmgamZv5VV1T  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZv5VV1Tj , :rolhgbv2bu1Wu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Upero, Jussi" ;
+        chon:hasSANRecord      "Nc6" , "e4" , "exd4" , "Nxd4" , "e5" , "d4" , "Nf3" ;
+        chon:nextHalfMove      :hmgamZv5VV1T , :hmgambv2bu1W .
+
+:plaZv5VV1  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrZv5VV1  a   chon:ChessGameReport .

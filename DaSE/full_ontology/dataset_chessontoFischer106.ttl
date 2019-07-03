@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolKtlt31  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKtlt31 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKtlt31 .
+
+:rolhgKtlt31KL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKtlt31 .
+
+:hmgamRpZQjZ4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjr00FZTm , chon:AgentRole , :rolhgRpZQjZ4W ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "h4" , "Bc4" , "Bd3" , "Bb3" , "Nxa3" , "Be4" , "Kf8" , "Bd2" , "Kf2" , "f4" , "Bd5" , "Bc3" , "Nxc2" , "Ke3" , "g5" , "Nxd4" , "Kg2" , "d4" , "Bf7" , "Rc8" , "f6" , "exd4" , "Kd6" , "Kd4" , "Rxd2" , "Bxd2" , "Rxc2" , "Nc7" , "Bxb7" , "Ke7" , "Rc2" , "Nb5" , "fxg5" , "Bg8" , "h6" ;
+        chon:nextHalfMove      :hmgamRpZQjZ4 , :hmgamjr00FZT .
+
+:resKtlt31K  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamGp3SMX1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGp3SMX1L , :rolhgRpZQjZ4W ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "h3" , "Nxb6" , "Rfe8" , "Qa4" , "Rd1" , "Nd5" , "axb6" , "e5" , "Nd7" , "a3" , "Be2" , "Bd1" , "Qc2" , "dxe5" , "Bxc2" , "O-O" , "Ne6" , "Bxf3" , "Qxc2+" , "Ncxe5" , "Qc6" , "b4" , "Rxd5" , "Rad8" , "Ra2" , "Nb6" , "Nc6" , "Bg4" , "cxd5" , "c6" , "e3" , "f3" , "Qb3" , "Qd7" , "d5" , "Nc5" , "Kh2" ;
+        chon:nextHalfMove      :hmgamRpZQjZ4 , :hmgamGp3SMX1 .
+
+:plaKtlt31  a         chon:Place ;
+        chon:hasName  "?" .
+
+chon:HalfMove  chon:subEventOf  :gamKtlt3 .
+
+:hmgamKtlt31K  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKtlt31KL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d4" , "Nf6" , "O-O" , "c4" , "Nf3" , "g3" , "g6" , "Bg2" , "Bg7" , "Nc3" , "d6" ;
+        chon:nextHalfMove      :hmgamGp3SMX1 , :hmgamKtlt31K .
+
+:agKtlt31  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Byrne, Robert E" .
+
+:opeKtlt31  a            chon:ChessOpening ;
+        chon:hasECOCode  "E62" .
+
+:cgrKtlt31  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgjr00FZTm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKtlt31 .
+
+:rolhgGp3SMX1L  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKtlt31 .
+
+:gamKtlt3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKtlt31 ;
+        chon:atPlace           :plaKtlt31 ;
+        chon:atTime            "1957.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKtlt31K ;
+        chon:hasHalfMove       :hmgamKtlt31K , :hmgamjr00FZT , :hmgamRpZQjZ4 , :hmgamGp3SMX1 ;
+        chon:hasLastHalfMove   :hmgamjr00FZT ;
+        chon:hasOpening        :opeKtlt31 ;
+        chon:hasReport         :cgrKtlt31 ;
+        chon:hasResult         :resKtlt31K ;
+        chon:subEventOf        :touKtlt3 .
+
+:rolhgRpZQjZ4W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKtlt31 .
+
+:hmgamjr00FZT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjr00FZTm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bd3" , "Na6" , "Bc4" , "fxg5" , "hxg5" , "b5" ;
+        chon:nextHalfMove      :hmgamjr00FZT .
+
+:touKtlt3  a          chon:hessTournament ;
+        chon:atPlace  :plaKtlt31 ;
+        chon:hasName  "USA-op" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKtlt31 .

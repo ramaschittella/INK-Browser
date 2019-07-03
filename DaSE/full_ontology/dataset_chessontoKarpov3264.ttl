@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:restHaFFOj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:platHaFFO  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:cgrtHaFFO  a   chon:ChessGameReport .
+
+:hmgamUJlZ2Ob  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUJlZ2Obb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bauer,Ch" ;
+        chon:hasSANRecord      "f5" , "e5" , "f7+" , "Nd3" , "Rfd8" , "Nxd3" , "Ke2" , "Nd6" , "Kf5" , "Re1+" , "Rxa3" , "Rxd3+" , "h3" , "g3" , "g5" , "e6" , "Rh8#" , "Bd3" , "h6" , "Nxb5" , "b3" , "a3" , "Ng4" , "Rh2" , "Nf6" , "Rh4" , "Qxd2+" , "gxf5" , "b6" , "Nde4" , "Kf8" , "f4" , "e4" , "dxc5" , "Bd2" , "Nc6" , "Rd4" , "c4" , "Nxd2" , "Nf5+" , "Bb4+" , "Rd3+" , "Nb2" , "Nb4" , "Bxh1" , "Bb7" , "gxf4+" , "Ke4" , "gxf4" , "Rxh1" , "Rxh6" , "b5" , "Be4" , "O-O" , "Rxb3" , "f6" , "fxe4" , "c5" , "Ke3" , "Qe7" , "d6" , "Rf1+" , "exf5+" , "Nxe4" , "Nf2" , "hxg4" , "Ke6" , "Ra1" , "Kg7" , "d4" , "Rad8" , "Qxb4+" , "Qd2" , "Nh3" , "Bxb4" ;
+        chon:nextHalfMove      :hmgamUJlZ2Ob .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtHaFFO .
+
+:agtHaFFO  a          chon:Agent ;
+        chon:hasName  "Bauer,Ch" , "Karpov,Ana" .
+
+:roltHaFFO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtHaFFO .
+
+chon:HalfMove  chon:subEventOf  :gamtHaFF .
+
+:opetHaFFO  a            chon:ChessOpening ;
+        chon:hasECOCode  "A40" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtHaFFO .
+
+:gamtHaFF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltHaFFO ;
+        chon:atPlace           :platHaFFO ;
+        chon:atTime            "2012.11.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUJlZ2Ob ;
+        chon:hasHalfMove       :hmgamUJlZ2Ob ;
+        chon:hasLastHalfMove   :hmgamUJlZ2Ob ;
+        chon:hasOpening        :opetHaFFO ;
+        chon:hasReport         :cgrtHaFFO ;
+        chon:hasResult         :restHaFFOj ;
+        chon:subEventOf        :toutHaFF .
+
+:toutHaFF  a          chon:hessTournament ;
+        chon:atPlace  :platHaFFO ;
+        chon:hasName  "Trophee Karpov Preliminary 2012" .
+
+:rolhgUJlZ2Obb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtHaFFO .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

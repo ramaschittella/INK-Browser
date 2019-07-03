@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgQAjrjrqY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQAjrjr .
+
+:agQAjrjr  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kamsky, Gata" .
+
+:rolQAjrjr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQAjrjr .
+
+:opeQAjrjr  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:gamQAjrj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQAjrjr ;
+        chon:atPlace           :plaQAjrjr ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQAjrjrq ;
+        chon:hasHalfMove       :hmgamQAjrjrq , :hmgam3AfFSqv ;
+        chon:hasLastHalfMove   :hmgam3AfFSqv ;
+        chon:hasOpening        :opeQAjrjr ;
+        chon:hasReport         :cgrQAjrjr ;
+        chon:hasResult         :resQAjrjrq ;
+        chon:subEventOf        :touQAjrj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQAjrjr .
+
+:touQAjrj  a          chon:hessTournament ;
+        chon:atPlace  :plaQAjrjr ;
+        chon:hasName  "Amber-rapid 4th" .
+
+chon:HalfMove  chon:subEventOf  :gamQAjrj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQAjrjr .
+
+:resQAjrjrq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhg3AfFSqvb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQAjrjr .
+
+:cgrQAjrjr  a   chon:ChessGameReport .
+
+:hmgam3AfFSqv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3AfFSqvb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bc5" , "e5" , "Kxh2" , "Rh8" , "O-O" , "Bd3" , "Kc1" , "Rd1+" , "f3" , "Rxg3" , "Re2+" , "Re3" , "cxd4" , "Bxd4" , "Kf7" , "h5" , "Bb5" , "b5" , "Bb7" , "Nxc3" , "c4" , "Rgd5" , "Rh4" , "Bxh2+" , "Kf2" , "Rg6" , "Nf6" , "Rxh5" , "Rae1" , "Bxd7" , "b4" , "Kxe5" , "Kf1" , "Rg2+" , "Qf2" , "Nxd5" , "Rf4" , "Rxa4" , "Bxe5" , "f6" , "Qd8" , "c5" , "Qh4+" , "Rfe1" , "Bc6" , "Bc3" , "e4" , "Qxd8" , "d5" , "Rxd7" , "Ra1" , "Be7" , "Rc8" , "Nc3" , "Kf5" , "g3" , "Nf3" , "fxe5" , "Kb1" , "Ke3" , "Ra8+" , "Rc7" , "Rg5" , "Rc2+" , "Kh7" , "Bf6" , "e6" , "Kg6" , "Nxe5" , "Rxd8" , "Bd5" , "f5" , "Rxc5" , "bxa4" , "Re4" , "Rd2+" , "Qd4" , "Bd4" , "f4" , "Ke6" , "Qc2" , "Rh5+" , "cxd5" , "Kd1" , "Kg1" , "Rd8" , "Bxa6" , "R8d7" , "b6" , "h6" , "Bb3+" , "Bxc3" , "Rc4" , "a6" , "g5" , "a3" , "a4" , "Bd2" , "Bc4+" , "Ke1" , "Nd7" , "Rd3+" , "Rg4" ;
+        chon:nextHalfMove      :hmgam3AfFSqv .
+
+:hmgamQAjrjrq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQAjrjrqY , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgam3AfFSqv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaQAjrjr  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .

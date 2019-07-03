@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrNpSwuO  a   chon:ChessGameReport .
+
+:rolhgLDvjIUeX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNpSwuO .
+
+:rolhgNpSwuOGd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNpSwuO .
+
+:plaNpSwuO  a         chon:Place ;
+        chon:hasName  "Curacao" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNpSwuO .
+
+chon:HalfMove  chon:subEventOf  :gamNpSwu .
+
+:resNpSwuOG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNpSwuO .
+
+:agNpSwuO  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Benko, Pal C" .
+
+:rolNpSwuO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNpSwuO .
+
+:opeNpSwuO  a            chon:ChessOpening ;
+        chon:hasECOCode  "B07" .
+
+:hmgamNpSwuOG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLDvjIUeX , :rolhgNpSwuOGd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "g3" , "exd4" , "Nbc3" , "h3" , "Be3" , "Nf6" , "O-O" , "Re8" , "Ne6" , "Bxd4" , "Nxd4" , "a5" , "e5" , "c6" , "g6" , "Qc7" , "b5" , "Bg2" , "b4" , "f4" , "Nfd7" , "axb6" , "Rb8" , "Ne2" , "Nbd7" , "Bg7" , "Re1" , "Qd2" , "a4" , "e4" , "d6" , "d4" , "Bxd4+" , "Nc5" ;
+        chon:nextHalfMove      :hmgamLDvjIUe , :hmgamNpSwuOG .
+
+:hmgamLDvjIUe  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLDvjIUeX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rad1" , "Qe2" , "Nxe4+" , "Qb8" , "Qe3" , "Qh4" , "Qd8" , "Rxe6" , "Qh3+" , "Qb7+" , "Qxh3+" , "Re6" , "Qd2" , "Rf7+" , "Kf7" , "Kf3" , "Rd7" , "exd6" , "e5" , "Kg2" , "Kg7" , "Rxf1" , "Bxg2" , "Rd8" , "fxe6" , "g4" , "Qf3" , "Qg2" , "Kxg2" , "Ne4" , "fxe5" , "Bb7" , "Qxe4" , "c5" , "Rf1" , "Qc6" , "Kxf1" , "Nf6" , "Qxd4" , "Kf2" ;
+        chon:nextHalfMove      :hmgamLDvjIUe .
+
+:gamNpSwu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNpSwuO ;
+        chon:atPlace           :plaNpSwuO ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNpSwuOG ;
+        chon:hasHalfMove       :hmgamNpSwuOG , :hmgamLDvjIUe ;
+        chon:hasLastHalfMove   :hmgamLDvjIUe ;
+        chon:hasOpening        :opeNpSwuO ;
+        chon:hasReport         :cgrNpSwuO ;
+        chon:hasResult         :resNpSwuOG ;
+        chon:subEventOf        :touNpSwu .
+
+:touNpSwu  a          chon:hessTournament ;
+        chon:atPlace  :plaNpSwuO ;
+        chon:hasName  "Candidats Tournament" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

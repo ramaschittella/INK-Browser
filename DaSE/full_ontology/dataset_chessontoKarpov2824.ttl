@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agTG8UnG  a          chon:Agent ;
+        chon:hasName  "Hamdouchi,H" , "Karpov,Ana" .
+
+:hmgamTG8UnGm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6G58WGrh , :rolhgTG8UnGm4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hamdouchi,H" ;
+        chon:hasSANRecord      "a3" , "e6" , "Be3" , "Nf6" , "Qb6" , "d5" , "Re1" , "Ra7" , "Nc3" , "d4" , "Rae7" , "g6" , "a6" , "O-O" , "b4" , "exd5" , "Bf4" , "d6" , "Qd2" , "Nbd7" , "Bd3" , "c5" , "Rc1" , "Rb1" , "Bb7" , "cxd5" , "Re8" , "h3" , "Nh5" , "b5" , "Bg7" , "Nf3" , "e4" , "c4" , "Qd8" ;
+        chon:nextHalfMove      :hmgamTG8UnGm , :hmgam6G58WGr .
+
+:opeTG8UnG  a            chon:ChessOpening ;
+        chon:hasECOCode  "A70" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTG8UnG .
+
+chon:HalfMove  chon:subEventOf  :gamTG8Un .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTG8UnG .
+
+:rolhg6G58WGrh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTG8UnG .
+
+:gamTG8Un  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTG8UnG ;
+        chon:atPlace           :plaTG8UnG ;
+        chon:atTime            "2005.05.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTG8UnGm ;
+        chon:hasHalfMove       :hmgam6G58WGr , :hmgamTG8UnGm ;
+        chon:hasLastHalfMove   :hmgam6G58WGr ;
+        chon:hasOpening        :opeTG8UnG ;
+        chon:hasReport         :cgrTG8UnG ;
+        chon:hasResult         :resTG8UnGm ;
+        chon:subEventOf        :touTG8Un .
+
+:cgrTG8UnG  a   chon:ChessGameReport .
+
+:touTG8Un  a          chon:hessTournament ;
+        chon:atPlace  :plaTG8UnG ;
+        chon:hasName  "Grand Prix" .
+
+:rolTG8UnG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTG8UnG .
+
+:hmgam6G58WGr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6G58WGrh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hamdouchi,H" ;
+        chon:hasSANRecord      "Qc6" , "Nd4" , "Qa3" , "Ng3" , "Rc1" , "Nf5" , "Qxf5" , "Reb1" , "Qa5" , "Qxd3" , "Qxe3" , "Rxb4" , "cxb4" , "Qb6" , "Nc6" , "Kg7" , "Qxc3" , "Nc5" , "Bxc6" , "Qa7" , "Qa6" , "c8=Q" , "Qxc1" , "c7" , "Rc8" , "Rxb5" , "Bxc3" , "Rxe4" , "Qc4" , "axb5" , "Qb7" , "Rb3" , "a4" , "Nxd3" , "dxc6" , "Rb5" , "Qxc8+" , "Kh2" ;
+        chon:nextHalfMove      :hmgam6G58WGr .
+
+:rolhgTG8UnGm4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTG8UnG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resTG8UnGm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaTG8UnG  a         chon:Place ;
+        chon:hasName  "Bordeaux FRA" .

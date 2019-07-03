@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolwZlXfv  a             chon:AuthorRole ;
+        chon:performedBy  :agwZlXfv .
+
+:plakZoJFw  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwZlXfv .
+
+chon:HalfMove  chon:subEventOf  :gamkZoJF .
+
+:agwZlXfv  a          chon:Agent ;
+        chon:hasName  "Donner, Jan Hein" , "Fischer, Robert James" .
+
+:rolkZoJFw  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:opewZlXfv  a            chon:ChessOpening ;
+        chon:hasECOCode  "C89" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwZlXfv .
+
+:hmgamwZlXfvG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwZlXfvGl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Donner, Jan Hein" ;
+        chon:hasSANRecord      "g3" , "Rxc3" , "c6" , "Qxh6" , "Rad8" , "Nf3" , "c5" , "f4" , "Nd2" , "Qb6" , "b3" , "d5" , "Kh1" , "bxc4" , "Bg7" , "c3" , "Nxd5" , "Bf5" , "Bxh6" , "Qd3" , "d7" , "Bd5" , "Bg4" , "Nxe3" , "Bb8" , "e5" , "g5" , "Be3" , "a6" , "Nc6" , "Ba4" , "Bd4+" , "Re5" , "d4" , "Qh3" , "Nxe5" , "O-O" , "Rxc5" , "Rxe5" , "Rxe3" , "Rc8" , "Re8" , "Re1" , "Bf4" , "Nf6" , "gxf4" , "b5" , "e4" , "Bb5" , "exd5" , "Bb3" , "Bd3" , "Bg2" , "d6" , "c4" , "Be7" , "Qh6" , "Qh4" , "Bf6" , "Qd4" , "Rae1" , "Bd6" ;
+        chon:nextHalfMove      :hmgamwZlXfvG .
+
+:gamkZoJF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkZoJFw ;
+        chon:atPlace           :plakZoJFw ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwZlXfvG ;
+        chon:hasHalfMove       :hmgamwZlXfvG ;
+        chon:hasLastHalfMove   :hmgamwZlXfvG ;
+        chon:hasOpening        :opewZlXfv ;
+        chon:hasReport         :cgrwZlXfv ;
+        chon:hasResult         :reswZlXfvG ;
+        chon:subEventOf        :toukZoJF .
+
+:toukZoJF  a          chon:hessTournament ;
+        chon:atPlace  :plakZoJFw ;
+        chon:hasName  "Capablanca mem" .
+
+:rolhgwZlXfvGl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwZlXfv .
+
+:reswZlXfvG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrwZlXfv  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

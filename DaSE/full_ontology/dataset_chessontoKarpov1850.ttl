@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resFrpc5R5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agFrpc5R  a          chon:Agent ;
+        chon:hasName  "Antunes, Antonio" , "Karpov, Anatoly" .
+
+:gamFrpc5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFrpc5R ;
+        chon:atPlace           :plaFrpc5R ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFrpc5R5 ;
+        chon:hasHalfMove       :hmgamRrmqBQ8 , :hmgamFrpc5R5 ;
+        chon:hasLastHalfMove   :hmgamRrmqBQ8 ;
+        chon:hasOpening        :opeFrpc5R ;
+        chon:hasReport         :cgrFrpc5R ;
+        chon:hasResult         :resFrpc5R5 ;
+        chon:subEventOf        :touFrpc5 .
+
+:rolFrpc5R  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFrpc5R .
+
+:opeFrpc5R  a            chon:ChessOpening ;
+        chon:hasECOCode  "D47" .
+
+:touFrpc5  a          chon:hessTournament ;
+        chon:atPlace  :plaFrpc5R ;
+        chon:hasName  "Tilburg" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFrpc5R .
+
+:rolhgRrmqBQ88  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFrpc5R .
+
+chon:HalfMove  chon:subEventOf  :gamFrpc5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFrpc5R .
+
+:cgrFrpc5R  a   chon:ChessGameReport .
+
+:rolhgFrpc5R5W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFrpc5R .
+
+:hmgamRrmqBQ8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRrmqBQ88 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Antunes, Antonio" ;
+        chon:hasSANRecord      "Re8" , "Nd7" , "Qc4" , "Qa8" , "Qb5" , "Qf7" , "Rd7" , "Nf6" , "f3" , "h3" , "fxg2" , "Qc8" , "Rb7" , "f4" , "Bxg7" , "Bd4" , "f5" , "Qe7" , "Re7" , "Bxh6+" , "Rc8" , "Nd3" , "Nxe5" , "Kh2" , "Bf8" , "Nxe6" , "Rc1" , "Rd5" , "Nd4" , "Rc2" , "Rd1+" , "Qa6" , "Qd8" , "Bxf8" ;
+        chon:nextHalfMove      :hmgamRrmqBQ8 .
+
+:hmgamFrpc5R5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRrmqBQ88 , :rolhgFrpc5R5W ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Antunes, Antonio" ;
+        chon:hasSANRecord      "Nbd7" , "dxc4" , "h6" , "Nxf6" , "Nf6" , "e4" , "Bxb7" , "Rxd1+" , "e3" , "Ne4" , "Nc3" , "Rxd1" , "Bd3" , "Rfd1" , "c4" , "Nd7" , "d4" , "b4" , "Rb8" , "Rd8" , "Bb7" , "b5" , "Qc8" , "Qc4" , "Bxc4" , "Rac1" , "c6" , "Be3" , "d5" , "Rxb7" , "e5" , "Qc2" , "a5" , "c5" , "dxc5" , "O-O" , "Nf3" , "Nxc5" , "Be4" , "e6" , "Nxf6+" , "Be7" ;
+        chon:nextHalfMove      :hmgamRrmqBQ8 , :hmgamFrpc5R5 .
+
+:plaFrpc5R  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plae1cEpN  a         chon:Place ;
+        chon:hasName  "London/Leningrad" .
+
+:hmgame1cEpNY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhge1cEpNYy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "c4" , "Nf6" , "Qxb5" , "d4" , "Bd7" , "h6" , "Nc6" , "Qa5" , "Bxb5" , "d5" , "Nc3" , "Rfd1" , "e3" , "dxc4" , "O-O" , "Bxc4" , "Qa4+" , "Qxc5" , "Rc1" , "Nf3" , "Bg7" , "h3" , "dxc5" , "Rfd8" , "Qb5" , "g6" , "c5" , "Rac8" , "Bf4" , "Kf1" ;
+        chon:nextHalfMove      :hmgame1cEpNY , :hmgamF3pYMON .
+
+:cgre1cEpN  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age1cEpN .
+
+:age1cEpN  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:role1cEpN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :age1cEpN .
+
+chon:HalfMove  chon:subEventOf  :game1cEp .
+
+:opee1cEpN  a            chon:ChessOpening ;
+        chon:hasECOCode  "D92" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age1cEpN .
+
+:rese1cEpNY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:game1cEp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :role1cEpN ;
+        chon:atPlace           :plae1cEpN ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgame1cEpNY ;
+        chon:hasHalfMove       :hmgamF3pYMON , :hmgame1cEpNY ;
+        chon:hasLastHalfMove   :hmgamF3pYMON ;
+        chon:hasOpening        :opee1cEpN ;
+        chon:hasReport         :cgre1cEpN ;
+        chon:hasResult         :rese1cEpNY ;
+        chon:subEventOf        :toue1cEp .
+
+:toue1cEp  a          chon:hessTournament ;
+        chon:atPlace  :plae1cEpN ;
+        chon:hasName  "World Championship 33th-KK3" .
+
+:rolhgF3pYMONX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age1cEpN .
+
+:hmgamF3pYMON  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgF3pYMONX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Rd2" , "Be2" , "Be6" , "a6" , "Bxe5" , "Ne5" , "b3" , "Rxd8+" , "Rxd8" , "Nxe5" ;
+        chon:nextHalfMove      :hmgamF3pYMON .
+
+:rolhge1cEpNYy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age1cEpN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

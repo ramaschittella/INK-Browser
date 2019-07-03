@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg33UKBcTK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag33UKBc .
+
+:gam33UKB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol33UKBc ;
+        chon:atPlace           :pla33UKBc ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam33UKBcT ;
+        chon:hasHalfMove       :hmgam33UKBcT ;
+        chon:hasLastHalfMove   :hmgam33UKBcT ;
+        chon:hasOpening        :ope33UKBc ;
+        chon:hasReport         :cgr33UKBc ;
+        chon:hasResult         :res33UKBcT ;
+        chon:subEventOf        :tou33UKB .
+
+:ope33UKBc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:tou33UKB  a          chon:hessTournament ;
+        chon:atPlace  :pla33UKBc ;
+        chon:hasName  "Wijk m" .
+
+:res33UKBcT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag33UKBc .
+
+chon:HalfMove  chon:subEventOf  :gam33UKB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag33UKBc .
+
+:pla33UKBc  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:cgr33UKBc  a   chon:ChessGameReport .
+
+:ag33UKBc  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Christiansen, Larry Mark" .
+
+:rol33UKBc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag33UKBc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam33UKBcT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg33UKBcTK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bf4" , "b6" , "e6" , "Nxd4" , "c4" , "Qd1" , "Bxc6" , "Nc3" , "Nh5" , "Bb7" , "d4" , "Nxc6" , "e4" , "Nf6" , "Ba6" , "Nf3" , "Nc6" , "cxd4" , "Be3" , "Bd6" , "Qc2" , "a3" , "c5" ;
+        chon:nextHalfMove      :hmgam33UKBcT .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamvEZSN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvEZSNk ;
+        chon:atPlace           :plavEZSNk ;
+        chon:atTime            "2008.12.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvEZSNkm ;
+        chon:hasHalfMove       :hmgamGSWQkjp , :hmgamvEZSNkm , :hmgam8E9aGkg ;
+        chon:hasLastHalfMove   :hmgam8E9aGkg ;
+        chon:hasOpening        :opevEZSNk ;
+        chon:hasReport         :cgrvEZSNk ;
+        chon:hasResult         :resvEZSNkm ;
+        chon:subEventOf        :touvEZSN .
+
+:hmgamvEZSNkm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvEZSNkmW , :rolhgGSWQkjp8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jackova,J" ;
+        chon:hasSANRecord      "c4" , "Nf6" , "d4" , "Bb4" , "Nc3" , "e6" , "Qc2" ;
+        chon:nextHalfMove      :hmgamvEZSNkm , :hmgamGSWQkjp .
+
+:opevEZSNk  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:hmgamGSWQkjp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8E9aGkgx , :rolhgGSWQkjp8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jackova,J" ;
+        chon:hasSANRecord      "e5" , "c5" , "Bb7" , "h6" , "Rxd4" , "Qc7" , "Rd1" , "Bxc3+" , "e3" , "Bh4" , "O-O" , "f3" , "d5" , "Ne2" , "Qd1" , "Bc4" , "Bg5" , "Rd2" , "Nbd7" , "a3" , "cxd4" , "Nc3" , "e4" , "Rac8" , "d6" , "Qc2" , "Qxc3" , "Bxd5" , "b6" , "cxd5" ;
+        chon:nextHalfMove      :hmgamGSWQkjp , :hmgam8E9aGkg .
+
+:hmgam8E9aGkg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8E9aGkgx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jackova,J" ;
+        chon:hasSANRecord      "Qe7" , "Bxc7" , "Rxf1" , "Nb5" , "Bxf1" , "Bg3" , "Nd6" , "Qc7" , "Kxd1" , "Nc5" , "Nf5" , "Rcd8" , "Rxd1+" , "g5" , "Bxe5" , "Rxd2" ;
+        chon:nextHalfMove      :hmgam8E9aGkg .
+
+:cgrvEZSNk  a   chon:ChessGameReport .
+
+:touvEZSN  a          chon:hessTournament ;
+        chon:atPlace  :plavEZSNk ;
+        chon:hasName  "Snowdrops vs Old-hands" .
+
+:rolhg8E9aGkgx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvEZSNk .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvEZSNk .
+
+chon:HalfMove  chon:subEventOf  :gamvEZSN .
+
+:rolhgGSWQkjp8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvEZSNk .
+
+:rolhgvEZSNkmW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvEZSNk .
+
+:rolvEZSNk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvEZSNk .
+
+:plavEZSNk  a         chon:Place ;
+        chon:hasName  "Marianske Lazne CZE" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agvEZSNk  a          chon:Agent ;
+        chon:hasName  "Jackova,J" , "Karpov,Ana" .
+
+:resvEZSNkm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvEZSNk .

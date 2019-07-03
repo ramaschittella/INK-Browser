@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaamrKIa  a         chon:Place ;
+        chon:hasName  "Sanya City CHN" .
+
+:cgramrKIa  a   chon:ChessGameReport .
+
+:rolamrKIa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agamrKIa .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agamrKIa .
+
+:rolhgamrKIaRS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agamrKIa .
+
+chon:HalfMove  chon:subEventOf  :gamamrKI .
+
+:resamrKIaR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agamrKIa .
+
+:rolhgmknXf0U4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agamrKIa .
+
+:agamrKIa  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Hou Yifan" .
+
+:hmgamamrKIaR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgamrKIaRS , chon:AgentRole , :rolhgmknXf0U4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "fxe5" , "d3" , "Kh2" , "Nc3" , "e5" , "Bb4" , "Ra1" , "bxc3" , "Re1" , "Bxe3" , "dxe5" , "Qe6" , "Nxe3" , "f4" , "Bxc6" , "a6" , "Bxc3" , "Bg3" , "Nf6" , "a3" , "Re6" , "Bb5" , "h6" , "Nf3" , "h3" , "d4" , "Nc6" , "Nc4" , "Qd2" , "Qe7" , "Rf7" , "Rb1" , "Bc1" , "bxc6" , "Kh7" , "Rbd1" , "Bf2" , "Ba6" , "Ba4" , "Rae8" , "Qc4" , "Nd7" , "e4" , "f6" , "O-O" , "Bg5" , "Ne3" , "a5" , "Nb6" , "Nh4" , "Nf5" , "d6" ;
+        chon:nextHalfMove      :hmgamamrKIaR , :hmgammknXf0U .
+
+:opeamrKIa  a            chon:ChessOpening ;
+        chon:hasECOCode  "C49" .
+
+:gamamrKI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolamrKIa ;
+        chon:atPlace           :plaamrKIa ;
+        chon:atTime            "2010.11.06"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamamrKIaR ;
+        chon:hasHalfMove       :hmgamamrKIaR , :hmgammknXf0U ;
+        chon:hasLastHalfMove   :hmgammknXf0U ;
+        chon:hasOpening        :opeamrKIa ;
+        chon:hasReport         :cgramrKIa ;
+        chon:hasResult         :resamrKIaR ;
+        chon:subEventOf        :touamrKI .
+
+:hmgammknXf0U  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmknXf0U4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bg4" , "Bc1" , "g3" , "Rxd6" , "Ba6" , "Rd2" , "Bh3" , "Kg1" , "Rac1" , "c4" , "Re1" , "Qc5" , "Ra2" , "Rd7" , "Kf7" , "Be1" , "Kf2" , "Bc6" , "Bd2" , "Qxe3" , "Rdd1" , "Re2" , "Rf6" , "Rxc2" , "Rcd1" , "Ke3" , "Bb5" , "Rf7+" , "Kc6" , "Rd3" , "Be2" , "Ke6" , "Bf1" , "Kf3" , "Rf1" , "Rdd6" , "Bxc4" , "a4" , "Red6" , "h4" , "Ra1" , "Kd7" , "Bh5" , "Kg3" , "Bb6" , "dxe5" , "Bb7" , "Re3" , "Kg8" , "Bf2" , "Bc3" , "Kb5" , "c5" , "Rxe3" , "Be3" , "cxd6" , "Be2+" , "Kd3" , "Rc3" , "Qe3" ;
+        chon:nextHalfMove      :hmgammknXf0U .
+
+:touamrKI  a          chon:hessTournament ;
+        chon:atPlace  :plaamrKIa ;
+        chon:hasName  "Match" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

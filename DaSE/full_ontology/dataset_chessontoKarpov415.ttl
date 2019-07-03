@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaHgFS8b  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:gamHgFS8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHgFS8b ;
+        chon:atPlace           :plaHgFS8b ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHgFS8bN ;
+        chon:hasHalfMove       :hmgam9iPdscD , :hmgamHgFS8bN ;
+        chon:hasLastHalfMove   :hmgam9iPdscD ;
+        chon:hasOpening        :opeHgFS8b ;
+        chon:hasReport         :cgrHgFS8b ;
+        chon:hasResult         :resHgFS8bN ;
+        chon:subEventOf        :touHgFS8 .
+
+:resHgFS8bN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgam9iPdscD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9iPdscDU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "O-O" , "d6" , "Qxc3" , "b3" , "Nxc3" , "Rd8" , "Nxd4" , "Rfe1" , "Qb7+" , "Bxg2" , "Qc2" , "Bb2" , "Qe7" , "Bf6" , "Qd2" , "Ne4" , "cxd4" , "Rad1" , "Kxg2" , "Nc3" ;
+        chon:nextHalfMove      :hmgam9iPdscD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHgFS8b .
+
+:agHgFS8b  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ivkov, Borislav" .
+
+:rolHgFS8b  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHgFS8b .
+
+chon:HalfMove  chon:subEventOf  :gamHgFS8 .
+
+:opeHgFS8b  a            chon:ChessOpening ;
+        chon:hasECOCode  "E19" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHgFS8b .
+
+:rolhg9iPdscDU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHgFS8b .
+
+:touHgFS8  a          chon:hessTournament ;
+        chon:atPlace  :plaHgFS8b ;
+        chon:hasName  "Skopje" .
+
+:rolhgHgFS8bNw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHgFS8b .
+
+:cgrHgFS8b  a   chon:ChessGameReport .
+
+:hmgamHgFS8bN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHgFS8bNw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bb7" , "e6" , "g3" , "Be7" , "Nf3" , "Nf6" , "c4" , "d4" , "O-O" , "Bg2" , "b6" ;
+        chon:nextHalfMove      :hmgam9iPdscD , :hmgamHgFS8bN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

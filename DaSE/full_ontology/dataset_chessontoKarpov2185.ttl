@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resFRqkue8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolFRqkue  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFRqkue .
+
+:plaFRqkue  a         chon:Place ;
+        chon:hasName  "Koszalin" .
+
+:hmgamFRqkue8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFRqkue8E , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dwyer, Danny" ;
+        chon:hasSANRecord      "f4" , "e4" , "Qf8" , "Rxe6" , "b3" , "Bc4" , "Bb7" , "b6" , "Rd6" , "Ra7" , "d4" , "Bxe7" , "Re2" , "dxe4" , "Nf3" , "Qf3" , "c6" , "Nf6" , "h3" , "Qc2" , "a5" , "Ne5" , "Nbd7" , "e3" , "Qe7" , "bxc5" , "O-O" , "d5" , "Qxe4" , "Bd3" , "Bc3" , "Bd6" , "dxc5" , "Qh5" , "Re1" , "Rd1" , "c5" , "c4" , "Raxe7" , "Be2" , "Bxc5" , "Re8" , "e6" , "Bc8" , "b4" , "Nb8" , "f5" , "Ba8" , "Bb4" , "Nc3" , "R1d4" , "Be7" , "Red2" , "Nxe4" , "Bg5" , "a6" ;
+        chon:nextHalfMove      :hmgamFRqkue8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFRqkue .
+
+chon:HalfMove  chon:subEventOf  :gamFRqku .
+
+:agFRqkue  a          chon:Agent ;
+        chon:hasName  "Dwyer, Danny" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFRqkue .
+
+:opeFRqkue  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+:gamFRqku  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFRqkue ;
+        chon:atPlace           :plaFRqkue ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFRqkue8 ;
+        chon:hasHalfMove       :hmgamFRqkue8 ;
+        chon:hasLastHalfMove   :hmgamFRqkue8 ;
+        chon:hasOpening        :opeFRqkue ;
+        chon:hasReport         :cgrFRqkue ;
+        chon:hasResult         :resFRqkue8 ;
+        chon:subEventOf        :touFRqku .
+
+:touFRqku  a          chon:hessTournament ;
+        chon:atPlace  :plaFRqkue ;
+        chon:hasName  "Koszalin sim1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrFRqkue  a   chon:ChessGameReport .
+
+:rolhgFRqkue8E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFRqkue .

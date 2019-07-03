@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resQ57Rddr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgQ57Rddr4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQ57Rdd .
+
+:rolhgJMTmv3qf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQ57Rdd .
+
+:cgrQ57Rdd  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ57Rdd .
+
+:rolQ57Rdd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQ57Rdd .
+
+chon:HalfMove  chon:subEventOf  :gamQ57Rd .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ57Rdd .
+
+:plaQ57Rdd  a         chon:Place ;
+        chon:hasName  "St Petersburg" .
+
+:hmgamJMTmv3q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJMTmv3qf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Nc3" , "Rc2" , "Rd3" , "Red8" , "Rb8" , "Qxa6" , "Na4" , "d5" , "Qb8+" , "Qxf4" , "h6" , "a4" , "Qxe3+" , "Nf4" , "Bc3" , "Qe6" , "Kh2" , "Rxa6" , "Rc1" , "cxd4" , "Qe3" , "Bxd5" , "Qc8" , "Qc2" , "Rfe1" , "exd5" , "Bb7" , "Nxe5" , "h4" , "b4" , "Bd4" , "Bc7" , "Bxd4" , "b5" , "Ne5" , "Rxe3" , "Qd3" , "Qg6" , "Qe5" , "Re3" , "axb6" , "Ng3" , "Qc6" , "Rbc8" , "fxe3" , "a6" , "Qc7" , "Rc4" , "Rxb6" , "Qb3" , "a5" , "c5" , "Bxe5" , "h3" , "Re7" , "Kh7" , "Qb7" , "Ne4" , "Qxd4" , "Nxd5" ;
+        chon:nextHalfMove      :hmgamJMTmv3q .
+
+:hmgamQ57Rddr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJMTmv3qf , chon:AgentRole , :rolhgQ57Rddr4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "e4" , "Nc3" , "d5" , "Bd6" , "Bd3" , "e6" , "Re8" , "O-O" , "d4" , "c6" , "Bd2" , "Nbd7" , "e3" , "Bxc4" , "dxc4" , "Nf3" , "Nf6" , "c4" ;
+        chon:nextHalfMove      :hmgamQ57Rddr , :hmgamJMTmv3q .
+
+:agQ57Rdd  a          chon:Agent ;
+        chon:hasName  "Chigorin, Mikhail" , "Steinitz, William" .
+
+:gamQ57Rd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQ57Rdd ;
+        chon:atPlace           :plaQ57Rdd ;
+        chon:atTime            "1895.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQ57Rddr ;
+        chon:hasHalfMove       :hmgamJMTmv3q , :hmgamQ57Rddr ;
+        chon:hasLastHalfMove   :hmgamJMTmv3q ;
+        chon:hasOpening        :opeQ57Rdd ;
+        chon:hasReport         :cgrQ57Rdd ;
+        chon:hasResult         :resQ57Rddr ;
+        chon:subEventOf        :touQ57Rd .
+
+:opeQ57Rdd  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+:touQ57Rd  a          chon:hessTournament ;
+        chon:atPlace  :plaQ57Rdd ;
+        chon:hasName  "St Petersburg9596" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam3FdVJLH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3FdVJLHo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rxe6" , "fxg4+" , "exf7" , "Nxd7+" , "Rd6" , "Rac8" , "Kxf7" , "g4" , "Nd2" , "Qd8" , "h4" , "e6" , "Qe6+" , "Bf6" , "Nf6+" , "Qxe6" , "Qxd7" , "Qd6" , "Nc6" , "Kxg4" , "Ne7" , "d5" , "c3" , "Rhe8" , "Kf5" , "Kg6" , "Rhe1" , "dxe6+" , "Kf8" , "Rd7" , "Nb1" , "h5+" , "f3" , "Rh1" ;
+        chon:nextHalfMove      :hmgam3FdVJLH .
+
+:hmgam8HuMZNr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3FdVJLHo , chon:AgentRole , :rolhg8HuMZNrq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Be4" , "Bxf6" , "Bg5" , "d5" , "Bd7" , "exd5" , "Nc6" , "Nxd5" , "O-O-O" , "Nf3" , "g5" , "d6" , "Qxf6" , "Qe2" , "Nc3" , "e6" , "h6" , "Qe7" , "e5" , "Bxd5" , "d4" , "e4" , "Bd3" , "Bg7" , "Nf6" ;
+        chon:nextHalfMove      :hmgam3FdVJLH , :hmgam8HuMZNr .
+
+:gam8HuMZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8HuMZN ;
+        chon:atPlace           :pla8HuMZN ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8HuMZNr ;
+        chon:hasHalfMove       :hmgam3FdVJLH , :hmgam8HuMZNr ;
+        chon:hasLastHalfMove   :hmgam3FdVJLH ;
+        chon:hasOpening        :ope8HuMZN ;
+        chon:hasReport         :cgr8HuMZN ;
+        chon:hasResult         :res8HuMZNr ;
+        chon:subEventOf        :tou8HuMZ .
+
+:tou8HuMZ  a          chon:hessTournament ;
+        chon:atPlace  :pla8HuMZN ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8HuMZN .
+
+:rolhg8HuMZNrq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8HuMZN .
+
+chon:HalfMove  chon:subEventOf  :gam8HuMZ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8HuMZN .
+
+:rolhg3FdVJLHo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8HuMZN .
+
+:res8HuMZNr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:pla8HuMZN  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+:cgr8HuMZN  a   chon:ChessGameReport .
+
+:ag8HuMZN  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Vorobjov,P" .
+
+:rol8HuMZN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8HuMZN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope8HuMZN  a            chon:ChessOpening ;
+        chon:hasECOCode  "A45" .

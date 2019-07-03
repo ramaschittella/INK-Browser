@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrmHjFS5  a   chon:ChessGameReport .
+
+:agmHjFS5  a          chon:Agent ;
+        chon:hasName  "Taimanov, Mark E" , "Karpov, Anatoly" .
+
+:gamVH8kf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmHjFS5 ;
+        chon:atPlace           :plaVH8kf5 ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammHjFS5R ;
+        chon:hasHalfMove       :hmgammHjFS5R , :hmgamxHeS04U ;
+        chon:hasLastHalfMove   :hmgamxHeS04U ;
+        chon:hasOpening        :opemHjFS5 ;
+        chon:hasReport         :cgrmHjFS5 ;
+        chon:hasResult         :resmHjFS5R ;
+        chon:subEventOf        :toumHjFS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmHjFS5 .
+
+:rolmHjFS5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmHjFS5 .
+
+chon:HalfMove  chon:subEventOf  :gamVH8kf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmHjFS5 .
+
+:rolhgmHjFS5RT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmHjFS5 .
+
+:hmgamxHeS04U  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxHeS04U7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Taimanov, Mark E" ;
+        chon:hasSANRecord      "Rb2" , "b3" , "Bf1" , "Bd2" , "Rfa8" , "Rb1" , "Nxf5" , "Qxb6" , "c4" , "hxg6" , "axb3" , "b5" , "Bxb6" , "Rb3" , "g6" , "b4" , "Kg7" , "Ra1" , "fxg6" , "b6" , "exf5" , "Kh1" , "Ng3+" , "Qc5" , "Bxa5" , "Rxa5" , "cxb3" , "Nb6" , "Qc7" , "Qd4" , "f5" ;
+        chon:nextHalfMove      :hmgamxHeS04U .
+
+:plaVH8kf5  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:resmHjFS5R  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opemHjFS5  a            chon:ChessOpening ;
+        chon:hasECOCode  "B28" .
+
+:rolhgxHeS04U7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmHjFS5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toumHjFS  a          chon:hessTournament ;
+        chon:atPlace  :plaVH8kf5 ;
+        chon:hasName  "October Revolution 60" .
+
+:hmgammHjFS5R  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxHeS04U7 , :rolhgmHjFS5RT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Taimanov, Mark E" ;
+        chon:hasSANRecord      "Bb4" , "a5" , "Bd3" , "Nf6" , "Nb3" , "Bxd5" , "Nd7" , "Nxc5" , "Be3" , "Bc5" , "Rb8" , "b6" , "f3" , "Qd2" , "cxd5" , "Nc3" , "e5" , "Rf2" , "d4" , "bxc5" , "Qb6" , "Ra4" , "Rc1" , "Be6" , "f6" , "e4" , "cxd4" , "Nd4" , "Ra8" , "Nf3" , "c5" , "Nd5" , "Nc6" , "O-O" , "Ra7" , "Nxd4" , "f4" , "Qe1" , "d6" , "f5" , "c4" , "Rc4" , "a6" ;
+        chon:nextHalfMove      :hmgammHjFS5R , :hmgamxHeS04U .

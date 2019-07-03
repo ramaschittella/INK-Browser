@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opexaGqtO  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .
+
+:cgrIaDD3O  a   chon:ChessGameReport .
+
+:resxaGqtO5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolIaDD3O  a             chon:AuthorRole ;
+        chon:performedBy  :agIaDD3O .
+
+:touxaGqt  a          chon:hessTournament ;
+        chon:atPlace  :plaxaGqtO ;
+        chon:hasName  "October Revolution 60" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxaGqtO .
+
+:rolhgIaDD3O8N  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxaGqtO .
+
+:hmgamIaDD3O8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIaDD3O8N , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxa4" , "Nxe4" , "Qa5" , "bxc6" , "e4" , "cxd5" , "Bb4" , "Bg4" , "Bh3" , "Rfe1" , "Nxf6" , "Rc2" , "Be7" , "Qc4" , "Nxc6" , "Bf5" , "Nf6" , "Qf4" , "Qh4" , "Kf8" , "Bg5" , "d2" , "O-O" , "f4" , "Rg7" , "Bc8" , "Rg5" , "Be2" , "Qa3+" , "Rde1" , "Nbd2" , "Re2" , "Bxf6" , "Nxd4" , "Rc8" , "Rc3" , "Be4" , "Qh3" , "Qxf6" , "Qe3" , "Kh1" , "Qd4" , "d3" , "a6" , "Rxe1" , "Kg1" , "Qxb2" , "Bxe1" , "d5" , "Nd2" , "Ba6" , "a4" , "Kg7" , "Qc5+" , "exd5" , "e3" , "Qc7" , "f5" , "h5" , "Rg8" , "gxf6" , "Rbd1" , "Be6" , "cxd4" , "Rd1" , "Rb1" , "d4" , "Bh5" , "Qd3" , "Nf3" , "Qf3" , "a5" , "c5" , "c4" , "e6" , "Nc6" , "Qb6" ;
+        chon:nextHalfMove      :hmgamIaDD3O8 .
+
+chon:HalfMove  chon:subEventOf  :gamxaGqt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxaGqtO .
+
+:plaxaGqtO  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:gamxaGqt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxaGqtO ;
+        chon:atPlace           :plaxaGqtO ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIaDD3O8 ;
+        chon:hasHalfMove       :hmgamIaDD3O8 ;
+        chon:hasLastHalfMove   :hmgamIaDD3O8 ;
+        chon:hasOpening        :opexaGqtO ;
+        chon:hasReport         :cgrIaDD3O ;
+        chon:hasResult         :resxaGqtO5 ;
+        chon:subEventOf        :touxaGqt .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agxaGqtO  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Garcia Gonzales, Guillermo" .
+
+:rolxaGqtO  a   chon:BlackPlayerRole , chon:WhitePlayerRole .

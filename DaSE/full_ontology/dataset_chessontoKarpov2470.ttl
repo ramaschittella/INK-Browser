@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:reszPcUjSu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamLN99SBz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLN99SBzI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Nc4+" , "Ne3" , "Qe1" , "Kh7" , "Na3" , "Bb7" , "Red8" , "Bg7" , "Re1" , "Ne6" , "Nd6" , "Qc6" , "Nc2" , "f3" , "Rd8" , "Qd1" , "Bc6" , "Qd2" , "e4" , "Nxf6+" , "Kf3" , "Qxd1" , "Bf4" , "d5" , "Nf1" , "cxb5" , "Bb2" , "e6" , "Kf6" , "Ke6" , "Bf6" , "Nxf6" , "Re8" , "h4" , "Bg3" , "b6" , "Nd2" , "Kg7" , "Ba6" , "Qb1+" , "Kxe1" , "h6" , "Rxc8" , "Bxb5" , "Nd5" , "Rd1" , "Qf3" , "Qxe1+" , "c5" , "Kd5" , "Nd7" , "Kf1" , "Rc8" , "Ke2" , "Qxd4" , "Qb7" , "Qc7" , "c4" , "Nc5" , "Ke4" , "h3" , "g3" , "cxd4" , "Bg2" , "b5" , "exd5" , "h5" , "Kxf1" , "g6" , "O-O" , "Nd2+" , "Bh6" , "Qe2" , "Qe3" , "Kxe4" , "Rxd1+" , "Bf1" , "Qb6" , "d4" , "Nc3" , "Kg1" , "Nc4" , "Ke3" , "Nbd7" , "Qd3" , "e5" , "Bxf1" , "fxe4+" , "Qd5" , "Rb1" , "d6" , "b3" , "Nf6" , "Rxd5" , "Rbc1" , "g4" ;
+        chon:nextHalfMove      :hmgamLN99SBz .
+
+:agzPcUjS  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Van Wely,L" .
+
+:gamzPcUj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzPcUjS ;
+        chon:atPlace           :plazPcUjS ;
+        chon:atTime            "2000.03.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzPcUjSu ;
+        chon:hasHalfMove       :hmgamLN99SBz , :hmgamzPcUjSu ;
+        chon:hasLastHalfMove   :hmgamLN99SBz ;
+        chon:hasOpening        :opezPcUjS ;
+        chon:hasReport         :cgrzPcUjS ;
+        chon:hasResult         :reszPcUjSu ;
+        chon:subEventOf        :touzPcUj .
+
+:touzPcUj  a          chon:hessTournament ;
+        chon:atPlace  :plazPcUjS ;
+        chon:hasName  "Amber Rapidplay" .
+
+:rolzPcUjS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzPcUjS .
+
+:opezPcUjS  a            chon:ChessOpening ;
+        chon:hasECOCode  "A30" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzPcUjS .
+
+:rolhgLN99SBzI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzPcUjS .
+
+chon:HalfMove  chon:subEventOf  :gamzPcUj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzPcUjS .
+
+:cgrzPcUjS  a   chon:ChessGameReport .
+
+:hmgamzPcUjSu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzPcUjSux , chon:AgentRole ;
+        chon:hasSANRecord      "Nf3" ;
+        chon:nextHalfMove      :hmgamLN99SBz .
+
+:rolhgzPcUjSux  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzPcUjS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plazPcUjS  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .

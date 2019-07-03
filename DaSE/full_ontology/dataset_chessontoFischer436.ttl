@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamA6X2GBu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgA6X2GBul , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kf1" , "Bf5" , "Nh6" , "Nc6" , "Kf2" , "Rfxd1" , "Bf2" , "Nxd4" , "f4" , "Nd8" , "c5" , "Nf3" , "Kg4" , "Nf5" , "Rxc2" , "Bxc1" , "Ke3" , "Ng7" , "Rxc1+" , "Nxg4" , "f5" , "Kf5" , "Nc3" , "exd4" , "Be2" , "Be1" , "e6" , "Bxc3+" , "Ndb5" , "Rc2" , "Nb5" , "Nxc3" , "h3" , "Kf3" , "h5" , "Ng3+" , "Nf6" , "cxd4" , "e3" , "Bh4" , "Rd2" , "Bxd1" , "f6" , "a6" , "Ke2" , "exd5" , "Bb4" , "Ne6" , "Rac8" , "fxg4" , "Qb6" , "Bd1" , "Nf8" , "g4" , "Rc1" , "d5" , "Be3" , "O-O" , "Nh4" , "Bh2" , "Bc2" , "a4" , "a3" , "Nh5" , "cxd5" , "Ne3" , "Kh7" , "Nxg2" , "f3" , "Kd3" , "Bg1" , "Bg3" , "Nd4" , "g5" , "Nd7" , "Qxd4" , "a5" , "Bd2" , "d4" , "Kg6" , "Kc3" , "hxg4" , "Rfc8" ;
+        chon:nextHalfMove      :hmgamA6X2GBu .
+
+:plap61N0S  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:hmgamp61N0Sr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgp61N0Sr0 , chon:AgentRole ;
+        chon:hasSANRecord      "c4" ;
+        chon:nextHalfMove      :hmgamA6X2GBu .
+
+:cgrp61N0S  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agp61N0S .
+
+chon:HalfMove  chon:subEventOf  :gamp61N0 .
+
+:agp61N0S  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Saidy, Anthony Fred" .
+
+:toup61N0  a          chon:hessTournament ;
+        chon:atPlace  :plap61N0S ;
+        chon:hasName  "USA-ch" .
+
+:rolp61N0S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agp61N0S .
+
+:opep61N0S  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agp61N0S .
+
+:resp61N0Sr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgp61N0Sr0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agp61N0S .
+
+:rolhgA6X2GBul  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agp61N0S .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamp61N0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolp61N0S ;
+        chon:atPlace           :plap61N0S ;
+        chon:atTime            "1963.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamp61N0Sr ;
+        chon:hasHalfMove       :hmgamp61N0Sr , :hmgamA6X2GBu ;
+        chon:hasLastHalfMove   :hmgamA6X2GBu ;
+        chon:hasOpening        :opep61N0S ;
+        chon:hasReport         :cgrp61N0S ;
+        chon:hasResult         :resp61N0Sr ;
+        chon:subEventOf        :toup61N0 .

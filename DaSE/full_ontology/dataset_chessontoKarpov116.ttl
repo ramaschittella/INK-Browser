@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamjUNoq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljUNoqL ;
+        chon:atPlace           :plajUNoqL ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvUIS1Mc ;
+        chon:hasHalfMove       :hmgamvUIS1Mc ;
+        chon:hasLastHalfMove   :hmgamvUIS1Mc ;
+        chon:hasOpening        :opejUNoqL ;
+        chon:hasReport         :cgrjUNoqL ;
+        chon:hasResult         :resjUNoqL0 ;
+        chon:subEventOf        :toujUNoq .
+
+:toujUNoq  a          chon:hessTournament ;
+        chon:atPlace  :plajUNoqL ;
+        chon:hasName  "URS-ch39" .
+
+:hmgamvUIS1Mc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvUIS1Mcp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c3" , "g3" , "Nc6" , "exd5" , "Bh6" , "Nf3" , "g6" , "d3" , "Nbd2" , "Be3" , "Nf6" , "Ba6" , "b3" , "h6" , "Nc4" , "Bg7" , "b6" , "e6" , "Bg2" , "a4" , "c5" , "Qc1" , "Nge7" , "Kxg7" , "e4" , "Re1" , "Bxg7" , "Rad8" , "Nxd5" , "Qc7" , "O-O" , "Rd7" , "d5" , "Qc2" ;
+        chon:nextHalfMove      :hmgamvUIS1Mc .
+
+:resjUNoqL0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjUNoqL .
+
+chon:HalfMove  chon:subEventOf  :gamjUNoq .
+
+:opejUNoqL  a            chon:ChessOpening ;
+        chon:hasECOCode  "B30" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjUNoqL .
+
+:plajUNoqL  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:cgrjUNoqL  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgvUIS1Mcp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjUNoqL .
+
+:agjUNoqL  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Bronstein, David I" .
+
+:roljUNoqL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjUNoqL .

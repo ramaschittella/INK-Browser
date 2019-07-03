@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg2dEFTXof  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQfHrmY .
+
+:gamQfHrm  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQfHrmY ;
+        chon:atPlace           :plaQfHrmY ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQfHrmYj ;
+        chon:hasHalfMove       :hmgam2dEFTXo , :hmgamQfHrmYj ;
+        chon:hasLastHalfMove   :hmgam2dEFTXo ;
+        chon:hasOpening        :opeQfHrmY ;
+        chon:hasReport         :cgrQfHrmY ;
+        chon:hasResult         :resQfHrmYj ;
+        chon:subEventOf        :touQfHrm .
+
+:touQfHrm  a          chon:hessTournament ;
+        chon:atPlace  :plaQfHrmY ;
+        chon:hasName  "Vienna" .
+
+:cgrQfHrmY  a   chon:ChessGameReport .
+
+:rolhgQfHrmYj5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQfHrmY .
+
+:resQfHrmYj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQfHrmY .
+
+:rolQfHrmY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQfHrmY .
+
+chon:HalfMove  chon:subEventOf  :gamQfHrm .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQfHrmY .
+
+:plaQfHrmY  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:hmgam2dEFTXo  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2dEFTXof ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Alapin, Simon" ;
+        chon:hasSANRecord      "Ke3" , "Ra2" , "Rb3" , "Kxe4" , "b5" , "b4" , "Rf4+" , "a6" , "h3" , "Re2" , "Kb6" , "Rb8" , "gxh3" , "g4" , "bxa6" , "Rg3+" , "Kd4" , "Ke5" , "g5" , "Rh2" , "Ke6" , "Kf7" , "a5" , "Kc5" , "Rg4" ;
+        chon:nextHalfMove      :hmgam2dEFTXo .
+
+:agQfHrmY  a          chon:Agent ;
+        chon:hasName  "Alapin, Simon" , "Steinitz, William" .
+
+:opeQfHrmY  a            chon:ChessOpening ;
+        chon:hasECOCode  "C60" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamQfHrmYj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQfHrmYj5 , chon:AgentRole , :rolhg2dEFTXof ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Alapin, Simon" ;
+        chon:hasSANRecord      "Nd3" , "f6" , "Rxe5" , "Bb6" , "Rf4" , "Kxf2" , "Qf4" , "Bxb6" , "Nxe5" , "Qxd4" , "Bf5" , "Rxh4" , "Rge3" , "e5" , "Nbd2" , "Rxd4" , "b3" , "cxd5" , "Qxb6" , "Rg4" , "fxe5" , "Kg8" , "h5" , "Qd3" , "Qc3" , "d5" , "Nf3" , "Kh1" , "Qd6" , "Kg1" , "Ng6" , "Nc6" , "Qxe4+" , "Ne5" , "Bb5" , "a5" , "Rf3" , "O-O" , "Rh6" , "h4" , "Ra3" , "dxc6" , "Rd2" , "Rc6" , "d4" , "c4" , "Ba5" , "Qxa5" , "Rg3" , "e4" , "Bxe4" , "fxe4" , "Bb4" , "Kf7" , "Rb6" , "Bxc6" , "Rf5" , "Bg4" , "Qb3" , "Be3" , "Qf5" , "Ne7" , "Qxd5" , "Rg5" , "Ne5+" , "Ne4" , "a4" , "Rf2" , "Qg5" , "Rxf2" , "cxb6" , "Re1" , "c3" , "Qd4" , "Rd8" , "f3" , "Qe7" , "Rc2" ;
+        chon:nextHalfMove      :hmgam2dEFTXo , :hmgamQfHrmYj .

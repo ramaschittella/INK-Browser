@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaJnkVOi  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:agJnkVOi  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:rolhgJnkVOi51  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJnkVOi .
+
+:opeJnkVOi  a            chon:ChessOpening ;
+        chon:hasECOCode  "E69" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJnkVOi .
+
+:rolhgUng9lh8b  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJnkVOi .
+
+:hmgamJnkVOi5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJnkVOi51 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "c6" , "c5" , "Nh7" , "Nf3" , "e5" , "Nbd7" , "Nc3" , "Ng5" , "Ng7" , "g3" , "g6" , "Ne2" , "Nexd4" , "Nxg6" , "Qd3" , "b5" , "cxd4" , "Bb7" , "Bd2" , "f4" , "Ne8" , "Nf6" , "fxe6" , "c4" , "Bg2" , "O-O" , "e6" , "d6" , "dxc5" , "Bd4+" , "exf4" , "h3" , "Qh4" , "Qc7" , "Ne5" , "e4" , "d4" , "gxf4" , "Qg3" , "h6" , "Qb6" , "Kh2" , "Rd8" , "Qxh6" , "dxe5" , "Bg7" ;
+        chon:nextHalfMove      :hmgamUng9lh8 , :hmgamJnkVOi5 .
+
+chon:HalfMove  chon:subEventOf  :gamJnkVO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJnkVOi .
+
+:gamJnkVO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJnkVOi ;
+        chon:atPlace           :plaJnkVOi ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJnkVOi5 ;
+        chon:hasHalfMove       :hmgamUng9lh8 , :hmgamJnkVOi5 ;
+        chon:hasLastHalfMove   :hmgamUng9lh8 ;
+        chon:hasOpening        :opeJnkVOi ;
+        chon:hasReport         :cgrJnkVOi ;
+        chon:hasResult         :resJnkVOi5 ;
+        chon:subEventOf        :touJnkVO .
+
+:cgrJnkVOi  a   chon:ChessGameReport .
+
+:touJnkVO  a          chon:hessTournament ;
+        chon:atPlace  :plaJnkVOi ;
+        chon:hasName  "Amber-blind 5th" .
+
+:resJnkVOi5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolJnkVOi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJnkVOi .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamUng9lh8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUng9lh8b , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Qd7+" , "h4" , "Ne7+" , "Rh5" , "Re6" , "Re8" , "d2" , "Qg7" , "cxb4" , "Ke2" , "Kxd1" , "Qa8+" , "Rg6" , "Kh7" , "Rf6" , "d1=Q+" , "Qe4" , "Bd6" , "Qe6" , "Rgf1" , "Nxd6" , "Rxe7" , "b4" , "Qg4" , "fxg5" , "Rf8" , "Qxd6+" , "bxc3" , "Rg1" , "Ng5" , "Kf2" , "Rf5" , "Kg8" , "Ref1" , "Qf3" , "Rf8+" , "Qxh5+" , "Rae1" , "Bb4" , "Nxf5" , "exd6" , "Qh4" , "d3" , "c3" , "e5" , "Qd7" , "Ke1" , "Kh3" , "Kg3" , "Qxb7" , "Rg7" , "Bxb7" ;
+        chon:nextHalfMove      :hmgamUng9lh8 .

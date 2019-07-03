@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamV08vb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolV08vbO ;
+        chon:atPlace           :plaV08vbO ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamV08vbOz ;
+        chon:hasHalfMove       :hmgamV08vbOz ;
+        chon:hasLastHalfMove   :hmgamV08vbOz ;
+        chon:hasOpening        :opeV08vbO ;
+        chon:hasReport         :cgrV08vbO ;
+        chon:hasResult         :resV08vbOz ;
+        chon:subEventOf        :touV08vb .
+
+:touV08vb  a          chon:hessTournament ;
+        chon:atPlace  :plaV08vbO ;
+        chon:hasName  "Candidats sf1" .
+
+:cgrV08vbO  a   chon:ChessGameReport .
+
+:resV08vbOz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agV08vbO .
+
+:rolhgV08vbOzK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agV08vbO .
+
+chon:HalfMove  chon:subEventOf  :gamV08vb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agV08vbO .
+
+:plaV08vbO  a         chon:Place ;
+        chon:hasName  "Denver" .
+
+:agV08vbO  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Larsen, Bent" .
+
+:rolV08vbO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agV08vbO .
+
+:opeV08vbO  a            chon:ChessOpening ;
+        chon:hasECOCode  "E97" .
+
+:hmgamV08vbOz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgV08vbOzK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "b6" , "Rb1" , "Bh6" , "Kg1" , "Kh1" , "d6" , "Nh4" , "Bd3" , "f3" , "Bxc1" , "exf5" , "Be2" , "Rfxc1" , "Nc3" , "a6" , "fxg2+" , "Ne7" , "Qxe4" , "Bg7" , "O-O" , "Qd3" , "Ne8" , "Nf5" , "Nf3+" , "a4" , "b4" , "e4" , "f4" , "c4" , "gxf5" , "Be4" , "Bd7" , "Nd2" , "Ne2" , "c5" , "Nxf6+" , "Qa3" , "Rc6" , "Raf8" , "Nf6" , "Nc6" , "Qc7" , "Nde4" , "d4" , "f5" , "Nf3" , "Rb6" , "bxc5" , "d5" , "Rxf6" , "Bc2" , "Bc8" , "Bf5" , "Qg7" , "a5" , "Qa4" , "g6" , "Bxe4" , "e5" , "Ng3" , "Kxg2" ;
+        chon:nextHalfMove      :hmgamV08vbOz .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

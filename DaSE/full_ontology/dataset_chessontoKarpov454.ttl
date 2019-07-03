@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr3ajcbk  a   chon:ChessGameReport .
+
+:gam8cS4s  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3ajcbk ;
+        chon:atPlace           :pla8cS4sk ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3ajcbkb ;
+        chon:hasHalfMove       :hmgam3ajcbkb ;
+        chon:hasLastHalfMove   :hmgam3ajcbkb ;
+        chon:hasOpening        :ope3ajcbk ;
+        chon:hasReport         :cgr3ajcbk ;
+        chon:hasResult         :res3ajcbkb ;
+        chon:subEventOf        :tou3ajcb .
+
+:res3ajcbkb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag3ajcbk  a          chon:Agent ;
+        chon:hasName  "Cabrera, Gabriel" , "Karpov, Anatoly" .
+
+:rol3ajcbk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3ajcbk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3ajcbk .
+
+:rolhg3ajcbkb8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3ajcbk .
+
+chon:HalfMove  chon:subEventOf  :gam8cS4s .
+
+:tou3ajcb  a          chon:hessTournament ;
+        chon:atPlace  :pla8cS4sk ;
+        chon:hasName  "Las Palmas" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3ajcbk .
+
+:ope3ajcbk  a            chon:ChessOpening ;
+        chon:hasECOCode  "C10" .
+
+:pla8cS4sk  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+:hmgam3ajcbkb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3ajcbkb8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Cabrera, Gabriel" ;
+        chon:hasSANRecord      "Kxf8" , "d4" , "b6" , "Nxe4" , "Qh6+" , "Be3" , "Rad1" , "Bg7" , "O-O" , "Rd8" , "Qg4+" , "fxe5" , "Qh5" , "Nd5+" , "e4" , "Bxf8" , "Nf4" , "Nf6" , "Bf4" , "Nc3" , "Qc8" , "Be2" , "Nxf6+" , "f5" , "dxe5" , "c4" , "Nh3" , "e6" , "Qxb7" , "Ke6" , "Qb8" , "Bb7" , "Bf3" , "Qc7" , "c3" , "Re1" , "e5" , "Nd7" , "d5" , "Bd6" , "dxe4" , "c5" , "Bf8" , "Bxb7" , "Qg7" , "gxf6" , "Ke7" ;
+        chon:nextHalfMove      :hmgam3ajcbkb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

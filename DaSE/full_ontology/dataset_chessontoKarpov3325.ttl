@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgU70GR15Q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agU70GR1 .
+
+:cgrU70GR1  a   chon:ChessGameReport .
+
+:resU70GR15  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgQ3QPBYkO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agU70GR1 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agU70GR1 .
+
+:rolU70GR1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agU70GR1 .
+
+chon:HalfMove  chon:subEventOf  :gamU70GR .
+
+:gamU70GR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolU70GR1 ;
+        chon:atPlace           :plaU70GR1 ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamU70GR15 ;
+        chon:hasHalfMove       :hmgamU70GR15 , :hmgamQ3QPBYk ;
+        chon:hasLastHalfMove   :hmgamQ3QPBYk ;
+        chon:hasOpening        :opeU70GR1 ;
+        chon:hasReport         :cgrU70GR1 ;
+        chon:hasResult         :resU70GR15 ;
+        chon:subEventOf        :touU70GR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agU70GR1 .
+
+:touU70GR  a          chon:hessTournament ;
+        chon:atPlace  :plaU70GR1 ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+:plaU70GR1  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+:agU70GR1  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Kelder,Hendrek" .
+
+:hmgamQ3QPBYk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQ3QPBYkO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qc2" , "Rxb2" , "Rxf1" , "Qxb3" , "Nd4" , "Bxc6" , "Rb8" , "Nxf1" , "b3" , "Nd5" , "Nxc6" , "Ne3" , "Nc5" , "dxc5" , "Bxc5" ;
+        chon:nextHalfMove      :hmgamQ3QPBYk .
+
+:opeU70GR1  a            chon:ChessOpening ;
+        chon:hasECOCode  "B20" .
+
+:hmgamU70GR15  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgU70GR15Q , :rolhgQ3QPBYkO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "g6" , "Bb2" , "Nfd7" , "b5" , "e6" , "a6" , "Nc3" , "Be7" , "Ba3" , "Bd3" , "c5" , "Ne4" , "b6" , "f3" , "cxd5" , "e4" , "bxa3" , "d4" , "c4" , "f4" , "a3" , "Nc2" , "Nxa3" , "O-O" , "Nc6" , "Ne2" , "Nf6" , "e5" , "Bb7" , "Bxd5" , "Nb6" , "Kh1" , "d5" , "b4" , "cxb4" ;
+        chon:nextHalfMove      :hmgamU70GR15 , :hmgamQ3QPBYk .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

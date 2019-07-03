@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrDpaRmN  a   chon:ChessGameReport .
+
+:rolDpaRmN  a             chon:AuthorRole ;
+        chon:performedBy  :agDpaRmN .
+
+:hmgamOn76VOT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOn76VOTi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gligoric, Svetozar" ;
+        chon:hasSANRecord      "Qxe2" , "Re4" , "Ne6" , "Rd1" , "Bg4" , "Bg7" , "Nc7" , "c4" , "Bc2" , "Kg3" , "h6" , "Rxe2" , "Bh5" , "c6" , "Nd4" , "Be3" , "Bd1" , "Qe2" , "Rc1" , "Re8" , "Qe1+" , "f5" , "Qxf3" , "Nd4+" , "Ke7" , "gxh6" , "Bd2" , "Qxe8" , "Kg2" , "Rd3" , "Nd5" , "c5" , "Kf3" , "Kf8" ;
+        chon:nextHalfMove      :hmgamOn76VOT .
+
+:rolhgOn76VOTi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDpaRmN .
+
+:rolhgDpaRmNQ6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDpaRmN .
+
+:gambnYw2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbnYw2M ;
+        chon:atPlace           :plabnYw2M ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDpaRmNQ ;
+        chon:hasHalfMove       :hmgamOn76VOT , :hmgamDpaRmNQ ;
+        chon:hasLastHalfMove   :hmgamOn76VOT ;
+        chon:hasOpening        :opeDpaRmN ;
+        chon:hasReport         :cgrDpaRmN ;
+        chon:hasResult         :resDpaRmNQ ;
+        chon:subEventOf        :toubnYw2 .
+
+:toubnYw2  a          chon:hessTournament ;
+        chon:atPlace  :plabnYw2M ;
+        chon:hasName  "Candidats Tournament" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDpaRmN .
+
+chon:HalfMove  chon:subEventOf  :gambnYw2 .
+
+:resDpaRmNQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDpaRmN .
+
+:agDpaRmN  a          chon:Agent ;
+        chon:hasName  "Gligoric, Svetozar" , "Fischer, Robert James" .
+
+:opeDpaRmN  a            chon:ChessOpening ;
+        chon:hasECOCode  "C87" .
+
+:plabnYw2M  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+:hmgamDpaRmNQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOn76VOTi , :rolhgDpaRmNQ6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gligoric, Svetozar" ;
+        chon:hasSANRecord      "Nbd2" , "g4" , "Re8" , "Re1" , "Nf3" , "Nf6" , "d6" , "Ba4" , "a6" , "e4" , "d4" , "a3" , "e5" , "Bb5" , "Nxf3" , "Bg4" , "exf3" , "b4" , "Nc6" , "O-O" , "dxe4" , "h3" , "Bb3" , "Be7" , "Bd7" , "d5" , "Bh5" , "dxe5" , "gxh5" , "Nxf3+" , "Nxe5" , "Rxe8" , "c3" , "Bf8" ;
+        chon:nextHalfMove      :hmgamOn76VOT , :hmgamDpaRmNQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolbnYw2M  a   chon:BlackPlayerRole , chon:WhitePlayerRole .

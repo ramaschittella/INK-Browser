@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolvFSutK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvFSutK .
+
+:opevFSutK  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:touvFSut  a          chon:hessTournament ;
+        chon:atPlace  :plavFSutK ;
+        chon:hasName  "FIDE GP" .
+
+:hmgamGDOI1Ji  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGDOI1JiX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Georgiev,Ki" ;
+        chon:hasSANRecord      "Ra1" , "Nc4+" , "Rxa1" , "Ne5" , "Ke8" , "h5" , "Bxe7" , "Kf4" , "Bd6" , "Be5" , "Ke7" , "Rxa4" , "Bc3" , "h4" , "Kd6" , "hxg3" , "Bxa1" , "Kf7" , "Kf6" , "Kxe7" , "Be7" , "Bd8" , "g4" , "Ra8" , "f5" , "Ke3" ;
+        chon:nextHalfMove      :hmgamGDOI1Ji .
+
+:resvFSutKf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvFSutK .
+
+chon:HalfMove  chon:subEventOf  :gamvFSut .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvFSutK .
+
+:rolhgGDOI1JiX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvFSutK .
+
+:gamvFSut  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvFSutK ;
+        chon:atPlace           :plavFSutK ;
+        chon:atTime            "2002.04.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvFSutKf ;
+        chon:hasHalfMove       :hmgamGDOI1Ji , :hmgamvFSutKf ;
+        chon:hasLastHalfMove   :hmgamGDOI1Ji ;
+        chon:hasOpening        :opevFSutK ;
+        chon:hasReport         :cgrvFSutK ;
+        chon:hasResult         :resvFSutKf ;
+        chon:subEventOf        :touvFSut .
+
+:plavFSutK  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .
+
+:cgrvFSutK  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgvFSutKfM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvFSutK .
+
+:hmgamvFSutKf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGDOI1JiX , :rolhgvFSutKfM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Georgiev,Ki" ;
+        chon:hasSANRecord      "Qd1" , "Ne4" , "Kh8" , "Nf7+" , "Ra8" , "Nf6" , "Kxf1" , "e6" , "c4" , "Nbd7" , "Nc5" , "Rg8" , "a5" , "Bg3" , "Nd2" , "Kg7" , "g5" , "dxe4" , "Nb5" , "Rxa6" , "Bxc7" , "c6" , "c5" , "cxb5" , "Ba6" , "Ba5" , "Qc8" , "dxc5" , "Nf3" , "Rac8" , "Nc2" , "Nxf1" , "Kxe2" , "Be7" , "O-O" , "b5" , "b4" , "Qa4" , "c7" , "Ne1" , "Qe2" , "Rc8" , "Bf4" , "Bd3" , "Qxe2+" , "e4" , "e3" , "bxc5" , "Nc4" , "bxa3" , "Nc3" , "f6" , "Ncxa3" , "d5" , "d4" , "Nd6" , "Rc1" , "Rxc7" , "Bxa6" , "Qxg4+" , "a4" , "a3" , "Kxf7" , "b6" , "Qa6" , "g4" , "g3" ;
+        chon:nextHalfMove      :hmgamvFSutKf , :hmgamGDOI1Ji .
+
+:agvFSutK  a          chon:Agent ;
+        chon:hasName  "Georgiev,Ki" , "Karpov,An" .

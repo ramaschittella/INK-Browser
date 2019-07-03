@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam7SnmK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7SnmKN ;
+        chon:atPlace           :pla7SnmKN ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7SnmKNp ;
+        chon:hasHalfMove       :hmgamyUyG5Of , :hmgam7SnmKNp ;
+        chon:hasLastHalfMove   :hmgamyUyG5Of ;
+        chon:hasOpening        :ope7SnmKN ;
+        chon:hasReport         :cgr7SnmKN ;
+        chon:hasResult         :res7SnmKNp ;
+        chon:subEventOf        :tou7SnmK .
+
+:tou7SnmK  a          chon:hessTournament ;
+        chon:atPlace  :pla7SnmKN ;
+        chon:hasName  "Vienna" .
+
+:pla7SnmKN  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:rolhg7SnmKNpH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7SnmKN .
+
+:cgr7SnmKN  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7SnmKN .
+
+:hmgam7SnmKNp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7SnmKNpH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Baird, David Graham" ;
+        chon:hasSANRecord      "Bc4" , "e4" , "d3" , "Bc5" , "Bg4" , "e5" , "d6" , "f4" , "Nf3" , "Nc6" , "Nf6" , "h3" , "c3" ;
+        chon:nextHalfMove      :hmgamyUyG5Of , :hmgam7SnmKNp .
+
+chon:HalfMove  chon:subEventOf  :gam7SnmK .
+
+:ag7SnmKN  a          chon:Agent ;
+        chon:hasName  "Baird, David Graham" , "Steinitz, William" .
+
+:rol7SnmKN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7SnmKN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7SnmKN .
+
+:ope7SnmKN  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+:hmgamyUyG5Of  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyUyG5Of6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Baird, David Graham" ;
+        chon:hasSANRecord      "Nd8" , "Bb3" , "Ba7" , "exd4" , "a5" , "Nf3" , "axb6" , "c6" , "Bb6" , "c4" , "b4" , "Na3" , "Nxd4" , "Nd5" , "cxb4" , "Re8" , "Qe7" , "Nc6" , "Qf6" , "c5" , "Rxe1" , "f5" , "h6" , "Bxb6" , "Bb2" , "g4" , "Kg2" , "a4" , "d4" , "exd5" , "Nc2" , "a6" , "b5" , "Re1" , "Nxd5" , "Nxb4" , "O-O" , "Ra8" , "Ra2" , "Bd7" , "Rc8" , "Qxe1" ;
+        chon:nextHalfMove      :hmgamyUyG5Of .
+
+:res7SnmKNp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgyUyG5Of6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7SnmKN .

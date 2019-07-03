@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamNKLXs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNKLXsv ;
+        chon:atPlace           :plaNKLXsv ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNKLXsv1 ;
+        chon:hasHalfMove       :hmgamNKLXsv1 , :hmgamVGpmJul , :hmgamJGs7cvg ;
+        chon:hasLastHalfMove   :hmgamVGpmJul ;
+        chon:hasOpening        :opeNKLXsv ;
+        chon:hasReport         :cgrNKLXsv ;
+        chon:hasResult         :resNKLXsv1 ;
+        chon:subEventOf        :touNKLXs .
+
+:rolhgNKLXsv1e  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNKLXsv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNKLXsv .
+
+:opeNKLXsv  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:resNKLXsv1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamNKLXs .
+
+:cgrNKLXsv  a   chon:ChessGameReport .
+
+:hmgamNKLXsv1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNKLXsv1e , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Bb4" , "e6" , "Nc3" , "d4" , "Nf6" , "c4" ;
+        chon:nextHalfMove      :hmgamNKLXsv1 , :hmgamJGs7cvg .
+
+:touNKLXs  a          chon:hessTournament ;
+        chon:atPlace  :plaNKLXsv ;
+        chon:hasName  "URS-ch50" .
+
+:hmgamVGpmJul  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgVGpmJulp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Rxd3" , "Nxb2" , "Ra3" , "Ke7" , "Kf7" , "Ke4" , "Kf4" , "Nd6" , "Kd7" , "g4" , "h4" , "Nc6" , "Rb7" , "Kxd8" , "Nxb5" , "Bd3" , "Rc8+" , "Kb6" , "Rc3" , "Re3" , "Kh2" , "Kxd4" , "Kc7" , "Nd4" , "Kc5" , "Kd5" , "Rd7" , "Nc4" , "Nd8" , "f4" , "Ke6" , "Kg3" , "Rxa7" , "Nxa7" , "Ra8" ;
+        chon:nextHalfMove      :hmgamVGpmJul .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolNKLXsv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNKLXsv .
+
+:plaNKLXsv  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:rolhgVGpmJulp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNKLXsv .
+
+:hmgamJGs7cvg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgVGpmJulp , :rolhgJGs7cvge ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "cxd5" , "Nd7" , "Nf8" , "Nxb6" , "Ne5" , "Bb2" , "Qe8" , "Qd7" , "Rac1" , "a5" , "d5" , "Qd4" , "Rxc3" , "Qc2" , "Qd2" , "Nxd5" , "Ng6" , "Qxc3" , "Ra1" , "b6" , "Nf3" , "Bxc3+" , "Bxe4" , "Nbd7" , "a3" , "f6" , "Rxc1" , "Re7" , "Bd3" , "O-O" , "Qc7" , "e3" , "Nxd3" , "Nxe6" , "Qxd3" , "d6" , "axb6" , "Rc7" , "Ba3" , "Bb7" , "h3" , "cxd4" , "a4" , "b4" , "Ne7" , "e4" , "Qd1" , "Qe7" , "Qc3" , "Rc8" , "Nd4" , "Re1" , "Rfc8" , "Nxd4" , "b5" , "c5" , "Bd5" ;
+        chon:nextHalfMove      :hmgamVGpmJul , :hmgamJGs7cvg .
+
+:rolhgJGs7cvge  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNKLXsv .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNKLXsv .
+
+:agNKLXsv  a          chon:Agent ;
+        chon:hasName  "Polugaevsky, Lev" , "Karpov, Anatoly" .

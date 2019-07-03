@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resIzyRF11  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrIzyRF1  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIzyRF1 .
+
+chon:HalfMove  chon:subEventOf  :gamKiW3s .
+
+:agIzyRF1  a          chon:Agent ;
+        chon:hasName  "Bertok, Mario" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIzyRF1 .
+
+:rolIzyRF1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIzyRF1 .
+
+:touIzyRF  a          chon:hessTournament ;
+        chon:atPlace  :plaKiW3sS ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+:gamKiW3s  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIzyRF1 ;
+        chon:atPlace           :plaKiW3sS ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIzyRF11 ;
+        chon:hasHalfMove       :hmgamIzyRF11 ;
+        chon:hasLastHalfMove   :hmgamIzyRF11 ;
+        chon:hasOpening        :opeIzyRF1 ;
+        chon:hasReport         :cgrIzyRF1 ;
+        chon:hasResult         :resIzyRF11 ;
+        chon:subEventOf        :touIzyRF .
+
+:plaKiW3sS  a         chon:Place ;
+        chon:hasName  "Zagreb" .
+
+:rolhgIzyRF118  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIzyRF1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeIzyRF1  a            chon:ChessOpening ;
+        chon:hasECOCode  "B24" .
+
+:hmgamIzyRF11  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIzyRF118 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bertok, Mario" ;
+        chon:hasSANRecord      "Bg5" , "Qb3" , "cxd4" , "Qd7" , "Rae1" , "Nf5" , "Qd3" , "Bd2" , "Bxe4" , "g5" , "Bxb2" , "Qxb2" , "a3" , "e6" , "Kh1" , "Red7" , "Rg1+" , "exd5" , "Qf7" , "Ne4" , "Bg2" , "Rad8" , "f4" , "Bc5" , "Nf6" , "Be6" , "hxg7" , "a6" , "gxh6" , "d4" , "Nxe4" , "Kxg7" , "Rxd2" , "Rfe8" , "g3" , "Bxf5" , "g4" , "Nge2" , "c5" , "h6" , "O-O" , "Nxe6" , "Qc3" , "exf5" , "Qh5" , "d5" , "Nc6" , "e4" , "Be7" , "Bg4" , "fxe6" , "Re7" , "dxe4" , "h3" , "Qe3" , "Nc3" , "Bd4" , "Nxd4" , "Ne7" ;
+        chon:nextHalfMove      :hmgamIzyRF11 .

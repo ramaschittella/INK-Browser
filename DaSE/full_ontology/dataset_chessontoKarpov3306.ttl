@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolZibjV6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZibjV6 .
+
+:hmgamai9xu7N  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgai9xu7NS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "hxg6" , "Bg6" , "Nd7" , "Qd5" , "Nc3" , "Qd6" , "Nxg6" , "Bf5" , "Nh4" , "c6" , "Ne4" , "d4" , "h3" , "Nf3" ;
+        chon:nextHalfMove      :hmgamai9xu7N .
+
+:rolhgai9xu7NS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZibjV6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZibjV6 .
+
+chon:HalfMove  chon:subEventOf  :gamZibjV .
+
+:agZibjV6  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Bacrot,E" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZibjV6 .
+
+:rolhgZibjV6KH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZibjV6 .
+
+:resZibjV6K  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeZibjV6  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+:gamZibjV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZibjV6 ;
+        chon:atPlace           :plaZibjV6 ;
+        chon:atTime            "2013.11.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZibjV6K ;
+        chon:hasHalfMove       :hmgamZibjV6K , :hmgamai9xu7N ;
+        chon:hasLastHalfMove   :hmgamai9xu7N ;
+        chon:hasOpening        :opeZibjV6 ;
+        chon:hasReport         :cgrZibjV6 ;
+        chon:hasResult         :resZibjV6K ;
+        chon:subEventOf        :touZibjV .
+
+:touZibjV  a          chon:hessTournament ;
+        chon:atPlace  :plaZibjV6 ;
+        chon:hasName  "2nd Karpov Trophy KO" .
+
+:hmgamZibjV6K  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZibjV6KH , chon:AgentRole , :rolhgai9xu7NS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "e4" , "Qxd5" , "exd5" , "d5" ;
+        chon:nextHalfMove      :hmgamai9xu7N , :hmgamZibjV6K .
+
+:plaZibjV6  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrZibjV6  a   chon:ChessGameReport .

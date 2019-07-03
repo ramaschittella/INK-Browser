@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaNVyNXb  a         chon:Place ;
+        chon:hasName  "Sousse" .
+
+:resNVyNXbM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgNVyNXbMR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNVyNXb .
+
+:agNVyNXb  a          chon:Agent ;
+        chon:hasName  "Stein, Leonid" , "Fischer, Robert James" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNVyNXb .
+
+:opeNVyNXb  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+chon:HalfMove  chon:subEventOf  :gamNVyNX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNVyNXb .
+
+:hmgamJRhWH06  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJRhWH06P , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Stein, Leonid" ;
+        chon:hasSANRecord      "Ra8" , "f5" , "f4" , "Nd6" , "Rxa4" , "Rb2" , "gxf4" , "Re6+" , "Rf8" , "Rd2" , "Nf7" , "f6" ;
+        chon:nextHalfMove      :hmgamJRhWH06 .
+
+:cgrNVyNXb  a   chon:ChessGameReport .
+
+:gamNVyNX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNVyNXb ;
+        chon:atPlace           :plaNVyNXb ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNVyNXbM ;
+        chon:hasHalfMove       :hmgamNVyNXbM , :hmgamJRhWH06 ;
+        chon:hasLastHalfMove   :hmgamJRhWH06 ;
+        chon:hasOpening        :opeNVyNXb ;
+        chon:hasReport         :cgrNVyNXb ;
+        chon:hasResult         :resNVyNXbM ;
+        chon:subEventOf        :touNVyNX .
+
+:hmgamNVyNXbM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJRhWH06P , chon:AgentRole , :rolhgNVyNXbMR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Stein, Leonid" ;
+        chon:hasSANRecord      "Ke2" , "Bxe4" , "Kd7" , "Nbd7" , "Bb1" , "Bf3" , "g3" , "Ra8" , "d6" , "Nd4" , "cxd4" , "Bxf5" , "e4" , "Bxf4" , "Nbd2" , "Be4" , "Rf6" , "Nc2" , "Rxf4" , "Nfg5" , "Rb7" , "Ne6+" , "d4" , "Ne3+" , "exd4" , "Nd5+" , "Be2" , "Re8" , "Qh4" , "Rxb5" , "e5" , "g5" , "Kf6" , "b5" , "Kg7" , "h3" , "Nf3" , "Rh8" , "Nxf4" , "Rd7" , "Ng5" , "dxe5" , "h5" , "Nd5" , "a6" , "Qxf4" , "Rad1" , "Bb7" , "O-O" , "Bb3" , "Bd6" , "Qg3" , "Nb6" , "bxa5" , "c3" , "Nxb5" , "Rxe6" , "Ne4" , "a4" , "Bb5" , "g6" , "Rd8" , "Qe2" , "b3" , "Be7" , "Qf4" , "Na5" , "Nb4" , "Kf1" , "Ra6" , "e6" , "Nf6" , "Kc6" , "Bc7" , "Qxe4" , "Bc2" , "Ke6" , "Ne5" , "a5" , "Re1" , "c5" , "Rxa5" , "f5" , "Nc4" , "Ba4" , "Rb6" , "Nc6" , "Kf5" , "Qf8" , "Bxb5+" , "b4" , "Re4" ;
+        chon:nextHalfMove      :hmgamNVyNXbM , :hmgamJRhWH06 .
+
+:touNVyNX  a          chon:hessTournament ;
+        chon:atPlace  :plaNVyNXb ;
+        chon:hasName  "Sousse Interzonal+" .
+
+:rolhgJRhWH06P  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNVyNXb .
+
+:rolNVyNXb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNVyNXb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

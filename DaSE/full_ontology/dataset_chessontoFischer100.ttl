@@ -1,0 +1,77 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgd7rpzS0D  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghbKgPU .
+
+:rolhbKgPU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghbKgPU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghbKgPU .
+
+:hmgamd7rpzS0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgd7rpzS0D ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rfd1" , "Be6" , "c5" , "O-O" , "e5" , "Be3" , "cxd4" , "Qd2" , "Qe1" , "Nb3" , "Nc3" , "Nb6" , "Nfxd5" , "d5" , "Nbd7" , "Nf3" , "Nf6" , "d6" , "Be7" , "Be2" , "d4" , "a6" , "f3" , "Nxd4" , "Nxd5" , "exd5" , "Qc7" ;
+        chon:nextHalfMove      :hmgamd7rpzS0 , :hmgamp7nD9Rc .
+
+:rolhghbKgPUTD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghbKgPU .
+
+chon:HalfMove  chon:subEventOf  :gamhbKgP .
+
+:reshbKgPUT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plahbKgPU  a         chon:Place ;
+        chon:hasName  "?" .
+
+:rolhgp7nD9RcO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghbKgPU .
+
+:hmgamhbKgPUT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghbKgPUTD , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamd7rpzS0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:aghbKgPU  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Hill, L." .
+
+:cgrhbKgPU  a   chon:ChessGameReport .
+
+:gamhbKgP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhbKgPU ;
+        chon:atPlace           :plahbKgPU ;
+        chon:atTime            "1957.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhbKgPUT ;
+        chon:hasHalfMove       :hmgamp7nD9Rc , :hmgamhbKgPUT , :hmgamd7rpzS0 ;
+        chon:hasLastHalfMove   :hmgamp7nD9Rc ;
+        chon:hasOpening        :opehbKgPU ;
+        chon:hasReport         :cgrhbKgPU ;
+        chon:hasResult         :reshbKgPUT ;
+        chon:subEventOf        :touhbKgP .
+
+:hmgamp7nD9Rc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgp7nD9RcO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rxd2" , "Rac8" , "Rac1" , "Qd2" , "Rxc8" , "Qxc2" , "Bg5" , "Rc2" , "Qxd2" , "Rd1" , "Bf2" ;
+        chon:nextHalfMove      :hmgamp7nD9Rc .
+
+:opehbKgPU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+:touhbKgP  a          chon:hessTournament ;
+        chon:atPlace  :plahbKgPU ;
+        chon:hasName  "USA-chJ" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghbKgPU .

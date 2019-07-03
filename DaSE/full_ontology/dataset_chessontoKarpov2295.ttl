@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agmjeDcW  a          chon:Agent ;
+        chon:hasName  "Ego" , "Karpov, Anatoly" .
+
+:resmjeDcW5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "*" .
+
+:opemjeDcW  a            chon:ChessOpening ;
+        chon:hasECOCode  "C19" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmjeDcW .
+
+:gammjeDc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmjeDcW ;
+        chon:atPlace           :plamjeDcW ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammjeDcW5 ;
+        chon:hasHalfMove       :hmgammjeDcW5 ;
+        chon:hasLastHalfMove   :hmgammjeDcW5 ;
+        chon:hasOpening        :opemjeDcW ;
+        chon:hasReport         :cgrmjeDcW ;
+        chon:hasResult         :resmjeDcW5 ;
+        chon:subEventOf        :toumjeDc .
+
+:hmgammjeDcW5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmjeDcW5R ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ego" ;
+        chon:hasSANRecord      "Ne7" , "Nc3" , "Re1" , "Nxe5" , "g3" , "Raf8" , "a3" , "Qh5" , "Bb4" , "Qg4" , "d5" , "Nbc6" , "e6" , "Bxc3+" , "Bd7" , "Be2" , "O-O" , "bxc3" , "c5" , "Qa5" , "Qf6" , "Rf1" , "c4" , "Rxe5" , "Rf7" , "fxe5" , "Bxc4" , "Bf1" , "e4" , "f6" , "h6" , "Nf3" , "Bd2" , "d4" , "Qd8" , "Nf5" , "e5" , "Bd3" ;
+        chon:nextHalfMove      :hmgammjeDcW5 .
+
+chon:HalfMove  chon:subEventOf  :gammjeDc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmjeDcW .
+
+:plamjeDcW  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:rolhgmjeDcW5R  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmjeDcW .
+
+:cgrmjeDcW  a   chon:ChessGameReport .
+
+:rolmjeDcW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmjeDcW .
+
+:toumjeDc  a          chon:hessTournament ;
+        chon:atPlace  :plamjeDcW ;
+        chon:hasName  "EE Internet sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

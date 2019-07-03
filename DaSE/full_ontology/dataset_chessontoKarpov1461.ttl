@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag1W8HVm  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+:rol1W8HVm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1W8HVm .
+
+:ope1W8HVm  a            chon:ChessOpening ;
+        chon:hasECOCode  "E25" .
+
+:rolhg1W8HVmit  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1W8HVm .
+
+:res1W8HVmi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1W8HVm .
+
+chon:HalfMove  chon:subEventOf  :gam1W8HV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1W8HVm .
+
+:cgr1W8HVm  a   chon:ChessGameReport .
+
+:gam1W8HV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1W8HVm ;
+        chon:atPlace           :pla1W8HVm ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1W8HVmi ;
+        chon:hasHalfMove       :hmgam1W8HVmi , :hmgamrYj2ip9 ;
+        chon:hasLastHalfMove   :hmgamrYj2ip9 ;
+        chon:hasOpening        :ope1W8HVm ;
+        chon:hasReport         :cgr1W8HVm ;
+        chon:hasResult         :res1W8HVmi ;
+        chon:subEventOf        :tou1W8HV .
+
+:tou1W8HV  a          chon:hessTournament ;
+        chon:atPlace  :pla1W8HVm ;
+        chon:hasName  "Tilburg" .
+
+:pla1W8HVm  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:rolhgrYj2ip9T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1W8HVm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamrYj2ip9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrYj2ip9T , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc6" , "Qb4" , "Nce5" , "Qa4" , "Qd4" , "Qc7" , "Rd1" ;
+        chon:nextHalfMove      :hmgamrYj2ip9 .
+
+:hmgam1W8HVmi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1W8HVmit , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qb3" , "c4" , "Bb4" , "c5" , "Nc3" , "Nfd7" , "bxc3" , "cxd5" , "Be3" , "e6" , "Qa5" , "Nxd5" , "d4" , "d5" , "O-O" , "dxc5" , "a3" , "Bxc3+" , "f3" , "Nf6" , "e4" ;
+        chon:nextHalfMove      :hmgamrYj2ip9 , :hmgam1W8HVmi .

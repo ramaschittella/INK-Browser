@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agzYFNZa  a          chon:Agent ;
+        chon:hasName  "Polugaevsky, Lev" , "Karpov, Anatoly" .
+
+:rolzYFNZa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzYFNZa .
+
+:reszYFNZaU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzYFNZa .
+
+:gamzYFNZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzYFNZa ;
+        chon:atPlace           :plazYFNZa ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzYFNZaU ;
+        chon:hasHalfMove       :hmgamKYS2w0X , :hmgamzYFNZaU ;
+        chon:hasLastHalfMove   :hmgamKYS2w0X ;
+        chon:hasOpening        :opezYFNZa ;
+        chon:hasReport         :cgrzYFNZa ;
+        chon:hasResult         :reszYFNZaU ;
+        chon:subEventOf        :touzYFNZ .
+
+chon:HalfMove  chon:subEventOf  :gamzYFNZ .
+
+:rolhgzYFNZaUN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzYFNZa .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzYFNZa .
+
+:opezYFNZa  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+:hmgamKYS2w0X  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKYS2w0X1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Nc5" , "Bxf4" , "dxe6" , "d5" , "Bg5" , "Rfe1" , "Qxe6" , "Qxf4" ;
+        chon:nextHalfMove      :hmgamKYS2w0X .
+
+:plazYFNZa  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:touzYFNZ  a          chon:hessTournament ;
+        chon:atPlace  :plazYFNZa ;
+        chon:hasName  "Amsterdam" .
+
+:rolhgKYS2w0X1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzYFNZa .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrzYFNZa  a   chon:ChessGameReport .
+
+:hmgamzYFNZaU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKYS2w0X1 , chon:AgentRole , :rolhgzYFNZaUN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Rad1" , "Qd2" , "b6" , "Bb7" , "Bg2" , "f5" , "Be4" , "Bd2" , "Bf6" , "Nxg2" , "Ne4" , "Nd7" , "Nf6" , "Bxg2" , "Nf4" , "Qe7" , "Qc2" , "Ne1" , "g3" , "Nf3" , "c4" , "Bxc3" , "O-O" , "Be7" , "Nc3" , "d6" , "e6" , "Nxc3" , "d4" ;
+        chon:nextHalfMove      :hmgamKYS2w0X , :hmgamzYFNZaU .

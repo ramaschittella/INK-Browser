@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resSubj8n3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSubj8n .
+
+:hmgamAIP7lvB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAIP7lvBB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Salov, Valery" ;
+        chon:hasSANRecord      "Re7" , "Kg3" , "h4" , "Ra7" , "b4" , "Rxc5" , "h6" , "Rc2+" , "b5" , "h5" , "Rxa2" , "a5" , "Kf4" ;
+        chon:nextHalfMove      :hmgamAIP7lvB .
+
+chon:HalfMove  chon:subEventOf  :gamSubj8 .
+
+:opeSubj8n  a            chon:ChessOpening ;
+        chon:hasECOCode  "A41" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSubj8n .
+
+:gamSubj8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSubj8n ;
+        chon:atPlace           :plaSubj8n ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSubj8n3 ;
+        chon:hasHalfMove       :hmgamSubj8n3 , :hmgamAIP7lvB ;
+        chon:hasLastHalfMove   :hmgamAIP7lvB ;
+        chon:hasOpening        :opeSubj8n ;
+        chon:hasReport         :cgrSubj8n ;
+        chon:hasResult         :resSubj8n3 ;
+        chon:subEventOf        :touSubj8 .
+
+:rolhgAIP7lvBB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSubj8n .
+
+:touSubj8  a          chon:hessTournament ;
+        chon:atPlace  :plaSubj8n ;
+        chon:hasName  "Alma-Ata m1" .
+
+:plaSubj8n  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+:rolhgSubj8n3S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSubj8n .
+
+:cgrSubj8n  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamSubj8n3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAIP7lvBB , :rolhgSubj8n3S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Salov, Valery" ;
+        chon:hasSANRecord      "h3" , "dxe4" , "Bh5" , "d5" , "Nbd2" , "Bxe5" , "Nxd4" , "Be7" , "Rxd4" , "b4" , "Rxe6" , "d4" , "bxc5" , "Nc5" , "Re1" , "e4" , "a6" , "Bg4" , "c6" , "c4" , "f6" , "O-O" , "d6" , "e6" , "f3" , "Bg6" , "c3" , "Be5" , "Ree1" , "Nd7" , "Re2" , "Nxe4" , "Rxc4" , "Rxe4" , "cxd4" , "Nbd7" , "Qxd4" , "Rcd8" , "Nf6" , "Bf4" , "Bxe4" , "Rd1" , "Nf3" , "Nf1" , "b3" , "Kf2" , "Rfd8" , "Bd3" , "Ng3" , "Bf6" , "Rxe5" , "Rac8" , "Rd7" , "Bg3" , "c5" ;
+        chon:nextHalfMove      :hmgamAIP7lvB , :hmgamSubj8n3 .
+
+:agSubj8n  a          chon:Agent ;
+        chon:hasName  "Salov, Valery" , "Karpov, Anatoly" .
+
+:rolSubj8n  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSubj8n .

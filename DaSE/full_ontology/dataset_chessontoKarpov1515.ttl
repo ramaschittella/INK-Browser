@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamsSh5zFQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsSh5zFQe ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bc6" , "d4" , "Qe6" , "Qc7" , "Rc2" , "d5" , "Re1" , "Bh5" , "Be7" , "Bxe8" , "Bd4" , "Nd4" , "e6" , "h3" , "Nxc2" , "Qg4" , "e5" , "c5" , "Na2" , "Bb5" , "a6" , "Bg4" , "c3" , "Rd1" , "Ne4" , "exd4" , "Nf3" , "Nc6" , "Be3" , "Bxc2" , "O-O" , "Nc3" , "Bxa4" , "Rxe8" , "b5" , "Nxb4" , "Ba4" , "Nxc5" , "Kh8" , "Bb3" , "Rd8" , "Qc4" , "Rb8" , "Rc3" , "Rxb4" , "exf7+" , "d6" , "Nb4" , "Bf8" , "Rxb2" , "Nf6" , "Bxc5" , "Bxd5" , "Qb8" , "bxa4" , "Re8" , "dxc5" , "a4" , "Bg6" , "Qe2" , "cxd4" , "fxe8=Q" ;
+        chon:nextHalfMove      :hmgamsSh5zFQ .
+
+:ag1A8LdE  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Short, Nigel D" .
+
+:rolhgsSh5zFQe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1A8LdE .
+
+:ope1A8LdE  a            chon:ChessOpening ;
+        chon:hasECOCode  "C86" .
+
+:gam1A8Ld  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1A8LdE ;
+        chon:atPlace           :pla1A8LdE ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1A8LdEY ;
+        chon:hasHalfMove       :hmgamsSh5zFQ , :hmgam1A8LdEY ;
+        chon:hasLastHalfMove   :hmgamsSh5zFQ ;
+        chon:hasOpening        :ope1A8LdE ;
+        chon:hasReport         :cgr1A8LdE ;
+        chon:hasResult         :res1A8LdEY ;
+        chon:subEventOf        :tou1A8Ld .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1A8LdE .
+
+chon:HalfMove  chon:subEventOf  :gam1A8Ld .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1A8LdE .
+
+:hmgam1A8LdEY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsSh5zFQe , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamsSh5zFQ .
+
+:pla1A8LdE  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:cgr1A8LdE  a   chon:ChessGameReport .
+
+:tou1A8Ld  a          chon:hessTournament ;
+        chon:atPlace  :pla1A8LdE ;
+        chon:hasName  "Candidats sf1" .
+
+:rol1A8LdE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1A8LdE .
+
+:res1A8LdEY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

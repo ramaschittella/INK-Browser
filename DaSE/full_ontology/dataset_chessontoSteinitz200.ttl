@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agZ8rDd1  a          chon:Agent ;
+        chon:hasName  "Gelbfuhs, Oscar" , "Steinitz, William" .
+
+:opeZ8rDd1  a            chon:ChessOpening ;
+        chon:hasECOCode  "A13" .
+
+:hmgamZ8rDd1q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZ8rDd1qT , :rolhgb8mRMZv5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelbfuhs, Oscar" ;
+        chon:hasSANRecord      "Nf6" , "e6" , "f5" , "c4" , "e3" , "Bg2" , "g3" ;
+        chon:nextHalfMove      :hmgamb8mRMZv , :hmgamZ8rDd1q .
+
+:rolhgZ8rDd1qT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ8rDd1 .
+
+:cgrZ8rDd1  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ8rDd1 .
+
+:hmgamS0y00Zk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgS0y00Zku , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelbfuhs, Oscar" ;
+        chon:hasSANRecord      "Rxc8+" , "Qe7" , "e3" , "f4" , "Qh5" , "Qb4" , "Qxf6+" , "Qe6" , "Bf1" , "Kf7" , "Qf8+" , "Kxf2" , "exf4" , "Kh6" , "Qh3" , "Bd3+" , "exf2+" , "Kg1" , "Kg6" , "Bxc8" ;
+        chon:nextHalfMove      :hmgamS0y00Zk .
+
+chon:HalfMove  chon:subEventOf  :gamZ8rDd .
+
+:gamZ8rDd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZ8rDd1 ;
+        chon:atPlace           :plaZ8rDd1 ;
+        chon:atTime            "1873.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZ8rDd1q ;
+        chon:hasHalfMove       :hmgamb8mRMZv , :hmgamZ8rDd1q , :hmgamS0y00Zk ;
+        chon:hasLastHalfMove   :hmgamS0y00Zk ;
+        chon:hasOpening        :opeZ8rDd1 ;
+        chon:hasReport         :cgrZ8rDd1 ;
+        chon:hasResult         :resZ8rDd1q ;
+        chon:subEventOf        :touZ8rDd .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgS0y00Zku  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ8rDd1 .
+
+:rolZ8rDd1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZ8rDd1 .
+
+:touZ8rDd  a          chon:hessTournament ;
+        chon:atPlace  :plaZ8rDd1 ;
+        chon:hasName  "Vienna" .
+
+:rolhgb8mRMZv5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ8rDd1 .
+
+:hmgamb8mRMZv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgb8mRMZv5 , :rolhgS0y00Zku ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelbfuhs, Oscar" ;
+        chon:hasSANRecord      "Nbd7" , "Rc1" , "Rec1" , "Nf6" , "Ba3" , "b6" , "O-O" , "c6" , "Qxc1" , "e4" , "Qe7" , "Nxd2" , "Nc3" , "Rfe1" , "Qc2" , "Qd2" , "Nb5" , "Ne4" , "Qxd2" , "Nxd6" , "a4" , "a3" , "b3" , "Bb7" , "Nd2" , "Rc8" , "Rxc1+" , "a6" , "cxd5" , "e5" , "d5" , "Bd6" , "Nf3" , "Qxd6" , "d4" , "Qc6" , "Rfc8" , "Bb2" ;
+        chon:nextHalfMove      :hmgamS0y00Zk , :hmgamb8mRMZv .
+
+:plaZ8rDd1  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ8rDd1 .
+
+:resZ8rDd1q  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

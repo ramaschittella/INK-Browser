@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaBNVnGz  a         chon:Place ;
+        chon:hasName  "La Valetta" .
+
+:rolhgz5waTHmJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBNVnGz .
+
+:hmgamBNVnGzO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgz5waTHmJ , :rolhgBNVnGzOZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "Bd3" , "Nc3" , "Bg6" , "Qxd3" , "h6" , "Ng3" , "Nxe4" , "d5" , "N1e2" , "Nf6" , "h4" , "Bf5" , "Bxd3" , "Bh7" , "e4" , "dxe4" , "Nf4" , "e6" , "c3" , "d4" ;
+        chon:nextHalfMove      :hmgamBNVnGzO , :hmgamz5waTHm .
+
+:cgrBNVnGz  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBNVnGz .
+
+:rolBNVnGz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBNVnGz .
+
+:hmgamz5waTHm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgz5waTHmJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ne4" , "Qxe4" , "Nbd7" , "Nxe4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamz5waTHm .
+
+:gamBNVnG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBNVnGz ;
+        chon:atPlace           :plaBNVnGz ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBNVnGzO ;
+        chon:hasHalfMove       :hmgamBNVnGzO , :hmgamz5waTHm ;
+        chon:hasLastHalfMove   :hmgamz5waTHm ;
+        chon:hasOpening        :opeBNVnGz ;
+        chon:hasReport         :cgrBNVnGz ;
+        chon:hasResult         :resBNVnGzO ;
+        chon:subEventOf        :touBNVnG .
+
+chon:HalfMove  chon:subEventOf  :gamBNVnG .
+
+:touBNVnG  a          chon:hessTournament ;
+        chon:atPlace  :plaBNVnGz ;
+        chon:hasName  "Malta ol (Men)" .
+
+:resBNVnGzO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBNVnGz .
+
+:agBNVnGz  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ljubojevic, Ljubomir" .
+
+:opeBNVnGz  a            chon:ChessOpening ;
+        chon:hasECOCode  "B18" .
+
+:rolhgBNVnGzOZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBNVnGz .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

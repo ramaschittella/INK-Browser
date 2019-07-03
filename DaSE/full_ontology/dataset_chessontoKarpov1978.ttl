@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opesqasNk  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:tousqasN  a          chon:hessTournament ;
+        chon:atPlace  :plagqeeel ;
+        chon:hasName  "Candidats FIDE f1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsqasNk .
+
+:plagqeeel  a         chon:Place ;
+        chon:hasName  "Sanghi Nagar" .
+
+chon:HalfMove  chon:subEventOf  :gamgqeee .
+
+:gamgqeee  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsqasNk ;
+        chon:atPlace           :plagqeeel ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsqasNk0 ;
+        chon:hasHalfMove       :hmgamsqasNk0 ;
+        chon:hasLastHalfMove   :hmgamsqasNk0 ;
+        chon:hasOpening        :opesqasNk ;
+        chon:hasReport         :cgrsqasNk ;
+        chon:hasResult         :ressqasNk0 ;
+        chon:subEventOf        :tousqasN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsqasNk .
+
+:hmgamsqasNk0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsqasNk0J ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "Nf3" , "Na4" , "Be3" , "Bb7" , "Nb6" , "h3" , "Nh2" , "e5" , "b5" , "d6" , "d4" , "Bb5" , "Bb3" , "Qd3" , "Na3" , "Nf6" , "Nd7" , "Ne7" , "Qe2" , "c3" , "O-O" , "a4" , "Nc6" , "Ba4" , "axb5" , "Ng4" , "dxc6" , "Re1" , "a6" , "e4" , "Ng6" , "Bf6" , "Be7" , "d5" , "Nxb5" , "Nxb2" , "Bxc6" ;
+        chon:nextHalfMove      :hmgamsqasNk0 .
+
+:rolhgsqasNk0J  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsqasNk .
+
+:cgrsqasNk  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ressqasNk0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agsqasNk  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gelfand, Boris" .
+
+:rolsqasNk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsqasNk .

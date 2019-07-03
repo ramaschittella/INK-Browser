@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaaQJ8Hj  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaQJ8Hj .
+
+:gamaQJ8H  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaQJ8Hj ;
+        chon:atPlace           :plaaQJ8Hj ;
+        chon:atTime            "2003.11.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaQJ8HjU ;
+        chon:hasHalfMove       :hmgamaQJ8HjU ;
+        chon:hasLastHalfMove   :hmgamaQJ8HjU ;
+        chon:hasOpening        :opeaQJ8Hj ;
+        chon:hasReport         :cgraQJ8Hj ;
+        chon:hasResult         :resaQJ8HjU ;
+        chon:subEventOf        :touaQJ8H .
+
+:cgraQJ8Hj  a   chon:ChessGameReport .
+
+:touaQJ8H  a          chon:hessTournament ;
+        chon:atPlace  :plaaQJ8Hj ;
+        chon:hasName  "Corsica Masters KO" .
+
+chon:HalfMove  chon:subEventOf  :gamaQJ8H .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaQJ8Hj .
+
+:agaQJ8Hj  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Shirov,A" .
+
+:rolaQJ8Hj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaQJ8Hj .
+
+:hmgamaQJ8HjU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgaQJ8HjUe ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ne4" , "Bg5" , "Nxe4" , "e5" , "Kh6" , "Nc6" , "fxg5" , "R4d7" , "Qd2" , "Rad8" , "Qf7" , "Rb8" , "Bxc4" , "c4" , "Nd5" , "Qxg5" , "O-O" , "a5" , "Nxe5" , "Nxg5" , "Rxd4" , "Qxe6" , "Kg7" , "f6" , "g6" , "Bc2" , "Rxa5" , "f3" , "Qd3" , "h3" , "Re6+" , "bxc6" , "Rad1" , "Bxd5" , "Bxg5" , "Rfd8" , "d5" , "Rc6" , "Nf6" , "Ra6" , "a6" , "Be6" , "Nc3" , "Nf3" , "dxc4" , "Bb3" , "Bd3" , "a3" , "d4" , "Rxc6" , "Rxb2" , "e4" , "Re1" , "Na5" , "Rxc7+" , "Bxc6" , "Kh2" , "Qxf6+" , "d6" , "Qf6" , "Be7" , "Kxf6" , "Rxe6" , "Qd7" ;
+        chon:nextHalfMove      :hmgamaQJ8HjU .
+
+:opeaQJ8Hj  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:rolhgaQJ8HjUe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaQJ8Hj .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resaQJ8HjU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

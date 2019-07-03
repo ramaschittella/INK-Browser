@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rol8z4r4A  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:tou8z4r4  a          chon:hessTournament ;
+        chon:atPlace  :pla8z4r4A ;
+        chon:hasName  "URS-ch38 Riga" .
+
+:res8z4r4Ab  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgjzZFAzey  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8z4r4A .
+
+:hmgamjzZFAze  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjzZFAzey , :rolhgKz0XXA4X ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Moiseev, Oleg L" ;
+        chon:hasSANRecord      "Nc6" , "Nxc3" , "a3" , "Be7" , "c5" , "Nc3" , "O-O" , "e6" , "Bb2" , "b6" , "e3" , "d4" , "Nf3" , "cxd5" , "d5" , "cxd4" , "Bf6" , "Nxd5" , "Bd3" , "Bb7" , "bxc3" , "Nf6" , "c4" , "exd4" ;
+        chon:nextHalfMove      :hmgamjzZFAze , :hmgamKz0XXA4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8z4r4A .
+
+:hmgamKz0XXA4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKz0XXA4X ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Moiseev, Oleg L" ;
+        chon:hasSANRecord      "Qf5" , "Nxb7" , "Be4" , "Rac8" , "Qd6" , "Bxb7" , "Nd2" , "Rd6" , "Kf1" , "Rdc6" , "Rfc1" , "g3" , "Rxc2" , "Qxc2" , "Rfd8" , "Na5" , "Qc2" , "Nb3" , "Rc1" , "Qf4" ;
+        chon:nextHalfMove      :hmgamKz0XXA4 .
+
+:rolhgKz0XXA4X  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8z4r4A .
+
+chon:HalfMove  chon:subEventOf  :gam8z4r4 .
+
+:ope8z4r4A  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8z4r4A .
+
+:cgrjzZFAz  a   chon:ChessGameReport .
+
+:gam8z4r4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8z4r4A ;
+        chon:atPlace           :pla8z4r4A ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjzZFAze ;
+        chon:hasHalfMove       :hmgamKz0XXA4 , :hmgamjzZFAze ;
+        chon:hasLastHalfMove   :hmgamKz0XXA4 ;
+        chon:hasOpening        :ope8z4r4A ;
+        chon:hasReport         :cgrjzZFAz ;
+        chon:hasResult         :res8z4r4Ab ;
+        chon:subEventOf        :tou8z4r4 .
+
+:roljzZFAz  a             chon:AuthorRole ;
+        chon:performedBy  :agjzZFAz .
+
+:pla8z4r4A  a         chon:Place ;
+        chon:hasName  "Riga" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag8z4r4A  a          chon:Agent ;
+        chon:hasName  "Moiseev, Oleg L" , "Karpov, Anatoly" .

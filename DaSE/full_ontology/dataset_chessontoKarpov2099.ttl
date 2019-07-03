@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamlI0ed  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollI0edY ;
+        chon:atPlace           :plalI0edY ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlI0edYc ;
+        chon:hasHalfMove       :hmgamlI0edYc , :hmgamMKjwzY2 ;
+        chon:hasLastHalfMove   :hmgamMKjwzY2 ;
+        chon:hasOpening        :opelI0edY ;
+        chon:hasReport         :cgrlI0edY ;
+        chon:hasResult         :reslI0edYc ;
+        chon:subEventOf        :toulI0ed .
+
+:toulI0ed  a          chon:hessTournament ;
+        chon:atPlace  :plalI0edY ;
+        chon:hasName  "Tilburg Fontys" .
+
+:reslI0edYc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgMKjwzY2I  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglI0edY .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglI0edY .
+
+:opelI0edY  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+chon:HalfMove  chon:subEventOf  :gamlI0ed .
+
+:rolhglI0edYcj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglI0edY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglI0edY .
+
+:hmgamMKjwzY2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMKjwzY2I ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a6" , "Nxc3" , "Nxd5" , "dxe5" , "Nxe5" , "Qa5" , "d5" , "Be7" , "Bb2" , "Ng6" , "O-O" , "Nf3" , "cxd5" , "Re1" , "Qe2" , "Rb1" , "Nf6" , "Bd3" , "Bxe5" , "Be4" , "Rb3" , "c4" , "e5" , "Bf6" , "Nc6" , "exd5" , "Qf3" , "bxc3" , "Ne5" , "d4" , "Nce7" , "Nc3" , "e6" ;
+        chon:nextHalfMove      :hmgamMKjwzY2 .
+
+:plalI0edY  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:cgrlI0edY  a   chon:ChessGameReport .
+
+:hmgamlI0edYc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglI0edYcj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "e4" ;
+        chon:nextHalfMove      :hmgamMKjwzY2 , :hmgamlI0edYc .
+
+:aglI0edY  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Polgar, Judit" .
+
+:rollI0edY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglI0edY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

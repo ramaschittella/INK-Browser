@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg5aOL7II8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5aOL7I .
+
+:rolhgf8J1DJKi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5aOL7I .
+
+:hmgam5aOL7II  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5aOL7II8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bg2" , "e6" , "g3" , "Qc7" , "Qc2" , "Rd8" , "d4" , "b6" , "Bb2" , "dxc4" , "b3" , "Nf6" , "O-O" , "Kf1" , "d5" , "bxc4" , "Ba6" , "Bb4+" , "Ne5" , "c6" , "c4" , "Nf3" , "Nd3" ;
+        chon:nextHalfMove      :hmgam5aOL7II , :hmgamf8J1DJK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5aOL7I .
+
+chon:HalfMove  chon:subEventOf  :gam5aOL7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5aOL7I .
+
+:res5aOL7II  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla5aOL7I  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+:hmgamf8J1DJK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgf8J1DJKi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "exf6" , "a5" , "Rhd1" , "Kf8" , "Nd7" , "Nxe2" , "Bc3" , "Ba5" , "Rd2" , "Qxe2" , "Qxc4" , "c2" , "Nbd7" , "Bf3" , "dxc3" , "Qe2" , "Nxc4" , "cxd4" , "Bxc3" , "Rbc1" , "Kg2" , "Rcxc2" , "Qxa2" , "e4" , "Nf4" , "c5" , "Rac8" , "Nxf6" , "Na3" , "e5" , "Rab1" , "Bxc4" ;
+        chon:nextHalfMove      :hmgamf8J1DJK .
+
+:cgr5aOL7I  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam5aOL7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5aOL7I ;
+        chon:atPlace           :pla5aOL7I ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5aOL7II ;
+        chon:hasHalfMove       :hmgamf8J1DJK , :hmgam5aOL7II ;
+        chon:hasLastHalfMove   :hmgamf8J1DJK ;
+        chon:hasOpening        :ope5aOL7I ;
+        chon:hasReport         :cgr5aOL7I ;
+        chon:hasResult         :res5aOL7II ;
+        chon:subEventOf        :tou5aOL7 .
+
+:ag5aOL7I  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kurajica, Bojan" .
+
+:tou5aOL7  a          chon:hessTournament ;
+        chon:atPlace  :pla5aOL7I ;
+        chon:hasName  "Bugojno" .
+
+:rol5aOL7I  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5aOL7I .
+
+:ope5aOL7I  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .

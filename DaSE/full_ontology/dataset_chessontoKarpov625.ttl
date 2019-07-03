@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamETZDy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolETZDyB ;
+        chon:atPlace           :plaETZDyB ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamETZDyBk ;
+        chon:hasHalfMove       :hmgamETZDyBk , :hmgamQRWT6An ;
+        chon:hasLastHalfMove   :hmgamQRWT6An ;
+        chon:hasOpening        :opeETZDyB ;
+        chon:hasReport         :cgrETZDyB ;
+        chon:hasResult         :resETZDyBk ;
+        chon:subEventOf        :touETZDy .
+
+:hmgamQRWT6An  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQRWT6Ana , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Qxd8+" , "Qxd7" ;
+        chon:nextHalfMove      :hmgamQRWT6An .
+
+:hmgamETZDyBk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgETZDyBkY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Nxb6" , "Bb5" , "h6" , "h4" , "O-O" , "Qd2" , "Rfd8" , "Rhe1" , "O-O-O" , "Re1" , "c3" , "Nf3" , "Nb4" , "Rxh4" , "e4" , "Ra8" , "Bg5" , "Rg4+" , "Kh7" , "Qc8" , "Nd5" , "Qc6" , "Kb1" , "Qh3" , "Nd2" , "Nxd7" , "Nc6" , "Ka2" , "c5" , "Nxb5" , "h5" , "Nxd4" , "gxf4" , "d4" , "Kf8" , "Na6" , "exf4" , "a5" , "f5" , "Qe2" , "Nb3" , "f4" , "Bg4" , "Re4" , "Be7" , "Qe7" , "Qc7" , "Nxf6+" , "d7" , "Rd7" , "Qxb5" , "e6" , "Bxf6" , "Qd3" , "Rd4" , "cxd4" , "Qxh2" , "g3" , "Rd1" , "Qxd1" , "b6" , "Nf6" , "Rad8" , "Qf3" , "Nc4" , "a4" , "e5" , "Nc3" , "Bxd5" , "d6" , "Kg7" , "gxf6" , "exd5" , "Be6" , "Rc8" , "Nxd6" , "Nc7" ;
+        chon:nextHalfMove      :hmgamQRWT6An , :hmgamETZDyBk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agETZDyB .
+
+chon:HalfMove  chon:subEventOf  :gamETZDy .
+
+:opeETZDyB  a            chon:ChessOpening ;
+        chon:hasECOCode  "B64" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agETZDyB .
+
+:touETZDy  a          chon:hessTournament ;
+        chon:atPlace  :plaETZDyB ;
+        chon:hasName  "Bugojno" .
+
+:rolhgQRWT6Ana  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agETZDyB .
+
+:rolhgETZDyBkY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agETZDyB .
+
+:plaETZDyB  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+:cgrETZDyB  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resETZDyBk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agETZDyB  a          chon:Agent ;
+        chon:hasName  "Kavalek, Lubomir" , "Karpov, Anatoly" .
+
+:rolETZDyB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agETZDyB .

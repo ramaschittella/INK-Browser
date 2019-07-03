@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamuvU7mkH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhguvU7mkHM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Rd6" , "Rxc8" , "b4" , "Rxc4" , "Qd2" , "Bg5" , "Bxf6" , "b5" , "Rxa7" , "Bxg5" , "Re7" , "Nxc6" , "Nd5" , "Be7" , "Nc7" , "c6" , "Rb8" , "bxc4" , "Kh7" , "Bf3" , "h3" , "Rb7" , "c4" , "Qd6" , "O-O" , "dxe4" , "Qxc6" , "Ra8" , "Nb4" , "Rxc6" , "a5" , "Qc3" , "Rd7" , "Ne5" , "Qa6" , "Qxc4" , "Rxd4" , "Rc1" , "Bg4" , "Nxg5" , "Rfc1" , "Nd7" , "Bc6" , "Nf6" , "Rc8" , "a6" , "Nxf6+" , "Rxb4" , "Rxe6" , "Bxe6" , "Rfd8" , "a4" , "Nxe4" , "Rd1" , "Rac8" , "Rxc8+" , "Nf3" , "Be2" , "Bd7" , "Nbd7" , "Rxf7" , "h6" , "Nxa6" ;
+        chon:nextHalfMove      :hmgamuvU7mkH .
+
+:agjvXSPi  a          chon:Agent ;
+        chon:hasName  "Petrosian, Tigran V" , "Fischer, Robert James" .
+
+:opejvXSPi  a            chon:ChessOpening ;
+        chon:hasECOCode  "C11" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjvXSPi .
+
+chon:HalfMove  chon:subEventOf  :gamjvXSP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjvXSPi .
+
+:hmgamjvXSPiF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhguvU7mkHM , :rolhgjvXSPiFB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "e4" , "d5" , "Nc3" , "e6" , "d4" ;
+        chon:nextHalfMove      :hmgamuvU7mkH , :hmgamjvXSPiF .
+
+:rolhguvU7mkHM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjvXSPi .
+
+:cgrjvXSPi  a   chon:ChessGameReport .
+
+:roljvXSPi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjvXSPi .
+
+:gamjvXSP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljvXSPi ;
+        chon:atPlace           :plajvXSPi ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjvXSPiF ;
+        chon:hasHalfMove       :hmgamuvU7mkH , :hmgamjvXSPiF ;
+        chon:hasLastHalfMove   :hmgamuvU7mkH ;
+        chon:hasOpening        :opejvXSPi ;
+        chon:hasReport         :cgrjvXSPi ;
+        chon:hasResult         :resjvXSPiF ;
+        chon:subEventOf        :toujvXSP .
+
+:rolhgjvXSPiFB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjvXSPi .
+
+:toujvXSP  a          chon:hessTournament ;
+        chon:atPlace  :plajvXSPi ;
+        chon:hasName  "Stockholm Interzonal" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resjvXSPiF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plajvXSPi  a         chon:Place ;
+        chon:hasName  "Stockholm" .

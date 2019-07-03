@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plawM4usG  a         chon:Place ;
+        chon:hasName  "London" .
+
+:hmgam0Oa4mIj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0Oa4mIjI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "bxc6" , "fxe5" , "O-O-O" , "Rhf8+" , "Qh4+" , "Qxe5" , "c5" , "g5" , "e5" , "Bxg5" , "Qe2" , "Qf3+" , "Qe3" , "d5" , "Qh5" , "Nd5" , "bxa7" , "Ba6" , "Kb7" , "cxb6" , "Kg2" , "Nb6" , "exd4" , "h4" , "f4" , "d4" , "Rxe5" , "Nxc6" , "c4" , "Bf4" , "Nxd4" , "Bb4+" , "Qe4" , "Nf6" , "Kh2" , "Nc6" , "Kf2" , "Ka8" , "Re8" , "Qe7" , "Bxf1" , "g3" , "Rc1" , "f6" , "Nd2" , "Qf2+" , "Nf3" , "Nb3" ;
+        chon:nextHalfMove      :hmgam0Oa4mIj .
+
+:cgrIM1IZI  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamwM4us .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIM1IZI .
+
+:agIM1IZI  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+:rolIM1IZI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIM1IZI .
+
+:touIM1IZ  a          chon:hessTournament ;
+        chon:atPlace  :plawM4usG ;
+        chon:hasName  "London" .
+
+:opeIM1IZI  a            chon:ChessOpening ;
+        chon:hasECOCode  "C45" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIM1IZI .
+
+:gamwM4us  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIM1IZI ;
+        chon:atPlace           :plawM4usG ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIM1IZIs ;
+        chon:hasHalfMove       :hmgam0Oa4mIj , :hmgamIM1IZIs ;
+        chon:hasLastHalfMove   :hmgam0Oa4mIj ;
+        chon:hasOpening        :opeIM1IZI ;
+        chon:hasReport         :cgrIM1IZI ;
+        chon:hasResult         :resIM1IZIs ;
+        chon:subEventOf        :touIM1IZ .
+
+:hmgamIM1IZIs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0Oa4mIjI , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgam0Oa4mIj .
+
+:rolhg0Oa4mIjI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIM1IZI .
+
+:resIM1IZIs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

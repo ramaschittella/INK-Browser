@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:planqWXgp  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .
+
+:hmgamnqWXgpN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnqWXgpNU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nxd4" , "Nf6" , "Bd5" , "Bxf5" , "Be2" , "Qe7" , "e6" , "Rab8" , "b5" , "cxd4" , "Rb4" , "Rxe4" , "exf5" , "Rb1" , "Qxe4" , "Rfe8" , "Qf4" , "cxb5" , "Rbe8" , "e3" , "Qxf5" , "c5" , "Ba3" , "d4" , "c4" , "bxc3" , "Nd7" , "Nxc3" , "Qd3" , "Bf8" , "Ne4" , "a6" , "O-O" , "f5" , "Nxd5" , "Qd7" , "d6" , "axb5" , "Re5" , "Qxb5" , "Qc2" , "Nc3" , "Be7" , "cxd5" , "Bf3" , "Qf2" , "Qc7" , "f4" , "e4" , "Qd4+" , "Nxf5" , "Kh1" , "Kg1" , "Bb4" , "Nf3" ;
+        chon:nextHalfMove      :hmgamnqWXgpN .
+
+:cgrnqWXgp  a   chon:ChessGameReport .
+
+:gamnqWXg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnqWXgp ;
+        chon:atPlace           :planqWXgp ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnqWXgpN ;
+        chon:hasHalfMove       :hmgamnqWXgpN ;
+        chon:hasLastHalfMove   :hmgamnqWXgpN ;
+        chon:hasOpening        :openqWXgp ;
+        chon:hasReport         :cgrnqWXgp ;
+        chon:hasResult         :resnqWXgpN ;
+        chon:subEventOf        :tounqWXg .
+
+:agnqWXgp  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Reshevsky, Samuel Herman" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnqWXgp .
+
+:rolnqWXgp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnqWXgp .
+
+:openqWXgp  a            chon:ChessOpening ;
+        chon:hasECOCode  "A32" .
+
+chon:HalfMove  chon:subEventOf  :gamnqWXg .
+
+:resnqWXgpN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnqWXgp .
+
+:tounqWXg  a          chon:hessTournament ;
+        chon:atPlace  :planqWXgp ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgnqWXgpNU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnqWXgp .

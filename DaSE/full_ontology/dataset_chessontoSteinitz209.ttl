@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opepQUQwS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C11" .
+
+:cgrpQUQwS  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpQUQwS .
+
+:rolhg3Q1nqS6b  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpQUQwS .
+
+:rolpQUQwS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpQUQwS .
+
+:rolhgYOHwbRmb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpQUQwS .
+
+:hmgamYOHwbRm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYOHwbRmb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fleissig, Maximilian" ;
+        chon:hasSANRecord      "f5" , "Rd7" , "Bb6" , "Bxf4" , "Bg5" , "Rd1" , "a7" ;
+        chon:nextHalfMove      :hmgamYOHwbRm .
+
+:hmgamRQ50TS3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3Q1nqS6b , :rolhgRQ50TS31 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fleissig, Maximilian" ;
+        chon:hasSANRecord      "Bxc5" , "Bd3" , "dxc5" , "Qb5" , "O-O-O" , "Qxa6" , "Bxa4" , "f4" , "Nce2" , "Nf6" , "Bd7" , "Ke8" , "a5" , "Ra8" , "c5" , "Qa7" , "Bd2" , "b3" , "Ng3" , "Qa6" , "Rxa6" , "Rb1" , "g6" , "Qxa4" , "Nh5" , "Be7" , "Ba7" , "a4" , "Nc6" , "a3" , "Ke2" , "Nxd7" , "Bc2" , "h6" , "Qe2" , "Nf8" , "Qxb7+" , "c3" , "Nd7" , "Nf3" , "Kxd7" , "Qb6" ;
+        chon:nextHalfMove      :hmgamRQ50TS3 , :hmgam3Q1nqS6 .
+
+:respQUQwSd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gameQXAZ .
+
+:rolhgpQUQwSdA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpQUQwS .
+
+:toupQUQw  a          chon:hessTournament ;
+        chon:atPlace  :plapQUQwS ;
+        chon:hasName  "Vienna" .
+
+:hmgampQUQwSd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpQUQwSdA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fleissig, Maximilian" ;
+        chon:hasSANRecord      "d5" , "Nc3" , "e6" , "Nf6" , "Nfd7" , "e5" , "d4" , "e4" ;
+        chon:nextHalfMove      :hmgamRQ50TS3 , :hmgampQUQwSd .
+
+:plapQUQwS  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agpQUQwS  a          chon:Agent ;
+        chon:hasName  "Fleissig, Maximilian" , "Steinitz, William" .
+
+:rolhgRQ50TS31  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpQUQwS .
+
+:hmgam3Q1nqS6  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3Q1nqS6b , :rolhgYOHwbRmb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fleissig, Maximilian" ;
+        chon:hasSANRecord      "Kd8" , "Kxd7" , "Bb8" , "Na5" , "Bxd2" , "Ke8" , "Nd7" , "Rxb4+" , "Rb5" , "Rb8" , "c4" , "Ba7" , "Be3" , "dxc4+" , "Kd7" , "Kc6" , "Rd1+" , "Rb3" , "Bc1" , "Ra8" , "Kb5" , "Ke7" , "Nc4" , "Rd3" , "Kxc4" , "Nd2" , "Nb8" , "Ra1" , "Rxd7" , "Nxd2" , "Rhb1" , "b4" , "Rb7" , "a5" , "a6" , "Kd3" , "Bxb4" , "Kc8" , "Ba5+" ;
+        chon:nextHalfMove      :hmgam3Q1nqS6 , :hmgamYOHwbRm .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpQUQwS .
+
+:gameQXAZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpQUQwS ;
+        chon:atPlace           :plapQUQwS ;
+        chon:atTime            "1873.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampQUQwSd ;
+        chon:hasHalfMove       :hmgamYOHwbRm , :hmgamRQ50TS3 , :hmgampQUQwSd , :hmgam3Q1nqS6 ;
+        chon:hasLastHalfMove   :hmgamYOHwbRm ;
+        chon:hasOpening        :opepQUQwS ;
+        chon:hasReport         :cgrpQUQwS ;
+        chon:hasResult         :respQUQwSd ;
+        chon:subEventOf        :toupQUQw .

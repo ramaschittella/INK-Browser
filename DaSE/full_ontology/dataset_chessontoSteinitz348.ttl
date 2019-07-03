@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolzf8YlQ  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:plazf8YlQ  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:hmgamHbKkSPm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHbKkSPmQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nce5" , "Qg6" , "Ng5" , "Ng6" , "Qxf7" , "Nxf3" , "Rd3" , "Rf3" , "Bxf7+" , "Qc4" , "Qxg3" , "Qf6" , "Qd2" , "gxf3" , "Kh1" ;
+        chon:nextHalfMove      :hmgamHbKkSPm .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzf8YlQ .
+
+:hmgamvbQ86Oj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvbQ86OjD , :rolhgHbKkSPmQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qa3" , "Bxf3" , "Bc5" , "c3" , "O-O" , "Bb6" , "Re8" , "Nf3" , "Nbd2" , "cxd6" , "Qg6" , "Rad8" , "Qb3" , "Qd6" , "d4" , "e4" , "d6" , "Nxf3" , "Nge7" , "Rd1" , "Bg3" , "Bf4" , "Bg4" , "e5" , "Qf6" , "h3" , "Qc1" , "Ba5" , "Bxb4" , "Bc4" , "b4" , "Nc6" , "exd6" , "Bg5" , "dxe5" ;
+        chon:nextHalfMove      :hmgamvbQ86Oj , :hmgamHbKkSPm .
+
+chon:HalfMove  chon:subEventOf  :gamzf8Yl .
+
+:agzf8YlQ  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Chigorin, Mikhail" .
+
+:rolhgvbQ86OjD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzf8YlQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzf8YlQ .
+
+:opezf8YlQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C52" .
+
+:gamzf8Yl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzf8YlQ ;
+        chon:atPlace           :plazf8YlQ ;
+        chon:atTime            "1889.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvbQ86Oj ;
+        chon:hasHalfMove       :hmgamvbQ86Oj , :hmgamHbKkSPm ;
+        chon:hasLastHalfMove   :hmgamHbKkSPm ;
+        chon:hasOpening        :opezf8YlQ ;
+        chon:hasReport         :cgrzf8YlQ ;
+        chon:hasResult         :reszf8YlQ3 ;
+        chon:subEventOf        :touzf8Yl .
+
+:touzf8Yl  a          chon:hessTournament ;
+        chon:atPlace  :plazf8YlQ ;
+        chon:hasName  "World Championship 2nd" .
+
+:rolvbQ86O  a             chon:AuthorRole ;
+        chon:performedBy  :agvbQ86O .
+
+:rolhgHbKkSPmQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzf8YlQ .
+
+:reszf8YlQ3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrzf8YlQ  a   chon:ChessGameReport .

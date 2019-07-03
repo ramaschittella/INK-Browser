@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgPBNSp2U2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTD7JF4 .
+
+:rolTD7JF4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTD7JF4 .
+
+:gamTD7JF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTD7JF4 ;
+        chon:atPlace           :plaTD7JF4 ;
+        chon:atTime            "1998.03.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPBNSp2U ;
+        chon:hasHalfMove       :hmgamPBNSp2U ;
+        chon:hasLastHalfMove   :hmgamPBNSp2U ;
+        chon:hasOpening        :opeTD7JF4 ;
+        chon:hasReport         :cgrTD7JF4 ;
+        chon:hasResult         :resTD7JF4D ;
+        chon:subEventOf        :touTD7JF .
+
+:touTD7JF  a          chon:hessTournament ;
+        chon:atPlace  :plaTD7JF4 ;
+        chon:hasName  "Amber-rapid 7th" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTD7JF4 .
+
+chon:HalfMove  chon:subEventOf  :gamTD7JF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTD7JF4 .
+
+:agTD7JF4  a          chon:Agent ;
+        chon:hasName  "Kramnik, Vladimir" , "Karpov, Anatoly" .
+
+:opeTD7JF4  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:plaTD7JF4  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamPBNSp2U  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPBNSp2U2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik, Vladimir" ;
+        chon:hasSANRecord      "gxf6" , "Bg5" , "Rc8" , "Rd1" , "d5" , "Be2" , "Bxc4" , "Bd6" , "Nf3" , "Re8" , "e6" , "e4" , "e3" , "Bxf3" , "dxe5" , "a6" , "Qb3" , "c4" , "Qc7" , "c6" , "c5" , "Qc2" , "Bxc8" , "Bg4" , "O-O" , "Nd1" , "Bd3" , "b5" , "Qxc8" , "Ne3" , "d4" , "Qe6" , "Bf5" , "Qc8" , "Bxf6" , "Qg4+" , "Nc3" , "Qxb2" , "e5" , "Nf6" , "g3" , "Qxc5" , "Bb7" , "a3" , "dxc4" , "Kh8" , "Bc8" , "Nxe5" , "Rf8" , "Rad8" , "Rxd8" , "Rac1" , "Nxf3+" , "Be5" , "Nbd7" ;
+        chon:nextHalfMove      :hmgamPBNSp2U .
+
+:resTD7JF4D  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrTD7JF4  a   chon:ChessGameReport .

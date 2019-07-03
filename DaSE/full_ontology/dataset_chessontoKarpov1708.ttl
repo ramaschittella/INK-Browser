@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamKtMJ7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKtMJ76 ;
+        chon:atPlace           :plaKtMJ76 ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFrtSQ6N ;
+        chon:hasHalfMove       :hmgamFrtSQ6N ;
+        chon:hasLastHalfMove   :hmgamFrtSQ6N ;
+        chon:hasOpening        :opeFrtSQ6 ;
+        chon:hasReport         :cgrFrtSQ6 ;
+        chon:hasResult         :resFrtSQ6N ;
+        chon:subEventOf        :touKtMJ7 .
+
+:touKtMJ7  a          chon:hessTournament ;
+        chon:atPlace  :plaKtMJ76 ;
+        chon:hasName  "Tilburg" .
+
+:resFrtSQ6N  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolKtMJ76  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKtMJ76 .
+
+:plaKtMJ76  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:HalfMove  chon:subEventOf  :gamKtMJ7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFrtSQ6 .
+
+:agKtMJ76  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:cgrFrtSQ6  a   chon:ChessGameReport .
+
+:rolhgFrtSQ6NA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFrtSQ6 , :agKtMJ76 .
+
+:hmgamFrtSQ6N  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFrtSQ6NA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Romanishin, Oleg M" ;
+        chon:hasSANRecord      "d5" , "Bb4+" , "Qc1" , "d4" , "Nbd7" , "e6" , "e5" , "f4" , "dxe6" , "g3" , "bxc4" , "hxg4" , "Bh3" , "a4" , "b3" , "Rxa6" , "Rd2" , "d6" , "Qc2" , "Ng4" , "Rad1" , "e7" , "h5" , "Bxc3" , "Nf6" , "Rxc3" , "a5" , "b5" , "Qa1" , "Nd2" , "O-O" , "axb3" , "Ra8" , "Ba6" , "Rxa2" , "Ra2" , "Ra1" , "Rb1" , "Ke1" , "Qa8" , "Rc2" , "c4" , "Rc1+" , "Nc3" , "Rfe1" , "Bxg4" , "fxe6" , "e4" , "dxc5" , "Bd2" , "f3" , "b6" , "fxe5" , "c5" , "Nf3" , "Be4" , "Bb7" , "Bc6" , "Bg2" , "Qxa2" , "Re8" , "Ra8+" , "Kh7" , "Kf2" ;
+        chon:nextHalfMove      :hmgamFrtSQ6N .
+
+:agFrtSQ6  a          chon:Agent ;
+        chon:hasName  "Romanishin, Oleg M" .
+
+:rolFrtSQ6  a             chon:AuthorRole ;
+        chon:performedBy  :agFrtSQ6 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeFrtSQ6  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .

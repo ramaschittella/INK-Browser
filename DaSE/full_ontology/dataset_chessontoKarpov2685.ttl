@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamPppsN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPppsN5 ;
+        chon:atPlace           :plaPppsN5 ;
+        chon:atTime            "2002.11.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLl7By3J ;
+        chon:hasHalfMove       :hmgamLl7By3J ;
+        chon:hasLastHalfMove   :hmgamLl7By3J ;
+        chon:hasOpening        :opePppsN5 ;
+        chon:hasReport         :cgrPppsN5 ;
+        chon:hasResult         :resPppsN5t ;
+        chon:subEventOf        :touPppsN .
+
+:hmgamLl7By3J  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLl7By3Jk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "San Segundo Carrillo,P" ;
+        chon:hasSANRecord      "Qh2+" , "Bg4" , "Re5" , "Re1" , "Nc3" , "O-O" , "Rc8" , "Qxf4" , "Qe2" , "h4" , "f6" , "Bc4" , "Nf3" , "Bxf4" , "Bf4" , "h6" , "Nf5" , "e3" , "cxd5" , "d4" , "d5" , "Rxc6" , "Bh5" , "Bg6" , "Kg2" , "Qf3" , "Kf3" , "bxc6" , "Qd2" , "Nc6" , "a3" , "Qxf5" , "Be7" , "Bd5" , "Bb6" , "Bxc6" , "Qe7" , "Nf6" , "e4" , "Bxf5" , "Qxb5" , "Kh7" , "Kh8" , "Bxc5" , "Rxc4" , "Qc7" , "g4" , "Qd4" , "Bc7" , "Rc1" , "Ke3" , "exd5" , "Nxd4" , "Qh2" , "Rb5" , "Bd3" , "Qh3+" , "Re3" , "c5" , "dxc5" , "Re8" , "Qe5" , "h3" , "e6" , "Rc3" , "h5" , "Rc8+" , "Kf4" , "c4" , "Qd7" , "Nxd5" ;
+        chon:nextHalfMove      :hmgamLl7By3J .
+
+:agPppsN5  a          chon:Agent ;
+        chon:hasName  "San Segundo Carrillo,P" , "Karpov,An" .
+
+:rolPppsN5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPppsN5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPppsN5 .
+
+chon:HalfMove  chon:subEventOf  :gamPppsN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPppsN5 .
+
+:touPppsN  a          chon:hessTournament ;
+        chon:atPlace  :plaPppsN5 ;
+        chon:hasName  "Superstars Hotel Bali" .
+
+:opePppsN5  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:rolhgLl7By3Jk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPppsN5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaPppsN5  a         chon:Place ;
+        chon:hasName  "Benidorm ESP" .
+
+:cgrPppsN5  a   chon:ChessGameReport .
+
+:resPppsN5t  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

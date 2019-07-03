@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:roli3vvGP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agi3vvGP .
+
+:rolhgi3vvGPHz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi3vvGP .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi3vvGP .
+
+chon:HalfMove  chon:subEventOf  :gami3vvG .
+
+:agi3vvGP  a          chon:Agent ;
+        chon:hasName  "Sznapik, Aleksander" , "Karpov, Anatoly" .
+
+:gami3vvG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roli3vvGP ;
+        chon:atPlace           :plai3vvGP ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgami3vvGPH ;
+        chon:hasHalfMove       :hmgami3vvGPH ;
+        chon:hasLastHalfMove   :hmgami3vvGPH ;
+        chon:hasOpening        :opei3vvGP ;
+        chon:hasReport         :cgri3vvGP ;
+        chon:hasResult         :resi3vvGPH ;
+        chon:subEventOf        :toui3vvG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi3vvGP .
+
+:toui3vvG  a          chon:hessTournament ;
+        chon:atPlace  :plai3vvGP ;
+        chon:hasName  "Dubai ol (Men)" .
+
+:opei3vvGP  a            chon:ChessOpening ;
+        chon:hasECOCode  "B78" .
+
+:hmgami3vvGPH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgi3vvGPHz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sznapik, Aleksander" ;
+        chon:hasSANRecord      "b5" , "c3" , "Rc5" , "Bc4" , "Nf7" , "Rxh5" , "Rc8" , "f4" , "Qxh5" , "Nc6" , "h5" , "d6" , "Bg7" , "Be3" , "Ne6" , "cxd4" , "Kb1" , "Qb8" , "Nc3" , "g6" , "Qh2" , "O-O-O" , "Bb3" , "f5" , "Nxh5" , "b3" , "Nd5" , "Rh1" , "g4" , "Bd7" , "c5" , "O-O" , "Nf6" , "Nf3" , "Nxd4" , "e4" , "Qd2" , "Rc4" , "hxg4" , "f6" , "gxh5" , "bxc4" , "f3" , "d4" , "Bh4" , "Bg5" , "Bxc4" , "Ne5" , "Qb7" , "Re8" , "h4" ;
+        chon:nextHalfMove      :hmgami3vvGPH .
+
+:plai3vvGP  a         chon:Place ;
+        chon:hasName  "Dubai" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resi3vvGPH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgri3vvGP  a   chon:ChessGameReport .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plakTu6TO  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+:cgrkTu6TO  a   chon:ChessGameReport .
+
+:hmgamkTu6TOi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkTu6TOiP , chon:AgentRole , :rolhgLVGngP8f ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "h6" , "d4" , "Rae1" , "exd5" , "Ne5" , "Nc6" , "Bc4" , "Bg5" , "e4" , "Kd8" , "gxh3" , "Qxf6" , "d6" , "g5" , "Nf6" , "g4" , "Qd3" , "Bxf6" , "Bg7" , "Bd7" , "e6" , "h3" , "Qg5" , "h5" , "g3" , "Nxe5" , "c3" , "Qxe5" , "Nc3" , "O-O" , "Nb5" , "Bb3" , "h4" , "Nf3" ;
+        chon:nextHalfMove      :hmgamkTu6TOi , :hmgamLVGngP8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkTu6TO .
+
+:agkTu6TO  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Speelman, Jonathan S" .
+
+:rolkTu6TO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkTu6TO .
+
+chon:HalfMove  chon:subEventOf  :gamkTu6T .
+
+:opekTu6TO  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .
+
+:hmgamLVGngP8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLVGngP8f ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ra7" , "Rc2" , "Qg7" , "Qxd4" , "Kf6" , "Bf5" , "Kd8" , "hxg3" , "Rc7" , "Kh2" , "Re8" , "Rc8" , "Ke7" , "Bxf1" , "Bg6" , "Qf3" , "Rxf1" , "Rxb5" , "Bc2" , "dxe5" , "Re7+" , "Rd8" , "Nd4" , "Rh4" , "Rh8" , "Rxc6" , "Rh5" , "d6" , "Ke8" , "cxd4" , "Rd7+" , "Qe5" , "Ra6" , "Qxe5" , "Rc5" , "b5" , "fxg3" , "g4" , "Rf2" , "Rh6" , "a5" , "Bxd4+" , "c6" , "Qxf7" , "Bb5" , "Kg5" , "d7+" , "Qe6" ;
+        chon:nextHalfMove      :hmgamLVGngP8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkTu6TO .
+
+:rolhgLVGngP8f  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkTu6TO .
+
+:reskTu6TOi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgkTu6TOiP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkTu6TO .
+
+:gamkTu6T  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkTu6TO ;
+        chon:atPlace           :plakTu6TO ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkTu6TOi ;
+        chon:hasHalfMove       :hmgamkTu6TOi , :hmgamLVGngP8 ;
+        chon:hasLastHalfMove   :hmgamLVGngP8 ;
+        chon:hasOpening        :opekTu6TO ;
+        chon:hasReport         :cgrkTu6TO ;
+        chon:hasResult         :reskTu6TOi ;
+        chon:subEventOf        :toukTu6T .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toukTu6T  a          chon:hessTournament ;
+        chon:atPlace  :plakTu6TO ;
+        chon:hasName  "Roquebrune" .

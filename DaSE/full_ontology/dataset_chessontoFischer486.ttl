@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamKTq9qt9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKTq9qt9S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Re1" , "Re5" , "Kg3" , "Rh1" , "Kxh4" , "Rxh2" , "O-O" , "Rb3" , "Bc4" , "g4" , "Rh8+" , "d4" , "Kxg4" , "Rfd1" , "Nf6" , "f4" , "Rxh5+" , "Qxb2" , "bxc6" , "dxc5" , "Re2" , "e4" , "Qd2" , "Qe3" , "Ke7" , "a6" , "Nc6" , "Qa3" , "h5" , "Rb1" , "h4+" , "Rd2" , "Kxh5" , "c5" , "Bd7" , "d6" , "Kf2" , "Bg5" , "f5" , "fxg4" , "Rxc5" , "a5" , "e6" , "Nxc6" , "Be2" , "fxe4" , "gxf6" , "Nxd4" , "Nc3" , "Qb6" , "Rxe2" , "Bxc3" , "Nf3" , "Bxf6" , "cxd4" , "Rxe4" , "Rh5" , "Bg7" , "Bxe2" , "Rg8" , "Qxc5" , "Qc5" , "Rxc3" ;
+        chon:nextHalfMove      :hmgamKTq9qt9 .
+
+:opeKTq9qt  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .
+
+:gamKTq9q  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKTq9qt ;
+        chon:atPlace           :plaKTq9qt ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKTq9qt9 ;
+        chon:hasHalfMove       :hmgamKTq9qt9 ;
+        chon:hasLastHalfMove   :hmgamKTq9qt9 ;
+        chon:hasOpening        :opeKTq9qt ;
+        chon:hasReport         :cgrKTq9qt ;
+        chon:hasResult         :resKTq9qt9 ;
+        chon:subEventOf        :touKTq9q .
+
+:touKTq9q  a          chon:hessTournament ;
+        chon:atPlace  :plaKTq9qt ;
+        chon:hasName  "Capablanca mem" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKTq9qt .
+
+:resKTq9qt9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaKTq9qt  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+chon:HalfMove  chon:subEventOf  :gamKTq9q .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKTq9qt .
+
+:cgrKTq9qt  a   chon:ChessGameReport .
+
+:agKTq9qt  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Parma, Bruno" .
+
+:rolKTq9qt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKTq9qt .
+
+:rolhgKTq9qt9S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKTq9qt .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

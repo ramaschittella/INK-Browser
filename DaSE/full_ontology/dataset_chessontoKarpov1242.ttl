@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamGZSxG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGZSxGe ;
+        chon:atPlace           :plaGZSxGe ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGZSxGem ;
+        chon:hasHalfMove       :hmgamSZPLefp , :hmgamGZSxGem ;
+        chon:hasLastHalfMove   :hmgamSZPLefp ;
+        chon:hasOpening        :opeGZSxGe ;
+        chon:hasReport         :cgrGZSxGe ;
+        chon:hasResult         :resGZSxGem ;
+        chon:subEventOf        :touGZSxG .
+
+:touGZSxG  a          chon:hessTournament ;
+        chon:atPlace  :plaGZSxGe ;
+        chon:hasName  "Zuerich sim" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGZSxGe .
+
+chon:HalfMove  chon:subEventOf  :gamGZSxG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGZSxGe .
+
+:hmgamGZSxGem  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGZSxGemW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Wilhelm, Karl" ;
+        chon:hasSANRecord      "Re1" , "Re8" , "Nc3" , "c4" , "Nbd7" , "Bg2" , "exd4" , "g6" , "Bg7" , "d4" , "Nf6" , "Nxd4" , "e5" , "Nf3" , "g3" , "d6" , "O-O" , "Ne5" , "e4" ;
+        chon:nextHalfMove      :hmgamSZPLefp , :hmgamGZSxGem .
+
+:plaGZSxGe  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:cgrGZSxGe  a   chon:ChessGameReport .
+
+:rolhgSZPLefpa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGZSxGe .
+
+:hmgamSZPLefp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSZPLefpa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Wilhelm, Karl" ;
+        chon:hasSANRecord      "Qc3+" , "Qd4" , "Kg8" , "d6" , "dxe5" , "Rxf1" , "Kxg7" , "f4" , "Nc6" , "Kh2" , "e6" , "Bxg7" , "Qd2" , "Bd7" , "Rac1" , "Ne5" , "Rf8" , "Bg4" , "h3" , "Bc6" , "Qe4" , "Rf1" , "Nd5" , "cxd5" , "fxe5" , "Ne7" , "Nexd5" , "Nf3" , "Bb2" , "Rf7+" , "h6" , "Qc8" , "b3" , "Nh7" , "c5" , "c6" , "fxe6" , "e5" , "Rb8" , "Nf6" ;
+        chon:nextHalfMove      :hmgamSZPLefp .
+
+:rolhgGZSxGemW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGZSxGe .
+
+:agGZSxGe  a          chon:Agent ;
+        chon:hasName  "Wilhelm, Karl" , "Karpov, Anatoly" .
+
+:rolGZSxGe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGZSxGe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeGZSxGe  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .
+
+:resGZSxGem  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

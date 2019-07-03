@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resgoM32AH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrgoM32A  a   chon:ChessGameReport .
+
+:rolhg04zvjqG2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggoM32A .
+
+:gamgoM32  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgoM32A ;
+        chon:atPlace           :plagoM32A ;
+        chon:atTime            "2001.03.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgoM32AH ;
+        chon:hasHalfMove       :hmgam04zvjqG , :hmgamgoM32AH ;
+        chon:hasLastHalfMove   :hmgam04zvjqG ;
+        chon:hasOpening        :opegoM32A ;
+        chon:hasReport         :cgrgoM32A ;
+        chon:hasResult         :resgoM32AH ;
+        chon:subEventOf        :tougoM32 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggoM32A .
+
+:hmgam04zvjqG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg04zvjqG2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely,L" ;
+        chon:hasSANRecord      "Kg6" , "Re8" , "Rg5" , "Rh8" , "Rf5+" , "e6" , "Re1" , "Kf5" , "h4" , "Rf8" , "Kf6" , "Rg8+" , "Rf1+" , "Rg1+" , "h5" , "Kg4" , "Kf4" , "Rxe6" , "Kh3" , "Kf3" ;
+        chon:nextHalfMove      :hmgam04zvjqG .
+
+:rolhggoM32AHN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggoM32A .
+
+chon:HalfMove  chon:subEventOf  :gamgoM32 .
+
+:plagoM32A  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggoM32A .
+
+:aggoM32A  a          chon:Agent ;
+        chon:hasName  "Van Wely,L" , "Karpov,An" .
+
+:tougoM32  a          chon:hessTournament ;
+        chon:atPlace  :plagoM32A ;
+        chon:hasName  "Amber Blindfold" .
+
+:rolgoM32A  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggoM32A .
+
+:hmgamgoM32AH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggoM32AHN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely,L" ;
+        chon:hasSANRecord      "Ke7" , "exd5" , "Rad1" , "Rf8" , "c3" , "dxc4" , "Bc7" , "e5" , "Nd5" , "Rd4" , "Rxd4" , "Rxd5" , "hxg5" , "Rd7" , "c5" , "g5" , "Bxd5" , "Nf3" , "c4" , "g6" , "e6" , "Rc7" , "Kxg5" , "d4" , "Bd6" , "Na3" , "Nc7" , "Bg2" , "Rc8" , "Kg4" , "Ne5" , "Rxa3" , "Nxa6" , "Re2" , "bxc3" , "fxe4" , "Rc1" , "cxd4" , "Rf8+" , "Naxc4" , "R1d2" , "bxc4" , "Qxd4" , "Rg8+" , "Nd6" , "Rgd2" , "d5" , "Rg2" , "Rhd8" , "Rb8" , "Bxf4" , "g3" , "Nf6" , "f3" , "a3" , "Nbd7" , "e4" , "Be6" , "a6" , "Kxe6" , "fxg5" , "Nxe5" , "Bf4" , "Nxe6" , "Nc5" , "Kf4" , "h6" , "Rg1+" , "Nc4" , "Rfd1" , "Rxc4" , "Rc4" , "Kg2" , "Ra8" , "gxf4" , "Bd7" , "Rxc3+" , "Kg3" , "O-O" , "b5" , "Ne4" , "f5" ;
+        chon:nextHalfMove      :hmgamgoM32AH , :hmgam04zvjqG .
+
+:opegoM32A  a            chon:ChessOpening ;
+        chon:hasECOCode  "E04" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamNcOwM6P  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNcOwM6PD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "cxd5" , "Rd6" , "b6" , "Kg2" , "a6" , "e6" , "gxf4" , "Be7" , "a3" , "Bd2" , "Rd1+" , "Ra7" , "Kd7" , "e4" , "Ke8" , "O-O" , "Bb4" , "Ba6" , "exf7+" , "Rxf6" , "Nf6" , "g3" , "Nxe4" , "Nxc7" , "Bxd6" , "dxe6" , "c4" , "Kxf7" , "Ng5+" , "Nb5" , "Bf4" , "Nxf6+" , "Qf7+" , "d4" , "Kxf1" , "b3" , "Bxf1" , "Nxd5" , "Nc3" , "Qh5+" , "Nf3" , "Rxd6+" , "Rad1+" , "g5" , "d5" , "Bb4+" , "Re1" , "Nd5" ;
+        chon:nextHalfMove      :hmgamNcOwM6P .
+
+:plaNcOwM6  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:gamNcOwM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNcOwM6 ;
+        chon:atPlace           :plaNcOwM6 ;
+        chon:atTime            "2008.08.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNcOwM6P ;
+        chon:hasHalfMove       :hmgamNcOwM6P ;
+        chon:hasLastHalfMove   :hmgamNcOwM6P ;
+        chon:hasOpening        :opeNcOwM6 ;
+        chon:hasReport         :cgrNcOwM6 ;
+        chon:hasResult         :resNcOwM6P ;
+        chon:subEventOf        :touNcOwM .
+
+:cgrNcOwM6  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNcOwM6 .
+
+:rolNcOwM6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNcOwM6 .
+
+chon:HalfMove  chon:subEventOf  :gamNcOwM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNcOwM6 .
+
+:touNcOwM  a          chon:hessTournament ;
+        chon:atPlace  :plaNcOwM6 ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+:agNcOwM6  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Carlsen,M" .
+
+:resNcOwM6P  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeNcOwM6  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgNcOwM6PD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNcOwM6 .

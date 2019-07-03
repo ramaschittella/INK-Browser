@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamcH0T8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEJjct4 ;
+        chon:atPlace           :placH0T84 ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEJjct4H ;
+        chon:hasHalfMove       :hmgamPJgs23K , :hmgamEJjct4H ;
+        chon:hasLastHalfMove   :hmgamPJgs23K ;
+        chon:hasOpening        :opeEJjct4 ;
+        chon:hasReport         :cgrEJjct4 ;
+        chon:hasResult         :resEJjct4H ;
+        chon:subEventOf        :touEJjct .
+
+:cgrEJjct4  a   chon:ChessGameReport .
+
+:hmgamPJgs23K  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgPJgs23KP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxg5" , "Qb3" , "Bc6" , "Qxd5" , "Bxc1" , "Bxd7" , "Qxc1" , "c2" , "Be3" , "g5" , "c1=Q" , "Kg2" ;
+        chon:nextHalfMove      :hmgamPJgs23K .
+
+:hmgamEJjct4H  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEJjct4HE ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc2" , "a5" , "Qa2" , "d4" , "Bg5" , "Ne7" , "Rb1" , "Nh2" , "Nc3" , "Nxe4" , "f4" , "Qa5" , "O-O" , "d5" , "Qd3" , "Kh8" , "Rb8" , "cxb4" , "Be7" , "Bh6" , "Bd1" , "cxd4" , "a4" , "Qa1" , "Qxd4+" , "Qg3" , "Rxb1" , "g6" , "Bd3" , "Bh4+" , "bxc3" , "Kf2" , "fxe5" , "Bf6+" , "Qxa4" , "Bc5" , "Qd2" , "h4" , "Be3" , "Nxc3" , "Nxd4" , "e5" , "Bf8" , "b4" , "b5" , "Rac1" , "Be6" , "Nf6" , "h6" , "Kxf1" , "g4" , "Kg8" , "Rb2" , "Nxb4" , "c3" , "Rb3" , "Qf3" , "Nf6+" , "Qe1" , "Nf3" , "c5" , "Be2" , "h3" , "e4" , "Rxf1+" , "Ng4" , "Rfb8" , "Nc6" , "Nd7" , "Nf5" , "c4" , "h5" , "Qb1+" ;
+        chon:nextHalfMove      :hmgamPJgs23K , :hmgamEJjct4H .
+
+:agEJjct4  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Spangenberg, Hugo" .
+
+:rolEJjct4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEJjct4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEJjct4 .
+
+chon:HalfMove  chon:subEventOf  :gamcH0T8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEJjct4 .
+
+:resEJjct4H  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgEJjct4HE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEJjct4 .
+
+:opeEJjct4  a            chon:ChessOpening ;
+        chon:hasECOCode  "C29" .
+
+:touEJjct  a          chon:hessTournament ;
+        chon:atPlace  :placH0T84 ;
+        chon:hasName  "Buenos Aires m rapid" .
+
+:placH0T84  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgPJgs23KP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEJjct4 .

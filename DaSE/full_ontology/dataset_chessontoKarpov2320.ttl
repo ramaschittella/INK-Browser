@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resajME4TI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaajME4T  a         chon:Place ;
+        chon:hasName  "Beijing" .
+
+:cgrajME4T  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agajME4T .
+
+chon:HalfMove  chon:subEventOf  :gamajME4 .
+
+:agajME4T  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Wang Lei" .
+
+:rolajME4T  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agajME4T .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agajME4T .
+
+:rolhgajME4TID  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agajME4T .
+
+:gamajME4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolajME4T ;
+        chon:atPlace           :plaajME4T ;
+        chon:atTime            "1998.05.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamajME4TI ;
+        chon:hasHalfMove       :hmgamljGSASN , :hmgamajME4TI ;
+        chon:hasLastHalfMove   :hmgamljGSASN ;
+        chon:hasOpening        :opeajME4T ;
+        chon:hasReport         :cgrajME4T ;
+        chon:hasResult         :resajME4TI ;
+        chon:subEventOf        :touajME4 .
+
+:touajME4  a          chon:hessTournament ;
+        chon:atPlace  :plaajME4T ;
+        chon:hasName  "Beijing sim" .
+
+:hmgamajME4TI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgajME4TID , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamljGSASN .
+
+:rolhgljGSASNQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agajME4T .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeajME4T  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:hmgamljGSASN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgljGSASNQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b4" , "Bxc4" , "Kf2" , "d6" , "Nbd7" , "Nbc6" , "Qc7" , "Nc4" , "Bh4" , "Nf3" , "Qe5" , "Bb7" , "Nb5" , "a3" , "dxc5" , "Ke1" , "b6" , "Kf8" , "Nd2" , "Bxb5" , "Bg3" , "Nb8" , "Kd2" , "e6" , "d5" , "Nxb5" , "Qc2" , "Nd4" , "Nc3" , "Bxc3+" , "Rxc3" , "Bb4" , "Nfd7" , "Ne7" , "cxd5" , "Nb3" , "Ke7" , "Bf2" , "dxc4" , "Rac1" , "Rfc1" , "c4" , "Be2" , "Qb2" , "Nxc8" , "Nf6" , "Nd6" , "c5" , "Nxe5" , "Rxc5" , "Rc3" , "exd5" , "Qxc3" , "Bg5" , "Re8" , "Rc8" , "e3" , "Qxe5" , "Rxc8+" , "O-O" , "f6" , "f3" ;
+        chon:nextHalfMove      :hmgamljGSASN .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plai88S8X  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+:cgri88S8X  a   chon:ChessGameReport .
+
+:roli88S8X  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agi88S8X .
+
+:hmgami88S8XQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgi88S8XQz , :rolhgt839EWTK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qe2" , "Nxd5" , "Na4" , "Rac8" , "Rxc3" , "Kf1" , "Bxe3+" , "d5" , "Be7" , "Rd3" , "Qe1" , "d4" , "Rc8" , "e6" , "Qc6" , "Qc2" , "Ne5" , "f3" , "Bc2" , "Qb4" , "Nd3" , "b6" , "h6" , "Qc8" , "Qb3" , "Nf6" , "Qb6" , "Rxe3" , "Rc3" , "a3" , "a6" , "Rd8" , "Qf2" , "Nxc5" , "Nd7" , "cxd5" , "Nc5" , "Qc5" , "Bb5+" , "Nf3" , "dxc5" , "Rd1" , "b5" , "Be3" , "Qc7" , "O-O" , "e4" , "Ba4" , "Bb7" , "e3" , "Bc5" , "c6" , "Qc4+" , "Rxc5" , "c5" , "Nxc3" , "Qd2" , "Qxc3" , "c4" , "Rc1" , "Nc3" ;
+        chon:nextHalfMove      :hmgamt839EWT , :hmgami88S8XQ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi88S8X .
+
+chon:HalfMove  chon:subEventOf  :gami88S8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi88S8X .
+
+:rolhgi88S8XQz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi88S8X .
+
+:agi88S8X  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ivanchuk, Vassily" .
+
+:rolhgt839EWTK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi88S8X .
+
+:opei88S8X  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:gami88S8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roli88S8X ;
+        chon:atPlace           :plai88S8X ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgami88S8XQ ;
+        chon:hasHalfMove       :hmgamt839EWT , :hmgami88S8XQ ;
+        chon:hasLastHalfMove   :hmgamt839EWT ;
+        chon:hasOpening        :opei88S8X ;
+        chon:hasReport         :cgri88S8X ;
+        chon:hasResult         :resi88S8XQ ;
+        chon:subEventOf        :toui88S8 .
+
+:hmgamt839EWT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgt839EWTK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxh2" , "h5" , "Kf2" , "Ke3" , "Qd3" , "Qc7" , "h4" , "Qg3+" , "Kf1" , "Qd2" , "Qg5+" ;
+        chon:nextHalfMove      :hmgamt839EWT .
+
+:toui88S8  a          chon:hessTournament ;
+        chon:atPlace  :plai88S8X ;
+        chon:hasName  "Roquebrune" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resi88S8XQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

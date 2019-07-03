@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touhORSe  a          chon:hessTournament ;
+        chon:atPlace  :plaQMHzRu ;
+        chon:hasName  "Bled" .
+
+:gamQMHzR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhORSeu ;
+        chon:atPlace           :plaQMHzRu ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhORSeuh ;
+        chon:hasHalfMove       :hmgamtOO6Luk , :hmgamhORSeuh ;
+        chon:hasLastHalfMove   :hmgamtOO6Luk ;
+        chon:hasOpening        :opehORSeu ;
+        chon:hasReport         :cgrhORSeu ;
+        chon:hasResult         :reshORSeuh ;
+        chon:subEventOf        :touhORSe .
+
+:reshORSeuh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opehORSeu  a            chon:ChessOpening ;
+        chon:hasECOCode  "E98" .
+
+:rolhgtOO6Lukw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghORSeu .
+
+:hmgamtOO6Luk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtOO6Lukw , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qxg6+" , "Nxf1" , "Rf4" , "Qc7" , "Nb6" , "Bg7" , "Rxf1" , "Qxb6" , "Qe6+" , "Rb1" , "Qxb4" , "Qg6" , "Rxb7" , "Qd4" , "Kh8" , "Qa5" , "b4" , "Nxc5" , "Bd3" , "Qxc5" ;
+        chon:nextHalfMove      :hmgamtOO6Luk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghORSeu .
+
+:hmgamhORSeuh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghORSeuhj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nxg3" , "Nf6" , "d5" , "f5" , "Ne7" , "Bd4+" , "d4" , "g6" , "O-O" , "Nbxd6" , "g3" , "Qxd3" , "Nc3" , "Nf3" , "e5" , "Nfe4" , "Nf2" , "Nb5" , "Nd4" , "Bg7" , "Ne1" , "Bxd4" , "Nh5" , "d3" , "Be3" , "exf5" , "h6" , "Nxf5" , "Qd7" , "Nd7" , "f3" , "c5" , "Kg2" , "Nc6" , "d6" , "Nd3" , "Nxc8" , "c4" , "a6" , "e4" , "Be2" , "Bg5" , "exd4" ;
+        chon:nextHalfMove      :hmgamtOO6Luk , :hmgamhORSeuh .
+
+chon:HalfMove  chon:subEventOf  :gamQMHzR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghORSeu .
+
+:cgrhORSeu  a   chon:ChessGameReport .
+
+:aghORSeu  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Gligoric, Svetozar" .
+
+:rolhORSeu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghORSeu .
+
+:plaQMHzRu  a         chon:Place ;
+        chon:hasName  "Bled" .
+
+:rolhghORSeuhj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghORSeu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

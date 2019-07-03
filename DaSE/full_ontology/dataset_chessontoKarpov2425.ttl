@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg78wO6gFK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag78wO6g .
+
+:rol78wO6g  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag78wO6g .
+
+:hmgam78wO6gF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg78wO6gFK , :rolhgi6q3SfKX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Adams, Michael" ;
+        chon:hasSANRecord      "Bc3" , "Bg2" , "Qc2" , "d4" , "Rc8" , "e6" , "g3" , "dxe4" , "c4" , "b5" , "Nf6" , "Bd2" , "e4" , "b6" , "Nf3" , "Bb4+" , "Nd2" , "b3" , "Re1" , "Nxd7" , "Be7" , "d5" , "Ne5" , "O-O" , "Nfd7" , "c6" , "Ba6" ;
+        chon:nextHalfMove      :hmgami6q3SfK , :hmgam78wO6gF .
+
+:pla78wO6g  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag78wO6g .
+
+chon:HalfMove  chon:subEventOf  :gam78wO6 .
+
+:gam78wO6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol78wO6g ;
+        chon:atPlace           :pla78wO6g ;
+        chon:atTime            "1999.04.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam78wO6gF ;
+        chon:hasHalfMove       :hmgam78wO6gF , :hmgami6q3SfK ;
+        chon:hasLastHalfMove   :hmgami6q3SfK ;
+        chon:hasOpening        :ope78wO6g ;
+        chon:hasReport         :cgr78wO6g ;
+        chon:hasResult         :res78wO6gF ;
+        chon:subEventOf        :tou78wO6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag78wO6g .
+
+:tou78wO6  a          chon:hessTournament ;
+        chon:atPlace  :pla78wO6g ;
+        chon:hasName  "Dos Hermanas" .
+
+:ag78wO6g  a          chon:Agent ;
+        chon:hasName  "Adams, Michael" , "Karpov, Anatoly" .
+
+:ope78wO6g  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:rolhgi6q3SfKX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag78wO6g .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgami6q3SfK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgi6q3SfKX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Adams, Michael" ;
+        chon:hasSANRecord      "Qxc5" , "Rxd1" , "Qa1" , "h4" , "Qd4" , "Qc1+" , "Qe7" , "Qd7" , "Qc2" , "Bxe4" , "dxe5" , "Rd2" , "Rd7" , "Nxc3" , "Rad1" , "Kh2" , "Nf3" , "Kg7" , "Re8" , "h5" , "Qxe5" , "Qd3" , "Qxd2" , "Qc1" , "Qxa2" , "Nxd2" , "Kg2" , "Bb5" , "Bf3" , "Rd1" , "Nd5" , "Qd8" , "Bf6" , "Rc1" , "Qf4" , "c5" , "Qa5" , "Qxc3" , "Rxd2" , "g6" , "bxc4" , "Qd2" , "Rd8" , "Ra1" , "Bc4" , "e5" , "Qc3" , "Qe4" , "Qb4" , "Bxd1" , "Rd3" , "Qf6" , "Bxe5" , "Rxa7" , "Rfd8" ;
+        chon:nextHalfMove      :hmgami6q3SfK .
+
+:cgr78wO6g  a   chon:ChessGameReport .
+
+:res78wO6gF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agLhDozj  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Schiffers, Emanuel Stepanovich" .
+
+:rolLhDozj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLhDozj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLhDozj .
+
+:hmgamLhDozjt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgchPIWkkc , :rolhgLhDozjtO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nf6" , "O-O-O" , "Bg5" , "Qe7" , "d6" , "Bxd4" , "e4" , "e5" , "Nc6" , "Bc4" , "Nxd4" , "dxe5" , "Bc5" , "O-O" , "fxe5" , "Be6" , "Nf3" , "f4" , "Bd3" , "d4" , "Kh1" ;
+        chon:nextHalfMove      :hmgamLhDozjt , :hmgamchPIWkk .
+
+chon:HalfMove  chon:subEventOf  :gamLhDoz .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLhDozj .
+
+:gamLhDoz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLhDozj ;
+        chon:atPlace           :plaLhDozj ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLhDozjt ;
+        chon:hasHalfMove       :hmgamLhDozjt , :hmgamchPIWkk ;
+        chon:hasLastHalfMove   :hmgamchPIWkk ;
+        chon:hasOpening        :opeLhDozj ;
+        chon:hasReport         :cgrLhDozj ;
+        chon:hasResult         :resLhDozjt ;
+        chon:subEventOf        :touLhDoz .
+
+:opeLhDozj  a            chon:ChessOpening ;
+        chon:hasECOCode  "C50" .
+
+:touLhDoz  a          chon:hessTournament ;
+        chon:atPlace  :plaLhDozj ;
+        chon:hasName  "Rostov on Don m" .
+
+:resLhDozjt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaLhDozj  a         chon:Place ;
+        chon:hasName  "Rostov on Don" .
+
+:rolhgchPIWkkc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLhDozj .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrLhDozj  a   chon:ChessGameReport .
+
+:hmgamchPIWkk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgchPIWkkc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rf2" , "Nc6" , "f5" , "Bxf6" , "gxf4" , "Raf1" , "Qxd4" , "a3" , "Nd4" , "Rdg8" , "Qh4" , "h6" , "f4" , "Rg5" , "Nc3" , "g3" , "h5" , "Rhg8" , "Nxd4" , "Qd8" , "gxf6" , "Nd5" , "Ne2" , "Qe1" , "Rg4" ;
+        chon:nextHalfMove      :hmgamchPIWkk .
+
+:rolhgLhDozjtO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLhDozj .

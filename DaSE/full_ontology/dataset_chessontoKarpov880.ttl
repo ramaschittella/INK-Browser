@@ -1,0 +1,68 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrw6KfXn  a   chon:ChessGameReport .
+
+:hmgamr4roIkV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgr4roIkVK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Rc8" .
+
+:agw6KfXn  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolw6KfXn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agw6KfXn .
+
+:opew6KfXn  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agw6KfXn .
+
+:hmgamw6KfXnF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgr4roIkVK , :rolhgw6KfXnFM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "c4" , "d4" , "Ne4" , "Qxc8" , "Be7" , "c5" , "Bf3" , "Bd7" , "cxd4" , "d5" , "Nc5" , "Nd5" , "Ncxe7" , "Rxc8" , "O-O" , "b6" , "Bh4" , "Rc1" , "Bb5" , "Nxd4" , "Nxe4" , "e6" , "h6" , "Rc8" , "Nf6" , "Nc6" , "Rd1" , "e3" , "Bg5" , "Nb3" , "Nc3" , "Nf3" , "Qb8" , "dxc4" , "Bxe7" , "Qd4" , "Be2" , "Nxd5" , "Bxc4" , "Bxe4" ;
+        chon:nextHalfMove      :hmgamr4roIkV , :hmgamw6KfXnF .
+
+chon:HalfMove  chon:subEventOf  :gamw6KfX .
+
+:touw6KfX  a          chon:hessTournament ;
+        chon:atPlace  :plaw6KfXn ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agw6KfXn .
+
+:rolhgr4roIkVK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agw6KfXn .
+
+:resw6KfXnF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaw6KfXn  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:rolhgw6KfXnFM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agw6KfXn .
+
+:gamw6KfX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolw6KfXn ;
+        chon:atPlace           :plaw6KfXn ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamw6KfXnF ;
+        chon:hasHalfMove       :hmgamw6KfXnF , :hmgamr4roIkV ;
+        chon:hasLastHalfMove   :hmgamr4roIkV ;
+        chon:hasOpening        :opew6KfXn ;
+        chon:hasReport         :cgrw6KfXn ;
+        chon:hasResult         :resw6KfXnF ;
+        chon:subEventOf        :touw6KfX .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamIsk0v  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTsgn4v ;
+        chon:atPlace           :plaTsgn4v ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTsgn4vW ;
+        chon:hasHalfMove       :hmgam2wZEGR7 , :hmgamTsgn4vW ;
+        chon:hasLastHalfMove   :hmgam2wZEGR7 ;
+        chon:hasOpening        :opeTsgn4v ;
+        chon:hasReport         :cgrTsgn4v ;
+        chon:hasResult         :resTsgn4vW ;
+        chon:subEventOf        :touTsgn4 .
+
+:plaTsgn4v  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTsgn4v .
+
+:rolhg2wZEGR7m  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTsgn4v .
+
+:hmgam2wZEGR7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2wZEGR7m , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Benko, Pal C" ;
+        chon:hasSANRecord      "Rxf1" , "Qxc5" , "Qe5" , "Kh8" , "Qg5+" , "Bxf6" , "Nce4" , "Nxb3" , "Qd4" , "Nc5" , "Qe7" , "Ba6" , "Rad1" , "Bxf1" , "exf4" , "gxf6" , "Nxf6+" , "Qxf6" , "f5" , "Nh5" , "Qh5" , "Nef6+" , "Qh6" ;
+        chon:nextHalfMove      :hmgam2wZEGR7 .
+
+chon:HalfMove  chon:subEventOf  :gamIsk0v .
+
+:agTsgn4v  a          chon:Agent ;
+        chon:hasName  "Benko, Pal C" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTsgn4v .
+
+:touTsgn4  a          chon:hessTournament ;
+        chon:atPlace  :plaTsgn4v ;
+        chon:hasName  "Candidats Tournament" .
+
+:rolTsgn4v  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTsgn4v .
+
+:hmgamTsgn4vW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTsgn4vWW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Benko, Pal C" ;
+        chon:hasSANRecord      "b5" , "d4" , "e5" , "Kh1" , "Bc4" , "e6" , "O-O" , "b4" , "Ng3" , "Nf6" , "Be7" , "f4" , "Nf3" , "Bb3" , "cxd4" , "Nxd4" , "Qb6" , "Bg5" , "Nc3" , "d6" , "e4" , "Qc5" , "Na5" , "Nde2" , "Nc6" , "c5" , "Bxf6" , "dxe5" ;
+        chon:nextHalfMove      :hmgamTsgn4vW , :hmgam2wZEGR7 .
+
+:opeTsgn4v  a            chon:ChessOpening ;
+        chon:hasECOCode  "B57" .
+
+:rolhgTsgn4vWW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTsgn4v .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resTsgn4vW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrTsgn4v  a   chon:ChessGameReport .

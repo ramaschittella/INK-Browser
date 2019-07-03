@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamfy31fBk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfy31fBkB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qc2" , "Bb2" , "Qxd5" , "Nb6" , "Qxd3" , "c5" , "Bd3" , "Qb7" , "Bf5" , "c4" , "c6" , "axb4" , "a6" , "Nf8" , "Re7" , "Be7" , "Rc8" , "Qa3" , "Rdc4" , "R4c7" , "Rxg5" , "Ne4" , "Rxe7" , "Nxe6" , "Nbd2" , "Qd4" , "d4" , "Kg2" , "Qd7" , "e4" , "Nf4" , "d5" , "Nd5" , "Qb1+" , "Bxd3" , "Be2" , "Qxb7" , "O-O" , "hxg5" , "Qf1" , "Qa4" , "dxc4" , "Qa5" , "Ne5" , "Rxd4" , "Qd5" , "Ng6" , "Rfd8" , "Rxd5" , "a3" , "g3" , "g5" , "Bxg5" , "e5" , "Bxc4" , "Re5" , "Kg6" , "g6" , "cxd4" , "e6" , "Nd7" , "Rbc4" , "Nfg5" , "Kg7" , "Nf7" , "Bxd4" , "Rc6" , "Qa1" , "Rf6" , "Rxc2" , "Nxb4" , "Rxe6" , "Qh3" , "h4" , "b4" , "fxe6" , "Qh4" , "Nc5" , "Re1" , "h5" , "Rxb4" , "Qc7" , "Nf3" , "Nd3" , "Ne7" , "Rc1" , "Qc3" ;
+        chon:nextHalfMove      :hmgamqwZgMBp , :hmgamfy31fBk .
+
+:rolhgqwZgMBpM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfy31fB .
+
+:cgrfy31fB  a   chon:ChessGameReport .
+
+:hmgamqwZgMBp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqwZgMBpM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Kg7" , "Qa3" , "Kg6" ;
+        chon:nextHalfMove      :hmgamqwZgMBp .
+
+:gamfy31f  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfy31fB ;
+        chon:atPlace           :plafy31fB ;
+        chon:atTime            "2005.05.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfy31fBk ;
+        chon:hasHalfMove       :hmgamfy31fBk , :hmgamqwZgMBp ;
+        chon:hasLastHalfMove   :hmgamqwZgMBp ;
+        chon:hasOpening        :opefy31fB ;
+        chon:hasReport         :cgrfy31fB ;
+        chon:hasResult         :resfy31fBk ;
+        chon:subEventOf        :toufy31f .
+
+:toufy31f  a          chon:hessTournament ;
+        chon:atPlace  :plafy31fB ;
+        chon:hasName  "Grand Prix" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfy31fB .
+
+chon:HalfMove  chon:subEventOf  :gamfy31f .
+
+:plafy31fB  a         chon:Place ;
+        chon:hasName  "Bordeaux FRA" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfy31fB .
+
+:agfy31fB  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Hamdouchi,H" .
+
+:rolfy31fB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfy31fB .
+
+:opefy31fB  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:rolhgfy31fBkB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfy31fB .
+
+:resfy31fBk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

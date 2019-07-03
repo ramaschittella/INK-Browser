@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agZwjNnx  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:opeZwjNnx  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:gamOwnzQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZwjNnx ;
+        chon:atPlace           :plaZwjNnx ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZwjNnxS ;
+        chon:hasHalfMove       :hmgamZwjNnxS ;
+        chon:hasLastHalfMove   :hmgamZwjNnxS ;
+        chon:hasOpening        :opeZwjNnx ;
+        chon:hasReport         :cgrZwjNnx ;
+        chon:hasResult         :resZwjNnxS ;
+        chon:subEventOf        :touZwjNn .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZwjNnx .
+
+chon:HalfMove  chon:subEventOf  :gamOwnzQ .
+
+:resZwjNnxS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZwjNnx .
+
+:cgrZwjNnx  a   chon:ChessGameReport .
+
+:rolZwjNnx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZwjNnx .
+
+:hmgamZwjNnxS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZwjNnxSN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "exd5" , "Nd6" , "Be7" , "d4" , "e6" , "Nxd4" , "Nc6" , "Nf3" , "O-O" , "Nc3" , "Bb5" , "cxd5" , "exd4" , "a3" , "c4" , "Rfe1" , "Qxd4" , "Be2" , "Bxc5" , "Nb5" , "Bf4" , "Rd7" , "Rfd8" , "Bxd4" , "Nf6" , "Rc1" , "dxc5" , "c5" , "d5" , "Be6" , "Bb6" , "e3" , "Re7" ;
+        chon:nextHalfMove      :hmgamZwjNnxS .
+
+:plaZwjNnx  a         chon:Place ;
+        chon:hasName  "Sevilla" .
+
+:touZwjNn  a          chon:hessTournament ;
+        chon:atPlace  :plaZwjNnx ;
+        chon:hasName  "World Championship 34th-KK4" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgZwjNnxSN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZwjNnx .

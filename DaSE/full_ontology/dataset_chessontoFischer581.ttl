@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamtWhFnva  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtWhFnvan ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nd5" , "h3" , "Qb7" , "Rc8" , "cxd4" , "c3" , "Rxb5" , "e5" , "Kf8" , "d5" , "Rc7" , "O-O" , "Nc6" , "Nh5" , "Kg7" , "b5" , "Nf3" , "Bxg4" , "hxg6" , "Nxd4" , "Nxd5" , "axb5" , "g4" , "cxb5" , "Rb7" , "d4" , "Bg7" , "c5" , "Nxf4" , "Rb8+" , "Rxc1" , "Nc5" , "Ra4" , "Bg4" , "e3" , "Nd2" , "e4" , "Nb3" , "Rc1" , "Qd3" , "a5" , "a6" , "Nf6" , "Be3" , "Kb1" , "Nh3" , "h5" , "Rxc1+" , "Bxf4" , "Qe4" , "Qc7" , "h4" , "d3" , "Ra7" , "Qxb5" , "d6" , "exd5" , "Qb3" , "Rc4" , "Nxf2" , "c4" , "O-O-O" , "Nc3" , "Nf5" , "Qd7" , "Re8" , "Bf4" , "Be5" , "Ne7" , "Qxg4" , "a4" , "a3" , "Nf4" , "g5" , "g6" , "Be2" ;
+        chon:nextHalfMove      :hmgamtWhFnva .
+
+:platWhFnv  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtWhFnv .
+
+:cgrtWhFnv  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamtWhFn .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtWhFnv .
+
+:agtWhFnv  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Damjanovic, Mato" .
+
+:roltWhFnv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtWhFnv .
+
+:restWhFnva  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opetWhFnv  a            chon:ChessOpening ;
+        chon:hasECOCode  "B90" .
+
+:gamtWhFn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltWhFnv ;
+        chon:atPlace           :platWhFnv ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtWhFnva ;
+        chon:hasHalfMove       :hmgamtWhFnva ;
+        chon:hasLastHalfMove   :hmgamtWhFnva ;
+        chon:hasOpening        :opetWhFnv ;
+        chon:hasReport         :cgrtWhFnv ;
+        chon:hasResult         :restWhFnva ;
+        chon:subEventOf        :toutWhFn .
+
+:toutWhFn  a          chon:hessTournament ;
+        chon:atPlace  :platWhFnv ;
+        chon:hasName  "Skopje" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgtWhFnvan  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtWhFnv .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg7Wndjv5Z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7Wndjv .
+
+:ag7Wndjv  a          chon:Agent ;
+        chon:hasName  "Geller, Efim P" , "Fischer, Robert James" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7Wndjv .
+
+:tou7Wndj  a          chon:hessTournament ;
+        chon:atPlace  :plaaYG5xx ;
+        chon:hasName  "Skopje" .
+
+chon:HalfMove  chon:subEventOf  :gamaYG5x .
+
+:ope7Wndjv  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+:res7Wndjv5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7Wndjv .
+
+:plaaYG5xx  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:hmgam7Wndjv5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7Wndjv5Z , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "Nc6" , "bxc3" , "Ba4" , "Rxf6" , "Bb3" , "Qf1" , "d4" , "Be3" , "Bd7" , "a3" , "Nf3" , "Nf6" , "f4" , "b5" , "Bxb3" , "O-O-O" , "exf7+" , "cxd4" , "Rhf1" , "Qe2" , "O-O" , "Nxe4" , "Qf4" , "e6" , "Bc6" , "Bxd4" , "Bf6" , "fxe6" , "c5" , "Kb1" , "f5" , "Rad8" , "Qg4" , "Nc3" , "Qa5" , "d6" , "Nxd4" , "Qb7" , "b4" , "Kh8" , "e4" , "Bc4" , "Qb4" , "Be7" , "Rf5" ;
+        chon:nextHalfMove      :hmgam7Wndjv5 .
+
+:gamaYG5x  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7Wndjv ;
+        chon:atPlace           :plaaYG5xx ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7Wndjv5 ;
+        chon:hasHalfMove       :hmgam7Wndjv5 ;
+        chon:hasLastHalfMove   :hmgam7Wndjv5 ;
+        chon:hasOpening        :ope7Wndjv ;
+        chon:hasReport         :cgr7Wndjv ;
+        chon:hasResult         :res7Wndjv5 ;
+        chon:subEventOf        :tou7Wndj .
+
+:cgr7Wndjv  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol7Wndjv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7Wndjv .

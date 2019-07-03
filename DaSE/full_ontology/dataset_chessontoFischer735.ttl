@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope6xriJZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+:rolhg6xriJZ7w  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6xriJZ .
+
+:rolhggxowj10H  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6xriJZ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6xriJZ .
+
+:pla6xriJZ  a         chon:Place ;
+        chon:hasName  "Zagreb" .
+
+chon:HalfMove  chon:subEventOf  :gam6xriJ .
+
+:gam6xriJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6xriJZ ;
+        chon:atPlace           :pla6xriJZ ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6xriJZ7 ;
+        chon:hasHalfMove       :hmgamgxowj10 , :hmgam6xriJZ7 ;
+        chon:hasLastHalfMove   :hmgamgxowj10 ;
+        chon:hasOpening        :ope6xriJZ ;
+        chon:hasReport         :cgr6xriJZ ;
+        chon:hasResult         :res6xriJZ7 ;
+        chon:subEventOf        :tou6xriJ .
+
+:cgr6xriJZ  a   chon:ChessGameReport .
+
+:tou6xriJ  a          chon:hessTournament ;
+        chon:atPlace  :pla6xriJZ ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6xriJZ .
+
+:hmgamgxowj10  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggxowj10H , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Rc8" , "Rf4" , "Bb1" , "Bc5" , "R8b7" , "b3" , "Kf1" , "Bb6" , "Ke7" , "Ba5" , "Bb4" , "Kg2" , "e5" , "Kd6" , "Rc2" , "Rb4" , "Rb8" , "Bd4" , "Kd4" , "Bh7" , "Rf3" , "Rxb6" , "Rd2" , "Bd1" , "Ke2" , "Ba3" , "Be5" , "Kc5" , "Be2" , "Kc3" , "Bd6" , "Bxf3" , "Rc6" , "h3" , "Kf6" , "Rxf3" , "Rf3+" , "f3" , "Kg7" , "g4" , "Rc3" , "Bc2" , "R4b6" ;
+        chon:nextHalfMove      :hmgamgxowj10 .
+
+:ag6xriJZ  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Fischer, Robert James" .
+
+:rol6xriJZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6xriJZ .
+
+:res6xriJZ7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam6xriJZ7  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6xriJZ7w , :rolhggxowj10H ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Bd8" , "Kf1" , "c5" , "Nc6" , "Nxb5" , "Rd1" , "b6" , "Rce2" , "Nxe4" , "Kf6" , "Rc6" , "Qg4" , "Bb3" , "Nxd4" , "g5" , "Bf6" , "Bxb6" , "c4" , "e6" , "d4" , "Re2" , "Re1" , "cxb5" , "Nf3" , "Bc4" , "Rec1" , "Be5" , "Bxa7" , "Qd2" , "Be3" , "Nxb6" , "h5" , "d5" , "Rc1" , "g3" , "Bd4" , "Qe3" , "Qe2" , "cxd4" , "Nf6" , "Nd7" , "e4" , "Re3" , "Rc2" , "Rb8" , "Rd8" , "Rxa5" , "Be7" , "R1c2" , "h4" , "b5" , "Rad1" , "Kg7" , "d6" , "O-O" , "Rab5" , "R6c5" , "Qxa5" , "Ba6" , "Bxb5" , "Qa5" , "Nc3" , "Bxd4" , "R5b6" , "Rcc2" , "Bd6" ;
+        chon:nextHalfMove      :hmgamgxowj10 , :hmgam6xriJZ7 .

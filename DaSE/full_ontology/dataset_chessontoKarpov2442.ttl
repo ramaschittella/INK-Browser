@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgEyM16Y1S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEyM16Y .
+
+:gamdwSII  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEyM16Y ;
+        chon:atPlace           :plaEyM16Y ;
+        chon:atTime            "1999.07.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEyM16Y1 ;
+        chon:hasHalfMove       :hmgamEyM16Y1 ;
+        chon:hasLastHalfMove   :hmgamEyM16Y1 ;
+        chon:hasOpening        :opeEyM16Y ;
+        chon:hasReport         :cgrEyM16Y ;
+        chon:hasResult         :resEyM16Y1 ;
+        chon:subEventOf        :touEyM16 .
+
+:plaEyM16Y  a         chon:Place ;
+        chon:hasName  "Frankfurt" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEyM16Y .
+
+:cgrEyM16Y  a   chon:ChessGameReport .
+
+:hmgamEyM16Y1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEyM16Y1S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Re8" , "Nf4" , "f3" , "b6" , "Bh4" , "d4" , "Ng6" , "bxc5" , "Bc2" , "Bxc8" , "Rfc8" , "Qe7" , "b3" , "Bb4" , "Bd4" , "Qc3" , "Rad1" , "Rbxe4" , "Rc2" , "Bxc3+" , "Qc7" , "dxe4" , "Rxc8" , "a5" , "c5" , "Bc6" , "d5" , "cxd5" , "Nc3" , "Rxe4" , "Bc3" , "Bf2" , "Bb7" , "Bd5" , "Qb6" , "Qg3" , "e6" , "Bxe4" , "dxc5" , "Nh3" , "h6" , "e3" , "a6" , "Rxb4" , "Nbd7" , "Bg4" , "c4" , "Nf6" , "Rxc4" , "d6" , "Qxa5" , "a3" , "Qxb4" , "Rc7" , "Ba6" , "Ba4" , "Bc4" , "Rab8" , "O-O" , "Rd2" , "Ne5" , "Bxb3" , "Qc2" , "fxe4" , "Qe6" , "Qxc3" , "Bb3" , "Bd1" , "Qb4" , "e4" , "Re1" , "exd5" , "Bg5" , "Nxd5" , "Be2" , "a4" , "Rc8" ;
+        chon:nextHalfMove      :hmgamEyM16Y1 .
+
+chon:HalfMove  chon:subEventOf  :gamdwSII .
+
+:agEyM16Y  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEyM16Y .
+
+:rolEyM16Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEyM16Y .
+
+:opeEyM16Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:touEyM16  a          chon:hessTournament ;
+        chon:atPlace  :plaEyM16Y ;
+        chon:hasName  "Siemens Giants" .
+
+:resEyM16Y1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

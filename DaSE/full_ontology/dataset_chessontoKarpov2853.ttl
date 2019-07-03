@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamwSl4oaO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwSl4oaOM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "Nc4" , "Rb3" , "Nxc4" , "Bxe5" , "Ra1" , "Rc3" , "Re8" , "Be2" , "Be6" , "Bxc4" , "Nb3" , "Bb3" , "Bf4" , "Bb6" , "Be4" , "Bf3" , "Rb4" , "Rxe4" , "e3" , "Nxa5" , "Nd6" , "Bxe4" , "Bc4" , "Ne5" , "Rxa5" , "N1d2" , "Bd3" , "Rxa4" , "Bxa4" , "Rb1" , "O-O" ;
+        chon:nextHalfMove      :hmgamwSl4oaO .
+
+:hmgamAHEUSby  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAHEUSbyM , :rolhgwSl4oaOM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "a4" , "Qxd4" , "Nf5" , "Nfd2" , "b5" , "Bc5" , "a5" , "dxe5" , "Ncxe5" , "Bb2" , "d4" , "Nxc4" , "Ng6" , "c4" , "Bxd4" , "Nf3" , "Bc3" , "Nc6" , "a3" , "d5" , "Nd6" , "e5" , "Nge7" , "b4" ;
+        chon:nextHalfMove      :hmgamAHEUSby , :hmgamwSl4oaO .
+
+:cgrAHEUSb  a   chon:ChessGameReport .
+
+:gamAHEUS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAHEUSb ;
+        chon:atPlace           :plaAHEUSb ;
+        chon:atTime            "2006.01.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAHEUSby ;
+        chon:hasHalfMove       :hmgamwSl4oaO , :hmgamAHEUSby ;
+        chon:hasLastHalfMove   :hmgamwSl4oaO ;
+        chon:hasOpening        :opeAHEUSb ;
+        chon:hasReport         :cgrAHEUSb ;
+        chon:hasResult         :resAHEUSby ;
+        chon:subEventOf        :touAHEUS .
+
+:rolhgAHEUSbyM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAHEUSb .
+
+:touAHEUS  a          chon:hessTournament ;
+        chon:atPlace  :plaAHEUSb ;
+        chon:hasName  "Keres Mem Rapid" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAHEUSb .
+
+:plaAHEUSb  a         chon:Place ;
+        chon:hasName  "Tallinn EST" .
+
+chon:HalfMove  chon:subEventOf  :gamAHEUS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAHEUSb .
+
+:rolhgwSl4oaOM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAHEUSb .
+
+:agAHEUSb  a          chon:Agent ;
+        chon:hasName  "Kasimdzhanov,R" , "Karpov,Ana" .
+
+:rolAHEUSb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAHEUSb .
+
+:opeAHEUSb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D08" .
+
+:resAHEUSby  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou3E73L  a          chon:hessTournament ;
+        chon:atPlace  :pla3E73LY ;
+        chon:hasName  "Dos Hermanas" .
+
+:cgr3E73LY  a   chon:ChessGameReport .
+
+:ag3E73LY  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Piket, Jeroen" .
+
+:rol3E73LY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3E73LY .
+
+:ope3E73LY  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:res3E73LYY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3E73LY .
+
+chon:HalfMove  chon:subEventOf  :gam3E73L .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3E73LY .
+
+:hmgam3E73LYY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3E73LYY8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rd8" , "Rxd3" , "Nbd2" , "Rad1" , "cxd4" , "g3" , "Bc5" , "e5" , "Nxd2" , "g4" , "Rc1" , "Bg2" , "Re2" , "d4" , "gxh5+" , "h6" , "Bd8" , "axb3" , "dxc6" , "Bxb2" , "Qd1" , "f3" , "Qxd3" , "Kg4" , "g6" , "a4" , "Kxh5" , "Qe4" , "e6" , "Bxd2" , "b6" , "Bb4" , "Rc2" , "Qd3" , "Nc6" , "Ne4" , "Kf4" , "a5" , "Nf6" , "Rxb2" , "Bxc6" , "Bd4" , "Rxb3" , "Bf6" , "Bb7" , "b3" , "Kh7" , "Bg5" , "c5" , "Qd7" , "hxg6+" , "c4" , "Nf3" , "Kg6" , "Rc3" , "h4" , "O-O" , "Qc7" , "h5" , "Rb2" , "Rf3" , "Kxg6" , "Bxf3" , "Rxd7" , "Rd7" , "Be7" , "Qxd7" , "Kg2" , "Qxd4" , "e4" , "Ba6" , "Kg3" , "Kf1" , "Bf4" ;
+        chon:nextHalfMove      :hmgam3E73LYY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla3E73LY  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:gam3E73L  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3E73LY ;
+        chon:atPlace           :pla3E73LY ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3E73LYY ;
+        chon:hasHalfMove       :hmgam3E73LYY ;
+        chon:hasLastHalfMove   :hmgam3E73LYY ;
+        chon:hasOpening        :ope3E73LY ;
+        chon:hasReport         :cgr3E73LY ;
+        chon:hasResult         :res3E73LYY ;
+        chon:subEventOf        :tou3E73L .
+
+:rolhg3E73LYY8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3E73LY .

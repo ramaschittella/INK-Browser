@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touL4DS9  a          chon:hessTournament ;
+        chon:atPlace  :plaL4DS92 ;
+        chon:hasName  "UNAM Selected Simul" .
+
+:agL4DS92  a          chon:Agent ;
+        chon:hasName  "Gutierrez Garcia,Vicente" , "Karpov,Ana" .
+
+:rolL4DS92  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agL4DS92 .
+
+:resL4DS92s  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agL4DS92 .
+
+chon:HalfMove  chon:subEventOf  :gamL4DS9 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agL4DS92 .
+
+:rolhgL4DS92sJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agL4DS92 .
+
+:opeL4DS92  a            chon:ChessOpening ;
+        chon:hasECOCode  "A05" .
+
+:gamL4DS9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolL4DS92 ;
+        chon:atPlace           :plaL4DS92 ;
+        chon:atTime            "2010.11.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamL4DS92s ;
+        chon:hasHalfMove       :hmgamL4DS92s ;
+        chon:hasLastHalfMove   :hmgamL4DS92s ;
+        chon:hasOpening        :opeL4DS92 ;
+        chon:hasReport         :cgrL4DS92 ;
+        chon:hasResult         :resL4DS92s ;
+        chon:subEventOf        :touL4DS9 .
+
+:hmgamL4DS92s  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgL4DS92sJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gutierrez Garcia,Vicente" ;
+        chon:hasSANRecord      "e5" , "Bc3" , "Bg2" , "Ne3" , "Qe1" , "Rxd4" , "Bf3" , "dxc5" , "Bg5" , "Nd3" , "Ne5" , "Bxe4" , "d4" , "f5" , "Bxf6" , "Nfxd5" , "Qc1" , "c5" , "d5" , "Rd1" , "O-O" , "Rb3" , "Qxc5" , "Rbxc3" , "Qxc3" , "Nf3" , "Bxb2" , "g3" , "e4" , "Bf5" , "Bg7" , "Qa5" , "Rad8" , "Qd1" , "Nxe4" , "b4" , "Rd4" , "g5" , "Nc3" , "Nc6" , "Nf6" , "Nf4" , "Ne7" , "Rb1" , "Rd3" , "b5" , "g6" ;
+        chon:nextHalfMove      :hmgamL4DS92s .
+
+:plaL4DS92  a         chon:Place ;
+        chon:hasName  "Mexico City MEX" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrL4DS92  a   chon:ChessGameReport .

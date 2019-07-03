@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla2TDiQN  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:gam2TDiQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2TDiQN ;
+        chon:atPlace           :pla2TDiQN ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2TDiQNP ;
+        chon:hasHalfMove       :hmgam2TDiQNP , :hmgamsVNAcNG ;
+        chon:hasLastHalfMove   :hmgamsVNAcNG ;
+        chon:hasOpening        :ope2TDiQN ;
+        chon:hasReport         :cgr2TDiQN ;
+        chon:hasResult         :res2TDiQNP ;
+        chon:subEventOf        :tou2TDiQ .
+
+:rolhg2TDiQNPs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2TDiQN .
+
+:tou2TDiQ  a          chon:hessTournament ;
+        chon:atPlace  :pla2TDiQN ;
+        chon:hasName  "Tilburg rapid" .
+
+:cgr2TDiQN  a   chon:ChessGameReport .
+
+:hmgam2TDiQNP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2TDiQNPs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chernin, Alexander" ;
+        chon:hasSANRecord      "f4" , "b5" , "O-O" , "c4" , "b4" , "Be7" , "Nc3" , "axb6" , "Rxb6" , "Bd3" , "Qb6" , "e6" , "Nf3" , "Ra6" , "Qb3" , "Bd2" , "Rd8" , "e3" , "Nxe5" , "Bb6" , "a3" , "f6" , "cxd5" , "Rc5" , "Nf6" , "d4" , "Bd4" , "Bxb6" , "Qxb6" , "Rfc1" , "Bd7" , "Nc6" , "Bg4" , "Bc3" , "Nxd5" , "Ne5" , "d5" , "dxe5" , "fxe5" , "Bc6" , "Bb2" , "Bd8" , "c6" ;
+        chon:nextHalfMove      :hmgamsVNAcNG , :hmgam2TDiQNP .
+
+:ag2TDiQN  a          chon:Agent ;
+        chon:hasName  "Chernin, Alexander" , "Karpov, Anatoly" .
+
+:rol2TDiQN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2TDiQN .
+
+:ope2TDiQN  a            chon:ChessOpening ;
+        chon:hasECOCode  "D10" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2TDiQN .
+
+chon:HalfMove  chon:subEventOf  :gam2TDiQ .
+
+:rolhgsVNAcNGT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2TDiQN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2TDiQN .
+
+:res2TDiQNP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamsVNAcNG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsVNAcNGT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chernin, Alexander" ;
+        chon:hasSANRecord      "Kc6" , "b6" , "Rxh2" , "Kc5" , "Rc6+" , "Kd3" , "Rcc6" , "Ra8" , "Rc1" , "Kf7" , "Ra2" , "Kxd4" , "Kb6" , "Re5" , "Rxb7" , "e7" , "Kc7" , "Rxe7+" , "Kd6" , "e6+" , "Rc3" , "Rg5" , "R7a3+" , "a4" , "Ke7" , "Rc3+" , "Rxa4" , "Rc2+" , "Rxb5" , "b7" , "Kd8" , "Kd7" , "e8=Q" , "g4" , "Rxg2" , "Rg7" , "Rba6" , "Kd6+" , "Kxe6" , "b5" , "Kc8" , "Rd2+" , "Kd2" , "Bxb5" , "Re6+" , "e4" , "d4" , "Rc7+" , "Kf6" , "Kb5" , "Rb6" , "g5" , "Rxc6" , "Ke2" , "Qe7+" , "h5" , "R8a7" , "Rxb6" , "Kf2" ;
+        chon:nextHalfMove      :hmgamsVNAcNG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

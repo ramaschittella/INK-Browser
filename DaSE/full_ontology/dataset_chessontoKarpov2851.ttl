@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrEJXLSd  a   chon:ChessGameReport .
+
+:agEJXLSd  a          chon:Agent ;
+        chon:hasName  "Liiva,R" , "Karpov,Ana" .
+
+:rolEJXLSd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEJXLSd .
+
+:opeEJXLSd  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEJXLSd .
+
+:resEJXLSdh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamEJXLS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEJXLSd .
+
+:hmgamEJXLSdh  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEJXLSdhO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Liiva,R" ;
+        chon:hasSANRecord      "d4" , "d5" , "Nf3" , "e6" , "c4" , "c6" , "Nbd2" ;
+        chon:nextHalfMove      :hmgamEJXLSdh .
+
+:gamEJXLS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEJXLSd ;
+        chon:atPlace           :plaEJXLSd ;
+        chon:atTime            "2006.01.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEJXLSdh ;
+        chon:hasHalfMove       :hmgamEJXLSdh ;
+        chon:hasLastHalfMove   :hmgamEJXLSdh ;
+        chon:hasOpening        :opeEJXLSd ;
+        chon:hasReport         :cgrEJXLSd ;
+        chon:hasResult         :resEJXLSdh ;
+        chon:subEventOf        :touEJXLS .
+
+:touEJXLS  a          chon:hessTournament ;
+        chon:atPlace  :plaEJXLSd ;
+        chon:hasName  "Keres Mem Rapid" .
+
+:rolhgEJXLSdhO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEJXLSd .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaEJXLSd  a         chon:Place ;
+        chon:hasName  "Tallinn EST" .

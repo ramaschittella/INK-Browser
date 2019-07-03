@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam2bJ5SyJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2bJ5SyJQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko,P" ;
+        chon:hasSANRecord      "e4" , "e3" , "Nc6" , "Bxf6" , "Re8" , "Nxd3" , "Qe2" , "d4" , "Nd5" , "a3" , "Nxb6" , "Qd8" , "Ba5" , "Nc3" , "a6" , "h3" , "Re1" , "Rxd3" , "f6" , "Bxf3" , "Rad8" , "d5" , "Bd2" , "Qxb6" , "Nbd7" , "Nxe5" , "Nf6" , "Bg4" , "c6" , "Qxf3" , "cxd5" , "Rd1" , "f4" , "O-O" , "c4" , "dxe5" , "e5" , "Qxf6" , "e6" , "Nf3" , "Bb4" , "Na2" , "Bd3" , "Bc3" , "Ne5" , "Bb6" ;
+        chon:nextHalfMove      :hmgam2bJ5SyJ .
+
+:cgr2bJ5Sy  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2bJ5Sy .
+
+:res2bJ5SyJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gam2bJ5S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2bJ5Sy ;
+        chon:atPlace           :pla2bJ5Sy ;
+        chon:atTime            "2009.11.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2bJ5SyJ ;
+        chon:hasHalfMove       :hmgam2bJ5SyJ ;
+        chon:hasLastHalfMove   :hmgam2bJ5SyJ ;
+        chon:hasOpening        :ope2bJ5Sy ;
+        chon:hasReport         :cgr2bJ5Sy ;
+        chon:hasResult         :res2bJ5SyJ ;
+        chon:subEventOf        :tou2bJ5S .
+
+chon:HalfMove  chon:subEventOf  :gam2bJ5S .
+
+:tou2bJ5S  a          chon:hessTournament ;
+        chon:atPlace  :pla2bJ5Sy ;
+        chon:hasName  "World Blitz" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2bJ5Sy .
+
+:pla2bJ5Sy  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:rolhg2bJ5SyJQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2bJ5Sy .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag2bJ5Sy  a          chon:Agent ;
+        chon:hasName  "Leko,P" , "Karpov,Ana" .
+
+:rol2bJ5Sy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2bJ5Sy .
+
+:ope2bJ5Sy  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .

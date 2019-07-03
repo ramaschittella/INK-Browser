@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgS6dgzZuX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aga41VcW .
+
+:hmgama41VcWE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhga41VcWEx , chon:AgentRole , :rolhgS6dgzZuX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf3" , "Bg5" , "e3" , "d4" , "Be7" , "c5" , "b6" , "c3" , "Nbd2" , "Bh4" , "h6" , "O-O" , "Bb7" , "h3" , "Nf6" , "e6" ;
+        chon:nextHalfMove      :hmgamS6dgzZu , :hmgama41VcWE .
+
+:gama41Vc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rola41VcW ;
+        chon:atPlace           :plaa41VcW ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgama41VcWE ;
+        chon:hasHalfMove       :hmgamS6dgzZu , :hmgama41VcWE ;
+        chon:hasLastHalfMove   :hmgamS6dgzZu ;
+        chon:hasOpening        :opea41VcW ;
+        chon:hasReport         :cgra41VcW ;
+        chon:hasResult         :resa41VcWE ;
+        chon:subEventOf        :toua41Vc .
+
+:aga41VcW  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hort, Vlastimil" .
+
+:toua41Vc  a          chon:hessTournament ;
+        chon:atPlace  :plaa41VcW ;
+        chon:hasName  "Biel" .
+
+:opea41VcW  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .
+
+:hmgamS6dgzZu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgS6dgzZuX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nh5" , "Qe2" , "b4" , "Nc6" , "Bd3" , "cxd4" , "Rc1" , "Na5" , "Rc2" , "O-O" , "Rfc8" , "Bxe7" , "d6" , "a3" , "Qxe7" ;
+        chon:nextHalfMove      :hmgamS6dgzZu .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga41VcW .
+
+chon:HalfMove  chon:subEventOf  :gama41Vc .
+
+:resa41VcWE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga41VcW .
+
+:plaa41VcW  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:cgra41VcW  a   chon:ChessGameReport .
+
+:rolhga41VcWEx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aga41VcW .
+
+:rola41VcW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aga41VcW .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

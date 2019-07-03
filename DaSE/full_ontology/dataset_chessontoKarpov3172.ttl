@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope7yK1aI  a            chon:ChessOpening ;
+        chon:hasECOCode  "B10" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7yK1aI .
+
+:hmgam7yK1aIu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7yK1aIuA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qd3" , "Bb5+" , "h6" , "Qxf3" , "Ne3+" , "Nf6" , "a4" , "Nc6" , "b8=Q" , "Rcd8" , "Ba3" , "e4" , "Re1" , "Rd7" , "Bf6" , "axb5" , "Rxb7" , "Rxe5" , "d4" , "Ng5" , "Bxe5" , "Rb2" , "Bb4" , "Nc3" , "Rxa7" , "Nxd5" , "f5" , "Ne4" , "Kg2" , "Nd2" , "Rd8+" , "gxf3" , "b7" , "Kf7" , "c4" , "Bg7" , "Re8" , "e5" , "h3" , "Bxb5" , "O-O" , "c6" , "Rd2" , "Bd7" , "Nc4" , "Nc5" , "g6" , "Nf3" , "b6" , "cxd5" , "dxe5" , "Rc8" , "Qf3" , "exd5" , "bxc3" , "Nxc3" , "Qd5" , "d5" , "Na5" ;
+        chon:nextHalfMove      :hmgam7yK1aIu .
+
+:pla7yK1aI  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:gam7yK1a  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7yK1aI ;
+        chon:atPlace           :pla7yK1aI ;
+        chon:atTime            "2009.11.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7yK1aIu ;
+        chon:hasHalfMove       :hmgam7yK1aIu ;
+        chon:hasLastHalfMove   :hmgam7yK1aIu ;
+        chon:hasOpening        :ope7yK1aI ;
+        chon:hasReport         :cgr7yK1aI ;
+        chon:hasResult         :res7yK1aIu ;
+        chon:subEventOf        :tou7yK1a .
+
+chon:HalfMove  chon:subEventOf  :gam7yK1a .
+
+:tou7yK1a  a          chon:hessTournament ;
+        chon:atPlace  :pla7yK1aI ;
+        chon:hasName  "World Blitz" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7yK1aI .
+
+:cgr7yK1aI  a   chon:ChessGameReport .
+
+:ag7yK1aI  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Tkachiev,V" .
+
+:rol7yK1aI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7yK1aI .
+
+:res7yK1aIu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhg7yK1aIuA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7yK1aI .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

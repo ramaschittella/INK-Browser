@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamiUo6B  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltUlj98 ;
+        chon:atPlace           :plaiUo6B9 ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtUlj98O ;
+        chon:hasHalfMove       :hmgamtUlj98O ;
+        chon:hasLastHalfMove   :hmgamtUlj98O ;
+        chon:hasOpening        :opetUlj98 ;
+        chon:hasReport         :cgrtUlj98 ;
+        chon:hasResult         :restUlj98O ;
+        chon:subEventOf        :toutUlj9 .
+
+:toutUlj9  a          chon:hessTournament ;
+        chon:atPlace  :plaiUo6B9 ;
+        chon:hasName  "Buenos Aires Sicilian" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtUlj98 .
+
+chon:HalfMove  chon:subEventOf  :gamiUo6B .
+
+:agtUlj98  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:roltUlj98  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtUlj98 .
+
+:opetUlj98  a            chon:ChessOpening ;
+        chon:hasECOCode  "B81" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtUlj98 .
+
+:plaiUo6B9  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:restUlj98O  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgtUlj98Ok  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtUlj98 .
+
+:cgrtUlj98  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamtUlj98O  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtUlj98Ok ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "c5" , "Qf5+" , "a4" , "Bxh3" , "Qb6" , "Nf6" , "cxd4" , "Rb5" , "g6" , "Bc3" , "Rd4" , "Rh8" , "e5" , "b4" , "e6" , "Qa5" , "Rf3" , "Bg4" , "Kd3" , "Qe5+" , "Rd2" , "Be3" , "Bb2" , "Qc1+" , "Rd3" , "h4" , "d4" , "d5" , "Bf3" , "Qxe2" , "Qb8" , "Ba6" , "Qxc6" , "Qf3" , "a3" , "Qxe5+" , "Ke2" , "Rxd4" , "Bc5" , "Nbd4" , "Qxc2" , "hxg6" , "g5" , "Qc2+" , "Nb3" , "e4" , "fxe5" , "b3" , "Nf3" , "Rh3" , "Qc6" , "h5" , "Bg3" , "Nc3" , "f4" , "Rd1" , "Ne2" , "Nxe5" , "Ke7" , "Nfd7" , "Bf2" , "Bxd4" , "a5" , "Rc1" , "Rcd1" , "Rb6" , "Nd7" , "Rxh3" , "Qb5" , "b5" , "Qc7" , "g4" , "Nb6" , "Qa6" , "Kf1" , "Bd4" , "Rb1" , "Bxe2" , "Qc5" , "Nxd4" , "Nc6" , "Bg2" , "Rg8" , "Qa4" , "Nxc6" , "Rac8" , "Be1" , "Rc6" , "a6" , "d6" ;
+        chon:nextHalfMove      :hmgamtUlj98O .

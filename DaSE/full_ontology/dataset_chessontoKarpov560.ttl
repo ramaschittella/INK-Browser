@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opepkJRHn  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXixwkm .
+
+chon:HalfMove  chon:subEventOf  :gamXixwk .
+
+:cgrpkJRHn  a   chon:ChessGameReport .
+
+:plaXixwkm  a         chon:Place ;
+        chon:hasName  "Munich" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXixwkm .
+
+:hmgampkJRHnY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpkJRHnYi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "b6" , "Be5" , "O-O" , "cxd4" , "Nc6" , "c4" , "Nc3" , "Ne5" , "exd5" , "Re8" , "Be7" , "Rc1" , "Rfd1" , "Nxc6" , "Bb7" , "Nf6" , "d4" , "Qd7" , "Bxc6" , "e6" , "a6" , "exd4" , "Bd3" , "cxd5" , "Bf4" , "Nf3" , "c5" , "Qf3" , "e3" ;
+        chon:nextHalfMove      :hmgampkJRHnY .
+
+:rolpkJRHn  a             chon:AuthorRole ;
+        chon:performedBy  :agpkJRHn .
+
+:agXixwkm  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Robatsch, Karl" .
+
+:rolXixwkm  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamXixwk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXixwkm ;
+        chon:atPlace           :plaXixwkm ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampkJRHnY ;
+        chon:hasHalfMove       :hmgampkJRHnY ;
+        chon:hasLastHalfMove   :hmgampkJRHnY ;
+        chon:hasOpening        :opepkJRHn ;
+        chon:hasReport         :cgrpkJRHn ;
+        chon:hasResult         :respkJRHnY ;
+        chon:subEventOf        :touXixwk .
+
+:rolhgpkJRHnYi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXixwkm .
+
+:touXixwk  a          chon:hessTournament ;
+        chon:atPlace  :plaXixwkm ;
+        chon:hasName  "Munich+" .
+
+:respkJRHnY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

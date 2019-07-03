@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamSZOFTkS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSZOFTkSL , :rolhgOXxODkSJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Della Morte,P" ;
+        chon:hasSANRecord      "b6" , "Kg3" , "Qxc4" , "O-O" , "dxc5" , "Bg7" , "Rfe8" , "Nf3" , "Bxc6" , "Qb7" , "Ba6" , "d4" , "c4" , "Bd4+" , "Kf2" , "Rxa2" , "Qc7" , "Qxc5" , "Bd7" , "Kh7" , "g6" , "Bf4" , "b3" , "h6" , "Rd6" , "Be4" , "Rxe7" , "Nd5" , "Rb7" , "Rb6" , "Ne3" , "Rb1" , "Qxa6" , "Rxe2" , "Qa3" , "Bb7" , "Bxc4" , "bxc4" , "a6" , "Qxe7" , "Bxd5" , "b5" , "g4" , "Na5" , "g3" , "Ng2" , "Qa4" , "c6" , "c5" , "Nc6" , "d6" , "f3" , "Nf6" , "Bg2" , "h4" , "Nc4" , "Nc3" , "Nh4" , "Rb8" , "Re1" , "c3" , "Bc6" , "Ra8" , "Nxd5" ;
+        chon:nextHalfMove      :hmgamSZOFTkS , :hmgamOXxODkS .
+
+:rolSZOFTk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSZOFTk .
+
+:touSZOFT  a          chon:hessTournament ;
+        chon:atPlace  :plaSZOFTk ;
+        chon:hasName  "Karpov Simul" .
+
+:plaSZOFTk  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSZOFTk .
+
+:resSZOFTkS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamSZOFT .
+
+:agSZOFTk  a          chon:Agent ;
+        chon:hasName  "Della Morte,P" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSZOFTk .
+
+:opeSZOFTk  a            chon:ChessOpening ;
+        chon:hasECOCode  "E63" .
+
+:hmgamOXxODkS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOXxODkSJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Della Morte,P" ;
+        chon:hasSANRecord      "Bf7" , "g5" , "Bb3" , "Bb5" , "Ra1" , "Kg7" , "Rc3" , "Rd5" , "Be6" , "hxg5" , "Bxe2" , "Bxf6" , "c2" , "Rd6" , "Ra2" , "Rxf6" , "Ba4" , "Bb7" , "Rc4" , "Rc7" , "Rc5" , "f6" , "Bc1" , "Ba8" , "Bd5" , "Be3" , "Kh6" , "Rc8" , "Nf6+" , "Rb1" , "Kg3" , "Rb2" , "Kg6" , "Kf2" ;
+        chon:nextHalfMove      :hmgamOXxODkS .
+
+:gamSZOFT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSZOFTk ;
+        chon:atPlace           :plaSZOFTk ;
+        chon:atTime            "2005.09.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSZOFTkS ;
+        chon:hasHalfMove       :hmgamSZOFTkS , :hmgamOXxODkS ;
+        chon:hasLastHalfMove   :hmgamOXxODkS ;
+        chon:hasOpening        :opeSZOFTk ;
+        chon:hasReport         :cgrSZOFTk ;
+        chon:hasResult         :resSZOFTkS ;
+        chon:subEventOf        :touSZOFT .
+
+:rolhgSZOFTkSL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSZOFTk .
+
+:rolhgOXxODkSJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSZOFTk .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrSZOFTk  a   chon:ChessGameReport .

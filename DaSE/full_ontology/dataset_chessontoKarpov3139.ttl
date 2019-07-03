@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg7phqyJEJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7phqyJ .
+
+:pla7phqyJ  a         chon:Place ;
+        chon:hasName  "Zuerich SUI" .
+
+:res7phqyJE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgTGY3cQai  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7phqyJ .
+
+:ag7phqyJ  a          chon:Agent ;
+        chon:hasName  "Nueesch,G" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7phqyJ .
+
+:ope7phqyJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A64" .
+
+:gam7phqy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7phqyJ ;
+        chon:atPlace           :pla7phqyJ ;
+        chon:atTime            "2009.08.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7phqyJE ;
+        chon:hasHalfMove       :hmgam7phqyJE , :hmgamTGY3cQa ;
+        chon:hasLastHalfMove   :hmgamTGY3cQa ;
+        chon:hasOpening        :ope7phqyJ ;
+        chon:hasReport         :cgr7phqyJ ;
+        chon:hasResult         :res7phqyJE ;
+        chon:subEventOf        :tou7phqy .
+
+chon:HalfMove  chon:subEventOf  :gam7phqy .
+
+:tou7phqy  a          chon:hessTournament ;
+        chon:atPlace  :pla7phqyJ ;
+        chon:hasName  "Champions Simul" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7phqyJ .
+
+:hmgam7phqyJE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7phqyJEJ , chon:AgentRole , :rolhgTGY3cQai ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nueesch,G" ;
+        chon:hasSANRecord      "Bd7" , "b4" , "Nf3" , "O-O" , "Nd2" , "Nc3" , "Re8" , "Nh5" , "Rab1" , "Qc2" , "Bd2" , "Nbd7" , "c5" , "b6" , "g6" , "a4" , "cxd5" , "d6" , "a6" , "c4" , "Ne5" , "d4" , "g3" , "Bf4" , "Nf6" , "Nxe5" , "Bg2" , "Bg7" , "d5" , "exd5" , "Nc4" , "e6" , "Rxe5" ;
+        chon:nextHalfMove      :hmgam7phqyJE , :hmgamTGY3cQa .
+
+:cgr7phqyJ  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol7phqyJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7phqyJ .
+
+:hmgamTGY3cQa  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTGY3cQai ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nueesch,G" ;
+        chon:hasSANRecord      "Qc1" , "Qe1" , "b5" , "Kh2" , "axb5" , "Rxe2" , "Rfe1" , "Qe8" , "Kg8" , "Ng5+" , "Nd4" , "Nxe2" , "Nb3" , "Be5" , "Ne6" , "f5" , "Rxa1" , "Qa8" , "Qe2" , "Nc3" , "Be3" , "Qd1" , "Nf5" , "Ng7" , "Ne2" , "Qa1" , "c3" , "Qb2" , "Ra1" , "h3" , "Nf4" , "Bf3" , "Kf7" , "Bxa1" , "c4" ;
+        chon:nextHalfMove      :hmgamTGY3cQa .

@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agtQL7rD  a          chon:Agent ;
+        chon:hasName  "Wang Zili" .
+
+:roltQL7rD  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resFQHk1Sr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrFQHk1S  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtQL7rD .
+
+:rolhgFQHk1SrS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFQHk1S , :agtQL7rD .
+
+chon:HalfMove  chon:subEventOf  :gamtQL7r .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFQHk1S .
+
+:hmgamFQHk1Sr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFQHk1SrS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kd4" , "d5" , "Bf5" , "Rxc8" , "Nxc5" , "Nxb3" , "Nfd2" , "Nd3" , "e5#" , "Rfc8" , "Rxc1" , "Rxa3+" , "Nxe5" , "Ke2" , "Ra4" , "Kd3" , "Rh4" , "Rxc4" , "Nf3" , "c6" , "Nd7" , "Kd6" , "Na3" , "Nxc4" , "Ne7" , "Bd5" , "Rd7" , "O-O" , "Rc5" , "Qc2" , "Rb5" , "c5" , "dxc5" , "Be3" , "b3" , "Rc8" , "Kf2" , "Ke7" , "Nb4" , "e5" , "Qxc1+" , "Bxc5" , "Rb1" , "c4" , "Qxd3" , "Be4" , "Rxb7" , "Rd1" , "Nd4+" , "Nc2" , "dxc4" , "f3" , "Nec6" , "e6" , "Rxc8+" , "Bxd3" , "e4" , "Kf8" , "Qc1" , "a3" , "d4" , "Rxb3" , "Be2" , "Rc7" ;
+        chon:nextHalfMove      :hmgamFQHk1Sr .
+
+:gamtQL7r  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltQL7rD ;
+        chon:atPlace           :platQL7rD ;
+        chon:atTime            "1998.05.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFQHk1Sr ;
+        chon:hasHalfMove       :hmgamFQHk1Sr ;
+        chon:hasLastHalfMove   :hmgamFQHk1Sr ;
+        chon:hasOpening        :opeFQHk1S ;
+        chon:hasReport         :cgrFQHk1S ;
+        chon:hasResult         :resFQHk1Sr ;
+        chon:subEventOf        :toutQL7r .
+
+:toutQL7r  a          chon:hessTournament ;
+        chon:atPlace  :platQL7rD ;
+        chon:hasName  "Beijing m g/25" .
+
+:agFQHk1S  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:rolFQHk1S  a             chon:AuthorRole ;
+        chon:performedBy  :agFQHk1S .
+
+:opeFQHk1S  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:platQL7rD  a         chon:Place ;
+        chon:hasName  "Beijing" .

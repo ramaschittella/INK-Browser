@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgWi67tOan  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWi67tO .
+
+:hmgamWi67tOa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9i3j1Pdy , :rolhgWi67tOan , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "Nxh6+" , "a5" , "Nxd5" , "Nc6" , "Ne5" , "e6" , "Qe3" , "Bg5" , "Bd7" , "cxd5" , "Qg3" , "d4" , "f5" , "Rac1" , "Bb1" , "O-O" , "Nf5" , "Re1" , "d5" , "Be7" , "Kh7" , "Rfd8" , "Qb6" , "a4" , "e4" , "c4" , "Nc3" , "Nf6" , "h6" , "Be3" , "Ng4" , "Be4" , "Nf3" , "Be8" , "Bd3" , "Bf6" , "Nce7" , "Qxc3" , "exd5" , "Qxe3" , "Qd3" , "Nxe3" , "Red1" , "f4" , "Nxc3" ;
+        chon:nextHalfMove      :hmgamWi67tOa , :hmgam9i3j1Pd .
+
+:cgrWi67tO  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWi67tO .
+
+:rolWi67tO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWi67tO .
+
+chon:HalfMove  chon:subEventOf  :gamWi67t .
+
+:resWi67tOa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWi67tO .
+
+:plaWi67tO  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:gamWi67t  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWi67tO ;
+        chon:atPlace           :plaWi67tO ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWi67tOa ;
+        chon:hasHalfMove       :hmgamWi67tOa , :hmgam9i3j1Pd ;
+        chon:hasLastHalfMove   :hmgam9i3j1Pd ;
+        chon:hasOpening        :opeWi67tO ;
+        chon:hasReport         :cgrWi67tO ;
+        chon:hasResult         :resWi67tOa ;
+        chon:subEventOf        :touWi67t .
+
+:hmgam9i3j1Pd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9i3j1Pdy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "f4" , "Qf3+" , "Kg7" , "Qxh4" , "Qxf4+" , "Qe1+" , "exf5" , "g6" , "h4" , "Rxb7" , "Qg3+" , "Qf6" , "Kc1" , "d5" , "Qh3+" , "Qc3" , "Qxd8+" , "Rxc8" , "Ke1" , "Be7" , "Bf7" , "Bf6" , "Qb4+" , "Qf6+" , "Qxe5" , "Rac8" , "Kc3" , "Kc2" , "Kd2" , "Kd1" , "Rc7" , "d6" , "Qe3" , "Qf2" , "Qxb7" , "gxf5" , "Kf8" , "Qe4+" , "Rc1" , "Bxe5" , "Qxb1" , "Ke3" , "Kf1" , "Qg2" , "Bd6" , "g4" , "Qd4+" , "Kd4" , "Rd8" ;
+        chon:nextHalfMove      :hmgam9i3j1Pd .
+
+:touWi67t  a          chon:hessTournament ;
+        chon:atPlace  :plaWi67tO ;
+        chon:hasName  "Linares" .
+
+:agWi67tO  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Topalov, Veselin" .
+
+:opeWi67tO  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+:rolhg9i3j1Pdy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWi67tO .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag7hYyoU  a          chon:Agent ;
+        chon:hasName  "Virostko, Petr" , "Karpov, Anatoly" .
+
+:rol7hYyoU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7hYyoU .
+
+:rolhg7hYyoUgD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7hYyoU .
+
+:hmgam7hYyoUg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7hYyoUgD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Virostko, Petr" ;
+        chon:hasSANRecord      "g4" , "Nd4" , "Nxg6+" , "O-O-O" , "b6" , "e4" , "Be3" , "Rf8" , "Ne7" , "Be6" , "c6" , "Be8" , "Nc1" , "a5" , "Nc3" , "fxe4" , "Nge2" , "Bb7" , "Kb1" , "Rxf1" , "d5" , "Be2" , "Bxe6" , "Qd2" , "Bxc5" , "h4" , "Nc6" , "h6" , "f3" , "Ng5" , "Nxe7" , "Qd7" , "dxe6" , "Bf8" , "g6" , "c4" , "e5" , "Qe2" , "a4" , "Bb5" , "Na7" , "Qd8" , "Nf6" , "Re8" , "Bf7+" , "h3" , "O-O" , "Rg7" , "d4" , "h5" , "Rf7" , "Qb7" , "Nd5" , "Rhf1" , "Nc8" , "Kh8" , "Nxe6" , "f5" , "Nc5" , "Bg7" , "cxd5" , "Bc8" , "bxc5" , "Qa6" , "Be7" , "Qc7" , "Nd7" , "d6" ;
+        chon:nextHalfMove      :hmgam7hYyoUg .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7hYyoU .
+
+chon:HalfMove  chon:subEventOf  :gamblhpF .
+
+:gamblhpF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7hYyoU ;
+        chon:atPlace           :plablhpFU ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7hYyoUg ;
+        chon:hasHalfMove       :hmgam7hYyoUg ;
+        chon:hasLastHalfMove   :hmgam7hYyoUg ;
+        chon:hasOpening        :ope7hYyoU ;
+        chon:hasReport         :cgr7hYyoU ;
+        chon:hasResult         :res7hYyoUg ;
+        chon:subEventOf        :toublhpF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7hYyoU .
+
+:toublhpF  a          chon:hessTournament ;
+        chon:atPlace  :plablhpFU ;
+        chon:hasName  "EE Internet sim" .
+
+:ope7hYyoU  a            chon:ChessOpening ;
+        chon:hasECOCode  "E85" .
+
+:res7hYyoUg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr7hYyoU  a   chon:ChessGameReport .
+
+:plablhpFU  a         chon:Place ;
+        chon:hasName  "Cannes" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou4ZM2N  a          chon:hessTournament ;
+        chon:atPlace  :pla4ZM2Nf ;
+        chon:hasName  "Zuerich sim" .
+
+:ope4ZM2Nf  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4ZM2Nf .
+
+:hmgam4ZM2Nfs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4ZM2Nfsl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Weder, Hanspeter" ;
+        chon:hasSANRecord      "Bg5" , "Bg7" , "Qb8+" , "Qf6" , "Nf6" , "Nxe4" , "bxc4" , "dxe5" , "Nd7" , "Qc1" , "Qg8+" , "Bxc4" , "b5" , "g6" , "Nf8" , "Rxa8" , "Ng5" , "Rd1" , "g3" , "Nc3" , "Nf3" , "c6" , "e5" , "Nb1" , "Qxb6" , "Rd8" , "Bxf7" , "Ne6" , "Rfd8" , "c3" , "Kh7" , "a5" , "Bg4" , "Qc6" , "Nbd7" , "axb6" , "h4" , "Be3" , "h6" , "Nd2" , "c5" , "Qxd1" , "Nb6" , "Qe8" , "d4" , "d6" , "c4" , "Kh6" , "O-O" , "Kg2" , "Qc7" , "Bxf3" , "b3" , "Qb3" , "Bxb6" , "e4" , "Re1" , "Nd6" , "Qc2" , "Rxd1+" , "Be2" , "h5" , "b6" , "Nc5" , "Qd8" , "a4" ;
+        chon:nextHalfMove      :hmgam4ZM2Nfs .
+
+chon:HalfMove  chon:subEventOf  :gam4ZM2N .
+
+:pla4ZM2Nf  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:rolhg4ZM2Nfsl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4ZM2Nf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4ZM2Nf .
+
+:cgr4ZM2Nf  a   chon:ChessGameReport .
+
+:ag4ZM2Nf  a          chon:Agent ;
+        chon:hasName  "Weder, Hanspeter" , "Karpov, Anatoly" .
+
+:rol4ZM2Nf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4ZM2Nf .
+
+:res4ZM2Nfs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam4ZM2N  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4ZM2Nf ;
+        chon:atPlace           :pla4ZM2Nf ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4ZM2Nfs ;
+        chon:hasHalfMove       :hmgam4ZM2Nfs ;
+        chon:hasLastHalfMove   :hmgam4ZM2Nfs ;
+        chon:hasOpening        :ope4ZM2Nf ;
+        chon:hasReport         :cgr4ZM2Nf ;
+        chon:hasResult         :res4ZM2Nfs ;
+        chon:subEventOf        :tou4ZM2N .

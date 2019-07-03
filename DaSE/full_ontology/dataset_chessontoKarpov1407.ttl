@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeoHaNpe  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:cgroHaNpe  a   chon:ChessGameReport .
+
+:gamoHaNp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloHaNpe ;
+        chon:atPlace           :plaoHaNpe ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoHaNpeD ;
+        chon:hasHalfMove       :hmgamvDO0IdW , :hmgamzH81YfF , :hmgamoHaNpeD ;
+        chon:hasLastHalfMove   :hmgamvDO0IdW ;
+        chon:hasOpening        :opeoHaNpe ;
+        chon:hasReport         :cgroHaNpe ;
+        chon:hasResult         :resoHaNpeD ;
+        chon:subEventOf        :touoHaNp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoHaNpe .
+
+:roloHaNpe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoHaNpe .
+
+:rolhgvDO0IdWg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoHaNpe .
+
+:hmgamvDO0IdW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvDO0IdWg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kc7" , "Kc6" , "Qc3" , "Qd5" , "Qg3+" , "h7" , "Kb5" , "Qd8+" , "h6" , "Kb6" , "Nd7+" , "e1=Q" , "Ke7" , "Qxf3" , "Ne5" , "Nf7+" , "Qxb3+" , "e2" , "Qb3" , "Kg6" , "Kb7" , "Kf7" , "Qh4+" , "h8=Q" , "Qd4" , "Re4" , "Ka6" , "Nxf3" , "Qe2+" , "Kc5" , "Kb4" , "Rxe4" , "Kd7" , "e3" , "dxe4" , "Qa8+" , "h5" , "Qb2+" ;
+        chon:nextHalfMove      :hmgamvDO0IdW .
+
+chon:HalfMove  chon:subEventOf  :gamoHaNp .
+
+:resoHaNpeD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaoHaNpe  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+:touoHaNp  a          chon:hessTournament ;
+        chon:atPlace  :plaoHaNpe ;
+        chon:hasName  "Candidats qf4" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamoHaNpeD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoHaNpeD6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e6" , "e4" , "Be3" , "Nef4" , "Nxf4" , "Qc2" , "Bxd3" , "Qd7" , "Nc8" , "Be7" , "g3" , "Nc1" , "Ne2" , "Bh7" , "d4" , "c4" , "Be2" , "Rc8" , "Ne7" , "Ng5" , "Nf5" , "Nf3" , "Nd7" , "c5" , "h6" , "c6" , "h4" , "e5" , "Na3" , "Bg5" , "g6" , "d5" , "Nc2" , "Bd3" , "Bf5" , "Re1" , "O-O" , "Rc6" , "Nce1" , "Qd1" , "Nxd3" , "Ng6" , "h5" , "Nb6" , "Nh3" , "Bd8" , "a6" , "c3" ;
+        chon:nextHalfMove      :hmgamzH81YfF , :hmgamoHaNpeD .
+
+:rolhgoHaNpeD6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoHaNpe .
+
+:agoHaNpe  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Anand, Viswanathan" .
+
+:rolhgzH81YfFi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoHaNpe .
+
+:hmgamzH81YfF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzH81YfFi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf7" , "Qc8" , "Qf6+" , "Qc6" , "Qd2" , "Qf8" , "Nd6" , "Nh3" , "Ne5" , "Ra5" , "gxh5" , "b4" , "Kf4" , "Rxa6" , "Kd8" , "Ra3" , "Kg2" , "Rc6" , "Rg5" , "Ke7" , "Rg4" , "Rb1" , "cxb3" , "Ng7" , "axb3" , "Ne7" , "Bxg5" , "Nf5" , "Rb6" , "Kf6" , "Re1" , "f6" , "Nb5" , "Ng5" , "Rc1" , "Ra8" , "Nxg5" , "Nf3" , "f3" , "Kg8" , "Rb8" , "Rba3" , "Kf8" , "Rxb4" , "exf6+" , "Ra2" , "Kxf6" , "Ra6" , "Qf4" , "Nxd4" , "O-O" , "Ra7+" , "Reb1" , "Rb3" , "Qc3" , "Ne8" , "Qd8" , "Rb7+" , "Ra1" , "Qe7" , "Re3" , "Qxc3" , "Nc6" , "Rxc3" , "Kg5" , "Rh7" , "b5" , "Qb7" , "Rxb5" , "Kg3" , "Rxh5" , "Rc7" , "Kg7" , "g4" , "Ke8" , "Rca7" ;
+        chon:nextHalfMove      :hmgamzH81YfF , :hmgamvDO0IdW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoHaNpe .

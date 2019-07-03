@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgfVuca512  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfVuca5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfVuca5 .
+
+:toufVuca  a          chon:hessTournament ;
+        chon:atPlace  :plafVuca5 ;
+        chon:hasName  "Tilburg Fontys" .
+
+chon:HalfMove  chon:subEventOf  :gamfVuca .
+
+:rolhgaRblU3hZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfVuca5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfVuca5 .
+
+:hmgamaRblU3h  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgaRblU3hZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxe6" , "Bxb8" , "Qxe6" , "Nc3" , "Qxa2" , "Re1" , "Ne6" , "Rd8" , "Rc8" , "Be2" , "Qd4" , "Rb3" , "Qe1" , "Rfa1" , "Rxb3" , "Be6" , "Qxb2" , "Nf4" , "Qf4" , "Re8" , "h3" , "Rxb8" , "Qb7" , "e5" , "Bxb7" , "Nd5" , "R1a2" , "Qc3" , "Bf4" , "Qb5" , "a5" , "Qc7" , "cxb3" , "Qe3" , "Rd5" , "Rc5" , "Kh1" , "Rc8+" , "Ne2+" , "Rg3" , "Qg6" , "Qd2" , "Rc1" , "Qxa5" , "Rb1" , "Ra1" , "Kh7" , "Nh5" , "e4" , "Bf3" , "Bc4" , "Qe5" , "Qd5" , "Qxc3" , "Rba3" , "Qf5" , "Rab8" , "Ra3" , "Rb5" , "Qc1" , "c3" ;
+        chon:nextHalfMove      :hmgamaRblU3h .
+
+:hmgamfVuca51  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgaRblU3hZ , :rolhgfVuca512 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ne4" , "Bd6" , "e4" , "Bd3" , "N1f3" , "Bf3" , "Bxe5" , "Nf6" , "Bd2" , "Ng5" , "dxe4" , "c6" , "c4" , "O-O" , "Qc7" , "Nxe4" , "Qh4" , "d4" , "Qxe5" , "Ne5" , "Be2" , "c5" , "Nc3" , "Bd7" , "Qe2" , "Nd7" , "h6" , "Ngf6" , "d5" , "e6" , "Qxe4" , "dxe5" ;
+        chon:nextHalfMove      :hmgamaRblU3h , :hmgamfVuca51 .
+
+:plafVuca5  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:cgrfVuca5  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resfVuca51  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamfVuca  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfVuca5 ;
+        chon:atPlace           :plafVuca5 ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfVuca51 ;
+        chon:hasHalfMove       :hmgamaRblU3h , :hmgamfVuca51 ;
+        chon:hasLastHalfMove   :hmgamaRblU3h ;
+        chon:hasOpening        :opefVuca5 ;
+        chon:hasReport         :cgrfVuca5 ;
+        chon:hasResult         :resfVuca51 ;
+        chon:subEventOf        :toufVuca .
+
+:agfVuca5  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Almasi, Zoltan" .
+
+:rolfVuca5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfVuca5 .
+
+:opefVuca5  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .

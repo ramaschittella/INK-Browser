@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamTjFTp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6jS0WT ;
+        chon:atPlace           :plaTjFTpU ;
+        chon:atTime            "1889.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6jS0WTB ;
+        chon:hasHalfMove       :hmgam6jS0WTB ;
+        chon:hasLastHalfMove   :hmgam6jS0WTB ;
+        chon:hasOpening        :ope6jS0WT ;
+        chon:hasReport         :cgr6jS0WT ;
+        chon:hasResult         :res6jS0WTB ;
+        chon:subEventOf        :tou6jS0W .
+
+:rolhg6jS0WTB7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6jS0WT .
+
+:hmgam6jS0WTB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6jS0WTB7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "cxd6" , "Qa4" , "b5" , "Rxc8" , "Nxd6+" , "Bc4" , "Bg5" , "Bd4" , "Bxb4" , "Bb7" , "Nd8" , "Rxf7" , "Qc5" , "Nxb7" , "Kb4" , "e4" , "Nf3" , "e6" , "Rac8" , "Nge7" , "d5" , "b6" , "Kd6" , "Na3" , "e5+" , "Bxc5" , "Nc6" , "Kxd5" , "c3" , "d3" , "bxa4" , "Rxe7" , "Ba5" , "a6" , "exd4" , "Rfc1" , "Rb7+" , "Bxd6" , "Bc5" , "Be3" , "d6" , "Nxd8" , "Rc3" , "Kd7" , "e5" , "b4" , "Nc4" , "Kc4" , "Rhxd8" , "Be4+" , "d4" , "Bd3" , "Rab1" , "Bxc3" , "O-O" , "Nxd4" , "Qf6" , "Rd7" , "Qd6" , "f3" ;
+        chon:nextHalfMove      :hmgam6jS0WTB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6jS0WT .
+
+chon:HalfMove  chon:subEventOf  :gamTjFTp .
+
+:ope6jS0WT  a            chon:ChessOpening ;
+        chon:hasECOCode  "C52" .
+
+:ag6jS0WT  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Chigorin, Mikhail" .
+
+:rol6jS0WT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6jS0WT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6jS0WT .
+
+:tou6jS0W  a          chon:hessTournament ;
+        chon:atPlace  :plaTjFTpU ;
+        chon:hasName  "World Championship 2nd" .
+
+:res6jS0WTB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaTjFTpU  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:cgr6jS0WT  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

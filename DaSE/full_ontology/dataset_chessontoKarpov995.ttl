@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeXP2eoJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:rolhgXP2eoJ2s  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXP2eoJ .
+
+:rolhgoQbzKJTR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXP2eoJ .
+
+:resXP2eoJ2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXP2eoJ .
+
+chon:HalfMove  chon:subEventOf  :gamXP2eo .
+
+:cgrXP2eoJ  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXP2eoJ .
+
+:rolXP2eoJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXP2eoJ .
+
+:plaXP2eoJ  a         chon:Place ;
+        chon:hasName  "London/Leningrad" .
+
+:gamXP2eo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXP2eoJ ;
+        chon:atPlace           :plaXP2eoJ ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXP2eoJ2 ;
+        chon:hasHalfMove       :hmgamXP2eoJ2 , :hmgamoQbzKJT ;
+        chon:hasLastHalfMove   :hmgamoQbzKJT ;
+        chon:hasOpening        :opeXP2eoJ ;
+        chon:hasReport         :cgrXP2eoJ ;
+        chon:hasResult         :resXP2eoJ2 ;
+        chon:subEventOf        :touXP2eo .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touXP2eo  a          chon:hessTournament ;
+        chon:atPlace  :plaXP2eoJ ;
+        chon:hasName  "World Championship 33th-KK3" .
+
+:hmgamoQbzKJT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoQbzKJTR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc3" , "Kf6" , "Kg2" , "f5" , "Bc5" , "g5" , "Ke5" , "Bb3" , "Rc7" , "Bd6" , "Rc4" , "Rd3" , "Bc4" , "Rf3" , "Rc2" ;
+        chon:nextHalfMove      :hmgamoQbzKJT .
+
+:agXP2eoJ  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:hmgamXP2eoJ2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoQbzKJTR , :rolhgXP2eoJ2s , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd5" , "Qc4" , "Qh3" , "h4" , "Nxe5" , "Rxa7" , "Be4" , "Bxf3" , "e4" , "a4" , "Nf4" , "cxd5" , "Nf6" , "Re7" , "d4" , "d6" , "e5" , "Qa6" , "Nc6" , "O-O" , "b4" , "Qxb4" , "Rxc7" , "Rxd8" , "Be7" , "Qxd5" , "Bb2" , "Nc3" , "Nxd4" , "Qe3+" , "Rd1" , "Bd3" , "Nxd5" , "Rae8" , "Rd7" , "Rd3" , "g6" , "Kf1" , "Kg2" , "c4" , "Nxe4" , "Bxb4" , "h5" , "Bc3" , "Qb5" , "b6" , "Bg4" , "Bc4" , "Ne6" , "Rd8" , "Nf3" , "Qxf3" , "Kg7" , "Nxh3+" , "Bc5" , "gxh3" , "d5" , "Rd6" ;
+        chon:nextHalfMove      :hmgamoQbzKJT , :hmgamXP2eoJ2 .

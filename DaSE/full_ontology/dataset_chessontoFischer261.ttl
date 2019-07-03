@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamwN21IYm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHLYefXrM , :rolhgwN21IYmz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bb7" , "Nf3" , "a6" , "dxc4" , "e5" , "Nc6" , "Qe7" , "d5" , "Nc3" , "Bd3" , "b5" , "Nd8" , "Qe2" , "Be7" , "O-O" , "Bb4" , "h3" , "e3" , "Rd1" , "Bxc4" , "d4" , "Bb1" , "e6" , "Bd6" , "Nf6" , "Nb5" , "c4" ;
+        chon:nextHalfMove      :hmgamwN21IYm , :hmgamHLYefXr .
+
+:plawN21IY  a         chon:Place ;
+        chon:hasName  "Leipzig" .
+
+:gamwN21I  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwN21IY ;
+        chon:atPlace           :plawN21IY ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwN21IYm ;
+        chon:hasHalfMove       :hmgamwN21IYm , :hmgamHLYefXr ;
+        chon:hasLastHalfMove   :hmgamHLYefXr ;
+        chon:hasOpening        :opewN21IY ;
+        chon:hasReport         :cgrwN21IY ;
+        chon:hasResult         :reswN21IYm ;
+        chon:subEventOf        :touwN21I .
+
+:rolhgHLYefXrM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwN21IY .
+
+:touwN21I  a          chon:hessTournament ;
+        chon:atPlace  :plawN21IY ;
+        chon:hasName  "Leipzig olm fin-A" .
+
+:cgrwN21IY  a   chon:ChessGameReport .
+
+:hmgamHLYefXr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHLYefXrM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rg6" , "Rc4" , "Re4" , "Rf8" , "Qxf3" , "bxa4" , "Nge4" , "cxd6" , "Rf6" , "f4" , "Ng5" , "Nxh3+" , "Nxd6" , "Kh2" , "h6" , "Rxa4" , "e4" , "Rg5" , "exf3" , "Nf7" , "b4" , "Qh5" , "Qxg6" , "Qf8" , "Rxf5" , "Nxe4" , "a4" , "Qe8" , "Bb2" , "f5" , "Bxf5" ;
+        chon:nextHalfMove      :hmgamHLYefXr .
+
+:rolhgwN21IYmz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwN21IY .
+
+:agwN21IY  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Gligoric, Svetozar" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwN21IY .
+
+:rolwN21IY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwN21IY .
+
+chon:HalfMove  chon:subEventOf  :gamwN21I .
+
+:opewN21IY  a            chon:ChessOpening ;
+        chon:hasECOCode  "E51" .
+
+:reswN21IYm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwN21IY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

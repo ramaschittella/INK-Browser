@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr73UrG9  a   chon:ChessGameReport .
+
+:ag73UrG9  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kamsky, Gata" .
+
+:rol73UrG9  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag73UrG9 .
+
+:hmgami1RFd0B  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgi1RFd0BZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kd2" , "Bd5" , "Bc3" , "Ke4" , "Kf5" , "Bxa4" , "Be5" , "Bf6" , "b3" , "gxf3+" , "Bc6" , "Bxa5" , "h3" , "Ne5+" , "e6" , "Bxe6" , "Ke2" , "f3" , "g4" , "Bb2" , "Kxf3" , "dxe5" , "Kf2" , "Kf1" , "Nxe5" , "hxg4" , "Bxg4" , "Bc4+" ;
+        chon:nextHalfMove      :hmgami1RFd0B .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag73UrG9 .
+
+:rolhgi1RFd0BZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag73UrG9 .
+
+chon:HalfMove  chon:subEventOf  :gamF1K7j .
+
+:rolhg73UrG9yM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag73UrG9 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag73UrG9 .
+
+:hmgam73UrG9y  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg73UrG9yM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "fxe3" , "Rc1" , "Ke2" , "Na7" , "Nxd5" , "Bc2" , "d4" , "exd4" , "Bxd5" , "Re8" , "Kf2" , "Bd5" , "Bf8" , "Bf5" , "Rac8" , "Qxe3" , "Nf3" , "Rac1" , "Ng5" , "a5" , "Nb5" , "g6" , "g5" , "h5" , "Qe7" , "Qc7" , "Ne4" , "b3" , "Qe3" , "h3" , "Be7" , "Nf6" , "Be4" , "exd5" , "c5" , "Bd6" , "e6" , "Ne2" , "dxc5" , "d5" , "Rec8" , "Kg6" , "f5" , "f4" , "Nb3" , "Bc7" , "Nc5" , "Bxb3" , "cxd4" , "Rc6" , "Bb3" , "Bh2" , "Rd1" , "Bxc5" , "b5" , "b4" , "Rd8" , "Qd3" , "h4" , "Kd2" , "Rxc1" , "c4" , "O-O" , "e3" , "Kxc1" , "Bf4" , "Kf7" , "f6" , "Bd3" , "a6" , "Ng1" , "Nd5" , "Nc3" , "Rxc5" , "cxd5" , "a4" , "a3" , "Bb4" , "Nc6" , "Nd2" ;
+        chon:nextHalfMove      :hmgami1RFd0B , :hmgam73UrG9y .
+
+:ope73UrG9  a            chon:ChessOpening ;
+        chon:hasECOCode  "E48" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res73UrG9y  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:tou73UrG  a          chon:hessTournament ;
+        chon:atPlace  :plaF1K7j9 ;
+        chon:hasName  "FIDE-Wch" .
+
+:plaF1K7j9  a         chon:Place ;
+        chon:hasName  "Elista" .
+
+:gamF1K7j  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol73UrG9 ;
+        chon:atPlace           :plaF1K7j9 ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam73UrG9y ;
+        chon:hasHalfMove       :hmgami1RFd0B , :hmgam73UrG9y ;
+        chon:hasLastHalfMove   :hmgami1RFd0B ;
+        chon:hasOpening        :ope73UrG9 ;
+        chon:hasReport         :cgr73UrG9 ;
+        chon:hasResult         :res73UrG9y ;
+        chon:subEventOf        :tou73UrG .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgDlvezTkh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsnz13U .
+
+:plasnz13U  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:gamsnz13  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsnz13U ;
+        chon:atPlace           :plasnz13U ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDlvezTk ;
+        chon:hasHalfMove       :hmgamDlvezTk ;
+        chon:hasLastHalfMove   :hmgamDlvezTk ;
+        chon:hasOpening        :opesnz13U ;
+        chon:hasReport         :cgrsnz13U ;
+        chon:hasResult         :ressnz13Uh ;
+        chon:subEventOf        :tousnz13 .
+
+:tousnz13  a          chon:hessTournament ;
+        chon:atPlace  :plasnz13U ;
+        chon:hasName  "Candidats final" .
+
+:cgrsnz13U  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsnz13U .
+
+chon:HalfMove  chon:subEventOf  :gamsnz13 .
+
+:agsnz13U  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Petrosian, Tigran V" .
+
+:rolsnz13U  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsnz13U .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsnz13U .
+
+:hmgamDlvezTk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDlvezTkh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nc6" , "f3" , "Bg7" , "e6" , "Nc3" , "Kf8" , "Be2" , "Rxc1" , "cxd5" , "Bd7" , "e4" , "Kxc1" , "Nd5" , "Rfc8" , "d6" , "c4" , "Qxd2+" , "c5" , "b3" , "Rc1" , "cxd4" , "Nf3" , "Rxc8" , "Nxd5" , "Qd2" , "Kc2" , "Nxd4" , "a6" , "Kxd2" , "Qxd4" , "Rxc8+" , "Qa5" , "Be6" , "Be3" , "O-O" , "d4" , "Nf6" , "g6" ;
+        chon:nextHalfMove      :hmgamDlvezTk .
+
+:ressnz13Uh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opesnz13U  a            chon:ChessOpening ;
+        chon:hasECOCode  "B36" .

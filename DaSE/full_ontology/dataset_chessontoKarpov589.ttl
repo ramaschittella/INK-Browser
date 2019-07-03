@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plal2hpSa  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:touN4uKX  a          chon:hessTournament ;
+        chon:atPlace  :plal2hpSa ;
+        chon:hasName  "IBM" .
+
+:cgrN4uKXb  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agN4uKXb .
+
+:resN4uKXbg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gaml2hpS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolN4uKXb ;
+        chon:atPlace           :plal2hpSa ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamN4uKXbg ;
+        chon:hasHalfMove       :hmgamN4uKXbg , :hmgamY4qYwai ;
+        chon:hasLastHalfMove   :hmgamY4qYwai ;
+        chon:hasOpening        :opeN4uKXb ;
+        chon:hasReport         :cgrN4uKXb ;
+        chon:hasResult         :resN4uKXbg ;
+        chon:subEventOf        :touN4uKX .
+
+chon:HalfMove  chon:subEventOf  :gaml2hpS .
+
+:agN4uKXb  a          chon:Agent ;
+        chon:hasName  "Sosonko, Gennadi" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agN4uKXb .
+
+:rolN4uKXb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agN4uKXb .
+
+:opeN4uKXb  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamN4uKXbg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgY4qYwai8 , :rolhgN4uKXbgW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sosonko, Gennadi" ;
+        chon:hasSANRecord      "Nxf6" , "Ne5" , "Nd7" , "d5" , "d4" , "c3" , "Bf4" , "Nd2" , "e4" , "c6" , "Bg7" , "Nxe4" , "Nd3" , "Ngf6" , "Nxf6+" , "O-O" , "Nf3" , "g6" , "dxe4" , "Qa5" , "Qd2" ;
+        chon:nextHalfMove      :hmgamY4qYwai , :hmgamN4uKXbg .
+
+:rolhgN4uKXbgW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agN4uKXb .
+
+:rolhgY4qYwai8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agN4uKXb .
+
+:hmgamY4qYwai  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgY4qYwai8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sosonko, Gennadi" ;
+        chon:hasSANRecord      "Bf3" , "Bxf4" , "Bg5" , "Rb4" , "b5" , "Qb6" , "Be4" , "O-O" , "Kh7" , "h3" , "Rd8" , "Bf6" , "Qc8" , "Rxf4" , "Rfe1" , "Qe3" , "Qxd4" , "Bxe5" , "Be2" , "a3" , "Bf4" , "Bd5" , "Bc2" , "Be6" , "a4" , "h5" , "cxd4" , "Nxe5" , "Rbe4" , "Rd4" , "Rd5" , "Rfe8" , "Be7" , "Qg5" , "a5" , "Ra5" , "Qxf4" , "e5" , "Qc7" , "Qd8" , "Bg7" , "Rae1" , "Re4" , "Rxd4" , "dxe5" ;
+        chon:nextHalfMove      :hmgamY4qYwai .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

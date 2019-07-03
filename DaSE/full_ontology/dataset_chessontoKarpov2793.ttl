@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamMsLKz4P  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMsLKz4Pd ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kazhgaleyev,M" ;
+        chon:hasSANRecord      "gxf4" , "Nge2" , "Rc6" , "Nc3" , "Be6" , "Ng4" , "bxa6" , "cxd5" , "Qe8" , "Qh6" , "e5" , "Bd6" , "c6" , "Bxa6" , "fxe6" , "g5" , "Qg6" , "e4" , "Qd1" , "Nxe6" , "Rc1" , "O-O" , "c4" , "Bd2" , "Qb3" , "Qe2" , "d4" , "Be7" , "Nf6" , "Na6" , "h3" , "Nf4" , "d5" , "e3" , "Qxa6" , "Rad8" , "Ne2" ;
+        chon:nextHalfMove      :hmgamMsLKz4P , :hmgamZqUzx46 .
+
+:rolhgMsLKz4Pd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMsLKz4 .
+
+:plaMsLKz4  a         chon:Place ;
+        chon:hasName  "Aix-En-Provence FRA" .
+
+:gamMsLKz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMsLKz4 ;
+        chon:atPlace           :plaMsLKz4 ;
+        chon:atTime            "2004.12.10"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMsLKz4P ;
+        chon:hasHalfMove       :hmgamZqUzx46 , :hmgamMsLKz4P ;
+        chon:hasLastHalfMove   :hmgamZqUzx46 ;
+        chon:hasOpening        :opeMsLKz4 ;
+        chon:hasReport         :cgrMsLKz4 ;
+        chon:hasResult         :resMsLKz4P ;
+        chon:subEventOf        :touMsLKz .
+
+:touMsLKz  a          chon:hessTournament ;
+        chon:atPlace  :plaMsLKz4 ;
+        chon:hasName  "GP" .
+
+:cgrMsLKz4  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMsLKz4 .
+
+:hmgamZqUzx46  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZqUzx46s , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kazhgaleyev,M" ;
+        chon:hasSANRecord      "Kxf1" , "fxe3" , "g4" , "Bxh6" , "Ke2" , "Nxe3+" , "Qxd6" , "Rxf1+" , "Nxd6" , "Rxd6" , "Nf5" ;
+        chon:nextHalfMove      :hmgamZqUzx46 .
+
+:resMsLKz4P  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamMsLKz .
+
+:agMsLKz4  a          chon:Agent ;
+        chon:hasName  "Kazhgaleyev,M" , "Karpov,Ana" .
+
+:rolMsLKz4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMsLKz4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMsLKz4 .
+
+:opeMsLKz4  a            chon:ChessOpening ;
+        chon:hasECOCode  "D10" .
+
+:rolhgZqUzx46s  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMsLKz4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

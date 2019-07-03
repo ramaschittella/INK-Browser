@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamm8Gy0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolm8Gy0K ;
+        chon:atPlace           :plam8Gy0K ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamy8SMGLd ;
+        chon:hasHalfMove       :hmgamy8SMGLd ;
+        chon:hasLastHalfMove   :hmgamy8SMGLd ;
+        chon:hasOpening        :opem8Gy0K ;
+        chon:hasReport         :cgry8SMGL ;
+        chon:hasResult         :resy8SMGLd ;
+        chon:subEventOf        :toum8Gy0 .
+
+:plam8Gy0K  a         chon:Place ;
+        chon:hasName  "Montreal" .
+
+:rolhgy8SMGLdE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agm8Gy0K .
+
+:agm8Gy0K  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agm8Gy0K .
+
+:rolm8Gy0K  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:HalfMove  chon:subEventOf  :gamm8Gy0 .
+
+:roly8SMGL  a             chon:AuthorRole ;
+        chon:performedBy  :agy8SMGL .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agm8Gy0K .
+
+:hmgamy8SMGLd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgy8SMGLdE ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Nxd4" , "g3" , "Ra2" , "Qd2" , "Rdd7" , "d4" , "Nd8" , "Kh8" , "e4" , "Bd7" , "Ra4" , "Qc2" , "Re8" , "Ra7" , "Nf6" , "a3" , "Rxa7" , "Bg7" , "Nxe5" , "O-O" , "Be3" , "Nge2" , "f5" , "Qb8" , "h6" , "Qd3" , "Ne6" , "Bxc5" , "Nc3" , "Re7" , "Ng3" , "e5" , "b4" , "g6" , "Be8" , "Rxa5" , "Bc8" , "c5" , "d6" , "Bg2" , "Na6" , "Rad8" , "Nc7" , "Bg5" , "Ra1" , "exd4" , "Kh7" , "Nf3" , "g4" , "c3" , "b5" , "Re1" , "Bf2" , "Nxb4" , "a5" , "Qc7" , "c6" , "h3" , "axb4" , "Rad1" , "dxe5" , "f4" , "c4" , "Nce2" , "Qb7" ;
+        chon:nextHalfMove      :hmgamy8SMGLd .
+
+:toum8Gy0  a          chon:hessTournament ;
+        chon:atPlace  :plam8Gy0K ;
+        chon:hasName  "Montreal" .
+
+:opem8Gy0K  a            chon:ChessOpening ;
+        chon:hasECOCode  "B07" .
+
+:resy8SMGLd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgry8SMGL  a   chon:ChessGameReport .

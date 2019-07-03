@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaWvR31w  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:rolhgnx4llwEF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWvR31w .
+
+:hmgamnx4llwE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnx4llwEF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxg5" , "Kb4" , "Bf5" , "Ka2" , "Bc8" , "bxc6" , "fxg5" , "bxc3" , "Rd6" , "Rxf2" , "c5" , "hxg5" , "g5" , "Rc2" , "Rd2" , "Rxc6" , "Bxc3" , "Ba5" , "Bf5+" , "Be6+" , "Nc3" , "Kb3" , "h5" , "Kg7" , "Re2" , "Rd1" , "Kf7" , "a4" , "Rb6" , "Bg4" , "c4" , "c6" ;
+        chon:nextHalfMove      :hmgamnx4llwE .
+
+:cgrWvR31w  a   chon:ChessGameReport .
+
+:rolhgWvR31wPe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWvR31w .
+
+:agWvR31w  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gelfand, Boris" .
+
+:rolWvR31w  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWvR31w .
+
+:opeWvR31w  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWvR31w .
+
+:resWvR31wP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamWvR31 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWvR31w .
+
+:hmgamWvR31wP  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWvR31wPe ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc2" , "Be7" , "Nc3" , "Kb1" , "exd5" , "cxd5" , "Nc6" , "Nxe4" , "f6" , "c5" , "dxc5" , "Be3" , "e4" , "Nd5" , "e3" , "e6" , "d4" , "Qxd8" , "Rd1" , "O-O" , "Bc4" , "Bf4" , "Bd8" , "Ne6" , "c4" , "Qd4" , "Qxd4" , "Nf6" , "g3" , "Bxe6" , "Nxd4" , "g6" , "Qe3" , "Rc8" , "Rxd8+" , "Qa5" , "d5" , "Ngxe4" , "h4" , "Ng5" , "Qxe4" , "a3" , "Nf3" , "a6" , "O-O-O" , "dxe4" , "Bf5" , "Rd8" , "Bxc5" ;
+        chon:nextHalfMove      :hmgamWvR31wP , :hmgamnx4llwE .
+
+:gamWvR31  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWvR31w ;
+        chon:atPlace           :plaWvR31w ;
+        chon:atTime            "1998.01.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWvR31wP ;
+        chon:hasHalfMove       :hmgamWvR31wP , :hmgamnx4llwE ;
+        chon:hasLastHalfMove   :hmgamnx4llwE ;
+        chon:hasOpening        :opeWvR31w ;
+        chon:hasReport         :cgrWvR31w ;
+        chon:hasResult         :resWvR31wP ;
+        chon:subEventOf        :touWvR31 .
+
+:touWvR31  a          chon:hessTournament ;
+        chon:atPlace  :plaWvR31w ;
+        chon:hasName  "Hoogovens" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

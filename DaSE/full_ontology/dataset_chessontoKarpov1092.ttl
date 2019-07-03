@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaara6B1  a         chon:Place ;
+        chon:hasName  "Sevilla" .
+
+:gamara6B  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolara6B1 ;
+        chon:atPlace           :plaara6B1 ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlr8ja15 ;
+        chon:hasHalfMove       :hmgamlr8ja15 ;
+        chon:hasLastHalfMove   :hmgamlr8ja15 ;
+        chon:hasOpening        :opelr8ja1 ;
+        chon:hasReport         :cgrlr8ja1 ;
+        chon:hasResult         :reslr8ja15 ;
+        chon:subEventOf        :touara6B .
+
+:cgrlr8ja1  a   chon:ChessGameReport .
+
+:rolara6B1  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglr8ja1 .
+
+:hmgamlr8ja15  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglr8ja15d , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kg1" , "Rxe1+" , "Qxf3+" , "d5" , "Bg4" , "Bb2" , "Kh1" , "e3" , "gxf6" , "Ne4" , "Nb3" , "e4" , "Nf6" , "dxc4" , "Bxc3" , "Bxf3" , "Kg7" , "Bf3" , "Qb3" , "Qxc4" , "Rxd8" , "Rb1" , "c4" , "d3" , "Bb4" , "e5" , "c6" , "Na5" , "Rxe3" , "Qa5" , "Ne3" , "Bxf6" , "Qxe1" , "Qa3" , "Bxe2" , "f3" , "Nc6" , "O-O" , "bxc3" , "Rd3" , "b5" , "Rb3" , "Re1" , "g3" , "Nd4" , "Re8" , "Bg2" , "Nd2" , "Nf5" , "Nc3" , "Rad8" , "Nf3" , "f4" , "Qd3" , "Qc7" , "cxd5" , "Ng5" ;
+        chon:nextHalfMove      :hmgamlr8ja15 .
+
+:aglr8ja1  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rollr8ja1  a             chon:AuthorRole ;
+        chon:performedBy  :aglr8ja1 .
+
+chon:HalfMove  chon:subEventOf  :gamara6B .
+
+:opelr8ja1  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglr8ja1 .
+
+:touara6B  a          chon:hessTournament ;
+        chon:atPlace  :plaara6B1 ;
+        chon:hasName  "World Championship 34th-KK4" .
+
+:reslr8ja15  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhglr8ja15d  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglr8ja1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

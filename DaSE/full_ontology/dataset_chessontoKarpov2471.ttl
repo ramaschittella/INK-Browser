@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamrJAdOA4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrJAdOA4t ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely,L" ;
+        chon:hasSANRecord      "f5" , "Kg7" , "Kf6" , "Qd8+" , "Qc5" , "Kf8" , "Qxe6" , "g3" , "Kg6" , "Be2" , "Bb3" , "f4" , "Kg5" , "dxe5" , "Qg5+" , "Qxe3" , "Qb6" , "fxe3" , "Qa5" , "Bxa4" , "Rb4" , "Qxc5" , "c5" , "Rxa4" , "Kh5" , "Qa6+" , "Qd3" , "h4+" , "Ke2" , "Qc4" , "Bd1" ;
+        chon:nextHalfMove      :hmgamrJAdOA4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvLT56A .
+
+:hmgamvLT56AM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvLT56AMv , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely,L" ;
+        chon:hasSANRecord      "Qd4" , "f3" , "Nxe5" , "Qd8" , "Qe7" , "Bb7" , "Kf2" , "Bxc3+" , "Qa7" , "Rd1" , "Bc6" , "Bg5" , "Qxb4" , "a5" , "bxc5" , "Qxc3" , "Qc3" , "Rfd1" , "axb4" , "Qf4" , "f5" , "Ra6" , "cxb4" , "Nd7" , "Rb8" , "Be2" , "Qc2" , "Nc3" , "c5" , "Rd2" , "Rb3" , "Rb2" , "Qf6" , "Qb6" , "e3" , "Nf6" , "d4" , "Ba4" , "gxf6" , "dxc5" , "Rd8" , "Rb6" , "b4" , "Nf4" , "Nh3" , "Ra2" , "e6" , "c4" , "Bb4" , "d6" , "Nxb2" , "Qa5" , "Bxf6" , "Nd3" , "Rxb2" , "Ne5" , "Qa3" , "a3" , "O-O" , "b6" ;
+        chon:nextHalfMove      :hmgamvLT56AM , :hmgamrJAdOA4 .
+
+:plavLT56A  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+chon:HalfMove  chon:subEventOf  :gamvLT56 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvLT56A .
+
+:cgrvLT56A  a   chon:ChessGameReport .
+
+:rolhgvLT56AMv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvLT56A .
+
+:agvLT56A  a          chon:Agent ;
+        chon:hasName  "Van Wely,L" , "Karpov,An" .
+
+:rolvLT56A  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvLT56A .
+
+:resvLT56AM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opevLT56A  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:rolhgrJAdOA4t  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvLT56A .
+
+:gamvLT56  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvLT56A ;
+        chon:atPlace           :plavLT56A ;
+        chon:atTime            "2000.03.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvLT56AM ;
+        chon:hasHalfMove       :hmgamvLT56AM , :hmgamrJAdOA4 ;
+        chon:hasLastHalfMove   :hmgamrJAdOA4 ;
+        chon:hasOpening        :opevLT56A ;
+        chon:hasReport         :cgrvLT56A ;
+        chon:hasResult         :resvLT56AM ;
+        chon:subEventOf        :touvLT56 .
+
+:touvLT56  a          chon:hessTournament ;
+        chon:atPlace  :plavLT56A ;
+        chon:hasName  "Amber Blindfold" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

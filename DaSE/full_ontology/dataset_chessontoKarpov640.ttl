@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamrzlkX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrzlkXs ;
+        chon:atPlace           :plarzlkXs ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrzlkXsd ;
+        chon:hasHalfMove       :hmgamrzlkXsd , :hmgamSBxDis3 ;
+        chon:hasLastHalfMove   :hmgamSBxDis3 ;
+        chon:hasOpening        :operzlkXs ;
+        chon:hasReport         :cgrrzlkXs ;
+        chon:hasResult         :resrzlkXsd ;
+        chon:subEventOf        :tourzlkX .
+
+:tourzlkX  a          chon:hessTournament ;
+        chon:atPlace  :plarzlkXs ;
+        chon:hasName  "EU-chT" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrzlkXs .
+
+:agrzlkXs  a          chon:Agent ;
+        chon:hasName  "Andersson, Ulf" , "Karpov, Anatoly" .
+
+:hmgamSBxDis3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSBxDis3u , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Andersson, Ulf" ;
+        chon:hasSANRecord      "Rxg5" , "Rdg1" , "g6" , "Bd3" , "Nxf5" , "Kb8" , "Qa5" , "Rg7" , "exf5" , "Bf3" , "Ng8" , "Rg1" , "Ne2" , "a3" , "h5" , "Rh5" , "Nd2" , "Qg3" , "Nc3" , "Nd4" , "Nxg6" , "Nc4" , "Nd5" , "Bg4" , "Rhg5" , "Rf8" , "Nge7" , "Nc6" , "Rd1" , "Rgg8" , "Kb1" , "Bc8" , "Ne3" , "Rg5" , "Rh6" , "Qc7" , "Qd8" , "Bh5" , "Qf2" , "Qe7" , "Nce7" , "Rg6" , "f5" , "Rh7" , "hxg6" , "Bxg5" , "Qe3" , "Nh7" , "Nfe7" , "Nf6" , "e5" , "Be2" ;
+        chon:nextHalfMove      :hmgamSBxDis3 .
+
+chon:HalfMove  chon:subEventOf  :gamrzlkX .
+
+:operzlkXs  a            chon:ChessOpening ;
+        chon:hasECOCode  "B81" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrzlkXs .
+
+:resrzlkXsd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgSBxDis3u  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrzlkXs .
+
+:plarzlkXs  a         chon:Place ;
+        chon:hasName  "Skara" .
+
+:hmgamrzlkXsd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrzlkXsd5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Andersson, Ulf" ;
+        chon:hasSANRecord      "Nf6" , "Nxd4" , "Qb6" , "g5" , "f4" , "Nc6" , "Bxg5" , "Be7" , "Qd2" , "g4" , "e6" , "cxd4" , "c5" , "Nf3" , "O-O-O" , "e4" , "d6" , "Qc7" , "a6" , "Be2" , "Nc3" , "Bd7" , "h6" , "d4" , "h4" , "hxg5" , "Nb3" ;
+        chon:nextHalfMove      :hmgamrzlkXsd , :hmgamSBxDis3 .
+
+:cgrrzlkXs  a   chon:ChessGameReport .
+
+:rolhgrzlkXsd5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrzlkXs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolrzlkXs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrzlkXs .

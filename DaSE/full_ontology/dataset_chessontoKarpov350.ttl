@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resw0MERBp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamX0WYdSh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgX0WYdShS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "R6a7" , "g4" , "Ne3" , "Qb2" , "Qc2" , "Nf6" , "b5" , "Qe8" , "Rf8" , "Bc8" , "Rec1" , "Rxc8" , "Bxc8" , "a4" , "h6" , "Qe7" , "Nd7" , "Rh1" , "h4" , "Kg2" , "Rae1" , "Raa8" , "Nc5" , "Ra6" , "f3" , "Rca8" , "Rac8" ;
+        chon:nextHalfMove      :hmgamX0WYdSh .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agw0MERB .
+
+chon:HalfMove  chon:subEventOf  :gamw0MER .
+
+:gamw0MER  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolw0MERB ;
+        chon:atPlace           :plaw0MERB ;
+        chon:atTime            "1975.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamw0MERBp ;
+        chon:hasHalfMove       :hmgamw0MERBp , :hmgamX0WYdSh ;
+        chon:hasLastHalfMove   :hmgamX0WYdSh ;
+        chon:hasOpening        :opew0MERB ;
+        chon:hasReport         :cgrw0MERB ;
+        chon:hasResult         :resw0MERBp ;
+        chon:subEventOf        :touw0MER .
+
+:plaw0MERB  a         chon:Place ;
+        chon:hasName  "Milan" .
+
+:touw0MER  a          chon:hessTournament ;
+        chon:atPlace  :plaw0MERB ;
+        chon:hasName  "Milan sf2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agw0MERB .
+
+:cgrw0MERB  a   chon:ChessGameReport .
+
+:rolhgX0WYdShS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agw0MERB .
+
+:agw0MERB  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Petrosian, Tigran V" .
+
+:rolw0MERB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agw0MERB .
+
+:hmgamw0MERBp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgw0MERBps , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bh3" , "Ra7" , "Bb7" , "e4" , "a3" , "Rfa8" , "b6" , "Qe7" , "Nh4" , "Nxd2" , "Nf3" , "Bg2" , "Ng2" , "d5" , "Nd7" , "Ne4" , "a5" , "Bd2" , "d4" , "e6" , "c4" , "Nc3" , "O-O" , "g6" , "Qc2" , "g3" , "Qxc3" , "e5" , "Qxd2" , "Nf6" , "Be7" , "b4" , "Bxc3" , "Rfe1" , "Bf6" , "d6" ;
+        chon:nextHalfMove      :hmgamX0WYdSh , :hmgamw0MERBp .
+
+:opew0MERB  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgw0MERBps  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agw0MERB .

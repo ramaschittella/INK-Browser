@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plae5rbRF  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:hmgamp3nppEn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgl15yaSD2 , :rolhgp3nppEn4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Milov, Vadim" ;
+        chon:hasSANRecord      "hxg4" , "Qe8" , "Kd3" , "f5" , "Rc2" , "Qf7" , "b5" , "Ke2" , "Nxe7+" , "Nc6" , "gxf5" , "Rg7" , "Qh6" , "Bxd4" , "Bg5" , "Qd2" , "Ne5" , "d5" , "g4" , "Rxg4" , "Bxf3" , "Kf1" , "h3" , "Na6" , "Rc1" , "Rad1" , "exf5" , "Kg1" , "Rc6" , "Bh4" , "Nc5" , "exd4" , "cxd4" , "Rd8" , "Qf3" , "Qxe7" , "f6" , "Be2" , "b6" , "Bf4" , "Qd7" , "c5" , "Re4" , "Qd3" , "Re7" , "Ne6" , "e5" , "Be5" , "Rc7" , "Bxc4" , "Bf1" , "Rde8" , "Qg7" , "Kh1" , "Qh4" , "Qc3" , "f4" , "b4" , "Kh8" , "O-O" , "Be3" , "Nd5" , "Ne7" , "Qg3" , "Be6" , "Bf2" , "Re1" , "h5" , "Bg4" , "Ned4" , "Nd7" , "Bh6" , "Kg7" , "Qxd4" , "dxc4" , "Bd3" ;
+        chon:nextHalfMove      :hmgaml15yaSD , :hmgamp3nppEn .
+
+:age5rbRF  a          chon:Agent ;
+        chon:hasName  "Milov, Vadim" , "Karpov, Anatoly" .
+
+:rolhgl15yaSD2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age5rbRF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age5rbRF .
+
+chon:HalfMove  chon:subEventOf  :game5rbR .
+
+:rolhge5rbRFkS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age5rbRF .
+
+:hmgaml15yaSD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgl15yaSD2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Milov, Vadim" ;
+        chon:hasSANRecord      "Bb8" , "Qxg3" , "Bxg3" , "Ra4" , "Kh6" , "Rc4" ;
+        chon:nextHalfMove      :hmgaml15yaSD .
+
+:opee5rbRF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E94" .
+
+:game5rbR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :role5rbRF ;
+        chon:atPlace           :plae5rbRF ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgame5rbRFk ;
+        chon:hasHalfMove       :hmgame5rbRFk , :hmgamp3nppEn , :hmgaml15yaSD ;
+        chon:hasLastHalfMove   :hmgaml15yaSD ;
+        chon:hasOpening        :opee5rbRF ;
+        chon:hasReport         :cgre5rbRF ;
+        chon:hasResult         :rese5rbRFk ;
+        chon:subEventOf        :toue5rbR .
+
+:cgre5rbRF  a   chon:ChessGameReport .
+
+:rolhgp3nppEn4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age5rbRF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rese5rbRFk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:toue5rbR  a          chon:hessTournament ;
+        chon:atPlace  :plae5rbRF ;
+        chon:hasName  "Biel SKA" .
+
+:hmgame5rbRFk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgp3nppEn4 , :rolhge5rbRFkS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Milov, Vadim" ;
+        chon:hasSANRecord      "g6" , "Nc3" , "Nf3" , "Bg7" , "c4" , "Nf6" , "d4" , "d6" , "e4" ;
+        chon:nextHalfMove      :hmgamp3nppEn , :hmgame5rbRFk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age5rbRF .
+
+:role5rbRF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :age5rbRF .

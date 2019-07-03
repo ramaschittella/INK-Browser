@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam0SkqKG6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0SkqKG6y , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "e6" , "Bh4" , "c4" , "Nc3" , "Be7" , "Qe2" , "Bb4" , "O-O" , "Kg7" , "Nxg3" , "exd4" , "hxg3" , "Bg5" , "g5" , "e5" , "d5" , "Bg4" , "Bf3" , "e4" , "f3" , "Qc6" , "Bd3" , "Bf6" , "Nf6" , "Be4" , "Ne5" , "d4" , "Qe4" , "Rd8" , "Nc7" , "Qxe2" , "Nb5" , "Bxc4" , "Bh5" , "Nxh6+" , "Qc7" , "Ng4" , "Rb8" , "Ne4" , "Rfd1" , "Rac1" , "Bg3" , "h6" , "Nbd7" , "a3" , "Nxg4" , "cxd5" , "exd5" , "dxc4" , "Bxg4" , "c6" , "Bxe2" , "Nf3" ;
+        chon:nextHalfMove      :hmgam0SkqKG6 .
+
+:pla0SkqKG  a         chon:Place ;
+        chon:hasName  "Thessaloniki" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0SkqKG .
+
+chon:HalfMove  chon:subEventOf  :gam0SkqK .
+
+:cgr0SkqKG  a   chon:ChessGameReport .
+
+:res0SkqKG6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0SkqKG .
+
+:ag0SkqKG  a          chon:Agent ;
+        chon:hasName  "Van der Wiel, John TH" , "Karpov, Anatoly" .
+
+:rol0SkqKG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0SkqKG .
+
+:gam0SkqK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0SkqKG ;
+        chon:atPlace           :pla0SkqKG ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0SkqKG6 ;
+        chon:hasHalfMove       :hmgam0SkqKG6 ;
+        chon:hasLastHalfMove   :hmgam0SkqKG6 ;
+        chon:hasOpening        :ope0SkqKG ;
+        chon:hasReport         :cgr0SkqKG ;
+        chon:hasResult         :res0SkqKG6 ;
+        chon:subEventOf        :tou0SkqK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou0SkqK  a          chon:hessTournament ;
+        chon:atPlace  :pla0SkqKG ;
+        chon:hasName  "Thessaloniki ol (Men)" .
+
+:rolhg0SkqKG6y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0SkqKG .
+
+:ope0SkqKG  a            chon:ChessOpening ;
+        chon:hasECOCode  "E55" .

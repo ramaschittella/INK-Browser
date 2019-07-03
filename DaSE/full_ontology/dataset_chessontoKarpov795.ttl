@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope30AcHI  a            chon:ChessOpening ;
+        chon:hasECOCode  "B25" .
+
+:gam30AcH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol30AcHI ;
+        chon:atPlace           :pla30AcHI ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgame0xqeJx ;
+        chon:hasHalfMove       :hmgame0xqeJx ;
+        chon:hasLastHalfMove   :hmgame0xqeJx ;
+        chon:hasOpening        :ope30AcHI ;
+        chon:hasReport         :cgre0xqeJ ;
+        chon:hasResult         :res30AcHIu ;
+        chon:subEventOf        :tou30AcH .
+
+:tou30AcH  a          chon:hessTournament ;
+        chon:atPlace  :pla30AcHI ;
+        chon:hasName  "Hannover" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag30AcHI .
+
+:pla30AcHI  a         chon:Place ;
+        chon:hasName  "Hannover" .
+
+chon:HalfMove  chon:subEventOf  :gam30AcH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag30AcHI .
+
+:ag30AcHI  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Bastian, Herbert" .
+
+:rol30AcHI  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgre0xqeJ  a   chon:ChessGameReport .
+
+:rolhge0xqeJxf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag30AcHI .
+
+:hmgame0xqeJx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhge0xqeJxf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e4" , "Rb1" , "e6" , "Qb3" , "Nc3" , "Be4" , "Nf3" , "g4" , "Rae8" , "Bg2" , "Bxf3" , "c3" , "Nd4" , "f5" , "Kxg7" , "Rxe3" , "Kh8" , "Ng6" , "Bg7" , "Qh5" , "Qg6+" , "exf5" , "Bb7" , "Kf2" , "fxg7+" , "Bxg6" , "Nge7" , "Ng3" , "d6" , "c5" , "Bh1" , "Rbe1" , "g6" , "f4" , "b6" , "Qc6" , "Rxe4" , "gxf5" , "exf4" , "e5" , "O-O" , "Nc6" , "d3" , "Ne2" , "d5" , "Be3" , "Ne4" , "g3" , "Nxf3+" , "Bh5" , "f6" , "Qd7" ;
+        chon:nextHalfMove      :hmgame0xqeJx .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:role0xqeJ  a             chon:AuthorRole ;
+        chon:performedBy  :age0xqeJ .
+
+:res30AcHIu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

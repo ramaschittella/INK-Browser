@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolUksFxm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUksFxm .
+
+:hmgamQi0Ogmq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQi0OgmqS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Kg8" , "Qxf5" , "Kd6" , "Rxf5" , "Bc4" , "Qg5+" , "h5" , "Rg8" , "Qf2" , "Kf7" , "Qe6" , "g6" , "d4" , "Qd5" , "Kc5" , "h7+" , "Bf5" , "Qh6" , "Re7" , "Qg1+" , "Qd7" , "h6" , "c5" , "Qe7" , "d5" , "Rxe8" , "Kb1" , "Nh8" , "Bd3+" , "Qh4" , "Rdf1" , "gxf5" , "f6" , "Qf6+" , "Re8" , "Qxe8" , "Qh5+" , "Rhg1" , "Kg7" , "Qxf5+" , "gxh7+" , "c4" , "Kxh7" , "c6" , "Rf5" , "Rxf6+" , "a3" , "h4" , "Qe5" , "Rxe3" , "Ke7" , "Qh2" ;
+        chon:nextHalfMove      :hmgamQi0Ogmq .
+
+:hmgamUksFxma  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUksFxmaS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Re5" , "Bc6" , "Ng6" , "g5" , "Be7" , "d4" , "f4" , "Bb5" , "e5" , "Qxd4" , "Nf3" , "O-O-O" , "Qd2" , "Nc6" , "Be2" , "Nxd4" , "d6" , "Bxd5" , "Bxg5" , "Qxd5" , "fxg5" , "Nd5" , "Nge7" , "exd4" , "O-O" , "g4" , "Rxe4" , "Nc3" , "Re8" , "Bd7" , "Bf6" , "Be3" , "e4" , "a6" ;
+        chon:nextHalfMove      :hmgamUksFxma , :hmgamQi0Ogmq .
+
+:plaJmvrYn  a         chon:Place ;
+        chon:hasName  "USA/CAN" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUksFxm .
+
+chon:HalfMove  chon:subEventOf  :gamJmvrY .
+
+:opeUksFxm  a            chon:ChessOpening ;
+        chon:hasECOCode  "C62" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUksFxm .
+
+:resUksFxma  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgUksFxmaS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUksFxm .
+
+:gamJmvrY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUksFxm ;
+        chon:atPlace           :plaJmvrYn ;
+        chon:atTime            "1894.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUksFxma ;
+        chon:hasHalfMove       :hmgamUksFxma , :hmgamQi0Ogmq ;
+        chon:hasLastHalfMove   :hmgamQi0Ogmq ;
+        chon:hasOpening        :opeUksFxm ;
+        chon:hasReport         :cgrUksFxm ;
+        chon:hasResult         :resUksFxma ;
+        chon:subEventOf        :touUksFx .
+
+:rolhgQi0OgmqS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUksFxm .
+
+:touUksFx  a          chon:hessTournament ;
+        chon:atPlace  :plaJmvrYn ;
+        chon:hasName  "World Championship 5th" .
+
+:cgrUksFxm  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agUksFxm  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Lasker, Emanuel" .

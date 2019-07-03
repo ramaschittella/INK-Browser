@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgu4SMRL0M  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agu4SMRL .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agu4SMRL .
+
+:touu4SMR  a          chon:hessTournament ;
+        chon:atPlace  :plau4SMRL ;
+        chon:hasName  "World Championship 2nd" .
+
+:plau4SMRL  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:agu4SMRL  a          chon:Agent ;
+        chon:hasName  "Chigorin, Mikhail" , "Steinitz, William" .
+
+:hmgamF4O3oKe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgF4O3oKeX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Nf4" , "b5" , "Bg2" , "Bxf3" , "Nce7" , "Rb8" , "O-O" , "c5" , "f4" , "f5" , "Bd2" , "Qh4" , "Qxe4+" , "O-O-O" , "Ng6" , "Qd6" , "Qxf5" , "Bh3" , "Nge7" , "Ka1" , "Rb6" , "exd4" , "cxd5" , "Rf6" , "Qf3" , "gxf3" , "Bd6" , "Nxd5" , "e5" , "Kb1" , "Qg5" , "Rg1" , "Bxf5" , "Qb3" , "h5" , "Qxd5" , "Qxd6" , "e3" , "e4" , "Nc3" , "Qg3" ;
+        chon:nextHalfMove      :hmgam86YkKL4 , :hmgamF4O3oKe .
+
+chon:HalfMove  chon:subEventOf  :gamu4SMR .
+
+:cgru4SMRL  a   chon:ChessGameReport .
+
+:rolhg86YkKL4o  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agu4SMRL .
+
+:resu4SMRL0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgF4O3oKeX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agu4SMRL .
+
+:opeu4SMRL  a            chon:ChessOpening ;
+        chon:hasECOCode  "D07" .
+
+:hmgamu4SMRL0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgF4O3oKeX , :rolhgu4SMRL0M ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Nf3" , "d5" , "Nc6" , "Bg4" , "d4" , "c4" ;
+        chon:nextHalfMove      :hmgamF4O3oKe , :hmgamu4SMRL0 .
+
+:hmgam86YkKL4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg86YkKL4o , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Kf8" , "Be4" , "Ke7" , "Qd6" , "Ne6" , "Rc1" , "f5" , "Nc5" , "Rxg7+" , "Ra6" , "Qh7+" , "Nf8" , "Qh8+" , "Qd7" , "Qxc5" , "Qh5" , "Qxh5" ;
+        chon:nextHalfMove      :hmgam86YkKL4 .
+
+:gamu4SMR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolu4SMRL ;
+        chon:atPlace           :plau4SMRL ;
+        chon:atTime            "1889.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamu4SMRL0 ;
+        chon:hasHalfMove       :hmgamF4O3oKe , :hmgamu4SMRL0 , :hmgam86YkKL4 ;
+        chon:hasLastHalfMove   :hmgam86YkKL4 ;
+        chon:hasOpening        :opeu4SMRL ;
+        chon:hasReport         :cgru4SMRL ;
+        chon:hasResult         :resu4SMRL0 ;
+        chon:subEventOf        :touu4SMR .
+
+:rolu4SMRL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agu4SMRL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agu4SMRL .

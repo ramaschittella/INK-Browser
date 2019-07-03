@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resESmleaY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgPSjzM02F  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agESmlea .
+
+:cgrESmlea  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agESmlea .
+
+:rolESmlea  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agESmlea .
+
+chon:HalfMove  chon:subEventOf  :gamESmle .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agESmlea .
+
+:gamESmle  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolESmlea ;
+        chon:atPlace           :plaESmlea ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamESmleaY ;
+        chon:hasHalfMove       :hmgamESmleaY , :hmgamPSjzM02 ;
+        chon:hasLastHalfMove   :hmgamPSjzM02 ;
+        chon:hasOpening        :opeESmlea ;
+        chon:hasReport         :cgrESmlea ;
+        chon:hasResult         :resESmleaY ;
+        chon:subEventOf        :touESmle .
+
+:hmgamPSjzM02  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPSjzM02F , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mason, James" ;
+        chon:hasSANRecord      "Ke6" , "Qxg4" , "Ba3" , "Bg5" , "Be7" , "Kd5" , "Nxg4" , "Ne3" , "Bxg7" , "Kf5" , "Rf4" , "Bd6+" , "Rxf8+" , "a5" , "Ne3+" , "Kc6" , "Ke4" , "Nxc2" , "Kg3" , "h5" , "axb3" , "Kf7" , "Kf2" , "b5" , "Kb5" , "Nc2+" , "b4" , "Ne5" , "Bc5" , "Kxf8" , "g3" , "Kxd4" , "hxg4" , "a4" , "Kf3" , "Bf8" , "Ke2" ;
+        chon:nextHalfMove      :hmgamPSjzM02 .
+
+:plaESmlea  a         chon:Place ;
+        chon:hasName  "London" .
+
+:rolhgESmleaYu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agESmlea .
+
+:hmgamESmleaY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgESmleaYu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mason, James" ;
+        chon:hasSANRecord      "exf4" , "e5" , "Qxa2" , "Nf3" , "Bxf4" , "d3" , "h3" , "Bg4" , "Bxe2" , "Nh5" , "Qg6" , "Qa3" , "Ng3" , "Nd2" , "Nce2" , "Qxe2" , "Qe2" , "O-O" , "Nxh5" , "Rae1" , "Qxd2" , "e4" , "fxe4" , "Bg3" , "Qf7" , "Rxe4" , "Qf1+" , "Qg3" , "Qg5" , "b3" , "Be2" , "f5" , "d5" , "Rxf8+" , "Qd7" , "Bxc7" , "Qc5" , "Nf6" , "Rxf8" , "d4" , "Nc6" , "Qg4" , "h6" , "Bxd2+" , "Qf2" , "Kh2" , "Bxh5" , "f4" , "Qf5" , "Bb4+" , "Nc3" ;
+        chon:nextHalfMove      :hmgamPSjzM02 , :hmgamESmleaY .
+
+:agESmlea  a          chon:Agent ;
+        chon:hasName  "Mason, James" , "Steinitz, William" .
+
+:opeESmlea  a            chon:ChessOpening ;
+        chon:hasECOCode  "C29" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touESmle  a          chon:hessTournament ;
+        chon:atPlace  :plaESmlea ;
+        chon:hasName  "London" .

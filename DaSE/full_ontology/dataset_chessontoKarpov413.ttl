@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaJ336U4  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:agJ336U4  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Reshevsky, Samuel Herman" .
+
+:opeJ336U4  a            chon:ChessOpening ;
+        chon:hasECOCode  "A39" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJ336U4 .
+
+:rolhgJ336U4dM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJ336U4 .
+
+chon:HalfMove  chon:subEventOf  :gamJ336U .
+
+:hmgamJ336U4d  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJ336U4dM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "g3" , "c4" , "Nxd4" , "a6" , "Rac1" , "g6" , "Rb8" , "Nf3" , "Qxd4" , "Nc3" , "d6" , "Qd3" , "Bg7" , "O-O" , "d4" , "Nf6" , "Nc6" , "cxd4" , "Bg2" , "c5" , "Bd2" ;
+        chon:nextHalfMove      :hmgamJ336U4d .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJ336U4 .
+
+:cgrJ336U4  a   chon:ChessGameReport .
+
+:resJ336U4d  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolJ336U4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJ336U4 .
+
+:gamJ336U  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJ336U4 ;
+        chon:atPlace           :plaJ336U4 ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJ336U4d ;
+        chon:hasHalfMove       :hmgamJ336U4d ;
+        chon:hasLastHalfMove   :hmgamJ336U4d ;
+        chon:hasOpening        :opeJ336U4 ;
+        chon:hasReport         :cgrJ336U4 ;
+        chon:hasResult         :resJ336U4d ;
+        chon:subEventOf        :touJ336U .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touJ336U  a          chon:hessTournament ;
+        chon:atPlace  :plaJ336U4 ;
+        chon:hasName  "Skopje" .

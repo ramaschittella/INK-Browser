@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgxa3tGNfj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxa3tGN .
+
+:resxa3tGNf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxa3tGN .
+
+chon:HalfMove  chon:subEventOf  :gam7aRak .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxa3tGN .
+
+:cgrxa3tGN  a   chon:ChessGameReport .
+
+:gam7aRak  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxa3tGN ;
+        chon:atPlace           :pla7aRakN ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxa3tGNf ;
+        chon:hasHalfMove       :hmgamxa3tGNf ;
+        chon:hasLastHalfMove   :hmgamxa3tGNf ;
+        chon:hasOpening        :opexa3tGN ;
+        chon:hasReport         :cgrxa3tGN ;
+        chon:hasResult         :resxa3tGNf ;
+        chon:subEventOf        :touxa3tG .
+
+:agxa3tGN  a          chon:Agent ;
+        chon:hasName  "Garcia, Raimundo" , "Fischer, Robert James" .
+
+:pla7aRakN  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:rolxa3tGN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxa3tGN .
+
+:hmgamxa3tGNf  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxa3tGNfj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Garcia, Raimundo" ;
+        chon:hasSANRecord      "Nxb4" , "Bf4" , "d3" , "Qxd6" , "f5" , "Be7" , "Qxf2" , "Ne5" , "Qd7" , "Qxg4" , "b4" , "Nc6" , "O-O" , "e6" , "Qd1" , "Rad8" , "Be3" , "d6" , "Bxd8" , "Nf2" , "h4" , "a6" , "Kh2" , "a3" , "e4" , "b5" , "Bc6" , "cxb4" , "Qd2" , "Nh7" , "g3" , "Nxh5" , "h5" , "Bh3" , "Rb1" , "Nc5" , "Nc3" , "c3" , "e5" , "Bb7" , "Qxd8" , "Qe1" , "Qc7" , "exf4" , "Qxf4" , "Qf3" , "Na4" , "Bg5" , "gxh5" , "Qg5" , "f4" , "Nge2" , "Nxd3" , "c5" , "g6" , "g4" , "Bg2" , "axb4" , "Nf6" , "h6" , "Bh4" , "h3" , "Rxf4" , "Qf4" , "Ng3" , "Bb6" ;
+        chon:nextHalfMove      :hmgamxa3tGNf .
+
+:opexa3tGN  a            chon:ChessOpening ;
+        chon:hasECOCode  "B23" .
+
+:touxa3tG  a          chon:hessTournament ;
+        chon:atPlace  :pla7aRakN ;
+        chon:hasName  "Buenos Aires" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

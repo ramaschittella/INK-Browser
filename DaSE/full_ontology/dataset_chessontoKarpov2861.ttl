@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agVJpq7e  a          chon:Agent ;
+        chon:hasName  "Akopian,Vl" , "Karpov,Ana" .
+
+:rolVJpq7e  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVJpq7e .
+
+:opeVJpq7e  a            chon:ChessOpening ;
+        chon:hasECOCode  "D12" .
+
+:gamVJpq7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVJpq7e ;
+        chon:atPlace           :plaVJpq7e ;
+        chon:atTime            "2006.04.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVJpq7eh ;
+        chon:hasHalfMove       :hmgam8JmEEdk , :hmgamVJpq7eh ;
+        chon:hasLastHalfMove   :hmgam8JmEEdk ;
+        chon:hasOpening        :opeVJpq7e ;
+        chon:hasReport         :cgrVJpq7e ;
+        chon:hasResult         :resVJpq7eh ;
+        chon:subEventOf        :touVJpq7 .
+
+:touVJpq7  a          chon:hessTournament ;
+        chon:atPlace  :plaVJpq7e ;
+        chon:hasName  "XIII TCh-RUS" .
+
+:hmgamVJpq7eh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVJpq7eh4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Akopian,Vl" ;
+        chon:hasSANRecord      "d4" , "Bd6" , "Bd2" , "Nxg6" , "hxg6" , "Nf6" , "Nbd7" , "c4" , "c6" , "Bf5" , "h3" , "Bg6" , "Nh4" , "Nf3" , "Nc3" , "dxc4" , "Bxc4" , "Bd3" , "d5" , "e3" , "e6" ;
+        chon:nextHalfMove      :hmgamVJpq7eh , :hmgam8JmEEdk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVJpq7e .
+
+chon:HalfMove  chon:subEventOf  :gamVJpq7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVJpq7e .
+
+:cgrVJpq7e  a   chon:ChessGameReport .
+
+:resVJpq7eh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgam8JmEEdk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8JmEEdkh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Akopian,Vl" ;
+        chon:hasSANRecord      "c5" , "Kg2" , "d3" , "Nf8" , "Bxc8" , "Rfd1" , "Bc5" , "e5" , "g3" , "Rd6" , "Nd4" , "Qb3" , "Nh2" , "b4" , "Nh7" , "Nb3" , "Bc5+" , "Be2" , "Rf6" , "Bb4" , "Rf3" , "Bxd3" , "g2+" , "Rxa3" , "Qc2" , "Kh7" , "Kg1" , "g5" , "Qd5" , "Ba6" , "a3" , "e4" , "Nxf3" , "b6" , "Rd5" , "Qc8" , "Rac8" , "Qxc8" , "Kh1" , "Rxd8+" , "O-O" , "Qb1" , "Ne6" , "Nxe5" , "Nc5" , "Na4" , "Ra2" , "Rfd8" , "Rd1" , "Kf1" , "Qd8" , "Qxd8" , "a5" , "Nf1" , "gxf3" , "g4" , "dxe5" , "Nf3" , "Qd1" , "bxa5" , "Qc7" , "Nd2" , "Be3" , "cxd4" , "Bxd4" , "Bxf2+" , "Qe7" , "Be1+" , "Rc6" , "Qc3" ;
+        chon:nextHalfMove      :hmgam8JmEEdk .
+
+:rolhgVJpq7eh4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVJpq7e .
+
+:plaVJpq7e  a         chon:Place ;
+        chon:hasName  "Sochi RUS" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg8JmEEdkh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVJpq7e .

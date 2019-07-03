@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agIp3ViS  a          chon:Agent ;
+        chon:hasName  "Shirov, Alexei" , "Karpov, Anatoly" .
+
+:opeIp3ViS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B66" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIp3ViS .
+
+:plaIp3ViS  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+chon:HalfMove  chon:subEventOf  :gamIp3Vi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIp3ViS .
+
+:cgrIp3ViS  a   chon:ChessGameReport .
+
+:hmgamIp3ViSK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIp3ViSK4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov, Alexei" ;
+        chon:hasSANRecord      "h6" , "Be7" , "e4" , "Bg5" , "Nc6" , "Nh5" , "d6" , "cxd4" , "Bd7" , "Bxc6" , "d4" , "O-O-O" , "Qe1" , "Nf6" , "Be3" , "Nxc6" , "Nc3" , "Bf4" , "e6" , "Nxd4" , "a6" , "c5" , "Qd2" , "e5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamUnZ9RRN , :hmgamIp3ViSK .
+
+:rolIp3ViS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIp3ViS .
+
+:hmgamUnZ9RRN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUnZ9RRNg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov, Alexei" ;
+        chon:hasSANRecord      "Rxd4" , "O-O-O" , "Qd6" , "gxh5" , "Qe3" , "Be2" , "a5" , "b4+" , "Bxh5" , "g3" , "Bf4" , "Kd2" , "Qg3" , "Rxd8+" , "Kc3" , "Kd5" , "dxe5" , "Qxe4" , "Kb6" , "a3" , "Rxd1+" , "Bxe4" , "b5" , "Kxh5" , "e4" , "Qxd4" , "f6" , "Qd4" , "g4" , "Kd3" , "Rd8" , "f3" , "Kxb6" , "Ka5" , "Kd6" , "Qxe5" , "Kg5" , "Qxd8" , "Rg8" , "Kxd1" , "Kxg4" , "b6" , "Kb4" , "Ne4" , "Bxg5" , "Kc6" , "Qd5" , "b3" , "f4" , "hxg5" , "Kc5" , "g6" , "Rd1" , "Kd7" , "Kxc4" , "e5" , "Bg5" , "c4" , "Qc7" , "axb4+" , "Kf5" , "Kxe4" , "fxe5" , "Kd4" ;
+        chon:nextHalfMove      :hmgamUnZ9RRN .
+
+:rolhgUnZ9RRNg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIp3ViS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resIp3ViSK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamIp3Vi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIp3ViS ;
+        chon:atPlace           :plaIp3ViS ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIp3ViSK ;
+        chon:hasHalfMove       :hmgamIp3ViSK , :hmgamUnZ9RRN ;
+        chon:hasLastHalfMove   :hmgamUnZ9RRN ;
+        chon:hasOpening        :opeIp3ViS ;
+        chon:hasReport         :cgrIp3ViS ;
+        chon:hasResult         :resIp3ViSK ;
+        chon:subEventOf        :touIp3Vi .
+
+:rolhgIp3ViSK4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIp3ViS .
+
+:touIp3Vi  a          chon:hessTournament ;
+        chon:atPlace  :plaIp3ViS ;
+        chon:hasName  "Buenos Aires Sicilian" .

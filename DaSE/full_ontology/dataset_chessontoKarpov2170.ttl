@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamgNrV6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIPEfrH ;
+        chon:atPlace           :plaIPEfrH ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIPEfrHb ;
+        chon:hasHalfMove       :hmgamIPEfrHb ;
+        chon:hasLastHalfMove   :hmgamIPEfrHb ;
+        chon:hasOpening        :opeIPEfrH ;
+        chon:hasReport         :cgrIPEfrH ;
+        chon:hasResult         :resIPEfrHb ;
+        chon:subEventOf        :touIPEfr .
+
+:agIPEfrH  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kramnik, Vladimir" .
+
+:rolIPEfrH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIPEfrH .
+
+:resIPEfrHb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIPEfrH .
+
+chon:HalfMove  chon:subEventOf  :gamgNrV6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIPEfrH .
+
+:opeIPEfrH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:rolhgIPEfrHbJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIPEfrH .
+
+:touIPEfr  a          chon:hessTournament ;
+        chon:atPlace  :plaIPEfrH ;
+        chon:hasName  "Dos Hermanas" .
+
+:plaIPEfrH  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamIPEfrHb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIPEfrHbJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qd7" , "Nd7" , "Nc7" , "Nb8" , "Kg8" , "Bc8" , "a3" , "b5" , "e6" , "Rxa4" , "bxc6" , "Ne4" , "Ra8" , "Nc5" , "Bb2" , "Qxc6" , "Ba3" , "Nf6" , "Ba6" , "f3" , "e4" , "dxc5" , "Ndf6" , "c5" , "b6" , "Ra2" , "Nxc5" , "Nd3" , "c4" , "Bxc3" , "d6" , "Qxc3" , "Nef6" , "Bb3" , "Qxa4" , "bxc5" , "Qb3" , "e5" , "Qa4" , "Ne8" , "d4" , "O-O" , "Ne1" , "b4" , "Be2" , "a5" , "Nf3" , "Bd1" , "c6" , "axb4" , "Kf8" , "Nbd7" , "Bxa1" , "Nc3" , "Rxc7" , "Bb4" , "Rxa1+" , "Qc2" , "Rc1" , "e3" , "Ba4" , "Bb7" ;
+        chon:nextHalfMove      :hmgamIPEfrHb .
+
+:cgrIPEfrH  a   chon:ChessGameReport .

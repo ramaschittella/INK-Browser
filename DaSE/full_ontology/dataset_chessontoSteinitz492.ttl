@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgrhYPqOpu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrhYPqO .
+
+:plarhYPqO  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:hmgamDfU4ZPu  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDfU4ZPuF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Linden, Bert" ;
+        chon:hasSANRecord      "Nc6" , "Nc5" , "Rec8" , "Bc4" , "Be6" , "Rad1" , "Bd6" , "Qg6" , "Bg3" , "Qxd4" , "Nb4" , "exd4" , "Qf6" , "Re8" , "c4" , "e5" , "Ne5" , "d6" , "Bxe5" , "O-O" , "Qb3" , "cxd5" , "Qc6" , "Qe4" , "Be7" , "c6" , "Qh6" , "Bxd5" , "Qxd5" , "Rfe1" , "Re4" , "hxg3" , "Qd4" , "Kh8" , "Qxb7" , "Rd8" , "Nd5" , "Na6" , "Bd4" , "Qe6" , "Qxc5" , "Bxg3" , "dxe5" , "Qb6" , "Nc3" , "Be3" ;
+        chon:nextHalfMove      :hmgamDfU4ZPu .
+
+:cgrrhYPqO  a   chon:ChessGameReport .
+
+:resrhYPqOp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrhYPqO .
+
+:rolhgDfU4ZPuF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrhYPqO .
+
+chon:HalfMove  chon:subEventOf  :gamrhYPq .
+
+:agrhYPqO  a          chon:Agent ;
+        chon:hasName  "Van der Linden, Bert" , "Steinitz, William" .
+
+:rolrhYPqO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrhYPqO .
+
+:operhYPqO  a            chon:ChessOpening ;
+        chon:hasECOCode  "C43" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrhYPqO .
+
+:gamrhYPq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrhYPqO ;
+        chon:atPlace           :plarhYPqO ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrhYPqOp ;
+        chon:hasHalfMove       :hmgamrhYPqOp , :hmgamDfU4ZPu ;
+        chon:hasLastHalfMove   :hmgamDfU4ZPu ;
+        chon:hasOpening        :operhYPqO ;
+        chon:hasReport         :cgrrhYPqO ;
+        chon:hasResult         :resrhYPqOp ;
+        chon:subEventOf        :tourhYPq .
+
+:tourhYPq  a          chon:hessTournament ;
+        chon:atPlace  :plarhYPqO ;
+        chon:hasName  "New York sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamrhYPqOp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrhYPqOpu , :rolhgDfU4ZPuF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Linden, Bert" ;
+        chon:hasSANRecord      "Nf3" , "e4" , "e5" , "d4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamrhYPqOp , :hmgamDfU4ZPu .

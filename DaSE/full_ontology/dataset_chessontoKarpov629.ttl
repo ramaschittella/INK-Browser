@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res840j9Fj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag840j9F  a          chon:Agent ;
+        chon:hasName  "Alburt, Lev O" , "Karpov, Anatoly" .
+
+:ope840j9F  a            chon:ChessOpening ;
+        chon:hasECOCode  "B05" .
+
+:gamV4d4z  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol840j9F ;
+        chon:atPlace           :plaV4d4zG ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam840j9Fj ;
+        chon:hasHalfMove       :hmgam840j9Fj ;
+        chon:hasLastHalfMove   :hmgam840j9Fj ;
+        chon:hasOpening        :ope840j9F ;
+        chon:hasReport         :cgr840j9F ;
+        chon:hasResult         :res840j9Fj ;
+        chon:subEventOf        :tou840j9 .
+
+:tou840j9  a          chon:hessTournament ;
+        chon:atPlace  :plaV4d4zG ;
+        chon:hasName  "Malta ol (Men)" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag840j9F .
+
+chon:HalfMove  chon:subEventOf  :gamV4d4z .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag840j9F .
+
+:cgr840j9F  a   chon:ChessGameReport .
+
+:hmgam840j9Fj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg840j9Fjg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Alburt, Lev O" ;
+        chon:hasSANRecord      "Nf6" , "exd6" , "Nb6" , "Rxe1" , "f4" , "Nxd4" , "Re8" , "Qa6" , "Rxf3" , "Rd1" , "Be2" , "Qe7" , "c6" , "g6" , "c5" , "Qb5" , "O-O-O" , "Nf3" , "Nc8" , "Nh6" , "O-O" , "Qd2" , "Nf5" , "d4" , "Bd4+" , "Qh4" , "Bg7" , "Re1" , "d6" , "Rb3" , "Re4" , "Ng4" , "Kb8" , "c4" , "Rde8" , "Nf3+" , "Nd2" , "a5" , "e5" , "Nc6" , "Bb5" , "Bg4" , "Bxf3" , "Nd5" , "Qf6" , "h3" , "Qxa5" , "b6" , "axb6" , "Bf1" , "d5" , "h5" , "a4" , "e4" , "Re1+" , "Bxc6" , "Ra3" , "Ne5" , "dxc5" ;
+        chon:nextHalfMove      :hmgam840j9Fj .
+
+:rol840j9F  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag840j9F .
+
+:rolhg840j9Fjg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag840j9F .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaV4d4zG  a         chon:Place ;
+        chon:hasName  "La Valetta" .

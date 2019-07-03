@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touLi6xb  a          chon:hessTournament ;
+        chon:atPlace  :plaLi6xbh ;
+        chon:hasName  "IBM" .
+
+:opeLi6xbh  a            chon:ChessOpening ;
+        chon:hasECOCode  "C09" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLi6xbh .
+
+chon:HalfMove  chon:subEventOf  :gamLi6xb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLi6xbh .
+
+:plaLi6xbh  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:hmgamLi6xbhO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLi6xbhOG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxe7" , "Re1" , "c5" , "Nd2" , "a6" , "h3" , "Be2" , "Bxe2" , "Qxe2" , "Bh5" , "c3" , "e6" , "Nb3" , "O-O" , "e4" , "exd5" , "Bxc5" , "Ne7" , "Bb5" , "Bg4" , "d4" , "Bd6" , "Nc6" , "Nxe7" , "d5" , "Bg5" , "Qc7" , "Nfd4" , "dxc5" , "Ngf3" ;
+        chon:nextHalfMove      :hmgamLi6xbhO .
+
+:cgrLi6xbh  a   chon:ChessGameReport .
+
+:agLi6xbh  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Dolmatov, Sergey" .
+
+:rolLi6xbh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLi6xbh .
+
+:rolhgLi6xbhOG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLi6xbh .
+
+:resLi6xbhO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamLi6xb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLi6xbh ;
+        chon:atPlace           :plaLi6xbh ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLi6xbhO ;
+        chon:hasHalfMove       :hmgamLi6xbhO ;
+        chon:hasLastHalfMove   :hmgamLi6xbhO ;
+        chon:hasOpening        :opeLi6xbh ;
+        chon:hasReport         :cgrLi6xbh ;
+        chon:hasResult         :resLi6xbhO ;
+        chon:subEventOf        :touLi6xb .

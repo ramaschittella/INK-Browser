@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaUSjoqW  a         chon:Place ;
+        chon:hasName  "Turin" .
+
+:hmgamSSXdB6c  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSSXdB6cc , chon:AgentRole , :rolhg4QTra5gn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc7" , "d6" , "Ne8" , "b3" , "c5" , "Nxc3" , "b6" , "d4" , "Rd8" , "Kxg2" , "Bb7" , "Qd2" , "Ne1" , "Be7" , "e6" , "Nf3" , "gxf6" , "Rd3" , "Bg2" , "Bf6" , "Nc3" , "Bxg2" , "Kf8" , "Bb2" , "O-O" , "Na6" , "Rxd3" , "Bxf6" , "dxc5" , "Nxd3" , "Rd1" , "f3" , "Nxc7" , "Qxc7" , "Ne4" , "Nf6" , "g3" , "Qf4" , "Qxc3" , "Nd6" , "Qc2" , "c4" ;
+        chon:nextHalfMove      :hmgam4QTra5g , :hmgamSSXdB6c .
+
+:cgrUSjoqW  a   chon:ChessGameReport .
+
+:touUSjoq  a          chon:hessTournament ;
+        chon:atPlace  :plaUSjoqW ;
+        chon:hasName  "Turin" .
+
+:hmgam4QTra5g  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4QTra5gn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kd2" , "Kf8" , "Nf5" , "Rd1" , "Kf2" , "Kxd1" , "Rg1" , "Ke2" , "Ke3" , "Kd6" , "Nc6" , "gxf5" , "Rd8" , "e3" , "Rxd1" , "Rxd6" , "exf5" , "Na5" , "Kc2" , "Kc3" , "h6" , "Ne5" , "g4" , "a3" , "Nxd6" , "Kd3" , "f5" , "Ke6" , "Ke7" , "Nb7" , "f4" , "Ne4" , "Rg3" , "Nd6" , "Nf2" ;
+        chon:nextHalfMove      :hmgam4QTra5g .
+
+:rolhgSSXdB6cc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUSjoqW .
+
+:agUSjoqW  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Andersson, Ulf" .
+
+:rolUSjoqW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUSjoqW .
+
+:resUSjoqWE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUSjoqW .
+
+chon:HalfMove  chon:subEventOf  :gamUSjoq .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUSjoqW .
+
+:rolhg4QTra5gn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUSjoqW .
+
+:gamUSjoq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUSjoqW ;
+        chon:atPlace           :plaUSjoqW ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSSXdB6c ;
+        chon:hasHalfMove       :hmgamSSXdB6c , :hmgam4QTra5g ;
+        chon:hasLastHalfMove   :hmgam4QTra5g ;
+        chon:hasOpening        :opeUSjoqW ;
+        chon:hasReport         :cgrUSjoqW ;
+        chon:hasResult         :resUSjoqWE ;
+        chon:subEventOf        :touUSjoq .
+
+:opeUSjoqW  a            chon:ChessOpening ;
+        chon:hasECOCode  "E19" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

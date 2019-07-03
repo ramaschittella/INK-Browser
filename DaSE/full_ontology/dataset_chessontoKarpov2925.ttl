@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamXH8ypF2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXH8ypF26 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miton,K" ;
+        chon:hasSANRecord      "Nc3" , "Nf6" , "d4" , "e4" , "d6" , "Be3" , "g6" , "Nf3" , "c6" , "c4" , "Bg7" , "O-O" , "h3" ;
+        chon:nextHalfMove      :hmgamXH8ypF2 , :hmgam0H5MZE7 .
+
+:plaXH8ypF  a         chon:Place ;
+        chon:hasName  "Canada de Calatrava ESP" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXH8ypF .
+
+:cgrXH8ypF  a   chon:ChessGameReport .
+
+:resXH8ypF2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamXH8yp .
+
+:agXH8ypF  a          chon:Agent ;
+        chon:hasName  "Miton,K" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXH8ypF .
+
+:rolXH8ypF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXH8ypF .
+
+:hmgam0H5MZE7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0H5MZE7j , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miton,K" ;
+        chon:hasSANRecord      "Nc3" , "Qd2" , "Bxc4" , "Bxf6" , "Be6" , "Na4" , "Nc5" , "Be2" , "Qa7" , "Ne4" , "dxe4" , "Rfd8" , "Qb6" , "b3" , "d5" , "Nb6" , "Nxf6+" , "a6" , "Bd3" , "b5" , "Rac1" , "Ng5" , "Bg7" , "Nd7" , "Bd5" , "O-O" , "a5" , "Nxe4" , "bxc4" ;
+        chon:nextHalfMove      :hmgam0H5MZE7 .
+
+:rolhgXH8ypF26  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXH8ypF .
+
+:gamXH8yp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXH8ypF ;
+        chon:atPlace           :plaXH8ypF ;
+        chon:atTime            "2007.04.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXH8ypF2 ;
+        chon:hasHalfMove       :hmgam0H5MZE7 , :hmgamXH8ypF2 ;
+        chon:hasLastHalfMove   :hmgam0H5MZE7 ;
+        chon:hasOpening        :opeXH8ypF ;
+        chon:hasReport         :cgrXH8ypF ;
+        chon:hasResult         :resXH8ypF2 ;
+        chon:subEventOf        :touXH8yp .
+
+:touXH8yp  a          chon:hessTournament ;
+        chon:atPlace  :plaXH8ypF ;
+        chon:hasName  "II Rapid" .
+
+:rolhg0H5MZE7j  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXH8ypF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeXH8ypF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E90" .

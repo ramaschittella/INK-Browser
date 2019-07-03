@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrMuD1Mx  a   chon:ChessGameReport .
+
+:hmgampwMwGxx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpwMwGxxo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Keres, Paul" ;
+        chon:hasSANRecord      "h6" , "Kg2" , "Ne3+" , "Ng4" , "Ng6" , "Qf3" , "Bg4" , "Ra5" , "Bd6" , "Rh5" , "Bxh5" , "Nd2" , "h5" , "N4xh5" , "Bf4" , "Nxf4" ;
+        chon:nextHalfMove      :hmgampwMwGxx .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMuD1Mx .
+
+:gamMuD1M  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMuD1Mx ;
+        chon:atPlace           :plaMuD1Mx ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdwPi7ys ;
+        chon:hasHalfMove       :hmgamdwPi7ys , :hmgampwMwGxx ;
+        chon:hasLastHalfMove   :hmgampwMwGxx ;
+        chon:hasOpening        :opeMuD1Mx ;
+        chon:hasReport         :cgrMuD1Mx ;
+        chon:hasResult         :resMuD1MxD ;
+        chon:subEventOf        :touMuD1M .
+
+:plaMuD1Mx  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+:touMuD1M  a          chon:hessTournament ;
+        chon:atPlace  :plaMuD1Mx ;
+        chon:hasName  "Candidats Tournament" .
+
+:rolhgdwPi7ysb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMuD1Mx .
+
+chon:HalfMove  chon:subEventOf  :gamMuD1M .
+
+:resMuD1MxD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMuD1Mx .
+
+:hmgamdwPi7ys  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpwMwGxxo , chon:AgentRole , :rolhgdwPi7ysb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Keres, Paul" ;
+        chon:hasSANRecord      "Nc3" , "a3" , "d3" , "g3" , "f4" , "e5" , "Nf6" , "Bxc5" , "Qe2" , "d5" , "Nxe5" , "fxe5" , "O-O" , "b3" , "a4" , "Nbd7" , "d4" , "c5" , "h3" , "Ra2" , "Bxf3" , "Bh3" , "Bg4" , "bxc5" , "Qc7" , "Nf3" , "b4" , "a5" , "e4" , "c6" , "h4" , "Rfc8" , "Bd2" , "Bb4" , "Bg2" , "e6" , "Qb6" , "Be7" , "Qxf3" , "Rc6" , "Nb1" ;
+        chon:nextHalfMove      :hmgamdwPi7ys , :hmgampwMwGxx .
+
+:agMuD1Mx  a          chon:Agent ;
+        chon:hasName  "Keres, Paul" , "Fischer, Robert James" .
+
+:rolMuD1Mx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMuD1Mx .
+
+:opeMuD1Mx  a            chon:ChessOpening ;
+        chon:hasECOCode  "B11" .
+
+:rolhgpwMwGxxo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMuD1Mx .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

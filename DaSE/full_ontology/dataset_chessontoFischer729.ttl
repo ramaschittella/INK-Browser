@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag5ptXvV  a          chon:Agent ;
+        chon:hasName  "Gligoric, Svetozar" , "Fischer, Robert James" .
+
+:gam5ptXv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5ptXvV ;
+        chon:atPlace           :pla5ptXvV ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfppd6U2 ;
+        chon:hasHalfMove       :hmgamfppd6U2 ;
+        chon:hasLastHalfMove   :hmgamfppd6U2 ;
+        chon:hasOpening        :ope5ptXvV ;
+        chon:hasReport         :cgr5ptXvV ;
+        chon:hasResult         :res5ptXvVY ;
+        chon:subEventOf        :tou5ptXv .
+
+:rol5ptXvV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5ptXvV .
+
+:tou5ptXv  a          chon:hessTournament ;
+        chon:atPlace  :pla5ptXvV ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ptXvV .
+
+:rolhgfppd6U2Q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5ptXvV .
+
+chon:HalfMove  chon:subEventOf  :gam5ptXv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ptXvV .
+
+:hmgamfppd6U2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfppd6U2Q ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gligoric, Svetozar" ;
+        chon:hasSANRecord      "Rf7" , "Rxf6" , "Nc6" , "g6" , "h4" , "Re1" , "Be3" , "Nc4" , "Bb3" , "Rah1" , "Nxg5" , "f3" , "Nb6" , "f6" , "gxh4" , "g4" , "Nf5" , "Ng3" , "a6" , "d4" , "Rxh4" , "b3" , "c4" , "Nbd2" , "Bd7" , "Rh6" , "Qd2" , "Nf3" , "Nf6" , "Ba4" , "Rh1" , "e4" , "Nf1" , "O-O" , "b4" , "d5" , "Bg5" , "Rf8" , "a4" , "Be7" , "Bb7" , "Re8" , "Bc8" , "e5" , "g5" , "Nc8" , "h3" , "h6" , "Rh7" , "Bc2" , "Bb5" , "Kg7" , "Na5" , "Nh7" , "a5" , "c5" , "Bf8" , "d6" , "Kg2" , "hxg5" , "Nf8" , "b5" , "c3" , "Kh2" ;
+        chon:nextHalfMove      :hmgamfppd6U2 .
+
+:ope5ptXvV  a            chon:ChessOpening ;
+        chon:hasECOCode  "C93" .
+
+:res5ptXvVY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:pla5ptXvV  a         chon:Place ;
+        chon:hasName  "Zagreb" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr5ptXvV  a   chon:ChessGameReport .

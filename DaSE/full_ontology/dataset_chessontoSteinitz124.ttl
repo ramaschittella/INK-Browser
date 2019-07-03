@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agLoSBXH  a          chon:Agent ;
+        chon:hasName  "Hamel , S." , "Steinitz, William" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLoSBXH .
+
+:cgrLoSBXH  a   chon:ChessGameReport .
+
+:plaPqVsdJ  a         chon:Place ;
+        chon:hasName  "Dundee" .
+
+:rolhgLoSBXHoq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLoSBXH .
+
+:resLoSBXHo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgoqJaTIh3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLoSBXH .
+
+chon:HalfMove  chon:subEventOf  :gamPqVsd .
+
+:hmgamoqJaTIh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoqJaTIh3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hamel , S." ;
+        chon:hasSANRecord      "Qxc4" , "Re5" , "Re1+" , "Qxg7" , "Qd5" , "Rc8" , "exd5" , "Ke8" , "Nf5+" , "Rfe1" , "Rexd5" , "Rg8" , "Nd4" ;
+        chon:nextHalfMove      :hmgamoqJaTIh .
+
+:hmgamLoSBXHo  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLoSBXHoq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hamel , S." ;
+        chon:hasSANRecord      "exd5" , "d4" , "Bg4" , "Qxd5" , "Qe5+" , "e4" , "Bxe2" , "Bf4" , "Ngxe2" , "Be2" , "Nc3" , "d5" , "Qh5" ;
+        chon:nextHalfMove      :hmgamLoSBXHo , :hmgamWozRwIr .
+
+:opeLoSBXH  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+:rolhgWozRwIrD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLoSBXH .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolLoSBXH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLoSBXH .
+
+:touLoSBX  a          chon:hessTournament ;
+        chon:atPlace  :plaPqVsdJ ;
+        chon:hasName  "Dundee" .
+
+:gamPqVsd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLoSBXH ;
+        chon:atPlace           :plaPqVsdJ ;
+        chon:atTime            "1867.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLoSBXHo ;
+        chon:hasHalfMove       :hmgamoqJaTIh , :hmgamLoSBXHo , :hmgamWozRwIr ;
+        chon:hasLastHalfMove   :hmgamoqJaTIh ;
+        chon:hasOpening        :opeLoSBXH ;
+        chon:hasReport         :cgrLoSBXH ;
+        chon:hasResult         :resLoSBXHo ;
+        chon:subEventOf        :touLoSBX .
+
+:hmgamWozRwIr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWozRwIrD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hamel , S." ;
+        chon:hasSANRecord      "Bxb8" , "Nb5" , "Kd7" , "Bb4" , "O-O-O" , "Na6" , "Ke7" , "Rxb8" , "Qb4" , "e6" , "Nf6" , "Qxd5" , "Ba7" , "d5" , "Qxa7" , "Nxc3" , "Rb7" , "Qb3" , "O-O" , "b6" , "c4" , "Qc6" , "Qg3" , "Qa8+" , "Be3" , "Qc5" , "Nd5" , "Bxc3" , "Qa5" , "Rad1+" , "Qd4" , "Nb8" ;
+        chon:nextHalfMove      :hmgamoqJaTIh , :hmgamWozRwIr .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLoSBXH .

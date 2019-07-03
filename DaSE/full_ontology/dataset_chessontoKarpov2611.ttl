@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolDVdWNR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDVdWNR .
+
+:resDVdWNRF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaDVdWNR  a         chon:Place ;
+        chon:hasName  "Cannes FRA" .
+
+:hmgamPTaakRI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPTaakRIQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko,P" ;
+        chon:hasSANRecord      "Bf5" , "Bxf7" , "Rxb1" , "Kxd6" , "b4" , "Rfe8" , "Ne3" , "Nb7" , "b2" , "a5" , "cxb5" , "Rxb5" , "Nf1" , "Kf6" , "b1=Q" , "d6+" , "Bxg7" , "Rb2" , "Nf5" , "Rba2" , "Bd3" , "c4" , "Kd7" , "Ke7" , "Bc4" , "Nxb1" , "Rxa2" , "f6+" , "Nd7" , "Ra6" , "g4" , "Rd2" , "Nd6" , "gxf5" , "Rc6" , "Ke3" , "axb4" , "a3" , "b3" , "Kc7" , "Nxf6" , "Kd4" , "Kf2" , "Nd2" , "Reb8" , "Ne8" , "Rb5" , "Kxg7" , "Rxc5" ;
+        chon:nextHalfMove      :hmgamPTaakRI .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDVdWNR .
+
+:gamDVdWN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDVdWNR ;
+        chon:atPlace           :plaDVdWNR ;
+        chon:atTime            "2002.02.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDVdWNRF ;
+        chon:hasHalfMove       :hmgamDVdWNRF , :hmgamPTaakRI ;
+        chon:hasLastHalfMove   :hmgamPTaakRI ;
+        chon:hasOpening        :opeDVdWNR ;
+        chon:hasReport         :cgrDVdWNR ;
+        chon:hasResult         :resDVdWNRF ;
+        chon:subEventOf        :touDVdWN .
+
+chon:HalfMove  chon:subEventOf  :gamDVdWN .
+
+:touDVdWN  a          chon:hessTournament ;
+        chon:atPlace  :plaDVdWNR ;
+        chon:hasName  "NAO Masters" .
+
+:agDVdWNR  a          chon:Agent ;
+        chon:hasName  "Leko,P" , "Karpov,An" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDVdWNR .
+
+:opeDVdWNR  a            chon:ChessOpening ;
+        chon:hasECOCode  "D73" .
+
+:hmgamDVdWNRF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDVdWNRFF , chon:AgentRole , :rolhgPTaakRIQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko,P" ;
+        chon:hasSANRecord      "exd5" , "Nc4" , "Nc6" , "Nf6" , "dxc4" , "d4" , "bxc3" , "Rd1" , "Qa6" , "Be2" , "e6" , "Bb2" , "e4" , "e3" , "Bg2" , "Bd7" , "c5" , "c3" , "g3" , "Qe2" , "Bf1" , "b5" , "Nf3" , "Be6" , "Qb6" , "d5" , "Nh4" , "Bxc4" , "Nb6" , "Bg4" , "Nd5" , "Nxc4" , "f3" , "Ng2" , "Bf5" , "O-O" , "Na5" , "Qxc4" , "c4" , "g6" , "Bg7" , "Na3" ;
+        chon:nextHalfMove      :hmgamPTaakRI , :hmgamDVdWNRF .
+
+:rolhgPTaakRIQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDVdWNR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrDVdWNR  a   chon:ChessGameReport .
+
+:rolhgDVdWNRFF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDVdWNR .

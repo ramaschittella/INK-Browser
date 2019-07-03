@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrIopI3e  a   chon:ChessGameReport .
+
+:plawqsutd  a         chon:Place ;
+        chon:hasName  "Paris" .
+
+:agIopI3e  a          chon:Agent ;
+        chon:hasName  "De Vere, Cecil Valentine" , "Steinitz, William" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIopI3e .
+
+:rolIopI3e  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIopI3e .
+
+:opeIopI3e  a            chon:ChessOpening ;
+        chon:hasECOCode  "B00" .
+
+chon:HalfMove  chon:subEventOf  :gamwqsut .
+
+:hmgamIopI3ek  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIopI3ekm , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "De Vere, Cecil Valentine" ;
+        chon:hasSANRecord      "Be3" , "Nd2" , "Bb7" , "h4" , "O-O" , "Nd7" , "e4" , "Ne2" , "b6" , "Bxf4" , "exd5" , "d5" , "Nxf4" , "Nh5" , "Ngf6" , "f4" , "Bd3" , "g5" , "exf4" , "h5" , "d4" , "f3" , "O-O-O" , "Rae1" , "e5" , "c3" , "Qe7" , "Qb3" , "d6" ;
+        chon:nextHalfMove      :hmgamIopI3ek .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIopI3e .
+
+:touIopI3  a          chon:hessTournament ;
+        chon:atPlace  :plawqsutd ;
+        chon:hasName  "Paris it" .
+
+:rolhgIopI3ekm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIopI3e .
+
+:gamwqsut  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIopI3e ;
+        chon:atPlace           :plawqsutd ;
+        chon:atTime            "1867.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIopI3ek ;
+        chon:hasHalfMove       :hmgamIopI3ek ;
+        chon:hasLastHalfMove   :hmgamIopI3ek ;
+        chon:hasOpening        :opeIopI3e ;
+        chon:hasReport         :cgrIopI3e ;
+        chon:hasResult         :resIopI3ek ;
+        chon:subEventOf        :touIopI3 .
+
+:resIopI3ek  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

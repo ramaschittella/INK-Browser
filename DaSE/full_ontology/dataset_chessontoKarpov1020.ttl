@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSeaUsqsW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSeaUsq .
+
+:resSeaUsqs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamGgeGV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSeaUsq ;
+        chon:atPlace           :plaGgeGVr ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSeaUsqs ;
+        chon:hasHalfMove       :hmgamSeaUsqs ;
+        chon:hasLastHalfMove   :hmgamSeaUsqs ;
+        chon:hasOpening        :opeSeaUsq ;
+        chon:hasReport         :cgrSeaUsq ;
+        chon:hasResult         :resSeaUsqs ;
+        chon:subEventOf        :touSeaUs .
+
+:cgrSeaUsq  a   chon:ChessGameReport .
+
+:hmgamSeaUsqs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSeaUsqsW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Huebner, Robert" ;
+        chon:hasSANRecord      "dxc4" , "Qd2" , "Ka6" , "e3" , "a6" , "Qa7+" , "Kxb7" , "Bb5" , "Rd1+" , "Qd1+" , "Qf7+" , "Qxg7" , "Rhe8" , "e6" , "Bf5" , "Nf6" , "Bf2" , "Bb3" , "Bxc3" , "Kb3" , "Qe3" , "Kb7" , "dxe5" , "Qb6" , "Qxc4" , "a3" , "d4" , "Bd3" , "Ka8" , "h4" , "Be3" , "Re1" , "Bc4" , "Nc3" , "bxc3" , "Qa2" , "Qa7" , "Nxe5" , "Rxe5" , "Qxe5" , "Bg6" , "c4" , "Bc1" , "Qe2" , "Nf3" , "Qc7" , "Ba3" , "h5" , "Qe5" , "e5" , "Ka4" , "Qe5+" , "Rxd1" , "Rd5" , "Nbd7" , "c6" , "Qd6" , "Nxc4" , "Kg1" , "h3" , "Qc4" , "Rfc1" , "Qb3" , "Qxc3" , "a2" , "Qb2" , "Qa4" , "Qa1" , "Qe7+" , "f3" , "Qg3" , "Qb4+" , "f6" , "Nxe4" , "Qd3" , "d5" , "Qxf6" , "Kf2" , "e4" , "a5" , "Qc1" , "Bf6" , "axb7+" , "Qb6+" , "O-O-O" , "Kh2" , "Bb4" , "Bxc4" , "c5" , "Qd5" , "O-O" , "Kb5" , "Qb1+" , "Qb5" , "Qh4" , "a4" , "Bd4" , "Qxd1+" , "Nd6" ;
+        chon:nextHalfMove      :hmgamSeaUsqs .
+
+:agSeaUsq  a          chon:Agent ;
+        chon:hasName  "Huebner, Robert" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSeaUsq .
+
+:rolSeaUsq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSeaUsq .
+
+chon:HalfMove  chon:subEventOf  :gamGgeGV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSeaUsq .
+
+:touSeaUs  a          chon:hessTournament ;
+        chon:atPlace  :plaGgeGVr ;
+        chon:hasName  "Tilburg" .
+
+:plaGgeGVr  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:opeSeaUsq  a            chon:ChessOpening ;
+        chon:hasECOCode  "D18" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

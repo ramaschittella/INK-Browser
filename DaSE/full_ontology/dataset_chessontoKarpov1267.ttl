@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgeipZRUKe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageipZRU .
+
+:plaikIQ8U  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageipZRU .
+
+:cgreipZRU  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamikIQ8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageipZRU .
+
+:roleipZRU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageipZRU .
+
+:hmgameipZRUK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeipZRUKe ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b5" , "axb4" , "bxc5" , "Kg7" , "Qxg3" , "Qd1+" , "Kg6" , "Qb2" , "f5" , "Nf3" , "h3" , "cxd4" , "Nxb7" , "Nc5" , "Nc3" , "O-O" , "f4" , "c3" , "Qe2" , "Rc1" , "Ne2" , "Rxc5" , "Rfc8" , "Ng3" , "a3" , "Bxa6" , "Qxh4+" , "Qd5" , "Nd6" , "Nf6" , "h6" , "Qd8" , "d5" , "Bb7" , "bxc3" , "e3" , "Rxa8" , "Qb4" , "Bb4" , "dxc4" , "Qxb7" , "e6" , "dxc3" , "f3" , "cxb5" , "Kh2" , "b7" , "Bxf6" , "axb5" , "b6" , "c4" , "Ba6" , "Qf8" , "Nbd7" , "Qb7" , "Raa1" , "Rd1" , "h5" , "Nd4" , "h4" , "Qc7" , "Bd3" , "Kg1" , "Rxa6" , "Bb2" , "Ne4" , "a6" , "Bxc4" , "Qxa8" , "Kf6" , "c5" , "d4" , "Qe7" , "gxf6" , "Rc5" ;
+        chon:nextHalfMove      :hmgameipZRUK .
+
+:toueipZR  a          chon:hessTournament ;
+        chon:atPlace  :plaikIQ8U ;
+        chon:hasName  "Linares" .
+
+:gamikIQ8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleipZRU ;
+        chon:atPlace           :plaikIQ8U ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameipZRUK ;
+        chon:hasHalfMove       :hmgameipZRUK ;
+        chon:hasLastHalfMove   :hmgameipZRUK ;
+        chon:hasOpening        :opeeipZRU ;
+        chon:hasReport         :cgreipZRU ;
+        chon:hasResult         :reseipZRUK ;
+        chon:subEventOf        :toueipZR .
+
+:ageipZRU  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Beliavsky, Alexander G" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reseipZRUK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeeipZRU  a            chon:ChessOpening ;
+        chon:hasECOCode  "E55" .

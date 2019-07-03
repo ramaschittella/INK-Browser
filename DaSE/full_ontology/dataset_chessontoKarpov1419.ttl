@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plabpwsP7  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:cgrbpwsP7  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbpwsP7 .
+
+:hmgamSpGMb8l  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSpGMb8lD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "h6" , "O-O" , "Bxb5" , "Ng6" , "a5" , "Rxd4" , "c5" , "g3" , "Bg5" , "Qf4" , "Nd3" , "Nf3" , "Bb7" , "exd5" , "Re1" , "Qd6" , "Bxe7" , "dxc4" , "h4" , "Qa6" , "cxd4" , "Bxc4" , "f6" , "g4" , "Qf5" , "Rc1" , "Nxg6" , "Nf4" , "Ne7" , "b6" , "Nc3" , "e3" , "Rxc1" , "Rc7" , "a3" , "d5" , "Rfe1" , "Bd3" , "Kg2" , "Be7" , "Nb5" , "Bxd5" , "h5" , "Rc4" , "Qf3" , "Ne5" , "Nxe7" , "Qxb5" , "Nd5" , "Nf5" , "Kf8" , "Ba6" , "a4" , "Bb4" , "Rc8" , "exd4" , "hxg6" , "Qd3" , "Nc6" ;
+        chon:nextHalfMove      :hmgamSpGMb8l .
+
+chon:HalfMove  chon:subEventOf  :gambpwsP .
+
+:agbpwsP7  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ivanchuk, Vassily" .
+
+:rolbpwsP7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbpwsP7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbpwsP7 .
+
+:rolhgSpGMb8lD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbpwsP7 .
+
+:resbpwsP7v  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgbpwsP7vc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbpwsP7 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gambpwsP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbpwsP7 ;
+        chon:atPlace           :plabpwsP7 ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambpwsP7v ;
+        chon:hasHalfMove       :hmgambpwsP7v , :hmgamSpGMb8l ;
+        chon:hasLastHalfMove   :hmgamSpGMb8l ;
+        chon:hasOpening        :opebpwsP7 ;
+        chon:hasReport         :cgrbpwsP7 ;
+        chon:hasResult         :resbpwsP7v ;
+        chon:subEventOf        :toubpwsP .
+
+:opebpwsP7  a            chon:ChessOpening ;
+        chon:hasECOCode  "E54" .
+
+:toubpwsP  a          chon:hessTournament ;
+        chon:atPlace  :plabpwsP7 ;
+        chon:hasName  "Linares" .
+
+:hmgambpwsP7v  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbpwsP7vc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf6" , "c4" , "e6" , "d4" ;
+        chon:nextHalfMove      :hmgamSpGMb8l , :hmgambpwsP7v .

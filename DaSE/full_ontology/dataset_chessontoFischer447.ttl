@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tougZo6D  a          chon:hessTournament ;
+        chon:atPlace  :plagZo6Dz ;
+        chon:hasName  "Cicero sim" .
+
+:cgrgZo6Dz  a   chon:ChessGameReport .
+
+:aggZo6Dz  a          chon:Agent ;
+        chon:hasName  "Nyman, Sture" , "Fischer, Robert James" .
+
+:rolgZo6Dz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggZo6Dz .
+
+:opegZo6Dz  a            chon:ChessOpening ;
+        chon:hasECOCode  "C33" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggZo6Dz .
+
+chon:HalfMove  chon:subEventOf  :gamgZo6D .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggZo6Dz .
+
+:resgZo6DzY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgsZljcz2j  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggZo6Dz .
+
+:hmgamsZljcz2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsZljcz2j , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nyman, Sture" ;
+        chon:hasSANRecord      "Bxd5" , "c6" , "Rxe1" , "Bxd6" , "Bb4" , "Na6" , "Bd7" , "Nxe4" , "Bxf4" , "Kh1" , "Nc3" , "exf4" , "e5" , "dxc3" , "Qe1" , "O-O" , "Qb6+" , "Re8" , "Raxe1" , "Nf6" , "Bxc3" , "Bc4" , "e4" , "Ng5" , "Rxf7" , "Nd6" , "Nf3" , "f4" , "d5" ;
+        chon:nextHalfMove      :hmgamsZljcz2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamgZo6D  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgZo6Dz ;
+        chon:atPlace           :plagZo6Dz ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsZljcz2 ;
+        chon:hasHalfMove       :hmgamsZljcz2 ;
+        chon:hasLastHalfMove   :hmgamsZljcz2 ;
+        chon:hasOpening        :opegZo6Dz ;
+        chon:hasReport         :cgrgZo6Dz ;
+        chon:hasResult         :resgZo6DzY ;
+        chon:subEventOf        :tougZo6D .
+
+:plagZo6Dz  a         chon:Place ;
+        chon:hasName  "Cicero" .

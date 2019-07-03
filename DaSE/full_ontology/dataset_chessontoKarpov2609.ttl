@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agngz2p3  a          chon:Agent ;
+        chon:hasName  "Bareev,E" , "Karpov,An" .
+
+:rolngz2p3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agngz2p3 .
+
+:opengz2p3  a            chon:ChessOpening ;
+        chon:hasECOCode  "D12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agngz2p3 .
+
+:resngz2p3y  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamngz2p .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agngz2p3 .
+
+:rolhgngz2p3y3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agngz2p3 .
+
+:hmgamngz2p3y  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgngz2p3y3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bareev,E" ;
+        chon:hasSANRecord      "Bd2" , "Nh4" , "exd4" , "Qb3" , "Nxg6" , "d4" , "e3" , "Qd7" , "Rd1" , "Nbd7" , "e6" , "g3" , "c4" , "Nf6" , "Bg2" , "Nfd5" , "Qe2" , "Nc7" , "Rad8" , "hxg6" , "exd4+" , "Bf5" , "Qc2" , "c6" , "d5" , "Nc3" , "Be7" , "Bg6" , "Bc5" , "Ncd5" , "Qxc4" , "e5" , "Qd3" , "dxc4" , "Re8" , "Nf3" , "O-O" , "Nb6" , "Bf4" ;
+        chon:nextHalfMove      :hmgamngz2p3y .
+
+:gamngz2p  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolngz2p3 ;
+        chon:atPlace           :plangz2p3 ;
+        chon:atTime            "2002.02.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamngz2p3y ;
+        chon:hasHalfMove       :hmgamngz2p3y ;
+        chon:hasLastHalfMove   :hmgamngz2p3y ;
+        chon:hasOpening        :opengz2p3 ;
+        chon:hasReport         :cgrngz2p3 ;
+        chon:hasResult         :resngz2p3y ;
+        chon:subEventOf        :toungz2p .
+
+:toungz2p  a          chon:hessTournament ;
+        chon:atPlace  :plangz2p3 ;
+        chon:hasName  "NAO Masters" .
+
+:plangz2p3  a         chon:Place ;
+        chon:hasName  "Cannes FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrngz2p3  a   chon:ChessGameReport .

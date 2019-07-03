@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamNQHF7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNQHF7z ;
+        chon:atPlace           :plaNQHF7z ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNQHF7zL ;
+        chon:hasHalfMove       :hmgamfSUZtAD , :hmgamNQHF7zL ;
+        chon:hasLastHalfMove   :hmgamfSUZtAD ;
+        chon:hasOpening        :opeNQHF7z ;
+        chon:hasReport         :cgrNQHF7z ;
+        chon:hasResult         :resNQHF7zL ;
+        chon:subEventOf        :touNQHF7 .
+
+:plaNQHF7z  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+:resNQHF7zL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrNQHF7z  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNQHF7z .
+
+:rolhgfSUZtAD5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNQHF7z .
+
+chon:HalfMove  chon:subEventOf  :gamNQHF7 .
+
+:rolNQHF7z  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNQHF7z .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNQHF7z .
+
+:touNQHF7  a          chon:hessTournament ;
+        chon:atPlace  :plaNQHF7z ;
+        chon:hasName  "Alma-Ata m2" .
+
+:agNQHF7z  a          chon:Agent ;
+        chon:hasName  "Tkachiev, Vladislav" , "Karpov, Anatoly" .
+
+:hmgamfSUZtAD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfSUZtAD5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tkachiev, Vladislav" ;
+        chon:hasSANRecord      "Kxe5" , "h6" , "Nf3" , "Qxe5" , "Na3" , "b4" , "axb5" , "Bd4" , "Bxd3" , "e4" , "Nf5" , "Rxd1+" , "Kf4" , "Kh2" , "Nf3+" , "g5" , "cxb4" , "Nde5" , "e6" , "Kg5" , "Bxd4+" , "Nc4" , "Kxh6" , "Kh7" , "g3" , "Nxh4" , "Qe3" , "Rac8" , "Qf6" , "Bg5" , "Qf2" , "Qb1+" , "Rfd8" , "Nc6" , "Kg6" , "Rxd8+" , "Qc7" , "f4" , "Kf5" , "b5" , "Kxf3" , "Qe5" , "Bb7" , "Nd7" , "Qe3+" , "Nd3" , "Be2" , "Ne5" , "Rd1" , "c4" , "a6" , "h3" , "Qxb6" , "d6" , "Bg7" , "Qc6" , "Nb5" , "c3" , "fxe5" , "Rxd8" , "Qc1+" , "h5" , "dxc5" , "a4" , "Qxe4" , "cxd3" , "Qf1" , "b6" , "O-O" , "gxh4" , "Nbd2" , "c5" , "Bxb2" , "Bxf3" , "Qc2" , "Nxf3+" , "Rfd1" , "Kg3" , "Nxd4" , "h4" , "Be3" , "Kh6" , "Ne1" , "Qxd3" , "Bxd1" ;
+        chon:nextHalfMove      :hmgamfSUZtAD .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeNQHF7z  a            chon:ChessOpening ;
+        chon:hasECOCode  "A48" .
+
+:hmgamNQHF7zL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfSUZtAD5 , :rolhgNQHF7zLG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tkachiev, Vladislav" ;
+        chon:hasSANRecord      "Nf3" , "d4" , "Nf6" , "g6" ;
+        chon:nextHalfMove      :hmgamfSUZtAD , :hmgamNQHF7zL .
+
+:rolhgNQHF7zLG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNQHF7z .

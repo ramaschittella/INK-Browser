@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgJmOS3Bqn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNo8tjD .
+
+:hmgamJmOS3Bq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJmOS3Bqn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "a5" , "Qd2" , "hxg3" , "Rad1" , "Bd7" , "dxe4" , "h3" , "Nxe4" , "g6" , "Nf3" , "Nxd2" , "g5" , "c6" , "Rac8" , "Nbd7" , "exf4" , "Nxf3" , "Ke2" , "Bxf4" , "f5" , "f4" , "bxc5" , "Ra6" , "Rc1" , "h5" , "h4" , "Kg7" , "d5" , "Nbd2" , "Bb5" , "Rxc5" , "Bf8" , "Kf1" , "Bg2" , "e4" , "Kf6" , "e3" , "hxg5" , "a4" , "Rxa5" , "Kxf2" , "b6" , "cxd5" , "Bf1" , "gxf2" , "Ra7" , "g3" , "c4" , "O-O" , "Qa5" , "Ra7+" , "Rd5" , "Ba3" , "Be7" , "Nf6" , "Qxd2" , "Rc7" , "Bxc5" , "Ke5" , "Rfc1" , "Bg4" , "Bc4" , "Re5" , "Bg7" , "Bd6" , "d3" , "Re8" , "Nc5" , "Bb2" , "Rc4" , "Bxf3" , "b3" , "Bxg5" , "e5" ;
+        chon:nextHalfMove      :hmgamJmOS3Bq .
+
+:gamNo8tj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNo8tjD ;
+        chon:atPlace           :plaNo8tjD ;
+        chon:atTime            "2012.11.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJmOS3Bq ;
+        chon:hasHalfMove       :hmgamJmOS3Bq ;
+        chon:hasLastHalfMove   :hmgamJmOS3Bq ;
+        chon:hasOpening        :opeNo8tjD ;
+        chon:hasReport         :cgrJmOS3B ;
+        chon:hasResult         :resNo8tjD0 ;
+        chon:subEventOf        :touNo8tj .
+
+:touNo8tj  a          chon:hessTournament ;
+        chon:atPlace  :plaNo8tjD ;
+        chon:hasName  "Trophee Karpov KO 2012" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNo8tjD .
+
+:rolNo8tjD  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resNo8tjD0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gamNo8tj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNo8tjD .
+
+:cgrJmOS3B  a   chon:ChessGameReport .
+
+:plaNo8tjD  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:rolJmOS3B  a             chon:AuthorRole ;
+        chon:performedBy  :agJmOS3B .
+
+:agNo8tjD  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Ivanchuk,V" .
+
+:opeNo8tjD  a            chon:ChessOpening ;
+        chon:hasECOCode  "A05" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

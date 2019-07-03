@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamDSAJIuk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDSAJIukf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Nc3" , "Bg5" , "f5" , "Qd7" , "Bg2" , "g3" , "Be6" , "Nge2" , "d3" , "O-O" , "Qd2" , "Nh5" , "Nd5" , "Nc6" , "Rb1" , "Nf6" , "e4" , "g6" , "c4" , "e5" , "Bg7" , "d6" ;
+        chon:nextHalfMove      :hmgamDSAJIuk .
+
+:rolhgDSAJIukf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDSAJIu .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDSAJIu .
+
+:cgrDSAJIu  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamDSAJI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDSAJIu .
+
+:rolDSAJIu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDSAJIu .
+
+:resDSAJIuk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaDSAJIu  a         chon:Place ;
+        chon:hasName  "Montreal" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamDSAJI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDSAJIu ;
+        chon:atPlace           :plaDSAJIu ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDSAJIuk ;
+        chon:hasHalfMove       :hmgamDSAJIuk ;
+        chon:hasLastHalfMove   :hmgamDSAJIuk ;
+        chon:hasOpening        :opeDSAJIu ;
+        chon:hasReport         :cgrDSAJIu ;
+        chon:hasResult         :resDSAJIuk ;
+        chon:subEventOf        :touDSAJI .
+
+:agDSAJIu  a          chon:Agent ;
+        chon:hasName  "Kavalek, Lubomir" , "Karpov, Anatoly" .
+
+:touDSAJI  a          chon:hessTournament ;
+        chon:atPlace  :plaDSAJIu ;
+        chon:hasName  "Montreal" .
+
+:opeDSAJIu  a            chon:ChessOpening ;
+        chon:hasECOCode  "A26" .

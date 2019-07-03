@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg9BxAB2St  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9BxAB2 .
+
+:cgr9BxAB2  a   chon:ChessGameReport .
+
+:rol9BxAB2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9BxAB2 .
+
+:hmgam9BxAB2S  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9BxAB2St ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nxd4" , "Rhe1" , "Bd3" , "Nf6" , "cxd4" , "d4" , "Qc7" , "Nbd7" , "Bb7" , "e4" , "Nce2" , "c5" , "Kb1" , "Bg5" , "Qf3" , "Bxf6" , "b5" , "a6" , "Nc3" , "Nf3" , "d6" , "O-O-O" , "h6" , "b4" , "Be7" , "e6" , "f4" ;
+        chon:nextHalfMove      :hmgamzDHTY2s , :hmgam9BxAB2S .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9BxAB2 .
+
+:pla9BxAB2  a         chon:Place ;
+        chon:hasName  "Netanya" .
+
+chon:HalfMove  chon:subEventOf  :gam9BxAB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9BxAB2 .
+
+:res9BxAB2S  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:ag9BxAB2  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Troianescu, Octavio" .
+
+:ope9BxAB2  a            chon:ChessOpening ;
+        chon:hasECOCode  "B99" .
+
+:gam9BxAB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9BxAB2 ;
+        chon:atPlace           :pla9BxAB2 ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9BxAB2S ;
+        chon:hasHalfMove       :hmgamzDHTY2s , :hmgam9BxAB2S ;
+        chon:hasLastHalfMove   :hmgamzDHTY2s ;
+        chon:hasOpening        :ope9BxAB2 ;
+        chon:hasReport         :cgr9BxAB2 ;
+        chon:hasResult         :res9BxAB2S ;
+        chon:subEventOf        :tou9BxAB .
+
+:tou9BxAB  a          chon:hessTournament ;
+        chon:atPlace  :pla9BxAB2 ;
+        chon:hasName  "Netanya-A" .
+
+:rolhgzDHTY2sU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9BxAB2 .
+
+:hmgamzDHTY2s  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzDHTY2sU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nxc6" , "Qxg1" , "Bb6" , "g4" , "Qc5" , "Nb3" , "a5" , "c3" , "Nd4" , "Rxd6" , "Nec1" , "Nd2" , "Rge1" , "f6+" , "Rxc6" , "cxb4" , "Ne1" , "axb4" , "Rxg1" , "f5" , "Nf3" , "Qg1" , "Rc6" , "Rc4" , "g3" , "Rd8" , "Nc4" , "e5+" , "Bd8" , "Rgc8" , "Ke7" , "Bd3" , "Rhg8" , "Bb7" , "g5" , "Rg2" , "h5" , "Be2" , "Nd3" , "Qe3" , "Ne5" , "Bc2" , "Re2" , "Kxf6" , "Bf1" , "Bg1" , "Ba6" , "Rgd2" ;
+        chon:nextHalfMove      :hmgamzDHTY2s .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolDiN7d4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDiN7d4 .
+
+:plaDiN7d4  a         chon:Place ;
+        chon:hasName  "Cannes FRA" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDiN7d4 .
+
+:resDiN7d4l  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gamDiN7d .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDiN7d4 .
+
+:agDiN7d4  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Nataf,IA" .
+
+:opeDiN7d4  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:hmgamDiN7d4l  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDiN7d4lg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "d5" , "Nb3" , "f6" , "O-O-O" , "Bf5" , "Rdg1" , "Ne7" , "gxf6" , "Be3" , "Bf3" , "Bf7" , "h5" , "Nxd2" , "a6" , "Rxg2" , "Rg8" , "d4" , "exd4" , "e4" , "Bg6" , "Ne2" , "Nf8" , "Nge2" , "Nxf5" , "Nc3" , "e6" , "gxf5" , "Nd7" , "Nxe3" , "Qd2" , "Rg2" , "Nc1" , "h4" , "Bxf7" , "exf6" , "Bd6" , "f5" , "f4" , "Bxd4" , "c6" , "Nxg2" , "c5" , "Rxd2" , "Qc7" , "Be2" , "Nxf4" , "e5" , "Bxf4" , "g4" , "Bxd5" ;
+        chon:nextHalfMove      :hmgamDiN7d4l .
+
+:gamDiN7d  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDiN7d4 ;
+        chon:atPlace           :plaDiN7d4 ;
+        chon:atTime            "2002.02.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDiN7d4l ;
+        chon:hasHalfMove       :hmgamDiN7d4l ;
+        chon:hasLastHalfMove   :hmgamDiN7d4l ;
+        chon:hasOpening        :opeDiN7d4 ;
+        chon:hasReport         :cgrDiN7d4 ;
+        chon:hasResult         :resDiN7d4l ;
+        chon:subEventOf        :touDiN7d .
+
+:touDiN7d  a          chon:hessTournament ;
+        chon:atPlace  :plaDiN7d4 ;
+        chon:hasName  "NAO Masters" .
+
+:rolhgDiN7d4lg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDiN7d4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrDiN7d4  a   chon:ChessGameReport .

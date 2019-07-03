@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resXdAeSEw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhg3ShVrvyZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXdAeSE .
+
+:plaXdAeSE  a         chon:Place ;
+        chon:hasName  "Stockholm" .
+
+:cgrXdAeSE  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXdAeSE .
+
+chon:HalfMove  chon:subEventOf  :gamXdAeS .
+
+:agXdAeSE  a          chon:Agent ;
+        chon:hasName  "Pomar Salamanca, Arturo" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXdAeSE .
+
+:rolXdAeSE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXdAeSE .
+
+:gamXdAeS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXdAeSE ;
+        chon:atPlace           :plaXdAeSE ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRSmHUuv ;
+        chon:hasHalfMove       :hmgamRSmHUuv , :hmgam3ShVrvy ;
+        chon:hasLastHalfMove   :hmgam3ShVrvy ;
+        chon:hasOpening        :opeXdAeSE ;
+        chon:hasReport         :cgrXdAeSE ;
+        chon:hasResult         :resXdAeSEw ;
+        chon:subEventOf        :touXdAeS .
+
+:rolhgRSmHUuvO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXdAeSE .
+
+:hmgamRSmHUuv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3ShVrvyZ , chon:AgentRole , :rolhgRSmHUuvO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pomar Salamanca, Arturo" ;
+        chon:hasSANRecord      "a4" , "Bc3" , "Nc3" , "Qg5" , "Ne4" , "fxg7" , "Qxd2" , "Qa6" , "Rxd1" , "Bf6" , "Bd2" , "gxf5" , "c4" , "Ke7" , "Ne7" , "b4" , "Ng8" , "Kf4" , "exf5+" , "exf6" , "Kxe2" , "bxc5" , "Rad1" , "Bxg7" , "Qe6" , "f6" , "h6" , "Qh5" , "cxd2+" , "a6" , "d5" , "e4" , "g4" , "Be3" , "Bf8" , "dxc3" , "Qe2" , "c5" , "Nxd7" , "Nxf6" , "Nf3" , "Bb5+" , "O-O-O" , "Kd7" , "Rd8" , "Bxb4+" , "d4" , "Kf3" , "Ke4" , "f4" , "Kxd8" , "f5" , "h5" , "e6" , "Nd2" , "Bd7" , "Rxd8+" , "Qxe2+" , "Bxd7+" , "Qa5+" , "Bxc5" , "Ke8" , "b6" , "Bd6" , "cxb4" , "e5" , "Nf6" ;
+        chon:nextHalfMove      :hmgamRSmHUuv , :hmgam3ShVrvy .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeXdAeSE  a            chon:ChessOpening ;
+        chon:hasECOCode  "B29" .
+
+:touXdAeS  a          chon:hessTournament ;
+        chon:atPlace  :plaXdAeSE ;
+        chon:hasName  "Stockholm Interzonal" .
+
+:hmgam3ShVrvy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3ShVrvyZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pomar Salamanca, Arturo" ;
+        chon:hasSANRecord      "Bd2" , "Kc7" , "Nc5" , "Kd7" , "Bc5" , "Kc6" , "Ng8" , "Bg5" , "Kc5" , "Nd6" , "Bf8" , "Ba5+" , "Ke6" , "Bb2" , "Kxa6" , "Bf2" , "Ke8" , "Bc3" , "Bg7" , "Kd6" , "a5" , "Bb4+" , "Ke4" , "Nh6" , "Ne7+" , "Bxf6" , "a7" , "Bd4" , "Bh4" , "h3" , "Bf4+" , "Ka8" , "Ba3" , "Be3" , "Nd7" , "a6" , "Nf6" , "Bb4" , "Be7" , "Kb6" , "Ba1" , "Kd5" , "Ne4" , "Be1" , "Nxf5" , "Ka7" ;
+        chon:nextHalfMove      :hmgam3ShVrvy .

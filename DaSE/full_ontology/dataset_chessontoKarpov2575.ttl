@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamiabdQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliabdQs ;
+        chon:atPlace           :plaiabdQs ;
+        chon:atTime            "2001.06.14"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiabdQs0 ;
+        chon:hasHalfMove       :hmgamiabdQs0 ;
+        chon:hasLastHalfMove   :hmgamiabdQs0 ;
+        chon:hasOpening        :opeiabdQs ;
+        chon:hasReport         :cgriabdQs ;
+        chon:hasResult         :resiabdQs0 ;
+        chon:subEventOf        :touiabdQ .
+
+:resiabdQs0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touiabdQ  a          chon:hessTournament ;
+        chon:atPlace  :plaiabdQs ;
+        chon:hasName  "Rapid Exhibition g/10" .
+
+:plaiabdQs  a         chon:Place ;
+        chon:hasName  "Manises ESP" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiabdQs .
+
+:cgriabdQs  a   chon:ChessGameReport .
+
+:hmgamiabdQs0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiabdQs04 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Ke7" , "Rgh3" , "g5" , "a3" , "Nge2" , "Nxb4" , "b5" , "Bf5" , "Rh3" , "hxg3" , "Qg3" , "Rh8+" , "Nc6" , "e5" , "Nc3" , "Qxd3" , "Bxd3" , "Ke1" , "Rc8" , "Nxg3" , "Rhf8" , "f4" , "Bxc5" , "Nf5" , "g6" , "Rg3" , "Rh7" , "Rxg5" , "O-O-O" , "e6" , "Nge7" , "axb4" , "c5" , "Bg5" , "Rdh1" , "Rh8" , "Ne4" , "Ne3+" , "Rh5" , "Kf8" , "d4" , "hxg5" , "Ba7" , "Bxd8" , "Kd1" , "g4" , "h6" , "Nd6" , "b4" , "Bd3" , "c6" , "Nxc2" , "e4" , "dxc5" , "Rxd8" , "Rc7" , "d5" , "Rxh3" , "a6" ;
+        chon:nextHalfMove      :hmgamiabdQs0 .
+
+chon:HalfMove  chon:subEventOf  :gamiabdQ .
+
+:agiabdQs  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Llobel Cortell,E" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiabdQs .
+
+:roliabdQs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiabdQs .
+
+:rolhgiabdQs04  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiabdQs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeiabdQs  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .

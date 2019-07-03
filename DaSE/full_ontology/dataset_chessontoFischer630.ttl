@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plafybXS1  a         chon:Place ;
+        chon:hasName  "Vinkovci" .
+
+:toubuS7E  a          chon:hessTournament ;
+        chon:atPlace  :plafybXS1 ;
+        chon:hasName  "Vinkovci" .
+
+:agbuS7EX  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Matov, M." .
+
+:rolbuS7EX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbuS7EX .
+
+:opebuS7EX  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbuS7EX .
+
+:rolhgbuS7EXcS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbuS7EX .
+
+:hmgambuS7EXc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbuS7EXcS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qa3" , "f4" , "Nc4" , "Rb3" , "Bxf6" , "Nxd4" , "Nc3" , "f5" , "e6" , "d6" , "Nbd7" , "d4" , "Kh1" , "Qxd4" , "Qf4" , "c5" , "Qe5" , "Nf6" , "a6" , "e4" , "Rb1" , "Be2" , "Qb6" , "Qc5" , "O-O" , "Na4" , "Ne5" , "Bg5" , "exf5" , "Be7" , "Qd2" , "cxd4" , "Qxb2" , "Rd3" , "Qg4" , "Nf3" , "Ne3" ;
+        chon:nextHalfMove      :hmgambuS7EXc .
+
+chon:HalfMove  chon:subEventOf  :gamfybXS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbuS7EX .
+
+:gamfybXS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbuS7EX ;
+        chon:atPlace           :plafybXS1 ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambuS7EXc ;
+        chon:hasHalfMove       :hmgambuS7EXc ;
+        chon:hasLastHalfMove   :hmgambuS7EXc ;
+        chon:hasOpening        :opebuS7EX ;
+        chon:hasReport         :cgrbuS7EX ;
+        chon:hasResult         :resbuS7EXc ;
+        chon:subEventOf        :toubuS7E .
+
+:cgrbuS7EX  a   chon:ChessGameReport .
+
+:resbuS7EXc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

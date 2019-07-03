@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgmT4pp0LJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVRR730 .
+
+:rolhgrwN9gYN9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVRR730 .
+
+:rolhgVRR730Wj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVRR730 .
+
+:hmgammT4pp0L  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmT4pp0LJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Re2+" , "Kd8" , "Bg4" , "Kb7" , "Rh8" , "h6" , "Rg8" , "Rhe1" , "cxb3" , "d2" , "Rxe8" , "b4" , "Qxe4+" , "d3" , "Nxe6+" , "Bh5+" , "Ke5" , "Rh4" , "Kc6" , "d5" , "h3" , "f5" , "Kd7" , "Kb6" , "Rxg2" , "Bxf4" , "Rxe4" , "Rxd4" , "h5" , "Rf7+" , "a4" , "Rb5" , "Ra5" , "b3" , "a3" , "Nf4" , "Rc3+" , "Rxh7" , "Rh2" , "Rb8" , "Rh3" , "Kb3" , "Rd4" , "Bxe6" , "Re3" , "Rxf4" , "Kd6" , "Rxb3" , "Rxa4" , "fxe4" , "Bg5" , "Rcd3" , "Re8+" , "Kc3" , "d4" , "Qxe4" , "Kc2" , "Re2" , "axb3" , "Kc5" , "h4" ;
+        chon:nextHalfMove      :hmgammT4pp0L , :hmgamrwN9gYN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVRR730 .
+
+:rolVRR730  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVRR730 .
+
+:plaVRR730  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+chon:HalfMove  chon:subEventOf  :gamVRR73 .
+
+:agVRR730  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+:touVRR73  a          chon:hessTournament ;
+        chon:atPlace  :plaVRR730 ;
+        chon:hasName  "Skopje" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resVRR730W  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeVRR730  a            chon:ChessOpening ;
+        chon:hasECOCode  "B69" .
+
+:cgrVRR730  a   chon:ChessGameReport .
+
+:hmgamVRR730W  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmT4pp0LJ , :rolhgVRR730Wj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Qd2" , "Qc5" , "b5" , "e6" , "b4" , "Be7" , "Nxd4" , "Nf6" , "cxd4" , "Ne5" , "Qe3" , "gxf6" , "c5" , "Nxe5" , "O-O-O" , "Qb6" , "Qd4" , "Bd7" , "d4" , "Nc3" , "Ned3" , "Bxf6" , "e4" , "a6" , "a5" , "Nf4" , "Nc6" , "Rb8" , "Be2" , "Qxe5" , "a4" , "Kb1" , "Ne2" , "d6" , "Ne1" , "f5" , "Bg5" , "fxe6" , "f4" , "Nf3" , "Bd3" ;
+        chon:nextHalfMove      :hmgamVRR730W , :hmgammT4pp0L .
+
+:hmgamrwN9gYN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrwN9gYN9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "b5" , "Kd1" , "Ka7" , "Kb7" , "h7" ;
+        chon:nextHalfMove      :hmgamrwN9gYN .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVRR730 .
+
+:gamVRR73  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVRR730 ;
+        chon:atPlace           :plaVRR730 ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVRR730W ;
+        chon:hasHalfMove       :hmgammT4pp0L , :hmgamrwN9gYN , :hmgamVRR730W ;
+        chon:hasLastHalfMove   :hmgamrwN9gYN ;
+        chon:hasOpening        :opeVRR730 ;
+        chon:hasReport         :cgrVRR730 ;
+        chon:hasResult         :resVRR730W ;
+        chon:subEventOf        :touVRR73 .

@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam7QfkS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7QfkSh ;
+        chon:atPlace           :pla7QfkSh ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiQcy0hn ;
+        chon:hasHalfMove       :hmgamiQcy0hn ;
+        chon:hasLastHalfMove   :hmgamiQcy0hn ;
+        chon:hasOpening        :ope7QfkSh ;
+        chon:hasReport         :cgr7QfkSh ;
+        chon:hasResult         :res7QfkShk ;
+        chon:subEventOf        :tou7QfkS .
+
+:pla7QfkSh  a         chon:Place ;
+        chon:hasName  "NLD/INA" .
+
+:cgr7QfkSh  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7QfkSh .
+
+chon:HalfMove  chon:subEventOf  :gam7QfkS .
+
+:ag7QfkSh  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+:rol7QfkSh  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7QfkSh .
+
+:ope7QfkSh  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .
+
+:tou7QfkS  a          chon:hessTournament ;
+        chon:atPlace  :pla7QfkSh ;
+        chon:hasName  "FIDE-Wch" .
+
+:hmgamiQcy0hn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiQcy0hnP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Bxd3" , "Qe7" , "O-O" , "a4" , "Nxe4" , "Ne4" , "Bf4" , "a3" , "e6" , "Kg3" , "Rc6" , "exd5" , "Qh5+" , "Bxd6" , "Rxd4" , "g6" , "Nc6" , "d5" , "Rb4" , "Qxe4" , "g5" , "Qh4" , "Qxd6" , "Kf2" , "cxd5" , "Ra2" , "Nxd4" , "Qf5+" , "Qc4" , "Qe5+" , "Rd1" , "d4" , "f3" , "Qg5+" , "Qxd5" , "Qc7" , "c5" , "Bc5" , "Rg1" , "Rxb3" , "Qd2" , "Bd3" , "Kh3" , "Rc3" , "Nf3" , "Ba6" , "Re2" , "cxd4" , "b3" , "h6" , "Qf4+" , "Qc3" , "Re8" , "Qxd4" , "Rc8" , "Rd4" , "e3" , "Bb7" , "Bd6" , "Qd4" , "Nf6" , "c4" , "Qxd3" , "Rcxe3" , "Nc3" , "b6" , "Rd2" , "Qxh6" ;
+        chon:nextHalfMove      :hmgamiQcy0hn .
+
+:res7QfkShk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:roliQcy0h  a             chon:AuthorRole ;
+        chon:performedBy  :agiQcy0h .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgiQcy0hnP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7QfkSh .

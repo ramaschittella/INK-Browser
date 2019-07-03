@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamR3Lowye  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgR3LowyeV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tseshkovsky, Vitaly" ;
+        chon:hasSANRecord      "exd4" , "Bxg3" , "d4" , "Bc5" , "Nc5" , "e5" , "Bg3" , "Ba4" , "d6" , "g5" , "Ra5" , "hxg3" , "dxe4" , "a6" , "Bxe4" , "O-O" , "Bb7" , "Qb3" , "c3" , "e4" , "Re5" , "c6" , "Bc7" , "Rde8" , "Nc6" , "Bb3" , "d5" , "Bg5" , "Na3" , "Bb6" , "b5" , "fxe3" , "Nf3" , "Nb3" , "Nf6" , "e3" , "Nxd4" , "Nxe4" , "Nxb5" , "O-O-O" , "Qe7" , "Rxe4" , "Bh4" , "Nbxd4" , "Re8" , "a4" , "h6" , "Bc2" , "Bb5" , "Re1" , "axb5" , "Qb4" , "Qd7" ;
+        chon:nextHalfMove      :hmgamR3Lowye .
+
+:plaR3Lowy  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrR3Lowy  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR3Lowy .
+
+chon:HalfMove  chon:subEventOf  :gamR3Low .
+
+:resR3Lowye  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamR3Low  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolR3Lowy ;
+        chon:atPlace           :plaR3Lowy ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamR3Lowye ;
+        chon:hasHalfMove       :hmgamR3Lowye ;
+        chon:hasLastHalfMove   :hmgamR3Lowye ;
+        chon:hasOpening        :opeR3Lowy ;
+        chon:hasReport         :cgrR3Lowy ;
+        chon:hasResult         :resR3Lowye ;
+        chon:subEventOf        :touR3Low .
+
+:agR3Lowy  a          chon:Agent ;
+        chon:hasName  "Tseshkovsky, Vitaly" , "Karpov, Anatoly" .
+
+:rolR3Lowy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agR3Lowy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR3Lowy .
+
+:opeR3Lowy  a            chon:ChessOpening ;
+        chon:hasECOCode  "C78" .
+
+:rolhgR3LowyeV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR3Lowy .
+
+:touR3Low  a          chon:hessTournament ;
+        chon:atPlace  :plaR3Lowy ;
+        chon:hasName  "URS-ch44" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

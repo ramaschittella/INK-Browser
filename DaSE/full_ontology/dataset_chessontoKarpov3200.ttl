@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opezS1gPh  a            chon:ChessOpening ;
+        chon:hasECOCode  "E21" .
+
+:agzS1gPh  a          chon:Agent ;
+        chon:hasName  "Polgar,Ju" , "Karpov,Ana" .
+
+:rolzS1gPh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzS1gPh .
+
+:pla8SPYvg  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:gam8SPYv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzS1gPh ;
+        chon:atPlace           :pla8SPYvg ;
+        chon:atTime            "2009.11.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzS1gPh2 ;
+        chon:hasHalfMove       :hmgamzS1gPh2 , :hmgamKSWwpi5 ;
+        chon:hasLastHalfMove   :hmgamKSWwpi5 ;
+        chon:hasOpening        :opezS1gPh ;
+        chon:hasReport         :cgrzS1gPh ;
+        chon:hasResult         :reszS1gPh2 ;
+        chon:subEventOf        :touzS1gP .
+
+:hmgamzS1gPh2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKSWwpi50 , :rolhgzS1gPh2Y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Ju" ;
+        chon:hasSANRecord      "Bh3" , "O-O" , "Kb3" , "c4" , "Nd5" , "Rxb5" , "e3" , "f3" , "a5" , "b5" , "e4" , "Nbd7" , "Re8" , "Rfd8" , "Bg5" , "e6" , "Qc2" , "c5" , "d5" , "Bxc3" , "fxe5" , "Bxc8" , "g4" , "Nf3" , "Kc6" , "axb5" , "dxe5" , "Rxf3+" , "Rb8" , "Ng2" , "e5" , "f5" , "Kxa3" , "Re2" , "Rxb3" , "Nd6" , "Kd4" , "Nf6+" , "f4" , "Ra8" , "Ne3" , "b6" , "d4" , "exf5" , "Rf3" , "Rxe3" , "Re4" , "Ra2" , "Ne8" , "Nh4" , "h5" , "Kg5" , "Ka4" , "Nf6" , "Ng6" , "Ke4" , "Qxb3" , "Rd3+" , "Rc1" , "Rb1" , "Nc3" , "d6" , "Qd3" , "h3" , "g3" , "Ne7" , "Qxd5+" , "Ka2" , "Kxf3" , "Bb7" , "Bg2" , "Bxf6" , "Qb3" , "Kd5" , "gxf6" , "Qd7" , "a3" , "Rb1+" , "Ra5" , "Qxc8" , "Kh6" , "Kxc4" , "hxg4" , "a4" , "Nxc4" , "Qxc4" , "Kg2" , "Bb4" , "Kg7" , "Nf8" , "Bd2" , "Rf8" , "Kg3" , "Ra3" , "Kb5" , "Bc8" , "bxc3" ;
+        chon:nextHalfMove      :hmgamKSWwpi5 , :hmgamzS1gPh2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzS1gPh .
+
+chon:HalfMove  chon:subEventOf  :gam8SPYv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzS1gPh .
+
+:touzS1gP  a          chon:hessTournament ;
+        chon:atPlace  :pla8SPYvg ;
+        chon:hasName  "World Blitz" .
+
+:reszS1gPh2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamKSWwpi5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKSWwpi50 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Ju" ;
+        chon:hasSANRecord      "c6" , "Rc1" , "Kb7" , "Rb4" , "Kg3" , "Kh4" , "Kc7" , "Rb1+" , "Kb6" ;
+        chon:nextHalfMove      :hmgamKSWwpi5 .
+
+:rolhgKSWwpi50  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzS1gPh .
+
+:rolhgzS1gPh2Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzS1gPh .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrzS1gPh  a   chon:ChessGameReport .

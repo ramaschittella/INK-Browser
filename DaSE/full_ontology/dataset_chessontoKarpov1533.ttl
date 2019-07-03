@@ -1,0 +1,76 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plabhkSJv  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:rolhgkwUVtDAe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbhkSJv .
+
+:agbhkSJv  a          chon:Agent ;
+        chon:hasName  "Gulko, Boris F" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbhkSJv .
+
+:cgrbhkSJv  a   chon:ChessGameReport .
+
+:gambhkSJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbhkSJv ;
+        chon:atPlace           :plabhkSJv ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambhkSJvZ ;
+        chon:hasHalfMove       :hmgamkwUVtDA , :hmgambhkSJvZ , :hmgammfh9gu3 ;
+        chon:hasLastHalfMove   :hmgamkwUVtDA ;
+        chon:hasOpening        :opebhkSJv ;
+        chon:hasReport         :cgrbhkSJv ;
+        chon:hasResult         :resbhkSJvZ ;
+        chon:subEventOf        :toubhkSJ .
+
+:hmgamkwUVtDA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkwUVtDAe , chon:AgentRole ;
+        chon:hasSANRecord      "Nc4" .
+
+chon:HalfMove  chon:subEventOf  :gambhkSJ .
+
+:rolhgbhkSJvZj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbhkSJv .
+
+:opebhkSJv  a            chon:ChessOpening ;
+        chon:hasECOCode  "D85" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toubhkSJ  a          chon:hessTournament ;
+        chon:atPlace  :plabhkSJv ;
+        chon:hasName  "Moscow rapid g/15" .
+
+:resbhkSJvZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgmfh9gu3u  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbhkSJv .
+
+:rolbhkSJv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbhkSJv .
+
+:hmgambhkSJvZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmfh9gu3u , chon:AgentRole , :rolhgbhkSJvZj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gulko, Boris F" ;
+        chon:hasSANRecord      "cxd4" , "Bd7" , "Bb5+" , "bxc3" , "c4" , "Be3" , "b6" , "c5" , "Nf6" , "e4" , "O-O" , "g6" , "Nxd5" , "d4" , "Rc1" , "Bg7" , "Qd2" , "Rb1" , "Nf3" , "Qa5" , "Nxc3" , "cxd5" , "d5" , "Nc3" , "Nc6" , "Be2" ;
+        chon:nextHalfMove      :hmgambhkSJvZ , :hmgammfh9gu3 .
+
+:hmgammfh9gu3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmfh9gu3u ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gulko, Boris F" ;
+        chon:hasSANRecord      "Ke8" , "Bf4" , "Qxd2+" , "e5" , "a5" , "Rb8" , "Nb8" , "Bxd7" , "Rc7" , "Bg5" , "f6" , "Rxc1" , "bxa5" , "Kf7" , "Bf8" , "e6" , "Bb5" , "Ke2" , "cxd4" , "Nxd7" , "a6" , "Rac8" , "Nxa5" , "Nc4" , "Rfd8" , "dxe5" , "Nd2" , "a4" , "fxe5" , "Be3" , "Rc6" , "Kxd2" ;
+        chon:nextHalfMove      :hmgamkwUVtDA , :hmgammfh9gu3 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbhkSJv .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamERzrlQW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgERzrlQWd ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ribli, Zoltan" ;
+        chon:hasSANRecord      "Rf6" , "g4" , "Rxa6+" , "Be6" , "Ra1" , "Bd5" , "Bxa6" , "Rxa3" , "Rg7" , "f3" , "Kb5" , "Kg2" , "Kxa6" , "f4" , "Rd1" , "Kh3" , "Bd4" , "Rg8" , "Kb6" , "Bxb7" , "b5" ;
+        chon:nextHalfMove      :hmgamERzrlQW .
+
+:plasRDdOR  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:ressRDdORT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsRDdOR .
+
+:cgrsRDdOR  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamsRDdO .
+
+:agsRDdOR  a          chon:Agent ;
+        chon:hasName  "Ribli, Zoltan" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsRDdOR .
+
+:gamsRDdO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsRDdOR ;
+        chon:atPlace           :plasRDdOR ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsRDdORT ;
+        chon:hasHalfMove       :hmgamERzrlQW , :hmgamsRDdORT ;
+        chon:hasLastHalfMove   :hmgamERzrlQW ;
+        chon:hasOpening        :opesRDdOR ;
+        chon:hasReport         :cgrsRDdOR ;
+        chon:hasResult         :ressRDdORT ;
+        chon:subEventOf        :tousRDdO .
+
+:rolsRDdOR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsRDdOR .
+
+:opesRDdOR  a            chon:ChessOpening ;
+        chon:hasECOCode  "A19" .
+
+:tousRDdO  a          chon:hessTournament ;
+        chon:atPlace  :plasRDdOR ;
+        chon:hasName  "Reggio Emilia8990" .
+
+:rolhgERzrlQWd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsRDdOR .
+
+:rolhgsRDdORT1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsRDdOR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamsRDdORT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsRDdORT1 , :rolhgERzrlQWd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ribli, Zoltan" ;
+        chon:hasSANRecord      "Rg1" , "Be3" , "Rcd7" , "Nxd4" , "Qxd6" , "Bg8" , "Bb6" , "f6" , "b4" , "Nxe7" , "Rd6" , "Rxg4" , "h3" , "Kc2" , "e5" , "Kh6" , "cxd5" , "Kxg4" , "Rc7" , "Be2" , "Be4" , "Ndb5" , "d4" , "Ke7" , "Rb6" , "Bxf5" , "Qc5" , "Qe7" , "g5" , "Nxg4" , "f5" , "Nf6" , "a3" , "Kg6" , "Rxd5" , "Rac8" , "g4" , "Bxh7" , "Ne5" , "e6" , "Kg5" , "cxd4" , "Bd3" , "Bc4+" , "Bxd6" , "Kc4" , "d5" , "Nd6+" , "O-O-O" , "Rcc7" , "Rhd8" , "Nf3" , "f4" , "e4" , "Nf5" , "Nxd5" , "Bc5" , "Kf4" , "Bd7" , "Nc6" , "Bxg4" , "Ng8" , "c5" , "Qxe7+" , "N5c6" , "Kf7" , "hxg4" , "Be6" , "Nc3" , "Kc3" , "Ne7" , "c4" , "Nxe5" , "a6" , "exd5" , "Rc8" ;
+        chon:nextHalfMove      :hmgamsRDdORT , :hmgamERzrlQW .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resRq80upA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agRq80up  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Lasker, Emanuel" .
+
+:rolhguseHorsl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRq80up .
+
+:hmgamRq80upA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRq80upAJ , :rolhg4q4m2qDW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "a6" , "e5" , "Nf3" , "Nc6" , "Bb5" , "e4" , "Nc3" , "d6" ;
+        chon:nextHalfMove      :hmgamRq80upA , :hmgam4q4m2qD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRq80up .
+
+chon:HalfMove  chon:subEventOf  :gamRq80u .
+
+:opeRq80up  a            chon:ChessOpening ;
+        chon:hasECOCode  "C46" .
+
+:cgrRq80up  a   chon:ChessGameReport .
+
+:gamRq80u  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRq80up ;
+        chon:atPlace           :plaRq80up ;
+        chon:atTime            "1894.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRq80upA ;
+        chon:hasHalfMove       :hmgamuseHors , :hmgam4q4m2qD , :hmgamRq80upA ;
+        chon:hasLastHalfMove   :hmgamuseHors ;
+        chon:hasOpening        :opeRq80up ;
+        chon:hasReport         :cgrRq80up ;
+        chon:hasResult         :resRq80upA ;
+        chon:subEventOf        :touRq80u .
+
+:rolhgRq80upAJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRq80up .
+
+:rolRq80up  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRq80up .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg4q4m2qDW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRq80up .
+
+:hmgam4q4m2qD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhguseHorsl , :rolhg4q4m2qDW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Be7" , "Ne7" , "O-O-O" , "Rd5" , "Rhd1" , "Rha8" , "Bxe6" , "Rxa2" , "Ra1" , "Be6" , "Bg5" , "Kd7" , "Nb5" , "R1d2" , "Nxd4" , "g6" , "Bc4" , "Bxd8" , "Ra6+" , "Kb4" , "Ke6" , "Ke8" , "Rd3" , "R8a6" , "Bxc7" , "Ka5" , "e5" , "Ba3" , "axb5" , "fxe6" , "Nc6" , "Kc2" , "c3" , "R2a4" , "g5" , "exd4" , "Rb6" , "Bb6" , "g4" , "Nxb5" , "Kf7" , "Be3" , "Kb3" , "d4" , "f3" , "Qxd4" , "Bc5" , "Bd4" , "Kxb5" ;
+        chon:nextHalfMove      :hmgamuseHors , :hmgam4q4m2qD .
+
+:touRq80u  a          chon:hessTournament ;
+        chon:atPlace  :plaRq80up ;
+        chon:hasName  "World Championship 5th" .
+
+:hmgamuseHors  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhguseHorsl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "gxf3" , "Bf6" , "b4" , "Bc5" , "h4" , "Kb6" , "Kf4" , "Kd7" , "Rg2" , "b5" , "Kxb7" , "Rxd6+" , "hxg2" , "Rg1+" , "h3" , "Rxd1" , "Kg5" , "Rh2" , "Kg6" , "Rg8" , "Kf7" , "Kd5" , "Bd8" , "Ke6" , "Rd7+" , "Ra8" , "Rxg2+" , "b6" , "Bxh4" , "h5" , "Rd1" , "Kc6" ;
+        chon:nextHalfMove      :hmgamuseHors .
+
+:plaRq80up  a         chon:Place ;
+        chon:hasName  "USA/CAN" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRq80up .

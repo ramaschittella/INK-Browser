@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam6nHyW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6nHyWV ;
+        chon:atPlace           :pla6nHyWV ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6nHyWVc ;
+        chon:hasHalfMove       :hmgamgnSMtVe , :hmgam6nHyWVc ;
+        chon:hasLastHalfMove   :hmgamgnSMtVe ;
+        chon:hasOpening        :ope6nHyWV ;
+        chon:hasReport         :cgr6nHyWV ;
+        chon:hasResult         :res6nHyWVc ;
+        chon:subEventOf        :tou6nHyW .
+
+:hmgamgnSMtVe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggnSMtVeS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Bxc4" , "a3" , "Be4" , "Qb1" , "Bxa6" , "Ne4" , "Rb2" , "Nf8" , "Qxa4" , "Ba2" , "Ra5" , "g6" , "a6" , "c4" , "Qxa6" , "Bb7" , "Re1" , "c6" , "Nc3" , "Ncd5" , "Rae1" , "Bf4" , "cxd5" , "Bh2" , "b5" , "Nxd5" , "Nc7" , "h3" , "Re8" , "a5" , "Bc4" , "Bf8" , "Bxc2" , "Nxa3" , "Ne6" , "Nf6" , "Be3" , "Nc2" , "Rxb5" , "a4" , "bxc4" , "Bd2" , "b4" , "O-O" , "Be7" , "Bb3" , "Bxd5" , "Rxe2" , "Qc2" , "Bxf3" , "Nbd7" , "Re2" , "Qa6" , "Nxb5" , "Bd3" , "Qb6" , "Be2" , "Bc6" , "Qb3" ;
+        chon:nextHalfMove      :hmgamgnSMtVe .
+
+:hmgam6nHyWVc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6nHyWVcF , :rolhggnSMtVeS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Nxe5" , "e5" , "d6" , "Nf3" , "Nxe4" , "d4" , "Nf6" , "e4" ;
+        chon:nextHalfMove      :hmgamgnSMtVe , :hmgam6nHyWVc .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6nHyWV .
+
+chon:HalfMove  chon:subEventOf  :gam6nHyW .
+
+:rolhggnSMtVeS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6nHyWV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6nHyWV .
+
+:tou6nHyW  a          chon:hessTournament ;
+        chon:atPlace  :pla6nHyWV ;
+        chon:hasName  "Candidats final" .
+
+:res6nHyWVc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhg6nHyWVcF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6nHyWV .
+
+:pla6nHyWV  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:cgr6nHyWV  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag6nHyWV  a          chon:Agent ;
+        chon:hasName  "Petrosian, Tigran V" , "Fischer, Robert James" .
+
+:rol6nHyWV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6nHyWV .
+
+:ope6nHyWV  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .

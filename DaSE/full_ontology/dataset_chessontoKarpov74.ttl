@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgiuUHh3yB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFsNbn3 .
+
+:opeFsNbn3  a            chon:ChessOpening ;
+        chon:hasECOCode  "A16" .
+
+:resFsNbn3E  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFsNbn3 .
+
+chon:HalfMove  chon:subEventOf  :gamFsNbn .
+
+:cgrFsNbn3  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFsNbn3 .
+
+:rolhg7uXtK3vn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFsNbn3 .
+
+:hmgam7uXtK3v  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7uXtK3vn , :rolhgiuUHh3yB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Villarroel, Geber" ;
+        chon:hasSANRecord      "Nxe4" , "Bg2" , "c6" , "e3" , "h3" , "g6" , "Nc3" , "h4" , "Be6" , "e4" , "e5" , "fxe5" , "gxh4" , "d5" , "h5" , "O-O" , "f4" , "Nge2" , "Nf6" , "Kh2" , "cxd5" , "Re8" , "d4" , "g3" , "e6" , "c4" , "Bg7" ;
+        chon:nextHalfMove      :hmgam7uXtK3v , :hmgamiuUHh3y .
+
+:rolFsNbn3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFsNbn3 .
+
+:hmgamiuUHh3y  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiuUHh3yB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Villarroel, Geber" ;
+        chon:hasSANRecord      "Qh5" , "Bd5" , "Qh4" , "Nc6" , "Rf8" , "dxe4" , "Nxe4" , "Bf4" , "hxg6" , "Rad8" , "Qb3" , "Rf4" , "Rh4" , "Qf5" , "h5" , "Qf7" , "Rxe4" , "Bxd5+" , "Rxd5" , "Bg3" , "fxg6" ;
+        chon:nextHalfMove      :hmgamiuUHh3y .
+
+:plaFsNbn3  a         chon:Place ;
+        chon:hasName  "Caracas" .
+
+:gamFsNbn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFsNbn3 ;
+        chon:atPlace           :plaFsNbn3 ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7uXtK3v ;
+        chon:hasHalfMove       :hmgamiuUHh3y , :hmgam7uXtK3v ;
+        chon:hasLastHalfMove   :hmgamiuUHh3y ;
+        chon:hasOpening        :opeFsNbn3 ;
+        chon:hasReport         :cgrFsNbn3 ;
+        chon:hasResult         :resFsNbn3E ;
+        chon:subEventOf        :touFsNbn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touFsNbn  a          chon:hessTournament ;
+        chon:atPlace  :plaFsNbn3 ;
+        chon:hasName  "Caracas" .
+
+:agFsNbn3  a          chon:Agent ;
+        chon:hasName  "Villarroel, Geber" , "Karpov, Anatoly" .

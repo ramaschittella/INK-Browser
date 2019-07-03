@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgIEzqhQvQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIEzqhQ .
+
+:opeIEzqhQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+:resIEzqhQv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamIEzqh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIEzqhQ ;
+        chon:atPlace           :plaIEzqhQ ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIEzqhQv ;
+        chon:hasHalfMove       :hmgamESiz1QM , :hmgamIEzqhQv ;
+        chon:hasLastHalfMove   :hmgamESiz1QM ;
+        chon:hasOpening        :opeIEzqhQ ;
+        chon:hasReport         :cgrIEzqhQ ;
+        chon:hasResult         :resIEzqhQv ;
+        chon:subEventOf        :touIEzqh .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIEzqhQ .
+
+:rolhgESiz1QMO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIEzqhQ .
+
+chon:HalfMove  chon:subEventOf  :gamIEzqh .
+
+:cgrIEzqhQ  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIEzqhQ .
+
+:rolIEzqhQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIEzqhQ .
+
+:touIEzqh  a          chon:hessTournament ;
+        chon:atPlace  :plaIEzqhQ ;
+        chon:hasName  "Cicero sim" .
+
+:plaIEzqhQ  a         chon:Place ;
+        chon:hasName  "Cicero" .
+
+:hmgamIEzqhQv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIEzqhQvQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Warren, J." ;
+        chon:hasSANRecord      "Kh8" , "Kg8" , "d6" , "Qa2" , "Nxe4" , "Bxd4+" , "Nxd4" , "d4" , "Nxb5" , "Bc4" , "Qxb2" , "cxb3" , "axb3" , "e6" , "Bxb5" , "e4" , "Nf6" , "dxc4" , "Qe7" , "Bb3" , "Be3" , "Qxb5" , "Qxe6+" , "Be7" , "d5" , "Kh7" , "h3" , "Nc6" , "Rf8+" , "Qd3" , "Qb6+" , "Rxf1" , "Bd7" , "Kh1" , "Qc8+" , "Qb6" , "Qf5+" , "Qe2" , "fxe6" , "Rxf1+" , "c4" , "Qxd4" , "g6" , "c5" , "Qa5" , "h6" , "Nf3" , "Bc6" , "Bxd4" , "Qxb3" , "Nc3" , "f4" , "Rxf8" , "f5" , "b5" , "Bf6" , "Qxe4" , "cxd4" , "Qxf8+" , "O-O" ;
+        chon:nextHalfMove      :hmgamESiz1QM , :hmgamIEzqhQv .
+
+:hmgamESiz1QM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgESiz1QMO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Warren, J." ;
+        chon:hasSANRecord      "Qc7" , "Qa1" , "Qb7" ;
+        chon:nextHalfMove      :hmgamESiz1QM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agIEzqhQ  a          chon:Agent ;
+        chon:hasName  "Warren, J." , "Fischer, Robert James" .

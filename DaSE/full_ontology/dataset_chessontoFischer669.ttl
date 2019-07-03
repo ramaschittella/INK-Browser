@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touSR1gj  a          chon:hessTournament ;
+        chon:atPlace  :plaSR1gjD ;
+        chon:hasName  "Herceg Novi blitz" .
+
+:rolSR1gjD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSR1gjD .
+
+:rolhgSR1gjD4Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSR1gjD .
+
+:resSR1gjD4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSR1gjD .
+
+chon:HalfMove  chon:subEventOf  :gamSR1gj .
+
+:agSR1gjD  a          chon:Agent ;
+        chon:hasName  "Bronstein, David I" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSR1gjD .
+
+:opeSR1gjD  a            chon:ChessOpening ;
+        chon:hasECOCode  "C16" .
+
+:plaSR1gjD  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+:hmgamSR1gjD4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSR1gjD4Y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bronstein, David I" ;
+        chon:hasSANRecord      "Qxd4" , "Qe8+" , "Qc2" , "Qd2" , "Qxf3" , "Qd7" , "Kg4" , "Bf8" , "Kf2" , "Rxf3" , "dxc3" , "g5" , "Rf7" , "Nc3" , "Ne2" , "Nxh4" , "Bc3" , "Bd3" , "Rxf5+" , "Qxf5" , "h4" , "Bg7" , "Rfb1" , "Nh6" , "Nf5" , "Bb7" , "Nf3" , "Qf8+" , "e6" , "c6" , "Rf8+" , "fxe5" , "Rg7+" , "e5" , "Rf1" , "c3" , "Be4" , "Rg8+" , "Kg6" , "Kf4" , "Qe4" , "Qc1+" , "b6" , "Qd2+" , "Bf3" , "O-O" , "f6" , "a3" , "fxg5" , "Nd5" , "Ne5" , "Kb8" , "Kxf5" , "Ne3+" , "Kb7" , "Bxb7" , "O-O-O" , "d5" , "Qxa3" , "Bf5" , "exd4" , "d4" , "Qg4+" , "Qe1+" , "Kg3" , "Qxc3" , "Rxh4" , "Nfe7" , "Kf5" , "Bb4" , "Kc8" , "Bd2" , "cxd4" , "Rxg7" , "Qxb4" , "Ng3" , "Nc6" , "b4" , "Nxf5" , "gxh4" , "h5" , "Nf3+" , "g3" , "e4" , "f4" ;
+        chon:nextHalfMove      :hmgamSR1gjD4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrSR1gjD  a   chon:ChessGameReport .
+
+:gamSR1gj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSR1gjD ;
+        chon:atPlace           :plaSR1gjD ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSR1gjD4 ;
+        chon:hasHalfMove       :hmgamSR1gjD4 ;
+        chon:hasLastHalfMove   :hmgamSR1gjD4 ;
+        chon:hasOpening        :opeSR1gjD ;
+        chon:hasReport         :cgrSR1gjD ;
+        chon:hasResult         :resSR1gjD4 ;
+        chon:subEventOf        :touSR1gj .

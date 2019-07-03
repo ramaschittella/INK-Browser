@@ -1,0 +1,99 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agYz6nrf  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Anderssen, Adolf" .
+
+:rolhg8NFpcmAk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYz6nrf .
+
+:opeYz6nrf  a            chon:ChessOpening ;
+        chon:hasECOCode  "C51" .
+
+:touYz6nr  a          chon:hessTournament ;
+        chon:atPlace  :plaYz6nrf ;
+        chon:hasName  "Baden-Baden" .
+
+:hmgam0z3A1g3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0z3A1g3D , :rolhg8NFpcmAk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "dxe5" , "d4" , "Bxb4" , "Bxh6" , "Nf6+" , "Nf3" , "exd4" , "d5" , "cxd4" , "c3" , "Bb6" , "Nc6" , "O-O" , "Nce7" , "d6" , "Bc4" , "gxh6" , "b4" , "Bc5" , "Nc3" , "Nh6" , "e4" , "Ne4" , "e5" ;
+        chon:nextHalfMove      :hmgam8NFpcmA , :hmgam0z3A1g3 .
+
+:cgrYz6nrf  a   chon:ChessGameReport .
+
+:rolhgWNIcFnx0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYz6nrf .
+
+:hmgamjNSDJmD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjNSDJmDy , chon:AgentRole , :rolhgKPMY7ouY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qd4" , "Rxb7+" , "Rff7" , "Bg7" ;
+        chon:nextHalfMove      :hmgamKPMY7ou , :hmgamjNSDJmD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYz6nrf .
+
+:rolhg0z3A1g3D  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYz6nrf .
+
+:hmgam8NFpcmA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8NFpcmAk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Be5" , "Nxg6+" , "Rae8" , "Bd7" , "Ne4" , "dxc7" , "Bxc7" , "Rxf8" , "Rxe8" , "Kh7" , "Rb1" , "Qxd5" , "Qf6" , "Bxd5" , "Bxh2+" , "Rfe1" , "Kh8" , "Nc3" , "Ng6" , "Bc6" , "hxg6" , "Qxd7" , "Qd7+" , "Nd5" , "f5" , "Kh1" , "Qg7" , "d6" , "Qd2" , "Nxe5" ;
+        chon:nextHalfMove      :hmgamjNSDJmD , :hmgam8NFpcmA .
+
+:rolhgjNSDJmDy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYz6nrf .
+
+:hmgamKPMY7ou  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKPMY7ouY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qd1+" , "Rxg7+" , "Kg1" , "h5" , "Qh5+" , "Bf1" , "Kh2" ;
+        chon:nextHalfMove      :hmgamWNIcFnx , :hmgamKPMY7ou .
+
+chon:HalfMove  chon:subEventOf  :gamYz6nr .
+
+:hmgamWNIcFnx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWNIcFnx0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rg8" , "f4" , "Rxa7" , "Kh6" ;
+        chon:nextHalfMove      :hmgamWNIcFnx .
+
+:rolYz6nrf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYz6nrf .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamYz6nr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYz6nrf ;
+        chon:atPlace           :plaYz6nrf ;
+        chon:atTime            "1870.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0z3A1g3 ;
+        chon:hasHalfMove       :hmgam8NFpcmA , :hmgamKPMY7ou , :hmgamWNIcFnx , :hmgamjNSDJmD , :hmgam0z3A1g3 ;
+        chon:hasLastHalfMove   :hmgamWNIcFnx ;
+        chon:hasOpening        :opeYz6nrf ;
+        chon:hasReport         :cgrYz6nrf ;
+        chon:hasResult         :resYz6nrfZ ;
+        chon:subEventOf        :touYz6nr .
+
+:resYz6nrfZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaYz6nrf  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+:rolhgKPMY7ouY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYz6nrf .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYz6nrf .

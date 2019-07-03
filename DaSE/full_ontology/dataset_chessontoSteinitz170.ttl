@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolzdDrpB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzdDrpB .
+
+:rolhgS9d4fzJM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzdDrpB .
+
+:pla9ar93y  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzdDrpB .
+
+:gam9ar93  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzdDrpB ;
+        chon:atPlace           :pla9ar93y ;
+        chon:atTime            "1871.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzdDrpBl ;
+        chon:hasHalfMove       :hmgamzdDrpBl , :hmgamS9d4fzJ , :hmgamLbAFWAp , :hmgamG9hOGyG ;
+        chon:hasLastHalfMove   :hmgamS9d4fzJ ;
+        chon:hasOpening        :opezdDrpB ;
+        chon:hasReport         :cgrzdDrpB ;
+        chon:hasResult         :reszdDrpBl ;
+        chon:subEventOf        :touzdDrp .
+
+chon:HalfMove  chon:subEventOf  :gam9ar93 .
+
+:rolhgLbAFWApB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzdDrpB .
+
+:hmgamS9d4fzJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgS9d4fzJM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Potter, N." ;
+        chon:hasSANRecord      "Nb6" , "Rxd6" , "Rf6" , "Nc4" , "Bxf5" , "Re7" , "Rxe6" , "Re2" , "Bxd7" ;
+        chon:nextHalfMove      :hmgamS9d4fzJ .
+
+:agzdDrpB  a          chon:Agent ;
+        chon:hasName  "Potter, N." , "Steinitz, William" .
+
+:hmgamLbAFWAp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLbAFWApB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Potter, N." ;
+        chon:hasSANRecord      "Rxf3" , "Bxf4" , "Bf4" , "h3" , "a4" , "c5" , "Qb8" , "Nf3" , "d6" , "fxg5" , "Bxg5" , "Bd8" , "Qb3" , "a5" , "Rxf4" , "Nf7" , "Kh8" , "Nd4" , "Qxa7" , "O-O" , "Nc6" , "a6" , "Rxa5" , "Ra7" , "Bxf3" , "bxa5" , "Bh4" , "Nbc3" , "Qe8" , "d5" , "Be3" , "g5" , "Nxa5" ;
+        chon:nextHalfMove      :hmgamLbAFWAp , :hmgamG9hOGyG .
+
+:reszdDrpBl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrzdDrpB  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamzdDrpBl  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzdDrpBlq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Potter, N." ;
+        chon:hasSANRecord      "Nh6" , "Bb7" , "Bd3" , "f4" , "Nf6" , "Ng8" , "e4" , "Be7" , "e6" , "b6" , "f5" , "d4" , "Ne2" , "O-O" , "e5" , "c4" ;
+        chon:nextHalfMove      :hmgamzdDrpBl , :hmgamLbAFWAp .
+
+:rolhgG9hOGyGz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzdDrpB .
+
+:rolhgzdDrpBlq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzdDrpB .
+
+:opezdDrpB  a            chon:ChessOpening ;
+        chon:hasECOCode  "B00" .
+
+:touzdDrp  a          chon:hessTournament ;
+        chon:atPlace  :pla9ar93y ;
+        chon:hasName  "GBR tour sim" .
+
+:hmgamG9hOGyG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgG9hOGyGz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Potter, N." ;
+        chon:hasSANRecord      "Ng6" , "Rf7" , "Rf8" , "Qe5" , "Qxc5" , "Rc8" , "Qe3" , "Qxa5" , "Bf1" , "Rf2" , "Qd2" , "c5" , "Be2" , "Rb8" , "Qa3" , "Ne4+" , "Qxb2" , "Bxa6" , "Bc8" , "Nxe5" , "Qb2" , "Rxb2" , "Ne5" , "Qb8" , "Nc5" ;
+        chon:nextHalfMove      :hmgamS9d4fzJ , :hmgamG9hOGyG .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzdDrpB .

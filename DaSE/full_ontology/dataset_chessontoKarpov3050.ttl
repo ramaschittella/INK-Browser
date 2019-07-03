@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaArs6re  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agArs6re .
+
+:hmgamArs6rek  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgArs6rekb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kamsky,G" ;
+        chon:hasSANRecord      "Bh4+" , "Rxh1" , "Kd3" , "Bg3" , "Bg6" , "Ke7" , "Nf6" , "a5" , "Rh2+" , "Rb3" , "Qb3" , "Be7" , "c4" , "e3" , "e6" , "Bf5" , "Qc7" , "Qxc6" , "Qxb7" , "Rxf3" , "Rxh2" , "d4" , "Qxf4" , "gxf4" , "Qxa3" , "c6" , "Rh4" , "Ke3" , "Qd6+" , "Be4" , "f3" , "e4" , "g4" , "Kd8" , "Nc3" , "hxg6" , "Nxg6" , "Ra3" , "Rh2" , "Kd2" , "Nf3" , "Be2" , "e5" , "Kd1" , "Nbd7" , "g5" , "Nxc3" , "Bd2" , "Bf4" , "Nh4" , "Rb2" , "Bd3" , "Rhf2" , "g3" , "cxd5" , "Kc4" , "Bf1" , "Qd6" , "d5" , "Rb8" , "Nxd5" , "bxc3" , "Bxf4+" , "Re1" , "a4" ;
+        chon:nextHalfMove      :hmgamArs6rek .
+
+chon:HalfMove  chon:subEventOf  :gamArs6r .
+
+:cgrArs6re  a   chon:ChessGameReport .
+
+:gamArs6r  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolArs6re ;
+        chon:atPlace           :plaArs6re ;
+        chon:atTime            "2008.08.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamArs6rek ;
+        chon:hasHalfMove       :hmgamArs6rek ;
+        chon:hasLastHalfMove   :hmgamArs6rek ;
+        chon:hasOpening        :opeArs6re ;
+        chon:hasReport         :cgrArs6re ;
+        chon:hasResult         :resArs6rek ;
+        chon:subEventOf        :touArs6r .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agArs6re .
+
+:touArs6r  a          chon:hessTournament ;
+        chon:atPlace  :plaArs6re ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+:agArs6re  a          chon:Agent ;
+        chon:hasName  "Kamsky,G" , "Karpov,Ana" .
+
+:rolArs6re  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agArs6re .
+
+:rolhgArs6rekb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agArs6re .
+
+:resArs6rek  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeArs6re  a            chon:ChessOpening ;
+        chon:hasECOCode  "D12" .

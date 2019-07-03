@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamRUmj7W8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRUmj7W8Y , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "NN" ;
+        chon:hasSANRecord      "Nd5" , "g5" , "Nxe4" , "Qe7" , "Nc6" , "Qd8" , "fxe5" , "Nf6" , "Nc5" , "d4" , "f4" , "d3" , "h6" , "e5" , "Ke7" , "O-O" , "Nc3" , "e4" , "Na6" , "Bc4" , "Nf3" , "Nf6+" ;
+        chon:nextHalfMove      :hmgamMS5sQUn , :hmgamRUmj7W8 .
+
+:cgrRUmj7W  a   chon:ChessGameReport .
+
+:hmgamMS5sQUn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMS5sQUnY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "NN" ;
+        chon:hasSANRecord      "hxg5" , "Ng8+" , "Nxg5" , "Qh5" , "Bxf7#" , "Rxh5" , "Ke8" ;
+        chon:nextHalfMove      :hmgamMS5sQUn .
+
+:agRUmj7W  a          chon:Agent ;
+        chon:hasName  "NN" , "Steinitz, William" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRUmj7W .
+
+:rolRUmj7W  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRUmj7W .
+
+:resRUmj7W8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgMS5sQUnY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRUmj7W .
+
+chon:HalfMove  chon:subEventOf  :gamFUq7x .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRUmj7W .
+
+:gamFUq7x  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRUmj7W ;
+        chon:atPlace           :plaFUq7xX ;
+        chon:atTime            "1873.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRUmj7W8 ;
+        chon:hasHalfMove       :hmgamRUmj7W8 , :hmgamMS5sQUn ;
+        chon:hasLastHalfMove   :hmgamMS5sQUn ;
+        chon:hasOpening        :opeRUmj7W ;
+        chon:hasReport         :cgrRUmj7W ;
+        chon:hasResult         :resRUmj7W8 ;
+        chon:subEventOf        :touFUq7x .
+
+:rolhgRUmj7W8Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRUmj7W .
+
+:touFUq7x  a          chon:hessTournament ;
+        chon:atPlace  :plaFUq7xX ;
+        chon:hasName  "GBR tour sim" .
+
+:opeRUmj7W  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaFUq7xX  a         chon:Place ;
+        chon:hasName  "Great Britain" .

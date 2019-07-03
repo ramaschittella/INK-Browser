@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgWZauudfT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWZauud .
+
+:hmgamWZauudf  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWZauudfT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rad1" , "Nxd4" , "g3" , "Qc2" , "h6" , "Qf2" , "Qb3" , "Nf3" , "e3" , "Nb3" , "Nf6" , "Nc6" , "d4" , "c4" , "Qa5" , "Nd5" , "Rb8" , "b5" , "Bf7" , "Be7" , "Nd2" , "Bxf6" , "g6" , "Rf2" , "Na5" , "exf4" , "e5" , "gxf4" , "c5" , "Rd8" , "Qxd1+" , "Bh6" , "Qd8" , "Qh4" , "dxe3" , "b4" , "Nxe3" , "Nd7" , "Be6" , "Qc5" , "f5" , "Nc5" , "Rxe8" , "Bg5" , "Ne7" , "Bg8" , "Bg2" , "cxd4" , "Qg3" , "Qd3" , "Re8" , "N7f6" , "Qxa2" , "f4" , "O-O" , "Qf6" , "Nxe8" , "Rfd2" , "Kh8" , "Rbd8" , "d5" , "Nc3" , "Bg7" , "Kh7" , "e6" ;
+        chon:nextHalfMove      :hmgamWZauudf .
+
+:plaKZehVe  a         chon:Place ;
+        chon:hasName  "Athens" .
+
+:gamKZehV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWZauud ;
+        chon:atPlace           :plaKZehVe ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWZauudf ;
+        chon:hasHalfMove       :hmgamWZauudf ;
+        chon:hasLastHalfMove   :hmgamWZauudf ;
+        chon:hasOpening        :opeWZauud ;
+        chon:hasReport         :cgrWZauud ;
+        chon:hasResult         :resWZauudf ;
+        chon:subEventOf        :touWZauu .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWZauud .
+
+:cgrWZauud  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamKZehV .
+
+:resWZauudf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWZauud .
+
+:rolWZauud  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWZauud .
+
+:agWZauud  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Vizantiadis, Lazaros" .
+
+:touWZauu  a          chon:hessTournament ;
+        chon:atPlace  :plaKZehVe ;
+        chon:hasName  "Athens sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeWZauud  a            chon:ChessOpening ;
+        chon:hasECOCode  "D50" .

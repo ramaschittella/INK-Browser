@@ -1,0 +1,77 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg7i9Tr99Q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVibDS0 .
+
+:resVibDS06  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamxkibM9X  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxkibM9Xg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hou Yifan" ;
+        chon:hasSANRecord      "Bf6" , "g3" , "Ra3" , "Rfc7" , "Nc3" , "Kf2" , "Bb7" , "Bxf3" , "b4" , "Qb2" , "a4" , "c2" , "f5" , "Na2" , "Be2" , "hxg6+" , "Ne4" , "Rc8" , "Rd8+" , "Qd5+" , "Nc5" , "dxc3" , "bxa4" , "Ra2" , "Qxf3" , "Kh7" , "Nxf3+" , "Kh1" , "Kg1" , "h5" , "Kf7" , "f4" , "Be1" , "Kxg6" , "d4" , "Nxc3" , "Rc1" , "Kd3" , "Qe2" , "Qc7" , "h4" , "Bh2+" , "Rxf7" , "Nce4" , "Rxa4" , "Kf3" , "Rc6" , "Qe4" , "b5" , "Be5" , "g6" , "Qb3" , "Qf7" , "Qe7" , "Ng5" , "Qxf7" , "Ke2" ;
+        chon:nextHalfMove      :hmgamxkibM9X .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVibDS0 .
+
+:plaVibDS0  a         chon:Place ;
+        chon:hasName  "Sanya City CHN" .
+
+:hmgamVibDS06  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVibDS06F , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hou Yifan" ;
+        chon:hasSANRecord      "d5" , "Bd2" , "a6" , "Bd3" , "h6" , "Nf6" , "O-O" , "Bxc5" , "Nbd7" , "Bd6" , "Qc2" , "c5" , "Bb4" , "e3" , "c4" , "Nf3" , "Nc3" , "dxc5" , "d4" , "cxd5" , "exd5" , "Bg5" , "e6" ;
+        chon:nextHalfMove      :hmgamVibDS06 , :hmgam7i9Tr99 .
+
+:opeVibDS0  a            chon:ChessOpening ;
+        chon:hasECOCode  "E35" .
+
+chon:HalfMove  chon:subEventOf  :gamVibDS .
+
+:cgrVibDS0  a   chon:ChessGameReport .
+
+:hmgam7i9Tr99  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7i9Tr99Q , chon:AgentRole ;
+        chon:hasSANRecord      "Rfd1" ;
+        chon:nextHalfMove      :hmgamxkibM9X .
+
+:gamVibDS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVibDS0 ;
+        chon:atPlace           :plaVibDS0 ;
+        chon:atTime            "2010.11.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVibDS06 ;
+        chon:hasHalfMove       :hmgamxkibM9X , :hmgamVibDS06 , :hmgam7i9Tr99 ;
+        chon:hasLastHalfMove   :hmgamxkibM9X ;
+        chon:hasOpening        :opeVibDS0 ;
+        chon:hasReport         :cgrVibDS0 ;
+        chon:hasResult         :resVibDS06 ;
+        chon:subEventOf        :touVibDS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touVibDS  a          chon:hessTournament ;
+        chon:atPlace  :plaVibDS0 ;
+        chon:hasName  "Match" .
+
+:rolhgxkibM9Xg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVibDS0 .
+
+:rolVibDS0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVibDS0 .
+
+:rolhgVibDS06F  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVibDS0 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVibDS0 .
+
+:agVibDS0  a          chon:Agent ;
+        chon:hasName  "Hou Yifan" , "Karpov,Ana" .

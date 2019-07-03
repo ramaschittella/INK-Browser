@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgZOAAU3xn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZOAAU3 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZOAAU3 .
+
+:cgrZOAAU3  a   chon:ChessGameReport .
+
+:hmgamZOAAU3x  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZOAAU3xn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf3" , "Nc3" , "Nbd7" , "Nh5" , "a6" , "e3" , "Be2" , "Rc1" , "c4" , "b6" , "Bg5" , "e6" , "O-O" , "Nf6" , "Bxc4" , "Bxe7" , "c5" , "Bh4" , "exd4" , "Qe2" , "Bb7" , "cxd4" , "a4" , "dxc4" , "d5" , "Be7" , "h6" , "d4" ;
+        chon:nextHalfMove      :hmgamZOAAU3x .
+
+chon:HalfMove  chon:subEventOf  :gamZOAAU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZOAAU3 .
+
+:rolZOAAU3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZOAAU3 .
+
+:plaZOAAU3  a         chon:Place ;
+        chon:hasName  "Turin" .
+
+:resZOAAU3x  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamZOAAU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZOAAU3 ;
+        chon:atPlace           :plaZOAAU3 ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZOAAU3x ;
+        chon:hasHalfMove       :hmgamZOAAU3x ;
+        chon:hasLastHalfMove   :hmgamZOAAU3x ;
+        chon:hasOpening        :opeZOAAU3 ;
+        chon:hasReport         :cgrZOAAU3 ;
+        chon:hasResult         :resZOAAU3x ;
+        chon:subEventOf        :touZOAAU .
+
+:agZOAAU3  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Portisch, Lajos" .
+
+:touZOAAU  a          chon:hessTournament ;
+        chon:atPlace  :plaZOAAU3 ;
+        chon:hasName  "Turin" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeZOAAU3  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .

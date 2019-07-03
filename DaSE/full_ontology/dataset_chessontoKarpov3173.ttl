@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeeuopsH  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageuopsH .
+
+:hmgamFwyHPIF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFwyHPIFb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dominguez Perez,L" ;
+        chon:hasSANRecord      "Ke3" , "Rxc1" , "Bd4" , "c4" , "Bxb5" , "a3" , "b3" , "Rac1" , "e6" , "Ne1" , "Nbd2" , "h5" , "Nb4" , "Rfd1" , "Nd2" , "Ra2+" , "Bb4+" , "e5" , "Nd5" , "a6" , "g3" , "Rxe2" , "Bxc3" , "d5" , "Nxb4" , "Bxb4" , "Bxc4" , "Bxe2" , "Bd6" , "Nb1" , "Kf2" , "b5" , "g6" , "Ke7" , "Bb2" , "Nc5" , "Bf8" , "b4" , "Nf3" , "Nd7" , "d4" , "dxc4" , "Qxd8+" , "Rhc8" , "Bxc5" , "a5" , "h4" , "Nbd7" , "Ke8" , "c5" , "Ba6" , "Nf6" , "O-O" , "b6" , "Ke6" , "e3" , "f3" , "axb4" , "e4" , "Re1" , "dxc5" , "Nc3" , "Nd3" , "Be2" , "Bb7" , "Kxd8" , "Bd5" , "Rxe2+" , "Nc4" ;
+        chon:nextHalfMove      :hmgamFwyHPIF .
+
+chon:HalfMove  chon:subEventOf  :gameuops .
+
+:toueuops  a          chon:hessTournament ;
+        chon:atPlace  :plaeuopsH ;
+        chon:hasName  "World Blitz" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageuopsH .
+
+:rolhgFwyHPIFb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageuopsH .
+
+:plaeuopsH  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:cgreuopsH  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reseuopsHQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ageuopsH  a          chon:Agent ;
+        chon:hasName  "Dominguez Perez,L" , "Karpov,Ana" .
+
+:gameuops  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleuopsH ;
+        chon:atPlace           :plaeuopsH ;
+        chon:atTime            "2009.11.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFwyHPIF ;
+        chon:hasHalfMove       :hmgamFwyHPIF ;
+        chon:hasLastHalfMove   :hmgamFwyHPIF ;
+        chon:hasOpening        :opeeuopsH ;
+        chon:hasReport         :cgreuopsH ;
+        chon:hasResult         :reseuopsHQ ;
+        chon:subEventOf        :toueuops .
+
+:roleuopsH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageuopsH .

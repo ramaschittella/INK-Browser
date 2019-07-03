@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamvkvYOhI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvkvYOhIS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b3" , "Nd7" , "Bxf3" , "Kd5" , "Kd6" , "Qc6" , "Qc7" , "Nb6" , "Ke1" , "exf3" , "Ne5" , "Qe2" , "f3" , "Kg7" , "Nd2" , "Rxd7" , "Nd3" , "O-O" , "Nc5" , "a5" , "Qxc5" , "a6" , "Ngf3" , "Rd7" , "Nbd7" , "h6" , "Bd5" , "g4" , "Bc2" , "e5" , "dxe4" , "dxc5" , "Qxg5+" , "Qg3+" , "Kf2" , "Bxd2+" , "Bxc5" , "Qf4" , "Kc1" , "d5" , "b6" , "Bxf6" , "Kf8" , "Rd4" , "a4" , "Nxc5" , "Ke5" , "Bxd7" , "Qg5" , "Bd3" , "Bb5" , "Bb4+" , "N5f3" , "e4" , "Rd1" , "Rc7" , "c3" , "Be5" , "Be6" , "Rc8" , "Bf4" , "Kd2" , "Bc6" , "hxg5" , "Be2" , "Nxe4" , "gxf3" , "Kf6" , "Qg4+" , "Ke2" , "Ng5" , "Kc5" , "e6" , "h3" , "Rxd1+" , "Bc4+" , "f4" , "f5" , "c5" , "d4" , "Kxd1" , "Rd8" , "Kxd2" , "Ngf6" , "gxf6" , "Bd7" , "Bc4" ;
+        chon:nextHalfMove      :hmgamvkvYOhI .
+
+:plazmOO5j  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+:rolhgvkvYOhIS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzmOO5j .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzmOO5j .
+
+:gamzmOO5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzmOO5j ;
+        chon:atPlace           :plazmOO5j ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzmOO5js ;
+        chon:hasHalfMove       :hmgamzmOO5js , :hmgamvkvYOhI ;
+        chon:hasLastHalfMove   :hmgamvkvYOhI ;
+        chon:hasOpening        :opezmOO5j ;
+        chon:hasReport         :cgrzmOO5j ;
+        chon:hasResult         :reszmOO5js ;
+        chon:subEventOf        :touzmOO5 .
+
+:hmgamzmOO5js  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzmOO5jsU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "e4" ;
+        chon:nextHalfMove      :hmgamvkvYOhI , :hmgamzmOO5js .
+
+chon:HalfMove  chon:subEventOf  :gamzmOO5 .
+
+:agzmOO5j  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Topalov, Veselin" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzmOO5j .
+
+:rolzmOO5j  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzmOO5j .
+
+:opezmOO5j  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:rolhgzmOO5jsU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzmOO5j .
+
+:reszmOO5js  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touzmOO5  a          chon:hessTournament ;
+        chon:atPlace  :plazmOO5j ;
+        chon:hasName  "Varna rap m" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrzmOO5j  a   chon:ChessGameReport .

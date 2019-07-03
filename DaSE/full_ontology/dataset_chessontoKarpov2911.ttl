@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla97EWoQ  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:rolhg97EWoQMT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag97EWoQ .
+
+:cgr97EWoQ  a   chon:ChessGameReport .
+
+:hmgam97EWoQM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg97EWoQMT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Retzlaff,Thomas" ;
+        chon:hasSANRecord      "d4" , "Nf3" , "e6" , "Nf6" , "c6" , "e3" , "c4" , "d5" ;
+        chon:nextHalfMove      :hmgam97EWoQM , :hmgamk5AaXPP .
+
+chon:HalfMove  chon:subEventOf  :gam97EWo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag97EWoQ .
+
+:ag97EWoQ  a          chon:Agent ;
+        chon:hasName  "Retzlaff,Thomas" , "Karpov,Ana" .
+
+:rol97EWoQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag97EWoQ .
+
+:tou97EWo  a          chon:hessTournament ;
+        chon:atPlace  :pla97EWoQ ;
+        chon:hasName  "Simul" .
+
+:ope97EWoQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag97EWoQ .
+
+:hmgamk5AaXPP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgk5AaXPP8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Retzlaff,Thomas" ;
+        chon:hasSANRecord      "dxc4" , "Rd7" , "Be7" , "Rdb8" , "Nxd6" , "Qf4" , "Qe5" , "Nxc4" , "Re3" , "Nbd7" , "Nd6" , "Ba3" , "Rg3" , "Ne8" , "Nexf6" , "e5" , "Qe2" , "Rcc8" , "Nxe7+" , "b5" , "Rd8" , "Bg6" , "Kg8" , "Bd6" , "Qc2" , "Ne3" , "h6" , "Re4" , "Reg4" , "Ng6+" , "Bb2" , "Bb7" , "f5" , "Bxd6" , "Nbd2" , "Nf8" , "Rc7" , "a6" , "Bd3" , "Bh7+" , "Nh4" , "Rxe7" , "Qb7" , "Re1" , "Bc5" , "Kh8" , "Bc8" , "Nd5" , "exf6" , "Qe8" , "Re8" , "Rf8" , "Be4" , "O-O" , "e4" , "Rae1" , "Nc7" , "Nf5" , "Qd7" , "b3" ;
+        chon:nextHalfMove      :hmgamk5AaXPP .
+
+:res97EWoQM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgk5AaXPP8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag97EWoQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam97EWo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol97EWoQ ;
+        chon:atPlace           :pla97EWoQ ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam97EWoQM ;
+        chon:hasHalfMove       :hmgamk5AaXPP , :hmgam97EWoQM ;
+        chon:hasLastHalfMove   :hmgamk5AaXPP ;
+        chon:hasOpening        :ope97EWoQ ;
+        chon:hasReport         :cgr97EWoQ ;
+        chon:hasResult         :res97EWoQM ;
+        chon:subEventOf        :tou97EWo .

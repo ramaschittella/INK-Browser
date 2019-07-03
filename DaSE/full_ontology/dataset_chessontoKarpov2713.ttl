@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgTKq5AKq4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTKq5AK .
+
+:rolTKq5AK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTKq5AK .
+
+:touTKq5A  a          chon:hessTournament ;
+        chon:atPlace  :plaTKq5AK ;
+        chon:hasName  "PlusGSM Rapid Match" .
+
+:rolhgkMApXKiu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTKq5AK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTKq5AK .
+
+chon:HalfMove  chon:subEventOf  :gamTKq5A .
+
+:hmgamTKq5AKq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTKq5AKq4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Macieja,B" ;
+        chon:hasSANRecord      "g3" , "dxc5" , "Nxa6" , "Nhf6" , "Qc7" , "Qa7" , "Rfd1" , "Ra8" , "Qb2" , "Rd4" , "cxd5" , "Qc2" , "Bxd6" , "Bb7" , "Bxb6" , "Qe5" , "Bg5" , "Ncb6" , "Bc5" , "e4" , "e3" , "e6" , "a3" , "Kf8" , "a6" , "b6" , "Ng6" , "Ne5" , "h3" , "Nbd7" , "Qa8" , "N7b6" , "O-O" , "Nxc8" , "Nce4" , "Qb1" , "Be2" , "Qxb8" , "Bh4" , "Bb4" , "Rd6" , "Bxc5" , "Nd2" , "d5" , "Nh5" , "Rxb8" , "e5" , "c5" , "Be7" , "Nf3" , "Nxb6" , "h6" , "Nd5" , "Rac8" , "Ne7" , "Qb8" , "Bf1" , "Nxd5" , "Bg3" , "Bc6" , "c4" , "Re8" , "Rc8" , "d4" , "f4" , "Nb3" , "d6" , "Rfd8" , "b4" , "Ned7" , "Nc3" , "Nc5" , "Rac1" , "Nf4" , "Rxc8" , "Nf6" , "Nd6" , "b5" ;
+        chon:nextHalfMove      :hmgamTKq5AKq , :hmgamkMApXKi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTKq5AK .
+
+:agTKq5AK  a          chon:Agent ;
+        chon:hasName  "Macieja,B" , "Karpov,Ana" .
+
+:opeTKq5AK  a            chon:ChessOpening ;
+        chon:hasECOCode  "E39" .
+
+:hmgamkMApXKi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkMApXKiu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Macieja,B" ;
+        chon:hasSANRecord      "Ra8" , "Kxg2" , "Nd5" , "Na6" , "Bg2" , "Bxg2" ;
+        chon:nextHalfMove      :hmgamkMApXKi .
+
+:resTKq5AKq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamTKq5A  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTKq5AK ;
+        chon:atPlace           :plaTKq5AK ;
+        chon:atTime            "2003.04.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTKq5AKq ;
+        chon:hasHalfMove       :hmgamkMApXKi , :hmgamTKq5AKq ;
+        chon:hasLastHalfMove   :hmgamkMApXKi ;
+        chon:hasOpening        :opeTKq5AK ;
+        chon:hasReport         :cgrTKq5AK ;
+        chon:hasResult         :resTKq5AKq ;
+        chon:subEventOf        :touTKq5A .
+
+:plaTKq5AK  a         chon:Place ;
+        chon:hasName  "Warsaw POL" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrTKq5AK  a   chon:ChessGameReport .

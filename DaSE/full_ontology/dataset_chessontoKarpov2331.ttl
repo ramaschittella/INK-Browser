@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla1UsRtG  a         chon:Place ;
+        chon:hasName  "Budapest" .
+
+:rolhg1UsRtGcT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1UsRtG .
+
+:hmgam1UsRtGc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1UsRtGcT , chon:AgentRole , :rolhgbUp63Ff5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "Qxe4" , "d5" , "Ne4" , "h6" , "Bd3" , "Nd7" , "Ngf6" , "e6" , "Nd2" , "Qe2" , "dxe4" , "Nxe4" , "d4" , "e4" , "N1f3" , "Bd6" , "Ng5" ;
+        chon:nextHalfMove      :hmgam1UsRtGc , :hmgambUp63Ff .
+
+:ag1UsRtG  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Polgar, Judit" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1UsRtG .
+
+:ope1UsRtG  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:HalfMove  chon:subEventOf  :gam1UsRt .
+
+:rolhgbUp63Ff5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1UsRtG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1UsRtG .
+
+:hmgambUp63Ff  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbUp63Ff5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxc6+" , "Kf7" , "Rc7" , "fxe4" , "Nf6" , "Ke5" , "Ba6" , "Qg4" , "Be5" , "bxc4" , "Nc4" , "Rfe1" , "Qh6+" , "Bxd3" , "Qxh5+" , "gxh3" , "Qxc5" , "Qb7+" , "Rd8" , "b6" , "Qa8+" , "Bd2" , "Rb8" , "Kd5" , "Kf6" , "a4" , "e4" , "g3" , "g4" , "Kf2" , "Nd5" , "Ke3" , "Rhc8" , "Qh8+" , "Kxf6" , "Bxf6" , "Qxd3" , "Qxh3" , "Qxc4" , "Rxc1" , "Qxd6" , "Qd3+" , "Qc4" , "Rc5" , "Bd6" , "Ke6" , "c4" , "Bc3" , "Rb2" , "Be3" , "Kg6" , "Ke7" , "Qe2" , "b4" , "b5" , "f5" , "h5" , "Kxc6" , "O-O" , "Rxc5" , "Rad1" , "Qxc6" , "Qxb4" , "Qd6" , "Rb7" , "Kd3" , "Qc6" , "Qc7" , "Ra8" , "e5" , "Qd3" , "Qf3" , "a5" , "Kf8" , "a6" , "Qb3" , "g5" , "Nd2" , "Nxd6" , "Rc1" , "fxe4+" , "dxc5" , "f3" , "h3" ;
+        chon:nextHalfMove      :hmgambUp63Ff .
+
+:res1UsRtGc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gam1UsRt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1UsRtG ;
+        chon:atPlace           :pla1UsRtG ;
+        chon:atTime            "1998.06.10"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1UsRtGc ;
+        chon:hasHalfMove       :hmgam1UsRtGc , :hmgambUp63Ff ;
+        chon:hasLastHalfMove   :hmgambUp63Ff ;
+        chon:hasOpening        :ope1UsRtG ;
+        chon:hasReport         :cgr1UsRtG ;
+        chon:hasResult         :res1UsRtGc ;
+        chon:subEventOf        :tou1UsRt .
+
+:cgr1UsRtG  a   chon:ChessGameReport .
+
+:tou1UsRt  a          chon:hessTournament ;
+        chon:atPlace  :pla1UsRtG ;
+        chon:hasName  "Budapest m 30'" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol1UsRtG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1UsRtG .

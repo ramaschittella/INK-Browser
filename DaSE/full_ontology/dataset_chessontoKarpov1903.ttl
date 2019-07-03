@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamh6Vg1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rols4Suzc ;
+        chon:atPlace           :plah6Vg1b ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgams4Suzcv ;
+        chon:hasHalfMove       :hmgams4Suzcv ;
+        chon:hasLastHalfMove   :hmgams4Suzcv ;
+        chon:hasOpening        :opes4Suzc ;
+        chon:hasReport         :cgrs4Suzc ;
+        chon:hasResult         :ress4Suzcv ;
+        chon:subEventOf        :tous4Suz .
+
+:ress4Suzcv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:tous4Suz  a          chon:hessTournament ;
+        chon:atPlace  :plah6Vg1b ;
+        chon:hasName  "Dortmund" .
+
+:rolhgs4Suzcv7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ags4Suzc .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ags4Suzc .
+
+chon:HalfMove  chon:subEventOf  :gamh6Vg1 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ags4Suzc .
+
+:plah6Vg1b  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:hmgams4Suzcv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgs4Suzcv7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxc1" , "Rac1" , "Bb7" , "Bd3" , "g6" , "e5" , "dxc5" , "Nc5" , "e6" , "Qd2" , "Qc2" , "Rxb2" , "f4" , "bxc5" , "Nc3" , "Ba6" , "Nxd5" , "a3" , "O-O" , "Rfc8" , "N5b6" , "d4" , "Rab8" , "Nd6" , "Nf6" , "e4" , "h6" , "Be2" , "Nxe4" , "Rc5" , "e3" , "Bb5+" , "Nd7" , "Bg7" , "d5" , "b6" , "Nde4" , "Qc7" , "Nf3" , "Qb6+" , "Nxc4" , "Bxc4" , "Bg5" , "c6" , "Rb8" , "Nd5" , "a5" , "cxd5" , "c5" , "Qxb2" , "Ne2" , "Nd2" , "Kh1" , "c4" ;
+        chon:nextHalfMove      :hmgams4Suzcv .
+
+:cgrs4Suzc  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ags4Suzc  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Lobron, Eric" .
+
+:rols4Suzc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ags4Suzc .
+
+:opes4Suzc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .

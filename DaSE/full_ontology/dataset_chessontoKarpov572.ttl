@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resPdXOPiF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agPdXOPi  a          chon:Agent ;
+        chon:hasName  "Romanishin, Oleg M" , "Karpov, Anatoly" .
+
+:rolhgL0EYziVP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPdXOPi .
+
+:opePdXOPi  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+:hmgamL0EYziV  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgL0EYziVP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Romanishin, Oleg M" ;
+        chon:hasSANRecord      "Nf1" , "Qb8" , "Ra2" , "Nxe5" , "Nc8" , "e5" , "e7" , "Rcb6" , "c4+" , "Qb3" , "Bc4" , "Bf8" , "Kxc4" , "Nc3" , "Rc1" , "a6" , "Bxa2" , "Bb3" , "Rxc4" , "Rb2" , "g5" , "f5" , "Nxa5" , "Kg1" , "Qd1" , "gxf4" , "Ke2" , "Bc8" , "Nc7" , "e6" , "Qa2" , "g3" , "Rxa2" , "Rb4" , "h5" , "Bb7" , "R6b3" , "Ne8" , "Bh2" , "Bd2" , "Ra1" , "Rxb3" , "Qxb3" , "f4" , "Nd1" , "Bg1" , "Kd3" , "Nb4" , "Nc6" , "Kg7" , "Bh6" , "Kf6" , "Bc2" , "Ra3" , "Ba6" , "Ba8" , "Qc2" , "Kf1" , "Bd5" , "Bg7" , "Rxc6" , "Re2" , "f3" , "a5" , "Bxf4" , "Nba7" , "g6" , "Kh2" , "Nb5" , "Ne3" ;
+        chon:nextHalfMove      :hmgamL0EYziV .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPdXOPi .
+
+:rolhgPdXOPiFP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPdXOPi .
+
+chon:HalfMove  chon:subEventOf  :gamPdXOP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPdXOPi .
+
+:cgrPdXOPi  a   chon:ChessGameReport .
+
+:hmgamPdXOPiF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPdXOPiFP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Romanishin, Oleg M" ;
+        chon:hasSANRecord      "Bb1" , "bxc4" , "Qc7" , "d5" , "Nc6" , "Nbd7" , "a6" , "Bf8" , "e4" , "d4" , "Nc5" , "b5" , "Bb7" , "Bb3" , "Bc2" , "Re8" , "Ba4" , "Bxc5" , "Rec8" , "a5" , "c6" , "Nf3" , "Bd3" , "Nf6" , "Bb5" , "dxc6" , "Rb4" , "Ba3" , "e5" , "Ra2" , "dxc5" , "Nb8" , "b3" , "d6" , "Nbd2" , "c4" , "Be7" , "O-O" , "c3" , "a4" , "Rab8" , "Ba6" , "h3" , "Re1" ;
+        chon:nextHalfMove      :hmgamL0EYziV , :hmgamPdXOPiF .
+
+:rolPdXOPi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPdXOPi .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamPdXOP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPdXOPi ;
+        chon:atPlace           :plaPdXOPi ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPdXOPiF ;
+        chon:hasHalfMove       :hmgamL0EYziV , :hmgamPdXOPiF ;
+        chon:hasLastHalfMove   :hmgamL0EYziV ;
+        chon:hasOpening        :opePdXOPi ;
+        chon:hasReport         :cgrPdXOPi ;
+        chon:hasResult         :resPdXOPiF ;
+        chon:subEventOf        :touPdXOP .
+
+:plaPdXOPi  a         chon:Place ;
+        chon:hasName  "URS" .
+
+:touPdXOP  a          chon:hessTournament ;
+        chon:atPlace  :plaPdXOPi ;
+        chon:hasName  "URS Spartakiad" .

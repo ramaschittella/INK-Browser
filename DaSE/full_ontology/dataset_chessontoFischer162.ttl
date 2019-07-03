@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0uwrQw .
+
+:cgr0uwrQw  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam0uwrQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0uwrQw .
+
+:rol0uwrQw  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0uwrQw .
+
+:gam0uwrQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0uwrQw ;
+        chon:atPlace           :pla0uwrQw ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0uwrQwJ ;
+        chon:hasHalfMove       :hmgam0uwrQwJ , :hmgam6sdBSwZ ;
+        chon:hasLastHalfMove   :hmgam6sdBSwZ ;
+        chon:hasOpening        :ope0uwrQw ;
+        chon:hasReport         :cgr0uwrQw ;
+        chon:hasResult         :res0uwrQwJ ;
+        chon:subEventOf        :tou0uwrQ .
+
+:tou0uwrQ  a          chon:hessTournament ;
+        chon:atPlace  :pla0uwrQw ;
+        chon:hasName  "Candidats Tournament" .
+
+:pla0uwrQw  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+:res0uwrQwJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgam6sdBSwZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6sdBSwZ0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "f4" , "Ng5" , "Qh4" , "Kh1" , "Qh5" , "Rxc7" , "Kh8" , "Bxb6" , "Ra7" , "Rg8" , "fxe4" , "b5" , "Ra1" , "b6" , "Qxa1" , "axb5" , "Bxe4" , "a4" , "Qg6" , "Qe1" , "Rxa1" , "Bc5" , "g5" , "Ne4" , "Nf7" , "Qc3" , "a6" ;
+        chon:nextHalfMove      :hmgam6sdBSwZ .
+
+:rolhg0uwrQwJb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0uwrQw .
+
+:ag0uwrQw  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Petrosian, Tigran V" .
+
+:rolhg6sdBSwZ0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0uwrQw .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope0uwrQw  a            chon:ChessOpening ;
+        chon:hasECOCode  "E40" .
+
+:hmgam0uwrQwJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0uwrQwJb , chon:AgentRole , :rolhg6sdBSwZ0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ne4" , "e3" , "d5" , "Ng5" , "Bh6" , "b4" , "Bd3" , "Nxe5" , "d4" , "f3" , "dxe5" , "Bf6" , "Ne2" , "e6" , "Nf6" , "c5" , "O-O" , "a3" , "Bg5" , "Bd4" , "f5" , "Nd7" , "Nf3" , "Bb2" , "Be7" , "Ne5" , "Qe7" , "Bd6" , "c4" , "Nc3" , "c6" , "Bb4" ;
+        chon:nextHalfMove      :hmgam6sdBSwZ , :hmgam0uwrQwJ .

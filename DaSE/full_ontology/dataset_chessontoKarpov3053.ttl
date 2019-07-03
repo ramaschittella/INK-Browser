@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla03JDE1  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag03JDE1 .
+
+:hmgamk3DQcZQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgk3DQcZQl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Kf7" , "Ne4" , "Qxb5" , "h5" , "Qxd4" , "h3" , "Nc7" , "e6" , "Be7" , "Rxc3" , "Rfd8" , "Rc6" , "axb5" , "d5" , "Nf6" , "Ba6" , "Ke6" , "Nxf6+" , "a6" , "Qxc3" , "a4" , "f3+" , "Qb6" , "Ne5" , "Rf4" , "b6" , "Qc8+" , "Ra1" , "Qc8" , "Qc6" , "Bd3" , "Qg4" , "Qh6" , "Re3" , "Rxe4" , "Ra8" , "f6" , "Rac8" , "Kf5" , "Qxb2" , "Ra7" , "Rc7" , "Qd3" , "O-O" , "Qf3" , "a5" , "Be5" , "c5" , "Qe8+" , "Qb7" , "d6" , "Qb5" , "Ncd5" , "Rc2" , "a1=Q" , "Rh8" , "e5" , "Ke4" , "a2" , "Nxe4" , "Rf2" , "Qc1+" , "Qc2" , "Qe2" , "Bxa6" , "Rg4" , "Rc8" , "Qf4" , "Qh4" , "Re1" , "Bf4" , "d4" , "Bh2" , "Kd3" , "Rf8" , "Kh2" , "Nxf6" , "Nf3" , "Ng4" , "Nbd2" , "a3" , "Rc3" , "Bb7" , "Rfe1" , "Rc6+" , "Rf3" , "b5" , "Qad1" , "exd4" , "g6" , "Bg3" , "c3" , "Nxa6" , "cxd4" , "e3" ;
+        chon:nextHalfMove      :hmgamk3DQcZQ .
+
+:cgr03JDE1  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam03JDE .
+
+:res03JDE1N  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:ag03JDE1  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Grachev,B" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag03JDE1 .
+
+:rol03JDE1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag03JDE1 .
+
+:gam03JDE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol03JDE1 ;
+        chon:atPlace           :pla03JDE1 ;
+        chon:atTime            "2008.08.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamk3DQcZQ ;
+        chon:hasHalfMove       :hmgamk3DQcZQ ;
+        chon:hasLastHalfMove   :hmgamk3DQcZQ ;
+        chon:hasOpening        :ope03JDE1 ;
+        chon:hasReport         :cgr03JDE1 ;
+        chon:hasResult         :res03JDE1N ;
+        chon:subEventOf        :tou03JDE .
+
+:rolhgk3DQcZQl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag03JDE1 .
+
+:tou03JDE  a          chon:hessTournament ;
+        chon:atPlace  :pla03JDE1 ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope03JDE1  a            chon:ChessOpening ;
+        chon:hasECOCode  "A47" .

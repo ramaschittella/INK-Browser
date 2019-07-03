@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam8TXqY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4PEzIx ;
+        chon:atPlace           :pla8TXqYx ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4PEzIxv ;
+        chon:hasHalfMove       :hmgam4PEzIxv ;
+        chon:hasLastHalfMove   :hmgam4PEzIxv ;
+        chon:hasOpening        :ope4PEzIx ;
+        chon:hasReport         :cgr4PEzIx ;
+        chon:hasResult         :res4PEzIxv ;
+        chon:subEventOf        :tou4PEzI .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4PEzIx .
+
+:rolhg4PEzIxvT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4PEzIx .
+
+:cgr4PEzIx  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam8TXqY .
+
+:ag4PEzIx  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Efimov, Igor" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4PEzIx .
+
+:pla8TXqYx  a         chon:Place ;
+        chon:hasName  "San Giorgio" .
+
+:rol4PEzIx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4PEzIx .
+
+:ope4PEzIx  a            chon:ChessOpening ;
+        chon:hasECOCode  "E44" .
+
+:hmgam4PEzIxv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4PEzIxvT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ne4" , "Nf6" , "Qh3" , "Ne7" , "O-O" , "Bd6" , "Re1" , "g6" , "b4" , "Nxb5" , "a5" , "Bd3" , "c4" , "c6" , "Rc2" , "Rc8" , "Bf5" , "cxd5" , "e3" , "Bxe4" , "g4" , "a3" , "Qe1" , "d4" , "Nc6" , "b5" , "Bf3" , "Ne2" , "Nf4" , "Bc8" , "Rxc2" , "Qc3" , "Bxf4" , "Rb1" , "Rxe1+" , "Qd7" , "Bxb5" , "cxb5" , "e6" , "a4" , "Nf5" , "Be2" , "b6" , "g5" , "Rb2" , "Bb4" , "Be7" , "d5" , "Bb7" , "exd5" , "Qxc2" , "Qxe1" , "Qd1" , "Re8" , "axb5" , "Nh4" , "dxe4" , "Be3" , "Nc3" , "exf4" ;
+        chon:nextHalfMove      :hmgam4PEzIxv .
+
+:tou4PEzI  a          chon:hessTournament ;
+        chon:atPlace  :pla8TXqYx ;
+        chon:hasName  "San Giorgio sim rapid" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res4PEzIxv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

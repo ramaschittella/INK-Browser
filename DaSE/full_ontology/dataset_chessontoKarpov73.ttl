@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgPkM4GWzh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPkM4GW .
+
+:opePkM4GW  a            chon:ChessOpening ;
+        chon:hasECOCode  "B06" .
+
+:plaoizLkV  a         chon:Place ;
+        chon:hasName  "Caracas" .
+
+:cgrPkM4GW  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPkM4GW .
+
+:hmgamaygkY6d  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgaygkY6dp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sigurjonsson, Gudmundur" ;
+        chon:hasSANRecord      "Rxc5" , "Qxc5" , "Qe4+" , "Kh1" , "Rc8" , "Rxd1+" , "Bxc5" , "Qxe4+" , "Qg4+" , "Rf1" , "Kg1" , "Rxd1" ;
+        chon:nextHalfMove      :hmgamaygkY6d .
+
+:hmgamZyk7r4a  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZyk7r4ae ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sigurjonsson, Gudmundur" ;
+        chon:hasSANRecord      "Rd1" , "Kg1" , "Nxd3+" , "Qb6" , "Qb3" , "Nxe5" , "Qd6" , "Qe6" , "Ncd3" , "Be3" , "dxe5" , "Kf2" , "Nh3" , "Rab1" , "Be5" , "Qxh3" , "Rfc1" , "Nxd3" , "d5" , "Qc2" , "c5" , "d4" , "Qxf3" , "Qb8" , "cxd4" , "Rfd8" , "Nf4" ;
+        chon:nextHalfMove      :hmgamaygkY6d , :hmgamZyk7r4a .
+
+:rolPkM4GW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPkM4GW .
+
+chon:HalfMove  chon:subEventOf  :gamoizLk .
+
+:hmgam2kIhfXS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2kIhfXSu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sigurjonsson, Gudmundur" ;
+        chon:hasSANRecord      "Bf4" , "Be3" , "Ba6" , "O-O" , "a4" , "g5" , "h5" , "Nd7" , "Bxf1" , "b4" , "c3" , "a5" , "dxe5" , "Bb7" , "g4" , "c6" , "b5" , "e6" , "bxc3" , "Nb2" , "e5" , "Qd2" , "Nc1" , "Nd1" , "Ne7" , "Nge2" , "Rxf1" ;
+        chon:nextHalfMove      :hmgam2kIhfXS , :hmgamZyk7r4a .
+
+:resPkM4GWz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamPkM4GWz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgPkM4GWzh , :rolhg2kIhfXSu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sigurjonsson, Gudmundur" ;
+        chon:hasSANRecord      "Nc3" , "f3" , "g6" , "d4" , "d6" , "Bg7" , "e4" ;
+        chon:nextHalfMove      :hmgamPkM4GWz , :hmgam2kIhfXS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamoizLk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPkM4GW ;
+        chon:atPlace           :plaoizLkV ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPkM4GWz ;
+        chon:hasHalfMove       :hmgamZyk7r4a , :hmgamaygkY6d , :hmgamPkM4GWz , :hmgam2kIhfXS ;
+        chon:hasLastHalfMove   :hmgamaygkY6d ;
+        chon:hasOpening        :opePkM4GW ;
+        chon:hasReport         :cgrPkM4GW ;
+        chon:hasResult         :resPkM4GWz ;
+        chon:subEventOf        :touPkM4G .
+
+:rolhgZyk7r4ae  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPkM4GW .
+
+:rolhgaygkY6dp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPkM4GW .
+
+:agPkM4GW  a          chon:Agent ;
+        chon:hasName  "Sigurjonsson, Gudmundur" , "Karpov, Anatoly" .
+
+:rolhg2kIhfXSu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPkM4GW .
+
+:touPkM4G  a          chon:hessTournament ;
+        chon:atPlace  :plaoizLkV ;
+        chon:hasName  "Caracas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPkM4GW .

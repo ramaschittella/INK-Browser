@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:aglSUoJA  a          chon:Agent ;
+        chon:hasName  "Fieandt, John" , "Karpov, Anatoly" .
+
+:rollSUoJA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglSUoJA .
+
+:rolhglSUoJAiy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglSUoJA .
+
+:plaaEYacB  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglSUoJA .
+
+chon:HalfMove  chon:subEventOf  :gamaEYac .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglSUoJA .
+
+:hmgamlSUoJAi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhglSUoJAiy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fieandt, John" ;
+        chon:hasSANRecord      "Kf7" , "Rf7" , "Re5+" , "Bxc5" , "b5" , "Nf6" , "Bxc6" , "Rxc6" , "Re8+" , "Nfd7" , "Ne5" , "Kd3" , "f3" , "Qxd1+" , "fxe5" , "Kg3" , "Ke6" , "c5" , "dxc5" , "Kxf2" , "Rd7+" , "Nxd7" , "Ke2" , "Bf5" , "Nxd1" , "Ke3" , "Nc4" , "Rxe5+" , "Rxd6" , "Rxh6" , "Rb7" , "Rxd7" , "g6" , "gxf4" , "Bxc4" , "b4" , "a4" , "exd6" , "e6" , "Bxe3" , "Kf2" , "Nf3" , "Re6" , "Be3" , "Ke7" , "Be8" , "Re1" , "h4" , "d4" , "h6" , "Bd7" , "f5" , "Rc2" , "dxc4" , "Ne4" , "Rc5" , "Nc3" , "d5" , "Nxe3" , "Nd6+" , "Ke5" , "g5" , "Bb6" , "Rxf2+" , "Kc4" , "Rac1" , "Nd3" , "Rc6" , "bxc6" , "f4" , "e4" , "Rf1" , "Nc5" , "Nc6" , "g3" , "c6" , "Rhc8" , "c4" , "a5" , "Rb5" , "gxf4+" , "Rc4" , "Rh8" , "Kc3" , "Nxd6" , "exf5" , "Bd4" , "f2" , "Rhc1" , "Bg6" , "Kf4" , "Bb5" , "Rab8" ;
+        chon:nextHalfMove      :hmgamlSUoJAi .
+
+:opelSUoJA  a            chon:ChessOpening ;
+        chon:hasECOCode  "D17" .
+
+:reslSUoJAi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamaEYac  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollSUoJA ;
+        chon:atPlace           :plaaEYacB ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlSUoJAi ;
+        chon:hasHalfMove       :hmgamlSUoJAi ;
+        chon:hasLastHalfMove   :hmgamlSUoJAi ;
+        chon:hasOpening        :opelSUoJA ;
+        chon:hasReport         :cgrlSUoJA ;
+        chon:hasResult         :reslSUoJAi ;
+        chon:subEventOf        :toulSUoJ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrlSUoJA  a   chon:ChessGameReport .
+
+:toulSUoJ  a          chon:hessTournament ;
+        chon:atPlace  :plaaEYacB ;
+        chon:hasName  "Valkeakoski sim" .

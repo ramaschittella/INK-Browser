@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resHfwA5YW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaHfwA5Y  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHfwA5Y .
+
+chon:HalfMove  chon:subEventOf  :gamHfwA5 .
+
+:gamHfwA5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHfwA5Y ;
+        chon:atPlace           :plaHfwA5Y ;
+        chon:atTime            "2007.11.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHfwA5YW ;
+        chon:hasHalfMove       :hmgamTftOSXY , :hmgamHfwA5YW ;
+        chon:hasLastHalfMove   :hmgamTftOSXY ;
+        chon:hasOpening        :opeHfwA5Y ;
+        chon:hasReport         :cgrHfwA5Y ;
+        chon:hasResult         :resHfwA5YW ;
+        chon:subEventOf        :touHfwA5 .
+
+:agHfwA5Y  a          chon:Agent ;
+        chon:hasName  "Kramnik,V" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHfwA5Y .
+
+:rolHfwA5Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHfwA5Y .
+
+:opeHfwA5Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+:rolhgTftOSXYv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHfwA5Y .
+
+:rolhgHfwA5YWk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHfwA5Y .
+
+:hmgamTftOSXY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTftOSXYv , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik,V" ;
+        chon:hasSANRecord      "Rc6" , "Qxb7" , "Bb8" , "Qb7+" , "axb3" , "Kf1" , "cxd4" , "Qd5" , "Qe4" , "Bd2" , "Qg4" , "Rxb7" , "Rad8" , "Ne2" , "exd4" , "Bg7" , "Kg2" , "Qd1" , "g4" , "Bxg4" , "Rb6" , "Qc7" , "Qxe2" , "Rf3" , "Qa5+" , "a5" , "c5" , "h3" , "Re6" , "Qh1+" , "Bf8" , "d4" , "Be5" , "Qb7" , "Kg1" , "Bxe2" , "Rc1" , "Rg3" , "Rg1" , "Bc1" , "Rd1" , "Ng4" , "a4" , "Qd3" , "g6" , "g3" ;
+        chon:nextHalfMove      :hmgamTftOSXY .
+
+:touHfwA5  a          chon:hessTournament ;
+        chon:atPlace  :plaHfwA5Y ;
+        chon:hasName  "World Blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamHfwA5YW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHfwA5YWk , chon:AgentRole , :rolhgTftOSXYv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik,V" ;
+        chon:hasSANRecord      "e5" , "c4" , "O-O" , "Qc2" , "Nbd7" , "e3" , "Bd6" , "b3" , "bxc6" , "Nc6" , "Nd4" , "Bb2" , "Re8" , "Be2" , "Nf6" , "d5" , "Nxc6" , "c6" , "Nf3" , "Qc7" , "e6" , "d4" , "dxe5" , "Nxe5" , "cxd5" , "Nc3" , "Bf3" ;
+        chon:nextHalfMove      :hmgamHfwA5YW , :hmgamTftOSXY .
+
+:cgrHfwA5Y  a   chon:ChessGameReport .

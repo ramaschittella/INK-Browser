@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgammeTgjff  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmeTgjffQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Be2" , "d4" , "Bxf6" , "Rc2" , "Kf6" , "h5" , "Qxe4" , "Bg5" , "f5" , "dxe4" , "d5" , "b5" , "Rc8" , "Bxe4" , "Rxd4" , "Qxd4" , "e5" , "hxg6" , "Bf1" , "a5" , "Rac1" , "Ne5" , "Nxc6" , "Kg7" , "Ra6" , "e6" , "Rc4" , "Rfc1" , "Rd7" , "e4" , "Bb4" , "c4" , "Nxe4" , "h4" , "Rc7" , "Rxc6" , "Rxc8+" , "Qb6" , "Kf1" , "O-O" , "Rfd8" , "g3" , "Rd6" , "Ba6" , "Bc6" , "b6" , "Nc3" , "b3" , "Kg5" , "Nf6" , "g6" , "Rd1+" , "Rxc8" , "cxb5" , "c6" , "Be7" , "Kg2" , "Nf3" , "Bxb5" , "R1c2" , "Qc2" , "Bg2" ;
+        chon:nextHalfMove      :hmgamyeQvQei , :hmgammeTgjff .
+
+:hmgamyeQvQei  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyeQvQei2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bc6" , "Kd1" , "Bxa3" , "Rxd2" , "g5" , "Ka1" , "f3" , "Rd8" , "Kd4" , "Kf2" , "g4" , "Ke5" , "Rd2" , "Kf1" , "Ba4" , "axb4" , "Kd3" , "Rh6" , "Ke2" , "b3" , "f4" , "e3" , "Kg2" , "Kc1" , "Bd1" , "Kb2" , "Kc3" , "exd2" , "Rd6" , "Kb1" , "b4" , "e4" , "a3" ;
+        chon:nextHalfMove      :hmgamyeQvQei .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmeTgjf .
+
+:plameTgjf  a         chon:Place ;
+        chon:hasName  "Tyniste" .
+
+chon:HalfMove  chon:subEventOf  :gammeTgj .
+
+:cgrmeTgjf  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmeTgjf .
+
+:rolhgyeQvQei2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmeTgjf .
+
+:resmeTgjff  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agmeTgjf  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Alterman, Boris" .
+
+:rolmeTgjf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmeTgjf .
+
+:opemeTgjf  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:gammeTgj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmeTgjf ;
+        chon:atPlace           :plameTgjf ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammeTgjff ;
+        chon:hasHalfMove       :hmgammeTgjff , :hmgamyeQvQei ;
+        chon:hasLastHalfMove   :hmgamyeQvQei ;
+        chon:hasOpening        :opemeTgjf ;
+        chon:hasReport         :cgrmeTgjf ;
+        chon:hasResult         :resmeTgjff ;
+        chon:subEventOf        :toumeTgj .
+
+:rolhgmeTgjffQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmeTgjf .
+
+:toumeTgj  a          chon:hessTournament ;
+        chon:atPlace  :plameTgjf ;
+        chon:hasName  "EUCup Gr4" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

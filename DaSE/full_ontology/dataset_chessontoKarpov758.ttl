@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamDYFr3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDYFr39 ;
+        chon:atPlace           :plaDYFr39 ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPYSHB9S ;
+        chon:hasHalfMove       :hmgamPYSHB9S ;
+        chon:hasLastHalfMove   :hmgamPYSHB9S ;
+        chon:hasOpening        :opePYSHB9 ;
+        chon:hasReport         :cgrPYSHB9 ;
+        chon:hasResult         :resPYSHB9S ;
+        chon:subEventOf        :touDYFr3 .
+
+:agPYSHB9  a          chon:Agent ;
+        chon:hasName  "Larsen, Bent" .
+
+:touDYFr3  a          chon:hessTournament ;
+        chon:atPlace  :plaDYFr39 ;
+        chon:hasName  "Tilburg" .
+
+:plaDYFr39  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDYFr39 .
+
+:opePYSHB9  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+chon:HalfMove  chon:subEventOf  :gamDYFr3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPYSHB9 .
+
+:agDYFr39  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:rolDYFr39  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamPYSHB9S  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPYSHB9S3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Qd6" , "a5" , "Bxd6" , "Kg2" , "Bb4" , "bxa3" , "Kf7" , "Nd2" , "Kg7" , "Rg3+" , "Nh4" , "Bh7" , "d5" , "h5" , "Kf8" , "c6" , "cxd5" , "Bxd3" , "Qxd3" , "Nd6+" , "h4" , "Ba3" , "b5" , "Qe2" , "Kxg7" , "Qd6+" , "Qe3" , "b4" , "Nf3" , "e4" , "Rh8" , "O-O" , "Rbd8" , "f6" , "Qc5+" , "hxg5" , "Bg6" , "d4" , "Re3+" , "c4" , "g4" , "Ke7" , "Qa5" , "Rh3" , "h6" , "Nd5" , "Bf5" , "Nxe4" , "Qf7" , "Qxg5" , "Qd2" , "Bb4+" , "e6" , "Nd7" , "exf5" , "Nf5" , "Rc7" , "c3" , "Ng3" , "dxe4" , "Qb8" , "Kf1" , "Rb8" , "hxg7" , "Ke8" , "Rc1" , "Qe4" , "Ngf6" , "Be7" , "Bd3" , "Qe7" , "Ne4" , "Bf4" , "Qxa3" , "Qd3+" , "Qc3" , "Qc7" , "g5" , "Qc6" , "Qh7" ;
+        chon:nextHalfMove      :hmgamPYSHB9S .
+
+:cgrPYSHB9  a   chon:ChessGameReport .
+
+:rolhgPYSHB9S3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPYSHB9 , :agDYFr39 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolPYSHB9  a             chon:AuthorRole ;
+        chon:performedBy  :agPYSHB9 .
+
+:resPYSHB9S  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrUAmhpU  a   chon:ChessGameReport .
+
+:hmgamUAmhpUN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6AivXTPo , chon:AgentRole , :rolhgUAmhpUNb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "f5" , "Nf6" , "bxc3" , "Nf3" , "h3" , "g4" , "cxd4" , "Kd6" , "Nxg6" , "Qxd5" , "d4" , "Ra3" , "exf6" , "Ne4" , "gxf6" , "d5" , "hxg6" , "Nc3" , "Bg2" , "Bf5" , "Qb3" , "Kd2" , "Nh4" , "Qd7" , "c5" , "f4" , "Qc2" , "g5" , "e5" , "Nc6" , "Bf3" , "Bg6" , "Bg4" , "Bxd5" , "Rxc3" , "f6" , "e6" , "Rc2" , "e4" , "Na5" , "Ba3" , "Rc8" , "Nxc3" , "c3" , "Rd1" , "Kd7" , "Rxf8" , "Bh5" , "Ke2" , "Bxf8" , "d6" , "Rhc1" ;
+        chon:nextHalfMove      :hmgam6AivXTP , :hmgamUAmhpUN .
+
+:hmgam6AivXTP  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6AivXTPo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "axb3" , "Ke2" , "Nc6" , "Rb6" , "fxe3" , "e4+" , "Nxd4+" , "Rb1" , "Bxh3" , "Rxh3" , "Raxh3" , "Bg4" , "Ra6" , "b4" , "Kd5" , "bxa5" , "Nb3" , "Kd3" , "Kc3" , "Rxb3" , "Rb2" , "Rxa3" , "a5" , "e2" , "a3" , "Kf1" , "e5" , "Rh8" , "Ra1" , "e3" , "Rb3" , "b6" , "Rxg6" , "a4" ;
+        chon:nextHalfMove      :hmgam6AivXTP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUAmhpU .
+
+:gamsybY4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsybY4T ;
+        chon:atPlace           :plasybY4T ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUAmhpUN ;
+        chon:hasHalfMove       :hmgamUAmhpUN , :hmgam6AivXTP ;
+        chon:hasLastHalfMove   :hmgam6AivXTP ;
+        chon:hasOpening        :opeUAmhpU ;
+        chon:hasReport         :cgrUAmhpU ;
+        chon:hasResult         :resUAmhpUN ;
+        chon:subEventOf        :tousybY4 .
+
+:opeUAmhpU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B50" .
+
+chon:HalfMove  chon:subEventOf  :gamsybY4 .
+
+:rolhg6AivXTPo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUAmhpU , :agsybY4T .
+
+:rolUAmhpU  a             chon:AuthorRole ;
+        chon:performedBy  :agUAmhpU .
+
+:tousybY4  a          chon:hessTournament ;
+        chon:atPlace  :plasybY4T ;
+        chon:hasName  "Candidats Tournament" .
+
+:rolhgUAmhpUNb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUAmhpU , :agsybY4T .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolsybY4T  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:plasybY4T  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+:agsybY4T  a          chon:Agent ;
+        chon:hasName  "Smyslov, Vassily" .
+
+:resUAmhpUN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agUAmhpU  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsybY4T .

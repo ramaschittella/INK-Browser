@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamALPpn29  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgALPpn292 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Huebner, Robert" ;
+        chon:hasSANRecord      "Nxb5" , "Kh7" , "Qd4+" ;
+        chon:nextHalfMove      :hmgamALPpn29 .
+
+:cgroLTbP3  a   chon:ChessGameReport .
+
+:gamoLTbP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloLTbP3 ;
+        chon:atPlace           :plaoLTbP3 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoLTbP34 ;
+        chon:hasHalfMove       :hmgamALPpn29 , :hmgamoLTbP34 ;
+        chon:hasLastHalfMove   :hmgamALPpn29 ;
+        chon:hasOpening        :opeoLTbP3 ;
+        chon:hasReport         :cgroLTbP3 ;
+        chon:hasResult         :resoLTbP34 ;
+        chon:subEventOf        :touoLTbP .
+
+:touoLTbP  a          chon:hessTournament ;
+        chon:atPlace  :plaoLTbP3 ;
+        chon:hasName  "Bad Kissingen" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoLTbP3 .
+
+chon:HalfMove  chon:subEventOf  :gamoLTbP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoLTbP3 .
+
+:plaoLTbP3  a         chon:Place ;
+        chon:hasName  "Bad Kissingen" .
+
+:hmgamoLTbP34  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoLTbP34Q , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Huebner, Robert" ;
+        chon:hasSANRecord      "Qxb2" , "Qb7" , "d6" , "Qg3" , "d4" , "Be3" , "Rc7" , "Rxf6" , "Kg7" , "b4" , "fxg6" , "Qa1" , "Qxb4" , "Be7" , "Nf3" , "e4" , "Bxf6" , "cxd4" , "Qd7" , "Qe1" , "Nxd4" , "Bd7" , "a3" , "Rxd6" , "b5" , "e6" , "Qxc2" , "Bf3" , "Nc3" , "Bg5" , "Nf6" , "Rad1" , "Rd6" , "Nc6" , "Bc6" , "Qxe5" , "Qc1" , "Rf2" , "Rd3" , "Qd5" , "f4" , "axb4" , "Be2" , "Rfc8" , "g6" , "e5" , "Bxd4" , "O-O" , "hxg6" , "a6" , "c5" , "Bb5" , "Qb2" , "Rc2" , "Kh1" , "Rac8" , "f5" , "Bd1" ;
+        chon:nextHalfMove      :hmgamALPpn29 , :hmgamoLTbP34 .
+
+:agoLTbP3  a          chon:Agent ;
+        chon:hasName  "Huebner, Robert" , "Karpov, Anatoly" .
+
+:roloLTbP3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoLTbP3 .
+
+:opeoLTbP3  a            chon:ChessOpening ;
+        chon:hasECOCode  "B85" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgALPpn292  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoLTbP3 .
+
+:rolhgoLTbP34Q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoLTbP3 .
+
+:resoLTbP34  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

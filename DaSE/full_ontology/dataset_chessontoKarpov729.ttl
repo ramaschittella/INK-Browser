@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSWPAwSG8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSWPAwS .
+
+:cgrSWPAwS  a   chon:ChessGameReport .
+
+:gamSWPAw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSWPAwS ;
+        chon:atPlace           :plaSWPAwS ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSWPAwSG ;
+        chon:hasHalfMove       :hmgam4WKO6BJ , :hmgamSWPAwSG ;
+        chon:hasLastHalfMove   :hmgam4WKO6BJ ;
+        chon:hasOpening        :opeSWPAwS ;
+        chon:hasReport         :cgrSWPAwS ;
+        chon:hasResult         :resSWPAwSG ;
+        chon:subEventOf        :touSWPAw .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSWPAwS .
+
+:touSWPAw  a          chon:hessTournament ;
+        chon:atPlace  :plaSWPAwS ;
+        chon:hasName  "Phillips&Drew" .
+
+:rolSWPAwS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSWPAwS .
+
+chon:HalfMove  chon:subEventOf  :gamSWPAw .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSWPAwS .
+
+:plaSWPAwS  a         chon:Place ;
+        chon:hasName  "London" .
+
+:hmgamSWPAwSG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSWPAwSG8 , :rolhg4WKO6BJi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mestel, A Jonathan" ;
+        chon:hasSANRecord      "Bxd5" , "Be6" , "Bg7" , "Nf3" , "O-O-O" , "Qc6" , "cxd4" , "g4" , "fxe6" , "g6" , "dxe6" , "Qc7" , "Rc8" , "e4" , "Nc3" , "O-O" , "e5" , "Nf6" , "Qd2" , "d4" , "Nc6" , "Nd5" , "h4" , "f3" , "Be3" , "Nxd4" , "d6" , "c5" , "exd5" , "h5" , "Bxd4" , "Rh2" ;
+        chon:nextHalfMove      :hmgamSWPAwSG , :hmgam4WKO6BJ .
+
+:hmgam4WKO6BJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4WKO6BJi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mestel, A Jonathan" ;
+        chon:hasSANRecord      "Kd2" , "Re8" , "Rf2" , "Rf3" , "Bd8" , "d5" , "a4" , "Be5" , "Rb8+" , "Bxb2" , "Rf7" , "Qxf3" , "Kd1" , "Nxd2" , "Bg1" , "Bg2" , "Kxd2" , "Rd6" , "Rc7" , "Bc3+" , "Rc8" , "Kxf7" , "hxg6" , "Bxc8" , "g5" , "Kg7" , "Bxd4" , "Rxc8" , "Rc6" , "Bxf3" , "Kd3" , "Ne4" , "Bxb7" , "Bd4" , "Bb6" , "Rxf7+" , "e5" , "Rb1" , "Rc3+" , "a5" , "Ke2" ;
+        chon:nextHalfMove      :hmgam4WKO6BJ .
+
+:rolhg4WKO6BJi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSWPAwS .
+
+:agSWPAwS  a          chon:Agent ;
+        chon:hasName  "Mestel, A Jonathan" , "Karpov, Anatoly" .
+
+:opeSWPAwS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B76" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resSWPAwSG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

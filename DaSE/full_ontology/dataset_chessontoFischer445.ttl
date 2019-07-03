@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaM4TegA  a         chon:Place ;
+        chon:hasName  "Chicago" .
+
+:gamM4Teg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolM4TegA ;
+        chon:atPlace           :plaM4TegA ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamM4TegAx ;
+        chon:hasHalfMove       :hmgamM4TegAx ;
+        chon:hasLastHalfMove   :hmgamM4TegAx ;
+        chon:hasOpening        :opeM4TegA ;
+        chon:hasReport         :cgrM4TegA ;
+        chon:hasResult         :resM4TegAx ;
+        chon:subEventOf        :touM4Teg .
+
+:rolhgM4TegAxy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agM4TegA .
+
+:touM4Teg  a          chon:hessTournament ;
+        chon:atPlace  :plaM4TegA ;
+        chon:hasName  "Chicago sim" .
+
+:agM4TegA  a          chon:Agent ;
+        chon:hasName  "Sillars, K." , "Fischer, Robert James" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM4TegA .
+
+:opeM4TegA  a            chon:ChessOpening ;
+        chon:hasECOCode  "B86" .
+
+chon:HalfMove  chon:subEventOf  :gamM4Teg .
+
+:hmgamM4TegAx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgM4TegAxy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sillars, K." ;
+        chon:hasSANRecord      "f4" , "c5" , "cxd4" , "Nxe4" , "Nbd7" , "Nf3" , "d4" , "d6" , "Ncxe6" , "Bb3" , "Nc3" , "O-O" , "Be3" , "Nfxe4" , "Qf3" , "Nc5" , "Bxh1" , "g4" , "g5" , "Nxc5" , "e6" , "a6" , "e4" , "b5" , "Bxf3" , "Nxd8" , "Nxd4" , "Nf6" , "Bc4" , "Bb7" , "Be7" ;
+        chon:nextHalfMove      :hmgamM4TegAx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM4TegA .
+
+:cgrM4TegA  a   chon:ChessGameReport .
+
+:resM4TegAx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolM4TegA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agM4TegA .

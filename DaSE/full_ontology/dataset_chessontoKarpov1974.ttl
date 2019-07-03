@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrAEwW8r  a   chon:ChessGameReport .
+
+:rolAEwW8r  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAEwW8r .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAEwW8r .
+
+chon:HalfMove  chon:subEventOf  :gamAEwW8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAEwW8r .
+
+:agAEwW8r  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gelfand, Boris" .
+
+:hmgamAEwW8rw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAEwW8rwB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "O-O" , "a6" , "d5" , "dxc4" , "Be3" , "e5" , "Qb5" , "Nxc5" , "Nbc6" , "exf5" , "exf7+" , "cxd4" , "a4" , "Nxd4" , "e4" , "Na4" , "Kf7" , "c4" , "d4" , "Nd5" , "Kg7" , "Qxf5+" , "Bxc5" , "Be2" , "Nf3" , "Qb4" , "Bd4" , "Qf3" , "Nxc3" , "Bf5" , "Qd7" , "Bxg7" , "Qg5+" , "Nc3" , "Bxc6+" , "Rg8" , "Rd8" , "c6" , "Bc3" , "Ne7" , "Bb5" , "c5" , "Kxf7" , "e6" , "Qf5+" , "Nxf5" , "bxc6" ;
+        chon:nextHalfMove      :hmgamAEwW8rw .
+
+:rolhgAEwW8rwB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAEwW8r .
+
+:opeAEwW8r  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:gamAEwW8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAEwW8r ;
+        chon:atPlace           :plaAEwW8r ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAEwW8rw ;
+        chon:hasHalfMove       :hmgamAEwW8rw ;
+        chon:hasLastHalfMove   :hmgamAEwW8rw ;
+        chon:hasOpening        :opeAEwW8r ;
+        chon:hasReport         :cgrAEwW8r ;
+        chon:hasResult         :resAEwW8rw ;
+        chon:subEventOf        :touAEwW8 .
+
+:touAEwW8  a          chon:hessTournament ;
+        chon:atPlace  :plaAEwW8r ;
+        chon:hasName  "Candidats FIDE f1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resAEwW8rw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaAEwW8r  a         chon:Place ;
+        chon:hasName  "Sanghi Nagar" .

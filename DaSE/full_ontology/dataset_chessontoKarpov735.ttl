@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolOvVBQo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOvVBQo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOvVBQo .
+
+:rolhgOvVBQoes  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOvVBQo .
+
+:hmgamOvVBQoe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOvVBQoes , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nh6" , "Ba2" , "e4" , "Bxe5" , "Qb3" , "Rb6" , "cxb4" , "Bxf4" , "Qh3" , "Nf3" , "Nf6" , "Nc4" , "Ng4" , "a6" , "b5" , "Bxb3" , "f4" , "Bc1" , "Qe2" , "Bd2" , "Rb8" , "e5" , "Ne2" , "Qd7" , "Bb5" , "Rc1" , "Raa1" , "Qd4" , "Na5" , "Nd6" , "Be6" , "Re1" , "a4" , "Nxb3" , "Nc6" , "Rce2" , "b3" , "Nf7" , "O-O" , "Qxf3" , "c5" , "dxe5" , "d3" , "d6" , "Ra3" , "Ba4" , "cxb3" , "Bb3" , "Bb7" , "f5" , "Bc8" , "Rc2" , "Bxf3" , "Ne3" , "Qxc4" , "Qd5" , "Bg4" , "Nf5" , "b4" , "Nc3" , "Re6" , "Be7" , "Ng3" , "Qxe4" , "d4" ;
+        chon:nextHalfMove      :hmgamOvVBQoe .
+
+:agOvVBQo  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Spassky, Boris V" .
+
+chon:HalfMove  chon:subEventOf  :gamnvLht .
+
+:opeOvVBQo  a            chon:ChessOpening ;
+        chon:hasECOCode  "C88" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOvVBQo .
+
+:gamnvLht  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOvVBQo ;
+        chon:atPlace           :plaOvVBQo ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOvVBQoe ;
+        chon:hasHalfMove       :hmgamOvVBQoe ;
+        chon:hasLastHalfMove   :hmgamOvVBQoe ;
+        chon:hasOpening        :opeOvVBQo ;
+        chon:hasReport         :cgrOvVBQo ;
+        chon:hasResult         :resOvVBQoe ;
+        chon:subEventOf        :touOvVBQ .
+
+:resOvVBQoe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaOvVBQo  a         chon:Place ;
+        chon:hasName  "London" .
+
+:touOvVBQ  a          chon:hessTournament ;
+        chon:atPlace  :plaOvVBQo ;
+        chon:hasName  "Phillips&Drew" .
+
+:cgrOvVBQo  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

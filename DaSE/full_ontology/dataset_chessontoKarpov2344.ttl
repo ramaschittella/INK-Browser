@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaUIbFYB  a         chon:Place ;
+        chon:hasName  "Polanica Zdroj" .
+
+:resUIbFYBj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agUIbFYB  a          chon:Agent ;
+        chon:hasName  "Ivanchuk, Vassily" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUIbFYB .
+
+:rolUIbFYB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUIbFYB .
+
+:opeUIbFYB  a            chon:ChessOpening ;
+        chon:hasECOCode  "D41" .
+
+chon:HalfMove  chon:subEventOf  :gamUIbFY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUIbFYB .
+
+:gamUIbFY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUIbFYB ;
+        chon:atPlace           :plaUIbFYB ;
+        chon:atTime            "1998.08.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUIbFYBj ;
+        chon:hasHalfMove       :hmgamUIbFYBj ;
+        chon:hasLastHalfMove   :hmgamUIbFYBj ;
+        chon:hasOpening        :opeUIbFYB ;
+        chon:hasReport         :cgrUIbFYB ;
+        chon:hasResult         :resUIbFYBj ;
+        chon:subEventOf        :touUIbFY .
+
+:touUIbFY  a          chon:hessTournament ;
+        chon:atPlace  :plaUIbFYB ;
+        chon:hasName  "Rubinstein mem 35th" .
+
+:cgrUIbFYB  a   chon:ChessGameReport .
+
+:hmgamUIbFYBj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUIbFYBjY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "O-O" , "Ke2" , "Nxd5" , "b3" , "Bb2" , "Ke6" , "Bc6" , "Rxd8+" , "e3" , "Kd5" , "Ke5" , "Nd7" , "Bxc5" , "Qxd8" , "Ng5+" , "Nxd8" , "Bxf3+" , "Rfd1" , "dxc5" , "Nd3" , "Be7" , "Nc3" , "Nf4+" , "Nf6" , "Bf3" , "Rd8" , "Rfxd8" , "d5" , "fxg5" , "Bg2" , "f6" , "Kd6" , "e6" , "c5" , "g3" , "Kf7" , "Bf5" , "Bd4" , "c4" , "Nb6" , "g6" , "exf4" , "Bxg5" , "Nf3" , "Bd7" , "Nc6" , "Ba3+" , "f5" , "d4" , "Ne4" , "Kxf3" , "f4" , "Rxd1" , "Ne1" , "Bb2+" , "e5" , "Kf1" , "cxd5" ;
+        chon:nextHalfMove      :hmgamUIbFYBj .
+
+:rolhgUIbFYBjY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUIbFYB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

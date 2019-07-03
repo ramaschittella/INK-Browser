@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamGbISfQz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGbISfQzh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Cheikh M'Hamed, K." ;
+        chon:hasSANRecord      "R1d6" , "e4" , "h4" , "d4" , "Nf6" , "Nf4" , "Bg7" , "Ne6" , "Nd7" , "Be2" , "b6" , "Rfd1" , "Qc7" , "Bf6" , "h3" , "dxe5" , "Nxe2" , "Bg5" , "Rad1" , "Nf3" , "Nh5" , "c6" , "Bxf3" , "hxg5" , "Qxd7" , "Bf4" , "e5" , "g6" , "Rxd7" , "Kg7" , "Be3" , "Ng3" , "Bg4" , "Nc3" , "a4" , "Bxg5" , "d6" , "Qd2" , "Bxe2" , "O-O" ;
+        chon:nextHalfMove      :hmgamGbISfQz , :hmgamSbESOQE .
+
+:hmgamSbESOQE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSbESOQEu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Cheikh M'Hamed, K." ;
+        chon:hasSANRecord      "Nxd8" , "e5" , "exf4" , "bxc5" , "Ne2" , "Nb2" , "Ne6+" , "Rxe8+" , "Nc4" , "Rc8" , "Re8" , "f4" , "Kf8" , "Nxc6+" , "Nxc5" , "Kxe8" , "Nd3" , "Rfd8" , "Rd7" , "Nxa4" , "Kf2" , "e6" , "c4" , "Ke7" , "Kd4" , "Ke5" , "Kg7" , "Rxd8" , "Nxg5" , "a5" , "Ne6" , "c5" , "Kf7" , "Nd8+" , "Nxa5" , "Nxf4" , "Rc7" , "fxe6" , "b4" , "Rxe6" , "g4" , "h6" , "Ke3" ;
+        chon:nextHalfMove      :hmgamSbESOQE .
+
+:gamGbISf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGbISfQ ;
+        chon:atPlace           :plaGbISfQ ;
+        chon:atTime            "1998.11.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGbISfQz ;
+        chon:hasHalfMove       :hmgamGbISfQz , :hmgamSbESOQE ;
+        chon:hasLastHalfMove   :hmgamSbESOQE ;
+        chon:hasOpening        :opeGbISfQ ;
+        chon:hasReport         :cgrGbISfQ ;
+        chon:hasResult         :resGbISfQz ;
+        chon:subEventOf        :touGbISf .
+
+:rolhgSbESOQEu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGbISfQ .
+
+:plaGbISfQ  a         chon:Place ;
+        chon:hasName  "Bastia" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGbISfQ .
+
+:rolhgGbISfQzh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGbISfQ .
+
+:resGbISfQz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamGbISf .
+
+:cgrGbISfQ  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGbISfQ .
+
+:agGbISfQ  a          chon:Agent ;
+        chon:hasName  "Cheikh M'Hamed, K." , "Karpov, Anatoly" .
+
+:rolGbISfQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGbISfQ .
+
+:opeGbISfQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+:touGbISf  a          chon:hessTournament ;
+        chon:atPlace  :plaGbISfQ ;
+        chon:hasName  "Bastia sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

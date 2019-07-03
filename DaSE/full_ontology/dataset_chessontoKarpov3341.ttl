@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgq6JtAvbl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agq6JtAv .
+
+:agq6JtAv  a          chon:Agent ;
+        chon:hasName  "Graf,F" , "Karpov,Ana" .
+
+:rolq6JtAv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agq6JtAv .
+
+:opeq6JtAv  a            chon:ChessOpening ;
+        chon:hasECOCode  "E16" .
+
+:rolhgR8VNUv3L  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agq6JtAv .
+
+:hmgamq6JtAvb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgq6JtAvbl , :rolhgR8VNUv3L , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Graf,F" ;
+        chon:hasSANRecord      "Bb4+" , "Ne5" , "Bg2" , "Be7" , "c6" , "c4" , "b6" , "Bd2" , "exd5" , "Nf6" , "e6" , "cxd5" , "d4" , "d5" , "Bb7" , "Nc3" , "Nf3" , "Qc2" , "g3" , "O-O" , "Qa4+" , "b5" ;
+        chon:nextHalfMove      :hmgamq6JtAvb , :hmgamR8VNUv3 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agq6JtAv .
+
+chon:HalfMove  chon:subEventOf  :gamq6JtA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agq6JtAv .
+
+:gamq6JtA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolq6JtAv ;
+        chon:atPlace           :plaq6JtAv ;
+        chon:atTime            "2014.04.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamq6JtAvb ;
+        chon:hasHalfMove       :hmgamR8VNUv3 , :hmgamq6JtAvb ;
+        chon:hasLastHalfMove   :hmgamR8VNUv3 ;
+        chon:hasOpening        :opeq6JtAv ;
+        chon:hasReport         :cgrq6JtAv ;
+        chon:hasResult         :resq6JtAvb ;
+        chon:subEventOf        :touq6JtA .
+
+:touq6JtA  a          chon:hessTournament ;
+        chon:atPlace  :plaq6JtAv ;
+        chon:hasName  "Bundesliga 2013-14" .
+
+:resq6JtAvb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamR8VNUv3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgR8VNUv3L , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Graf,F" ;
+        chon:hasSANRecord      "Qh3" , "b3" , "Qd1" , "Be7" , "Rad8" , "Nxe7" , "Rdd1" , "Ne2" , "Qe2+" , "Kxg2" , "gxh4" , "Qf3+" , "Nxe4" , "f4" , "Rf6" , "Rg6" , "Rc1" , "Rg2" , "Nfe2" , "Kh7" , "h6" , "Qf2+" , "Kf1" , "Bg7" , "b4" , "Bf8" , "Nd6" , "Bh3" , "Ng1" , "Bh1" , "Rd2" , "g5" , "Re6" , "Bd6" , "Nce2" , "Nd3" , "Be3" , "Bf3" , "Qb6" , "Rd6" , "Rg7" , "Be4" , "Qa6" , "Nf4" , "a5" , "Bg4" , "Qd7" , "Re7" , "h4" , "Kh1" , "Bxf6" , "Qxg3" , "Bxe4" , "Qg4" , "Rfd1" , "Ng3" , "Ne8" , "Na6" , "Bf4" , "Rg8" , "Bf5" , "e3" , "Rdc2" , "Bb4" , "Kf3" , "Nf5" , "Nc7" , "Bg5" , "Bh5" , "Qd8" , "h5" , "Re8" , "Kh2" , "Kg2" , "Bc8" , "Nxg3+" ;
+        chon:nextHalfMove      :hmgamR8VNUv3 .
+
+:plaq6JtAv  a         chon:Place ;
+        chon:hasName  "Eppingen GER" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrq6JtAv  a   chon:ChessGameReport .

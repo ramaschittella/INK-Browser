@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgl2o6on7c  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aga2rRPn .
+
+:cgra2rRPn  a   chon:ChessGameReport .
+
+:rola2rRPn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aga2rRPn .
+
+:hmgaml2o6on7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgl2o6on7c , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bh4" , "Qd3" , "b4" , "b5" , "Qxd4" , "h5" , "hxg3" , "Bxc6" , "f3" , "Kb8" , "O-O-O" , "Bg3" , "exd4" , "Nh5" , "h6" , "Bxd4" , "Bg5" , "Nxg3" , "Bxb5" , "Nd4" , "Bg7" , "g5" , "Qe7" , "g4" ;
+        chon:nextHalfMove      :hmgaml2o6on7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga2rRPn .
+
+:rolhga2rRPn4Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aga2rRPn .
+
+chon:HalfMove  chon:subEventOf  :game4KI6 .
+
+:game4KI6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rola2rRPn ;
+        chon:atPlace           :plae4KI6o ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgama2rRPn4 ;
+        chon:hasHalfMove       :hmgama2rRPn4 , :hmgaml2o6on7 ;
+        chon:hasLastHalfMove   :hmgaml2o6on7 ;
+        chon:hasOpening        :opea2rRPn ;
+        chon:hasReport         :cgra2rRPn ;
+        chon:hasResult         :resa2rRPn4 ;
+        chon:subEventOf        :toua2rRP .
+
+:plae4KI6o  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:hmgama2rRPn4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhga2rRPn4Y , :rolhgl2o6on7c ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bb5" , "Bd7" , "d6" , "e5" , "Nc3" , "d4" , "Nc6" , "Nf3" , "Nf6" , "Bxc6" , "e4" ;
+        chon:nextHalfMove      :hmgama2rRPn4 , :hmgaml2o6on7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga2rRPn .
+
+:aga2rRPn  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ravinsky, Grigory Ionovich" .
+
+:opea2rRPn  a            chon:ChessOpening ;
+        chon:hasECOCode  "C62" .
+
+:resa2rRPn4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toua2rRP  a          chon:hessTournament ;
+        chon:atPlace  :plae4KI6o ;
+        chon:hasName  "Leningrad" .

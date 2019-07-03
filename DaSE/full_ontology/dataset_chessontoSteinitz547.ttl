@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr4Y4QHR  a   chon:ChessGameReport .
+
+:ag4Y4QHR  a          chon:Agent ;
+        chon:hasName  "Halprin, Alexander" , "Steinitz, William" .
+
+:rol4Y4QHR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4Y4QHR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4Y4QHR .
+
+chon:HalfMove  chon:subEventOf  :gam4Y4QH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4Y4QHR .
+
+:hmgam4Y4QHRN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfYX4fQSJ , :rolhg4Y4QHRNy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Halprin, Alexander" ;
+        chon:hasSANRecord      "Qe7" , "Rc1" , "cxd5" , "Nb5" , "Nf3" , "Nf6" , "d4" , "b6" , "O-O" , "Nd2" , "c4" , "e6" , "Ne4" , "e3" , "Nc6" , "Bd3" , "Bd6" , "f5" , "Nc3" , "cxd6" , "Bg3" , "d5" , "Bb7" , "Nxd6" , "exd5" , "Bf4" ;
+        chon:nextHalfMove      :hmgamfYX4fQS , :hmgam4Y4QHRN .
+
+:rolhg4Y4QHRNy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4Y4QHR .
+
+:ope4Y4QHR  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:hmgamfYX4fQS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfYX4fQSJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Halprin, Alexander" ;
+        chon:hasSANRecord      "Kg5" , "Kf6" , "Qxd7" , "Nd8" , "Bxb4" , "Ba4" , "Nc6" , "h5" , "Na5" , "h4" , "Kh2" , "a3" , "bxa4" , "Bb7" , "Qb4" , "Rxc7" , "Nb8" , "Qb3" , "Rc1" , "Bf4" , "gxf3" , "Re8" , "Be2" , "Re7" , "Be1" , "Bxd7" , "Bb5" , "Qd8" , "Kf4" , "b5" , "Qd7" , "Bh3" , "O-O" , "b4" , "Ke7" , "Rc7" , "Qe8" , "Ke6" , "fxe4" , "g6" , "exf3" , "Kg3" , "Bxa4" , "Kf7" , "Rac8" , "f3" , "Bc6" , "Nxe4" , "Bg4" , "Bg3" , "Kg7" , "b3" , "Qb5" , "Qa3" , "Qxc7" , "Nf7" , "Bc3" , "a6" , "Qe6" , "axb4" , "a5" ;
+        chon:nextHalfMove      :hmgamfYX4fQS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res4Y4QHRN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gam4Y4QH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4Y4QHR ;
+        chon:atPlace           :pla4Y4QHR ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4Y4QHRN ;
+        chon:hasHalfMove       :hmgam4Y4QHRN , :hmgamfYX4fQS ;
+        chon:hasLastHalfMove   :hmgamfYX4fQS ;
+        chon:hasOpening        :ope4Y4QHR ;
+        chon:hasReport         :cgr4Y4QHR ;
+        chon:hasResult         :res4Y4QHRN ;
+        chon:subEventOf        :tou4Y4QH .
+
+:pla4Y4QHR  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:tou4Y4QH  a          chon:hessTournament ;
+        chon:atPlace  :pla4Y4QHR ;
+        chon:hasName  "Vienna" .
+
+:rolhgfYX4fQSJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4Y4QHR .

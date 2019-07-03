@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgbSobmA3t  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbSobmA .
+
+:cgrbSobmA  a   chon:ChessGameReport .
+
+:resbSobmA3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:toubSobm  a          chon:hessTournament ;
+        chon:atPlace  :plabSobmA ;
+        chon:hasName  "Phillips&Drew" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbSobmA .
+
+chon:HalfMove  chon:subEventOf  :gambSobm .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbSobmA .
+
+:plabSobmA  a         chon:Place ;
+        chon:hasName  "London" .
+
+:agbSobmA  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Geller, Efim P" .
+
+:rolbSobmA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbSobmA .
+
+:opebSobmA  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+:gambSobm  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbSobmA ;
+        chon:atPlace           :plabSobmA ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambSobmA3 ;
+        chon:hasHalfMove       :hmgambSobmA3 ;
+        chon:hasLastHalfMove   :hmgambSobmA3 ;
+        chon:hasOpening        :opebSobmA ;
+        chon:hasReport         :cgrbSobmA ;
+        chon:hasResult         :resbSobmA3 ;
+        chon:subEventOf        :toubSobm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgambSobmA3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbSobmA3t , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "cxd4" , "Ne1" , "Nf3" , "c5" , "Ne4" , "O-O" , "b6" , "Qc8" , "g3" , "Rxc8" , "Bxd4" , "dxc4" , "Nxg2" , "Na6" , "Qa4" , "Nxe4" , "d4" , "Bxe4" , "Qxc4" , "e6" , "Bg2" , "d5" , "Rd8" , "Qxc8" , "Nc3" , "Be7" , "Bxg2" , "Raxc8" , "c4" , "Ne3" , "Bb7" , "Rac1" , "Be3" , "Nf6" ;
+        chon:nextHalfMove      :hmgambSobmA3 .

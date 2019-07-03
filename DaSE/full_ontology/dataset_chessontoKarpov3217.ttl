@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toucun4W  a          chon:hessTournament ;
+        chon:atPlace  :placun4Wd ;
+        chon:hasName  "Rapid Match" .
+
+:rolhgnujitc3W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcun4Wd .
+
+:rescun4WdZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrcun4Wd  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcun4Wd .
+
+:hmgamcun4WdZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcun4WdZL , chon:AgentRole , :rolhgnujitc3W ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hou Yifan" ;
+        chon:hasSANRecord      "Be6" , "Rad8" , "Qa4+" , "Nc5" , "Nf6" , "Bxf6" , "Qxf6" , "Bc8" , "d4" , "Nf3" , "d5" , "Bg5" , "Bb4" , "Nc3" , "exd5" , "a6" , "Bd6" , "cxd5" , "Qc2" , "e3" , "Na4" , "h6" , "O-O" , "a3" , "Be2" , "Nc6" , "c4" , "e6" ;
+        chon:nextHalfMove      :hmgamnujitc3 , :hmgamcun4WdZ .
+
+:hmgamnujitc3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnujitc3W , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hou Yifan" ;
+        chon:hasSANRecord      "b6" , "Nc6" , "Rc1" , "Rf1" , "Qg5" , "Qb3" , "Qg4" , "Rxf4" , "Nxf5+" , "Qc3" , "Kg7" , "Qd7" , "g5" , "Qg7" , "Qe6" , "Ke8" , "Kf8" , "Rg5" , "Nf5" , "Nf4" , "Qa4" , "Qf5" , "Nh4" , "Rac1" , "Bxf4" , "Qc2" , "Qd2" , "fxg4" , "Rf2" , "Rg2" , "Rg1" , "Qg6" , "Re1" , "a4" , "Rcf1" , "Re4" , "Be6" , "Ng2" , "Rfe1" , "Na4" , "Bxf5" , "Rfe8" , "Rf3" , "Nef4" , "Bd7" , "Re6" , "Qxg4" , "Qe2" , "Rac8" , "g4" , "g3" , "h3" , "f3" , "Kf2" , "Qd3" , "Rg4" , "b5" , "b4" , "Ne2" , "Ne1" , "Nc3" , "Bd3" , "Qxf5" , "Ne7" , "Na5" , "Ke2" , "Ke7" , "Rf4" , "Ra8" , "c6" , "Re7" , "Rc7" , "a5" , "Qf3" , "Rg6" , "h5" , "Qb2" , "h4" , "Rb8" ;
+        chon:nextHalfMove      :hmgamnujitc3 .
+
+:placun4Wd  a         chon:Place ;
+        chon:hasName  "Sanya City CHN" .
+
+chon:HalfMove  chon:subEventOf  :gamcun4W .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcun4Wd .
+
+:agcun4Wd  a          chon:Agent ;
+        chon:hasName  "Hou Yifan" , "Karpov,Ana" .
+
+:rolcun4Wd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcun4Wd .
+
+:opecun4Wd  a            chon:ChessOpening ;
+        chon:hasECOCode  "D38" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamcun4W  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcun4Wd ;
+        chon:atPlace           :placun4Wd ;
+        chon:atTime            "2010.11.11"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcun4WdZ ;
+        chon:hasHalfMove       :hmgamnujitc3 , :hmgamcun4WdZ ;
+        chon:hasLastHalfMove   :hmgamnujitc3 ;
+        chon:hasOpening        :opecun4Wd ;
+        chon:hasReport         :cgrcun4Wd ;
+        chon:hasResult         :rescun4WdZ ;
+        chon:subEventOf        :toucun4W .
+
+:rolhgcun4WdZL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcun4Wd .

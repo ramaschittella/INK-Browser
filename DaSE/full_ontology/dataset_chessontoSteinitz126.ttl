@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamhrimZJb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghrimZJbV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fraser Mitchell, James" ;
+        chon:hasSANRecord      "h4" , "Kd1" , "c4" , "h5" , "exf1=Q+" , "Qe4" , "d2" , "Ke2" , "bxc3" , "Ke1" , "e4" , "Kd4" , "h8=Q" , "Bd8" , "g3" , "h7" , "h6" , "Kc5" , "Kf2" , "Ba5+" , "Kxe4" , "c3" , "Rf1" , "Kxf1" , "Rf3" , "Kd6" , "Qh4+" , "Bxc3" , "f6" , "Bh4" , "Bxg3" , "e2+" , "e3" ;
+        chon:nextHalfMove      :hmgamhrimZJb .
+
+:ope9cKjgS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+:rolhg9cKjgSA1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9cKjgS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9cKjgS .
+
+:hmgam9cKjgSA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9cKjgSA1 , :rolhgjcGxNDSb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fraser Mitchell, James" ;
+        chon:hasSANRecord      "Nbd7" , "h3" , "Bg4" , "Nc3" , "Nf3" , "h6" , "d3" , "Nf6" , "Bc4" , "d5" , "Bxf3" , "d4" , "f4" , "d6" , "Qxf3" , "f5" , "Bd2" , "Be7" , "a3" , "e4" , "e5" , "Ne2" , "Bb3" , "Nb6" , "c6" ;
+        chon:nextHalfMove      :hmgam9cKjgSA , :hmgamjcGxNDS .
+
+:gamGcA1T  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9cKjgS ;
+        chon:atPlace           :plaGcA1TB ;
+        chon:atTime            "1867.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9cKjgSA ;
+        chon:hasHalfMove       :hmgamhrimZJb , :hmgam9cKjgSA , :hmgamjcGxNDS ;
+        chon:hasLastHalfMove   :hmgamhrimZJb ;
+        chon:hasOpening        :ope9cKjgS ;
+        chon:hasReport         :cgr9cKjgS ;
+        chon:hasResult         :res9cKjgSA ;
+        chon:subEventOf        :tou9cKjg .
+
+:rol9cKjgS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9cKjgS .
+
+chon:HalfMove  chon:subEventOf  :gamGcA1T .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaGcA1TB  a         chon:Place ;
+        chon:hasName  "Dundee" .
+
+:rolhghrimZJbV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9cKjgS .
+
+:rolhgjcGxNDSb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9cKjgS .
+
+:res9cKjgSA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamjcGxNDS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjcGxNDSb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fraser Mitchell, James" ;
+        chon:hasSANRecord      "Kf8" , "Nh5" , "Bd2" , "Rag8" , "Rb3" , "a5" , "b5" , "c5" , "Kc2" , "Kd2" , "Rg1" , "Nbd7" , "Nc5" , "cxb3" , "Qe2" , "Bh4+" , "Ke2" , "Kf2" , "Rb1" , "Be1" , "Nxf6" , "Bc1" , "Qxb3" , "Rhg8" , "Nxg7+" , "Ng3" , "Ke7" , "d3+" , "Rf3" , "Bxf6" , "Bxh6" , "Rg3" , "Rxd3" , "Rxg3" , "Qxd3" , "O-O" , "Nxb3" , "a4" , "Qb6" ;
+        chon:nextHalfMove      :hmgamjcGxNDS , :hmgamhrimZJb .
+
+:ag9cKjgS  a          chon:Agent ;
+        chon:hasName  "Fraser Mitchell, James" , "Steinitz, William" .
+
+:cgr9cKjgS  a   chon:ChessGameReport .
+
+:tou9cKjg  a          chon:hessTournament ;
+        chon:atPlace  :plaGcA1TB ;
+        chon:hasName  "Dundee m" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9cKjgS .

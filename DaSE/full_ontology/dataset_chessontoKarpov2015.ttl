@@ -1,0 +1,62 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrveSATJ  a   chon:ChessGameReport .
+
+:rolhgGezOsLja  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agveSATJ .
+
+:rolveSATJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agveSATJ .
+
+:rolhgveSATJgW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agveSATJ .
+
+:hmgamveSATJg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGezOsLja , :rolhgveSATJgW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely, Loek" ;
+        chon:hasSANRecord      "Kg2" , "Kg5" , "Re1" , "Rd4" , "Nxd5" , "Nxe8" , "b5" , "Ra8" , "axb5" , "e5" , "Rxh2+" , "Bf5" , "Nc3" , "a5" , "c4" , "h5" , "g6" , "Kh3" , "Bxd5" , "Nxc7" , "dxc5" , "Rb2" , "gxf5" , "Nc6" , "Be7" , "Kg7" , "Qxd8" , "Rcd1" , "Re8" , "Ra2" , "b3" , "b6" , "Rxd8" , "Bg2" , "Ne5" , "Rbc1" , "Rd8" , "a6" , "Bd5" , "Bg5" , "Bf8" , "O-O" , "Ndb5" , "Rb3" , "d4" , "Kf8" , "Kxf5" , "g3" , "Rxd4" , "f4" , "Nbd7" , "Kh4" , "Nf3" , "bxc4" , "Nf6" , "Rdc8" , "Rb2+" , "Nxe7" , "Ra7" , "e4" , "Bg7" , "Rxb5" , "Rd6" , "Nxd4" , "Rd8+" , "a4" , "d6" , "R1xd5" , "Rxa5" , "Red1" , "Bxe7" , "Rb1" , "Be6" , "Rxe8" , "exd4" , "Ne8" , "Rxc4" , "c5" , "Rb8" , "f5" ;
+        chon:nextHalfMove      :hmgamveSATJg .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agveSATJ .
+
+chon:HalfMove  chon:subEventOf  :gamveSAT .
+
+:gamveSAT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolveSATJ ;
+        chon:atPlace           :plaveSATJ ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamveSATJg ;
+        chon:hasHalfMove       :hmgamveSATJg ;
+        chon:hasLastHalfMove   :hmgamveSATJg ;
+        chon:hasOpening        :opeveSATJ ;
+        chon:hasReport         :cgrveSATJ ;
+        chon:hasResult         :resveSATJg ;
+        chon:subEventOf        :touveSAT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agveSATJ .
+
+:touveSAT  a          chon:hessTournament ;
+        chon:atPlace  :plaveSATJ ;
+        chon:hasName  "EU-ch Rapid-30'" .
+
+:agveSATJ  a          chon:Agent ;
+        chon:hasName  "Van Wely, Loek" , "Karpov, Anatoly" .
+
+:resveSATJg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeveSATJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaveSATJ  a         chon:Place ;
+        chon:hasName  "Cap d`Agde" .

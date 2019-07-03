@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgZuFXVRwb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZuFXVR .
+
+:cgrZuFXVR  a   chon:ChessGameReport .
+
+:hmgamZuFXVRw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZuFXVRwb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sihvonen, Tero" ;
+        chon:hasSANRecord      "Nxh4" , "Nh5" , "exd4" , "Nf6" , "Rfb8" , "a5" , "b3" , "Raa8" , "Qe7" , "Bb4" , "e5" , "Qh4" , "Be6" , "Nc6" , "Nd5" , "Qxh4" , "bxa3" , "Nc3" , "axb4" , "d6" , "Ne5" , "Qf4" , "Be2" , "Qxd4" , "a3" , "Bxa3" , "e3" , "Ra5" , "Bb2" , "Nf3" , "Nxb4" , "O-O" , "d4" , "c4" ;
+        chon:nextHalfMove      :hmgamZuFXVRw .
+
+:agZuFXVR  a          chon:Agent ;
+        chon:hasName  "Sihvonen, Tero" , "Karpov, Anatoly" .
+
+:rolZuFXVR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZuFXVR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZuFXVR .
+
+chon:HalfMove  chon:subEventOf  :gamZuFXV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZuFXVR .
+
+:gamZuFXV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZuFXVR ;
+        chon:atPlace           :plaZuFXVR ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZuFXVRw ;
+        chon:hasHalfMove       :hmgamZuFXVRw ;
+        chon:hasLastHalfMove   :hmgamZuFXVRw ;
+        chon:hasOpening        :opeZuFXVR ;
+        chon:hasReport         :cgrZuFXVR ;
+        chon:hasResult         :resZuFXVRw ;
+        chon:subEventOf        :touZuFXV .
+
+:resZuFXVRw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touZuFXV  a          chon:hessTournament ;
+        chon:atPlace  :plaZuFXVR ;
+        chon:hasName  "Valkeakoski sim" .
+
+:opeZuFXVR  a            chon:ChessOpening ;
+        chon:hasECOCode  "A21" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaZuFXVR  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .

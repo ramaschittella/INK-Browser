@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamGZmFI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol82yY6i ;
+        chon:atPlace           :plaGZmFIh ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam82yY6i7 ;
+        chon:hasHalfMove       :hmgam82yY6i7 ;
+        chon:hasLastHalfMove   :hmgam82yY6i7 ;
+        chon:hasOpening        :ope82yY6i ;
+        chon:hasReport         :cgr82yY6i ;
+        chon:hasResult         :res82yY6i7 ;
+        chon:subEventOf        :tou82yY6 .
+
+:hmgam82yY6i7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg82yY6i7W , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mickiewicz, Piotr" ;
+        chon:hasSANRecord      "Qxe7" , "c4" , "exd4" , "dxc5" , "Nh5" , "Qe7" , "Rh4+" , "Nc3" , "Re1" , "Nd5" , "Bg2" , "h5" , "bxc5" , "Re8" , "Qd2" , "h3" , "Rad8" , "Rf7" , "Bf4" , "Ne3" , "Bd4" , "Rc1" , "Be2" , "hxg3" , "Rc8" , "Re4" , "Ba5" , "Be5" , "Nd7" , "a6" , "Kxh5" , "Ne6" , "Bxh5" , "Bd7" , "Kg7" , "Bb6" , "Kg2" , "Qc2" , "g3" , "exf5" , "Bxe6" , "Qf6" , "Nf6" , "b4" , "Nbd7" , "Nxd4" , "Qd7" , "Bf3" , "g6" , "Rh8" , "Red1" , "g5" , "O-O" , "Rxe7" , "fxg3" , "d4" , "h6" , "h4" , "Bg7" , "Bf1" , "c6" , "e5" , "Nxe6" , "Bd2" , "Nb6" , "c5" , "Rff8" , "Qc7" , "Nc5" , "Na4" , "Rce8" , "Nf5+" , "Kh2" , "Rcd1" , "Nf3" , "Be3" , "Kh6" , "f6" , "d6" , "Bxf5" , "e4" ;
+        chon:nextHalfMove      :hmgam82yY6i7 .
+
+:cgr82yY6i  a   chon:ChessGameReport .
+
+:ag82yY6i  a          chon:Agent ;
+        chon:hasName  "Mickiewicz, Piotr" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag82yY6i .
+
+:rol82yY6i  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag82yY6i .
+
+:ope82yY6i  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .
+
+chon:HalfMove  chon:subEventOf  :gamGZmFI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag82yY6i .
+
+:rolhg82yY6i7W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag82yY6i .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res82yY6i7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaGZmFIh  a         chon:Place ;
+        chon:hasName  "Koszalin" .
+
+:tou82yY6  a          chon:hessTournament ;
+        chon:atPlace  :plaGZmFIh ;
+        chon:hasName  "Koszalin sim1" .

@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamrSQDH9R  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrSQDH9RH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ra4" , "c5" , "Nbd2" , "e6" , "cxd5" , "exd4" , "Qxh3" , "Nc6" , "d4" , "g3" , "Kxg7" , "Rfd1" , "Qe4" , "Nh4" , "b6" , "gxf5" , "Be7" , "Rb2" , "e3" , "Nf4" , "Qxb7" , "Nf6" , "Nf3+" , "c4" , "Qg5" , "O-O" , "Bxg7" , "Rc2" , "Nd3" , "h6" , "Qf5" , "Bxb7" , "Bg2" , "b3" , "exd5" , "Rbc8" , "Bf8" , "Nb4" , "a3" , "dxc5" , "Rd1" , "Rxd8+" , "f5" , "d5" , "Qa5" , "Qxf5" , "Qh4" , "Ba6" , "Rb8" , "Qb1" , "Ne4" , "Nxh3" , "b4" , "Rc4" , "g6" , "Bb2" , "Qb6" , "Bb7" , "Rd2" , "bxc5" , "Nf3" , "Rxb4" , "Qc2" , "Nf5" , "a5" , "Qh3" , "Rfd8" , "axb4" , "Rxd8" , "Bg7" , "Na6" , "Ne5" , "Rc1" ;
+        chon:nextHalfMove      :hmgamrSQDH9R .
+
+chon:HalfMove  chon:subEventOf  :gamfSTp0 .
+
+:plafSTp00  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+:rolrSQDH9  a             chon:AuthorRole ;
+        chon:performedBy  :agrSQDH9 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfSTp00 .
+
+:cgrrSQDH9  a   chon:ChessGameReport .
+
+:resrSQDH9R  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agrSQDH9  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" .
+
+:agfSTp00  a          chon:Agent ;
+        chon:hasName  "Milos,G" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrSQDH9 .
+
+:gamfSTp0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfSTp00 ;
+        chon:atPlace           :plafSTp00 ;
+        chon:atTime            "2004.08.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrSQDH9R ;
+        chon:hasHalfMove       :hmgamrSQDH9R ;
+        chon:hasLastHalfMove   :hmgamrSQDH9R ;
+        chon:hasOpening        :operSQDH9 ;
+        chon:hasReport         :cgrrSQDH9 ;
+        chon:hasResult         :resrSQDH9R ;
+        chon:subEventOf        :toufSTp0 .
+
+:rolfSTp00  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:toufSTp0  a          chon:hessTournament ;
+        chon:atPlace  :plafSTp00 ;
+        chon:hasName  "Rapid" .
+
+:operSQDH9  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:rolhgrSQDH9RH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrSQDH9 , :agfSTp00 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

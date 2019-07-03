@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opecf8t8m  a            chon:ChessOpening ;
+        chon:hasECOCode  "E94" .
+
+:hmgamcf8t8mR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcf8t8mRe , chon:AgentRole , :rolhgnd5GGlUp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ehlvest, Jaan" ;
+        chon:hasSANRecord      "Nf3" , "Be2" , "b4" , "Nc5" , "e5" , "Qxd6" , "Ne2" , "Nb6" , "cxd6" , "Nd5" , "g6" , "Kxg7" , "c4" , "d6" , "O-O" , "bxa6" , "Qe7" , "Rac8" , "Bf1" , "a3" , "Nf4" , "f5" , "Bxa6" , "Be3" , "Bxd4" , "exd4" , "Ne4" , "Re1" , "Bxg7" , "Na6" , "Bg4" , "d4" , "Kf1" , "Rb1" , "Nc3" , "e4" , "Rexd1" , "Nf6" , "exd6" , "Rfd8" , "Bg7" , "Bxd1" , "c6" , "Bxf3" , "c5" , "Nh5" , "Rbc1" ;
+        chon:nextHalfMove      :hmgamnd5GGlU , :hmgamcf8t8mR .
+
+:placf8t8m  a         chon:Place ;
+        chon:hasName  "Mazatlan" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcf8t8m .
+
+chon:HalfMove  chon:subEventOf  :gamcf8t8 .
+
+:cgrcf8t8m  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcf8t8m .
+
+:rolcf8t8m  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcf8t8m .
+
+:rescf8t8mR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgcf8t8mRe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcf8t8m .
+
+:hmgamnd5GGlU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnd5GGlUp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ehlvest, Jaan" ;
+        chon:hasSANRecord      "Rxc3" , "Rc6" , "bxa5" , "Nd5" , "a5" , "d7" , "Nxc3" , "Rc5" , "Nc3" , "Rc4" , "Kf6" , "c5" ;
+        chon:nextHalfMove      :hmgamnd5GGlU .
+
+:gamcf8t8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcf8t8m ;
+        chon:atPlace           :placf8t8m ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcf8t8mR ;
+        chon:hasHalfMove       :hmgamnd5GGlU , :hmgamcf8t8mR ;
+        chon:hasLastHalfMove   :hmgamnd5GGlU ;
+        chon:hasOpening        :opecf8t8m ;
+        chon:hasReport         :cgrcf8t8m ;
+        chon:hasResult         :rescf8t8mR ;
+        chon:subEventOf        :toucf8t8 .
+
+:rolhgnd5GGlUp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcf8t8m .
+
+:toucf8t8  a          chon:hessTournament ;
+        chon:atPlace  :placf8t8m ;
+        chon:hasName  "Mazatlan rapid" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agcf8t8m  a          chon:Agent ;
+        chon:hasName  "Ehlvest, Jaan" , "Karpov, Anatoly" .

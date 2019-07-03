@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgQnla4xaQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEnoUuy .
+
+:rolhgEnoUuy8D  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEnoUuy .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEnoUuy .
+
+:agEnoUuy  a          chon:Agent ;
+        chon:hasName  "Dreev, Alexey" , "Karpov, Anatoly" .
+
+:hmgamQnla4xa  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQnla4xaQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dreev, Alexey" ;
+        chon:hasSANRecord      "Bc6" , "Ng4" , "Bf8" , "Rc1" , "Rac8" , "Kf2" , "Rfe1" , "Nf7" , "Nxd4" , "g5" , "Qf5" , "Rb8" , "Nfe8" , "g4" , "g6" , "Ne5" , "Bf6" , "a5" , "Bg2" , "f4" , "Be7" , "Qxe6" , "Bxd4" , "cxb3" , "Kf7" , "Qe6" , "Rc7" , "Ngf5" , "Neg4" , "g3" , "Rxb3" , "Nd4" , "axb3" , "Bd7" , "c4" , "fxe6" , "Nh6" , "Nf3" , "Nxh7" , "Nf5" , "Nc3" , "Ng7" , "Nf6+" , "Rfd8" , "Ne2" , "Na4" , "h3" , "Bf3" , "Nd6" , "Be5" ;
+        chon:nextHalfMove      :hmgamQnla4xa .
+
+chon:HalfMove  chon:subEventOf  :gamEnoUu .
+
+:opeEnoUuy  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEnoUuy .
+
+:gamEnoUu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEnoUuy ;
+        chon:atPlace           :plaEnoUuy ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEnoUuy8 ;
+        chon:hasHalfMove       :hmgamEnoUuy8 , :hmgamQnla4xa ;
+        chon:hasLastHalfMove   :hmgamQnla4xa ;
+        chon:hasOpening        :opeEnoUuy ;
+        chon:hasReport         :cgrEnoUuy ;
+        chon:hasResult         :resEnoUuy8 ;
+        chon:subEventOf        :touEnoUu .
+
+:touEnoUu  a          chon:hessTournament ;
+        chon:atPlace  :plaEnoUuy ;
+        chon:hasName  "Moscow blitz" .
+
+:resEnoUuy8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaEnoUuy  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrEnoUuy  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamEnoUuy8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEnoUuy8D ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dreev, Alexey" ;
+        chon:hasSANRecord      "bxc5" , "Bb2" , "Qe5" , "dxc5" , "exd5" , "c5" , "Nf3" , "e3" , "Bd6" , "c6" , "Qe7" , "Nc3" , "Nbd7" , "c4" , "Rad1" , "cxd5" , "b3" , "d4" , "Nh4" , "O-O" , "e6" , "Qc2" , "Be2" , "Nf6" , "Bb7" , "d5" , "b6" ;
+        chon:nextHalfMove      :hmgamEnoUuy8 , :hmgamQnla4xa .
+
+:rolEnoUuy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEnoUuy .

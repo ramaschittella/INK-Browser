@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgmBz6uEF8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaDDPXD .
+
+:cgraDDPXD  a   chon:ChessGameReport .
+
+:resaDDPXDA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolaDDPXD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaDDPXD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaDDPXD .
+
+chon:HalfMove  chon:subEventOf  :gamaDDPX .
+
+:plaaDDPXD  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaDDPXD .
+
+:agaDDPXD  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Chernin, Alexander" .
+
+:rolhgaDDPXDAU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaDDPXD .
+
+:opeaDDPXD  a            chon:ChessOpening ;
+        chon:hasECOCode  "A26" .
+
+:hmgammBz6uEF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmBz6uEF8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "exf4" , "Qd8" , "Qc6" , "Qf5+" , "Qf7+" , "axb4" , "Nc5" , "Nd5" , "Kg8" , "Bd2" , "Nxe8" , "Qd7" , "b6" , "Rb1" , "Qb6" , "gxh5" , "Qf3" , "Rxh5+" , "Be3" , "Ne6" , "f4" , "Qxa4" , "Qxe6" , "d4" , "Rae8" , "Rxb4" , "Bxe6" , "Rd5" , "Bxf4" , "Qc7" , "b4" , "Kg2" , "Qxe8" , "Re8" , "Qxf7" , "cxd5" , "Rad1" , "Kh7" , "d5" , "Nc7" , "Nd7" , "Bb4" , "Rb5" ;
+        chon:nextHalfMove      :hmgammBz6uEF .
+
+:hmgamaDDPXDA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgaDDPXDAU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e4" , "Bg2" , "a6" , "a4" , "Qd7" , "Nc3" , "Bg5" , "Ng5" , "Ng4" , "Bxe6" , "O-O" , "Nf3" , "Nf6" , "g3" , "Nce2" , "g6" , "Qe2" , "d6" , "e5" , "h5" , "c6" , "c4" , "Nxe6" , "Bg7" , "h4" , "Bh3" , "a5" , "Ne6" , "Nc6" , "Nd4" , "d3" ;
+        chon:nextHalfMove      :hmgammBz6uEF , :hmgamaDDPXDA .
+
+:gamaDDPX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaDDPXD ;
+        chon:atPlace           :plaaDDPXD ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaDDPXDA ;
+        chon:hasHalfMove       :hmgamaDDPXDA , :hmgammBz6uEF ;
+        chon:hasLastHalfMove   :hmgammBz6uEF ;
+        chon:hasOpening        :opeaDDPXD ;
+        chon:hasReport         :cgraDDPXD ;
+        chon:hasResult         :resaDDPXDA ;
+        chon:subEventOf        :touaDDPX .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touaDDPX  a          chon:hessTournament ;
+        chon:atPlace  :plaaDDPXD ;
+        chon:hasName  "Tilburg rapid" .

@@ -1,0 +1,66 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resLPhHIsM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agLPhHIs  a          chon:Agent ;
+        chon:hasName  "Loyd, Sam" , "Steinitz, William" .
+
+:gamLPhHI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLPhHIs ;
+        chon:atPlace           :plaLPhHIs ;
+        chon:atTime            "1867.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLPhHIsM ;
+        chon:hasHalfMove       :hmgamHNYQsq3 , :hmgamLPhHIsM ;
+        chon:hasLastHalfMove   :hmgamHNYQsq3 ;
+        chon:hasOpening        :opeLPhHIs ;
+        chon:hasReport         :cgrLPhHIs ;
+        chon:hasResult         :resLPhHIsM ;
+        chon:subEventOf        :touLPhHI .
+
+:touLPhHI  a          chon:hessTournament ;
+        chon:atPlace  :plaLPhHIs ;
+        chon:hasName  "Paris it" .
+
+:opeLPhHIs  a            chon:ChessOpening ;
+        chon:hasECOCode  "C25" .
+
+:hmgamHNYQsq3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHNYQsq3Y , chon:AgentRole ;
+        chon:hasSANRecord      "Nxd5" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLPhHIs .
+
+chon:HalfMove  chon:subEventOf  :gamLPhHI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLPhHIs .
+
+:rolhgLPhHIsMY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLPhHIs .
+
+:cgrLPhHIs  a   chon:ChessGameReport .
+
+:rolhgHNYQsq3Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLPhHIs .
+
+:rolLPhHIs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLPhHIs .
+
+:hmgamLPhHIsM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLPhHIsMY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Loyd, Sam" ;
+        chon:hasSANRecord      "Qc7" , "O-O" , "Bc5" , "Nc3" , "hxg5" , "g5" , "Bb4" , "d3" , "Qa6" , "a3" , "Qa5" , "Ng3" , "Nfd7" , "h4" , "axb4" , "d5" , "h3" , "e4" , "exf5" , "g4" , "Bg2" , "c6" , "Qb6" , "Qxa1" , "Qe2" , "h6" , "f5" , "Nf6" , "e5" , "Nge2" ;
+        chon:nextHalfMove      :hmgamLPhHIsM , :hmgamHNYQsq3 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaLPhHIs  a         chon:Place ;
+        chon:hasName  "Paris" .

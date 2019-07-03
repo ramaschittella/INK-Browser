@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamsbpJWq4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsbpJWq4D , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e6" , "g3" , "Ne1" , "Bg2" , "Rc8" , "c4" , "Be7" , "Bd2" , "b3" , "Nf6" , "dxc5" , "exd5" , "d5" , "O-O" , "bxc5" , "Rc1" , "cxd5" , "Nxd5" , "Nb6" , "Nd7" , "Bb4+" , "Nc3" , "Ba6" , "d4" , "a5" , "a4" , "Nf3" , "b6" , "c5" ;
+        chon:nextHalfMove      :hmgamsbpJWq4 .
+
+:cgrsbpJWq  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsbpJWq .
+
+:rolsbpJWq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsbpJWq .
+
+chon:HalfMove  chon:subEventOf  :gamxdIAb .
+
+:ressbpJWq4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsbpJWq .
+
+:tousbpJW  a          chon:hessTournament ;
+        chon:atPlace  :plaxdIAbs ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+:plaxdIAbs  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:rolhgsbpJWq4D  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsbpJWq .
+
+:gamxdIAb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsbpJWq ;
+        chon:atPlace           :plaxdIAbs ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsbpJWq4 ;
+        chon:hasHalfMove       :hmgamsbpJWq4 ;
+        chon:hasLastHalfMove   :hmgamsbpJWq4 ;
+        chon:hasOpening        :opesbpJWq ;
+        chon:hasReport         :cgrsbpJWq ;
+        chon:hasResult         :ressbpJWq4 ;
+        chon:subEventOf        :tousbpJW .
+
+:agsbpJWq  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:opesbpJWq  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

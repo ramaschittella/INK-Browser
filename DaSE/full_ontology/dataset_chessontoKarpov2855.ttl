@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam5SbK29X  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5SbK29Xl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "dxc4" , "h6" , "e3" , "Nf6" , "Ba3" , "Ne5" , "b6" , "Qh4" , "Bb7" , "Rxd1" , "c4" , "Rfd8" , "O-O" , "Qe7" , "Rac8" , "a6" , "f4" , "Nc3" , "Na4" , "h3" , "Rfd1" , "d4" , "Bd3" , "Nf3" , "cxd4" , "Nd7" , "d5" , "Bc7" , "Bb2" , "Rxd1+" , "Nxe5" , "c5" , "Bd6" , "Nc5" , "Rd8" , "Qe2" , "b3" , "Qc2" , "exd4" , "Bc6" , "Nbd7" , "bxc4" , "e6" , "Rc1" , "Bb1" , "Qxd1" , "dxe5" ;
+        chon:nextHalfMove      :hmgam4RPxdgx , :hmgam5SbK29X .
+
+:cgr5SbK29  a   chon:ChessGameReport .
+
+:gam5SbK2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5SbK29 ;
+        chon:atPlace           :pla5SbK29 ;
+        chon:atTime            "2006.02.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5SbK29X ;
+        chon:hasHalfMove       :hmgam4RPxdgx , :hmgam5SbK29X ;
+        chon:hasLastHalfMove   :hmgam4RPxdgx ;
+        chon:hasOpening        :ope5SbK29 ;
+        chon:hasReport         :cgr5SbK29 ;
+        chon:hasResult         :res5SbK29X ;
+        chon:subEventOf        :tou5SbK2 .
+
+:tou5SbK2  a          chon:hessTournament ;
+        chon:atPlace  :pla5SbK29 ;
+        chon:hasName  "Gligoric 83rd g/20 Match" .
+
+:ag5SbK29  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Portisch,L" .
+
+:rol5SbK29  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5SbK29 .
+
+:ope5SbK29  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5SbK29 .
+
+:res5SbK29X  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgam4RPxdgx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4RPxdgx6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "g5" , "Kf1" , "fxg5" , "Bxc5" , "Qd2" , "Qd4+" , "Qf2" , "Bg3" , "Qc2" , "Bxe4" , "Ne4" , "Qxe5" , "bxc5" , "Qe3" , "hxg5" , "Qe2" , "Qg3" ;
+        chon:nextHalfMove      :hmgam4RPxdgx .
+
+chon:HalfMove  chon:subEventOf  :gam5SbK2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5SbK29 .
+
+:rolhg5SbK29Xl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5SbK29 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg4RPxdgx6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5SbK29 .
+
+:pla5SbK29  a         chon:Place ;
+        chon:hasName  "Novi Sad SCG" .

@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaouP36g  a         chon:Place ;
+        chon:hasName  "Riga" .
+
+:rolhgAuLiEhpa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAuLiEh , :agouP36g .
+
+:resAuLiEhp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agouP36g  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAuLiEh .
+
+:rolAuLiEh  a             chon:AuthorRole ;
+        chon:performedBy  :agAuLiEh .
+
+:rolhgvssrofF0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agouP36g , :agAuLiEh .
+
+:tououP36  a          chon:hessTournament ;
+        chon:atPlace  :plaouP36g ;
+        chon:hasName  "URS-chT" .
+
+chon:HalfMove  chon:subEventOf  :gamouP36 .
+
+:agAuLiEh  a          chon:Agent ;
+        chon:hasName  "Gurgenidze, Bukhuti" .
+
+:hmgamAuLiEhp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvssrofF0 , :rolhgAuLiEhpa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gurgenidze, Bukhuti" ;
+        chon:hasSANRecord      "Rb1" , "b4" , "Qxc3" , "Rc5" , "Bg5" , "b5" , "Bd3" , "Rxc3" , "Qb6" , "Nc3" , "Be2" , "Kg7" , "Nxd4" , "Qc3" , "d4" , "axb4" , "Rc8" , "a3" , "Rc2" , "Rc1" , "Nc6" , "Bd4" , "e4" , "Bg7" , "Qc5" , "Ra8" , "a6" , "Ra2" , "a5" , "Nb5" , "Qd2" , "Nf6" , "c4" , "e5" , "b3" , "Bd7" , "d6" , "Rfc8" , "O-O" , "Be6" , "cxd4" , "Rxc2" , "f3" , "Rfc1" , "Rcb8" , "Bxf6" , "c5" , "exd6" , "Qxd4" , "Nxb5" , "Nf3" , "g6" ;
+        chon:nextHalfMove      :hmgamAuLiEhp , :hmgamvssrofF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolouP36g  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:opeAuLiEh  a            chon:ChessOpening ;
+        chon:hasECOCode  "B36" .
+
+:cgrAuLiEh  a   chon:ChessGameReport .
+
+:hmgamvssrofF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvssrofF0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gurgenidze, Bukhuti" ;
+        chon:hasSANRecord      "Rb5+" , "Kd4" , "Rb8" , "Kf6" , "Bxf5" , "Rxc4" , "Ke5" , "b7" , "f4" , "Bf5" , "Bxc2" , "Ke3" , "Rc8" , "Be4" , "Kf2" , "b6" , "gxf5" , "Ke6" ;
+        chon:nextHalfMove      :hmgamvssrofF .
+
+:gamouP36  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolouP36g ;
+        chon:atPlace           :plaouP36g ;
+        chon:atTime            "1975.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAuLiEhp ;
+        chon:hasHalfMove       :hmgamvssrofF , :hmgamAuLiEhp ;
+        chon:hasLastHalfMove   :hmgamvssrofF ;
+        chon:hasOpening        :opeAuLiEh ;
+        chon:hasReport         :cgrAuLiEh ;
+        chon:hasResult         :resAuLiEhp ;
+        chon:subEventOf        :tououP36 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agouP36g .

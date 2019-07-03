@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plar0UYim  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:resn8B85k3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agr0UYim .
+
+:rolhgn8B85k3y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agn8B85k , :agr0UYim .
+
+chon:HalfMove  chon:subEventOf  :gamr0UYi .
+
+:open8B85k  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:agr0UYim  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" .
+
+:rolr0UYim  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agn8B85k .
+
+:gamr0UYi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolr0UYim ;
+        chon:atPlace           :plar0UYim ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamn8B85k3 ;
+        chon:hasHalfMove       :hmgamn8B85k3 ;
+        chon:hasLastHalfMove   :hmgamn8B85k3 ;
+        chon:hasOpening        :open8B85k ;
+        chon:hasReport         :cgrn8B85k ;
+        chon:hasResult         :resn8B85k3 ;
+        chon:subEventOf        :tour0UYi .
+
+:tour0UYi  a          chon:hessTournament ;
+        chon:atPlace  :plar0UYim ;
+        chon:hasName  "Optiebeurs" .
+
+:cgrn8B85k  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamn8B85k3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgn8B85k3y , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxd2" , "Re1+" , "Be7" , "e4" , "h4" , "Nc5" , "Nxe4" , "c4" , "Bc1" , "b6" , "Rxe7" , "Qxe6+" , "Kg8" , "Qc6" , "Qc7" , "Nxe6" , "f4" , "Rxd2" , "Rxe1+" , "d5" , "Qe2" , "b3" , "dxe4" , "O-O" , "Re7" , "Qh3" , "Qe6" , "Re8" , "Ngf6" , "a3" , "Bb1" , "Ng3" , "Kf8" , "Neg5" , "Bxg7+" , "Nxh7" , "Bxe1" , "Rd1" , "Bb7" , "Nd2" , "Qxe6" , "a6" , "Nf3" , "Qg4" , "e6" , "Kf7" , "Ba3" , "Rxe6" , "Nd7" , "Re4" , "Kg3" , "d4" , "hxg5" , "Bb2" , "c5" , "Be4" , "g4" , "Rd4" , "Bxh7" , "Kh2" , "Bd3" , "fxe6" , "Re1" , "Kxe7" , "Nh5" , "c6" , "Rd8+" , "cxd4" , "Bd2" , "Bc3" , "Rd7+" , "Ne4" , "Nxd4" ;
+        chon:nextHalfMove      :hmgamn8B85k3 .
+
+:agn8B85k  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:roln8B85k  a             chon:AuthorRole ;
+        chon:performedBy  :agn8B85k .

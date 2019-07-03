@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeii58Z8  a            chon:ChessOpening ;
+        chon:hasECOCode  "C67" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agii58Z8 .
+
+:hmgamii58Z8b  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgii58Z8b4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nd6" , "Nxe4" , "Qxd8+" , "Nf3" , "e5" , "Kxd8" , "O-O" , "h3" , "Nf6" , "dxc6" , "Nf5" , "Nc6" , "Nc3" , "Bd7" , "h6" , "Bb5" , "e4" , "Bxc6" , "d4" , "dxe5" ;
+        chon:nextHalfMove      :hmgamii58Z8b .
+
+chon:HalfMove  chon:subEventOf  :gamQgSMS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agii58Z8 .
+
+:gamQgSMS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolii58Z8 ;
+        chon:atPlace           :plaQgSMS7 ;
+        chon:atTime            "2010.11.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamii58Z8b ;
+        chon:hasHalfMove       :hmgamii58Z8b ;
+        chon:hasLastHalfMove   :hmgamii58Z8b ;
+        chon:hasOpening        :opeii58Z8 ;
+        chon:hasReport         :cgrii58Z8 ;
+        chon:hasResult         :resii58Z8b ;
+        chon:subEventOf        :touii58Z .
+
+:cgrii58Z8  a   chon:ChessGameReport .
+
+:resii58Z8b  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agii58Z8  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Hou Yifan" .
+
+:rolii58Z8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agii58Z8 .
+
+:rolhgii58Z8b4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agii58Z8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touii58Z  a          chon:hessTournament ;
+        chon:atPlace  :plaQgSMS7 ;
+        chon:hasName  "Match" .
+
+:plaQgSMS7  a         chon:Place ;
+        chon:hasName  "Sanya City CHN" .

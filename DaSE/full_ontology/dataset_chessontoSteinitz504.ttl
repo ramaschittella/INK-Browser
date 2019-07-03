@@ -1,0 +1,82 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgqKqmKzA1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUvZSVr .
+
+:cgrUvZSVr  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUvZSVr .
+
+:hmgamqKqmKzA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqKqmKzA1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pillsbury, Harry Nelson" ;
+        chon:hasSANRecord      "Qd3+" , "Rf8" , "h5" , "g3" , "Rd3+" , "Re5" , "Rg5" , "Qc6" , "Rd8" , "Kh8" , "g4" , "Rg8" , "a5" , "h4" , "Ra8" , "Kh7" , "Rb8" , "Rgd5" , "Kh4" , "Qa6" , "Qc2+" , "Qa4" , "Re3" , "Kh3" ;
+        chon:nextHalfMove      :hmgamqKqmKzA .
+
+:hmgamfKv0dyx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfKv0dyxM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pillsbury, Harry Nelson" ;
+        chon:hasSANRecord      "Rc6" , "Rxd4" , "Be2" , "Rf8" , "Ne3" , "Qxe3" , "Qxe7" , "Qa6" , "Rac1" , "Ne5" , "Qxd7" , "Rd7" , "f4" , "Rf2" , "Re5" , "Nd5" , "Qe5" , "Qf5" , "Nxd7" , "Qb1+" , "Qxb2" , "exd4" , "Qc7" , "Bf3" , "h3" , "Rfd8" , "Nf6" , "Rad8" , "Qxa2" , "Kh8" , "b6" , "dxe4" , "Rxd7" , "Rxf4" , "Qd2" , "Qf6" , "O-O" , "Qe6" , "Bb7" , "fxe4" , "f5" , "Rxe6" , "bxc5" , "Qe3" , "Qd6" , "cxd4" , "h6" , "Re7" , "Qc3" , "Bxe4" , "Ne4" , "Nd7" , "Nd2" , "Qh4" , "Nxe4" , "Qd7" , "Nxc6" , "Bxe7" , "Kh2" , "Nxf3" , "f3" , "Nc4" , "Qe1" , "Qe7" , "Bxf3" , "c5" ;
+        chon:nextHalfMove      :hmgamfKv0dyx , :hmgamqKqmKzA .
+
+chon:HalfMove  chon:subEventOf  :gamUvZSV .
+
+:rolhgOIjORxHm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUvZSVr .
+
+:rolUvZSVr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUvZSVr .
+
+:plaUvZSVr  a         chon:Place ;
+        chon:hasName  "Nuremberg" .
+
+:rolhgUvZSVrTG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUvZSVr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agUvZSVr  a          chon:Agent ;
+        chon:hasName  "Pillsbury, Harry Nelson" , "Steinitz, William" .
+
+:resUvZSVrT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamUvZSV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUvZSVr ;
+        chon:atPlace           :plaUvZSVr ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUvZSVrT ;
+        chon:hasHalfMove       :hmgamqKqmKzA , :hmgamfKv0dyx , :hmgamUvZSVrT ;
+        chon:hasLastHalfMove   :hmgamqKqmKzA ;
+        chon:hasOpening        :opeUvZSVr ;
+        chon:hasReport         :cgrUvZSVr ;
+        chon:hasResult         :resUvZSVrT ;
+        chon:subEventOf        :touUvZSV .
+
+:rolhgfKv0dyxM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUvZSVr .
+
+:touUvZSV  a          chon:hessTournament ;
+        chon:atPlace  :plaUvZSVr ;
+        chon:hasName  "Nuremberg" .
+
+:hmgamUvZSVrT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUvZSVrTG , :rolhgOIjORxHm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pillsbury, Harry Nelson" ;
+        chon:hasSANRecord      "Nf6" , "c4" , "c6" , "Bg5" , "d4" , "O-O" , "Nc3" , "e3" , "d5" , "e6" , "Nf3" , "Be7" , "Qb3" ;
+        chon:nextHalfMove      :hmgamUvZSVrT , :hmgamfKv0dyx .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUvZSVr .
+
+:opeUvZSVr  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .

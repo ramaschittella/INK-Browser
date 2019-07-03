@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opex5gQRN  a            chon:ChessOpening ;
+        chon:hasECOCode  "B26" .
+
+:toux5gQR  a          chon:hessTournament ;
+        chon:atPlace  :plal5jSkO ;
+        chon:hasName  "Vienna op" .
+
+:gaml5jSk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolx5gQRN ;
+        chon:atPlace           :plal5jSkO ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamx5gQRNc ;
+        chon:hasHalfMove       :hmgamx5gQRNc ;
+        chon:hasLastHalfMove   :hmgamx5gQRNc ;
+        chon:hasOpening        :opex5gQRN ;
+        chon:hasReport         :cgrx5gQRN ;
+        chon:hasResult         :resx5gQRNc ;
+        chon:subEventOf        :toux5gQR .
+
+:resx5gQRNc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx5gQRN .
+
+chon:HalfMove  chon:subEventOf  :gaml5jSk .
+
+:hmgamx5gQRNc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgx5gQRNcL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ftacnik, Lubomir" ;
+        chon:hasSANRecord      "Qc7" , "Rfxc8" , "Nxc8" , "a3" , "e6" , "Nd5" , "Bg7" , "Qxd2" , "Be3" , "g6" , "Kh8" , "Nc6" , "Nec6" , "b5" , "a5" , "Nd4" , "d3" , "c5" , "d6" , "cxb4" , "Ne7" , "Nxd4" , "Ne7+" , "Rb8" , "g3" , "b4" , "Bg2" , "Qxa5" , "Nc3" , "axb4" , "f4" , "e4" , "Rxd2" , "Bxd4" , "O-O" , "bxa5" , "Qd2" , "Rab1" , "Rf2" , "Nge2" ;
+        chon:nextHalfMove      :hmgamx5gQRNc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx5gQRN .
+
+:cgrx5gQRN  a   chon:ChessGameReport .
+
+:rolhgx5gQRNcL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx5gQRN .
+
+:agx5gQRN  a          chon:Agent ;
+        chon:hasName  "Ftacnik, Lubomir" , "Karpov, Anatoly" .
+
+:rolx5gQRN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agx5gQRN .
+
+:plal5jSkO  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

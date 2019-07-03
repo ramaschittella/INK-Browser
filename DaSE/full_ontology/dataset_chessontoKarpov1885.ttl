@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gaminDl4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolinDl4l ;
+        chon:atPlace           :plainDl4l ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgaminDl4lw ;
+        chon:hasHalfMove       :hmgaminDl4lw , :hmgamunzBAkz ;
+        chon:hasLastHalfMove   :hmgamunzBAkz ;
+        chon:hasOpening        :opeinDl4l ;
+        chon:hasReport         :cgrinDl4l ;
+        chon:hasResult         :resinDl4lw ;
+        chon:subEventOf        :touinDl4 .
+
+:touinDl4  a          chon:hessTournament ;
+        chon:atPlace  :plainDl4l ;
+        chon:hasName  "Alma-Ata m3" .
+
+:resinDl4lw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrinDl4l  a   chon:ChessGameReport .
+
+:rolhginDl4lwS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aginDl4l .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aginDl4l .
+
+:rolinDl4l  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aginDl4l .
+
+chon:HalfMove  chon:subEventOf  :gaminDl4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aginDl4l .
+
+:plainDl4l  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+:hmgamunzBAkz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgunzBAkzP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Qa4" , "Rxf4" , "Bxe6" , "Ndf6" , "Qf3" , "Rxe4" , "Bxa6" , "Ne6" , "Qf8" , "Qe2" , "Qxf4" , "Bxf4" , "dxe6" , "Nxe4" , "Ncxe4" , "Qd5" , "bxa6" , "Ng5" , "Bc4" , "Rc8" , "Rf8" , "Nf4" , "fxe4" , "Kh8" ;
+        chon:nextHalfMove      :hmgamunzBAkz .
+
+:aginDl4l  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:opeinDl4l  a            chon:ChessOpening ;
+        chon:hasECOCode  "E95" .
+
+:hmgaminDl4lw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhginDl4lwS , :rolhgunzBAkzP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "d4" , "c4" , "a6" , "Qb6" , "Be3" , "d6" , "Nf3" , "e4" , "Nh5" , "Nbd7" , "Rb1" , "Qd8" , "Be2" , "b5" , "d5" , "Nc3" , "c6" , "Re1" , "Bf1" , "O-O" , "f5" , "g6" , "b4" , "Bg7" , "cxd5" , "e5" , "Nf6" ;
+        chon:nextHalfMove      :hmgaminDl4lw , :hmgamunzBAkz .
+
+:rolhgunzBAkzP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aginDl4l .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

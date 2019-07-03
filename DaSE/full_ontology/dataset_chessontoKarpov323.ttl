@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla66Z0N6  a         chon:Place ;
+        chon:hasName  "Nice" .
+
+:gam66Z0N  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol66Z0N6 ;
+        chon:atPlace           :pla66Z0N6 ;
+        chon:atTime            "1974.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4kDY2dK ;
+        chon:hasHalfMove       :hmgamejzcycN , :hmgam4kDY2dK ;
+        chon:hasLastHalfMove   :hmgamejzcycN ;
+        chon:hasOpening        :ope66Z0N6 ;
+        chon:hasReport         :cgr66Z0N6 ;
+        chon:hasResult         :res66Z0N6c ;
+        chon:subEventOf        :tou66Z0N .
+
+:rolhg4kDY2dKQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag66Z0N6 .
+
+:cgr66Z0N6  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag66Z0N6 .
+
+chon:HalfMove  chon:subEventOf  :gam66Z0N .
+
+:res66Z0N6c  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag66Z0N6  a          chon:Agent ;
+        chon:hasName  "Unzicker, Wolfgang" , "Karpov, Anatoly" .
+
+:rol66Z0N6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4kDY2d .
+
+:ope66Z0N6  a            chon:ChessOpening ;
+        chon:hasECOCode  "C98" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag66Z0N6 .
+
+:hmgam4kDY2dK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4kDY2dKQ , :rolhgejzcycN2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Unzicker, Wolfgang" ;
+        chon:hasSANRecord      "e5" , "Nd8" , "Qc7" , "Nc6" , "d5" , "Bb5" , "a4" , "Bc2" , "b4" , "Na5" , "Nf6" , "d4" , "d6" , "Re1" , "Be7" , "e4" , "Nf3" , "Rb8" , "Nbd2" , "Ba4" , "Bb3" , "b5" , "c5" , "h3" , "c3" , "a6" , "O-O" , "axb5" ;
+        chon:nextHalfMove      :hmgamejzcycN , :hmgam4kDY2dK .
+
+:tou66Z0N  a          chon:hessTournament ;
+        chon:atPlace  :pla66Z0N6 ;
+        chon:hasName  "Nice olm fin-A" .
+
+:rolhgejzcycN2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag66Z0N6 .
+
+:hmgamejzcycN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgejzcycN2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Unzicker, Wolfgang" ;
+        chon:hasSANRecord      "Nxf7" , "Ra2" , "Ba7" , "Nh2" , "Ne2" , "Bd7" , "Be8" , "Bf8" , "f5" , "g5" , "Bb1" , "Kg8" , "Kh8" , "Qh5" , "Ne3" , "Ng3" , "Qd1" , "Ra3" , "Bh5" , "Bd1" , "Kf8" , "Qd8" , "f6" , "g6" , "h6" , "Qg6" , "Qd2" , "Nb7" , "Nc7" , "Nd8" , "Ne8" , "Bc2" , "Qe7" , "Ra8" , "R1a2" , "Ng4" , "Nh5" , "Nf1" , "Bf7" , "Bg7" , "Rea1" , "Be3" , "Bd3" , "Bxf7+" , "Rfc8" , "f4" , "c4" , "Qe8" ;
+        chon:nextHalfMove      :hmgamejzcycN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,84 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam22gW9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol22gW95 ;
+        chon:atPlace           :pla22gW95 ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam22gW95R ;
+        chon:hasHalfMove       :hmgam22gW95R , :hmgamE2ns36M , :hmgamQ2jIB6O , :hmgamd2baH6U ;
+        chon:hasLastHalfMove   :hmgamQ2jIB6O ;
+        chon:hasOpening        :ope22gW95 ;
+        chon:hasReport         :cgr22gW95 ;
+        chon:hasResult         :res22gW95R ;
+        chon:subEventOf        :tou22gW9 .
+
+:ope22gW95  a            chon:ChessOpening ;
+        chon:hasECOCode  "A48" .
+
+:hmgamd2baH6U  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgd2baH6U4 , :rolhgE2ns36Mr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "cxd4" , "Rxd4" , "Bd3" , "Rxc2+" , "Rd8" , "Nf6" , "e5" , "Nxg5" , "h4" , "Qe2" , "Kg7" , "Rxa8" , "exf6" , "h5" , "O-O" , "Kg6" , "Rxh6" , "f4" , "hxg5" , "Kf8" , "f5" , "a3" , "Nc6" , "Nb4" , "Bxh6" , "Bf5" , "Rf4" , "Rxd3" , "Kc2" , "Kb1" , "Bxf6" , "Qh7+" , "d6" , "e4" , "Rxf6" , "Qe4" , "c6" , "fxg5" , "Rc6" , "Rxd2+" , "Rc2+" , "c5" , "Bxd3" , "Nf3" , "Nbd2" , "Bg7" , "Rc8+" , "h6" , "Bg5" , "d5" , "Qxd3" , "Nxd3+" , "Rh8+" , "Kc1" , "g6" , "Bb5+" , "O-O-O" , "g5" , "Rxd8" ;
+        chon:nextHalfMove      :hmgamE2ns36M , :hmgamd2baH6U .
+
+:tou22gW9  a          chon:hessTournament ;
+        chon:atPlace  :pla22gW95 ;
+        chon:hasName  "Buenos Aires" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag22gW95 .
+
+:hmgamQ2jIB6O  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQ2jIB6OF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kg2" , "Kc2" , "Rd7+" ;
+        chon:nextHalfMove      :hmgamQ2jIB6O .
+
+:rol22gW95  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag22gW95 .
+
+chon:HalfMove  chon:subEventOf  :gam22gW9 .
+
+:res22gW95R  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgE2ns36Mr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag22gW95 .
+
+:hmgamE2ns36M  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgE2ns36Mr , :rolhgQ2jIB6OF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ra8" , "Rd7" , "g7" , "Kd2" , "Kg7" , "Kxg5" , "e2" , "Kg6" , "Rxg7" , "Rh5" , "Rxd5" , "e5+" , "Kd6" , "Kf6" , "Rg2" , "Rc7" , "Re7" , "Kf5" , "b6" , "g6" , "g4" , "Re1" , "Kc3" , "a4" , "g5" , "Kc2" , "Rh2+" , "Kf3" , "Rf7" , "Rh7" , "Rf8+" , "Rh1" , "Rh3" , "Rd8" , "Ke6" , "Rf8" , "Kd4" , "Kf4" , "Kb3" , "Kd3" , "e4" , "e3" , "Rh3+" , "Rg8" ;
+        chon:nextHalfMove      :hmgamE2ns36M , :hmgamQ2jIB6O .
+
+:rolhgd2baH6U4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag22gW95 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla22gW95  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:ag22gW95  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Guimard, Carlos E" .
+
+:cgr22gW95  a   chon:ChessGameReport .
+
+:hmgam22gW95R  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgd2baH6U4 , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamd2baH6U .
+
+:rolhgQ2jIB6OF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag22gW95 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag22gW95 .

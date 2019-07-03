@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgknqR8TGS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agknqR8T .
+
+:resknqR8TG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgLpSauTwg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agknqR8T .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agknqR8T .
+
+chon:HalfMove  chon:subEventOf  :gamknqR8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agknqR8T .
+
+:plaknqR8T  a         chon:Place ;
+        chon:hasName  "Cambridge" .
+
+:cgrknqR8T  a   chon:ChessGameReport .
+
+:gamknqR8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolknqR8T ;
+        chon:atPlace           :plaknqR8T ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamknqR8TG ;
+        chon:hasHalfMove       :hmgamknqR8TG , :hmgamLpSauTw ;
+        chon:hasLastHalfMove   :hmgamLpSauTw ;
+        chon:hasOpening        :opeknqR8T ;
+        chon:hasReport         :cgrknqR8T ;
+        chon:hasResult         :resknqR8TG ;
+        chon:subEventOf        :touknqR8 .
+
+:hmgamLpSauTw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLpSauTwg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kg2" , "Kf2" , "Kxf1" , "Kd3" , "d1=Q" , "Ke4" , "Qg2#" , "Kd5" , "Rh1" , "Re1" , "Rf1" , "Kh2" , "a3" , "Kh3" , "Kxh3" , "Qe2+" , "Bh3+" , "h4" , "Bg4" , "Ke2" , "Bc3" , "d2" , "d3" , "b4" , "cxd4" , "Bd4+" , "Rd1" , "d4" ;
+        chon:nextHalfMove      :hmgamLpSauTw .
+
+:touknqR8  a          chon:hessTournament ;
+        chon:atPlace  :plaknqR8T ;
+        chon:hasName  "Cambridge" .
+
+:agknqR8T  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Greenblatt Programm" .
+
+:rolknqR8T  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agknqR8T .
+
+:opeknqR8T  a            chon:ChessOpening ;
+        chon:hasECOCode  "B34" .
+
+:hmgamknqR8TG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgknqR8TGS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d5" , "Rf3" , "cxd4" , "Rf2" , "Rxf1+" , "Bg7" , "c3" , "h5" , "Rxc3" , "c5" , "Qh4+" , "Bxe5" , "Nxf6" , "h3" , "Bf5" , "f4" , "b3" , "Bd4" , "Ng8" , "Kg2" , "Be3" , "Be5" , "Nc3" , "Nf3" , "Ke6" , "bxc6" , "Re3" , "g6" , "d4" , "Rf1" , "e5" , "O-O" , "g3" , "Rf8+" , "Bxc3" , "Nxd4" , "Nc6" , "Be2" , "Kf7" , "Be1" , "exf6" , "Kxf1" , "Re2" , "fxe5" , "f6" , "Qxg4" , "e4" , "Ng4" , "Bxg4" , "Bc4" , "Nxc6" , "Bf2" , "Rb8" , "Nf6" ;
+        chon:nextHalfMove      :hmgamknqR8TG , :hmgamLpSauTw .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamAxlslJN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAxlslJN6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Swiercz,D" ;
+        chon:hasSANRecord      "Bb2" , "Re2+" , "Nf4+" , "Kh2" , "Nc4" , "Kf3" , "Rac1" , "Nb2" , "Rxh4+" , "Kh7" , "Rb3" , "Rxe8" , "Qxc3" , "Qc2" , "Rc1+" , "h4" , "Kg3" , "h6" , "Rc3" , "Qd7" , "Bxg3" , "Ne4" , "Rac8" , "Bxg7" , "Nxd5" , "O-O" , "f4" , "b5" , "Qxc4+" , "dxc6" , "Rxf7" , "Bg2" , "a3" , "Ne7" , "Be5" , "Rd3" , "Rh7" , "Nd5" , "Rf8" , "gxf4" , "Bb4" , "Nc3" , "Re6" , "e5" , "Ng5" , "Rxe8+" , "Bxg2" , "Rb2" , "Kf8" , "c6" , "Nf3" , "h3" , "Kg2" , "h5" , "Ke4" , "Bf5" , "Kxg2" , "b4" , "Nc5+" , "Bd4" , "Rfe8" , "Nh7" , "Ra7" , "Rc7" , "Kd5" , "Rxc4" , "Re3+" , "Rcd8" , "Bh3" , "Nd2" , "Rxh2" , "f6" , "Re4" , "d6" , "Qd4" , "Ng3" , "Rg7+" , "e4" , "Kh1" , "Bc5" , "h2" , "Nc6" , "Kg1" , "exd5" , "Rxg3" , "Ra8+" , "Qxc4" , "Rxa6" , "Rd8" , "Qxc6" , "Nf7" , "Nxa4" , "Ke6" , "Bxf6" , "Kg8" , "bxc4" , "Rc4" , "Bd6" , "g3" , "Re1" , "exf4" , "Bf8" , "a4" , "a6" , "Nd3" , "f5" , "d5" , "Bxc3+" ;
+        chon:nextHalfMove      :hmgamAxlslJN .
+
+:agEzEjSL  a          chon:Agent ;
+        chon:hasName  "Swiercz,D" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEzEjSL .
+
+:opeEzEjSL  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:touEzEjS  a          chon:hessTournament ;
+        chon:atPlace  :plaEzEjSL ;
+        chon:hasName  "Trans-Europa-Schach-Express 2012" .
+
+chon:HalfMove  chon:subEventOf  :gamEzEjS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEzEjSL .
+
+:rolhgAxlslJN6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEzEjSL .
+
+:hmgamEzEjSLw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEzEjSLw8 , :rolhgAxlslJN6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Swiercz,D" ;
+        chon:hasSANRecord      "e6" , "d4" , "Nf6" , "c4" ;
+        chon:nextHalfMove      :hmgamAxlslJN , :hmgamEzEjSLw .
+
+:plaEzEjSL  a         chon:Place ;
+        chon:hasName  "Potsdam GER" .
+
+:cgrEzEjSL  a   chon:ChessGameReport .
+
+:rolhgEzEjSLw8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEzEjSL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolEzEjSL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEzEjSL .
+
+:gamEzEjS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEzEjSL ;
+        chon:atPlace           :plaEzEjSL ;
+        chon:atTime            "2012.10.14"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEzEjSLw ;
+        chon:hasHalfMove       :hmgamAxlslJN , :hmgamEzEjSLw ;
+        chon:hasLastHalfMove   :hmgamAxlslJN ;
+        chon:hasOpening        :opeEzEjSL ;
+        chon:hasReport         :cgrEzEjSL ;
+        chon:hasResult         :resEzEjSLw ;
+        chon:subEventOf        :touEzEjS .
+
+:resEzEjSLw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

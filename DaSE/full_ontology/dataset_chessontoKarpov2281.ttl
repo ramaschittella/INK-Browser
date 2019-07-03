@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr1SSELc  a   chon:ChessGameReport .
+
+:rol1SSELc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1SSELc .
+
+:res1SSELcM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "*" .
+
+:tou1SSEL  a          chon:hessTournament ;
+        chon:atPlace  :pla1SSELc ;
+        chon:hasName  "EE Internet sim" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1SSELc .
+
+chon:HalfMove  chon:subEventOf  :gam1SSEL .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1SSELc .
+
+:ag1SSELc  a          chon:Agent ;
+        chon:hasName  "Pribyl, Martin" , "Karpov, Anatoly" .
+
+:ope1SSELc  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+:hmgamVOzNva4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVOzNva4W , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pribyl, Martin" ;
+        chon:hasSANRecord      "c5" , "Kxg2" , "d5" , "g3" , "Bg7" , "Be4" , "Qxf3+" , "Nf3" , "dxc4" , "c4" , "Rfd8" , "bxc3" , "Qd5+" , "a4" , "Na3" , "Qf3" , "Bb2" , "e5" , "b6" , "Kxf3" , "h3" , "cxd4" , "Bg2" , "Nc6" , "g6" , "Rac1" , "exd4" , "Bxd4" , "Rd5" , "Qe2" , "Bxg2" , "Rfd1" , "Nb5" , "Nf6" , "c3" , "Bf5" , "e3" , "Nxd4" , "O-O" ;
+        chon:nextHalfMove      :hmgamVOzNva4 .
+
+:hmgam1SSELcM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVOzNva4W , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamVOzNva4 .
+
+:gam1SSEL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1SSELc ;
+        chon:atPlace           :pla1SSELc ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1SSELcM ;
+        chon:hasHalfMove       :hmgamVOzNva4 , :hmgam1SSELcM ;
+        chon:hasLastHalfMove   :hmgamVOzNva4 ;
+        chon:hasOpening        :ope1SSELc ;
+        chon:hasReport         :cgr1SSELc ;
+        chon:hasResult         :res1SSELcM ;
+        chon:subEventOf        :tou1SSEL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla1SSELc  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:rolhgVOzNva4W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1SSELc .

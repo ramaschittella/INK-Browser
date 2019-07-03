@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope11P7la  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .
+
+:tou11P7l  a          chon:hessTournament ;
+        chon:atPlace  :plaP1TSMb ;
+        chon:hasName  "Amsterdam" .
+
+:plaP1TSMb  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:res11P7laJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag11P7la .
+
+:gamP1TSM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol11P7la ;
+        chon:atPlace           :plaP1TSMb ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam11P7laJ ;
+        chon:hasHalfMove       :hmgam11P7laJ ;
+        chon:hasLastHalfMove   :hmgam11P7laJ ;
+        chon:hasOpening        :ope11P7la ;
+        chon:hasReport         :cgr11P7la ;
+        chon:hasResult         :res11P7laJ ;
+        chon:subEventOf        :tou11P7l .
+
+chon:HalfMove  chon:subEventOf  :gamP1TSM .
+
+:cgr11P7la  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag11P7la .
+
+:rol11P7la  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag11P7la .
+
+:rolhg11P7laJe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag11P7la .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam11P7laJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg11P7laJe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a6" , "Qb5" , "a4" , "Nf6" , "Bxb3" , "Rfd1" , "Qxc6" , "b6" , "Be2" , "e6" , "d4" , "Ne5" , "cxb3" , "Rf8" , "Rc1" , "d5" , "Bh4" , "Qc7" , "Qc2" , "b3" , "Bxd7" , "Rxc8" , "Be6" , "c5" , "Bb4" , "Nxc6" , "Bxd5" , "h6" , "Qxa4" , "c4" , "O-O" , "exd5" , "e3" , "Qf5" , "Nbd7" , "Qxf7+" , "Be7" , "Kh8" , "Bb7" , "cxd5" , "Nxd5" , "Nc3" , "Nf3" , "Rac8" , "Bf3" , "Bg5" , "Bc6" ;
+        chon:nextHalfMove      :hmgam11P7laJ .
+
+:ag11P7la  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hort, Vlastimil" .

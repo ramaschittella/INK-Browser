@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgtbkiR1XK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agydD073 .
+
+:hmgamtbkiR1X  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtbkiR1XK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Re7" , "Bg2" , "a2" , "Kf1" , "b5" , "Ke5" , "Bf4" , "Nd1" , "Qd4+" , "Bxf1" , "Nb4" , "Rae8" , "Rxe7" , "Qa1+" , "Qc6" , "Kxg4" , "g4" , "Bb7" , "Qb1+" , "Rfe2" , "Ne5" , "Bf1" , "Qe5" , "Kg1" , "Nxd5" , "f3" , "Qf6+" , "a4" , "a3" , "Qf2" , "Be3" , "Kh3" , "Qc2+" , "Kf3" , "g6" , "e5" , "b6" , "h4" , "Qh3" , "dxc4" , "hxg4" , "Bxc4" , "Qxc5" , "Rae1" , "d5" , "Qe6+" , "Ba6" , "Kf4" , "Qa5" , "Kd4" , "Qd4" , "fxe4" , "Nxe4" , "Ng4" , "Qf2+" , "Bd2" , "Qd3+" , "Re4" , "Qf4" , "Bc1" , "c4" , "Bxc5" , "Qxa2" , "bxc4" , "Ne4" , "Kg2" , "Nc3" , "Nc6" , "Qxf1" , "Qc7" , "Nf2" , "c5" , "a5" , "Nf6" , "Qxg4" , "cxd5" , "exd3" , "Qe2" , "Bc6" , "Qc5" , "Qxe7" , "Qf5" , "Qd7" , "Rf2" , "h5" ;
+        chon:nextHalfMove      :hmgamtbkiR1X .
+
+:resydD073H  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agydD073 .
+
+:opeydD073  a            chon:ChessOpening ;
+        chon:hasECOCode  "A22" .
+
+chon:HalfMove  chon:subEventOf  :gamydD07 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agydD073 .
+
+:playdD073  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+:rolhgydD073HK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agydD073 .
+
+:cgrydD073  a   chon:ChessGameReport .
+
+:hmgamydD073H  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgydD073HK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "bxc3" , "Bxc3" , "Bb4" , "Qc2" , "O-O" , "Nf6" , "Bg2" , "Bd7" , "Na5" , "Nf3" , "Nd4" , "Re8" , "d6" , "d3" , "e5" , "Nc6" , "c4" , "Nc3" , "g3" , "e4" , "Nc2" , "Ne3" ;
+        chon:nextHalfMove      :hmgamtbkiR1X , :hmgamydD073H .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agydD073  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Huebner, Robert" .
+
+:gamydD07  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolydD073 ;
+        chon:atPlace           :playdD073 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamydD073H ;
+        chon:hasHalfMove       :hmgamtbkiR1X , :hmgamydD073H ;
+        chon:hasLastHalfMove   :hmgamtbkiR1X ;
+        chon:hasOpening        :opeydD073 ;
+        chon:hasReport         :cgrydD073 ;
+        chon:hasResult         :resydD073H ;
+        chon:subEventOf        :touydD07 .
+
+:rolydD073  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agydD073 .
+
+:touydD07  a          chon:hessTournament ;
+        chon:atPlace  :playdD073 ;
+        chon:hasName  "Baden-Baden" .

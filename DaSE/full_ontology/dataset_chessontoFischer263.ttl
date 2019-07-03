@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr1HwP6V  a   chon:ChessGameReport .
+
+:res1HwP6VN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1HwP6V .
+
+:rolhg1HwP6VN9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1HwP6V .
+
+chon:HalfMove  chon:subEventOf  :gam5LPGl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1HwP6V .
+
+:ope1HwP6V  a            chon:ChessOpening ;
+        chon:hasECOCode  "E70" .
+
+:ag1HwP6V  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Szabo, Laszlo" .
+
+:rol1HwP6V  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1HwP6V .
+
+:gam5LPGl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1HwP6V ;
+        chon:atPlace           :pla5LPGlY ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1HwP6VN ;
+        chon:hasHalfMove       :hmgam1HwP6VN , :hmgamcHt6EVQ ;
+        chon:hasLastHalfMove   :hmgamcHt6EVQ ;
+        chon:hasOpening        :ope1HwP6V ;
+        chon:hasReport         :cgr1HwP6V ;
+        chon:hasResult         :res1HwP6VN ;
+        chon:subEventOf        :tou1HwP6 .
+
+:pla5LPGlY  a         chon:Place ;
+        chon:hasName  "Leipzig" .
+
+:hmgamcHt6EVQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcHt6EVQl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Re3" , "exd5" , "Bxd5" , "Qb6" , "h4" , "Bxf6" , "Rae1" , "Kh1" , "Qxa2" , "Bh4" , "Rc1" , "a4" , "Rc2" , "a5" , "b3" , "Qxe3" , "Ne5" , "g5" , "Qxc2" , "Qa5" , "h6" , "Nxd3" , "O-O" , "Nbd7" , "Re8" , "f5" , "Qxd3" , "f4" ;
+        chon:nextHalfMove      :hmgamcHt6EVQ .
+
+:rolhgcHt6EVQl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1HwP6V .
+
+:hmgam1HwP6VN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1HwP6VN9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "e4" , "O-O" , "Nc3" , "Bg7" , "d6" , "c5" , "e6" , "Ne2" , "Nxd5" , "g6" , "Qd2" , "c4" , "Bg5" , "Be6" , "Nf6" , "d4" , "d5" , "exd5" , "Bd3" ;
+        chon:nextHalfMove      :hmgamcHt6EVQ , :hmgam1HwP6VN .
+
+:tou1HwP6  a          chon:hessTournament ;
+        chon:atPlace  :pla5LPGlY ;
+        chon:hasName  "Leipzig olm fin-A" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

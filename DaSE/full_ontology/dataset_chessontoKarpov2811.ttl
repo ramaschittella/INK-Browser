@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamxRcLwLo  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxRcLwLoy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qh5" , "Rd1" , "Ne7" , "Qb6" , "Kf8" , "Rdd8" , "h6" , "e6" , "dxc5" , "Qxc3" , "Bf5" , "Rb8" , "Kg8" , "exf5" , "d5" , "Bxc5" , "Nxd4" , "Nxc3" , "Rxd2" , "Qh4" , "Kh7" , "e5" , "Bxf5+" , "d4" , "Be4" , "a3" , "c4" , "dxc4" , "Rac1" , "Qxb2" , "Qa4+" , "Nd4" , "Nd5" , "Bxa5" , "Nc3" , "Bf3" , "Ra1" , "Bd2" , "O-O" , "c6" , "b6" , "Qxa3" , "Nf3" , "c5" , "e4" , "Rf1" , "Rhd8" , "Qxd4" , "Qxc4" , "Nbc6" , "a5" , "Be2" ;
+        chon:nextHalfMove      :hmgamxRcLwLo .
+
+:gamxRcLw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxRcLwL ;
+        chon:atPlace           :plaxRcLwL ;
+        chon:atTime            "2005.03.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxRcLwLo ;
+        chon:hasHalfMove       :hmgamxRcLwLo ;
+        chon:hasLastHalfMove   :hmgamxRcLwLo ;
+        chon:hasOpening        :opexRcLwL ;
+        chon:hasReport         :cgrxRcLwL ;
+        chon:hasResult         :resxRcLwLo ;
+        chon:subEventOf        :touxRcLw .
+
+:touxRcLw  a          chon:hessTournament ;
+        chon:atPlace  :plaxRcLwL ;
+        chon:hasName  "Match Rapid" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxRcLwL .
+
+chon:HalfMove  chon:subEventOf  :gamxRcLw .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxRcLwL .
+
+:plaxRcLwL  a         chon:Place ;
+        chon:hasName  "Bucharest ROM" .
+
+:cgrxRcLwL  a   chon:ChessGameReport .
+
+:agxRcLwL  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Istratescu,A" .
+
+:rolxRcLwL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxRcLwL .
+
+:resxRcLwLo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opexRcLwL  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:rolhgxRcLwLoy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxRcLwL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

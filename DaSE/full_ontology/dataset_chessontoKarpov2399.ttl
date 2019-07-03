@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolEEFoXw  a             chon:AuthorRole ;
+        chon:performedBy  :agEEFoXw .
+
+:rolLZSUIG  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLZSUIG .
+
+:gamLZSUI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLZSUIG ;
+        chon:atPlace           :plaLZSUIG ;
+        chon:atTime            "1999.03.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEEFoXws ;
+        chon:hasHalfMove       :hmgamEEFoXws ;
+        chon:hasLastHalfMove   :hmgamEEFoXws ;
+        chon:hasOpening        :opeLZSUIG ;
+        chon:hasReport         :cgrLZSUIG ;
+        chon:hasResult         :resLZSUIGt ;
+        chon:subEventOf        :touLZSUI .
+
+:resLZSUIGt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamLZSUI .
+
+:agLZSUIG  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ivanchuk, Vassily" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLZSUIG .
+
+:rolhgEEFoXwsL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLZSUIG .
+
+:opeLZSUIG  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:touLZSUI  a          chon:hessTournament ;
+        chon:atPlace  :plaLZSUIG ;
+        chon:hasName  "Amber Blindfold" .
+
+:hmgamEEFoXws  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEEFoXwsL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxe6" , "Kg7" , "Bf4" , "Bb3" , "O-O-O" , "Bd6" , "O-O" , "Rxd5" , "R8e6" , "Re1+" , "Qxd8" , "Qf6" , "Qa5+" , "c6" , "c5" , "Rhd1" , "Rxe4" , "dxe4" , "N5f3" , "Ngf6" , "Qa6" , "Rd6+" , "bxa4" , "fxg3" , "b6" , "gxf4" , "Kc3" , "Rd2" , "Nc4" , "Nxd4" , "Kc2" , "Kc5" , "Kf6" , "c4+" , "e4" , "Rb5" , "hxg3" , "cxd4" , "Nxe4" , "Rxe6" , "e6" , "Bc4" , "Ra5" , "Be6" , "Be5" , "a6" , "Rxd6" , "Ng5" , "c3" , "exf5" , "Rxe6+" , "Rd5" , "Qd3" , "f4" , "b3" , "h5" , "Ke3" , "a4" , "Kxe6" , "f5" , "a3" , "g3" , "Qe2" , "Rxd8" , "d5" , "Nxd6" , "Nd2" , "Nxe5" , "Kd3" , "d4" , "Rd8" , "Nd7" , "R8d4" , "Nbd5" , "Qd8" , "a5" , "Qd6" , "Re6" , "Be7" , "g5" , "g6" , "h4" , "Nb6" , "Qf3" , "h6" , "Kd5" , "Nf3" , "Nf5" , "R1e4" , "Rae8" , "b5" , "Rd1" , "Kb1" ;
+        chon:nextHalfMove      :hmgamEEFoXws .
+
+:plaLZSUIG  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrLZSUIG  a   chon:ChessGameReport .

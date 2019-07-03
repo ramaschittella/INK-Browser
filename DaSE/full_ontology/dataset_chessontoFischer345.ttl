@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agy3DuZ4  a          chon:Agent ;
+        chon:hasName  "Petrosian, Tigran V" , "Fischer, Robert James" .
+
+:resy3DuZ4B  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opey3DuZ4  a            chon:ChessOpening ;
+        chon:hasECOCode  "C12" .
+
+:gamy3DuZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roly3DuZ4 ;
+        chon:atPlace           :play3DuZ4 ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamy3DuZ4B ;
+        chon:hasHalfMove       :hmgamy3DuZ4B , :hmgamuYmDI4S ;
+        chon:hasLastHalfMove   :hmgamuYmDI4S ;
+        chon:hasOpening        :opey3DuZ4 ;
+        chon:hasReport         :cgry3DuZ4 ;
+        chon:hasResult         :resy3DuZ4B ;
+        chon:subEventOf        :touy3DuZ .
+
+:touy3DuZ  a          chon:hessTournament ;
+        chon:atPlace  :play3DuZ4 ;
+        chon:hasName  "Candidats Tournament" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agy3DuZ4 .
+
+:hmgamuYmDI4S  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhguYmDI4Sj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Rxb7" , "Rf2" , "Ke3" , "Bxb7" , "a6" , "h3" , "Qxe1" , "Nxd6" , "a4" , "Rd7" , "Kf2" , "Kxd6" , "Nc4" , "Nxe5" , "d3" , "Ke7" , "Rd4" , "Ke4" , "Rd5" , "Kc7" , "Rf4" , "Rg4" , "Bc6" , "Rd1" , "Rb2" , "dxc4" , "Ba6" , "axb7" , "a5" , "Kb8" , "Rf2+" , "Nb5" , "Rfxe1" , "Nd6" , "Rg5" , "Be4" , "Bc8" , "Bb7" , "Rad1" , "Bd5" , "cxd4" , "Rxd3" , "Rb4" , "Rd2" , "cxd3" , "Rab8" , "Nxd4" , "Ng6" , "Kf7" , "Rxd4" ;
+        chon:nextHalfMove      :hmgamuYmDI4S .
+
+chon:HalfMove  chon:subEventOf  :gamy3DuZ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agy3DuZ4 .
+
+:play3DuZ4  a         chon:Place ;
+        chon:hasName  "Curacao" .
+
+:cgry3DuZ4  a   chon:ChessGameReport .
+
+:roly3DuZ4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agy3DuZ4 .
+
+:rolhguYmDI4Sj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agy3DuZ4 .
+
+:hmgamy3DuZ4B  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgy3DuZ4Bl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Nf6" , "f4" , "Bd2" , "Nf3" , "Bg5" , "d4" , "Bxc3" , "e4" , "Bd3" , "Qe1" , "bxc3" , "Nc3" , "Bc3" , "d5" , "Ne4" , "Ba5" , "h6" , "c5" , "e6" , "Qa5" , "Bb4" , "fxe5" , "Ne7" , "e5" , "f6" , "Bd7" , "Nxc3" , "O-O" , "Nc6" , "c4" ;
+        chon:nextHalfMove      :hmgamy3DuZ4B , :hmgamuYmDI4S .
+
+:rolhgy3DuZ4Bl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agy3DuZ4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

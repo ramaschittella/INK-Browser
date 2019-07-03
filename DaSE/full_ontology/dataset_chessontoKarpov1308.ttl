@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agM23wMq  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:hmgamp4b5GqL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgp4b5GqLN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Bxg1+" , "Nxg1" , "Rh2+" , "Rh3+" , "Qc5" , "Bh2" , "Kf2" , "e5" , "Kf3" ;
+        chon:nextHalfMove      :hmgamp4b5GqL .
+
+:resd4eQ8rI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agd4eQ8r .
+
+:hmgamd4eQ8rI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgd4eQ8rIB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Rd3" , "d5" , "Bg6" , "Qa4" , "e3" , "e6" , "Nxg6" , "Nf8" , "Bh5" , "Qe7" , "Bd2" , "f5" , "Qd2" , "Nd2" , "Kf2" , "g4" , "Bxa7" , "Bd5" , "Bxg6" , "h6" , "Rb8" , "Be3" , "Be6" , "Nd5" , "Rd8" , "c4" , "Qe2" , "Bg1" , "Nc3" , "Kh8" , "Rxf4" , "e4" , "Nf3" , "Nf6" , "Qe8" , "Rd1" , "Rxg6" , "Qd3" , "Rxh4" , "Bg7" , "Nxg6+" , "Kf3" , "Qxg6" , "Qh5" , "a4" , "Ne2" , "h4" , "Rxd4" , "Rg1" , "dxc4" , "Nd3" , "Bf3" , "Na6" , "Ne5" , "d4" , "Nf4" , "O-O" , "Nc7" , "f4" , "Kxg6" , "Rdg3" , "Rh4" , "Re8" , "e5" , "Qc2" , "Re4" , "Be2" , "gxf5" , "Bxe5" , "g6" , "a5" , "Rd7" , "Nd7" , "Kh7" , "Rc8" , "Qf3" , "Bf7" , "Kg8" , "c6" , "Nxc4" , "Rg8" ;
+        chon:nextHalfMove      :hmgamd4eQ8rI , :hmgamp4b5GqL .
+
+:plaM23wMq  a         chon:Place ;
+        chon:hasName  "Rotterdam" .
+
+:rolhgd4eQ8rIB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agd4eQ8r , :agM23wMq .
+
+:agd4eQ8r  a          chon:Agent ;
+        chon:hasName  "Ljubojevic, Ljubomir" .
+
+:gamM23wM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolM23wMq ;
+        chon:atPlace           :plaM23wMq ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamd4eQ8rI ;
+        chon:hasHalfMove       :hmgamd4eQ8rI , :hmgamp4b5GqL ;
+        chon:hasLastHalfMove   :hmgamp4b5GqL ;
+        chon:hasOpening        :oped4eQ8r ;
+        chon:hasReport         :cgrd4eQ8r ;
+        chon:hasResult         :resd4eQ8rI ;
+        chon:subEventOf        :touM23wM .
+
+chon:HalfMove  chon:subEventOf  :gamM23wM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:oped4eQ8r  a            chon:ChessOpening ;
+        chon:hasECOCode  "D16" .
+
+:cgrd4eQ8r  a   chon:ChessGameReport .
+
+:touM23wM  a          chon:hessTournament ;
+        chon:atPlace  :plaM23wMq ;
+        chon:hasName  "World Cup" .
+
+:rolM23wMq  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rold4eQ8r  a             chon:AuthorRole ;
+        chon:performedBy  :agd4eQ8r .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM23wMq .
+
+:rolhgp4b5GqLN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agM23wMq , :agd4eQ8r .

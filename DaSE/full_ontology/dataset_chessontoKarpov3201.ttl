@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resjAMc3ff  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjAMc3f .
+
+:opejAMc3f  a            chon:ChessOpening ;
+        chon:hasECOCode  "A14" .
+
+chon:HalfMove  chon:subEventOf  :gamjAMc3 .
+
+:gamjAMc3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljAMc3f ;
+        chon:atPlace           :plajAMc3f ;
+        chon:atTime            "2009.11.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjAMc3ff ;
+        chon:hasHalfMove       :hmgamjAMc3ff ;
+        chon:hasLastHalfMove   :hmgamjAMc3ff ;
+        chon:hasOpening        :opejAMc3f ;
+        chon:hasReport         :cgrjAMc3f ;
+        chon:hasResult         :resjAMc3ff ;
+        chon:subEventOf        :toujAMc3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjAMc3f .
+
+:toujAMc3  a          chon:hessTournament ;
+        chon:atPlace  :plajAMc3f ;
+        chon:hasName  "World Blitz" .
+
+:rolhgjAMc3ffK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjAMc3f .
+
+:plajAMc3f  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:cgrjAMc3f  a   chon:ChessGameReport .
+
+:hmgamjAMc3ff  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjAMc3ffK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "O-O" , "c4" , "cxd5" , "Bb7" , "Qc8" , "Rd1" , "Be7" , "Nf6" , "d5" , "Nxd5" , "Qc2" , "Nxg5" , "Bg5" , "Bg2" , "Nc3" , "Qb1" , "b6" , "Bxg5" , "g3" , "e6" , "c5" , "d4" , "Nd6" , "Kg7" , "g6" , "Nce4" , "Nb4" , "Nf3" ;
+        chon:nextHalfMove      :hmgamjAMc3ff .
+
+:agjAMc3f  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Aronian,L" .
+
+:roljAMc3f  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjAMc3f .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

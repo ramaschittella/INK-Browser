@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSa1x4sG7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSa1x4s .
+
+:plaSa1x4s  a         chon:Place ;
+        chon:hasName  "St Martin" .
+
+:rolhgN8HGNsW5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSa1x4s .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSa1x4s .
+
+:touSa1x4  a          chon:hessTournament ;
+        chon:atPlace  :plaSa1x4s ;
+        chon:hasName  "St Martin simul" .
+
+:hmgamZ8EUmrZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZ8EUmrZh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jacques, Robert" ;
+        chon:hasSANRecord      "Rxd8" , "Qg4" , "f1=Q" , "Qxd5" , "Rd6" , "h4" , "Rd5" , "h3" , "Rd3+" , "Rxd5" , "Qc4+" , "Kb2" ;
+        chon:nextHalfMove      :hmgamZ8EUmrZ .
+
+:agSa1x4s  a          chon:Agent ;
+        chon:hasName  "Jacques, Robert" , "Karpov, Anatoly" .
+
+:cgrSa1x4s  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamSa1x4 .
+
+:resSa1x4sG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamN8HGNsW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgN8HGNsW5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jacques, Robert" ;
+        chon:hasSANRecord      "Be2" , "d7" , "Bb5" , "Qc5" , "Rc8" , "Rc7" , "Ra1" , "Nc5" , "Kg6" , "Kg7" , "Ra2+" , "Qg2" , "Kxh2" , "Kc2" , "g5" , "Kc3" , "Be8+" , "f2" , "Qd6" , "Rba2" , "Bd8" , "Bc2" , "bxc5" , "Kg5" , "Ra8" , "g4" , "Be6+" , "Rf8" , "Qxe4+" , "Na4" , "c5" , "c6" , "b6" , "Qg4" , "Kxb3" , "Nb4" , "Nc7" , "Kb2" , "Nec3" , "Bd7" , "a5" , "Bxb6" , "Nxd7" , "axb3" , "Nge2" , "gxf3" , "Bd5" , "Kh4" , "Kg4" , "Ra7" , "Ra3" , "Qa4+" , "Rf4" , "c4+" , "Rf3+" , "Bf8" , "Qxd7" , "b5" , "cxb5" , "Rxa8" , "Na3" , "Nb6" , "f3" , "Nxb5" , "e4" , "Be3" , "Kh3" , "Bb6" , "Rxd2" , "Rb2" , "Na6" , "Rxe4" , "Rd3" , "d6" , "Rxa8+" , "dxc5" , "Bd3" , "Kg2" , "Kg3" , "Ra6" , "Qxf3+" , "Re3" , "h5" , "Rf6" , "Rf7" , "Bb3" , "Bf7" , "Be7" , "Ra4" , "axb4" , "b3" , "a3" , "Bxc4" , "a4" , "Qb8" , "Rxd7" , "Qf2" , "Kd3" , "Nb5" , "Ra1+" , "Bd2" , "Be1" ;
+        chon:nextHalfMove      :hmgamZ8EUmrZ , :hmgamN8HGNsW .
+
+:hmgamSa1x4sG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgN8HGNsW5 , :rolhgSa1x4sG7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jacques, Robert" ;
+        chon:hasSANRecord      "f3" , "Bf2" , "O-O-O" , "f4" , "Bg7" , "Nf6" , "d5" , "d6" , "Be3" , "Qd2" , "e5" , "c4" , "f5" , "O-O" , "d4" , "e4" , "Nc3" , "g6" , "Ne8" ;
+        chon:nextHalfMove      :hmgamN8HGNsW , :hmgamSa1x4sG .
+
+:opeSa1x4s  a            chon:ChessOpening ;
+        chon:hasECOCode  "E87" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgZ8EUmrZh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSa1x4s .
+
+:gamSa1x4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSa1x4s ;
+        chon:atPlace           :plaSa1x4s ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSa1x4sG ;
+        chon:hasHalfMove       :hmgamSa1x4sG , :hmgamZ8EUmrZ , :hmgamN8HGNsW ;
+        chon:hasLastHalfMove   :hmgamZ8EUmrZ ;
+        chon:hasOpening        :opeSa1x4s ;
+        chon:hasReport         :cgrSa1x4s ;
+        chon:hasResult         :resSa1x4sG ;
+        chon:subEventOf        :touSa1x4 .
+
+:rolSa1x4s  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSa1x4s .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSa1x4s .

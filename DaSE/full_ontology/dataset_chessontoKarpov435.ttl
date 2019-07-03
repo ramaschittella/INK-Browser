@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou6DZSt  a          chon:hessTournament ;
+        chon:atPlace  :pla6DZStv ;
+        chon:hasName  "Bad Lauterberg" .
+
+:ag6DZStv  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gligoric, Svetozar" .
+
+:rol6DZStv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6DZStv .
+
+:ope6DZStv  a            chon:ChessOpening ;
+        chon:hasECOCode  "E57" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6DZStv .
+
+chon:HalfMove  chon:subEventOf  :gam6DZSt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6DZStv .
+
+:res6DZStvn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhghBVQ1wqV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6DZStv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla6DZStv  a         chon:Place ;
+        chon:hasName  "Bad Lauterberg" .
+
+:hmgamhBVQ1wq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghBVQ1wqV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "Nf3" , "Nc3" , "e6" , "d4" , "dxc4" , "Nc6" , "Bd2" , "cxd4" , "Nf6" , "Re1" , "exd4" , "b6" , "a3" , "d5" , "Bb4" , "Bxc4" , "Bg5" , "O-O" , "Bb7" , "Ba2" , "Bd3" , "c4" , "Be7" , "e3" , "Nxc3" , "Nd5" ;
+        chon:nextHalfMove      :hmgamhBVQ1wq .
+
+:gam6DZSt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6DZStv ;
+        chon:atPlace           :pla6DZStv ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhBVQ1wq ;
+        chon:hasHalfMove       :hmgamhBVQ1wq ;
+        chon:hasLastHalfMove   :hmgamhBVQ1wq ;
+        chon:hasOpening        :ope6DZStv ;
+        chon:hasReport         :cgr6DZStv ;
+        chon:hasResult         :res6DZStvn ;
+        chon:subEventOf        :tou6DZSt .
+
+:cgr6DZStv  a   chon:ChessGameReport .

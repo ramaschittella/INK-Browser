@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg18KFYlWc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag18KFYl .
+
+:ope18KFYl  a            chon:ChessOpening ;
+        chon:hasECOCode  "D87" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag18KFYl .
+
+chon:HalfMove  chon:subEventOf  :gamz8xnB .
+
+:plaz8xnBl  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag18KFYl .
+
+:hmgam18KFYlW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg18KFYlWc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Rc5+" , "Qxf2" , "e4" , "Rc7" , "O-O" , "Rc4" , "fxg4" , "Bxf7+" , "Qc2" , "Kg2" , "Ra4" , "Rxe5" , "bxc3" , "Ke5" , "a4" , "Ke2" , "d4" , "Rg7" , "Rb4" , "Nxe3" , "Re7" , "Kf5" , "Kf2" , "d5" , "Nc6" , "Rb1" , "h4" , "Rd3" , "Rg5" , "Rc6" , "Qd6" , "Nf6" , "Qxf2+" , "Kd4" , "Qf7" , "Ra6" , "Kxf2" , "Rxf1+" , "Bg4" , "Nxd5" , "f3" , "Rd6" , "a6" , "a3" , "Ke4" , "Na5" , "Ra3+" , "Ra3" , "g3" , "Kg1" , "Nc4" , "dxc5" , "g6" , "Be3" , "Qe2" , "Rxf7" , "Bc4" , "Kxc3" , "Kf7" , "Qb2" , "c4" , "Nxf2" , "Ra2+" , "e5" , "Rc8" , "Qd5" , "Ne2" , "Ng3" , "cxd5" , "Rxb7" , "Rxc5" , "Rd8" , "a5" , "Ke6" , "Nxc3" , "Kd3" , "Bg7" , "Bh6" , "Kxf1" , "Ra5" , "Nc3" , "Rd5" , "Kf6" , "Rxa6" , "Qxe3" , "Rc6+" , "Kh3" , "h5" , "Rxg6" , "Rf8" , "Ne4" , "Qc4" , "c5" , "Kf3" , "Nf2" , "Rf6+" , "Nxg4" , "Bf2" ;
+        chon:nextHalfMove      :hmgam18KFYlW .
+
+:cgr18KFYl  a   chon:ChessGameReport .
+
+:ag18KFYl  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rol18KFYl  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag18KFYl .
+
+:res18KFYlW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamz8xnB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol18KFYl ;
+        chon:atPlace           :plaz8xnBl ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam18KFYlW ;
+        chon:hasHalfMove       :hmgam18KFYlW ;
+        chon:hasLastHalfMove   :hmgam18KFYlW ;
+        chon:hasOpening        :ope18KFYl ;
+        chon:hasReport         :cgr18KFYl ;
+        chon:hasResult         :res18KFYlW ;
+        chon:subEventOf        :tou18KFY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou18KFY  a          chon:hessTournament ;
+        chon:atPlace  :plaz8xnBl ;
+        chon:hasName  "Optiebeurs" .

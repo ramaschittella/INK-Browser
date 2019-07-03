@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrbkDj79  a   chon:ChessGameReport .
+
+:agbkDj79  a          chon:Agent ;
+        chon:hasName  "Beim,V" , "Karpov,Ana" .
+
+:gambkDj7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbkDj79 ;
+        chon:atPlace           :plabkDj79 ;
+        chon:atTime            "2008.06.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambkDj796 ;
+        chon:hasHalfMove       :hmgambkDj796 ;
+        chon:hasLastHalfMove   :hmgambkDj796 ;
+        chon:hasOpening        :opebkDj79 ;
+        chon:hasReport         :cgrbkDj79 ;
+        chon:hasResult         :resbkDj796 ;
+        chon:subEventOf        :toubkDj7 .
+
+:toubkDj7  a          chon:hessTournament ;
+        chon:atPlace  :plabkDj79 ;
+        chon:hasName  "4th Pivdenny Bank Chess Cup" .
+
+:rolbkDj79  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbkDj79 .
+
+:opebkDj79  a            chon:ChessOpening ;
+        chon:hasECOCode  "A89" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbkDj79 .
+
+:hmgambkDj796  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbkDj796U , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beim,V" ;
+        chon:hasSANRecord      "Qd7" , "Qd2" , "Ng4" , "Nxf8" , "Qxc6" , "b3" , "b6" , "Qc2" , "Nc3" , "Nxc4" , "Nf3" , "d5" , "Rxf8" , "dxc6" , "Be3" , "Rac1" , "Bxc6" , "Ne5" , "Qa4" , "d6" , "a6" , "Bg7" , "Nf6" , "O-O" , "f5" , "Bg2" , "d4" , "Na5" , "Ne6" , "Bb7" , "c5" , "Nxe3" , "Rd1" , "Qxe3" , "Ng5" , "g6" , "g3" , "Neg4" , "Nc6" , "Qe6+" , "c4" ;
+        chon:nextHalfMove      :hmgambkDj796 .
+
+chon:HalfMove  chon:subEventOf  :gambkDj7 .
+
+:rolhgbkDj796U  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbkDj79 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbkDj79 .
+
+:resbkDj796  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plabkDj79  a         chon:Place ;
+        chon:hasName  "Odessa UKR" .

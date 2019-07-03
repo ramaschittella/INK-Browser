@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgmtj6jD1j  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmtj6jD , :agrvSVxD .
+
+:agmtj6jD  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:resmtj6jD1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamrvSVx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrvSVxD ;
+        chon:atPlace           :plarvSVxD ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammtj6jD1 ;
+        chon:hasHalfMove       :hmgammtj6jD1 ;
+        chon:hasLastHalfMove   :hmgammtj6jD1 ;
+        chon:hasOpening        :opemtj6jD ;
+        chon:hasReport         :cgrmtj6jD ;
+        chon:hasResult         :resmtj6jD1 ;
+        chon:subEventOf        :tourvSVx .
+
+:opemtj6jD  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrvSVxD .
+
+chon:HalfMove  chon:subEventOf  :gamrvSVx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmtj6jD .
+
+:cgrmtj6jD  a   chon:ChessGameReport .
+
+:plarvSVxD  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:tourvSVx  a          chon:hessTournament ;
+        chon:atPlace  :plarvSVxD ;
+        chon:hasName  "Reggio Emilia91 Top16" .
+
+:rolmtj6jD  a             chon:AuthorRole ;
+        chon:performedBy  :agmtj6jD .
+
+:hmgammtj6jD1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmtj6jD1j ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c4" , "Nf4" , "f6" , "Rxc7+" , "Rh3" , "Nc7" , "Nxe4" , "Bg2" , "Nf6" , "Rfd8" , "Bb7" , "Rh8" , "Bd6" , "Bxg2" , "g4" , "Rcc4" , "O-O" , "Nd3" , "gxf6" , "d5" , "cxd4" , "Qa4" , "Rfc1" , "Rh4" , "Bd2" , "Nc3" , "c5" , "Bxe4" , "Be7" , "Rad8" , "Kg2" , "Ne4" , "e6" , "Rd7" , "d4" , "Bxd4" , "g3" , "Qxc4" , "Rxc4" , "Rc7" , "g5" , "Be3" , "Kf7" , "dxc4" , "Nf3" , "Rb7" , "Rac1" , "Nxg2" , "b6" , "Nh4" , "Qc8" , "Na6" , "Nd5" ;
+        chon:nextHalfMove      :hmgammtj6jD1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agrvSVxD  a          chon:Agent ;
+        chon:hasName  "Andersson, Ulf" .
+
+:rolrvSVxD  a   chon:BlackPlayerRole , chon:WhitePlayerRole .

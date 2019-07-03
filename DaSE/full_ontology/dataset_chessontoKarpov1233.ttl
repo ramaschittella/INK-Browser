@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resQesArmX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQesArm .
+
+:rolhgQesArmXS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQesArm .
+
+chon:HalfMove  chon:subEventOf  :gamQesAr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQesArm .
+
+:gamQesAr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQesArm ;
+        chon:atPlace           :plaQesArm ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQesArmX ;
+        chon:hasHalfMove       :hmgamQesArmX , :hmgam2epOYn1 ;
+        chon:hasLastHalfMove   :hmgam2epOYn1 ;
+        chon:hasOpening        :opeQesArm ;
+        chon:hasReport         :cgrQesArm ;
+        chon:hasResult         :resQesArmX ;
+        chon:subEventOf        :touQesAr .
+
+:plaQesArm  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:touQesAr  a          chon:hessTournament ;
+        chon:atPlace  :plaQesArm ;
+        chon:hasName  "Hoogovens" .
+
+:cgrQesArm  a   chon:ChessGameReport .
+
+:agQesArm  a          chon:Agent ;
+        chon:hasName  "Van der Sterren, Paul" , "Karpov, Anatoly" .
+
+:rolQesArm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQesArm .
+
+:opeQesArm  a            chon:ChessOpening ;
+        chon:hasECOCode  "C99" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg2epOYn16  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQesArm .
+
+:hmgamQesArmX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQesArmXS , chon:AgentRole , :rolhg2epOYn16 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Sterren, Paul" ;
+        chon:hasSANRecord      "Bxf6" , "Bc2" , "Rac8" , "Nh5" , "d6" , "h3" , "e4" , "Bd7" , "Nf3" , "Nbd2" , "Nxd4" , "Bb2" , "Rxc2" , "gxf5" , "Bb3" , "Ne3" , "g4" , "Rf8" , "Qd4" , "Qd3" , "a3" , "Nxf5" , "Na5" , "Bd3" , "Ba4" , "Bf5" , "f5" , "cxd4" , "c3" , "e5" , "exf5" , "Nf4" , "O-O" , "Nc6" , "Qb6" , "Bf1" , "b4" , "Bb5" , "Bg6" , "Qxc2" , "b5" , "Nb7" , "g6" , "Ndxf5" , "Rxe3" , "d4" , "Bf6" , "Nf1" , "d5" , "Rc2" , "a6" , "Qb1" , "Ng6" , "Qc7" , "Bg2" , "c5" , "Be7" , "Re1" , "Nf6" , "Re2" , "Qxd4" , "Rc8" , "Rfe8" , "Ne7" , "Nxe3" , "Qc2" ;
+        chon:nextHalfMove      :hmgamQesArmX , :hmgam2epOYn1 .
+
+:hmgam2epOYn1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2epOYn16 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Sterren, Paul" ;
+        chon:hasSANRecord      "Rc3" , "Kf7" , "Kh2" , "Rc1+" ;
+        chon:nextHalfMove      :hmgam2epOYn1 .

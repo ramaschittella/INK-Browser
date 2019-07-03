@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resajSBGfj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamajSBG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolajSBGf ;
+        chon:atPlace           :plaajSBGf ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamajSBGfj ;
+        chon:hasHalfMove       :hmgamajSBGfj , :hmgamhfwXZeF , :hmgam7hBKqfA ;
+        chon:hasLastHalfMove   :hmgamhfwXZeF ;
+        chon:hasOpening        :opeajSBGf ;
+        chon:hasReport         :cgrajSBGf ;
+        chon:hasResult         :resajSBGfj ;
+        chon:subEventOf        :touajSBG .
+
+:cgrajSBGf  a   chon:ChessGameReport .
+
+:touajSBG  a          chon:hessTournament ;
+        chon:atPlace  :plaajSBGf ;
+        chon:hasName  "Bled" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agajSBGf .
+
+:rolajSBGf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agajSBGf .
+
+:hmgamhfwXZeF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghfwXZeFS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Udovcic, Mijo" ;
+        chon:hasSANRecord      "a4" , "Nxa4" , "fxg4" , "Bxg3" , "Rxc4" , "Rg4" , "Bxg4" , "g3" , "bxa5" , "Ba4" , "c3" , "fxe5" , "Qb3" , "a5" , "Ng4" , "b5" , "Qxa4" , "b4" , "Qxc4" , "Rb8" , "Bxg5" , "Rxa7+" , "Qc4" , "Bd2" , "Nc3" , "Rb1+" , "Rb2+" , "e5" , "Kf2" , "Qa6" , "Qd1" , "b6" , "Bxe5" , "hxg3" , "Bc1" , "Re6" , "Rxa5" , "Rxb5" , "Qe6" , "Be5" , "Kf8" , "g5" , "Rg6" , "Kg8" ;
+        chon:nextHalfMove      :hmgamhfwXZeF .
+
+chon:HalfMove  chon:subEventOf  :gamajSBG .
+
+:rolhg7hBKqfAH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agajSBGf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agajSBGf .
+
+:plaajSBGf  a         chon:Place ;
+        chon:hasName  "Bled" .
+
+:rolhghfwXZeFS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agajSBGf .
+
+:agajSBGf  a          chon:Agent ;
+        chon:hasName  "Udovcic, Mijo" , "Fischer, Robert James" .
+
+:hmgamajSBGfj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7hBKqfAH , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgam7hBKqfA .
+
+:opeajSBGf  a            chon:ChessOpening ;
+        chon:hasECOCode  "B09" .
+
+:hmgam7hBKqfA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7hBKqfAH , :rolhghfwXZeFS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Udovcic, Mijo" ;
+        chon:hasSANRecord      "f4" , "Nxd5" , "Rfe1" , "Bg7" , "Qd3" , "Qb6" , "d4" , "Nf6" , "Nc3" , "Nbd7" , "O-O" , "exd7" , "Be3" , "f6" , "Bb5" , "d6" , "c6" , "Ng5" , "e6" , "Nf3" , "Kxh7" , "Bxd7" , "Nxh7" , "Be2" , "Rac8" , "Qa5" , "f5" , "Ne8" , "d5" , "cxd5" , "Bf3" , "e5" , "g6" ;
+        chon:nextHalfMove      :hmgam7hBKqfA , :hmgamhfwXZeF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

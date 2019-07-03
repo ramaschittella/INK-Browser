@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res8KrwB25  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhg8KrwB25y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8KrwB2 .
+
+:hmgamjInM917  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjInM917L ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc2" , "Bxd4" , "Rc1" , "Qd2" , "Nf8" , "Re1+" , "Nd4" , "Qxd6" , "Qf4" , "Qxe2" ;
+        chon:nextHalfMove      :hmgamjInM917 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8KrwB2 .
+
+:hmgam8KrwB25  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8KrwB25y , chon:AgentRole , :rolhgjInM917L ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Re8" , "Rxc8" , "b4" , "cxd5" , "d6" , "Nc3" , "cxb4" , "Be7" , "Ne4" , "O-O" , "Qxc8" , "b6" , "c5" , "Nxc3" , "Qxb4" , "Rd1" , "c4" , "Qb3" , "e6" , "Bf6" , "Qxc3" , "exd5" , "Nf3" , "d4" , "Bg2" , "Bb7" , "Rac1" , "d5" , "Qc2" , "g3" , "Be3" , "Rc8" , "Nf6" , "Nd7" ;
+        chon:nextHalfMove      :hmgamjInM917 , :hmgam8KrwB25 .
+
+chon:HalfMove  chon:subEventOf  :gam8KrwB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8KrwB2 .
+
+:pla8KrwB2  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:cgr8KrwB2  a   chon:ChessGameReport .
+
+:rolhgjInM917L  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8KrwB2 .
+
+:ag8KrwB2  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Larsen, Bent" .
+
+:rol8KrwB2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8KrwB2 .
+
+:ope8KrwB2  a            chon:ChessOpening ;
+        chon:hasECOCode  "E19" .
+
+:gam8KrwB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8KrwB2 ;
+        chon:atPlace           :pla8KrwB2 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8KrwB25 ;
+        chon:hasHalfMove       :hmgam8KrwB25 , :hmgamjInM917 ;
+        chon:hasLastHalfMove   :hmgamjInM917 ;
+        chon:hasOpening        :ope8KrwB2 ;
+        chon:hasReport         :cgr8KrwB2 ;
+        chon:hasResult         :res8KrwB25 ;
+        chon:subEventOf        :tou8KrwB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou8KrwB  a          chon:hessTournament ;
+        chon:atPlace  :pla8KrwB2 ;
+        chon:hasName  "IBM" .

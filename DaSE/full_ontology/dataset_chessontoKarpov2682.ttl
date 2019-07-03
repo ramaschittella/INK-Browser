@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla1MVQLf  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+:rolhg1MVQLfe9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1MVQLf .
+
+:cgr1MVQLf  a   chon:ChessGameReport .
+
+:rol1MVQLf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1MVQLf .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1MVQLf .
+
+:res1MVQLfe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gam1MVQL .
+
+:rolhgsO809h4y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1MVQLf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1MVQLf .
+
+:hmgam1MVQLfe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1MVQLfe9 , chon:AgentRole , :rolhgsO809h4y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Bd3" , "e4" , "b5" , "cxd4" , "Ng6" , "Nf3" , "d5" , "Rad1" , "Nxh4" , "c3" , "Nb3" , "Bb7" , "Qc7" , "a6" , "Be3" , "Ne7" , "d6" , "Re1" , "Be7" , "Bc5" , "Bxg5" , "f6" , "d4" , "Ng5" , "Nxd4" , "Bf4" , "Nd7" , "Bf1" , "Qd2" , "e6" , "h4" , "c5" , "N2f3" , "O-O" , "Nd2" ;
+        chon:nextHalfMove      :hmgamsO809h4 , :hmgam1MVQLfe .
+
+:ag1MVQLf  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Anand,V" .
+
+:ope1MVQLf  a            chon:ChessOpening ;
+        chon:hasECOCode  "B42" .
+
+:gam1MVQL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1MVQLf ;
+        chon:atPlace           :pla1MVQLf ;
+        chon:atTime            "2002.11.04"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1MVQLfe ;
+        chon:hasHalfMove       :hmgam1MVQLfe , :hmgamsO809h4 ;
+        chon:hasLastHalfMove   :hmgamsO809h4 ;
+        chon:hasOpening        :ope1MVQLf ;
+        chon:hasReport         :cgr1MVQLf ;
+        chon:hasResult         :res1MVQLfe ;
+        chon:subEventOf        :tou1MVQL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou1MVQL  a          chon:hessTournament ;
+        chon:atPlace  :pla1MVQLf ;
+        chon:hasName  "6th Corsica Masters" .
+
+:hmgamsO809h4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsO809h4y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Nc4" , "Rd8" , "a4" , "Kh7" , "Qxg7#" , "Bb5" , "Rc6" , "Qc8" , "Rxb5" , "Ba8" , "Bc6" , "Ne7" , "Rh5" , "Red1" , "Rb1" , "Rd1" , "Rd6" , "Bxa6" , "Qe4" , "Nhg6" , "Qxd4" , "Bd3" , "Na5" , "Nxd6" , "Rxd6" , "Bc4" , "Bxd5" , "Qh5" , "bxc4" , "f5" , "exd5" , "Bd7" , "Nd4" , "Rd5" , "cxd6" , "Be5" , "Rg6" , "Nf7" , "Rae8" , "Qf5" , "Qe4+" , "Qe7" , "Rfd8" , "Bb7" , "g3" , "e5" , "d7" , "Rb8" , "Ne5" , "Bg3" , "c5" , "Ra6" , "Bf4" , "exd4" , "Rc1" , "c4" , "Nd6" , "Qc3" , "Qa5" , "h6" , "Rxd4" , "Qe6" , "Rc5" , "Bd2" , "Qa8" , "Bf1" , "b3" , "axb5" , "Nc6" , "Bxb5" , "Kh8" , "Nb3" ;
+        chon:nextHalfMove      :hmgamsO809h4 .

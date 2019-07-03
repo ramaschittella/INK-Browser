@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgXPzgozGl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXPzgoz .
+
+:hmgamXPzgozG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXPzgozGl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e6" , "c5" , "cxd4" , "Nc3" , "c4" , "e3" , "Bb4" , "exd4" , "Ne2" , "d4" , "Nf6" , "O-O" ;
+        chon:nextHalfMove      :hmgamoPLyKAy , :hmgamXPzgozG .
+
+:touXPzgo  a          chon:hessTournament ;
+        chon:atPlace  :plaXPzgoz ;
+        chon:hasName  "Bugojno" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXPzgoz .
+
+:rolhgoPLyKAyL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXPzgoz .
+
+:agXPzgoz  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gligoric, Svetozar" .
+
+:hmgamoPLyKAy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoPLyKAyL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd4" , "Rd4" , "Qxf3" , "Re6" , "Kb2" , "Kg8" , "Qb2" , "Nd3" , "Be7" , "g3" , "Qf4" , "Ne5" , "Nc2" , "Kg2" , "Bc6" , "Kd2" , "Qa1" , "d5" , "O-O" , "Qb3" , "Qb1" , "Bxf8" , "Kh7" , "a3" , "f5" , "b5" , "Nf4" , "Bd5" , "Qh5" , "Re2" , "Bxc2" , "Ke1" , "Re7" , "Rf4" , "Rb7" , "Be4+" , "Rxd6" , "Rxf3" , "Qg4" , "Qd4" , "Qe8" , "Kg3" , "h6" , "Ra6" , "cxd5" , "Ncd5" , "d6" , "gxf4" , "Bxd5" , "Rg3" , "Rxb4" , "Bb2" , "Rxf4" , "a4" , "f6" , "Bg6" , "Rdd1" , "Kc2" , "Rc4" , "Qxh4+" , "Kh2" , "Rd6" , "exd5" , "Kf1" , "Bf3" , "Kxf8" , "Re8" , "Bb3" , "Nxa3" , "Be6" , "Qf3" , "a5" , "Nd5" , "Bxf5+" , "Bc5" , "h4" , "Bf8" , "Nc6" , "Nc4" , "Bd7" , "Qg6+" , "Bc8" , "Rc8" , "Rg1" , "Re5" , "Rad1" , "Bg2" , "Qc2" , "Nxd5" , "Bf5" , "b4" , "Qh3+" ;
+        chon:nextHalfMove      :hmgamoPLyKAy .
+
+chon:HalfMove  chon:subEventOf  :gamXPzgo .
+
+:opeXPzgoz  a            chon:ChessOpening ;
+        chon:hasECOCode  "E42" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXPzgoz .
+
+:resXPzgozG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaXPzgoz  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+:gamXPzgo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXPzgoz ;
+        chon:atPlace           :plaXPzgoz ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXPzgozG ;
+        chon:hasHalfMove       :hmgamoPLyKAy , :hmgamXPzgozG ;
+        chon:hasLastHalfMove   :hmgamoPLyKAy ;
+        chon:hasOpening        :opeXPzgoz ;
+        chon:hasReport         :cgrXPzgoz ;
+        chon:hasResult         :resXPzgozG ;
+        chon:subEventOf        :touXPzgo .
+
+:cgrXPzgoz  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolXPzgoz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXPzgoz .

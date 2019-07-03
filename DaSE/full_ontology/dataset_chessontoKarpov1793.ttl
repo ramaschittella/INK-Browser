@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeUj7LXl  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .
+
+:gamUj7LX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUj7LXl ;
+        chon:atPlace           :plaUj7LXl ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUj7LXll ;
+        chon:hasHalfMove       :hmgamUj7LXll ;
+        chon:hasLastHalfMove   :hmgamUj7LXll ;
+        chon:hasOpening        :opeUj7LXl ;
+        chon:hasReport         :cgrUj7LXl ;
+        chon:hasResult         :resUj7LXll ;
+        chon:subEventOf        :touUj7LX .
+
+:touUj7LX  a          chon:hessTournament ;
+        chon:atPlace  :plaUj7LXl ;
+        chon:hasName  "Las Palmas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUj7LXl .
+
+:hmgamUj7LXll  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUj7LXlll ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Epishin, Vladimir" ;
+        chon:hasSANRecord      "exf3" , "b6" , "Nf6" , "h4" , "Qc6" , "Bb5" , "Bxf8" , "e3" , "Kh7" , "Bd6" , "e4" , "Bf4" , "Qxc3" , "Rdc1" , "Ba3" , "Bg7" , "d5" , "a6" , "Nc7" , "Rxc8" , "Qd2" , "Ng7" , "e5" , "bxa5" , "Nc3" , "Ne8" , "Qa6" , "cxd5" , "Qb3" , "a4" , "Ne4" , "Bb4" , "Qb4" , "Nxc3" , "Qb6" , "Qxc8" , "Qf8+" , "a5" , "Bf1" , "Bd7" , "Qb7" , "Ne6" , "Bxb5" , "Rc8" , "Be7" , "Rc1" , "g6" , "Nf3" , "Nf5" , "Bc5" , "Qf7+" , "h5" , "Nd6" , "e6" , "f6" , "d4" , "g3" , "Qb5" , "Qxg6" , "Nxb5" , "Bg2" , "Qxa5" , "Nc6" , "Bf8" , "c6" , "O-O" , "Kh8" , "c4" , "Re8" , "Ne7" , "Rd1" ;
+        chon:nextHalfMove      :hmgamUj7LXll .
+
+:rolhgUj7LXlll  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUj7LXl .
+
+:plaUj7LXl  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+chon:HalfMove  chon:subEventOf  :gamUj7LX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUj7LXl .
+
+:cgrUj7LXl  a   chon:ChessGameReport .
+
+:agUj7LXl  a          chon:Agent ;
+        chon:hasName  "Epishin, Vladimir" , "Karpov, Anatoly" .
+
+:rolUj7LXl  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUj7LXl .
+
+:resUj7LXll  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

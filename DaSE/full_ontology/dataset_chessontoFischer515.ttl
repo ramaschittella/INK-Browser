@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgmefrO0fW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmefrO0 .
+
+:agmefrO0  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Fischer, Robert James" .
+
+:rolmefrO0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmefrO0 .
+
+:hmgammefrO0f  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmefrO0fW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Rac3" , "Kxh4" , "Nxe7+" , "dxe5" , "Rcd1" , "O-O" , "Bb2" , "e5" , "Nc6" , "b3" , "Bxe6" , "Ra1" , "Qxa6" , "Ne3" , "Rd3" , "Kh7" , "Qb8" , "Bd5" , "Nbd2" , "Bb5" , "Kg7" , "f3" , "Rxe6" , "Bc3" , "h4" , "Nxg5" , "Be7" , "Ra4" , "Ra6" , "Re8" , "Rc8" , "e4" , "Na5" , "Rd1" , "Bb1" , "c3" , "Rb2" , "Rxa3" , "Rd6" , "Bf6" , "Bf8" , "b5" , "Raa3" , "Ra3" , "Bc2" , "Be6" , "Ba2" , "Rad8" , "Qd2" , "d6" , "Ng5" , "Ng3" , "a3" , "Qb7" , "fxe6" , "Re2" , "Rad1" , "Rc7" , "Kg4" , "Nf1" , "Nf3" , "a6" , "Nh7" , "Bd7" , "Nf6" , "cxd4" , "h3" , "gxh4" , "d4" , "Bg7" , "h6" , "Rxf6" , "Rxb7" , "Bc8" , "Rb1" , "g6" , "Qd6" , "Kh2" , "b4" , "Rc3" , "Qb6" , "Bb3" , "Kg3" , "Rxc3" , "Qxb7" , "Ra2" , "Rxe7" , "Kf6" , "Re1" , "Ba4" , "hxg5" , "c5" , "Ne7" , "Rc1" , "Qb2" , "Kg8" , "Nd5" , "Rd2" ;
+        chon:nextHalfMove      :hmgammefrO0f .
+
+:opemefrO0  a            chon:ChessOpening ;
+        chon:hasECOCode  "C93" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmefrO0 .
+
+chon:HalfMove  chon:subEventOf  :gammefrO .
+
+:resmefrO0f  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmefrO0 .
+
+:gammefrO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmefrO0 ;
+        chon:atPlace           :plamefrO0 ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammefrO0f ;
+        chon:hasHalfMove       :hmgammefrO0f ;
+        chon:hasLastHalfMove   :hmgammefrO0f ;
+        chon:hasOpening        :opemefrO0 ;
+        chon:hasReport         :cgrmefrO0 ;
+        chon:hasResult         :resmefrO0f ;
+        chon:subEventOf        :toumefrO .
+
+:toumefrO  a          chon:hessTournament ;
+        chon:atPlace  :plamefrO0 ;
+        chon:hasName  "La Habana olm fin-A" .
+
+:plamefrO0  a         chon:Place ;
+        chon:hasName  "La Habana" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrmefrO0  a   chon:ChessGameReport .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plamKjPjH  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrmKjPjH  a   chon:ChessGameReport .
+
+:gammKjPj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmKjPjH ;
+        chon:atPlace           :plamKjPjH ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammKjPjHA ;
+        chon:hasHalfMove       :hmgammKjPjHA ;
+        chon:hasLastHalfMove   :hmgammKjPjHA ;
+        chon:hasOpening        :opemKjPjH ;
+        chon:hasReport         :cgrmKjPjH ;
+        chon:hasResult         :resmKjPjHA ;
+        chon:subEventOf        :toumKjPj .
+
+:toumKjPj  a          chon:hessTournament ;
+        chon:atPlace  :plamKjPjH ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+:agmKjPjH  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolmKjPjH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmKjPjH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmKjPjH .
+
+:resmKjPjHA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gammKjPj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmKjPjH .
+
+:hmgammKjPjHA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmKjPjHAV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d4" , "Qh3" , "Bd5" , "Bb7" , "b5" , "Nbd2" , "Rc7" , "Ba4" , "d6" , "h3" , "e5" , "Qd7" , "Ne4" , "Rd7" , "h6" , "Ra8" , "c3" , "Nd8" , "Re1" , "Rd1" , "g5" , "Kh8" , "Bxa8" , "b4" , "a4" , "dxc6" , "Ne6" , "Bb3" , "d5" , "Bxg5" , "Nf3" , "Ne3" , "Ne8" , "Nc5" , "Nf1" , "Bb6" , "O-O" , "h5" , "a6" , "Bxc6" , "axb5" , "Bf8" , "Rxe7" , "Nf6" , "Ng4" , "Bxd5" , "Nc7" , "Nb7" , "Nxe7" , "e4" , "Qa8" , "exd5" , "c6" , "Na6" , "Rd8" , "Be3" , "Nh7" , "N3h2" , "Qf3" , "Bb5" , "h4" , "g4" , "Qd8" , "Qc8" , "Be7" , "hxg5" , "Nf5" , "Ng3" , "Rxa8" , "Nc6" , "Re8" , "Bc2" , "Qb7" ;
+        chon:nextHalfMove      :hmgammKjPjHA .
+
+:opemKjPjH  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:rolhgmKjPjHAV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmKjPjH .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

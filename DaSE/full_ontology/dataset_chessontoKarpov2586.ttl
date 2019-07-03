@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg1Nd2Zii9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1Nd2Zi .
+
+:plazN4ISi  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:gamzN4IS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1Nd2Zi ;
+        chon:atPlace           :plazN4ISi ;
+        chon:atTime            "2001.08.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1Nd2Zii ;
+        chon:hasHalfMove       :hmgam1Nd2Zii ;
+        chon:hasLastHalfMove   :hmgam1Nd2Zii ;
+        chon:hasOpening        :ope1Nd2Zi ;
+        chon:hasReport         :cgr1Nd2Zi ;
+        chon:hasResult         :res1Nd2Zii ;
+        chon:subEventOf        :tou1Nd2Z .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1Nd2Zi .
+
+chon:HalfMove  chon:subEventOf  :gamzN4IS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1Nd2Zi .
+
+:hmgam1Nd2Zii  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg1Nd2Zii9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hoffman,A" ;
+        chon:hasSANRecord      "a5" , "Rc7" , "Bg7" , "dxe6" , "Na4" , "Qh4" , "Qd3" , "Bh6" , "Kf7" , "g6" , "Re4" , "e5" , "c4" , "Ng7" , "Rb3" , "Bb7" , "Rd7" , "Nd1" , "h3" , "g3" , "Bxc6" , "a6" , "Qc7" , "Rf7" , "Bg2" , "c5" , "Qg3" , "Rb8" , "Rcb6" , "Rd2" , "Bc6" , "Rc6" , "Bf4" , "Rb7" , "Nf6" , "Qc2" , "Nbd7" , "a4" , "Ne5" , "Kg8" , "Rxc6" , "g4" , "axb6" , "Bxe5" , "d6" , "exf4" , "Bxf4" , "Ree2" , "Rad1" , "fxe6" , "Rdb7" , "Re1" , "Rd1" , "Rb4" , "Qb8" , "Rb6" , "Nf3" , "Rc8" , "d4" , "Ra1" , "Qxb6" , "b6" , "Ne8" , "Nxe5" , "d5" , "Ne4" , "O-O" , "Nc3" , "e3" ;
+        chon:nextHalfMove      :hmgam1Nd2Zii .
+
+:cgr1Nd2Zi  a   chon:ChessGameReport .
+
+:ag1Nd2Zi  a          chon:Agent ;
+        chon:hasName  "Hoffman,A" , "Karpov,An" .
+
+:rol1Nd2Zi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1Nd2Zi .
+
+:tou1Nd2Z  a          chon:hessTournament ;
+        chon:atPlace  :plazN4ISi ;
+        chon:hasName  "Karpov-Boca Simul" .
+
+:ope1Nd2Zi  a            chon:ChessOpening ;
+        chon:hasECOCode  "E65" .
+
+:res1Nd2Zii  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

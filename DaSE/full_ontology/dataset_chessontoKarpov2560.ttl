@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agKkjQqy  a          chon:Agent ;
+        chon:hasName  "Kramnik,V" , "Karpov,An" .
+
+:rolKkjQqy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKkjQqy .
+
+:resKkjQqy9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeKkjQqy  a            chon:ChessOpening ;
+        chon:hasECOCode  "E08" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKkjQqy .
+
+chon:HalfMove  chon:subEventOf  :gamKkjQq .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKkjQqy .
+
+:rolhgGi1Zaxpk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKkjQqy .
+
+:rolhgKkjQqy9m  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKkjQqy .
+
+:hmgamKkjQqy9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKkjQqy9m , chon:AgentRole , :rolhgGi1Zaxpk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik,V" ;
+        chon:hasSANRecord      "a5" , "Bb7" , "Bxe5" , "Rc2" , "Bg2" , "g3" , "Nxe5" , "Bf4" , "Rc1" , "Bb4+" , "Ne5" , "O-O" , "b6" , "Rc8" , "h6" , "Qxc8" , "Nbd7" , "a4" , "Qd1" , "c4" , "cxd5" , "Nf6" , "Ba6" , "Nxd7" , "Bd2" , "Qc2" , "Qa8" , "c6" , "Be7" , "d5" , "Nf3" , "Nbd2" , "d4" , "e6" , "Rxc8" ;
+        chon:nextHalfMove      :hmgamKkjQqy9 , :hmgamGi1Zaxp .
+
+:plaKkjQqy  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrKkjQqy  a   chon:ChessGameReport .
+
+:gamKkjQq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKkjQqy ;
+        chon:atPlace           :plaKkjQqy ;
+        chon:atTime            "2001.03.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKkjQqy9 ;
+        chon:hasHalfMove       :hmgamGi1Zaxp , :hmgamKkjQqy9 ;
+        chon:hasLastHalfMove   :hmgamGi1Zaxp ;
+        chon:hasOpening        :opeKkjQqy ;
+        chon:hasReport         :cgrKkjQqy ;
+        chon:hasResult         :resKkjQqy9 ;
+        chon:subEventOf        :touKkjQq .
+
+:touKkjQq  a          chon:hessTournament ;
+        chon:atPlace  :plaKkjQqy ;
+        chon:hasName  "Amber Blindfold" .
+
+:hmgamGi1Zaxp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGi1Zaxpk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik,V" ;
+        chon:hasSANRecord      "b5" , "Qd2" , "Ba3" , "Qc1" , "b3" , "Rc4" , "Bf1" , "axb3" , "Bb4" ;
+        chon:nextHalfMove      :hmgamGi1Zaxp .

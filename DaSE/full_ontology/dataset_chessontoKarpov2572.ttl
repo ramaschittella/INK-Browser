@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rescXU2lmg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamcXU2l  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcXU2lm ;
+        chon:atPlace           :placXU2lm ;
+        chon:atTime            "2001.04.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcXU2lmg ;
+        chon:hasHalfMove       :hmgamcXU2lmg , :hmgamaexQxvO ;
+        chon:hasLastHalfMove   :hmgamaexQxvO ;
+        chon:hasOpening        :opecXU2lm ;
+        chon:hasReport         :cgrcXU2lm ;
+        chon:hasResult         :rescXU2lmg ;
+        chon:subEventOf        :toucXU2l .
+
+:rolhgaexQxvOU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcXU2lm .
+
+:opecXU2lm  a            chon:ChessOpening ;
+        chon:hasECOCode  "B38" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcXU2lm .
+
+chon:HalfMove  chon:subEventOf  :gamcXU2l .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcXU2lm .
+
+:placXU2lm  a         chon:Place ;
+        chon:hasName  "Damascus SYR" .
+
+:toucXU2l  a          chon:hessTournament ;
+        chon:atPlace  :placXU2lm ;
+        chon:hasName  "Match g/15" .
+
+:cgrcXU2lm  a   chon:ChessGameReport .
+
+:hmgamcXU2lmg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcXU2lmga ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Safiye,Y" ;
+        chon:hasSANRecord      "b3" , "f3" , "Nf3" , "Rc1" , "e4" , "Nc3" , "d4" , "Be2" , "Nxd4" , "d6" , "Bc6" , "Bg7" , "O-O" , "Nc6" , "h5" , "c5" , "Rfd1" , "cxd4" , "g6" , "c4" , "Nf6" , "Ne5" , "Be3" , "Ned7" , "h3" , "Bd7" , "Qd2" , "Rc8" , "a6" ;
+        chon:nextHalfMove      :hmgamaexQxvO , :hmgamcXU2lmg .
+
+:agcXU2lm  a          chon:Agent ;
+        chon:hasName  "Safiye,Y" , "Karpov,An" .
+
+:rolcXU2lm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcXU2lm .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgcXU2lmga  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcXU2lm .
+
+:hmgamaexQxvO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgaexQxvOU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Safiye,Y" ;
+        chon:hasSANRecord      "exd4" , "Rc8" , "b5" , "Qa2" , "a5" , "c6" , "Nxe6" , "axb6" , "Qxd7" , "Kh7" , "dxe5" , "Qd7" , "Rb1" , "Bxc5" , "Bxa6" , "Ne4" , "b6" , "Rxc8" , "Nd4" , "Bd3" , "Qc7" , "Bb5" , "Nb8" , "bxc6" , "Qb7" , "e5" , "Rb2" , "Nxd7" , "Rcd8" , "b4" , "Nc6" , "Bxd4" , "fxe6" , "a4" , "Rxb6" , "Nxb6" , "Be6" , "c5" , "Qxe6+" , "Bd7" , "Rc2" , "Bf2" ;
+        chon:nextHalfMove      :hmgamaexQxvO .

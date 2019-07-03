@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaRWjIAD  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+:cgrRWjIAD  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRWjIAD .
+
+:hmgamRWjIADz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRWjIADzG , chon:AgentRole , :rolhgjYt2UGr7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Morovic Fernandez, Ivan" ;
+        chon:hasSANRecord      "Nf3" , "h6" , "Nc3" , "cxd4" , "cxd5" , "c5" , "d5" , "d4" , "h3" , "exd4" , "Nc6" , "exd5" , "e3" , "Bd6" , "Nf6" , "O-O" , "Bb5" , "e6" , "c4" ;
+        chon:nextHalfMove      :hmgamjYt2UGr , :hmgamRWjIADz .
+
+chon:HalfMove  chon:subEventOf  :gamRWjIA .
+
+:rolRWjIAD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRWjIAD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRWjIAD .
+
+:gamRWjIA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRWjIAD ;
+        chon:atPlace           :plaRWjIAD ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRWjIADz ;
+        chon:hasHalfMove       :hmgamRWjIADz , :hmgamjYt2UGr ;
+        chon:hasLastHalfMove   :hmgamjYt2UGr ;
+        chon:hasOpening        :opeRWjIAD ;
+        chon:hasReport         :cgrRWjIAD ;
+        chon:hasResult         :resRWjIADz ;
+        chon:subEventOf        :touRWjIA .
+
+:touRWjIA  a          chon:hessTournament ;
+        chon:atPlace  :plaRWjIAD ;
+        chon:hasName  "Las Palmas m" .
+
+:resRWjIADz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgjYt2UGr7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRWjIAD .
+
+:rolhgRWjIADzG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRWjIAD .
+
+:agRWjIAD  a          chon:Agent ;
+        chon:hasName  "Morovic Fernandez, Ivan" , "Karpov, Anatoly" .
+
+:opeRWjIAD  a            chon:ChessOpening ;
+        chon:hasECOCode  "D32" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamjYt2UGr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjYt2UGr7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Morovic Fernandez, Ivan" ;
+        chon:hasSANRecord      "hxg4" , "a3" , "b3" , "Nc6" , "Bf5" , "Re7" , "Kg8" , "Ba4" , "Kg2" , "Bxg5" , "Rc7" , "Ra7" , "Nc4" , "Rfd8" , "a4" , "b4" , "Qxg3+" , "fxg3" , "g5" , "g3" , "Bc2" , "Ng4" , "Kh3" , "gxf6" , "Ne5" , "Re1" , "Na3" , "Re2+" , "Rc8" , "Rh8+" , "Na4" , "a5" , "Rc5" , "b5" , "Rc1" , "Rde8" , "Be3" , "Qd6" , "Bb8" , "Kg4" , "Qh1+" , "Kxh8" , "Rh1" , "Bb3" , "Na5" , "Bxf6" , "Bxg4" , "Qb6" , "hxg5" , "a6" , "Nxa5" , "Bd7" , "Be6" ;
+        chon:nextHalfMove      :hmgamjYt2UGr .

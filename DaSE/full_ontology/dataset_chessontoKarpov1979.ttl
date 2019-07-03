@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla4FVNTs  a         chon:Place ;
+        chon:hasName  "Sanghi Nagar" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageFP4qr .
+
+:hmgameFP4qrE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeFP4qrEf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelfand, Boris" ;
+        chon:hasSANRecord      "f4" , "d4" , "Rgh3" , "Bd2" , "Rxb4" , "Rh1" , "b5" , "Ra8" , "Qd2" , "h6" , "h3" , "a6" , "Bxf1" , "Re2" , "Rc3" , "R5b7" , "Rb5" , "Ra7" , "Rab5" , "Qg8" , "O-O" , "e4" , "Qg4" , "hxg3" , "hxg6+" , "h5" , "R1c2" , "Qc2" , "Bxb4" , "Qxg6" , "g3" , "Bg5" , "Qf6" , "Nb6" , "Nf6" , "Ne8" , "Nf3" , "Re1" , "Nc3" , "Rb8" , "Rb4" , "Rd2" , "Rdc2" , "Ra6" , "Qe3" , "Qa6" , "Ra5" , "Bxa6" , "Rc1" , "d6" , "fxe4" , "Rxb6" , "f5" , "c5" , "c4" , "Qh4" , "Na4" , "Kg2" , "Nd2" , "Rec2" , "bxa6" , "Nbd7" , "b3" , "Qd3" , "Rc4" , "h4" , "Bh6" , "Nc7" , "a4" , "cxb5" , "g6" , "Rd1" , "Kh7" , "Qa8" , "Qe2" , "d5" , "Nb4" , "Na6" , "Nxb6" , "Rxg3" , "Kxf1" , "Bg7" ;
+        chon:nextHalfMove      :hmgameFP4qrE .
+
+:cgreFP4qr  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam4FVNT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageFP4qr .
+
+:roleFP4qr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageFP4qr .
+
+:gam4FVNT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleFP4qr ;
+        chon:atPlace           :pla4FVNTs ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameFP4qrE ;
+        chon:hasHalfMove       :hmgameFP4qrE ;
+        chon:hasLastHalfMove   :hmgameFP4qrE ;
+        chon:hasOpening        :opeeFP4qr ;
+        chon:hasReport         :cgreFP4qr ;
+        chon:hasResult         :reseFP4qrE ;
+        chon:subEventOf        :toueFP4q .
+
+:toueFP4q  a          chon:hessTournament ;
+        chon:atPlace  :pla4FVNTs ;
+        chon:hasName  "Candidats FIDE f1" .
+
+:reseFP4qrE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgeFP4qrEf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageFP4qr .
+
+:ageFP4qr  a          chon:Agent ;
+        chon:hasName  "Gelfand, Boris" , "Karpov, Anatoly" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeeFP4qr  a            chon:ChessOpening ;
+        chon:hasECOCode  "A59" .

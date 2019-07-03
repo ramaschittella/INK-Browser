@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resz33iVJh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgu1JrFJyh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agz33iVJ .
+
+:plaz33iVJ  a         chon:Place ;
+        chon:hasName  "Budapest" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agz33iVJ .
+
+:hmgamu1JrFJy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgu1JrFJyh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Rxb2" , "Rb3" , "Rb8" , "Qg4" , "Ke2" , "Rxd5" , "h5" , "Rfd1" , "Bxd4" , "Kf1" , "Qxd5" , "Be3" , "a3" , "Bd4" , "Rxd4" , "Rb2+" , "Qc4" , "Rd2" , "Rb4" , "a5" , "Rb1+" , "Rbd1" , "Bg5" , "Rd5" , "Qb7" , "Rd7" , "cxd4" ;
+        chon:nextHalfMove      :hmgamu1JrFJy .
+
+:cgrz33iVJ  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamz33iV .
+
+:agz33iVJ  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agz33iVJ .
+
+:gamz33iV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolz33iVJ ;
+        chon:atPlace           :plaz33iVJ ;
+        chon:atTime            "1998.06.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamz33iVJh ;
+        chon:hasHalfMove       :hmgamz33iVJh , :hmgamu1JrFJy ;
+        chon:hasLastHalfMove   :hmgamu1JrFJy ;
+        chon:hasOpening        :opez33iVJ ;
+        chon:hasReport         :cgrz33iVJ ;
+        chon:hasResult         :resz33iVJh ;
+        chon:subEventOf        :touz33iV .
+
+:rolz33iVJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agz33iVJ .
+
+:opez33iVJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A70" .
+
+:touz33iV  a          chon:hessTournament ;
+        chon:atPlace  :plaz33iVJ ;
+        chon:hasName  "Budapest m 30'" .
+
+:rolhgz33iVJhh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agz33iVJ .
+
+:hmgamz33iVJh  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgz33iVJhh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "N2c4" , "Qxb5" , "d4" , "e4" , "O-O" , "Qa6" , "Nxb6" , "Bxb5" , "h3" , "Nxe4" , "Nf6" , "cxd5" , "Rb1" , "c5" , "c4" , "Rfd8" , "exd5" , "g6" , "Qxb6" , "b5" , "Nc3" , "Nxc8" , "d5" , "Nb6" , "Bd3" , "Nfd2" , "Qa5+" , "e6" , "Nd7" , "Nxd6" , "Nf3" , "d6" , "Raxc8" , "Bg7" ;
+        chon:nextHalfMove      :hmgamu1JrFJy , :hmgamz33iVJh .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

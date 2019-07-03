@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag05RD0J .
+
+:rolhgk3ORIKRy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag05RD0J .
+
+:pla05RD0J  a         chon:Place ;
+        chon:hasName  "Bad Lauterberg" .
+
+:hmgamk3ORIKR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgk3ORIKRy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "Ne5" , "Qa6" , "R6d2" , "e6" , "Bf3" , "Be6" , "Rf1" , "Qb8" , "Qd3" , "exf4" , "Bg5" , "O-O" , "b3" , "Qb3" , "c3" , "b6" , "Bf6" , "Qc5" , "Bh4" , "Bxf6" , "Bd7" , "Qe5" , "Nd4" , "Kh1" , "Qc7" , "Be2" , "Rd7" , "Rf2" , "Nd2" , "exf5" , "Bxd7" , "R7d6" , "Be7" , "g5" , "Nf3" , "Nb3" , "Rd2" , "Rdf2" , "Re1" , "h3" , "Nf5" , "Rd8" , "Qd1" , "e5" , "Rxd6" , "Qc8" , "c4" , "Bh5" , "Bc4" , "Qf2" , "Nd5" , "Qb1" , "Qxd7" , "Rad1" , "f4" , "Qb7" , "g6" , "Kh8" , "b5" , "Qb5" , "Bg4" , "Nxf5" , "Qe1" , "h6" , "Nc4" , "Bg7" , "Qe7" , "Nc6" , "Nd6" ;
+        chon:nextHalfMove      :hmgamk3ORIKR .
+
+chon:HalfMove  chon:subEventOf  :gam05RD0 .
+
+:cgr05RD0J  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag05RD0J .
+
+:hmgam05RD0JO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg05RD0JOl , :rolhgk3ORIKRy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "c5" , "Nf3" , "e4" , "cxd4" , "d6" , "Nf6" , "Nxd4" , "Nc3" , "d4" ;
+        chon:nextHalfMove      :hmgamk3ORIKR , :hmgam05RD0JO .
+
+:rolhg05RD0JOl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag05RD0J .
+
+:ag05RD0J  a          chon:Agent ;
+        chon:hasName  "Miles, Anthony J" , "Karpov, Anatoly" .
+
+:rol05RD0J  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag05RD0J .
+
+:ope05RD0J  a            chon:ChessOpening ;
+        chon:hasECOCode  "B70" .
+
+:gam05RD0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol05RD0J ;
+        chon:atPlace           :pla05RD0J ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam05RD0JO ;
+        chon:hasHalfMove       :hmgamk3ORIKR , :hmgam05RD0JO ;
+        chon:hasLastHalfMove   :hmgamk3ORIKR ;
+        chon:hasOpening        :ope05RD0J ;
+        chon:hasReport         :cgr05RD0J ;
+        chon:hasResult         :res05RD0JO ;
+        chon:subEventOf        :tou05RD0 .
+
+:tou05RD0  a          chon:hessTournament ;
+        chon:atPlace  :pla05RD0J ;
+        chon:hasName  "Bad Lauterberg" .
+
+:res05RD0JO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

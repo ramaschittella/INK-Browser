@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resBP4zpUR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgNP1NWTU1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBP4zpU .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBP4zpU .
+
+:rolhgBP4zpURO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBP4zpU .
+
+chon:HalfMove  chon:subEventOf  :gamBP4zp .
+
+:plaBP4zpU  a         chon:Place ;
+        chon:hasName  "Saint Louis USA" .
+
+:cgrBP4zpU  a   chon:ChessGameReport .
+
+:gamBP4zp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBP4zpU ;
+        chon:atPlace           :plaBP4zpU ;
+        chon:atTime            "2012.06.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBP4zpUR ;
+        chon:hasHalfMove       :hmgamBP4zpUR , :hmgamNP1NWTU ;
+        chon:hasLastHalfMove   :hmgamNP1NWTU ;
+        chon:hasOpening        :opeBP4zpU ;
+        chon:hasReport         :cgrBP4zpU ;
+        chon:hasResult         :resBP4zpUR ;
+        chon:subEventOf        :touBP4zp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBP4zpU .
+
+:touBP4zp  a          chon:hessTournament ;
+        chon:atPlace  :plaBP4zpU ;
+        chon:hasName  "Blitz Exhibition Match" .
+
+:agBP4zpU  a          chon:Agent ;
+        chon:hasName  "Seirawan,Y" , "Karpov,Ana" .
+
+:rolBP4zpU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBP4zpU .
+
+:opeBP4zpU  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+:hmgamNP1NWTU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNP1NWTU1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan,Y" ;
+        chon:hasSANRecord      "Nxe5" , "Nd6" , "Kg6" , "Kf5" , "h5" , "g5" , "Kf2" , "Kf4" , "Ke2" , "Nf1" , "g7+" , "g6+" , "Kg8" , "Kf7" , "dxe5" , "a4" , "Nf5" , "Ne5+" , "Nc6" , "Nb4" , "Kf8" , "h2" , "Kxe3" , "fxe3" , "Kd2" , "hxg5" , "h4" , "Nxe3" , "e5" , "gxf6" , "h3" , "exf4" ;
+        chon:nextHalfMove      :hmgamNP1NWTU .
+
+:hmgamBP4zpUR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBP4zpURO , :rolhgNP1NWTU1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan,Y" ;
+        chon:hasSANRecord      "h3" , "Ba3" , "Bb7" , "e6" , "Nef3" , "d4" , "Bd6" , "Nb8" , "Nbd7" , "Qc2" , "Rc1" , "f6" , "c6" , "g6" , "b6" , "Bf8" , "Ne5" , "Ba6" , "Qb1" , "Kf8" , "Bxc2" , "Ne8" , "Re8" , "Qxc2" , "Bxa6" , "Rac1" , "f4" , "Nf3" , "a6" , "a5" , "Qxc8" , "Qb8" , "h4" , "Qc7" , "Bxf8" , "cxd5" , "d5" , "Bg7" , "Bd3" , "Rc8" , "Nbd2" , "Nxa6" , "Rxc8" , "Rxf8" , "Rxc8+" , "Nf6" , "e3" , "Qb2" , "b3" , "g4" , "c4" , "O-O" ;
+        chon:nextHalfMove      :hmgamBP4zpUR , :hmgamNP1NWTU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

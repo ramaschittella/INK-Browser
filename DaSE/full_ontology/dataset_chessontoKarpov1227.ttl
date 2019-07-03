@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam2SYYqzI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2SYYqzIG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nb6" , "Rhe1" , "Nbd7" , "O-O-O" , "Bd3" , "Bh4" , "Be6" , "h3" , "d4" , "Kd7" , "c6" , "h6" ;
+        chon:nextHalfMove      :hmgam2SYYqzI .
+
+:plazAMD4y  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:rolhg2SYYqzIG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzAMD4y .
+
+:hmgamzAMD4yS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2SYYqzIG , :rolhgzAMD4ySf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bg5" , "d3" , "Qe7" , "Be7" , "Nf3" , "Qxe2+" , "Nxe5" , "e5" , "Nc3" , "Bxe2" , "Nxe4" , "d6" , "Qe2" , "e4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamzAMD4yS , :hmgam2SYYqzI .
+
+:cgrzAMD4y  a   chon:ChessGameReport .
+
+:agzAMD4y  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Short, Nigel D" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzAMD4y .
+
+:rolzAMD4y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzAMD4y .
+
+:opezAMD4y  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+chon:HalfMove  chon:subEventOf  :gamzAMD4 .
+
+:reszAMD4yS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzAMD4y .
+
+:gamzAMD4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzAMD4y ;
+        chon:atPlace           :plazAMD4y ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzAMD4yS ;
+        chon:hasHalfMove       :hmgam2SYYqzI , :hmgamzAMD4yS ;
+        chon:hasLastHalfMove   :hmgam2SYYqzI ;
+        chon:hasOpening        :opezAMD4y ;
+        chon:hasReport         :cgrzAMD4y ;
+        chon:hasResult         :reszAMD4yS ;
+        chon:subEventOf        :touzAMD4 .
+
+:touzAMD4  a          chon:hessTournament ;
+        chon:atPlace  :plazAMD4y ;
+        chon:hasName  "Tilburg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgzAMD4ySf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzAMD4y .

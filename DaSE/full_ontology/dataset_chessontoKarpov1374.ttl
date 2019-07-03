@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agnzHdNe  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:openzHdNe  a            chon:ChessOpening ;
+        chon:hasECOCode  "E94" .
+
+:rolhgnzHdNeKg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnzHdNe .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnzHdNe .
+
+:tounzHdN  a          chon:hessTournament ;
+        chon:atPlace  :placzLZgd ;
+        chon:hasName  "World Championship 35th-KK5" .
+
+chon:HalfMove  chon:subEventOf  :gamczLZg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnzHdNe .
+
+:cgrnzHdNe  a   chon:ChessGameReport .
+
+:hmgamnzHdNeK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnzHdNeKg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Nxd1" , "Bd3" , "h6" , "e4" , "a6" , "Nh5" , "Nf6" , "h4" , "bxc5" , "a3" , "Be3" , "Bxc5" , "b6" , "d4" , "Ne6" , "Bc2" , "Bb7" , "Nhf4" , "Bf1" , "dxe5" , "e5" , "g3" , "Rxd8" , "Kg2" , "Bg7" , "Rfd1" , "O-O" , "Bf8" , "Rd1" , "f3" , "Nb3" , "Ba6" , "Nc5" , "Nd2" , "Kf8" , "Nxc5" , "Kf3" , "Rxd1" , "Bf2" , "Na6" , "Ke3" , "g6" , "c6" , "c5" , "Rab1" , "Qxd8" , "f5" , "h3" , "Ke7" , "Red8" , "Be2" , "c4" , "Re8" , "Ba4" , "Nc3" , "Nf3" , "fxe4" , "b4" , "d6" , "Rac8" ;
+        chon:nextHalfMove      :hmgamnzHdNeK .
+
+:rolnzHdNe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnzHdNe .
+
+:placzLZgd  a         chon:Place ;
+        chon:hasName  "Lyon/New York" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resnzHdNeK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamczLZg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnzHdNe ;
+        chon:atPlace           :placzLZgd ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnzHdNeK ;
+        chon:hasHalfMove       :hmgamnzHdNeK ;
+        chon:hasLastHalfMove   :hmgamnzHdNeK ;
+        chon:hasOpening        :openzHdNe ;
+        chon:hasReport         :cgrnzHdNe ;
+        chon:hasResult         :resnzHdNeK ;
+        chon:subEventOf        :tounzHdN .

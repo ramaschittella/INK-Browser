@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plakfzOfq  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrkfzOfq  a   chon:ChessGameReport .
+
+:rolhgkfzOfqxp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkfzOfq .
+
+:hmgamkfzOfqx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkfzOfqxp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "Nf6" , "c3" , "d6" , "Nbd2" , "Re1" , "Nf3" , "Ne7" , "h6" , "Be7" , "Nf1" , "d3" , "b5" , "Bb7" , "e5" , "Qb1" , "Ne3" , "a6" , "Bb5" , "exd5" , "Bf8" , "Bc2" , "Nc5" , "a4" , "Bd2" , "Re8" , "O-O" , "Bb3" , "Ba4" , "e4" , "Nd7" , "d5" , "Nc6" ;
+        chon:nextHalfMove      :hmgamkfzOfqx , :hmgamwfv2Msz .
+
+:agkfzOfq  a          chon:Agent ;
+        chon:hasName  "Geller, Efim P" , "Karpov, Anatoly" .
+
+:rolkfzOfq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkfzOfq .
+
+:opekfzOfq  a            chon:ChessOpening ;
+        chon:hasECOCode  "C88" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkfzOfq .
+
+chon:HalfMove  chon:subEventOf  :gamkfzOf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkfzOfq .
+
+:gamkfzOf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkfzOfq ;
+        chon:atPlace           :plakfzOfq ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkfzOfqx ;
+        chon:hasHalfMove       :hmgamwfv2Msz , :hmgamkfzOfqx ;
+        chon:hasLastHalfMove   :hmgamwfv2Msz ;
+        chon:hasOpening        :opekfzOfq ;
+        chon:hasReport         :cgrkfzOfq ;
+        chon:hasResult         :reskfzOfqx ;
+        chon:subEventOf        :toukfzOf .
+
+:hmgamwfv2Msz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwfv2MszA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "axb5" , "Qd3" , "Ra7" , "exf4" , "Bd5" , "Bxe5" , "d4" , "Kf8" , "Bxf4" , "Na4" , "Rxc7" , "f3" , "Ng4" , "Bc4" , "Nxd5" , "Na6" , "Nge5" , "Nf4" , "b4" , "Qg5" , "Bh7+" , "Qxc4" , "Nxe5" , "Bd6" , "Rad8" , "Nc5" ;
+        chon:nextHalfMove      :hmgamwfv2Msz .
+
+:toukfzOf  a          chon:hessTournament ;
+        chon:atPlace  :plakfzOfq ;
+        chon:hasName  "URS-ch50" .
+
+:rolhgwfv2MszA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkfzOfq .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reskfzOfqx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DBPedia Sparql Webpage</title>
+
+    <script type="text/javascript">
+      mxBasePath = '../mxgraph/src';
+   </script>
+
+   <!-- Loads and initializes the library -->
+    <script src={{ url_for('static', filename='mxClient.js') }}></script>
+    <script src={{ url_for('static', filename='plotGraph.js') }}></script>
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<table border="4">
+<tr>
+        <td>
+            <table class="sparql"  border="1">
+                <th>{{test_subjects}}</th>
+        {% for result in predicates %}
+        <tr>
+            {% for e, value in result.items() %}
+            <td><form action="/update2" method="POST">
+                <input type="submit" name="action" value={{value.value}} />
+            </form></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+        </td>
+        <td>
+
+            <input type="file" id="fileUpload" />
+            <input type="button" id="upload" value="Upload" onclick="upload();" />
+
+            <hr />
+            <div class="heading">
+               <a href="format.html">click here to check csv file format</a>
+            </div>
+
+            <!-- Creates a container for the graph with a grid wallpaper -->
+             <div id="graphContainer" class="div-bg">
+             </div>
+        </td>
+
+</tr>
+<tr>
+    <td>
+        <table class="sparql"  border="2">
+        {% for result in subjects %}
+        <tr>
+            {% for e, value in result.items() %}
+            <td><form action="/update" method="POST">
+                <input type="submit" name="action" value="{{value.value}}"/>
+            </form></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </td>
+    <td>Visualization</td>
+</tr>
+
+</table>
+
+
+</body>
+</html>

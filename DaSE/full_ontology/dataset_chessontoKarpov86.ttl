@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSvAgqxSV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSvAgqx .
+
+:rolhgNvwvZxF7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSvAgqx .
+
+:gamGxT8G  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSvAgqx ;
+        chon:atPlace           :plaGxT8GA ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSvAgqxS ;
+        chon:hasHalfMove       :hmgamSvAgqxS , :hmgamNvwvZxF ;
+        chon:hasLastHalfMove   :hmgamNvwvZxF ;
+        chon:hasOpening        :opeSvAgqx ;
+        chon:hasReport         :cgrSvAgqx ;
+        chon:hasResult         :resSvAgqxS ;
+        chon:subEventOf        :touSvAgq .
+
+:opeSvAgqx  a            chon:ChessOpening ;
+        chon:hasECOCode  "A35" .
+
+:plaGxT8GA  a         chon:Place ;
+        chon:hasName  "Riga" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSvAgqx .
+
+chon:HalfMove  chon:subEventOf  :gamGxT8G .
+
+:resSvAgqxS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSvAgqx .
+
+:hmgamNvwvZxF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNvwvZxF7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d4" , "Bg7" , "g6" , "Na5" , "Nc6" , "Nf3" , "e3" , "Nf6" , "Nc3" , "Be2" , "d6" , "d5" ;
+        chon:nextHalfMove      :hmgamNvwvZxF .
+
+:cgrSvAgqx  a   chon:ChessGameReport .
+
+:hmgamSvAgqxS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNvwvZxF7 , :rolhgSvAgqxSV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "c4" ;
+        chon:nextHalfMove      :hmgamNvwvZxF , :hmgamSvAgqxS .
+
+:agSvAgqx  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Liberzon, Vladimir M" .
+
+:rolSvAgqx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSvAgqx .
+
+:touSvAgq  a          chon:hessTournament ;
+        chon:atPlace  :plaGxT8GA ;
+        chon:hasName  "URS-ch38 Riga" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

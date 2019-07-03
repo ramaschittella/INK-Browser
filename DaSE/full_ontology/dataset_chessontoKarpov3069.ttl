@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamnMfSoTv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnMfSoTvG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Grachev,B" ;
+        chon:hasSANRecord      "Ke6" , "a3" , "fxg4" , "Na5" , "Kf7" , "f4" , "Rc7" , "Ke4" , "h3" , "hxg4" , "d4" , "Kd4" , "Nc6" , "Nc5" , "Rxc8" , "Rc8" , "f5" , "g5" , "Ke5" , "dxe3+" , "Nd6" , "Nf5+" , "Kd2" , "Nd3+" , "Nc1" , "Rb8" , "Nf4+" , "Ne2" , "f6" , "Nxc8" , "Kf6" , "Kg6" , "f3" , "Ne7" , "Kd3" , "Kxe3" , "Nd4" , "b6" , "g4" ;
+        chon:nextHalfMove      :hmgamnMfSoTv .
+
+:ressOxtFTf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agsOxtFT  a          chon:Agent ;
+        chon:hasName  "Grachev,B" , "Karpov,Ana" .
+
+:rolsOxtFT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsOxtFT .
+
+:opesOxtFT  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsOxtFT .
+
+:hmgamsOxtFTf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsOxtFTfG , :rolhgnMfSoTvG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Grachev,B" ;
+        chon:hasSANRecord      "Qc3" , "Ke2" , "d4" , "Qd6" , "Qc5" , "Qa5" , "Rc2" , "Nxe5" , "Ne4" , "Qd2" , "Rc1" , "Qd8" , "Qb8" , "Re8" , "Qxe5" , "Nbd2" , "c4" , "e6" , "b3" , "Be2" , "Bd6" , "Nd4" , "Bg6" , "Bd3" , "dxe5" , "h6" , "e5" , "Qb2" , "c6" , "a6" , "cxd5" , "Qc7" , "Qb4" , "Bxf3" , "Qxd7" , "Qc1" , "Bf5" , "Rd1" , "Bb2" , "Rd7" , "Kh7" , "Nf6" , "Nf3" , "Rad8" , "Re7" , "Rc7" , "O-O" , "Nbd7" , "Kf1" , "Rxd7" , "Be4" , "Qe7" , "Qd4" , "Re4" , "e3" , "Rc3" , "Nxf3" , "Rdc1" , "d5" , "Bxe5" , "Bf3" ;
+        chon:nextHalfMove      :hmgamsOxtFTf , :hmgamnMfSoTv .
+
+chon:HalfMove  chon:subEventOf  :gamsOxtF .
+
+:rolhgnMfSoTvG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsOxtFT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsOxtFT .
+
+:gamsOxtF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsOxtFT ;
+        chon:atPlace           :plasOxtFT ;
+        chon:atTime            "2008.08.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsOxtFTf ;
+        chon:hasHalfMove       :hmgamsOxtFTf , :hmgamnMfSoTv ;
+        chon:hasLastHalfMove   :hmgamnMfSoTv ;
+        chon:hasOpening        :opesOxtFT ;
+        chon:hasReport         :cgrsOxtFT ;
+        chon:hasResult         :ressOxtFTf ;
+        chon:subEventOf        :tousOxtF .
+
+:tousOxtF  a          chon:hessTournament ;
+        chon:atPlace  :plasOxtFT ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+:cgrsOxtFT  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plasOxtFT  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:rolhgsOxtFTfG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsOxtFT .

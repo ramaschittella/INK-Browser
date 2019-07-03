@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamREZUmaV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgREZUmaV2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf3" , "e5" , "e4" ;
+        chon:nextHalfMove      :hmgamQTSJxgt , :hmgamREZUmaV .
+
+:agREZUma  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Vujakovic, Branko" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agREZUma .
+
+:cgrREZUma  a   chon:ChessGameReport .
+
+:touREZUm  a          chon:hessTournament ;
+        chon:atPlace  :plaGE3GP0 ;
+        chon:hasName  "URS-JUG" .
+
+chon:HalfMove  chon:subEventOf  :gamGE3GP .
+
+:rolhgREZUmaV2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agREZUma .
+
+:gamGE3GP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolREZUma ;
+        chon:atPlace           :plaGE3GP0 ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamREZUmaV ;
+        chon:hasHalfMove       :hmgamREZUmaV , :hmgamQTSJxgt , :hmgam2TxX8hw ;
+        chon:hasLastHalfMove   :hmgam2TxX8hw ;
+        chon:hasOpening        :opeREZUma ;
+        chon:hasReport         :cgrREZUma ;
+        chon:hasResult         :resREZUmaV ;
+        chon:subEventOf        :touREZUm .
+
+:rolhgQTSJxgtL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agREZUma .
+
+:opeREZUma  a            chon:ChessOpening ;
+        chon:hasECOCode  "C84" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamQTSJxgt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQTSJxgtL , :rolhg2TxX8hwW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxe7" , "Bb5" , "Ne6" , "b3" , "Bxc6" , "e5" , "Ba3" , "Nc5" , "Nf5" , "Re1" , "d5" , "Be7" , "Bf5" , "Nxe7+" , "Ba4" , "Nxd4" , "Nc6" , "bxc6" , "f3" , "O-O" , "d4" , "Nf6" , "Ne4" , "a6" , "exd4" ;
+        chon:nextHalfMove      :hmgam2TxX8hw , :hmgamQTSJxgt .
+
+:rolREZUma  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agREZUma .
+
+:hmgam2TxX8hw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2TxX8hwW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nxc5" , "Rfd8" , "Nc3" , "Bxc5" , "Rdb8" , "Nc5" , "cxb3" , "Rac1" , "axb3" , "Qd2" , "Qd7" , "Qa7" , "c4" , "c5" , "Rc3" , "c6" , "h3" , "Bg6" , "Qf2" , "Bxc2" , "Na4" , "f4" ;
+        chon:nextHalfMove      :hmgam2TxX8hw .
+
+:plaGE3GP0  a         chon:Place ;
+        chon:hasName  "Sochi" .
+
+:rolhg2TxX8hwW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agREZUma .
+
+:resREZUmaV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agREZUma .

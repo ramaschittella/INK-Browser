@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaPJMjZZ  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:rolhg2JJxwYTr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2JJxwY .
+
+:tou2JJxw  a          chon:hessTournament ;
+        chon:atPlace  :plaPJMjZZ ;
+        chon:hasName  "Moscow" .
+
+:ope2JJxwY  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2JJxwY .
+
+chon:HalfMove  chon:subEventOf  :gamPJMjZ .
+
+:rolhgsLTQS2JS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2JJxwY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2JJxwY .
+
+:hmgam2JJxwYT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2JJxwYTr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "a3" , "Rc8" , "hxg3" , "Rc7" , "Rb7" , "b6" , "O-O" , "Nc6" , "Bg5" , "Bd3" , "Rc1" , "Nbd7" , "Nb4" , "Nb5" , "Bh4" , "d4" , "Nd5" , "exd4" , "Nc3" , "c5" , "Qa8" , "d5" , "Nf3" , "e6" , "dxc4" , "Nxg3" , "Nxa7" , "Bb7" , "Bg3" , "Qe2" , "Nf6" , "Rfd1" , "c4" , "Be7" , "Bf6" , "cxd4" , "Ba6" , "Bxf3" , "gxf3" , "Nh5" , "e3" , "h6" , "Rxc1" , "Bxc4" ;
+        chon:nextHalfMove      :hmgam2JJxwYT , :hmgamsLTQS2J .
+
+:cgr2JJxwY  a   chon:ChessGameReport .
+
+:gamPJMjZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2JJxwY ;
+        chon:atPlace           :plaPJMjZZ ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2JJxwYT ;
+        chon:hasHalfMove       :hmgam2JJxwYT , :hmgamsLTQS2J ;
+        chon:hasLastHalfMove   :hmgamsLTQS2J ;
+        chon:hasOpening        :ope2JJxwY ;
+        chon:hasReport         :cgr2JJxwY ;
+        chon:hasResult         :res2JJxwYT ;
+        chon:subEventOf        :tou2JJxw .
+
+:hmgamsLTQS2J  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsLTQS2JS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "Qxg6+" , "Ra1" , "dxe5" , "Qxh6+" , "Kf8" , "Rc1+" , "Rxf7" , "Kxf7" , "Qe4" , "Qd8" , "Kg2" , "Bd3" , "Ne5" , "Bxe5" , "g6" ;
+        chon:nextHalfMove      :hmgamsLTQS2J .
+
+:res2JJxwYT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag2JJxwY  a          chon:Agent ;
+        chon:hasName  "Geller, Efim P" , "Karpov, Anatoly" .
+
+:rol2JJxwY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2JJxwY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

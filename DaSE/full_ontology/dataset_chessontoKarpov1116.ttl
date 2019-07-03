@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam4qElque  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4qElqueW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short, Nigel D" ;
+        chon:hasSANRecord      "Rd1" , "Qc1" , "e6" , "f5" , "Nc6" , "c4" , "Bb7" , "b6" , "Nf3" , "g3" , "h3" , "Qd1" , "Rg8" , "cxd4" , "g4" , "Kh2" , "exd5" , "Nc3" , "O-O" , "g5" , "Rd6" , "Ne4" , "Qd2" , "Kh8" , "Bxc8" , "d5" , "Rc2" , "Bd2" , "gxh3" , "Nxf4" , "Rc8" , "Rac8" , "b3" , "Bxc6" , "Qa3" , "Nf4" , "Nd7" , "cxd5" , "Qe5" , "Rc1" , "exf4" , "Nh4" , "Ne2+" , "d4" , "Qd3" , "Qb4" , "Qf6" , "Rxc6" , "Ne5" , "Nf6" , "Bg2" , "e3" , "Rxd4" , "Bxd2+" , "Qxd2" , "Bb4+" , "Rxd5" , "Ba6" , "Nxh3" , "c5" , "Qc5" , "a5" , "Nc1" , "c6" , "Ne2" , "Rxc8" ;
+        chon:nextHalfMove      :hmgam4qElque .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBns24t .
+
+:rolhg4qElqueW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBns24t .
+
+chon:HalfMove  chon:subEventOf  :gamBns24 .
+
+:plaBns24t  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:cgrBns24t  a   chon:ChessGameReport .
+
+:resBns24tp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBns24t .
+
+:gamBns24  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBns24t ;
+        chon:atPlace           :plaBns24t ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4qElque ;
+        chon:hasHalfMove       :hmgam4qElque ;
+        chon:hasLastHalfMove   :hmgam4qElque ;
+        chon:hasOpening        :opeBns24t ;
+        chon:hasReport         :cgrBns24t ;
+        chon:hasResult         :resBns24tp ;
+        chon:subEventOf        :touBns24 .
+
+:touBns24  a          chon:hessTournament ;
+        chon:atPlace  :plaBns24t ;
+        chon:hasName  "Euwe mem" .
+
+:agBns24t  a          chon:Agent ;
+        chon:hasName  "Short, Nigel D" , "Karpov, Anatoly" .
+
+:rolBns24t  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBns24t .
+
+:opeBns24t  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

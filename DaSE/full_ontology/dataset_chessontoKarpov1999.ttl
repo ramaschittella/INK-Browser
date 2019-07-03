@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamKFrP9WK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKFrP9WKN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Salov, Valery" ;
+        chon:hasSANRecord      "b3" , "Rc6" , "b4" , "Rxa6" , "Rxb2" , "cxb4" , "b2" , "Rb6" , "Rb8" ;
+        chon:nextHalfMove      :hmgamKFrP9WK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyFvBBX .
+
+:opeyFvBBX  a            chon:ChessOpening ;
+        chon:hasECOCode  "A59" .
+
+:rolhgKFrP9WKN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyFvBBX .
+
+chon:HalfMove  chon:subEventOf  :gamyFvBB .
+
+:hmgamyFvBBXG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKFrP9WKN , :rolhgyFvBBXGz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Salov, Valery" ;
+        chon:hasSANRecord      "Rb4" , "Ng4" , "Re1" , "Nf3" , "Nc3" , "Rac1" , "Kf3" , "e4" , "g4" , "d5" , "Qxe2" , "Rb8" , "a4" , "cxb5" , "g3" , "a3" , "Qa5" , "Nbd7" , "Nf6" , "h3" , "Rfb8" , "Rb3" , "Bxa6" , "Kf7" , "Bf4" , "Bxe5" , "Bg7" , "Nge5" , "Bd4" , "Nd1" , "c4" , "f6" , "Rexe2" , "Nxe5" , "Bxf1" , "Kg2" , "O-O" , "d4" , "Qe2" , "Bxe3" , "fxe3" , "Rxe3" , "g6" , "Ne3" , "a6" , "d6" , "Ra5" , "Rc2" , "a5" , "Kxf1" , "c5" , "Qa6" , "bxa6" , "Rb5" , "b5" ;
+        chon:nextHalfMove      :hmgamyFvBBXG , :hmgamKFrP9WK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyFvBBX .
+
+:rolhgyFvBBXGz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyFvBBX .
+
+:playFvBBX  a         chon:Place ;
+        chon:hasName  "Belgrade" .
+
+:cgryFvBBX  a   chon:ChessGameReport .
+
+:resyFvBBXG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agyFvBBX  a          chon:Agent ;
+        chon:hasName  "Salov, Valery" , "Karpov, Anatoly" .
+
+:rolyFvBBX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyFvBBX .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamyFvBB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyFvBBX ;
+        chon:atPlace           :playFvBBX ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyFvBBXG ;
+        chon:hasHalfMove       :hmgamyFvBBXG , :hmgamKFrP9WK ;
+        chon:hasLastHalfMove   :hmgamKFrP9WK ;
+        chon:hasOpening        :opeyFvBBX ;
+        chon:hasReport         :cgryFvBBX ;
+        chon:hasResult         :resyFvBBXG ;
+        chon:subEventOf        :touyFvBB .
+
+:touyFvBB  a          chon:hessTournament ;
+        chon:atPlace  :playFvBBX ;
+        chon:hasName  "Belgrade" .

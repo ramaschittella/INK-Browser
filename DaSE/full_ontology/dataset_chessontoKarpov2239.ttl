@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam859aM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol859aMM ;
+        chon:atPlace           :pla859aMM ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam859aMMu ;
+        chon:hasHalfMove       :hmgam859aMMu ;
+        chon:hasLastHalfMove   :hmgam859aMMu ;
+        chon:hasOpening        :ope859aMM ;
+        chon:hasReport         :cgr859aMM ;
+        chon:hasResult         :res859aMMu ;
+        chon:subEventOf        :tou859aM .
+
+:rolhg859aMMuR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag859aMM .
+
+:tou859aM  a          chon:hessTournament ;
+        chon:atPlace  :pla859aMM ;
+        chon:hasName  "Voronezh simul" .
+
+:ag859aMM  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:ope859aMM  a            chon:ChessOpening ;
+        chon:hasECOCode  "D00" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag859aMM .
+
+chon:HalfMove  chon:subEventOf  :gam859aM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag859aMM .
+
+:hmgam859aMMu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg859aMMuR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c3" , "d4" , "c5" , "d5" , "Bd7" , "Qc2" , "e6" , "f3" ;
+        chon:nextHalfMove      :hmgam859aMMu .
+
+:cgr859aMM  a   chon:ChessGameReport .
+
+:rol859aMM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag859aMM .
+
+:res859aMMu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla859aMM  a         chon:Place ;
+        chon:hasName  "Voronezh" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

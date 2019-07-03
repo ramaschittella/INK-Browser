@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plagXVNKe  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:cgrgXVNKe  a   chon:ChessGameReport .
+
+:aggXVNKe  a          chon:Agent ;
+        chon:hasName  "Leuppi, B." , "Karpov, Anatoly" .
+
+:rolgXVNKe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggXVNKe .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggXVNKe .
+
+:hmgamH1876ez  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgH1876ezZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leuppi, B." ;
+        chon:hasSANRecord      "Qxh5+" , "Qf5" , "Rh6" , "Rg8" , "Qxh6#" , "Kh8" ;
+        chon:nextHalfMove      :hmgamH1876ez .
+
+chon:HalfMove  chon:subEventOf  :gamgXVNK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggXVNKe .
+
+:rolhgH1876ezZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggXVNKe .
+
+:hmgamgXVNKeK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggXVNKeKA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leuppi, B." ;
+        chon:hasSANRecord      "Nf5" , "Qe6" , "Qe7" , "exf6" , "fxe7" , "e4" , "Qf5" , "Na5" , "d4" , "axb3" , "Bd4" , "Nd2" , "h5" , "Qxf3" , "dxe5" , "Kh7" , "Nb3" , "Re8" , "Be7" , "a6" , "Qc4" , "Rg6" , "Qd8" , "Qf4" , "Bxf3" , "Ba4" , "d6" , "Ng3" , "Qg4" , "Bg4" , "e5" , "Kf2" , "Qxe7" , "Bb3" , "O-O" , "f3" , "Rfe8" , "Nf6" , "Be3" , "Qb3" , "b4" , "Re1" , "b5" , "Bb5" , "Re2" , "Re5" , "Nb1" , "Nxa1" , "Rg5" , "h4" , "Na3" , "Nc6" , "Nh4" , "Nf3" , "h6" , "Nxb3" , "c3" ;
+        chon:nextHalfMove      :hmgamgXVNKeK , :hmgamH1876ez .
+
+:gamgXVNK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgXVNKe ;
+        chon:atPlace           :plagXVNKe ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgXVNKeK ;
+        chon:hasHalfMove       :hmgamgXVNKeK , :hmgamH1876ez ;
+        chon:hasLastHalfMove   :hmgamH1876ez ;
+        chon:hasOpening        :opegXVNKe ;
+        chon:hasReport         :cgrgXVNKe ;
+        chon:hasResult         :resgXVNKeK ;
+        chon:subEventOf        :tougXVNK .
+
+:opegXVNKe  a            chon:ChessOpening ;
+        chon:hasECOCode  "C84" .
+
+:tougXVNK  a          chon:hessTournament ;
+        chon:atPlace  :plagXVNKe ;
+        chon:hasName  "Zuerich sim" .
+
+:rolhggXVNKeKA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggXVNKe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resgXVNKeK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

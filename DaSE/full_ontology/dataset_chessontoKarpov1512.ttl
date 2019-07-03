@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg511KTSqq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agT24wmT .
+
+:resT24wmTn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgT24wmTnf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agT24wmT .
+
+:cgrT24wmT  a   chon:ChessGameReport .
+
+:agT24wmT  a          chon:Agent ;
+        chon:hasName  "Short, Nigel D" , "Karpov, Anatoly" .
+
+:rolT24wmT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agT24wmT .
+
+:opeT24wmT  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agT24wmT .
+
+chon:HalfMove  chon:subEventOf  :gamT24wm .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agT24wmT .
+
+:gamT24wm  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolT24wmT ;
+        chon:atPlace           :plaT24wmT ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamT24wmTn ;
+        chon:hasHalfMove       :hmgamT24wmTn , :hmgam511KTSq ;
+        chon:hasLastHalfMove   :hmgam511KTSq ;
+        chon:hasOpening        :opeT24wmT ;
+        chon:hasReport         :cgrT24wmT ;
+        chon:hasResult         :resT24wmTn ;
+        chon:subEventOf        :touT24wm .
+
+:touT24wm  a          chon:hessTournament ;
+        chon:atPlace  :plaT24wmT ;
+        chon:hasName  "Candidats sf1" .
+
+:hmgam511KTSq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg511KTSqq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short, Nigel D" ;
+        chon:hasSANRecord      "Re8" , "g6" , "Rbc8" , "Rg8+" , "Kg2" , "Rcc3" , "Ne6" , "Qxd5" , "Rc3" , "Qg4" , "Qe4" , "Qd4" , "Qf5" , "Be2" , "Rxf2+" , "Ra3" , "Re2" , "Qg6" , "g3" , "Rxa2" , "d5" , "Kg1" , "Ne4" , "Re5" , "Raa2" , "Rxe2" , "Re3" , "h4" , "Kxg8" , "Qf6" , "d6" , "Qxf6" , "Nc5" , "Kg7" , "Rc2" , "Ra1" , "Bh5" ;
+        chon:nextHalfMove      :hmgam511KTSq .
+
+:hmgamT24wmTn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgT24wmTnf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short, Nigel D" ;
+        chon:hasSANRecord      "cxd5" , "O-O" , "exd4" , "Qf6" , "Be7" , "b4" , "Qd2" , "Rb3" , "Rfd1" , "Rfc8" , "Nc3" , "Bxd4" , "a4" , "c4" , "Bh4" , "d4" , "Nd8" , "exd5" , "Rab8" , "axb5" , "Ba6" , "Rc7" , "c5" , "Rb1" , "Bf1" , "Bxf6" , "Nf3" , "e6" , "d5" , "Qd8" , "Bg5" , "Qa2" , "Nb5" , "cxd4" , "Bb7" , "Be2" , "Nxd4" , "h6" , "Bxb5" , "e3" , "b6" , "Nf6" , "Qa5" , "bxc5" , "Nc6" ;
+        chon:nextHalfMove      :hmgamT24wmTn , :hmgam511KTSq .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaT24wmT  a         chon:Place ;
+        chon:hasName  "Linares" .

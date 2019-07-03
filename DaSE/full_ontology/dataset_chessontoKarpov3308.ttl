@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamMaiKa  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMaiKa2 ;
+        chon:atPlace           :plaMaiKa2 ;
+        chon:atTime            "2013.11.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMaiKa2x ;
+        chon:hasHalfMove       :hmgamdcs4x4n , :hmgamMaiKa2x ;
+        chon:hasLastHalfMove   :hmgamdcs4x4n ;
+        chon:hasOpening        :opeMaiKa2 ;
+        chon:hasReport         :cgrMaiKa2 ;
+        chon:hasResult         :resMaiKa2x ;
+        chon:subEventOf        :touMaiKa .
+
+:touMaiKa  a          chon:hessTournament ;
+        chon:atPlace  :plaMaiKa2 ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+:rolhgdcs4x4n2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMaiKa2 .
+
+:rolhgMaiKa2xS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMaiKa2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMaiKa2 .
+
+:hmgamdcs4x4n  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdcs4x4n2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rotov,Igor" ;
+        chon:hasSANRecord      "Qd1" , "Qg1+" , "Ke5" , "Qd5+" , "Qxd6" , "Qc1" , "fxg3" , "Bc2" , "d6" , "Bd7" , "Qc7" , "Kg8" , "Bg2" , "f4" , "Kf7" , "Kf4" , "h5" , "Qe3" , "Bxb7" , "Bc6" , "Qe7+" , "Qxg3" , "Qe5" , "Kg3" , "Bxd5+" , "Qd2" , "Qe8+" , "Qd4" , "Qd1+" , "Bf5" , "Kh2" , "Kf8" , "Qxd5" , "Bf3" , "Kh7" ;
+        chon:nextHalfMove      :hmgamdcs4x4n .
+
+chon:HalfMove  chon:subEventOf  :gamMaiKa .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMaiKa2 .
+
+:hmgamMaiKa2x  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdcs4x4n2 , :rolhgMaiKa2xS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rotov,Igor" ;
+        chon:hasSANRecord      "d5" , "Nxd4" , "Nf3" , "c6" , "cxd5" , "Rb1" , "Bxb2" , "b4" , "Qf7" , "Nc3" , "Nd4" , "Qd2" , "Rxe8" , "fxe4" , "g3" , "Qxd4" , "Bb2" , "Rfe1" , "a5" , "Qe8" , "Rc1" , "Rfe8" , "Rc8" , "e4" , "Rac8" , "b3" , "Qxb2+" , "Nxf6" , "Bd7" , "Bxc8" , "h4" , "h6" , "Rxe8+" , "Nxe4" , "Nc5" , "Nc7" , "a4" , "O-O" , "Nb3" , "d4" , "d6" , "Bg2" , "Nf6" , "f5" , "c4" , "Qg7" , "Kh8" , "Ne2" , "Na6" , "Bg7" , "Rxc8+" , "Qd3" , "a3" , "exf6" , "g6" ;
+        chon:nextHalfMove      :hmgamdcs4x4n , :hmgamMaiKa2x .
+
+:plaMaiKa2  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+:cgrMaiKa2  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resMaiKa2x  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agMaiKa2  a          chon:Agent ;
+        chon:hasName  "Rotov,Igor" , "Karpov,Ana" .
+
+:rolMaiKa2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMaiKa2 .
+
+:opeMaiKa2  a            chon:ChessOpening ;
+        chon:hasECOCode  "A81" .

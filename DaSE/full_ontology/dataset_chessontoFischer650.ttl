@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgw369sK7q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag51TP7I .
+
+:cgr51TP7I  a   chon:ChessGameReport .
+
+:ag51TP7I  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Agdamus, Jose Luis" .
+
+:rol51TP7I  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag51TP7I .
+
+:rolhg51TP7Ig3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag51TP7I .
+
+:ope51TP7I  a            chon:ChessOpening ;
+        chon:hasECOCode  "A50" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag51TP7I .
+
+:hmgamw369sK7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgw369sK7q , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "exd4" , "Rxd4" , "e5" , "Nxd4" , "Kxe3" , "Nc4" , "f4" , "Nxe3" , "Rc3" ;
+        chon:nextHalfMove      :hmgamw369sK7 .
+
+:hmgam51TP7Ig  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg51TP7Ig3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ra2" , "c4" , "Qc6" , "O-O-O" , "Qxc2" , "Rd6" , "Ne2" , "b5" , "b4" , "Bxd3" , "Rc2" , "Nb4" , "Nc4" , "Nc3" , "Nxe5" , "Qd7" , "e4" , "Bc4" , "Bg7" , "f3" , "Bd3" , "d5" , "d4" , "Na5" , "Rxd3" , "Ba6" , "Kf2" , "Bf8" , "b6" , "Qb3" , "Rhd8" , "Be3" , "Nc6" , "e6" , "e5" , "f5" , "Qxd5" , "Rd1" , "Bb7" , "R3d2" , "Rhd1" , "g6" , "Bb1" , "R6d7" , "a3" , "b3" , "Nf6" , "Qc2" , "Nxd5" , "Nc1" , "Rd2" , "Bxc2" , "cxd5" ;
+        chon:nextHalfMove      :hmgam51TP7Ig , :hmgamw369sK7 .
+
+chon:HalfMove  chon:subEventOf  :gamT3XBx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag51TP7I .
+
+:tou51TP7  a          chon:hessTournament ;
+        chon:atPlace  :plaT3XBxJ ;
+        chon:hasName  "Buenos Aires" .
+
+:res51TP7Ig  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamT3XBx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol51TP7I ;
+        chon:atPlace           :plaT3XBxJ ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam51TP7Ig ;
+        chon:hasHalfMove       :hmgam51TP7Ig , :hmgamw369sK7 ;
+        chon:hasLastHalfMove   :hmgamw369sK7 ;
+        chon:hasOpening        :ope51TP7I ;
+        chon:hasReport         :cgr51TP7I ;
+        chon:hasResult         :res51TP7Ig ;
+        chon:subEventOf        :tou51TP7 .
+
+:plaT3XBxJ  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agVgN2SF  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Stean, Michael" .
+
+:rolVgN2SF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVgN2SF .
+
+:opeVgN2SF  a            chon:ChessOpening ;
+        chon:hasECOCode  "A14" .
+
+:resVgN2SFS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVgN2SF .
+
+chon:HalfMove  chon:subEventOf  :gamVgN2S .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVgN2SF .
+
+:gamVgN2S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVgN2SF ;
+        chon:atPlace           :plaVgN2SF ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVgN2SFS ;
+        chon:hasHalfMove       :hmgamVgN2SFS ;
+        chon:hasLastHalfMove   :hmgamVgN2SFS ;
+        chon:hasOpening        :opeVgN2SF ;
+        chon:hasReport         :cgrVgN2SF ;
+        chon:hasResult         :resVgN2SFS ;
+        chon:subEventOf        :touVgN2S .
+
+:hmgamVgN2SFS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgVgN2SFSM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "e3" , "d5" , "Nbd7" , "c4" , "Be7" , "Nc3" , "c5" , "Qb2" , "Bb7" , "g3" , "Nf3" , "b3" , "d3" , "O-O" , "Bg2" , "Nxc3" , "Nf6" , "Qe2" , "Bf6" , "Bb2" , "Bxc3" , "e6" , "Ne4" , "Qc7" ;
+        chon:nextHalfMove      :hmgamVgN2SFS .
+
+:touVgN2S  a          chon:hessTournament ;
+        chon:atPlace  :plaVgN2SF ;
+        chon:hasName  "Montilla" .
+
+:plaVgN2SF  a         chon:Place ;
+        chon:hasName  "Montilla" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgVgN2SFSM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVgN2SF .
+
+:cgrVgN2SF  a   chon:ChessGameReport .

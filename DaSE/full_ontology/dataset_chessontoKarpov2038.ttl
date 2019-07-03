@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrMWotA8  a   chon:ChessGameReport .
+
+:hmgamIU6Sm6j  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIU6Sm6jw , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e5+" , "Kf6" , "Kd7" , "Ne6+" , "Nc3" , "Bb1" , "exd5" , "Bd2" , "Bxc6" , "f4" , "Ng5" , "Bxf6" , "Kg6" , "Ra2+" , "Nf3" , "Qa6+" , "Nxe5" , "h4" , "h5" , "Bc2" , "fxe5+" , "d5" , "Rxd4" , "Kxc6" , "Kf1" , "g6" , "Kf2" , "Rxh8+" , "c5" , "Qf6" , "Nh7" , "Bh8" , "Kf4" , "e6" , "cxd5" , "Ra5" , "Qc4" , "Kd6" , "Rf4" , "Kc7" , "bxc5" , "Ne5" , "Re6+" , "d4" , "Bf4" , "Bd3" , "Ke6" , "Nd3" , "Ke7" , "Bb5" , "Rb1" , "Re1" , "Nf6" , "a5" , "Qh4+" , "Rd5" , "Nd7" , "Qd5" , "Rxf6" , "Bc6" , "dxc5" , "Kg1" , "Qxg6+" , "Kf7" , "Ne3" , "Qe6" , "Qe7" , "Rc8" , "Ke4" , "fxe5" , "Rxa4" , "Bb7" , "Nxc4" , "Qe4+" , "f6" , "Rxb2" , "Qxf6+" , "Qa4" , "b6" , "Nf4+" , "e3" , "e4" , "Qf4" , "a3" , "a4" , "Rb4" , "Rb8" , "Bxh8" , "Ne5+" , "Bf6" , "Ra1" , "Nxd5" , "Qc2" , "g4" , "Ra6" , "Kf3" , "c4" , "Be4" , "Qb6" , "Be7" , "hxg6" , "Bxe5" , "Qg4" ;
+        chon:nextHalfMove      :hmgamIU6Sm6j .
+
+:resMWotA83  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agMWotA8  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kamsky, Gata" .
+
+:rolMWotA8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMWotA8 .
+
+:touMWotA  a          chon:hessTournament ;
+        chon:atPlace  :plaBYrf47 ;
+        chon:hasName  "FIDE-Wch" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMWotA8 .
+
+chon:HalfMove  chon:subEventOf  :gamBYrf4 .
+
+:plaBYrf47  a         chon:Place ;
+        chon:hasName  "Elista" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMWotA8 .
+
+:opeMWotA8  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:rolhgIU6Sm6jw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMWotA8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamBYrf4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMWotA8 ;
+        chon:atPlace           :plaBYrf47 ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIU6Sm6j ;
+        chon:hasHalfMove       :hmgamIU6Sm6j ;
+        chon:hasLastHalfMove   :hmgamIU6Sm6j ;
+        chon:hasOpening        :opeMWotA8 ;
+        chon:hasReport         :cgrMWotA8 ;
+        chon:hasResult         :resMWotA83 ;
+        chon:subEventOf        :touMWotA .

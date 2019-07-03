@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamPhm39SP  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgPhm39SPS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "Rxc7+" , "Nb5" , "Qxg7" , "Bxe4" , "Qa3" , "Ke2" , "Qxf3" , "axb4" , "Nxf3+" , "Kb8" , "Qxc7" , "Nh6" , "Qxf7" , "Qxb2" , "dxe4" , "Rb1" , "Qxc7+" , "Qa6" , "Rc1" , "Qb6" , "Qxa1+" ;
+        chon:nextHalfMove      :hmgamPhm39SP .
+
+:plaEhqPBT  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:hmgamEhqPBTM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEhqPBTMH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chigorin, Mikhail" ;
+        chon:hasSANRecord      "gxf3" , "Nd4" , "Qa5" , "d4" , "Bd3" , "e6" , "Bb4+" , "Qxd5" , "d5" , "e4" , "Bd2" , "Nc3" , "exd5" , "Bxf3" , "Bg4" , "a3" , "Nf3" , "Nc6" , "O-O-O" , "c4" , "cxd5" ;
+        chon:nextHalfMove      :hmgamEhqPBTM , :hmgamPhm39SP .
+
+:gamEhqPB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEhqPBT ;
+        chon:atPlace           :plaEhqPBT ;
+        chon:atTime            "1889.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEhqPBTM ;
+        chon:hasHalfMove       :hmgamEhqPBTM , :hmgamPhm39SP ;
+        chon:hasLastHalfMove   :hmgamPhm39SP ;
+        chon:hasOpening        :opeEhqPBT ;
+        chon:hasReport         :cgrEhqPBT ;
+        chon:hasResult         :resEhqPBTM ;
+        chon:subEventOf        :touEhqPB .
+
+:cgrEhqPBT  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEhqPBT .
+
+:rolhgEhqPBTMH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEhqPBT .
+
+chon:HalfMove  chon:subEventOf  :gamEhqPB .
+
+:agEhqPBT  a          chon:Agent ;
+        chon:hasName  "Chigorin, Mikhail" , "Steinitz, William" .
+
+:rolEhqPBT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEhqPBT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEhqPBT .
+
+:resEhqPBTM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touEhqPB  a          chon:hessTournament ;
+        chon:atPlace  :plaEhqPBT ;
+        chon:hasName  "World Championship 2nd" .
+
+:rolhgPhm39SPS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEhqPBT .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeEhqPBT  a            chon:ChessOpening ;
+        chon:hasECOCode  "D02" .

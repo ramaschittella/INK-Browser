@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agjw4HiA  a          chon:Agent ;
+        chon:hasName  "Lobron, Eric" , "Karpov, Anatoly" .
+
+:roljw4HiA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjw4HiA .
+
+:hmgamvwZURz5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWy0dbATe , chon:AgentRole , :rolhgvwZURz5O ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lobron, Eric" ;
+        chon:hasSANRecord      "Nc3" , "d6" , "d5" , "Nf3" , "Nf6" , "Bf4" , "f5" , "d4" ;
+        chon:nextHalfMove      :hmgamvwZURz5 , :hmgamWy0dbAT .
+
+:rolhgvwZURz5O  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjw4HiA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjw4HiA .
+
+chon:HalfMove  chon:subEventOf  :gamjw4Hi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjw4HiA .
+
+:opejw4HiA  a            chon:ChessOpening ;
+        chon:hasECOCode  "A80" .
+
+:hmgamWy0dbAT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWy0dbATe ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lobron, Eric" ;
+        chon:hasSANRecord      "Rxd7" , "b4" , "a4" , "Rb4" , "exf4" , "Qd8" , "Bd6" , "Bh2" , "Ra1+" , "Rb7" , "Bg7" , "Qg6" , "Kh2" , "Nf7" , "Qc8" , "Be7" , "e3" , "O-O" , "Bf6" , "Bxf4" , "axb5" , "Ne6" , "Nxd7" , "Ra3" , "h3" , "Kh8" , "Re8" , "Qc2" , "Qg5" , "Rxe6" , "Rc4" , "Qf6" , "a6" , "Rd7" , "Ne2" , "Rfb1" , "Bxh7" , "Kh4" , "Kg4" , "gxf4" , "Kxh7" , "Nh6" , "c6" , "e5" , "Qxf4+" , "Bxe5" , "Ne5" , "Re1" , "Qxg3+" , "g5" , "e6" , "Rxc6" , "Kxg3" , "Rxc5" , "b5" , "Ng4" , "Bd7" , "Rd6" , "Bg3" , "f4" , "Rc1" , "Nxe5" , "Nd4" , "Rb1" , "c5" , "dxe5" , "Kg6" , "Nc6" , "c4" , "g4" , "Qg3" , "bxc6" , "Ne5+" , "Bd3" , "Bc3" ;
+        chon:nextHalfMove      :hmgamWy0dbAT .
+
+:gamjw4Hi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljw4HiA ;
+        chon:atPlace           :plajw4HiA ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvwZURz5 ;
+        chon:hasHalfMove       :hmgamvwZURz5 , :hmgamWy0dbAT ;
+        chon:hasLastHalfMove   :hmgamWy0dbAT ;
+        chon:hasOpening        :opejw4HiA ;
+        chon:hasReport         :cgrjw4HiA ;
+        chon:hasResult         :resjw4HiAZ ;
+        chon:subEventOf        :toujw4Hi .
+
+:resjw4HiAZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:toujw4Hi  a          chon:hessTournament ;
+        chon:atPlace  :plajw4HiA ;
+        chon:hasName  "Chess Classics" .
+
+:plajw4HiA  a         chon:Place ;
+        chon:hasName  "Frankfurt" .
+
+:rolhgWy0dbATe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjw4HiA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrjw4HiA  a   chon:ChessGameReport .

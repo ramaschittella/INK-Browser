@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toufWH3S  a          chon:hessTournament ;
+        chon:atPlace  :plafWH3SA ;
+        chon:hasName  "Phillips&Drew" .
+
+:opefWH3SA  a            chon:ChessOpening ;
+        chon:hasECOCode  "B76" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfWH3SA .
+
+chon:HalfMove  chon:subEventOf  :gamfWH3S .
+
+:hmgamfWH3SAM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqUDibAPG , :rolhgfWH3SAMt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "Bxd5" , "h4" , "Nc5" , "Kb3" , "a7" , "b4" , "a5" , "exd5" , "Bg7" , "Na4" , "Bf1" , "e4" , "Nxd4" , "cxd4" , "O-O" , "Rh3" , "Nf3" , "Nc3" , "Be2" , "f3" , "Be6" , "d6" , "a3" , "d4" , "Rxd5" , "Rd8" , "b5" , "Bxg7" , "Nd5" , "Rc5" , "Qxd2+" , "Qa5" , "Nd7" , "bxa5" , "Be3" , "Rd4" , "Nxd5" , "Bxd4" , "Nf6" , "Rc7" , "f4" , "e5" , "Qd2" , "Rfc8" , "Kxg7" , "Rab8" , "Kb2" , "O-O-O" , "Nc6" , "Rxd2" , "g6" , "a6" , "Rd1" , "Bxb5" , "Rc3" , "Re3" , "c5" , "Kf8" , "g4" , "Rbc8" ;
+        chon:nextHalfMove      :hmgamqUDibAP , :hmgamfWH3SAM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfWH3SA .
+
+:hmgamqUDibAP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqUDibAPG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "exf4" , "Ka4" , "Rb8" , "Rxd8+" , "Rxb5" , "Rb1+" , "Rb7" , "f3" , "f2" ;
+        chon:nextHalfMove      :hmgamqUDibAP .
+
+:plafWH3SA  a         chon:Place ;
+        chon:hasName  "London" .
+
+:gamfWH3S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfWH3SA ;
+        chon:atPlace           :plafWH3SA ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfWH3SAM ;
+        chon:hasHalfMove       :hmgamqUDibAP , :hmgamfWH3SAM ;
+        chon:hasLastHalfMove   :hmgamqUDibAP ;
+        chon:hasOpening        :opefWH3SA ;
+        chon:hasReport         :cgrfWH3SA ;
+        chon:hasResult         :resfWH3SAM ;
+        chon:subEventOf        :toufWH3S .
+
+:rolhgfWH3SAMt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfWH3SA .
+
+:cgrfWH3SA  a   chon:ChessGameReport .
+
+:resfWH3SAM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agfWH3SA  a          chon:Agent ;
+        chon:hasName  "Miles, Anthony J" , "Karpov, Anatoly" .
+
+:rolfWH3SA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfWH3SA .
+
+:rolhgqUDibAPG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfWH3SA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

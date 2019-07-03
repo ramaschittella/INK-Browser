@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agBK2Sr0  a          chon:Agent ;
+        chon:hasName  "Adjih" , "Karpov, Anatoly" .
+
+:rolBK2Sr0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBK2Sr0 .
+
+:hmgam4MdaO0o  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4MdaO0o8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Adjih" ;
+        chon:hasSANRecord      "Qe8" , "O-O" , "Bg5" , "Nc3" , "Bg7" , "Qd8" , "dxe6" , "Qxe6" , "c6" , "Qxf6" , "Nhf4" , "Rad1" , "Qd7" , "Raxc8" , "g3" , "Kh8" , "Bg2" , "Ne7+" , "Re8" , "Qf7" , "Nd5" , "Na6" , "Qd2" , "c4" , "Nxf6+" , "h4" , "e5" , "d6" , "Nf6" , "Nh3" , "g6" , "Nxc8" , "d5" ;
+        chon:nextHalfMove      :hmgam4MdaO0o .
+
+:hmgamBK2Sr0x  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4MdaO0o8 , :rolhgBK2Sr0xH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Adjih" ;
+        chon:hasSANRecord      "f5" , "d4" ;
+        chon:nextHalfMove      :hmgam4MdaO0o , :hmgamBK2Sr0x .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBK2Sr0 .
+
+:rolhg4MdaO0o8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBK2Sr0 .
+
+chon:HalfMove  chon:subEventOf  :gamBK2Sr .
+
+:resBK2Sr0x  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "*" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBK2Sr0 .
+
+:opeBK2Sr0  a            chon:ChessOpening ;
+        chon:hasECOCode  "A86" .
+
+:gamBK2Sr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBK2Sr0 ;
+        chon:atPlace           :plaBK2Sr0 ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBK2Sr0x ;
+        chon:hasHalfMove       :hmgamBK2Sr0x , :hmgam4MdaO0o ;
+        chon:hasLastHalfMove   :hmgam4MdaO0o ;
+        chon:hasOpening        :opeBK2Sr0 ;
+        chon:hasReport         :cgrBK2Sr0 ;
+        chon:hasResult         :resBK2Sr0x ;
+        chon:subEventOf        :touBK2Sr .
+
+:plaBK2Sr0  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:touBK2Sr  a          chon:hessTournament ;
+        chon:atPlace  :plaBK2Sr0 ;
+        chon:hasName  "EE Internet sim" .
+
+:rolhgBK2Sr0xH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBK2Sr0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrBK2Sr0  a   chon:ChessGameReport .

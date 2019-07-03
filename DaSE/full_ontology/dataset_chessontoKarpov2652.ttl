@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolJFSOFI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJFSOFI .
+
+:resJFSOFIK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJFSOFI .
+
+:hmgamJFSOFIK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJFSOFIKX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smirin,I" ;
+        chon:hasSANRecord      "Nb6" , "R3d2" , "Rd1" , "Qxe5" , "Kh3" , "Qxb6" , "f5" , "Rxd3" , "Qf3" , "Nxb6" , "b5" , "e3" , "g4" , "Bxb3" , "Kf1" , "Qh1+" , "Na3" , "Nc4" , "Nd5" , "Nf6" , "Rac8" , "e6" , "bxc3" , "Qb4" , "Re2" , "h5" , "c4" , "axb3" , "Rdc8" , "e5" , "Qf2" , "g6" , "Bc5" , "Qe3" , "Rd3" , "f4" , "Bg2" , "exf5" , "Nc3" , "Qxb3" , "c3" , "O-O" , "Nb4" , "cxd4" , "Rc3" , "Rad1" , "Na2" , "Be4" , "Nc6" , "Nf3" , "gxf5" , "d5" , "Bf8" , "Rd2" , "Kg2" , "Be6" , "dxc4" , "Qb2+" , "Rxc3" , "Qf4" , "Nd2" , "Nd7" , "Bh3" , "Qe2" , "c5" , "Kf2" , "f3" , "Bd3" , "Bd6" , "Rcd7" , "Bg4" , "Rc7" , "Bxc3" , "e4" , "g3" , "Bg7" , "Qa5" , "Rfd8" , "Bb2" , "Nb3" , "Bf5" , "Qxh2+" , "d4" , "Qb5" ;
+        chon:nextHalfMove      :hmgamJFSOFIK .
+
+chon:HalfMove  chon:subEventOf  :gamyFFA6 .
+
+:agJFSOFI  a          chon:Agent ;
+        chon:hasName  "Smirin,I" , "Karpov,An" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJFSOFI .
+
+:opeJFSOFI  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+:touJFSOF  a          chon:hessTournament ;
+        chon:atPlace  :playFFA6G ;
+        chon:hasName  "RUS vs. ROW" .
+
+:rolhgJFSOFIKX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJFSOFI .
+
+:playFFA6G  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrJFSOFI  a   chon:ChessGameReport .
+
+:gamyFFA6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJFSOFI ;
+        chon:atPlace           :playFFA6G ;
+        chon:atTime            "2002.09.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJFSOFIK ;
+        chon:hasHalfMove       :hmgamJFSOFIK ;
+        chon:hasLastHalfMove   :hmgamJFSOFIK ;
+        chon:hasOpening        :opeJFSOFI ;
+        chon:hasReport         :cgrJFSOFI ;
+        chon:hasResult         :resJFSOFIK ;
+        chon:subEventOf        :touJFSOF .

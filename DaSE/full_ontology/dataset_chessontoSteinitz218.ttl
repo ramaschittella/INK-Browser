@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamMhfPZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXha4wB ;
+        chon:atPlace           :plaMhfPZB ;
+        chon:atTime            "1874.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXha4wBw ;
+        chon:hasHalfMove       :hmgam6dNqPyR , :hmgamTfTcfyM , :hmgamXha4wBw ;
+        chon:hasLastHalfMove   :hmgam6dNqPyR ;
+        chon:hasOpening        :opeXha4wB ;
+        chon:hasReport         :cgrXha4wB ;
+        chon:hasResult         :resXha4wBw ;
+        chon:subEventOf        :touMhfPZ .
+
+:plaMhfPZB  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXha4wB .
+
+:opeXha4wB  a            chon:ChessOpening ;
+        chon:hasECOCode  "C25" .
+
+:hmgamXha4wBw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXha4wBwH , chon:AgentRole , :rolhgTfTcfyMF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinkuehler, G." ;
+        chon:hasSANRecord      "Kd3" , "Na4" , "Kxf2" , "c3" , "b3" , "Nxe2" , "Qxe2" , "Bxf2+" , "Qxc4" , "e5" , "Nc3" , "Nc4+" , "b5" , "Nc5" , "a5" , "Ka3" , "Qxe4" , "Qh4+" , "Bc5" , "Qe2" , "Bxc4" , "Ke3" , "d4" , "d5" , "Na5+" , "e4" , "Qf4+" , "Nc6" , "Kc3" , "Kb3" ;
+        chon:nextHalfMove      :hmgamTfTcfyM , :hmgamXha4wBw .
+
+:cgrXha4wB  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamMhfPZ .
+
+:touMhfPZ  a          chon:hessTournament ;
+        chon:atPlace  :plaMhfPZB ;
+        chon:hasName  "GBR tour sim" .
+
+:rolhgXha4wBwH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXha4wB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamTfTcfyM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTfTcfyMF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinkuehler, G." ;
+        chon:hasSANRecord      "Rf8" , "Rhf1" , "b4" , "cxb5" , "Bxa5" , "Bc7" , "f6" , "Kf7" , "Kg6" , "f5" , "Kb2" , "Nf4" , "Ne7" , "Ne2" , "Nc6" , "g3" , "c6" , "Re8" , "axb5" , "a4" , "Rxa1" , "Bf4" , "g5" ;
+        chon:nextHalfMove      :hmgam6dNqPyR , :hmgamTfTcfyM .
+
+:rolXha4wB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXha4wB .
+
+:hmgam6dNqPyR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6dNqPyRR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinkuehler, G." ;
+        chon:hasSANRecord      "Rf8" , "Nxe5" , "Rg8" , "Kc2" , "dxe5" , "Ra7" , "Re8" , "Rd8" , "Rg7" , "Bd6" , "e6" , "Kxg7" , "Ke3" , "Be5+" , "Kd2" , "Kg7" , "Kf6" , "Nd4" , "Rxg7" , "Ra8" ;
+        chon:nextHalfMove      :hmgam6dNqPyR .
+
+:resXha4wBw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agXha4wB  a          chon:Agent ;
+        chon:hasName  "Steinkuehler, G." , "Steinitz, William" .
+
+:rolhgTfTcfyMF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXha4wB .
+
+:rolhg6dNqPyRR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXha4wB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXha4wB .

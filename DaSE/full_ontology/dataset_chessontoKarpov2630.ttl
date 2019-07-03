@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrzHalIK  a   chon:ChessGameReport .
+
+:hmgamzHalIKZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzHalIKZO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Nxe4" , "Nc4" , "c5" , "d4" , "bxa5" , "Nd4" , "Kf8" , "Ng5" , "Kg7" , "d5" , "f6" , "Bxh2+" , "Rae1" , "Bxf5" , "Ne4" , "Qc7" , "Rxd8" , "dxc5" , "Nxc5" , "e5" , "Qg4" , "g6" , "Qxe4" , "Kh1" , "Ba3" , "Ne6" , "O-O" , "b3" , "e6" , "Qc3+" , "Qe3" , "h6" , "Ne3" , "Qa5" , "N1f3" , "b6" , "Qc6" , "Ngf6" , "Nd7" , "c6" , "Bd3" , "Be5" , "Bf4" , "Rd1" , "Nxf5" , "Bd6" , "Qe2" , "e4" , "Qh3" , "h5" , "Nd2" , "Rhd8" , "Bb2" , "Bf5" , "dxe4" ;
+        chon:nextHalfMove      :hmgamzHalIKZ .
+
+:agzHalIK  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Topalov,V" .
+
+:rolzHalIK  a             chon:AuthorRole ;
+        chon:performedBy  :agzHalIK .
+
+:opezHalIK  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:planHe6aL  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .
+
+:gamnHe6a  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnHe6aL ;
+        chon:atPlace           :planHe6aL ;
+        chon:atTime            "2002.04.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzHalIKZ ;
+        chon:hasHalfMove       :hmgamzHalIKZ ;
+        chon:hasLastHalfMove   :hmgamzHalIKZ ;
+        chon:hasOpening        :opezHalIK ;
+        chon:hasReport         :cgrzHalIK ;
+        chon:hasResult         :reszHalIKZ ;
+        chon:subEventOf        :tounHe6a .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzHalIK .
+
+:tounHe6a  a          chon:hessTournament ;
+        chon:atPlace  :planHe6aL ;
+        chon:hasName  "FIDE GP" .
+
+chon:HalfMove  chon:subEventOf  :gamnHe6a .
+
+:reszHalIKZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzHalIK .
+
+:rolnHe6aL  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgzHalIKZO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzHalIK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

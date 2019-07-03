@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamNclcfrE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNclcfrEv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk,V" ;
+        chon:hasSANRecord      "Bc7" , "Nce5" , "h3" , "fxg5" , "c5" , "h5" , "Nf3" , "Rxc8+" , "Bxc5" , "Rd8" , "Ba4" , "Bf8" , "dxc5" , "Nc4" , "Nbd7" , "Bd3" , "Bb6" , "b4" , "d5" , "Rac1" , "Ne4" , "hxg5" , "Bxc8" , "b5" , "Ke2" , "g4" , "Bxb4" , "h4" , "Bxd3" , "Kf7" , "Rc7" , "a6" , "Kf1" , "Nd3" , "Bd7" , "Nf6" , "e4" , "Nxe5" , "e3" , "Bc2" , "Bd1" , "Rc8" , "f6" , "Kf2" , "Bb7" , "fxg4" , "c4" , "Qxd1" , "Bd4" , "Rxd8" , "Bf1" , "Ke6" , "a3" , "Bd5" , "b6" , "e5" , "hxg4" , "Bb1" , "Rxd1" , "Bxc4" , "Rc1" , "Bf3" , "Ba5" , "Ba8" , "e6" , "f3" , "Rac8" , "dxc4" , "Bxd6" , "Bb5" , "Bd6" , "b3" , "Ke3" , "g5" , "Nbd2" , "Bb2" , "Be2" , "d4" , "Bxe4" , "O-O" ;
+        chon:nextHalfMove      :hmgamNclcfrE .
+
+:cgrNclcfr  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNclcfr .
+
+:agNclcfr  a          chon:Agent ;
+        chon:hasName  "Ivanchuk,V" , "Karpov,An" .
+
+:rolNclcfr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNclcfr .
+
+chon:HalfMove  chon:subEventOf  :gamScqYI .
+
+:opeNclcfr  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+:gamScqYI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNclcfr ;
+        chon:atPlace           :plaScqYIs ;
+        chon:atTime            "2002.09.10"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNclcfrE ;
+        chon:hasHalfMove       :hmgamNclcfrE ;
+        chon:hasLastHalfMove   :hmgamNclcfrE ;
+        chon:hasOpening        :opeNclcfr ;
+        chon:hasReport         :cgrNclcfr ;
+        chon:hasResult         :resNclcfrE ;
+        chon:subEventOf        :touNclcf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNclcfr .
+
+:touNclcf  a          chon:hessTournament ;
+        chon:atPlace  :plaScqYIs ;
+        chon:hasName  "RUS vs. ROW" .
+
+:plaScqYIs  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:resNclcfrE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgNclcfrEv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNclcfr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

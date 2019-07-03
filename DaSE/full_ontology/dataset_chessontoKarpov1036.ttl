@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag39JZuQ  a          chon:Agent ;
+        chon:hasName  "Van der Wiel, John TH" , "Karpov, Anatoly" .
+
+:rol39JZuQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag39JZuQ .
+
+:ope39JZuQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:rolhg39JZuQLc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag39JZuQ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag39JZuQ .
+
+chon:HalfMove  chon:subEventOf  :gam39JZu .
+
+:gam39JZu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol39JZuQ ;
+        chon:atPlace           :pla39JZuQ ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam39JZuQL ;
+        chon:hasHalfMove       :hmgamY7q0eN2 , :hmgam39JZuQL ;
+        chon:hasLastHalfMove   :hmgamY7q0eN2 ;
+        chon:hasOpening        :ope39JZuQ ;
+        chon:hasReport         :cgr39JZuQ ;
+        chon:hasResult         :res39JZuQL ;
+        chon:subEventOf        :tou39JZu .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag39JZuQ .
+
+:rolhgY7q0eN2a  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag39JZuQ .
+
+:hmgam39JZuQL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgY7q0eN2a , :rolhg39JZuQLc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "Ba6" , "b3" , "b6" , "Bb4+" , "Nf3" , "g3" , "Nf6" , "c4" , "e6" , "d4" ;
+        chon:nextHalfMove      :hmgamY7q0eN2 , :hmgam39JZuQL .
+
+:hmgamY7q0eN2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgY7q0eN2a ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "Nxd7" , "Rc8" , "g5" , "e5" , "Nb3" , "Rfd8" , "Kh8" , "Qh5" , "Bg2" , "f6" , "Qe5" , "Bb4" , "h4" , "Bxg7+" , "d5" , "Bc7" , "b5" , "b4" , "Qc2" , "Qd2" , "Re1" , "Na4" , "Be7" , "Kg2" , "Bg4" , "c6" , "Bh3" , "c5" , "Bf3" , "hxg5" , "Nd2" , "Rg7" , "Rg8" , "Bd2" , "bxc4" , "exd4" , "Rac1" , "e4" , "Re3" , "dxc4" , "Bxb4" , "O-O" , "Be5+" , "Qf8" , "Qf7" , "Bb5" , "Nb6" , "d3" , "fxg5" , "f5" , "Bc3" , "f4" , "Ba3" , "Ra8" , "Ne5" , "Nxc5" , "Ba5" , "Qc1" , "Nfd7" , "Qb8" , "Bxc5" ;
+        chon:nextHalfMove      :hmgamY7q0eN2 .
+
+:pla39JZuQ  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou39JZu  a          chon:hessTournament ;
+        chon:atPlace  :pla39JZuQ ;
+        chon:hasName  "Euwe mem" .
+
+:cgr39JZuQ  a   chon:ChessGameReport .
+
+:res39JZuQL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamzIsldak  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzIsldakJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand,V" ;
+        chon:hasSANRecord      "Nc3" , "d4" , "c5" , "Qe4" , "Rd1" , "e3" , "O-O" , "Qf6" , "Rfd1" , "Nxc3" , "Be2" , "Be8" , "Qc3" , "Qc2" , "Qxc3" , "cxd4" , "Bb4" , "Nf3" , "Nxd8" , "Bd7" , "Qb3" , "gxf6" , "Qxf6" , "a3" , "Rxd8" , "c4" , "Bd2" , "Rd8" , "Qe7" , "cxd5" , "Nd5" , "Bc3" , "Nf6" , "Nc6" , "Bxc3" , "Bxd4" , "Qxd5" , "Qb4" , "d5" , "e6" , "Rac8" ;
+        chon:nextHalfMove      :hmgamzIsldak .
+
+:rolhgzIsldakJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzIslda .
+
+:cgrzIslda  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzIslda .
+
+:touzIsld  a          chon:hessTournament ;
+        chon:atPlace  :planIv8Gb ;
+        chon:hasName  "Rapid" .
+
+chon:HalfMove  chon:subEventOf  :gamnIv8G .
+
+:reszIsldak  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamnIv8G  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzIslda ;
+        chon:atPlace           :planIv8Gb ;
+        chon:atTime            "2004.08.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzIsldak ;
+        chon:hasHalfMove       :hmgamzIsldak ;
+        chon:hasLastHalfMove   :hmgamzIsldak ;
+        chon:hasOpening        :opezIslda ;
+        chon:hasReport         :cgrzIslda ;
+        chon:hasResult         :reszIsldak ;
+        chon:subEventOf        :touzIsld .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzIslda .
+
+:planIv8Gb  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+:agzIslda  a          chon:Agent ;
+        chon:hasName  "Anand,V" , "Karpov,Ana" .
+
+:rolzIslda  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzIslda .
+
+:opezIslda  a            chon:ChessOpening ;
+        chon:hasECOCode  "E34" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

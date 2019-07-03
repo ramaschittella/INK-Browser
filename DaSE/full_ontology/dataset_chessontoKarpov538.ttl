@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agrbYpqM  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Huebner, Robert" .
+
+:tourbYpq  a          chon:hessTournament ;
+        chon:atPlace  :plarbYpqM ;
+        chon:hasName  "Montreal" .
+
+:rolrbYpqM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrbYpqM .
+
+:gamfb3bQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrbYpqM ;
+        chon:atPlace           :plarbYpqM ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrbYpqMS ;
+        chon:hasHalfMove       :hmgamrbYpqMS ;
+        chon:hasLastHalfMove   :hmgamrbYpqMS ;
+        chon:hasOpening        :operbYpqM ;
+        chon:hasReport         :cgrrbYpqM ;
+        chon:hasResult         :resrbYpqMS ;
+        chon:subEventOf        :tourbYpq .
+
+:operbYpqM  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrbYpqM .
+
+chon:HalfMove  chon:subEventOf  :gamfb3bQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrbYpqM .
+
+:rolhgrbYpqMSv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrbYpqM .
+
+:cgrrbYpqM  a   chon:ChessGameReport .
+
+:hmgamrbYpqMS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrbYpqMSv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ne5" , "Nf3" , "Bd7" , "Na6" , "Nb4" , "dxc4" , "Qa7" , "Be7" , "d4" , "Qb5" , "a5" , "a4" , "c4" , "Bd6" , "Bd5" , "Nf6" , "Bc6" , "O-O" , "Bg5" , "e6" , "Qxb7" , "Rac1" , "Nxd5" , "d5" , "g3" , "Rb8" , "Qc2" , "Bg2" , "a6" , "Nc3" , "Qxc4" , "exd5" ;
+        chon:nextHalfMove      :hmgamrbYpqMS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plarbYpqM  a         chon:Place ;
+        chon:hasName  "Montreal" .
+
+:resrbYpqMS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

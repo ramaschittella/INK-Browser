@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plahVQ4Bh  a         chon:Place ;
+        chon:hasName  "Reykjavik ISL" .
+
+:cgrtTMj0h  a   chon:ChessGameReport .
+
+:restTMj0h0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtTMj0h .
+
+:roltTMj0h  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtTMj0h .
+
+:rolhgtTMj0h0r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtTMj0h .
+
+chon:HalfMove  chon:subEventOf  :gamhVQ4B .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtTMj0h .
+
+:hmgamtTMj0h0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtTMj0h0r ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short,N" ;
+        chon:hasSANRecord      "Nb8" , "Qxe6" , "Bc6" , "Ng3" , "fxe5" , "c5" , "Nh5" , "Qf7" , "Qb3" , "Rfd1" , "b6" , "c6" , "f6" , "dxc5" , "Be7" , "Nf3" , "Bb7" , "Be8" , "Ne4" , "O-O" , "Bb2" , "Bc2" , "h6" , "Nxd5" , "Bd7" , "Rd2" , "Qxe5" , "Bb3" , "Qc2" , "Nd4" , "exd4" , "c4" , "cxd5" , "Bxb2" , "a3" , "e3" , "Qe5" , "Bd3" , "Nf4" , "Nxe6" , "Nc6" , "Kf8" , "Rfd8" , "d5" , "e6" , "Rc8" , "Qe7" , "Bf6" , "Nf6" , "Qxb2" , "b4" , "h5" , "h4" , "d4" , "Rd1" , "Nbd2" , "Bxc5" ;
+        chon:nextHalfMove      :hmgamtTMj0h0 .
+
+:gamhVQ4B  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltTMj0h ;
+        chon:atPlace           :plahVQ4Bh ;
+        chon:atTime            "2004.03.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtTMj0h0 ;
+        chon:hasHalfMove       :hmgamtTMj0h0 ;
+        chon:hasLastHalfMove   :hmgamtTMj0h0 ;
+        chon:hasOpening        :opetTMj0h ;
+        chon:hasReport         :cgrtTMj0h ;
+        chon:hasResult         :restTMj0h0 ;
+        chon:subEventOf        :toutTMj0 .
+
+:agtTMj0h  a          chon:Agent ;
+        chon:hasName  "Short,N" , "Karpov,Ana" .
+
+:opetTMj0h  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+:toutTMj0  a          chon:hessTournament ;
+        chon:atPlace  :plahVQ4Bh ;
+        chon:hasName  "Blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

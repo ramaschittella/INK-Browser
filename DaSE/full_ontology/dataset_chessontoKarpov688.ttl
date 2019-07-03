@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgbYhAh7um  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZYkmJ8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZYkmJ8 .
+
+:hmgambYhAh7u  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbYhAh7um ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxf2" , "Bg3" , "Nxd3" , "Qxe5+" , "Bxd4" , "Kh2" , "g6" , "Rf8" , "Rf7" , "fxe6" , "Bf6" , "Re2" , "Qxf2+" , "Nxe6" , "Qb3" , "Kg7" , "a6" , "hxg6" , "Be7" , "a3" , "Kh7" , "Qg4" , "Qf7" , "Qxe6+" , "Bd6" , "f3" , "Ne1+" , "Be5" , "Nxb2" , "Bxe5+" , "Be5+" , "Nd2" , "g5" , "Rc8" , "Qxd5" , "Ne4" , "Qe6" , "Re1" , "Rf2" , "Qe8+" , "Bb4" , "Nxf3" ;
+        chon:nextHalfMove      :hmgambYhAh7u .
+
+:rolhgZYkmJ8rb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZYkmJ8 .
+
+chon:HalfMove  chon:subEventOf  :gamZYkmJ .
+
+:hmgamZYkmJ8r  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZYkmJ8rb , chon:AgentRole , :rolhgbYhAh7um ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bf4" , "Re8" , "Bf8" , "exd5" , "Bxc5" , "Kg2" , "h3" , "c6" , "Nf3" , "cxd5" , "Kf1" , "Nb5" , "Rc8" , "Nfd4" , "c4" , "Be6" , "Nxd4" , "Nf6" , "Nc6" , "Qd7" , "dxc5" , "e6" , "d5" , "Rxc8" , "Be7" , "exd4" , "d4" , "Nc3" , "e3" , "c5" , "Bd3" , "g4" , "Bf5" , "Nc7" , "O-O" , "Qxc8" , "Rc1" ;
+        chon:nextHalfMove      :hmgambYhAh7u , :hmgamZYkmJ8r .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZYkmJ8 .
+
+:plaZYkmJ8  a         chon:Place ;
+        chon:hasName  "Merano" .
+
+:cgrZYkmJ8  a   chon:ChessGameReport .
+
+:gamZYkmJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZYkmJ8 ;
+        chon:atPlace           :plaZYkmJ8 ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZYkmJ8r ;
+        chon:hasHalfMove       :hmgambYhAh7u , :hmgamZYkmJ8r ;
+        chon:hasLastHalfMove   :hmgambYhAh7u ;
+        chon:hasOpening        :opeZYkmJ8 ;
+        chon:hasReport         :cgrZYkmJ8 ;
+        chon:hasResult         :resZYkmJ8r ;
+        chon:subEventOf        :touZYkmJ .
+
+:touZYkmJ  a          chon:hessTournament ;
+        chon:atPlace  :plaZYkmJ8 ;
+        chon:hasName  "World Championship 30th" .
+
+:agZYkmJ8  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kortschnoj, Viktor" .
+
+:rolZYkmJ8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZYkmJ8 .
+
+:resZYkmJ8r  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeZYkmJ8  a            chon:ChessOpening ;
+        chon:hasECOCode  "D31" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

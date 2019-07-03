@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resdT8p3JK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamMTU7I  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldT8p3J ;
+        chon:atPlace           :plaMTU7IJ ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdT8p3JK ;
+        chon:hasHalfMove       :hmgamdT8p3JK , :hmgampT4DSIN ;
+        chon:hasLastHalfMove   :hmgampT4DSIN ;
+        chon:hasOpening        :opedT8p3J ;
+        chon:hasReport         :cgrdT8p3J ;
+        chon:hasResult         :resdT8p3JK ;
+        chon:subEventOf        :toudT8p3 .
+
+:cgrdT8p3J  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdT8p3J .
+
+:roldT8p3J  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdT8p3J .
+
+:rolhgpT4DSINm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdT8p3J .
+
+chon:HalfMove  chon:subEventOf  :gamMTU7I .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdT8p3J .
+
+:toudT8p3  a          chon:hessTournament ;
+        chon:atPlace  :plaMTU7IJ ;
+        chon:hasName  "Dortmund" .
+
+:rolhgdT8p3JK0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdT8p3J .
+
+:plaMTU7IJ  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:agdT8p3J  a          chon:Agent ;
+        chon:hasName  "Anand, Viswanathan" , "Karpov, Anatoly" .
+
+:hmgamdT8p3JK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdT8p3JK0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "Bb4" , "Bxa5" , "Nd5" , "Qe8" , "Qb3" , "d4" , "Bxc4" , "Qa6" , "Qd7" , "Bc5" , "dxc4" , "Nbd2" , "e4" , "Qxa7" , "Nf3" , "Nd6" , "Bxf8" , "fxe6" , "cxd6" , "Rb1" , "c4" , "Qe2" , "Nxe4" , "Rac1" , "Nf6" , "e5" , "Nc4" , "Be6" , "Rb8" , "Bxe6" , "a4" , "Ne7" , "O-O" , "a3" , "Nfe5" , "Ba3" , "Qxb7" , "Nd3" , "d5" , "Qd8" , "exd4" , "Rxb5" , "Nxd6" , "Kxf8" , "Bc3" , "Bb6" , "Qa2" , "a5" , "b5" , "b4" , "Nc6" ;
+        chon:nextHalfMove      :hmgampT4DSIN , :hmgamdT8p3JK .
+
+:opedT8p3J  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:hmgampT4DSIN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpT4DSINm , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "Ke7" , "Rxb5" , "fxe5+" , "f4" , "Qxf1+" , "Nxf1" , "e5" , "Ne3" , "exd6+" , "Qxb5" ;
+        chon:nextHalfMove      :hmgampT4DSIN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

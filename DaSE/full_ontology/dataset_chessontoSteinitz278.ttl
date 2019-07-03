@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgD2NFRgnX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agD2NFRg .
+
+:plaD2NFRg  a         chon:Place ;
+        chon:hasName  "Habana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agD2NFRg .
+
+:cgrD2NFRg  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamD2NFR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agD2NFRg .
+
+:rolD2NFRg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agD2NFRg .
+
+:rolhgP2KVqfq9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agD2NFRg .
+
+:resD2NFRgn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamP2KVqfq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgP2KVqfq9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Golmayo Zupide, Celso" ;
+        chon:hasSANRecord      "Bd3" , "O-O" , "Nge7" , "f4" , "g3" , "Bd6" , "c3" , "exd6" , "Ng5" , "e6" , "fxe5" , "gxf5" , "Nd8" , "Rg4" , "Bd7" , "Qh8+" , "Qh5" , "Rh7" , "Bxe5" , "Qc7" , "d5" , "Qxh6" , "Bxf5" , "Ne5" , "Nf6" , "Qh7" , "Qh4" , "e5" , "g6" , "Rxf7" , "Nc6" , "Rdg8" , "Nf3" , "Nf5" , "h6" , "d4" , "cxd6" , "Nbd2" , "Ng8" , "O-O-O" , "Nxf7" , "Bg5" , "Rg7" ;
+        chon:nextHalfMove      :hmgamP2KVqfq .
+
+:agD2NFRg  a          chon:Agent ;
+        chon:hasName  "Golmayo Zupide, Celso" , "Steinitz, William" .
+
+:gamD2NFR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolD2NFRg ;
+        chon:atPlace           :plaD2NFRg ;
+        chon:atTime            "1883.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamD2NFRgn ;
+        chon:hasHalfMove       :hmgamD2NFRgn , :hmgamP2KVqfq ;
+        chon:hasLastHalfMove   :hmgamP2KVqfq ;
+        chon:hasOpening        :opeD2NFRg ;
+        chon:hasReport         :cgrD2NFRg ;
+        chon:hasResult         :resD2NFRgn ;
+        chon:subEventOf        :touD2NFR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touD2NFR  a          chon:hessTournament ;
+        chon:atPlace  :plaD2NFRg ;
+        chon:hasName  "Habana m" .
+
+:opeD2NFRg  a            chon:ChessOpening ;
+        chon:hasECOCode  "C00" .
+
+:hmgamD2NFRgn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgD2NFRgnX , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamP2KVqfq .

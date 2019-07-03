@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agbmhyvd  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Uhlmann, Wolfgang" .
+
+:opebmhyvd  a            chon:ChessOpening ;
+        chon:hasECOCode  "E90" .
+
+:hmgamDorRSda  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDorRSda3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rxf3+" , "Kf1" , "Ke2" , "e7" , "Kc5" , "Rd1" , "Nxg3" , "Rh5" , "Kd7" , "Rc8" , "Rh7" , "Kb2" , "Rhe1" , "Kxg5" , "Ra3" , "Ref7" , "Rb7+" , "Nh5" , "Re7" , "Rxa4" , "fxe4" , "Kg3" , "Nd7" , "Kxc3" , "Ne7" , "a3" , "Rdxd5" , "dxe6" , "Kh5" , "Rxe7" , "Rg6" , "f5" , "Kd3" , "Kc4" , "Rc4" , "Bxc3+" , "Be2" , "Qf6" , "Rd6" , "Re3+" , "gxf3" , "Nc6" , "Re1" , "Rxc4" , "hxg3" , "g4" , "Kxf6" , "Ka1" , "Kf4" , "Rh8" , "Ke5" , "Kb3" , "Bg3" , "Rb3" , "Ne5" , "Kh3" , "Rf8+" , "Rdc5+" , "Kg4" , "Kd3+" , "Kxc4" , "Na6" , "Rb5" , "a4" , "f3" , "Bxe6" , "Ra6" , "Kc2" , "Bxf3" , "Rxg4" , "Kg6" , "Rg7" , "Rxh6+" , "Rd4" , "exf3" , "bxc3" , "e6" , "Nxe6" , "Nc5" , "Qxf6+" , "Rxb7" , "cxd6" , "Kf3" , "Kd6" , "Rf1+" , "Re2" , "c5" , "g5" , "Ke3" , "Ra2" , "Rb1" , "Rg1" , "Ke6" , "Kf5" , "Nd4" , "Rh1+" , "Re4+" , "Re6" , "Qd4" , "Rfd1" , "Rf1" , "Rf8" , "d5" , "a2" , "Ra4" , "Rg3" , "Re8" , "Rc1" , "Rb6" , "a5" , "Kd2" , "Ra7" , "Kg7" ;
+        chon:nextHalfMove      :hmgamDorRSda .
+
+:rolhgDorRSda3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbmhyvd .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbmhyvd .
+
+chon:HalfMove  chon:subEventOf  :gambmhyv .
+
+:gambmhyv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbmhyvd ;
+        chon:atPlace           :plabmhyvd ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambmhyvdk ;
+        chon:hasHalfMove       :hmgamDorRSda , :hmgambmhyvdk ;
+        chon:hasLastHalfMove   :hmgamDorRSda ;
+        chon:hasOpening        :opebmhyvd ;
+        chon:hasReport         :cgrbmhyvd ;
+        chon:hasResult         :resbmhyvdk ;
+        chon:subEventOf        :toubmhyv .
+
+:plabmhyvd  a         chon:Place ;
+        chon:hasName  "La Habana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbmhyvd .
+
+:toubmhyv  a          chon:hessTournament ;
+        chon:atPlace  :plabmhyvd ;
+        chon:hasName  "La Habana olm fin-A" .
+
+:rolhgbmhyvdkB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbmhyvd .
+
+:cgrbmhyvd  a   chon:ChessGameReport .
+
+:hmgambmhyvdk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDorRSda3 , chon:AgentRole , :rolhgbmhyvdkB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d4" , "Nf3" , "Bg7" , "Bh4" , "O-O" , "g6" , "c4" , "Nc3" , "Bg5" , "h6" , "d6" , "e4" , "Nf6" ;
+        chon:nextHalfMove      :hmgambmhyvdk , :hmgamDorRSda .
+
+:rolbmhyvd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbmhyvd .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resbmhyvdk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

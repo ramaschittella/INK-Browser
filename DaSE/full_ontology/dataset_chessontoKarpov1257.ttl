@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg0DIg34JO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0DIg34 .
+
+:pla0DIg34  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0DIg34 .
+
+chon:HalfMove  chon:subEventOf  :gam0DIg3 .
+
+:gam0DIg3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0DIg34 ;
+        chon:atPlace           :pla0DIg34 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0DIg34J ;
+        chon:hasHalfMove       :hmgam0DIg34J ;
+        chon:hasLastHalfMove   :hmgam0DIg34J ;
+        chon:hasOpening        :ope0DIg34 ;
+        chon:hasReport         :cgr0DIg34 ;
+        chon:hasResult         :res0DIg34J ;
+        chon:subEventOf        :tou0DIg3 .
+
+:cgr0DIg34  a   chon:ChessGameReport .
+
+:tou0DIg3  a          chon:hessTournament ;
+        chon:atPlace  :pla0DIg34 ;
+        chon:hasName  "Zuerich sim" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0DIg34 .
+
+:ag0DIg34  a          chon:Agent ;
+        chon:hasName  "Gallati, Marcel" , "Karpov, Anatoly" .
+
+:rol0DIg34  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0DIg34 .
+
+:hmgam0DIg34J  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0DIg34JO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gallati, Marcel" ;
+        chon:hasSANRecord      "d4" , "Rh8" , "Bg7" , "Ke7" , "Nf2" , "Nf6" , "Be2" , "Nc5" , "Nc6" , "Rd8+" , "Bxf2+" , "g6" , "O-O" , "Rxd8" , "Nd7" , "Nxe7+" , "exf3" , "Rb8" , "c4" , "Bxe7" , "Nb5" , "f5" , "Bxb2" , "dxc5" , "Nh3" , "b6" , "h5" , "Rd1" , "Nd5" , "e4" , "Ke3" , "fxe4" , "f3" , "c5" , "Rxd1" , "d6" , "Nc7" , "Nc3" , "Bd4" , "Kf8" , "g4" , "Bxc5" , "Be3" , "Kxf2" , "Rb1" , "a5" , "Qxd8" , "Kd7" , "Bxf3" , "Nxe7" , "Na7" ;
+        chon:nextHalfMove      :hmgam0DIg34J .
+
+:ope0DIg34  a            chon:ChessOpening ;
+        chon:hasECOCode  "E81" .
+
+:res0DIg34J  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

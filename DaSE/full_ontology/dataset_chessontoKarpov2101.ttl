@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaajDQeL  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:resajDQeLr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrajDQeL  a   chon:ChessGameReport .
+
+:hmgam7hkZZLI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7hkZZLIt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rf7+" , "Kd7" , "Rf8+" , "Kd8" ;
+        chon:nextHalfMove      :hmgam7hkZZLI .
+
+:agajDQeL  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Adams, Michael" .
+
+:rolajDQeL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agajDQeL .
+
+:opeajDQeL  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agajDQeL .
+
+:hmgamajDQeLr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7hkZZLIt , chon:AgentRole , :rolhgajDQeLrv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bg5" , "Nd7" , "Rxf5" , "Rexc1" , "Nge2" , "c4" , "Bg6" , "Be2" , "Qb3" , "Qb6" , "Rg8" , "f5" , "Re1" , "Rb8" , "exf5" , "a3" , "N7b6" , "b5" , "Kd6" , "Rf7+" , "Nxf5" , "Bf5" , "O-O" , "Rh8" , "e4" , "Qb4" , "Rb6" , "gxf6" , "Nxd5" , "Kf1" , "a4" , "Bxh5" , "Qd2" , "Bxf5+" , "Bxd2" , "Nce4" , "Kd7" , "h4" , "Rf6+" , "exf6" , "Be4" , "cxd5" , "Bxd5" , "d4" , "Qxb4" , "Nd5" , "Bh6" , "Rc1" , "Rxb2" , "Bxf5" , "Ne7" , "Rxc4" , "f4" , "Rb4" , "Rc2" , "Nc3" , "Bxc1" , "Bd3" , "dxc4" , "Rxg3+" , "Qxd2" , "e5" , "Rd1" , "d5" , "Nc7" , "b4" , "Bf3" , "e6" , "a5" , "g3" , "Ng3" , "Rf2" , "axb4" , "h5" , "Bc1" , "c6" , "Rf8" ;
+        chon:nextHalfMove      :hmgam7hkZZLI , :hmgamajDQeLr .
+
+chon:HalfMove  chon:subEventOf  :gamajDQe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agajDQeL .
+
+:rolhgajDQeLrv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agajDQeL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamajDQe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolajDQeL ;
+        chon:atPlace           :plaajDQeL ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamajDQeLr ;
+        chon:hasHalfMove       :hmgamajDQeLr , :hmgam7hkZZLI ;
+        chon:hasLastHalfMove   :hmgam7hkZZLI ;
+        chon:hasOpening        :opeajDQeL ;
+        chon:hasReport         :cgrajDQeL ;
+        chon:hasResult         :resajDQeLr ;
+        chon:subEventOf        :touajDQe .
+
+:rolhg7hkZZLIt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agajDQeL .
+
+:touajDQe  a          chon:hessTournament ;
+        chon:atPlace  :plaajDQeL ;
+        chon:hasName  "Tilburg Fontys" .

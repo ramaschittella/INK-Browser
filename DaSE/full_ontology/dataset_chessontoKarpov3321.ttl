@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plagW5PKV  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggW5PKV .
+
+chon:HalfMove  chon:subEventOf  :gamgW5PK .
+
+:aggW5PKV  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Otsmann,Villu" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggW5PKV .
+
+:rolgW5PKV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggW5PKV .
+
+:hmgamgW5PKV3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIYe85VTM , :rolhggW5PKV3l , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rxd1+" , "Nxd1" , "Nxe3" , "Nxf6+" , "a5" , "Qd5" , "Nd7" , "a6" , "Qd6" , "d4" , "Be7" , "Qe4" , "Bg4" , "e4" , "Nce4" , "Ngf6" , "Rxd8" , "Nd2" , "Qd1" , "h3" , "c5" , "Nf3" , "c6" , "Qb3" , "Nxf6" , "Nc2" , "Qc1" , "d5" , "Na6" , "Qe5" , "c3" , "Qc7" , "Nd5" , "Rd1" , "Qxe2" , "exd5" , "g6" , "Be2" , "Bxc5" , "Qe1" , "e6" , "b5" , "Nb4" , "h5" , "O-O" , "Rad8" , "Rfd1" , "Bd2" , "Nc3" , "Bb6" , "Nc4" , "Qxd5" , "Bxe2" , "Bh5" , "dxc5" , "a3" , "Be3" , "a4" , "Ne3" ;
+        chon:nextHalfMove      :hmgamIYe85VT , :hmgamgW5PKV3 .
+
+:opegW5PKV  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+:hmgamIYe85VT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIYe85VTM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "g3" , "Kf1" , "Qb1+" , "Qe2" , "hxg4" , "Qf5" , "Qd2" , "Qf6" , "Qh1+" , "Nd3" , "e5" , "Kg7" , "Qh3+" , "Qxg3+" , "Kg2" , "g4" , "Kg1" , "Qf3+" , "f6" , "Ke1" , "g5" , "Ke2" , "Kh2" , "Kf7" ;
+        chon:nextHalfMove      :hmgamIYe85VT .
+
+:rolhggW5PKV3l  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggW5PKV .
+
+:gamgW5PK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgW5PKV ;
+        chon:atPlace           :plagW5PKV ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgW5PKV3 ;
+        chon:hasHalfMove       :hmgamgW5PKV3 , :hmgamIYe85VT ;
+        chon:hasLastHalfMove   :hmgamIYe85VT ;
+        chon:hasOpening        :opegW5PKV ;
+        chon:hasReport         :cgrgW5PKV ;
+        chon:hasResult         :resgW5PKV3 ;
+        chon:subEventOf        :tougW5PK .
+
+:tougW5PK  a          chon:hessTournament ;
+        chon:atPlace  :plagW5PKV ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+:rolhgIYe85VTM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggW5PKV .
+
+:resgW5PKV3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrgW5PKV  a   chon:ChessGameReport .

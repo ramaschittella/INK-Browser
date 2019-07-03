@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamMDdwS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMDdwSI ;
+        chon:atPlace           :plaMDdwSI ;
+        chon:atTime            "2001.03.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMDdwSIq ;
+        chon:hasHalfMove       :hmgamMDdwSIq , :hmgamIzWFSGG ;
+        chon:hasLastHalfMove   :hmgamIzWFSGG ;
+        chon:hasOpening        :opeMDdwSI ;
+        chon:hasReport         :cgrMDdwSI ;
+        chon:hasResult         :resMDdwSIq ;
+        chon:subEventOf        :touMDdwS .
+
+:cgrMDdwSI  a   chon:ChessGameReport .
+
+:touMDdwS  a          chon:hessTournament ;
+        chon:atPlace  :plaMDdwSI ;
+        chon:hasName  "Amber Rapidplay" .
+
+:rolhgIzWFSGG5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMDdwSI .
+
+:rolMDdwSI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMDdwSI .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMDdwSI .
+
+chon:HalfMove  chon:subEventOf  :gamMDdwS .
+
+:plaMDdwSI  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMDdwSI .
+
+:hmgamMDdwSIq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMDdwSIq7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand,V" ;
+        chon:hasSANRecord      "Be7" , "Ne5" , "Bf6" , "Bg2" , "dxe4" , "Re1" , "Bf1" , "b6" , "Bb7" , "b3" , "d4" , "Qc5" , "cxd4" , "Qxe4" , "g3" , "Bxd4" , "Nf3" , "Bd2" , "Nxe4" , "Nd2" , "c6" , "Rad1" , "d5" , "Qe5" , "b5" , "Rb8" , "Ba6" , "Qxc8" , "e6" , "O-O" , "e4" , "Nfd7" , "Bb4+" , "bxc4" , "c5" , "c4" , "Qc2" , "Bc3" , "Qc8" , "Nxd7" , "Nf6" ;
+        chon:nextHalfMove      :hmgamIzWFSGG , :hmgamMDdwSIq .
+
+:hmgamIzWFSGG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIzWFSGG5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand,V" ;
+        chon:hasSANRecord      "Bc6" , "Rxd4" , "Rfxc8" ;
+        chon:nextHalfMove      :hmgamIzWFSGG .
+
+:rolhgMDdwSIq7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMDdwSI .
+
+:agMDdwSI  a          chon:Agent ;
+        chon:hasName  "Anand,V" , "Karpov,An" .
+
+:opeMDdwSI  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:resMDdwSIq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

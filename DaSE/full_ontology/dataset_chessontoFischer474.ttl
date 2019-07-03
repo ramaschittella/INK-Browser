@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamUiWwmES  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUiWwmESr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Platz, Joseph" ;
+        chon:hasSANRecord      "Be3" , "Ra3" , "Rc1" , "Nxc1" , "Kc6" , "Bxc1" , "Ra4" , "Rb5" , "Ba3" , "Ra1" , "Rc5" , "Nc1" , "Bb3" , "a5" , "Bd5" , "c2" ;
+        chon:nextHalfMove      :hmgamUiWwmES .
+
+:plaJiZiPF  a         chon:Place ;
+        chon:hasName  "Hartford" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJiZiPF .
+
+:cgrJiZiPF  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamJiZiP .
+
+:agJiZiPF  a          chon:Agent ;
+        chon:hasName  "Platz, Joseph" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJiZiPF .
+
+:rolJiZiPF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJiZiPF .
+
+:rolhgJiZiPFOf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJiZiPF .
+
+:gamJiZiP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJiZiPF ;
+        chon:atPlace           :plaJiZiPF ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJiZiPFO ;
+        chon:hasHalfMove       :hmgamJiZiPFO , :hmgamUiWwmES ;
+        chon:hasLastHalfMove   :hmgamUiWwmES ;
+        chon:hasOpening        :opeJiZiPF ;
+        chon:hasReport         :cgrJiZiPF ;
+        chon:hasResult         :resJiZiPFO ;
+        chon:subEventOf        :touJiZiP .
+
+:hmgamJiZiPFO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUiWwmESr , :rolhgJiZiPFOf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Platz, Joseph" ;
+        chon:hasSANRecord      "a3" , "a4" , "Kd1" , "bxa5" , "Ne2" , "Ke8" , "Qg4" , "a6" , "e4" , "d4" , "Nb3" , "h6" , "Bb4" , "Bd7" , "e6" , "Bxc6" , "h4" , "Bxa4+" , "Nxd4" , "Bxb8" , "Ke1" , "Qh4" , "Ba3" , "Kd7" , "Nec6" , "Nxc2+" , "cxd4" , "c5" , "Bd6" , "Ba5" , "Nb4" , "f3" , "dxc3" , "Kf8" , "Bc6" , "e5" , "g6" , "Qxh4" , "Rc8" , "Qg3" , "Rb8" , "d5" , "Nc3" , "axb7" , "Bb5" , "b4" , "Rxh4" , "Nf3" , "h5" , "f5" , "Nge7" , "Nxa1" , "Nc6" , "Bxb7" ;
+        chon:nextHalfMove      :hmgamJiZiPFO , :hmgamUiWwmES .
+
+:touJiZiP  a          chon:hessTournament ;
+        chon:atPlace  :plaJiZiPF ;
+        chon:hasName  "Hartford sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resJiZiPFO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeJiZiPF  a            chon:ChessOpening ;
+        chon:hasECOCode  "C17" .
+
+:rolhgUiWwmESr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJiZiPF .

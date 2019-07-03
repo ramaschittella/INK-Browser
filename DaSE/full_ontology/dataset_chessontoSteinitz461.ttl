@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolM3N1Zd  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamX3KewcL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgX3KewcLc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "exd4" , "exd6" , "cxd6" , "a3" , "Qa4" , "Nxf4" , "Bb5" , "Bb7" , "Qg6" , "f6" , "Nd4" , "d6" , "c3" , "Kh2" , "Bxb2" , "Nc3" , "Qf6" , "Nge7" , "Nd5" , "Rc1" , "Bxc6" , "Rd2" , "Bc6" , "Nxc6" , "Rc7" , "Qd5" , "Qxd4" , "Nf3" , "h5" , "Qc2" , "d4" , "Qb5" , "Rf2" , "f3" , "Rb2" , "Be7" , "e4" , "Nc6" , "cxd4" , "b6" , "h4" , "Nf4" , "Bf6" , "Bxd4" , "Bc5" , "Qc3" , "O-O" , "Bg3" , "Nd3" , "Bxf4" , "d5" , "Nb4" , "Rfe8" , "Bd8" , "e5" ;
+        chon:nextHalfMove      :hmgamX3KewcL .
+
+:plaM3N1Zd  a         chon:Place ;
+        chon:hasName  "St Petersburg" .
+
+:agX3Kewc  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Lasker, Emanuel" .
+
+:rolX3Kewc  a             chon:AuthorRole ;
+        chon:performedBy  :agX3Kewc .
+
+:opeX3Kewc  a            chon:ChessOpening ;
+        chon:hasECOCode  "C64" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agX3Kewc .
+
+:gamM3N1Z  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolM3N1Zd ;
+        chon:atPlace           :plaM3N1Zd ;
+        chon:atTime            "1895.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamX3KewcL ;
+        chon:hasHalfMove       :hmgamX3KewcL ;
+        chon:hasLastHalfMove   :hmgamX3KewcL ;
+        chon:hasOpening        :opeX3Kewc ;
+        chon:hasReport         :cgrX3Kewc ;
+        chon:hasResult         :resX3KewcL ;
+        chon:subEventOf        :touM3N1Z .
+
+chon:HalfMove  chon:subEventOf  :gamM3N1Z .
+
+:touM3N1Z  a          chon:hessTournament ;
+        chon:atPlace  :plaM3N1Zd ;
+        chon:hasName  "St Petersburg9596" .
+
+:resX3KewcL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agX3Kewc .
+
+:cgrX3Kewc  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgX3KewcLc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agX3Kewc .

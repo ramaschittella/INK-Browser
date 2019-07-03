@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrklsb9Y  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agklsb9Y .
+
+chon:HalfMove  chon:subEventOf  :gamonJ3o .
+
+:resklsb9YZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agklsb9Y .
+
+:rolhgklsb9YZk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agklsb9Y .
+
+:hmgamklsb9YZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgklsb9YZk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc1" , "Qxe7" , "Qd8" , "Nbd2" , "Nxc5" , "Be3" , "Rfc8" , "O-O" , "Kf3" , "Nxe7+" , "Be4" , "Rac1" , "c5" , "Nf6" , "c4" , "Bd2" , "Bd5" , "Qc8" , "Nb3" , "Qb6" , "Qxc5" , "e6" , "dxc5" , "Nfd4" , "Bg2" , "d4" , "Bxg2" , "d5" , "Qc2" , "Qe8" , "Nf5" , "Kxg2" , "Nf3" , "Nbd7" , "Kf8" , "a6" , "Bc5" , "Bg5" , "Bb7" , "dxc4" , "Qxc4" , "Be7" , "Rd1" , "g3" , "b5" ;
+        chon:nextHalfMove      :hmgamklsb9YZ .
+
+:gamonJ3o  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolklsb9Y ;
+        chon:atPlace           :plaonJ3o1 ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamklsb9YZ ;
+        chon:hasHalfMove       :hmgamklsb9YZ ;
+        chon:hasLastHalfMove   :hmgamklsb9YZ ;
+        chon:hasOpening        :opeklsb9Y ;
+        chon:hasReport         :cgrklsb9Y ;
+        chon:hasResult         :resklsb9YZ ;
+        chon:subEventOf        :touonJ3o .
+
+:agklsb9Y  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Sosonko, Gennadi" .
+
+:touonJ3o  a          chon:hessTournament ;
+        chon:atPlace  :plaonJ3o1 ;
+        chon:hasName  "Tilburg" .
+
+:rolklsb9Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agklsb9Y .
+
+:opeklsb9Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:plaonJ3o1  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

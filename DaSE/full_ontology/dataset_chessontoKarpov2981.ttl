@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gammKjwg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmKjwgb ;
+        chon:atPlace           :plamKjwgb ;
+        chon:atTime            "2007.11.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyIfMNa6 ;
+        chon:hasHalfMove       :hmgamyIfMNa6 ;
+        chon:hasLastHalfMove   :hmgamyIfMNa6 ;
+        chon:hasOpening        :opemKjwgb ;
+        chon:hasReport         :cgryIfMNa ;
+        chon:hasResult         :resmKjwgb3 ;
+        chon:subEventOf        :toumKjwg .
+
+:plamKjwgb  a         chon:Place ;
+        chon:hasName  "Vitoria Gasteiz ESP" .
+
+:toumKjwg  a          chon:hessTournament ;
+        chon:atPlace  :plamKjwgb ;
+        chon:hasName  "Chess Champions League" .
+
+:resmKjwgb3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agmKjwgb  a          chon:Agent ;
+        chon:hasName  "Kasimdzhanov,R" , "Karpov,Ana" .
+
+:rolmKjwgb  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmKjwgb .
+
+chon:HalfMove  chon:subEventOf  :gammKjwg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmKjwgb .
+
+:cgryIfMNa  a   chon:ChessGameReport .
+
+:rolhgyIfMNa6H  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmKjwgb .
+
+:opemKjwgb  a            chon:ChessOpening ;
+        chon:hasECOCode  "E90" .
+
+:rolyIfMNa  a             chon:AuthorRole ;
+        chon:performedBy  :agyIfMNa .
+
+:hmgamyIfMNa6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyIfMNa6H , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "Nxe4" , "e4" , "Rc1" , "Bxd4" , "Rfe8" , "dxe5" , "Be2" , "d4" , "Rxe4" , "Ne6" , "O-O" , "h3" , "exd4" , "Bc4" , "Nd2" , "Be3" , "c5" , "c6" , "Bg7" , "e5" , "Nd4" , "Bf8" , "b5" , "cxb6" , "c4" , "Bb5" , "Nc3" , "b4" , "d6" , "Rxd1" , "g6" , "Nf3" , "Bb7" , "Nc5" , "Na6" , "Nxd4" , "Bd3" , "axb6" , "a3" , "Qxd1+" , "b6" , "Nf6" ;
+        chon:nextHalfMove      :hmgamyIfMNa6 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

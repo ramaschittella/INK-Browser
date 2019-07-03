@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ago8EJ6q  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" .
+
+:rolo8EJ6q  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamo8EJ6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolo8EJ6q ;
+        chon:atPlace           :plao8EJ6q ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamk6mSQoi ;
+        chon:hasHalfMove       :hmgamk6mSQoi ;
+        chon:hasLastHalfMove   :hmgamk6mSQoi ;
+        chon:hasOpening        :opek6mSQo ;
+        chon:hasReport         :cgrk6mSQo ;
+        chon:hasResult         :resk6mSQoi ;
+        chon:subEventOf        :touo8EJ6 .
+
+:rolhgk6mSQoiI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agk6mSQo , :ago8EJ6q .
+
+:touo8EJ6  a          chon:hessTournament ;
+        chon:atPlace  :plao8EJ6q ;
+        chon:hasName  "London" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ago8EJ6q .
+
+chon:HalfMove  chon:subEventOf  :gamo8EJ6 .
+
+:cgrk6mSQo  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agk6mSQo .
+
+:hmgamk6mSQoi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgk6mSQoiI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Blackburne, Joseph Henry" ;
+        chon:hasSANRecord      "e5" , "Bg5" , "dxc4" , "Kxh2" , "d7" , "Qg6" , "Rxd8" , "f5" , "Bh4" , "Nh3" , "Rd4" , "c4" , "Bd6" , "Kf7" , "Qb5" , "Rc7+" , "Bb1" , "Bc5" , "Ke6" , "Nxc7" , "Ndf6" , "e4" , "h6" , "Bg3" , "Bg4" , "Kg1" , "exf5" , "Qd6" , "Rxa8" , "Nb6" , "d6" , "Nxh2" , "Nxa8" , "Nc3" , "O-O" , "Qf1" , "Bxc4" , "Bxh2+" , "d8=Q+" , "Be2" , "Rc1" , "Bxf5" , "Rfd1" , "Ng4" , "Bd3" , "Rxd8+" , "Qh5+" , "Qe2" , "Nb5" , "Nh5" , "Bxh2" , "d4" , "Bxh3" , "d5" , "Nd7" , "Nf6" ;
+        chon:nextHalfMove      :hmgamk6mSQoi .
+
+:agk6mSQo  a          chon:Agent ;
+        chon:hasName  "Blackburne, Joseph Henry" .
+
+:rolk6mSQo  a             chon:AuthorRole ;
+        chon:performedBy  :agk6mSQo .
+
+:opek6mSQo  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:plao8EJ6q  a         chon:Place ;
+        chon:hasName  "London" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resk6mSQoi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

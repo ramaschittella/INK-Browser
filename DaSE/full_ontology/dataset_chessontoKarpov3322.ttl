@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res1UOKUUg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamsW14hU6  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsW14hU6w ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nyback,T" ;
+        chon:hasSANRecord      "Qc8" , "Rf7" , "Bg7" , "Rxb4" , "h4" , "Re5" , "Rxe4" , "Kg6" , "Rab1" , "Rxa2" , "Kg3" , "Rh4" , "bxc3" , "Qa4" , "e6" , "Ba6" , "d5" , "Rf8" , "Bd3" , "Ke2" , "Re8+" , "Re6" , "Nxc6" , "Rf4" , "gxf5" , "Nc3" , "Rg6+" , "f5" , "cxd5" , "Rxb7" , "dxe4" , "Kf4" , "Rf6" , "Rb4" , "Kf1" , "O-O" , "Kf7" , "Rxf8" , "Rb7" , "Bb5" , "Qa3" , "Ke5" , "Rh6" , "Rc8" , "g4" , "g6" , "Ba3" , "exd5" , "Ne5" , "Bf8" , "Re8" , "Rea8" , "Re1" , "c6" , "Rh8" , "d4" , "Rd6" , "Nc6" , "Kxf2" , "Rc4" , "Kxf5" , "Rxa3" , "Bg2" , "Rc7" , "Ne4" , "Rxa7" , "cxb4" , "Kf3" , "Rb8" , "d6" , "Qb7" , "Kg4" , "Ra6" , "c4" , "g3" , "Kxh5" , "Bxe4" , "Re7" , "bxc6" , "h5+" , "d7" , "Nxc3" , "Bxf8" , "c5" , "e4" ;
+        chon:nextHalfMove      :hmgamsW14hU6 .
+
+:rolhgsW14hU6w  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1UOKUU .
+
+:cgr1UOKUU  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1UOKUU .
+
+:gam1UOKU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1UOKUU ;
+        chon:atPlace           :pla1UOKUU ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1UOKUUg ;
+        chon:hasHalfMove       :hmgam1UOKUUg , :hmgamsW14hU6 ;
+        chon:hasLastHalfMove   :hmgamsW14hU6 ;
+        chon:hasOpening        :ope1UOKUU ;
+        chon:hasReport         :cgr1UOKUU ;
+        chon:hasResult         :res1UOKUUg ;
+        chon:subEventOf        :tou1UOKU .
+
+chon:HalfMove  chon:subEventOf  :gam1UOKU .
+
+:rol1UOKUU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1UOKUU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1UOKUU .
+
+:pla1UOKUU  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+:hmgam1UOKUUg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsW14hU6w , :rolhg1UOKUUg9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nyback,T" ;
+        chon:hasSANRecord      "Nf6" , "Nf3" ;
+        chon:nextHalfMove      :hmgamsW14hU6 , :hmgam1UOKUUg .
+
+:rolhg1UOKUUg9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1UOKUU .
+
+:ag1UOKUU  a          chon:Agent ;
+        chon:hasName  "Nyback,T" , "Karpov,Ana" .
+
+:tou1UOKU  a          chon:hessTournament ;
+        chon:atPlace  :pla1UOKUU ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope1UOKUU  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .

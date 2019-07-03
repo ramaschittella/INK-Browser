@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agpSULrU  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Gashimov,V" .
+
+:cgrpSULrU  a   chon:ChessGameReport .
+
+:hmgamkOBUbSR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkOBUbSRx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Kb8" , "Qc7" , "Rhe8" , "b5" , "Rd5" , "f4" , "axb6" , "Bxb6" , "Rd8" , "g3" , "Bxc5" , "Nxc5" , "f6" , "Qf3" , "Kb1" , "Nd3" , "Nexc5" , "Rhe1" , "Ne5" , "Nb6" , "c3" , "Nd5" , "Ba5" , "Bd6" , "Qg4" , "O-O-O" , "Bf8" , "Red8" , "Qe2" , "g4" , "Qf7" , "Ne4" , "Nc7" ;
+        chon:nextHalfMove      :hmgamkOBUbSR , :hmgamwOy0IRU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpSULrU .
+
+:toupSULr  a          chon:hessTournament ;
+        chon:atPlace  :plapSULrU ;
+        chon:hasName  "World Blitz" .
+
+:opepSULrU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+:rolhgwOy0IRUK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpSULrU .
+
+chon:HalfMove  chon:subEventOf  :gampSULr .
+
+:hmgamwOy0IRU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwOy0IRUK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "g2" , "Re4" , "Qf7" , "h5" , "Nf6" , "Na6" , "fxg4" , "Qf4+" , "exf5" , "Nd3" , "Kc1" , "Qe3" , "Nxg4" , "Qe6" , "Qd2" , "g3" , "Qxf5" , "Kc8" , "a3" , "Qd5" , "Qd6" , "Qh3+" , "Nxd5" , "Qxg2" , "Qg3" , "Rxe1" , "Kb1" , "g5" , "Qf2" , "Qxh5" , "Qf5+" , "Nc7" , "f5" , "Re8" , "Qg3+" , "Nf4" , "Rg4" , "Ka1" , "Qd7" , "Ne3" , "Qf4" , "Qf3" ;
+        chon:nextHalfMove      :hmgamwOy0IRU .
+
+:rolhgkOBUbSRx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpSULrU .
+
+:rolpSULrU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpSULrU .
+
+:respSULrUB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgpSULrUBz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpSULrU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgampSULrUB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkOBUbSRx , :rolhgpSULrUBz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "e6" , "Nf3" , "Qxd3" , "c5" , "Bxd3" , "Bg6" , "Nxe4" , "Bd3" , "d4" , "h5" , "Nc3" , "h6" , "e4" , "Bd2" , "h4" , "Nd7" , "Ng3" , "Bf5" , "Bh7" , "d5" , "dxe4" , "Ngf6" ;
+        chon:nextHalfMove      :hmgamkOBUbSR , :hmgampSULrUB .
+
+:gampSULr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpSULrU ;
+        chon:atPlace           :plapSULrU ;
+        chon:atTime            "2009.11.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampSULrUB ;
+        chon:hasHalfMove       :hmgampSULrUB , :hmgamkOBUbSR , :hmgamwOy0IRU ;
+        chon:hasLastHalfMove   :hmgamwOy0IRU ;
+        chon:hasOpening        :opepSULrU ;
+        chon:hasReport         :cgrpSULrU ;
+        chon:hasResult         :respSULrUB ;
+        chon:subEventOf        :toupSULr .
+
+:plapSULrU  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpSULrU .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touoPkmx  a          chon:hessTournament ;
+        chon:atPlace  :placPn91Q ;
+        chon:hasName  "Reggio Emilia8990" .
+
+:rolhg2PsTrP4S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoPkmxP .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoPkmxP .
+
+:rolhgoPkmxP01  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoPkmxP .
+
+:hmgamoPkmxP0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoPkmxP01 , :rolhg2PsTrP4S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petursson, Margeir" ;
+        chon:hasSANRecord      "Bg2" , "e4" , "Qxd4" , "Bg5" , "f3" , "c4" , "Bd7" , "d6" , "a5" , "Nc3" , "Rxd6" , "Nf3" , "Nf6" , "Kf8" , "Rfd1" , "Be2" , "e5+" , "Qb6" , "Bf1" , "cxd4" , "Bc6" , "g6" , "h4" , "Ne2" , "e6" , "Nxd4" , "Rd8" , "Nc5" , "Ke7" , "Bg7" , "Be5" , "Nc6" , "Qxe3" , "Nd7" , "Bxf6+" , "d4" , "Rab1" , "Kxf6" , "Bg5+" , "Qe3" , "Kf2" , "Bxe3" , "Bf6" , "Rd2" , "Rfc8" , "g3" , "Rbc1" , "b3" , "Be6" , "b6" , "h5" , "c5" , "O-O" , "Rcd1" ;
+        chon:nextHalfMove      :hmgamoPkmxP0 , :hmgam2PsTrP4 .
+
+:cgroPkmxP  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamcPn91 .
+
+:opeoPkmxP  a            chon:ChessOpening ;
+        chon:hasECOCode  "B36" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoPkmxP .
+
+:agoPkmxP  a          chon:Agent ;
+        chon:hasName  "Petursson, Margeir" , "Karpov, Anatoly" .
+
+:roloPkmxP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoPkmxP .
+
+:placPn91Q  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:gamcPn91  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloPkmxP ;
+        chon:atPlace           :placPn91Q ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoPkmxP0 ;
+        chon:hasHalfMove       :hmgam2PsTrP4 , :hmgamoPkmxP0 ;
+        chon:hasLastHalfMove   :hmgam2PsTrP4 ;
+        chon:hasOpening        :opeoPkmxP ;
+        chon:hasReport         :cgroPkmxP ;
+        chon:hasResult         :resoPkmxP0 ;
+        chon:subEventOf        :touoPkmx .
+
+:hmgam2PsTrP4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2PsTrP4S ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petursson, Margeir" ;
+        chon:hasSANRecord      "Kxb7" , "Kd4" , "Kxd6" , "Nxc6+" , "Nd4" , "Ra2+" , "f4+" , "a4" , "Bxb7" , "Kxc6" , "Rd7+" , "Nb7" , "Kd6" , "axb3" , "Kc7" , "Ke3" , "Rxd6" , "Rxf7" , "exd6+" , "Rf6" , "Kc6" ;
+        chon:nextHalfMove      :hmgam2PsTrP4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resoPkmxP0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

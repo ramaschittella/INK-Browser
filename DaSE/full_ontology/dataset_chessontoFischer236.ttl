@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam47lSu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol47lSuB ;
+        chon:atPlace           :pla47lSuB ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam47lSuBx ;
+        chon:hasHalfMove       :hmgame5g92DS , :hmgam47lSuBx ;
+        chon:hasLastHalfMove   :hmgame5g92DS ;
+        chon:hasOpening        :ope47lSuB ;
+        chon:hasReport         :cgr47lSuB ;
+        chon:hasResult         :res47lSuBx ;
+        chon:subEventOf        :tou47lSu .
+
+:res47lSuBx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:tou47lSu  a          chon:hessTournament ;
+        chon:atPlace  :pla47lSuB ;
+        chon:hasName  "Buenos Aires" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag47lSuB .
+
+:hmgam47lSuBx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg47lSuBxN , :rolhge5g92DS2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "e4" , "c5" , "d6" , "cxd4" , "Nf6" , "d4" , "Bg2" , "Nc7" , "g3" , "a4" , "d3" , "Nc6" , "Nge2" , "h3" , "Be3" , "g6" , "Rb1" , "a6" , "c4" , "O-O" , "b6" , "Bg7" , "Rb8" , "Nc3" , "Ne8" , "Bxd4" , "Nxd4" ;
+        chon:nextHalfMove      :hmgame5g92DS , :hmgam47lSuBx .
+
+chon:HalfMove  chon:subEventOf  :gam47lSu .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag47lSuB .
+
+:hmgame5g92DS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhge5g92DS2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qxe2" , "b5" , "Qc7" , "Ne2" , "Nc3" , "Qd3" , "Nxe2+" , "Rfd1" , "Qxd4" , "bxa4" , "Nd4" , "Be6" , "Bf1" , "e5" , "Ne6" , "Nxa4" , "b4" ;
+        chon:nextHalfMove      :hmgame5g92DS .
+
+:pla47lSuB  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:rolhge5g92DS2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag47lSuB .
+
+:cgr47lSuB  a   chon:ChessGameReport .
+
+:rolhg47lSuBxN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag47lSuB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag47lSuB  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Szabo, Laszlo" .
+
+:rol47lSuB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag47lSuB .
+
+:ope47lSuB  a            chon:ChessOpening ;
+        chon:hasECOCode  "A36" .

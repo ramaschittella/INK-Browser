@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamMXrFE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMXrFEB ;
+        chon:atPlace           :plaMXrFEB ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMXrFEBH ;
+        chon:hasHalfMove       :hmgamHT9OnyX , :hmgamTT53Uy1 , :hmgamMXrFEBH ;
+        chon:hasLastHalfMove   :hmgamTT53Uy1 ;
+        chon:hasOpening        :opeMXrFEB ;
+        chon:hasReport         :cgrMXrFEB ;
+        chon:hasResult         :resMXrFEBH ;
+        chon:subEventOf        :touMXrFE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMXrFEB .
+
+:hmgamHT9OnyX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHT9OnyXF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Letelier, Rene" ;
+        chon:hasSANRecord      "Qxb8" , "Qxe1" , "cxd6" , "Bd7" , "Qf4" , "Nxf4" , "Bxb8" , "dxc3" , "exd4" , "Bc2" , "Nc8" , "Rc1" , "d6" , "Qb6" , "Qxf4" , "Bd2" , "Bxc3" , "Qa5" , "d4" , "Qxd6" , "Nxd7" , "Rxe1+" , "Re1" , "bxc5" , "Rc7" , "c5" , "h3" , "Nxd5" , "exd5" , "Qd2" , "Be5" , "c3" , "Ne5" , "Bb3" , "b5" , "Ne6" , "Bf8" , "Ra7" , "Ne3" , "Na5" , "b4" , "O-O" , "Rd1" , "Re8" , "Rab8" , "Qxd7" , "Nd5" , "Be7" , "Qd6" , "Nbd2" , "Ne7" , "Nc6" , "Nf1" , "Qc7" ;
+        chon:nextHalfMove      :hmgamTT53Uy1 , :hmgamHT9OnyX .
+
+:rolhgTT53Uy1S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMXrFEB .
+
+:plaMXrFEB  a         chon:Place ;
+        chon:hasName  "Santiago" .
+
+chon:HalfMove  chon:subEventOf  :gamMXrFE .
+
+:agMXrFEB  a          chon:Agent ;
+        chon:hasName  "Letelier, Rene" , "Fischer, Robert James" .
+
+:hmgamMXrFEBH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMXrFEBHH , :rolhgHT9OnyXF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Letelier, Rene" ;
+        chon:hasSANRecord      "Nf3" , "e5" , "Ba4" , "a6" , "e4" , "Bb5" , "Nf6" , "Nc6" , "O-O" ;
+        chon:nextHalfMove      :hmgamHT9OnyX , :hmgamMXrFEBH .
+
+:cgrMXrFEB  a   chon:ChessGameReport .
+
+:hmgamTT53Uy1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTT53Uy1S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Letelier, Rene" ;
+        chon:hasSANRecord      "Kf8" , "Nc7" , "Ba4" , "Rb7" , "Bd6" , "Ne8" , "Ra7" , "Rxa6" , "Rb6" ;
+        chon:nextHalfMove      :hmgamTT53Uy1 .
+
+:touMXrFE  a          chon:hessTournament ;
+        chon:atPlace  :plaMXrFEB ;
+        chon:hasName  "Santiago" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgMXrFEBHH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMXrFEB .
+
+:opeMXrFEB  a            chon:ChessOpening ;
+        chon:hasECOCode  "C97" .
+
+:resMXrFEBH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgHT9OnyXF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMXrFEB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMXrFEB .
+
+:rolMXrFEB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMXrFEB .

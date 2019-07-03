@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gampfymW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBfvzvv ;
+        chon:atPlace           :plapfymWw ;
+        chon:atTime            "2003.05.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBfvzvvs ;
+        chon:hasHalfMove       :hmgamBfvzvvs ;
+        chon:hasLastHalfMove   :hmgamBfvzvvs ;
+        chon:hasOpening        :opeBfvzvv ;
+        chon:hasReport         :cgrBfvzvv ;
+        chon:hasResult         :resBfvzvvs ;
+        chon:subEventOf        :touBfvzv .
+
+:resBfvzvvs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBfvzvv .
+
+chon:HalfMove  chon:subEventOf  :gampfymW .
+
+:cgrBfvzvv  a   chon:ChessGameReport .
+
+:plapfymWw  a         chon:Place ;
+        chon:hasName  "Lanzarote ESP" .
+
+:agBfvzvv  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Campos Moreno,J" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBfvzvv .
+
+:touBfvzv  a          chon:hessTournament ;
+        chon:atPlace  :plapfymWw ;
+        chon:hasName  "TCh-ESP" .
+
+:rolBfvzvv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBfvzvv .
+
+:opeBfvzvv  a            chon:ChessOpening ;
+        chon:hasECOCode  "E20" .
+
+:hmgamBfvzvvs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBfvzvvsg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nxc3" , "Nc3" , "Bd2" , "cxd4" , "Nxd5" , "bxc3" , "c4" , "Qb3" , "O-O" , "c5" , "Ba6" , "Bxc3" , "cxd5" , "g3" , "Qxb4" , "bxc6" , "e6" , "d5" , "Nc6" , "Qa5" , "Bb4" , "Nf6" , "Nxd4" , "cxb4" , "Qb4" , "Nf3" , "Nxc6" , "d4" , "Bg2" ;
+        chon:nextHalfMove      :hmgamBfvzvvs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgBfvzvvsg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBfvzvv .

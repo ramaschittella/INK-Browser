@@ -1,0 +1,98 @@
+Prefix(:=<http://www.ontology-design-pattern.org/trees#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(odp-tree:=<http://www.odp.org/tree#>)
+
+
+Ontology(<http://www.ontology-design-pattern.org/trees>
+
+Declaration(Class(odp-tree:LeafNode))
+Declaration(Class(odp-tree:NonLeafNode))
+Declaration(Class(odp-tree:NonRootNode))
+Declaration(Class(odp-tree:RootNode))
+Declaration(Class(odp-tree:TreeNode))
+Declaration(ObjectProperty(odp-tree:edge))
+Declaration(ObjectProperty(odp-tree:hasAncestor))
+Declaration(ObjectProperty(odp-tree:hasChild))
+Declaration(ObjectProperty(odp-tree:hasDescendant))
+Declaration(ObjectProperty(odp-tree:hasParent))
+Declaration(ObjectProperty(odp-tree:hasSibling))
+Declaration(DataProperty(odp-tree:hasOutDegree))
+Declaration(NamedIndividual(odp-tree:root))
+############################
+#   Object Properties
+############################
+
+# Object Property: odp-tree:hasAncestor (odp-tree:hasAncestor)
+
+InverseObjectProperties(odp-tree:hasAncestor odp-tree:hasDescendant)
+IrreflexiveObjectProperty(odp-tree:hasAncestor)
+
+# Object Property: odp-tree:hasChild (odp-tree:hasChild)
+
+SubObjectPropertyOf(odp-tree:hasChild odp-tree:hasDescendant)
+InverseObjectProperties(odp-tree:hasChild odp-tree:hasParent)
+IrreflexiveObjectProperty(odp-tree:hasChild)
+
+# Object Property: odp-tree:hasDescendant (odp-tree:hasDescendant)
+
+TransitiveObjectProperty(odp-tree:hasDescendant)
+IrreflexiveObjectProperty(odp-tree:hasDescendant)
+
+# Object Property: odp-tree:hasParent (odp-tree:hasParent)
+
+SubObjectPropertyOf(odp-tree:hasParent odp-tree:hasAncestor)
+IrreflexiveObjectProperty(odp-tree:hasParent)
+
+# Object Property: odp-tree:hasSibling (odp-tree:hasSibling)
+
+SymmetricObjectProperty(odp-tree:hasSibling)
+IrreflexiveObjectProperty(odp-tree:hasSibling)
+
+
+
+
+############################
+#   Classes
+############################
+
+# Class: odp-tree:LeafNode (odp-tree:LeafNode)
+
+EquivalentClasses(odp-tree:LeafNode ObjectIntersectionOf(odp-tree:TreeNode ObjectComplementOf(ObjectSomeValuesFrom(odp-tree:hasChild owl:Thing))))
+EquivalentClasses(odp-tree:LeafNode ObjectIntersectionOf(odp-tree:TreeNode DataAllValuesFrom(odp-tree:hasOutDegree DataOneOf("0"^^xsd:integer))))
+SubClassOf(odp-tree:LeafNode odp-tree:TreeNode)
+
+# Class: odp-tree:NonLeafNode (odp-tree:NonLeafNode)
+
+EquivalentClasses(odp-tree:NonLeafNode ObjectComplementOf(odp-tree:LeafNode))
+SubClassOf(odp-tree:NonLeafNode odp-tree:TreeNode)
+SubClassOf(odp-tree:NonLeafNode ObjectComplementOf(DataAllValuesFrom(odp-tree:hasOutDegree DataOneOf("0"^^xsd:integer))))
+SubClassOf(odp-tree:NonLeafNode ObjectSomeValuesFrom(odp-tree:hasChild odp-tree:TreeNode))
+
+# Class: odp-tree:NonRootNode (odp-tree:NonRootNode)
+
+SubClassOf(odp-tree:NonRootNode odp-tree:TreeNode)
+SubClassOf(odp-tree:NonRootNode ObjectExactCardinality(1 odp-tree:hasParent odp-tree:TreeNode))
+
+# Class: odp-tree:RootNode (odp-tree:RootNode)
+
+EquivalentClasses(odp-tree:RootNode ObjectIntersectionOf(odp-tree:TreeNode ObjectComplementOf(ObjectSomeValuesFrom(odp-tree:hasParent owl:Thing))))
+SubClassOf(odp-tree:RootNode odp-tree:TreeNode)
+
+# Class: odp-tree:TreeNode (odp-tree:TreeNode)
+
+EquivalentClasses(odp-tree:TreeNode ObjectComplementOf(odp-tree:RootNode))
+SubClassOf(odp-tree:TreeNode ObjectAllValuesFrom(odp-tree:hasAncestor odp-tree:TreeNode))
+SubClassOf(odp-tree:TreeNode ObjectAllValuesFrom(odp-tree:hasChild odp-tree:TreeNode))
+SubClassOf(odp-tree:TreeNode ObjectAllValuesFrom(odp-tree:hasDescendant odp-tree:TreeNode))
+SubClassOf(odp-tree:TreeNode ObjectAllValuesFrom(odp-tree:hasParent odp-tree:TreeNode))
+SubClassOf(odp-tree:TreeNode ObjectAllValuesFrom(odp-tree:hasSibling odp-tree:TreeNode))
+SubClassOf(odp-tree:TreeNode DataAllValuesFrom(odp-tree:hasOutDegree xsd:integer))
+SubClassOf(odp-tree:TreeNode DataExactCardinality(1 odp-tree:hasOutDegree xsd:integer))
+
+
+
+)

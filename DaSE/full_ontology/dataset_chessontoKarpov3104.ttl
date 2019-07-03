@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plabxtGJh  a         chon:Place ;
+        chon:hasName  "Marianske Lazne CZE" .
+
+:gambxtGJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbxtGJh ;
+        chon:atPlace           :plabxtGJh ;
+        chon:atTime            "2008.12.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambxtGJhQ ;
+        chon:hasHalfMove       :hmgamSADZ6hG , :hmgambxtGJhQ ;
+        chon:hasLastHalfMove   :hmgamSADZ6hG ;
+        chon:hasOpening        :opebxtGJh ;
+        chon:hasReport         :cgrbxtGJh ;
+        chon:hasResult         :resbxtGJhQ ;
+        chon:subEventOf        :toubxtGJ .
+
+:resbxtGJhQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbxtGJh .
+
+:agbxtGJh  a          chon:Agent ;
+        chon:hasName  "Ushenina,A" , "Karpov,Ana" .
+
+:hmgamSADZ6hG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSADZ6hG8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ushenina,A" ;
+        chon:hasSANRecord      "Qh5" , "bxc4" , "Rde1" , "Qg7" , "Qe7" , "Rfd8" , "Nd2" , "Nxe5" , "d5" , "c5" , "Bg2" , "a5" , "Bd5" , "Bc5" , "Bb7" , "Nfd7" , "Re7" , "g3" , "Re8+" , "Qb2" , "g5" , "f5" , "Qf6" , "Bg5" , "Be7" , "Qh4" , "Qf4" , "exd5" , "dxc4" , "c4" , "Nd3" , "Bd2" , "Nf6" , "Ne6" , "Ba6" , "Nxg5" , "Rfd1" , "Bf1" , "cxd4" , "Qxc5+" , "Qxc4+" , "e6" , "Bxe5" , "Bf4" , "Re6" , "Re8" , "Rc8" , "bxc5" , "Kf8" , "Qd2" , "Qc2" , "Qe8" , "Bb4+" , "exd4" , "Re2" , "Rxe2" , "Qg6" , "b3" , "Rac1" , "Nd7" , "Nf3" , "Kg8" , "Ba3" , "c6" , "b6" , "Ne5" , "Bxc4" , "Rf7" , "Rc2" , "Bd6" , "Nxc5" , "Qxf5+" , "Rc7" , "e3" , "Be3" , "h6" , "Be5" , "Nh5" , "O-O" , "Qe2" ;
+        chon:nextHalfMove      :hmgamSADZ6hG .
+
+chon:HalfMove  chon:subEventOf  :gambxtGJ .
+
+:opebxtGJh  a            chon:ChessOpening ;
+        chon:hasECOCode  "E06" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbxtGJh .
+
+:toubxtGJ  a          chon:hessTournament ;
+        chon:atPlace  :plabxtGJh ;
+        chon:hasName  "Snowdrops vs Old-hands" .
+
+:rolhgSADZ6hG8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbxtGJh .
+
+:cgrbxtGJh  a   chon:ChessGameReport .
+
+:hmgambxtGJhQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSADZ6hG8 , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamSADZ6hG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolbxtGJh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbxtGJh .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolOtlp0U  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOtlp0U .
+
+:gamOtlp0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOtlp0U ;
+        chon:atPlace           :plaOtlp0U ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOtlp0UQ ;
+        chon:hasHalfMove       :hmgamfvxHtVG , :hmgamOtlp0UQ , :hmgamrvuV3UJ ;
+        chon:hasLastHalfMove   :hmgamrvuV3UJ ;
+        chon:hasOpening        :opeOtlp0U ;
+        chon:hasReport         :cgrOtlp0U ;
+        chon:hasResult         :resOtlp0UQ ;
+        chon:subEventOf        :touOtlp0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOtlp0U .
+
+:plaOtlp0U  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:HalfMove  chon:subEventOf  :gamOtlp0 .
+
+:resOtlp0UQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgfvxHtVGX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOtlp0U .
+
+:agOtlp0U  a          chon:Agent ;
+        chon:hasName  "Larsen, Bent" , "Karpov, Anatoly" .
+
+:opeOtlp0U  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+:cgrOtlp0U  a   chon:ChessGameReport .
+
+:touOtlp0  a          chon:hessTournament ;
+        chon:atPlace  :plaOtlp0U ;
+        chon:hasName  "Linares" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgrvuV3UJ9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOtlp0U .
+
+:rolhgOtlp0UQx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOtlp0U .
+
+:hmgamfvxHtVG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfvxHtVGX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Rg8" , "Nd7" , "g4" , "Qf5" , "f3" , "f6" , "h6" , "Kb2" , "Rfd8" , "Qd5" , "Qe4" , "Nf3" , "Nxd3" , "Be3" , "Bd3" , "Rd4" , "Nxc5" , "Kf8" , "Qxe4" , "f4" , "a3" , "Bxd3" , "Ne4" , "O-O" , "Bxc5" , "Rc8" , "Ke7" , "Be7" , "Nd3" , "Qxd3" , "Nf6" , "Ne5" , "Rxd4" , "e6" , "c4" , "dxc5" , "Qe2" , "b3" , "Kb1" , "h5" , "Ngf6" , "Bd2" , "a5" , "c5" , "Bh7" , "Kc3" , "Ke8" , "Rhd1" , "O-O-O" , "Nxe4" , "Kxd3" ;
+        chon:nextHalfMove      :hmgamfvxHtVG , :hmgamrvuV3UJ .
+
+:hmgamrvuV3UJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrvuV3UJ9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Ke4" , "cxb6" , "Rxb6" , "hxg6" , "Kh5" , "b4" , "Kg3" , "Rxg6" , "Kf3" , "Rb8" , "Ke3" , "c5" , "exf5" , "g5" , "gxf5" , "Rc8" , "Kg6" , "Kd3" , "Kf6" , "b6" , "f5" , "axb4" , "Rg8" ;
+        chon:nextHalfMove      :hmgamrvuV3UJ .
+
+:hmgamOtlp0UQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOtlp0UQx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "c6" , "Nd2" , "h4" , "d5" , "Bf5" , "dxe4" , "Bg6" , "d4" , "e4" , "Nxe4" , "Ng3" ;
+        chon:nextHalfMove      :hmgamOtlp0UQ , :hmgamfvxHtVG .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOtlp0U .

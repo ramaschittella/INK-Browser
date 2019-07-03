@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrpKxKec  a   chon:ChessGameReport .
+
+:rolpKxKec  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpKxKec .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpKxKec .
+
+:hmgampKxKecE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpKxKecE1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc3" , "Bxc4" , "Qxb3" , "d4" , "d5" , "Qb3" , "Be7" , "Rfe8" , "Re1" , "Bxd4" , "Nxe4" , "Rab8" , "Ra3" , "Qxc4" , "Nf3" , "e5" , "Qxb7" , "Bxf3" , "Rxe8+" , "Bd3" , "Rxe7" , "c6" , "Bg4" , "Rxe8" , "e4" , "Qxf3" , "O-O" , "Nc6" , "Nxd4" , "Nf6" , "Be3" , "d6" , "c4" , "Qxd4" , "Nxe5" , "dxc4" , "axb3" ;
+        chon:nextHalfMove      :hmgampKxKecE .
+
+chon:HalfMove  chon:subEventOf  :gampKxKe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpKxKec .
+
+:agpKxKec  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolhgpKxKecE1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpKxKec .
+
+:opepKxKec  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:respKxKecE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gampKxKe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpKxKec ;
+        chon:atPlace           :plapKxKec ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampKxKecE ;
+        chon:hasHalfMove       :hmgampKxKecE ;
+        chon:hasLastHalfMove   :hmgampKxKecE ;
+        chon:hasOpening        :opepKxKec ;
+        chon:hasReport         :cgrpKxKec ;
+        chon:hasResult         :respKxKecE ;
+        chon:subEventOf        :toupKxKe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toupKxKe  a          chon:hessTournament ;
+        chon:atPlace  :plapKxKec ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+:plapKxKec  a         chon:Place ;
+        chon:hasName  "Moscow" .

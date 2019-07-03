@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaprk7Lz  a         chon:Place ;
+        chon:hasName  "Santurtzi ESP" .
+
+:hmgamprk7Lzj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBpemiAm5 , :rolhgprk7LzjT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fernandez Garcia,Jo" ;
+        chon:hasSANRecord      "Qxd5" , "exd5" , "e4" , "d4" , "Nf6" , "d5" , "Nf3" , "Qd6" , "Nc3" , "g6" ;
+        chon:nextHalfMove      :hmgamBpemiAm , :hmgamprk7Lzj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agprk7Lz .
+
+:gamprk7L  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolprk7Lz ;
+        chon:atPlace           :plaprk7Lz ;
+        chon:atTime            "2003.05.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamprk7Lzj ;
+        chon:hasHalfMove       :hmgamBpemiAm , :hmgamprk7Lzj ;
+        chon:hasLastHalfMove   :hmgamBpemiAm ;
+        chon:hasOpening        :opeprk7Lz ;
+        chon:hasReport         :cgrprk7Lz ;
+        chon:hasResult         :resprk7Lzj ;
+        chon:subEventOf        :touprk7L .
+
+chon:HalfMove  chon:subEventOf  :gamprk7L .
+
+:touprk7L  a          chon:hessTournament ;
+        chon:atPlace  :plaprk7Lz ;
+        chon:hasName  "Basque Country vs. World Advanced" .
+
+:agprk7Lz  a          chon:Agent ;
+        chon:hasName  "Fernandez Garcia,Jo" , "Karpov,Ana" .
+
+:rolprk7Lz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agprk7Lz .
+
+:opeprk7Lz  a            chon:ChessOpening ;
+        chon:hasECOCode  "B06" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agprk7Lz .
+
+:rolhgBpemiAm5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agprk7Lz .
+
+:resprk7Lzj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgprk7LzjT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agprk7Lz .
+
+:hmgamBpemiAm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBpemiAm5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fernandez Garcia,Jo" ;
+        chon:hasSANRecord      "Qf5" , "Bh5" , "Bd2" , "Nxe5" , "Rd8" , "g3" , "Be2" , "Bd1" , "Qc1" , "Bg7" , "c6" , "Nd5" , "Nc4" , "Nce5" , "Nb5" , "Nbd7" , "O-O" , "h6" , "Qc6" , "b3" , "Bg4" , "Be6" , "Re1" , "Na3" , "Bf3" , "a5" , "c3" , "Nc7" , "Qf6" , "g5" , "Qb6" ;
+        chon:nextHalfMove      :hmgamBpemiAm .
+
+:cgrprk7Lz  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

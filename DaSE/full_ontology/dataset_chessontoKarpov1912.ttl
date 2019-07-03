@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agqNXQ65  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Shirov, Alexei" .
+
+:rolqNXQ65  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqNXQ65 .
+
+:gamqNXQ6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqNXQ65 ;
+        chon:atPlace           :plaqNXQ65 ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqNXQ65d ;
+        chon:hasHalfMove       :hmgamqNXQ65d ;
+        chon:hasLastHalfMove   :hmgamqNXQ65d ;
+        chon:hasOpening        :opeqNXQ65 ;
+        chon:hasReport         :cgrqNXQ65 ;
+        chon:hasResult         :resqNXQ65d ;
+        chon:subEventOf        :touqNXQ6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqNXQ65 .
+
+chon:HalfMove  chon:subEventOf  :gamqNXQ6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqNXQ65 .
+
+:hmgamqNXQ65d  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqNXQ65dm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc7" , "e4" , "Bxc3" , "d4" , "Nc6" , "exd4" , "Nf6" , "Nh3" , "Qg3" , "f4" , "Bb4" , "Ne5" , "a3" , "d6" , "Qe3" , "Qxh3" , "Qb6" , "Bc4" , "Nh5" , "dxe5" , "f3" , "h4" , "Na4" , "a5" , "Kh8" , "c6" , "Nc5" , "bxc3" , "O-O" , "Bxh3" , "e5" , "Ba5" , "O-O-O" , "Bd3" , "Ned7" , "c5" , "c4" , "Nc3" , "Qxd4" , "Re8" , "Qh2" , "Be2" , "Bd2" ;
+        chon:nextHalfMove      :hmgamqNXQ65d .
+
+:opeqNXQ65  a            chon:ChessOpening ;
+        chon:hasECOCode  "C22" .
+
+:rolhgqNXQ65dm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqNXQ65 .
+
+:touqNXQ6  a          chon:hessTournament ;
+        chon:atPlace  :plaqNXQ65 ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaqNXQ65  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:resqNXQ65d  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrqNXQ65  a   chon:ChessGameReport .

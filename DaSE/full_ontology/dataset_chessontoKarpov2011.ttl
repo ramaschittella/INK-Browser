@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolB3iSYD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agB3iSYD .
+
+:opeB3iSYD  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:resB3iSYDr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamB3iSY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolB3iSYD ;
+        chon:atPlace           :plaB3iSYD ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamB3iSYDr ;
+        chon:hasHalfMove       :hmgamB3iSYDr ;
+        chon:hasLastHalfMove   :hmgamB3iSYDr ;
+        chon:hasOpening        :opeB3iSYD ;
+        chon:hasReport         :cgrB3iSYD ;
+        chon:hasResult         :resB3iSYDr ;
+        chon:subEventOf        :touB3iSY .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agB3iSYD .
+
+:rolhgB3iSYDrh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agB3iSYD .
+
+chon:HalfMove  chon:subEventOf  :gamB3iSY .
+
+:cgrB3iSYD  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agB3iSYD .
+
+:touB3iSY  a          chon:hessTournament ;
+        chon:atPlace  :plaB3iSYD ;
+        chon:hasName  "Biel SKA" .
+
+:plaB3iSYD  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:hmgamB3iSYDr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgB3iSYDrh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nxc3" , "Qh4+" , "Be7" , "Bg5" , "c4" , "Qc7" , "dxc5" , "Be2" , "Nd4" , "e6" , "Bxe7" , "Qxc3" , "Qxh7" , "Nc3" , "Bb7" , "a3" , "Rxg2" , "Qxg7" , "Rxc5" , "b6" , "d4" , "e3" , "Rd1" , "Nf3" , "Rc8" , "Kxe7" , "a5" , "Rxb5" , "Nb5" , "cxd5" , "d5" , "Nf6" , "Nxd5" , "Bxb5" , "Rg8" , "Nd7" , "Qc2" , "Rg4" , "c5" ;
+        chon:nextHalfMove      :hmgamB3iSYDr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agB3iSYD  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Portisch, Lajos" .

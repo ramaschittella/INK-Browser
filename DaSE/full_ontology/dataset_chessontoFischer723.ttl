@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrjQicL9  a   chon:ChessGameReport .
+
+:hmgamjQicL9r  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjQicL9rt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Marovic, Drazen" ;
+        chon:hasSANRecord      "h5" , "Kg7" , "Nxe5" , "g6" , "Kf2" , "d3" , "Nxc4" , "e5" , "Rb3" , "Rxb6" , "Rxc3" , "Nd7" , "Rxe2" , "Rb7+" , "Re6" , "Rc7" , "axb6" , "d5" , "b6" , "c3" , "Rb5" , "Rg3" , "Bxe2" , "Rd2" , "Bg5" , "Bxc4" , "Kh2" , "Rd1+" , "h4" , "Bd3" , "Bg7" , "Bxe5" , "f3" , "f6" , "dxe5" , "h6" , "d4" , "Kd2" , "b4" , "Rd8" , "Ncxe5" , "Nbc4" , "Kf6" , "Rf3+" , "fxe5" , "Re5" , "Rb4" , "Rae1" , "Re3" , "Rxf7+" , "Nxf7" , "Rc8" , "a4" , "f4" , "cxd5" , "Nf1" , "exd5" , "Nc6" , "Nd2" , "Kg3" , "e4" , "Ngf3" , "dxc4" , "Ne7" , "Nb6" , "e6" , "Kf7" , "Ke2" , "Rb2" , "Bg4" , "Re1" , "Qf7" , "Qe2" , "b5" , "Rd3" , "Rb8" , "Kxf7" , "O-O" , "Rb3+" , "c6" , "a5" , "Rf7" , "Ne3" , "Rd5" , "Qc7" , "Rxf7" , "Bf4" ;
+        chon:nextHalfMove      :hmgamjQicL9r .
+
+:pla8QlYd0  a         chon:Place ;
+        chon:hasName  "Zagreb" .
+
+:agjQicL9  a          chon:Agent ;
+        chon:hasName  "Marovic, Drazen" , "Fischer, Robert James" .
+
+:roljQicL9  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjQicL9 .
+
+:opejQicL9  a            chon:ChessOpening ;
+        chon:hasECOCode  "B10" .
+
+:rolhgjQicL9rt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjQicL9 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjQicL9 .
+
+chon:HalfMove  chon:subEventOf  :gam8QlYd .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjQicL9 .
+
+:toujQicL  a          chon:hessTournament ;
+        chon:atPlace  :pla8QlYd0 ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+:gam8QlYd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljQicL9 ;
+        chon:atPlace           :pla8QlYd0 ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjQicL9r ;
+        chon:hasHalfMove       :hmgamjQicL9r ;
+        chon:hasLastHalfMove   :hmgamjQicL9r ;
+        chon:hasOpening        :opejQicL9 ;
+        chon:hasReport         :cgrjQicL9 ;
+        chon:hasResult         :resjQicL9r ;
+        chon:subEventOf        :toujQicL .
+
+:resjQicL9r  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrzmTuPv  a   chon:ChessGameReport .
+
+:reszmTuPva  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touzmTuP  a          chon:hessTournament ;
+        chon:atPlace  :planmWgiw ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzmTuPv .
+
+chon:HalfMove  chon:subEventOf  :gamnmWgi .
+
+:agzmTuPv  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Magem Badals, Jorge" .
+
+:rolzmTuPv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzmTuPv .
+
+:opezmTuPv  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzmTuPv .
+
+:hmgamzmTuPva  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzmTuPvaA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nbd2" , "dxc5" , "e4" , "Bd3" , "Nxe4" , "Bf4" , "Rac1" , "a6" , "Nc5" , "Qc2" , "b5" , "Nf6" , "g4" , "Bb5" , "Ne4" , "Bf8" , "Bb3" , "Ng3" , "d6" , "d4" , "Bg7" , "Bxc5" , "Nf1" , "c4" , "Rad8" , "Bc4" , "Kg7" , "Nc6" , "Rxe4" , "Ng5" , "Bh6" , "h3" , "Nf3" , "c6" , "Bxe4" , "b3" , "Nb8" , "O-O" , "d5" , "Qxe4" , "Nxd5" , "cxb5" , "g6" , "Bb7" , "Qc7" , "cxd5" , "Nfd7" , "a5" , "Be3" , "exd5" , "Re1" , "Nbd7" , "Bc2" , "Qd2" , "e5" , "Rf8" , "Be7" , "Re8" , "c3" , "Ba4" ;
+        chon:nextHalfMove      :hmgamzmTuPva .
+
+:planmWgiw  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:gamnmWgi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzmTuPv ;
+        chon:atPlace           :planmWgiw ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzmTuPva ;
+        chon:hasHalfMove       :hmgamzmTuPva ;
+        chon:hasLastHalfMove   :hmgamzmTuPva ;
+        chon:hasOpening        :opezmTuPv ;
+        chon:hasReport         :cgrzmTuPv ;
+        chon:hasResult         :reszmTuPva ;
+        chon:subEventOf        :touzmTuP .
+
+:rolhgzmTuPvaA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzmTuPv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

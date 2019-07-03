@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamAmofrzs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAmofrzsB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Rxd1" , "Bd3" , "e6" , "Bg5" , "h5" , "b4" , "O-O" , "d6" , "dxc5" , "Nxd5" , "Nc7" , "c4" , "Nb5" , "g5" , "Bg3" , "Nf3" , "Bf1" , "c5" , "Ba6" , "Nxb5" , "Qe7" , "bxc5" , "d5" , "Nc3" , "Nc6" , "O-O-O" , "Bxb5" , "gxf3" , "f6" , "Bh4" , "Bb7" , "e4" , "cxd5" , "b6" , "a3" , "Qc2" , "Rfd1" , "Ne5" , "Nxf3+" , "d4" , "exd5" , "a6" , "Nf6" ;
+        chon:nextHalfMove      :hmgamLmlt2yv , :hmgamAmofrzs .
+
+:cgrAmofrz  a   chon:ChessGameReport .
+
+:gamAmofr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAmofrz ;
+        chon:atPlace           :plaAmofrz ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAmofrzs ;
+        chon:hasHalfMove       :hmgamAmofrzs , :hmgamLmlt2yv ;
+        chon:hasLastHalfMove   :hmgamLmlt2yv ;
+        chon:hasOpening        :opeAmofrz ;
+        chon:hasReport         :cgrAmofrz ;
+        chon:hasResult         :resAmofrzs ;
+        chon:subEventOf        :touAmofr .
+
+:touAmofr  a          chon:hessTournament ;
+        chon:atPlace  :plaAmofrz ;
+        chon:hasName  "Roquebrune rapid" .
+
+:resAmofrzs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAmofrz .
+
+:plaAmofrz  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+chon:HalfMove  chon:subEventOf  :gamAmofr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAmofrz .
+
+:rolhgLmlt2yvO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAmofrz .
+
+:rolhgAmofrzsB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAmofrz .
+
+:agAmofrz  a          chon:Agent ;
+        chon:hasName  "Polugaevsky, Lev" , "Karpov, Anatoly" .
+
+:rolAmofrz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAmofrz .
+
+:opeAmofrz  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:hmgamLmlt2yv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLmlt2yvO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Bh3+" , "Qe6" , "Qxh3" , "Bh6" , "g5" , "Qd6" , "g4" , "Qd2" , "fxg4" ;
+        chon:nextHalfMove      :hmgamLmlt2yv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

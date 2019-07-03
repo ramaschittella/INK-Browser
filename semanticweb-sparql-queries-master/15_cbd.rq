@@ -1,0 +1,11 @@
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+CONSTRUCT {
+  dbr:Amsterdam   ?rel    ?o .
+  ?s              ?rel_of dbr:Amsterdam
+}
+WHERE {
+  { dbr:Amsterdam ?rel    ?o }
+  UNION
+  { ?s            ?rel_of dbr:Amsterdam }
+}

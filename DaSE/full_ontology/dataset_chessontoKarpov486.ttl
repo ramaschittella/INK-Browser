@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr5QP16E  a   chon:ChessGameReport .
+
+:hmgamvSZisE1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvSZisE1U ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc7" , "Rb1+" , "Re2" , "a4" , "Nf6+" , "Kc6" , "Be5" , "Bf6" , "Nxh7" , "Kb1" , "Ra2" , "Nd2" , "Kd4" , "Rh3" , "Kc4" , "b5" , "Kd5" , "Bg5" , "Rc3+" , "a5" , "Rb1" , "e5" , "Rc1+" , "Rh1" , "h4" , "Be7" , "Ne4" , "Kc2" , "Kb3" , "g4" , "Bd4" , "Rxd3+" , "Re1" , "b4" ;
+        chon:nextHalfMove      :hmgamvSZisE1 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5QP16E .
+
+:hmgam5QP16E9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5QP16E9u ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd2" , "Na6" , "Ke3" , "Bxd5" , "cxd5" , "e3" , "Bxg2" , "Nxe3+" , "Bxb4+" , "Nf6" , "c4" , "Rc2" , "Bh6" , "Kd7" , "Rhc8" , "Nc3" , "a3" , "Ke7" , "Kxg2" , "Bg2" , "Kxd8" , "Qh4" , "g3" , "Bb2" , "cxb4" , "Bxe3" , "d5" , "O-O" , "Rxa3" , "Nd5" , "b4" , "Rxc1" , "Bg7" , "Kf3" , "Nc7" , "Nd2" , "Qxd8+" , "Bc6" , "Nxf1" , "Bxf6" , "Rc8" , "f6" , "g6" , "Qa4+" , "Nxd5" , "Bc3" , "e6" , "d3" , "Rc1" , "fxe3" , "b6" , "Bxc1" , "c5" , "Ra2" , "Nf3" , "Bd7" ;
+        chon:nextHalfMove      :hmgam5QP16E9 , :hmgamvSZisE1 .
+
+chon:HalfMove  chon:subEventOf  :gamTQSMw .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5QP16E .
+
+:tou5QP16  a          chon:hessTournament ;
+        chon:atPlace  :pla5QP16E ;
+        chon:hasName  "Tilburg" .
+
+:pla5QP16E  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:gamTQSMw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5QP16E ;
+        chon:atPlace           :pla5QP16E ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5QP16E9 ;
+        chon:hasHalfMove       :hmgam5QP16E9 , :hmgamvSZisE1 ;
+        chon:hasLastHalfMove   :hmgamvSZisE1 ;
+        chon:hasOpening        :ope5QP16E ;
+        chon:hasReport         :cgr5QP16E ;
+        chon:hasResult         :res5QP16E9 ;
+        chon:subEventOf        :tou5QP16 .
+
+:ag5QP16E  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Huebner, Robert" .
+
+:rol5QP16E  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5QP16E .
+
+:ope5QP16E  a            chon:ChessOpening ;
+        chon:hasECOCode  "A34" .
+
+:res5QP16E9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgvSZisE1U  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5QP16E .
+
+:rolhg5QP16E9u  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5QP16E .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

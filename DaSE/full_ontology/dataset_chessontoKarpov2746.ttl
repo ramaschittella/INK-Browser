@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agBTVp4j  a          chon:Agent ;
+        chon:hasName  "Van Wely,L" , "Karpov,Ana" .
+
+:hmgamBTVp4jK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBTVp4jKF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely,L" ;
+        chon:hasSANRecord      "Qb6" , "d5" , "Qb4" , "Rac1" , "Qb2" , "Rd8" , "Qb3" , "Qxb3" , "Nxc6" , "Bg2" , "cxb3" , "c5" , "Nb1" , "Rd7" , "b3" , "Nf3" , "gxf4" , "g6" , "cxd5" , "Bf4" , "Rfc1" , "Nbd2" , "Rc2" , "Qc7" , "Rxc2" , "c3" , "b6" , "g3" , "Nh5" , "a4" , "Nxf4" , "Bg7" , "Qe7" , "f6" , "Bf8" , "e3" , "Qb5" , "d4" , "a6" , "c4" , "Qa3" , "Ne5" , "Rxc6" , "O-O" , "e6" , "exd5" , "Nf6" , "Rd6" , "Nc6" , "Rac8" , "Bb7" , "Na5" ;
+        chon:nextHalfMove      :hmgamBTVp4jK , :hmgamNQSFDjN .
+
+:opeBTVp4j  a            chon:ChessOpening ;
+        chon:hasECOCode  "A49" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBTVp4j .
+
+chon:HalfMove  chon:subEventOf  :gamBTVp4 .
+
+:gamBTVp4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBTVp4j ;
+        chon:atPlace           :plaBTVp4j ;
+        chon:atTime            "2003.11.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBTVp4jK ;
+        chon:hasHalfMove       :hmgamBTVp4jK , :hmgamNQSFDjN ;
+        chon:hasLastHalfMove   :hmgamNQSFDjN ;
+        chon:hasOpening        :opeBTVp4j ;
+        chon:hasReport         :cgrBTVp4j ;
+        chon:hasResult         :resBTVp4jK ;
+        chon:subEventOf        :touBTVp4 .
+
+:resBTVp4jK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touBTVp4  a          chon:hessTournament ;
+        chon:atPlace  :plaBTVp4j ;
+        chon:hasName  "Corsica Masters KO" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBTVp4j .
+
+:hmgamNQSFDjN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNQSFDjNQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely,L" ;
+        chon:hasSANRecord      "Be8" , "Bb5" , "h4" , "h6" , "Bf1" , "g4" , "Nd3" , "Kg4" , "Kd7" , "a4" , "Bd3" , "Qc3" , "Bf6" , "Kd8" , "Rc2" , "Ke3" , "Bc6" , "Nf4" , "fxg5" , "Qxg7" , "Bxb5" , "Ke6" , "Qf5" , "g5" , "Qe5+" , "Kg7" , "Bg7" , "f3" , "Nxg7" , "Kf4" , "Nb4" , "Ra3" , "e4" , "Na2" , "Ra5" , "Ra7" , "Rd6" , "axb5" , "Qd7" , "Ke7" , "Kh8" , "Qxg4+" , "Be7" , "Ne6" , "Nc3" , "a5" , "Ra2" , "Kxg7" , "Qxg7+" , "Kf2" , "Rd7" , "Kf6" , "Qc7" , "Qd8" ;
+        chon:nextHalfMove      :hmgamNQSFDjN .
+
+:cgrBTVp4j  a   chon:ChessGameReport .
+
+:rolBTVp4j  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBTVp4j .
+
+:rolhgNQSFDjNQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBTVp4j .
+
+:plaBTVp4j  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgBTVp4jKF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBTVp4j .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamyvUOiDM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyvUOiDMV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik,V" ;
+        chon:hasSANRecord      "Qxc3+" , "c4" , "Nd5" , "Rxc3" , "c5" , "d4" , "Nxc3" , "Nc3" , "Qxc5" , "cxd5" , "Bd7" , "d5" , "Bb4" , "Nc6" , "a3" , "Qc2" , "Bd2" , "e3" , "Qxc3" , "O-O" , "dxc5" , "Bd3" , "Nf3" , "Rc1" , "Qxd5" , "Nf6" , "Bxc3" , "e6" ;
+        chon:nextHalfMove      :hmgamyvUOiDM .
+
+:cgr7tJvVD  a   chon:ChessGameReport .
+
+:rolhgyvUOiDMV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7tJvVD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7tJvVD .
+
+:tou7tJvV  a          chon:hessTournament ;
+        chon:atPlace  :pla7tJvVD ;
+        chon:hasName  "GMA" .
+
+chon:HalfMove  chon:subEventOf  :gam7tJvV .
+
+:pla7tJvVD  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee NED" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7tJvVD .
+
+:ag7tJvVD  a          chon:Agent ;
+        chon:hasName  "Kramnik,V" , "Karpov,An" .
+
+:rol7tJvVD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7tJvVD .
+
+:ope7tJvVD  a            chon:ChessOpening ;
+        chon:hasECOCode  "E34" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res7tJvVDV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gam7tJvV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7tJvVD ;
+        chon:atPlace           :pla7tJvVD ;
+        chon:atTime            "2003.01.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyvUOiDM ;
+        chon:hasHalfMove       :hmgamyvUOiDM ;
+        chon:hasLastHalfMove   :hmgamyvUOiDM ;
+        chon:hasOpening        :ope7tJvVD ;
+        chon:hasReport         :cgr7tJvVD ;
+        chon:hasResult         :res7tJvVDV ;
+        chon:subEventOf        :tou7tJvV .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolG8TXJi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agG8TXJi .
+
+:rolhgO4xk1fd7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agG8TXJi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agG8TXJi .
+
+:agG8TXJi  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Gunsberg, Isidor" .
+
+chon:HalfMove  chon:subEventOf  :gamG8TXJ .
+
+:plaG8TXJi  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:gamG8TXJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolG8TXJi ;
+        chon:atPlace           :plaG8TXJi ;
+        chon:atTime            "1890.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamG8TXJiT ;
+        chon:hasHalfMove       :hmgamS4B8tga , :hmgamG8TXJiT , :hmgamO4xk1fd ;
+        chon:hasLastHalfMove   :hmgamO4xk1fd ;
+        chon:hasOpening        :opeG8TXJi ;
+        chon:hasReport         :cgrG8TXJi ;
+        chon:hasResult         :resG8TXJiT ;
+        chon:subEventOf        :touG8TXJ .
+
+:resG8TXJiT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeG8TXJi  a            chon:ChessOpening ;
+        chon:hasECOCode  "C54" .
+
+:cgrG8TXJi  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgG8TXJiTV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agG8TXJi .
+
+:hmgamG8TXJiT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgS4B8tgaT , :rolhgG8TXJiTV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "h3" , "Bc4" , "d6" , "d3" , "Bc5" , "Nf1" , "d5" , "Ne7" , "Nf3" , "c3" , "Qe2" , "Ng6" , "Nc6" , "Bb3" , "c6" , "e4" , "O-O" , "Nbd2" , "e5" , "Nf6" ;
+        chon:nextHalfMove      :hmgamG8TXJiT , :hmgamS4B8tga .
+
+:hmgamO4xk1fd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgO4xk1fd7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Ng5" , "Nxf3+" , "Nxe4" , "Qxe4" , "Ne6" , "Re2" , "Nf3" , "Kg2" , "Qxf3" ;
+        chon:nextHalfMove      :hmgamO4xk1fd .
+
+:hmgamS4B8tga  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgS4B8tgaT , :rolhgO4xk1fd7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "g3" , "Re7" , "Rad8" , "Rd1" , "Qg5" , "N3d2" , "Ne6" , "Qd7" , "Qxe3" , "Qxd3" , "Rac1" , "Kh2" , "Kg2" , "Rd3" , "fxg3" , "Qc6" , "Nf1" , "Ngf3" , "Kf1" , "Ra1" , "Ra2" , "Rxd3" , "Be6" , "Nd4" , "Qf6" , "Rfe8" , "c4" , "Bxb3" , "Nh5" , "Rg2" , "Rf2" , "Qe3" , "axb3" , "Rg1" , "Rf3" , "hxg3+" , "dxe4" , "Be3" , "Nc4" , "Qb5" , "Qe2" , "Nf8" , "b6" , "h4" , "Nd2" , "Re2" , "h5" , "Ncd2" , "Rc3" , "Qg6" , "c5" , "Red7" , "Nf6" , "Ng5" , "Bxe3" ;
+        chon:nextHalfMove      :hmgamO4xk1fd , :hmgamS4B8tga .
+
+:rolhgS4B8tgaT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agG8TXJi .
+
+:touG8TXJ  a          chon:hessTournament ;
+        chon:atPlace  :plaG8TXJi ;
+        chon:hasName  "World Championship 3rd" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agG8TXJi .

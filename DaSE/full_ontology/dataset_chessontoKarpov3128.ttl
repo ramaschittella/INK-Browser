@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgIdzhj9Wy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIdzhj9 .
+
+:gamIdzhj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIdzhj9 ;
+        chon:atPlace           :plaIdzhj9 ;
+        chon:atTime            "2009.05.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIdzhj9W ;
+        chon:hasHalfMove       :hmgamTdwvS8Z , :hmgamIdzhj9W ;
+        chon:hasLastHalfMove   :hmgamTdwvS8Z ;
+        chon:hasOpening        :opeIdzhj9 ;
+        chon:hasReport         :cgrIdzhj9 ;
+        chon:hasResult         :resIdzhj9W ;
+        chon:subEventOf        :touIdzhj .
+
+:touIdzhj  a          chon:hessTournament ;
+        chon:atPlace  :plaIdzhj9 ;
+        chon:hasName  "3rd ACP World Rapid Cup" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIdzhj9 .
+
+:hmgamTdwvS8Z  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTdwvS8ZM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Svidler,P" ;
+        chon:hasSANRecord      "Kxf3" , "Ra4+" , "Rf6" , "h6" , "Rxa5" , "Bxd3" , "d3" , "Qb6" , "Rxc6" , "Ra8" , "f3" , "Bxc5" , "Ke7" , "g5" , "Ke5" , "g4+" , "g3" , "Rd3" , "h7" , "Rxc5" , "Rd2" , "Rb4+" , "Kf4" , "Ra2" , "Kg5" , "Kg4" , "Rxb3+" , "Bxd4" , "d4" , "Kh7" , "Nxd3" , "Rh1+" , "Kd6" , "Rf3" , "Kf3" , "Rxa2" , "Ke6" , "Rc2" , "Qxa5" , "Kxd2" , "Rb1" , "Rxg6" , "Kg6" , "Rxh5" , "Qc3+" , "Ke3" , "Rxd2" , "Kf5" , "h5" , "Ra3" , "Rg5+" , "Re2" , "Rh8" , "Qc7" , "Nc5" , "Rb2" , "Kg2" , "f5" , "d2" , "fxg6" , "f4+" , "Kh4" , "Ke4" , "Rxf3" , "Rb3+" , "Kf6" , "Ra6" , "Qc1" , "R8e6" , "Re4" , "Kg7" ;
+        chon:nextHalfMove      :hmgamTdwvS8Z .
+
+chon:HalfMove  chon:subEventOf  :gamIdzhj .
+
+:resIdzhj9W  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIdzhj9 .
+
+:plaIdzhj9  a         chon:Place ;
+        chon:hasName  "Odessa UKR" .
+
+:rolhgTdwvS8ZM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIdzhj9 .
+
+:cgrIdzhj9  a   chon:ChessGameReport .
+
+:hmgamIdzhj9W  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTdwvS8ZM , :rolhgIdzhj9Wy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Svidler,P" ;
+        chon:hasSANRecord      "Rac1" , "Nef4" , "Nxg5" , "Nc6" , "e6" , "Bg7" , "Re7" , "Bb5" , "e3" , "d4" , "Rb8" , "bxc6" , "O-O" , "Qb6" , "Nf4" , "exd5" , "Nd3" , "Nh3" , "h4" , "g6" , "Rbe8" , "a5" , "c4" , "cxd5" , "Nce2" , "Ba6" , "Nf6" , "Ne4" , "Nf3" , "h6" , "exd4" , "Nc3" , "c5" , "Re8" , "b3" , "Rfd1" , "d5" , "Qd2" , "Bg5" , "Bxc6" , "cxd4" ;
+        chon:nextHalfMove      :hmgamTdwvS8Z , :hmgamIdzhj9W .
+
+:agIdzhj9  a          chon:Agent ;
+        chon:hasName  "Svidler,P" , "Karpov,Ana" .
+
+:rolIdzhj9  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIdzhj9 .
+
+:opeIdzhj9  a            chon:ChessOpening ;
+        chon:hasECOCode  "D91" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

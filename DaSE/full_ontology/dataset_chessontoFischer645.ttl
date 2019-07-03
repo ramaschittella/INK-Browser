@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgP8pv7LoD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP8pv7L .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP8pv7L .
+
+chon:HalfMove  chon:subEventOf  :gamP8pv7 .
+
+:agP8pv7L  a          chon:Agent ;
+        chon:hasName  "Schweber, Samuel" , "Fischer, Robert James" .
+
+:resP8pv7Lo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touP8pv7  a          chon:hessTournament ;
+        chon:atPlace  :plaP8pv7L ;
+        chon:hasName  "Buenos Aires" .
+
+:opeP8pv7L  a            chon:ChessOpening ;
+        chon:hasECOCode  "C19" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP8pv7L .
+
+:hmgamP8pv7Lo  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgP8pv7LoD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schweber, Samuel" ;
+        chon:hasSANRecord      "Bd7" , "Bxg4" , "d4" , "Nf3" , "Rf1" , "Bxg6" , "Nxd4" , "Bxc3+" , "e4" , "Rxe4" , "Qxg3" , "Nc6" , "Kf2" , "cxd4" , "Rg3" , "f6" , "Rxf1" , "Nc4" , "Qg3" , "Nc3" , "Kc5" , "a5" , "Rff7" , "g3" , "Rf3" , "Rxg4" , "e5" , "Rb1" , "Ke3" , "Rxf8" , "Rf7" , "Be6" , "c5" , "f7" , "f3" , "g6" , "axb6" , "Nxd2" , "d5" , "Re1" , "Rxd4" , "Qc7" , "Bg4" , "Rxe7" , "h3" , "Re7" , "e6" , "Kd2" , "f4" , "O-O" , "Rh8" , "Rhg8" , "Qg4" , "f8=Q+" , "Kc7" , "bxc3" , "Kb8" , "Re7+" , "f5" , "Bd3" , "g4" , "O-O-O" , "Bh7" , "Kd6" , "exf6" , "h6" , "Re3" , "Bb4" , "Nge7" , "Rde8" , "Bxe7" , "Nd2" , "a4" , "a3" , "Be2" , "Bxd2" , "Bxf1" , "Na5" , "b6" ;
+        chon:nextHalfMove      :hmgamP8pv7Lo .
+
+:plaP8pv7L  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:cgrP8pv7L  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamP8pv7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolP8pv7L ;
+        chon:atPlace           :plaP8pv7L ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamP8pv7Lo ;
+        chon:hasHalfMove       :hmgamP8pv7Lo ;
+        chon:hasLastHalfMove   :hmgamP8pv7Lo ;
+        chon:hasOpening        :opeP8pv7L ;
+        chon:hasReport         :cgrP8pv7L ;
+        chon:hasResult         :resP8pv7Lo ;
+        chon:subEventOf        :touP8pv7 .
+
+:rolP8pv7L  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agP8pv7L .

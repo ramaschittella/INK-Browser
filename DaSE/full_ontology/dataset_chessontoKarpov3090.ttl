@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agS0qzyz  a          chon:Agent ;
+        chon:hasName  "Caruana,F" , "Karpov,Ana" .
+
+:opeS0qzyz  a            chon:ChessOpening ;
+        chon:hasECOCode  "E39" .
+
+:rolhgQn5mKISw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS0qzyz .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS0qzyz .
+
+:gamS0qzy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolS0qzyz ;
+        chon:atPlace           :plaS0qzyz ;
+        chon:atTime            "2008.10.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamS0qzyzk ;
+        chon:hasHalfMove       :hmgamQn5mKIS , :hmgamS0qzyzk ;
+        chon:hasLastHalfMove   :hmgamQn5mKIS ;
+        chon:hasOpening        :opeS0qzyz ;
+        chon:hasReport         :cgrS0qzyz ;
+        chon:hasResult         :resS0qzyzk ;
+        chon:subEventOf        :touS0qzy .
+
+chon:HalfMove  chon:subEventOf  :gamS0qzy .
+
+:touS0qzy  a          chon:hessTournament ;
+        chon:atPlace  :plaS0qzyz ;
+        chon:hasName  "Trophee CCAS KO" .
+
+:hmgamS0qzyzk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQn5mKISw , :rolhgS0qzyzkO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Caruana,F" ;
+        chon:hasSANRecord      "c5" , "Qc2" , "Nc3" , "d4" , "c4" , "e6" , "Nf6" , "Bb4" , "dxc5" ;
+        chon:nextHalfMove      :hmgamS0qzyzk , :hmgamQn5mKIS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS0qzyz .
+
+:plaS0qzyz  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:cgrS0qzyz  a   chon:ChessGameReport .
+
+:rolhgS0qzyzkO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS0qzyz .
+
+:rolS0qzyz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agS0qzyz .
+
+:resS0qzyzk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamQn5mKIS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQn5mKISw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Caruana,F" ;
+        chon:hasSANRecord      "b3" , "Qc2" , "Nc3" , "Kh1" , "Bb7" , "Qa4" , "a6" , "Nd6" , "Rd2" , "d5" , "Bxa5" , "Qf2" , "Qd2" , "Qa1" , "Nf3" , "Qg5" , "Qb4" , "Be5" , "Rdd8" , "Kf2" , "Qc7" , "Bb6" , "Qf6" , "Bf2" , "Nd7" , "Rd3" , "Rd7" , "R4d2" , "Qd1" , "Qb1" , "Ke2" , "Rfd8" , "Qb7" , "Bc6" , "Rd4" , "bxc4" , "Be2" , "Rfd1" , "Qc1" , "Qxa6+" , "Ne2" , "Nxd2" , "Na2" , "e4" , "Qh4" , "Qf4" , "c5" , "Qa3" , "a5" , "Rd1" , "Nxe5" , "Qxf1+" , "Be7" , "Qh2+" , "Qe4" , "Bf6" , "Qb3" , "Ne5" , "Rbb8" , "Nc5" , "Qxe3" , "Rcd8" , "a4" , "Bf1" , "Bxd6" , "Ba8" , "Rb8" , "Rbc8" , "Rxd2" , "Nc6" , "Rc6" , "Rcd2" , "Bd2" , "Bf4" , "d6" , "e3" , "Qd3" , "Rb7" , "Nd4" , "h6" , "Nxe4" , "dxc4" , "Kf3" , "Rb4" , "Rxe3+" , "h3" , "Bxb6" , "f3" , "Qc4" , "Bxe5" , "Bxc5" , "Qf4+" , "O-O" , "Kxf3" , "Qc5" , "Rc2" , "a3" , "Kg1" , "Qg3+" , "Qb8" , "Nb5" , "b6" , "Bxf3" , "Qe7" , "Rb3" , "Bg3" , "Be3" , "Rc8" ;
+        chon:nextHalfMove      :hmgamQn5mKIS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

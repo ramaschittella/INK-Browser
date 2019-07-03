@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgNyVJi7O0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGAim38 .
+
+:rolSyZwL8  a             chon:AuthorRole ;
+        chon:performedBy  :agSyZwL8 .
+
+:plaGAim38  a         chon:Place ;
+        chon:hasName  "London" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGAim38 .
+
+:hmgamSyZwL8K  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSyZwL8KY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qg6" , "Bxc3" , "Qf6" , "e4" , "Bc5" , "Bxb4" , "O-O" , "exd4" , "b4" , "Nf3" , "Qb3" , "Bc4" , "c3" , "dxc3" , "Nxc3" , "Nc6" , "e5" , "Ba5" , "d4" ;
+        chon:nextHalfMove      :hmgamSyZwL8K , :hmgamNyVJi7O .
+
+chon:HalfMove  chon:subEventOf  :gamGAim3 .
+
+:agGAim38  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Taylor, JOH." .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGAim38 .
+
+:rolGAim38  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:opeGAim38  a            chon:ChessOpening ;
+        chon:hasECOCode  "C52" .
+
+:hmgamNyVJi7O  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNyVJi7O0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "O-O-O" , "b6" , "Nxe6" , "Nd4" , "Rxd6" , "e6" , "Bb7" , "Nh6" , "Qa5" , "dxe6" , "Rd8" , "Ba6" , "Qxh8+" , "Qh5" , "Ba3" , "Bxb7+" , "fxe6" , "Qxg7" , "Nf5" , "Kxb7" , "Qxh7" , "Qxc3" , "Bd3" , "Bd6" ;
+        chon:nextHalfMove      :hmgamNyVJi7O .
+
+:cgrSyZwL8  a   chon:ChessGameReport .
+
+:gamGAim3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGAim38 ;
+        chon:atPlace           :plaGAim38 ;
+        chon:atTime            "1865.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSyZwL8K ;
+        chon:hasHalfMove       :hmgamSyZwL8K , :hmgamNyVJi7O ;
+        chon:hasLastHalfMove   :hmgamNyVJi7O ;
+        chon:hasOpening        :opeGAim38 ;
+        chon:hasReport         :cgrSyZwL8 ;
+        chon:hasResult         :resSyZwL8K ;
+        chon:subEventOf        :touGAim3 .
+
+:touGAim3  a          chon:hessTournament ;
+        chon:atPlace  :plaGAim38 ;
+        chon:hasName  "London it" .
+
+:resSyZwL8K  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgSyZwL8KY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGAim38 .

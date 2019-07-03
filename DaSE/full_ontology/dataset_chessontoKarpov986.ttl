@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gameaYqf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleaYqfS ;
+        chon:atPlace           :plaeaYqfS ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameaYqfSS ;
+        chon:hasHalfMove       :hmgamFc9IBTJ , :hmgameaYqfSS ;
+        chon:hasLastHalfMove   :hmgamFc9IBTJ ;
+        chon:hasOpening        :opeeaYqfS ;
+        chon:hasReport         :cgreaYqfS ;
+        chon:hasResult         :reseaYqfSS ;
+        chon:subEventOf        :toueaYqf .
+
+:rolhgeaYqfSSn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageaYqfS .
+
+:toueaYqf  a          chon:hessTournament ;
+        chon:atPlace  :plaeaYqfS ;
+        chon:hasName  "Dubai ol (Men)" .
+
+:rolhgFc9IBTJO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageaYqfS .
+
+:cgreaYqfS  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageaYqfS .
+
+:hmgameaYqfSS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeaYqfSSn , :rolhgFc9IBTJO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd7" , "dxc4" , "c4" , "Be7" , "a4" , "O-O" , "Ne5" , "Qxd8" , "Nxd5" , "e6" , "Bxc4" , "exd5" , "Nc6" , "Bxc6" , "Nc3" , "d4" , "Bxd5" , "Nf3" , "e3" , "a6" , "exd4" , "Nf6" , "d5" , "cxd4" , "Nxd7" , "Rxd8" , "c5" , "bxc6" , "Rxd7" ;
+        chon:nextHalfMove      :hmgamFc9IBTJ , :hmgameaYqfSS .
+
+chon:HalfMove  chon:subEventOf  :gameaYqf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageaYqfS .
+
+:hmgamFc9IBTJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFc9IBTJO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc2" , "Rd5" , "Rad8" , "Bc3" , "Kd4" , "Ra8" , "Ke2" , "Kg2" , "Re3" , "Rcc2" , "Ra1" , "Rxb2" , "Re7" , "Raa2" , "Rxc6" , "Rd5+" , "Kc5" , "g4" , "a5" , "Rc4" , "Rc3" , "h6" , "Kc3" , "Rb7" , "Rf5" , "Re8+" , "Rd2" , "g5" , "Kd5" , "Ra2" , "Bc1" , "h4" , "Rf3+" , "Rb4" , "Rxe3" , "Rd1+" , "Kf6" , "f5" , "Kf5" , "Bd2" , "Bc5" , "Re4+" , "Rc5" , "Bxe3" , "Rb1" , "g3" , "Rf3" , "Ra3" , "Bb4" , "Ra7" , "Rc8" , "Kf1" , "Rd3" , "Re5" , "Re2" , "Kh7" , "f6" , "Bd4" , "Rfb3" , "Rcc4" , "Rxc4+" , "Re8" , "Rfc1" , "Kg6" , "Kd3" , "hxg5" , "Be3" , "Rb3" , "Rb2" , "Rxc4" , "Rf4" , "Kd6" ;
+        chon:nextHalfMove      :hmgamFc9IBTJ .
+
+:plaeaYqfS  a         chon:Place ;
+        chon:hasName  "Dubai" .
+
+:reseaYqfSS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ageaYqfS  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gheorghiu, Florin" .
+
+:roleaYqfS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageaYqfS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeeaYqfS  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .

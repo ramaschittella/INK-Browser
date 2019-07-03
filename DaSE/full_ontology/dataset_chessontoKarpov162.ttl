@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgEuzSX3rV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEuzSX3 .
+
+:plaEuzSX3  a         chon:Place ;
+        chon:hasName  "Graz" .
+
+:touEuzSX  a          chon:hessTournament ;
+        chon:atPlace  :plaEuzSX3 ;
+        chon:hasName  "WchT U26" .
+
+:agEuzSX3  a          chon:Agent ;
+        chon:hasName  "Markland, Peter R" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEuzSX3 .
+
+:hmgam6wLUj3g  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghwH9S2ly , :rolhg6wLUj3gl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Markland, Peter R" ;
+        chon:hasSANRecord      "d6" , "Nd7" , "Bd7" , "Qd8" , "a6" , "Be6" , "Bd4" , "Rc8" , "Qd3" , "Bd2" , "Kb1" , "Qxd4" , "Bg5" , "Ne3" , "g6" , "Be2" , "Nd5" , "g4" , "h6" , "Nc3" , "Bxg7" , "O-O-O" , "O-O" , "Qa5" , "Qc5" , "Nxd4" , "Kxg7" , "Bg7" , "Be3" , "Ne5" , "h4" , "Qd2" , "Nf6" , "f3" ;
+        chon:nextHalfMove      :hmgamhwH9S2l , :hmgam6wLUj3g .
+
+:cgrEuzSX3  a   chon:ChessGameReport .
+
+:resEuzSX3r  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhghwH9S2ly  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEuzSX3 .
+
+chon:HalfMove  chon:subEventOf  :gamEuzSX .
+
+:opeEuzSX3  a            chon:ChessOpening ;
+        chon:hasECOCode  "B61" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamEuzSX3r  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6wLUj3gl , :rolhgEuzSX3rV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Markland, Peter R" ;
+        chon:hasSANRecord      "Nf3" , "d4" , "cxd4" , "c5" , "e4" , "Nc6" ;
+        chon:nextHalfMove      :hmgam6wLUj3g , :hmgamEuzSX3r .
+
+:rolEuzSX3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEuzSX3 .
+
+:gamEuzSX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEuzSX3 ;
+        chon:atPlace           :plaEuzSX3 ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEuzSX3r ;
+        chon:hasHalfMove       :hmgamhwH9S2l , :hmgam6wLUj3g , :hmgamEuzSX3r ;
+        chon:hasLastHalfMove   :hmgamhwH9S2l ;
+        chon:hasOpening        :opeEuzSX3 ;
+        chon:hasReport         :cgrEuzSX3 ;
+        chon:hasResult         :resEuzSX3r ;
+        chon:subEventOf        :touEuzSX .
+
+:rolhg6wLUj3gl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEuzSX3 .
+
+:hmgamhwH9S2l  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghwH9S2ly ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Markland, Peter R" ;
+        chon:hasSANRecord      "Nxc4" , "Qh3" , "fxe5" , "Qc3+" , "fxg5" , "g5" , "Nc4" , "b5" , "f4" , "Bxc4" , "Rxc4" , "hxg5" , "f6" , "e5" ;
+        chon:nextHalfMove      :hmgamhwH9S2l .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEuzSX3 .

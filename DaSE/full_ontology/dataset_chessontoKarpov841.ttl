@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamexK065N  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqxHnS4Qe , chon:AgentRole , :rolhgexK065N3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Bf4" , "e5" , "bxc6" , "dxc6" , "d5" , "Nf3" , "Nf6" , "Kxd8" , "Ndb5" , "c4" , "c5" , "d4" , "cxd5" , "Rd1+" , "Nxd4" , "Nc6" , "Qxd8+" , "exf4" , "cxd4" , "e6" , "Nc3" ;
+        chon:nextHalfMove      :hmgamqxHnS4Q , :hmgamexK065N .
+
+:plaexK065  a         chon:Place ;
+        chon:hasName  "London" .
+
+:touexK06  a          chon:hessTournament ;
+        chon:atPlace  :plaexK065 ;
+        chon:hasName  "London" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agexK065 .
+
+:cgrexK065  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamexK06 .
+
+:agexK065  a          chon:Agent ;
+        chon:hasName  "Polugaevsky, Lev" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agexK065 .
+
+:rolexK065  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agexK065 .
+
+:rolhgqxHnS4Qe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agexK065 .
+
+:opeexK065  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .
+
+:hmgamqxHnS4Q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqxHnS4Qe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Kd1" , "Kd2" , "Kc7" , "Bxd6" , "Rxd6" , "Nd1" , "fxe2+" , "Bc4" , "Nd6" , "Rd2" , "f3" , "Kc2" , "b3" , "Re8" , "Kxd8" , "Rxd8" , "Bxe2" , "Bd7" , "Ne8" , "g3" , "f4" , "Rb8" , "Bf5+" , "Bg4+" , "Re7" , "Kc1" , "Rd8" ;
+        chon:nextHalfMove      :hmgamqxHnS4Q .
+
+:resexK065N  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamexK06  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolexK065 ;
+        chon:atPlace           :plaexK065 ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamexK065N ;
+        chon:hasHalfMove       :hmgamexK065N , :hmgamqxHnS4Q ;
+        chon:hasLastHalfMove   :hmgamqxHnS4Q ;
+        chon:hasOpening        :opeexK065 ;
+        chon:hasReport         :cgrexK065 ;
+        chon:hasResult         :resexK065N ;
+        chon:subEventOf        :touexK06 .
+
+:rolhgexK065N3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agexK065 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

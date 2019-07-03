@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agPicRZu  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Vaganian, Rafael A" .
+
+:hmgamsiipTu4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgogZySrkX , :rolhgsiipTu4Y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxf4" , "Qxe5" , "Qb8" , "Nb5" , "Rac1" , "Bd2" , "Nd5" , "Qxe2" , "Nd6" , "Rxb7" , "Qxb2" , "Rc2" , "Bxe2" , "a5" , "Nf4" , "Rac8" , "Nd3" , "Nxd4" , "Rcd2" , "Bf6" , "Rxd4" , "Rc7" , "Nc1" , "Be3" , "Qc7" , "Nxb7" , "Bxf4" , "Nde5" , "Rfd8" ;
+        chon:nextHalfMove      :hmgamogZySrk , :hmgamsiipTu4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPicRZu .
+
+:touPicRZ  a          chon:hessTournament ;
+        chon:atPlace  :plaPicRZu ;
+        chon:hasName  "URS-ch U18 playoff" .
+
+chon:HalfMove  chon:subEventOf  :gamPicRZ .
+
+:rolhggkmcmu1M  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPicRZu .
+
+:opePicRZu  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .
+
+:cgrPicRZu  a   chon:ChessGameReport .
+
+:hmgamgkmcmu1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsiipTu4Y , :rolhggkmcmu1M ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qd6" , "d4" , "O-O" , "Be7" , "e3" , "Nc6" , "a3" , "d5" , "Nbd2" , "Bb7" , "b6" , "Qxd5" , "Nf3" , "cxd5" , "Bd3" , "Bc4" , "c4" , "Qe2" , "Nf6" , "Rd1" , "h6" , "c5" , "exd4" , "cxd4" , "Nb3" , "e6" ;
+        chon:nextHalfMove      :hmgamgkmcmu1 , :hmgamsiipTu4 .
+
+:resPicRZub  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgzgWMctn0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPicRZu .
+
+:hmgamzgWMctn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzgWMctn0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "g5" , "Kf6" , "Be5+" , "f3" , "Bb3" , "g4" , "Ke7" , "Kf2" , "Bxa2" , "e4" , "hxg4" , "Be5" , "Ke2" , "Kd4" , "h5" , "Ke3" , "Bc4+" , "Bxg3" , "fxe4" ;
+        chon:nextHalfMove      :hmgamzgWMctn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamogZySrk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgogZySrkX , chon:AgentRole , :rolhgzgWMctn0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rb7" , "Kh8" , "Rc1+" , "Rf7+" , "Kxf7" , "a3" , "Ra2" , "Rb8+" , "Ra1" , "Bf1" , "a4" , "Rd6" , "Rxf7+" , "Rxb6" , "Kf1" , "g3" , "Rf8+" , "Rc2" , "Kg7" , "Bd4" , "Rb4" , "h3" , "Rxa4" , "g6" , "Be2" , "e5" , "Bb5" , "Rc7" ;
+        chon:nextHalfMove      :hmgamzgWMctn , :hmgamogZySrk .
+
+:rolhgogZySrkX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPicRZu .
+
+:plaPicRZu  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:rolPicRZu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPicRZu .
+
+:gamPicRZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPicRZu ;
+        chon:atPlace           :plaPicRZu ;
+        chon:atTime            "1969.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgkmcmu1 ;
+        chon:hasHalfMove       :hmgamzgWMctn , :hmgamgkmcmu1 , :hmgamsiipTu4 , :hmgamogZySrk ;
+        chon:hasLastHalfMove   :hmgamzgWMctn ;
+        chon:hasOpening        :opePicRZu ;
+        chon:hasReport         :cgrPicRZu ;
+        chon:hasResult         :resPicRZub ;
+        chon:subEventOf        :touPicRZ .
+
+:rolhgsiipTu4Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPicRZu .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPicRZu .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaRDPnD9  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+:cgrRDPnD9  a   chon:ChessGameReport .
+
+:resRDPnD9t  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agRDPnD9  a          chon:Agent ;
+        chon:hasName  "Kasimdzhanov,R" , "Karpov,Ana" .
+
+:gamRDPnD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRDPnD9 ;
+        chon:atPlace           :plaRDPnD9 ;
+        chon:atTime            "2007.10.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRDPnD9t ;
+        chon:hasHalfMove       :hmgam3DKBc9w , :hmgamRDPnD9t ;
+        chon:hasLastHalfMove   :hmgam3DKBc9w ;
+        chon:hasOpening        :opeRDPnD9 ;
+        chon:hasReport         :cgrRDPnD9 ;
+        chon:hasResult         :resRDPnD9t ;
+        chon:subEventOf        :touRDPnD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRDPnD9 .
+
+:rolRDPnD9  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRDPnD9 .
+
+:hmgam3DKBc9w  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3DKBc9wh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "Rxd5" , "Re6" , "Kg2" , "Rd6" , "Kf8" , "Qh1+" , "Re5" , "Kf1" , "f6" , "Rcd7" , "Nd6" , "Rde4" , "Rh5" , "Qd6" , "Qh4" , "g4" , "Re3" , "R2e4" , "Qf6" , "h6" , "Ba4" , "h5" ;
+        chon:nextHalfMove      :hmgam3DKBc9w .
+
+:opeRDPnD9  a            chon:ChessOpening ;
+        chon:hasECOCode  "B14" .
+
+chon:HalfMove  chon:subEventOf  :gamRDPnD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRDPnD9 .
+
+:touRDPnD  a          chon:hessTournament ;
+        chon:atPlace  :plaRDPnD9 ;
+        chon:hasName  "Corsica Masters" .
+
+:rolhgRDPnD9t4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRDPnD9 .
+
+:rolhg3DKBc9wh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRDPnD9 .
+
+:hmgamRDPnD9t  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3DKBc9wh , :rolhgRDPnD9t4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "Nf6" , "Nb6" , "Rd4" , "Bxf3" , "h4" , "cxd5" , "Bg5" , "Qd6" , "Re2" , "Qb6" , "Nc3" , "Nf5" , "Qf6" , "g6" , "Qe3" , "Nf3" , "Bg4" , "Qxf3" , "Bxf6" , "Bxd4" , "c4" , "O-O" , "Bxc3+" , "exd5" , "Bb3" , "c6" , "Qf4" , "Qxc3" , "Rfd8" , "g3" , "Nd6" , "Bc4" , "Bg7" , "Nd7" , "d4" , "Qd4" , "e4" , "d5" , "Rfe1" , "Rd1" , "Rc7" , "Nc8" , "Rac8" ;
+        chon:nextHalfMove      :hmgamRDPnD9t , :hmgam3DKBc9w .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

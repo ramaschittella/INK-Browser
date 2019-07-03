@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plateYNi2  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:hmgamVga9E2v  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVga9E2vA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "g4" , "Rc8" , "c4" , "Rg8+" , "Re8" , "Rf8+" , "Ke5" , "exd3" , "Kg7" , "e4" , "Rh8" , "Kf6" , "Kg6" , "Kd2" ;
+        chon:nextHalfMove      :hmgamVga9E2v .
+
+:rolhgVga9E2vA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agteYNi2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agteYNi2 .
+
+:rolhgteYNi2E0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agteYNi2 .
+
+:agteYNi2  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Zhang Zhong" .
+
+:rolteYNi2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agteYNi2 .
+
+chon:HalfMove  chon:subEventOf  :gamteYNi .
+
+:opeteYNi2  a            chon:ChessOpening ;
+        chon:hasECOCode  "C26" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agteYNi2 .
+
+:hmgamteYNi2E  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgteYNi2E0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "h6" , "Ne7" , "Be6" , "Kh8" , "b6" , "Nxc3" , "g3" , "Rae8" , "Qxd6" , "Nc6" , "f6" , "Qb5" , "Re1" , "a3" , "Ke3" , "axb4" , "Nb4" , "Nc4" , "Rb3" , "Qxc6" , "bxa3" , "c4" , "Kf3" , "Bxb4" , "Rxa7" , "Raa1" , "Ra7" , "Qc6" , "Rxa3" , "Nd2" , "Kg2" , "Ra8" , "Bg2" , "e4" , "cxb5" , "Qb3" , "O-O" , "Nxd5" , "exd5" , "Qa6" , "Qf3" , "Nf6" , "Rb1" , "Qd7" , "Rea1" , "d5" , "Bc6" , "bxc3" , "Bd6" , "Nf3" , "g5" , "Rfd8" , "Rb8" , "Qb7" , "Kh7" , "Bf5" , "a5" , "Bxc6" , "Rd7" , "d3" , "e5" , "f5" , "Nxd6" , "Ba3" , "Qd6" , "Nc3" , "Qxb5" , "Qa4" , "Bd7" ;
+        chon:nextHalfMove      :hmgamVga9E2v , :hmgamteYNi2E .
+
+:cgrteYNi2  a   chon:ChessGameReport .
+
+:resteYNi2E  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamteYNi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolteYNi2 ;
+        chon:atPlace           :plateYNi2 ;
+        chon:atTime            "2000.11.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamteYNi2E ;
+        chon:hasHalfMove       :hmgamteYNi2E , :hmgamVga9E2v ;
+        chon:hasLastHalfMove   :hmgamVga9E2v ;
+        chon:hasOpening        :opeteYNi2 ;
+        chon:hasReport         :cgrteYNi2 ;
+        chon:hasResult         :resteYNi2E ;
+        chon:subEventOf        :touteYNi .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touteYNi  a          chon:hessTournament ;
+        chon:atPlace  :plateYNi2 ;
+        chon:hasName  "KO" .

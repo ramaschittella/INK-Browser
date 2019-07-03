@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr1aZmrF  a   chon:ChessGameReport .
+
+:rolhgV9IvbEeS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1aZmrF .
+
+:rol1aZmrF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1aZmrF .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1aZmrF .
+
+:pla1aZmrF  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:hmgam89SJIEg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg89SJIEgQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Olafsson, Fridrik" ;
+        chon:hasSANRecord      "h5" , "Qf7" , "h4" , "Rd7" , "Bxf4" , "Re1+" , "Rc8" , "Re1" , "Kg2" , "Qd3" , "Kh3" , "Rxb7" , "Qd5" , "Qg6" , "Re8" , "f4" , "Re7" , "Rd6" ;
+        chon:nextHalfMove      :hmgam89SJIEg .
+
+chon:HalfMove  chon:subEventOf  :gam1aZmr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1aZmrF .
+
+:rolhg89SJIEgQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1aZmrF .
+
+:res1aZmrFX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag1aZmrF  a          chon:Agent ;
+        chon:hasName  "Olafsson, Fridrik" , "Fischer, Robert James" .
+
+:gam1aZmr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1aZmrF ;
+        chon:atPlace           :pla1aZmrF ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamV9IvbEe ;
+        chon:hasHalfMove       :hmgam89SJIEg , :hmgamV9IvbEe ;
+        chon:hasLastHalfMove   :hmgam89SJIEg ;
+        chon:hasOpening        :ope1aZmrF ;
+        chon:hasReport         :cgr1aZmrF ;
+        chon:hasResult         :res1aZmrFX ;
+        chon:subEventOf        :tou1aZmr .
+
+:ope1aZmrF  a            chon:ChessOpening ;
+        chon:hasECOCode  "B52" .
+
+:tou1aZmr  a          chon:hessTournament ;
+        chon:atPlace  :pla1aZmrF ;
+        chon:hasName  "Mar del Plata" .
+
+:hmgamV9IvbEe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgV9IvbEeS , chon:AgentRole , :rolhg89SJIEgQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Olafsson, Fridrik" ;
+        chon:hasSANRecord      "Qe6" , "cxd4" , "Kh7" , "g3" , "exd4" , "e5" , "Nd5" , "Nxa5" , "Bd2" , "Qd2" , "Bb5+" , "gxf5" , "Bd6" , "Bg7" , "d5" , "Na4" , "Rg8" , "Bf4" , "Rae8" , "Bxd7+" , "Nf3" , "f5" , "Bd7" , "Bxf4" , "exf5" , "Nxf4" , "Nc3" , "O-O" , "Re1" , "Rd1" , "Nge7" , "Rxe8" , "Qe2" , "Rac1" , "e4" , "Nc6" , "Nb6" , "c5" , "d4" , "Nb3" , "Na3" , "Qf7" , "Qe7" , "Nd3" , "Bg3" , "a6" , "h6" , "Qxd7" , "Nfxd4" , "d6" , "Nb5" , "Na5" , "Kh8" , "Nac5" , "Qxa5" , "c3" , "Nf4" , "g6" ;
+        chon:nextHalfMove      :hmgamV9IvbEe , :hmgam89SJIEg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

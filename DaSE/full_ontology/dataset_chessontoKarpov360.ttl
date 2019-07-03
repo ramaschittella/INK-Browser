@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam9SlJ8ku  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9SlJ8kuA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bb2" , "Nxe4" , "Qxd8" , "Bxe4" , "f5" , "Be7" , "gxf6" , "Rxd8" , "Qxd4" , "O-O" , "Ne4" , "Bf6" , "dxe4" , "d5" , "Bb7" , "cxd4" , "c5" , "Ne1" , "Nc3" , "Rad1" , "b3" , "Nc2" , "Bxf6" , "Bg2" ;
+        chon:nextHalfMove      :hmgam9SlJ8ku .
+
+:hmgamHAbpKjS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9SlJ8kuA , chon:AgentRole , :rolhgHAbpKjS0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "g3" , "Nf3" , "c4" , "e6" , "Nf6" , "d4" ;
+        chon:nextHalfMove      :hmgamHAbpKjS , :hmgam9SlJ8ku .
+
+:touHAbpK  a          chon:hessTournament ;
+        chon:atPlace  :plaHAbpKj ;
+        chon:hasName  "Milan" .
+
+:rolhgHAbpKjS0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHAbpKj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHAbpKj .
+
+:rolhg9SlJ8kuA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHAbpKj .
+
+chon:HalfMove  chon:subEventOf  :gamHAbpK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHAbpKj .
+
+:resHAbpKjS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaHAbpKj  a         chon:Place ;
+        chon:hasName  "Milan" .
+
+:cgrHAbpKj  a   chon:ChessGameReport .
+
+:gamHAbpK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHAbpKj ;
+        chon:atPlace           :plaHAbpKj ;
+        chon:atTime            "1975.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHAbpKjS ;
+        chon:hasHalfMove       :hmgam9SlJ8ku , :hmgamHAbpKjS ;
+        chon:hasLastHalfMove   :hmgam9SlJ8ku ;
+        chon:hasOpening        :opeHAbpKj ;
+        chon:hasReport         :cgrHAbpKj ;
+        chon:hasResult         :resHAbpKjS ;
+        chon:subEventOf        :touHAbpK .
+
+:agHAbpKj  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Browne, Walter S" .
+
+:rolHAbpKj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHAbpKj .
+
+:opeHAbpKj  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

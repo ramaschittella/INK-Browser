@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamIjrxT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUhoLqK ;
+        chon:atPlace           :plaIjrxTK ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUhoLqKF ;
+        chon:hasHalfMove       :hmgamUhoLqKF ;
+        chon:hasLastHalfMove   :hmgamUhoLqKF ;
+        chon:hasOpening        :opeUhoLqK ;
+        chon:hasReport         :cgrUhoLqK ;
+        chon:hasResult         :resUhoLqKF ;
+        chon:subEventOf        :touUhoLq .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUhoLqK .
+
+chon:HalfMove  chon:subEventOf  :gamIjrxT .
+
+:rolhgUhoLqKFi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUhoLqK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUhoLqK .
+
+:hmgamUhoLqKF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUhoLqKFi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko, Peter" ;
+        chon:hasSANRecord      "d4" , "Be6" , "c4" , "Qxg6" , "Qd7" , "hxg6" , "e6" , "Qb3" , "Bxe4" , "Qc6+" , "Nf3" , "Bf5" , "O-O" , "Kd2" , "Qa3" , "Ng5" , "Kh8" , "e5" , "O-O-O" , "Nb6" , "exd4" , "Qe3" , "Rxd4+" , "Bg7" , "Nd5" , "a6" , "Qxh6" , "N7b6" , "fxe3" , "gxf5" , "Be2" , "g6" , "Nce4" , "Bxf5" , "Nc3" , "f5" , "Rad8" , "N8d7" , "Rdg1" , "Nge4" , "h5" , "Rxh6" , "Bc8" , "Be3" , "d5" , "h4" , "Qxc4" , "e4" , "Nf6" , "Qc5" , "f6" , "dxc4" , "Bh6" , "Nfd7" , "Nxe3" , "g4" ;
+        chon:nextHalfMove      :hmgamUhoLqKF .
+
+:cgrUhoLqK  a   chon:ChessGameReport .
+
+:touUhoLq  a          chon:hessTournament ;
+        chon:atPlace  :plaIjrxTK ;
+        chon:hasName  "Tilburg Fontys" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agUhoLqK  a          chon:Agent ;
+        chon:hasName  "Leko, Peter" , "Karpov, Anatoly" .
+
+:plaIjrxTK  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:rolUhoLqK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUhoLqK .
+
+:resUhoLqKF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeUhoLqK  a            chon:ChessOpening ;
+        chon:hasECOCode  "D97" .

@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamAX0mT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAX0mTA ;
+        chon:atPlace           :plaAX0mTA ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMX6SqAu ;
+        chon:hasHalfMove       :hmgamTTJYJzP , :hmgamMX6SqAu , :hmgamHTNLcxM ;
+        chon:hasLastHalfMove   :hmgamTTJYJzP ;
+        chon:hasOpening        :opeAX0mTA ;
+        chon:hasReport         :cgrAX0mTA ;
+        chon:hasResult         :resAX0mTAr ;
+        chon:subEventOf        :touAX0mT .
+
+:plaAX0mTA  a         chon:Place ;
+        chon:hasName  "Madrid" .
+
+:hmgamTTJYJzP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTTJYJzP0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rb4" , "b6" , "Rb3+" , "Rh8" , "Bd5" , "Rg1" , "Rb2+" , "Rg3" , "Bg5" , "Be3" , "b7" , "Kxe5" , "b5" , "Be4+" , "Rb8" , "Kg4" , "Bf5" , "Kf3" , "Rxg2+" , "Kxg2" , "Rg2" , "Kg1" , "Kf5" , "Kg6" , "Be4" , "Be7" , "Kf2" , "Kg3" ;
+        chon:nextHalfMove      :hmgamTTJYJzP .
+
+:hmgamMX6SqAu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHTNLcxMY , :rolhgMX6SqAuY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "e4" , "Qxb6" , "Nd8" , "Bb7" , "Nc3" , "Kh1" , "O-O" , "Rac1" , "Nd5" , "Nf3" , "Rae8" , "Ne4" , "f5" , "h3" , "Nxb6" , "Bg7" , "d6" , "f4" , "Qe2" , "exf5" , "Qf2" , "gxf5" , "Bxe4" , "Qg1" , "Nxd4" , "e6" , "Ng4" , "cxd4" , "g6" , "Bd2" , "fxe4" , "a6" , "Rfe1" , "c4" , "Nc6" , "d4" , "Qc7" , "Ng5" , "Nd7" , "Bd3" , "Nf6" , "Qd8" , "h6" , "c5" , "d5" ;
+        chon:nextHalfMove      :hmgamMX6SqAu , :hmgamHTNLcxM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAX0mTA .
+
+:hmgamHTNLcxM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHTNLcxMY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rf1" , "Rg3" , "Rg8+" , "Rh7" , "Bc3" , "Kg2" , "Kh5" , "Nxe4" , "Bc6" , "Kf2" , "Kxg3" , "Bg4" , "h4" , "Rf2" , "Bh6" , "Ra7" , "Rxh4" , "Kh2" , "Bxc4" , "Ra1" , "dxe4" , "Nxe5" , "Kh6" , "g3" , "Bd3" , "hxg3+" , "Nf7" , "Re2" , "b4" , "Bg6" , "Kg1" , "Be8" , "Rxf8" , "Kh3" , "Ra8" , "Be5" , "Rxa6" , "Kh7" , "Be2" , "Nxf8" , "a4" , "h5" , "Rh1+" , "Bxa4" , "Bg7" , "Ra3" , "Rxe4" , "fxe5" , "Rf7" ;
+        chon:nextHalfMove      :hmgamHTNLcxM , :hmgamTTJYJzP .
+
+:resAX0mTAr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agAX0mTA  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Garcia Martinez, Silvino" .
+
+chon:HalfMove  chon:subEventOf  :gamAX0mT .
+
+:touAX0mT  a          chon:hessTournament ;
+        chon:atPlace  :plaAX0mTA ;
+        chon:hasName  "Madrid" .
+
+:opeAX0mTA  a            chon:ChessOpening ;
+        chon:hasECOCode  "B42" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrAX0mTA  a   chon:ChessGameReport .
+
+:rolhgMX6SqAuY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAX0mTA .
+
+:rolhgHTNLcxMY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAX0mTA .
+
+:rolAX0mTA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAX0mTA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAX0mTA .
+
+:rolhgTTJYJzP0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAX0mTA .

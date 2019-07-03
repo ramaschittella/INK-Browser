@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgro1ej5d  a   chon:ChessGameReport .
+
+:hmgamo1ej5d0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgo1ej5d0D ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bg5" , "Nf6" , "Bxe4" , "d4" , "Bf3" , "Ne4" , "e6" , "Nxe4" , "Bb7" , "d6" , "c4" , "Qxe7" , "Nc6" , "c5" , "Qe2" , "Bxe7" , "Nxc6" , "cxd4" , "d5" , "Bh4" , "Nc3" , "O-O" , "Qxc6" , "Nxd4" , "Bxb7" , "Be7" , "b6" , "Be2" , "Nf3" , "Rfd1" , "Nd2" , "e3" , "Qxb7" , "h6" , "Rd8" ;
+        chon:nextHalfMove      :hmgamo1ej5d0 .
+
+:ago1ej5d  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tal, Mihail" .
+
+:rolo1ej5d  a             chon:AuthorRole , chon:BlackPlayerRole ;
+        chon:performedBy  :ago1ej5d .
+
+:opeo1ej5d  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:rolXY31Hc  a   chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ago1ej5d .
+
+chon:HalfMove  chon:subEventOf  :gamXY31H .
+
+:reso1ej5d0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamXY31H  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXY31Hc , :rolo1ej5d ;
+        chon:atPlace           :plaXY31Hc ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamo1ej5d0 ;
+        chon:hasHalfMove       :hmgamo1ej5d0 ;
+        chon:hasLastHalfMove   :hmgamo1ej5d0 ;
+        chon:hasOpening        :opeo1ej5d ;
+        chon:hasReport         :cgro1ej5d ;
+        chon:hasResult         :reso1ej5d0 ;
+        chon:subEventOf        :touXY31H .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ago1ej5d .
+
+:touXY31H  a          chon:hessTournament ;
+        chon:atPlace  :plaXY31Hc ;
+        chon:hasName  "Las Palmas" .
+
+:rolhgo1ej5d0D  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ago1ej5d .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaXY31Hc  a         chon:Place ;
+        chon:hasName  "Las Palmas" .

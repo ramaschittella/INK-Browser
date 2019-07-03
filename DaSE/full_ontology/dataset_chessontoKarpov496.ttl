@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag5lRH8R  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+:ope5lRH8R  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5lRH8R .
+
+chon:HalfMove  chon:subEventOf  :gam5lRH8 .
+
+:hmgamvn23tRy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvn23tRym , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Be3" , "b6" , "f6" , "Rac1" , "Nxd5" , "Qc3" , "h3" , "g3" , "Re8" , "d6" , "h6" , "Qd7" , "Nc2" , "Nd5" , "Bxc3" , "cxd5" , "O-O" , "Nc5" , "Re7" , "a5" , "e5" , "Bg2" , "Nb8" , "Qe8" , "Bf5" , "Ne1" , "Qc2" , "Nd7" , "dxc3" , "a4" , "e4" , "Bb4" , "Kh2" , "c4" , "Qe7" , "Bd4" , "Ne3" , "Nf3" , "Nc3" , "Qe3" , "b3" , "Nf6" , "Nc6" ;
+        chon:nextHalfMove      :hmgamvn23tRy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5lRH8R .
+
+:res5lRH8RG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgvn23tRym  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5lRH8R .
+
+:cgr5lRH8R  a   chon:ChessGameReport .
+
+:rol5lRH8R  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvn23tR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam5lRH8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5lRH8R ;
+        chon:atPlace           :pla5lRH8R ;
+        chon:atTime            "1978.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvn23tRy ;
+        chon:hasHalfMove       :hmgamvn23tRy ;
+        chon:hasLastHalfMove   :hmgamvn23tRy ;
+        chon:hasOpening        :ope5lRH8R ;
+        chon:hasReport         :cgr5lRH8R ;
+        chon:hasResult         :res5lRH8RG ;
+        chon:subEventOf        :tou5lRH8 .
+
+:pla5lRH8R  a         chon:Place ;
+        chon:hasName  "Baguio City" .
+
+:tou5lRH8  a          chon:hessTournament ;
+        chon:atPlace  :pla5lRH8R ;
+        chon:hasName  "World Championship 29th" .

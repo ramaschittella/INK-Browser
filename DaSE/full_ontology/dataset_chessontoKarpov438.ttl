@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla7LXXHA  a         chon:Place ;
+        chon:hasName  "?" .
+
+:rolhg7LXXHAxB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7LXXHA .
+
+:res7LXXHAx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamiLRbgzA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiLRbgzAM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "Ka1" , "f3" , "R1d3" , "Kb3" , "axb4" , "g5" , "Ne7" , "Qxd6" , "Ka2" , "Rd5" , "Bd7" , "Bxd6" , "Nf5" , "b4" , "O-O-O" , "Bxd3+" , "Bc5" , "Rd7" , "Bf5" , "Ne4" , "a3" , "Nxd6" , "Rd1" , "Nf7" , "Bd3" , "b6" , "Ke7" , "Rxd3" , "Ke6" , "Bb4" , "d5" , "Rc6" , "Bc7" , "Be2" , "Bxb4" , "cxd6+" , "Rd8" , "Rhd1" , "Bxd8" , "Kb1" , "g4" , "a5" , "Rac8" , "Ne8" , "e5" , "Ba3" , "b3" , "Bb6" ;
+        chon:nextHalfMove      :hmgamiLRbgzA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7LXXHA .
+
+:ag7LXXHA  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Miles, Anthony J" .
+
+:rol7LXXHA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7LXXHA .
+
+chon:HalfMove  chon:subEventOf  :gam7LXXH .
+
+:ope7LXXHA  a            chon:ChessOpening ;
+        chon:hasECOCode  "A19" .
+
+:gam7LXXH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7LXXHA ;
+        chon:atPlace           :pla7LXXHA ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7LXXHAx ;
+        chon:hasHalfMove       :hmgam7LXXHAx , :hmgamiLRbgzA ;
+        chon:hasLastHalfMove   :hmgamiLRbgzA ;
+        chon:hasOpening        :ope7LXXHA ;
+        chon:hasReport         :cgr7LXXHA ;
+        chon:hasResult         :res7LXXHAx ;
+        chon:subEventOf        :tou7LXXH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7LXXHA .
+
+:tou7LXXH  a          chon:hessTournament ;
+        chon:atPlace  :pla7LXXHA ;
+        chon:hasName  "BBC TV Master Game" .
+
+:rolhgiLRbgzAM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7LXXHA .
+
+:cgr7LXXHA  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam7LXXHAx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiLRbgzAM , chon:AgentRole , :rolhg7LXXHAxB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c4" , "Nc6" , "c5" , "Nxe5" , "e4" , "a6" , "Nf3" , "Ndb5" , "f6" , "Nxd4" , "d4" , "Be3" , "e5" , "e6" , "cxd4" , "Ng8" , "Nf6" , "Nd6+" , "Nc3" ;
+        chon:nextHalfMove      :hmgamiLRbgzA , :hmgam7LXXHAx .

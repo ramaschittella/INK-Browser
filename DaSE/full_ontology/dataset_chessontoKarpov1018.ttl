@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgqBAKxBk0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqBAKxB .
+
+:hmgamYznrcAt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYznrcAtI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Rd4" , "Rd2" , "Kf1" , "Nf3" , "Ne4" , "b3" , "g4" , "Nd4" , "Rxc6" , "Rd8" , "Ra6" , "Kg7" , "Nf6+" , "Rb8" , "Nc2" ;
+        chon:nextHalfMove      :hmgamYznrcAt .
+
+:hmgamqBAKxBk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqBAKxBk0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Nf6" , "Nf3" , "c4" , "g6" ;
+        chon:nextHalfMove      :hmgamqBAKxBk , :hmgamRDK3TBa .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqBAKxB .
+
+:plaqBAKxB  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:hmgamRDK3TBa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYznrcAtI , chon:AgentRole , :rolhgRDK3TBax ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "dxc5" , "e5" , "Rxd7" , "O-O" , "Nc6" , "Bxf3" , "Rc7" , "Bg7" , "Rfc8" , "d4" , "Bg4" , "Bxe5" , "Bd4" , "Nc3" , "dxc4" , "e4" , "Rd8" , "Nf5" , "Nfd7" , "Be3" , "Bxe3" , "Nb6" , "Bxc6" , "Rfd1" , "Qb3" , "Ne7" , "Rd7" , "Rd1" , "d5" , "fxe3" , "Bf4" , "Qd6" , "Rxc7" , "Be2" , "Nc8" , "Qc5" , "bxc6" , "Qxc4" , "Qxc5" , "Nxe3" , "h3" ;
+        chon:nextHalfMove      :hmgamYznrcAt , :hmgamRDK3TBa .
+
+:touqBAKx  a          chon:hessTournament ;
+        chon:atPlace  :plaqBAKxB ;
+        chon:hasName  "Tilburg" .
+
+chon:HalfMove  chon:subEventOf  :gamqBAKx .
+
+:agqBAKxB  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+:rolhgRDK3TBax  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqBAKxB .
+
+:rolhgYznrcAtI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqBAKxB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeqBAKxB  a            chon:ChessOpening ;
+        chon:hasECOCode  "D98" .
+
+:cgrqBAKxB  a   chon:ChessGameReport .
+
+:rolqBAKxB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqBAKxB .
+
+:gamqBAKx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqBAKxB ;
+        chon:atPlace           :plaqBAKxB ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqBAKxBk ;
+        chon:hasHalfMove       :hmgamYznrcAt , :hmgamRDK3TBa , :hmgamqBAKxBk ;
+        chon:hasLastHalfMove   :hmgamYznrcAt ;
+        chon:hasOpening        :opeqBAKxB ;
+        chon:hasReport         :cgrqBAKxB ;
+        chon:hasResult         :resqBAKxBk ;
+        chon:subEventOf        :touqBAKx .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqBAKxB .
+
+:resqBAKxBk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

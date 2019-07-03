@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamo1zof  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolo1zofe ;
+        chon:atPlace           :plao1zofe ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamo1zofek ;
+        chon:hasHalfMove       :hmgamo1zofek ;
+        chon:hasLastHalfMove   :hmgamo1zofek ;
+        chon:hasOpening        :opeo1zofe ;
+        chon:hasReport         :cgro1zofe ;
+        chon:hasResult         :reso1zofek ;
+        chon:subEventOf        :touo1zof .
+
+:touo1zof  a          chon:hessTournament ;
+        chon:atPlace  :plao1zofe ;
+        chon:hasName  "Siegen olm" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ago1zofe .
+
+:reso1zofek  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamo1zof .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ago1zofe .
+
+:plao1zofe  a         chon:Place ;
+        chon:hasName  "Siegen" .
+
+:cgro1zofe  a   chon:ChessGameReport .
+
+:rolhgo1zofekm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ago1zofe .
+
+:ago1zofe  a          chon:Agent ;
+        chon:hasName  "Camara, Helder" , "Fischer, Robert James" .
+
+:rolo1zofe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ago1zofe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeo1zofe  a            chon:ChessOpening ;
+        chon:hasECOCode  "B75" .
+
+:hmgamo1zofek  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgo1zofekm , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Camara, Helder" ;
+        chon:hasSANRecord      "dxe5" , "d6" , "g6" , "Nc6" , "Rxc7" , "Bc6" , "d4" , "Qe2" , "c5" , "Qc7" , "Nf3" , "Bxe5" , "Bg7" , "Ne5" , "Nf6" , "Nc7+" , "Nc4" , "Kxd7" , "Nb5" , "O-O-O" , "Nb3" , "Rxc4" , "Qa5" , "Bxc7" , "Rxd7" , "f3" , "Qc8" , "e4" , "Qb5+" , "Bb3" , "Bc4" , "Ke8" , "e5" , "Qd2" , "Be3" , "Bd7" , "Rd1+" , "Qxc7" , "Qc6" , "Bxc4" , "h4" , "Nxd4" , "cxd4" , "Bd4" , "Nc3" , "Rc8" ;
+        chon:nextHalfMove      :hmgamo1zofek .

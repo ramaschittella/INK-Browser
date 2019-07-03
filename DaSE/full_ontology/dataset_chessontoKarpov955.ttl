@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamH2oii  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDZ6s3i ;
+        chon:atPlace           :plaH2oiii ;
+        chon:atTime            "1985.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDZ6s3iU ;
+        chon:hasHalfMove       :hmgamDZ6s3iU ;
+        chon:hasLastHalfMove   :hmgamDZ6s3iU ;
+        chon:hasOpening        :opeDZ6s3i ;
+        chon:hasReport         :cgrDZ6s3i ;
+        chon:hasResult         :resDZ6s3iU ;
+        chon:subEventOf        :touDZ6s3 .
+
+:resDZ6s3iU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDZ6s3i .
+
+:cgrDZ6s3i  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamH2oii .
+
+:agDZ6s3i  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:plaH2oiii  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDZ6s3i .
+
+:rolDZ6s3i  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDZ6s3i .
+
+:opeDZ6s3i  a            chon:ChessOpening ;
+        chon:hasECOCode  "B85" .
+
+:touDZ6s3  a          chon:hessTournament ;
+        chon:atPlace  :plaH2oiii ;
+        chon:hasName  "World Championship 32th-KK2" .
+
+:rolhgDZ6s3iUX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDZ6s3i .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamDZ6s3iU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDZ6s3iUX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Rh4" , "Bg7" , "g6" , "Nxe3" , "a4" , "Bf3" , "b6" , "Nb4" , "Qb8" , "Re8" , "a6" , "Rd1" , "Rd3" , "Bf8" , "Bc1" , "Rg3" , "f5" , "Bxb6" , "Rg4" , "Kg1" , "f4" , "Nxc2" , "Qc7" , "fxg5" , "Nxd4" , "Bg2" , "Be2" , "Nd4+" , "Rxd6" , "Be7" , "Kh1" , "Qc4" , "Nd7" , "Nc6" , "Kh8" , "c5" , "Nf3" , "Qxe3" , "e4" , "Re7" , "Bc8" , "Bb7" , "Be3" , "Rxb2" , "Qb6" , "Nxf6" , "O-O" , "Rh3" , "e6" , "cxd4" , "Rxb3" , "Kxg2" , "Nc3" , "Rce8" , "d6" , "Ng4" , "Nb3" , "Nf6" , "gxf6" , "d4" , "Rad1" , "Ba8" , "Rxe6" , "Nh5" , "Qf2" , "Qd2" , "Bxg2+" , "Qa7+" , "Qxa6" , "Rb7" , "g4" , "Rf7" , "Bd7" , "Rb8" , "g5" , "Rbc8" , "e5" ;
+        chon:nextHalfMove      :hmgamDZ6s3iU .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgzd1WdkXS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDhjNtm .
+
+:agDhjNtm  a          chon:Agent ;
+        chon:hasName  "Ehlvest, Jaan" , "Karpov, Anatoly" .
+
+:opeDhjNtm  a            chon:ChessOpening ;
+        chon:hasECOCode  "E94" .
+
+:hmgamzd1WdkX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzd1WdkXS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ehlvest, Jaan" ;
+        chon:hasSANRecord      "Kxf2" , "Ng5" , "Rb1" , "cxd6" , "Qb6+" , "bxa6" , "Re1" , "exf6" , "Be6" , "Qc7" , "c4" , "c6" , "Rb7" , "h3" , "Kg3" , "Be3" , "Qa3" , "Bxa6" , "Re8" , "Na6" , "dxe3" , "Qxb2" , "Qd4" , "Bf1" , "Bf5" , "Qe5" , "c5" , "e5" , "Qxd6" , "exf2+" , "Bd7" , "fxg7" , "Qf6" , "Rxe1" , "O-O" , "Qxe1" , "exd4" , "Nxf7" , "Qe7" ;
+        chon:nextHalfMove      :hmgamzd1WdkX .
+
+:rolhgDhjNtmHE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDhjNtm .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDhjNtm .
+
+:hmgamDhjNtmH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzd1WdkXS , :rolhgDhjNtmHE , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ehlvest, Jaan" ;
+        chon:hasSANRecord      "Nf3" , "Nc3" , "Bg7" , "c4" , "d4" , "Nf6" , "Be2" , "g6" , "O-O" , "e4" , "d6" ;
+        chon:nextHalfMove      :hmgamzd1WdkX , :hmgamDhjNtmH .
+
+chon:HalfMove  chon:subEventOf  :gamDhjNt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDhjNtm .
+
+:gamDhjNt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDhjNtm ;
+        chon:atPlace           :plaDhjNtm ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDhjNtmH ;
+        chon:hasHalfMove       :hmgamDhjNtmH , :hmgamzd1WdkX ;
+        chon:hasLastHalfMove   :hmgamzd1WdkX ;
+        chon:hasOpening        :opeDhjNtm ;
+        chon:hasReport         :cgrDhjNtm ;
+        chon:hasResult         :resDhjNtmH ;
+        chon:subEventOf        :touDhjNt .
+
+:plaDhjNtm  a         chon:Place ;
+        chon:hasName  "Mazatlan" .
+
+:touDhjNt  a          chon:hessTournament ;
+        chon:atPlace  :plaDhjNtm ;
+        chon:hasName  "Mazatlan rapid" .
+
+:cgrDhjNtm  a   chon:ChessGameReport .
+
+:rolDhjNtm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDhjNtm .
+
+:resDhjNtmH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

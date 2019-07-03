@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg6yxdz0gU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDwlVc0 .
+
+:resDwlVc0q  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamDwlVc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDwlVc0 ;
+        chon:atPlace           :plaDwlVc0 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDwlVc0q ;
+        chon:hasHalfMove       :hmgam6yxdz0g , :hmgamDwlVc0q ;
+        chon:hasLastHalfMove   :hmgam6yxdz0g ;
+        chon:hasOpening        :opeDwlVc0 ;
+        chon:hasReport         :cgrDwlVc0 ;
+        chon:hasResult         :resDwlVc0q ;
+        chon:subEventOf        :touDwlVc .
+
+:rolhgDwlVc0qv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDwlVc0 .
+
+:touDwlVc  a          chon:hessTournament ;
+        chon:atPlace  :plaDwlVc0 ;
+        chon:hasName  "Candidats sf1" .
+
+:plaDwlVc0  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDwlVc0 .
+
+chon:HalfMove  chon:subEventOf  :gamDwlVc .
+
+:cgrDwlVc0  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDwlVc0 .
+
+:hmgam6yxdz0g  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6yxdz0gU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short, Nigel D" ;
+        chon:hasSANRecord      "Qh5" , "Kxg7" , "g5" , "Rg7" , "Rab1" , "Qc2" , "Rxg7+" , "Qg6" , "Rf2" , "Bc6" , "Qf7" , "h3" , "f3" , "Kh1" , "g4" , "Rfd2" , "Qe2" , "Rg6" , "fxg4" , "Qb2" , "Rd8+" , "Qf6" , "a4" , "Rd6" , "h5" , "Rd1" , "Qc3" , "f5" , "Qe7" , "Kh7" , "Bd6" , "Bxc5" , "Rf7+" , "Qb2+" , "Rce8" , "Re4" , "h4" ;
+        chon:nextHalfMove      :hmgam6yxdz0g .
+
+:agDwlVc0  a          chon:Agent ;
+        chon:hasName  "Short, Nigel D" , "Karpov, Anatoly" .
+
+:rolDwlVc0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDwlVc0 .
+
+:opeDwlVc0  a            chon:ChessOpening ;
+        chon:hasECOCode  "A52" .
+
+:hmgamDwlVc0q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDwlVc0qv , :rolhg6yxdz0gU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short, Nigel D" ;
+        chon:hasSANRecord      "Nbd2" , "Nc6" , "Nxc5" , "Qe8" , "a3" , "Bc5" , "dxe5" , "Bf4" , "Nxe5" , "Re6" , "Bg4" , "Nf6" , "Qxc7" , "Nb3" , "Rc8" , "O-O" , "Qb7" , "Qe7" , "Qd5" , "e5" , "Bxd7" , "Ra6" , "b6" , "Nf3" , "c4" , "dxc5" , "Bb4+" , "a5" , "bxc5" , "Nd7" , "Be2" , "Qe5" , "e3" , "Ngxe5" , "b4" , "Ng4" , "d6" , "d4" ;
+        chon:nextHalfMove      :hmgam6yxdz0g , :hmgamDwlVc0q .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

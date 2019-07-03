@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeHH6Rmq  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .
+
+:rolhgAnSkEfX6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHH6Rmq .
+
+:resHH6RmqX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaHH6Rmq  a         chon:Place ;
+        chon:hasName  "Bled" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHH6Rmq .
+
+:hmgamAnSkEfX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAnSkEfX6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kxc8" , "Kf8" , "Bd7" , "exd4" , "Bh5" , "Rb3" , "Qc1+" , "Qxe3" , "Rac8" , "Qa3" , "e5" , "Qh6+" , "Kh1" , "Qf4+" , "Rxg8+" , "Kg1" , "Nd4" , "Rxc8+" , "Rf3" , "Kxg7" , "Rg3+" , "Kh8" , "Nxe3" , "Rg8" , "Kc7" , "Ke7" , "Kh2" , "Ne3" , "Bf3" , "Qxf7+" , "Nd5+" , "Qxh7" , "b5" , "Kb8" , "Qc5" , "Nc4" , "Nce2" , "Kd8" , "Qc1" , "Rxg7" , "Nf4" , "h3" , "Rg3" ;
+        chon:nextHalfMove      :hmgamAnSkEfX .
+
+chon:HalfMove  chon:subEventOf  :gamHH6Rm .
+
+:cgrHH6Rmq  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHH6Rmq .
+
+:hmgamHH6RmqX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHH6RmqXR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "gxf6" , "Be2" , "f5" , "Nb3" , "d6" , "Ne5" , "Qb6" , "Nc3" , "a6" , "O-O" , "Rb1" , "c5" , "Qa3" , "f4" , "Nxd4" , "Nf6" , "e4" , "Bg5" , "Nf3" , "d4" , "Bxf6" , "cxd4" , "Qd2" , "Nc6" , "e6" , "Bg7" , "Qxb2" ;
+        chon:nextHalfMove      :hmgamHH6RmqX , :hmgamAnSkEfX .
+
+:rolHH6Rmq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHH6Rmq .
+
+:gamHH6Rm  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHH6Rmq ;
+        chon:atPlace           :plaHH6Rmq ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHH6RmqX ;
+        chon:hasHalfMove       :hmgamHH6RmqX , :hmgamAnSkEfX ;
+        chon:hasLastHalfMove   :hmgamAnSkEfX ;
+        chon:hasOpening        :opeHH6Rmq ;
+        chon:hasReport         :cgrHH6Rmq ;
+        chon:hasResult         :resHH6RmqX ;
+        chon:subEventOf        :touHH6Rm .
+
+:touHH6Rm  a          chon:hessTournament ;
+        chon:atPlace  :plaHH6Rmq ;
+        chon:hasName  "Bled" .
+
+:rolhgHH6RmqXR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHH6Rmq .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agHH6Rmq  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Parma, Bruno" .

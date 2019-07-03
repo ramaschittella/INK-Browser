@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrpxuOe4  a   chon:ChessGameReport .
+
+:respxuOe4D  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pladzyyE5  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+:rolpxuOe4  a             chon:AuthorRole ;
+        chon:performedBy  :agpxuOe4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdzyyE5 .
+
+:rolhgpxuOe4Db  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdzyyE5 .
+
+chon:HalfMove  chon:subEventOf  :gamdzyyE .
+
+:agdzyyE5  a          chon:Agent ;
+        chon:hasName  "Sokolov, Andrei" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdzyyE5 .
+
+:roldzyyE5  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamdzyyE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldzyyE5 ;
+        chon:atPlace           :pladzyyE5 ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampxuOe4D ;
+        chon:hasHalfMove       :hmgampxuOe4D ;
+        chon:hasLastHalfMove   :hmgampxuOe4D ;
+        chon:hasOpening        :opedzyyE5 ;
+        chon:hasReport         :cgrpxuOe4 ;
+        chon:hasResult         :respxuOe4D ;
+        chon:subEventOf        :toudzyyE .
+
+:toudzyyE  a          chon:hessTournament ;
+        chon:atPlace  :pladzyyE5 ;
+        chon:hasName  "Bugojno" .
+
+:hmgampxuOe4D  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpxuOe4Db , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sokolov, Andrei" ;
+        chon:hasSANRecord      "Nf6" , "f5" , "d5" , "b3" , "Nf3" , "e5" , "c5" , "Bg2" , "Nd2" , "Qc7" , "O-O" , "Na4" , "d3" , "Nc3" , "Nc4" , "Qa5+" , "Nc6" , "Be3" , "Nxd5" , "Re1" , "Ne6" , "Nc7" , "c4" , "Rc1" , "g3" , "Ned4" , "Be7" , "Bg4" , "cxd5" ;
+        chon:nextHalfMove      :hmgampxuOe4D .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opedzyyE5  a            chon:ChessOpening ;
+        chon:hasECOCode  "A34" .

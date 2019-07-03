@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgzkN1vaRj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agokQNYb .
+
+:hmgam1mZjScJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1mZjScJK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "From, Sigfred" ;
+        chon:hasSANRecord      "h5" , "Nf6+" , "Kf7" , "Ne4" , "Nxa2+" , "Kb1" , "Nb4" , "Rd8" , "Rxd1+" , "Bf8" , "Bxf8+" , "f5" , "Qb3+" , "Bxb4" , "hxg6" , "h4" , "Rxd1" , "Kxf8" , "Kg7" , "Rh1" ;
+        chon:nextHalfMove      :hmgam1mZjScJ .
+
+:plaokQNYb  a         chon:Place ;
+        chon:hasName  "Paris" .
+
+:cgrokQNYb  a   chon:ChessGameReport .
+
+:rolhg1mZjScJK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agokQNYb .
+
+:hmgamzkN1vaR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg1mZjScJK , :rolhgzkN1vaRj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "From, Sigfred" ;
+        chon:hasSANRecord      "Qxd6" , "Qc7" , "Bg2" , "f4" , "g6" , "e5" , "Qf3" , "Ng4" , "Be7" , "Rac8" , "c6" , "a5" , "Bc5" , "d5" , "Nhg5" , "g4" , "Nb4" , "h3" , "Qd3" , "Ne4" , "Nc3" , "Qe2" , "Nf6" , "Bd2" , "Qxe4" , "d3" , "d6" , "b5" , "dxe4" , "exd5" , "O-O-O" , "Nh3" , "Nh6" , "Bxe4" , "e4" , "Bf5" , "O-O" , "Rfd8" , "Na6" ;
+        chon:nextHalfMove      :hmgam1mZjScJ , :hmgamzkN1vaR .
+
+:agokQNYb  a          chon:Agent ;
+        chon:hasName  "From, Sigfred" , "Steinitz, William" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agokQNYb .
+
+:rolokQNYb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agokQNYb .
+
+:opeokQNYb  a            chon:ChessOpening ;
+        chon:hasECOCode  "C31" .
+
+chon:HalfMove  chon:subEventOf  :gamokQNY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agokQNYb .
+
+:resokQNYbO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamokQNY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolokQNYb ;
+        chon:atPlace           :plaokQNYb ;
+        chon:atTime            "1867.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzkN1vaR ;
+        chon:hasHalfMove       :hmgamzkN1vaR , :hmgam1mZjScJ ;
+        chon:hasLastHalfMove   :hmgam1mZjScJ ;
+        chon:hasOpening        :opeokQNYb ;
+        chon:hasReport         :cgrokQNYb ;
+        chon:hasResult         :resokQNYbO ;
+        chon:subEventOf        :touokQNY .
+
+:touokQNY  a          chon:hessTournament ;
+        chon:atPlace  :plaokQNYb ;
+        chon:hasName  "Paris it" .

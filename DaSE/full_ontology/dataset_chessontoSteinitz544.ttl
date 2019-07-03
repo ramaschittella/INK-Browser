@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgameO2K2KJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeO2K2KJQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Burn, Amos" ;
+        chon:hasSANRecord      "Rc7" , "Kf2" , "R6f7" , "Qg3" , "Ne2" , "Rxf6" , "Re8" , "Bd8" , "Rxf7" , "Qg4" , "Kd2" , "exf6" , "Nf6+" , "f6" , "g6" , "Bb5" , "Qg5" , "Kxf7" , "a5" , "e2" , "Bb7" , "fxe3" , "Kc5" , "h5" , "Bxc6" , "Nf3" , "Qh4" , "Kc2" , "bxa5" , "Rf1" , "Kc3" , "Nxe3" , "b6" , "g3" , "c6" , "Kg8" , "Kh8" , "e3" , "Bc6" , "Re7" , "dxc5" , "e4" , "d5" , "Nh3" , "Rc1" , "Rc3" , "Kc4" , "Qxf4" , "h6" , "Bd5" , "Nf4" , "Rc6" , "Be8" , "a3" , "h4" , "a4" , "gxf4" , "f5" , "Qf4" , "Nd3" , "Bb5+" , "Ke2" , "Bxf6" , "Nh5" , "a6" , "exd4" , "Rcf7" , "Rc5" , "Ng5" , "Rxc5" , "Qd6" , "Rc8" , "d4" , "e5" ;
+        chon:nextHalfMove      :hmgameO2K2KJ .
+
+:gam3Q6vt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3Q6vtL ;
+        chon:atPlace           :pla3Q6vtL ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3Q6vtLG ;
+        chon:hasHalfMove       :hmgameO2K2KJ , :hmgam3Q6vtLG ;
+        chon:hasLastHalfMove   :hmgameO2K2KJ ;
+        chon:hasOpening        :ope3Q6vtL ;
+        chon:hasReport         :cgr3Q6vtL ;
+        chon:hasResult         :res3Q6vtLG ;
+        chon:subEventOf        :tou3Q6vt .
+
+:hmgam3Q6vtLG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3Q6vtLGF , :rolhgeO2K2KJQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Burn, Amos" ;
+        chon:hasSANRecord      "e6" , "Qxc2" , "d4" , "Qe2" , "Rc2" , "Be3" , "Nf3" , "O-O" , "Bd3" , "Qc4" , "Rfc1" , "c3" , "d5" , "Qd2" , "Ne7" , "Nc4" , "Qa6" , "Qb6" , "Nxc2" , "cxd4" , "Qd1" , "Nb4" , "Bc2" , "Nc6" , "Qb4" , "c5" , "Na5" , "Bd7" , "e5" , "Ne1" , "Nd3" , "Nc3" , "Be7" , "Bb4" , "Rc8" , "e4" , "Rac1" ;
+        chon:nextHalfMove      :hmgameO2K2KJ , :hmgam3Q6vtLG .
+
+:tou3Q6vt  a          chon:hessTournament ;
+        chon:atPlace  :pla3Q6vtL ;
+        chon:hasName  "Vienna" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3Q6vtL .
+
+:ag3Q6vtL  a          chon:Agent ;
+        chon:hasName  "Burn, Amos" , "Steinitz, William" .
+
+chon:HalfMove  chon:subEventOf  :gam3Q6vt .
+
+:ope3Q6vtL  a            chon:ChessOpening ;
+        chon:hasECOCode  "C02" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3Q6vtL .
+
+:rolhgeO2K2KJQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3Q6vtL .
+
+:pla3Q6vtL  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:cgr3Q6vtL  a   chon:ChessGameReport .
+
+:rolhg3Q6vtLGF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3Q6vtL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res3Q6vtLG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rol3Q6vtL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3Q6vtL .

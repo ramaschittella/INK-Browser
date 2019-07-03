@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg3WTKlpz8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVZfn5s .
+
+:resVZfn5se  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaVZfn5s  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVZfn5s .
+
+:agVZfn5s  a          chon:Agent ;
+        chon:hasName  "Dufresne, Jean" , "Steinitz, William" .
+
+:hmgamVZfn5se  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVZfn5seV , :rolhgRWXwNqvV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dufresne, Jean" ;
+        chon:hasSANRecord      "e4" , "Qh4+" , "d4" , "exf4" , "e5" , "Nc6" , "f4" , "Nc3" ;
+        chon:nextHalfMove      :hmgamVZfn5se , :hmgamRWXwNqv .
+
+:opeVZfn5s  a            chon:ChessOpening ;
+        chon:hasECOCode  "C25" .
+
+:cgrVZfn5s  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamVZfn5 .
+
+:rolhgRWXwNqvV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVZfn5s .
+
+:hmgam3WTKlpz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3WTKlpz8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dufresne, Jean" ;
+        chon:hasSANRecord      "Qd8+" , "Be5" , "dxe5" , "Bf4" , "Qxa8" , "Qe8" , "Qh4+" , "Ka5" , "Re1" , "Qc7" , "Kc6" , "Bxf5" , "Qg3" , "Be3+" , "Kg1" , "Bb5" , "Qxe5" , "c5" , "Qh7" , "Qxg8" , "Qf6+" , "Bxe5" , "d5+" , "Qf8" , "Kb6" , "Bxd3" ;
+        chon:nextHalfMove      :hmgam3WTKlpz .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamVZfn5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVZfn5s ;
+        chon:atPlace           :plaVZfn5s ;
+        chon:atTime            "1874.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVZfn5se ;
+        chon:hasHalfMove       :hmgam3WTKlpz , :hmgamVZfn5se , :hmgamRWXwNqv ;
+        chon:hasLastHalfMove   :hmgam3WTKlpz ;
+        chon:hasOpening        :opeVZfn5s ;
+        chon:hasReport         :cgrVZfn5s ;
+        chon:hasResult         :resVZfn5se ;
+        chon:subEventOf        :touVZfn5 .
+
+:rolVZfn5s  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVZfn5s .
+
+:touVZfn5  a          chon:hessTournament ;
+        chon:atPlace  :plaVZfn5s ;
+        chon:hasName  "GBR tour sim" .
+
+:hmgamRWXwNqv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRWXwNqvV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dufresne, Jean" ;
+        chon:hasSANRecord      "Kd7" , "Qxg5" , "g5" , "hxg5" , "Qh1" , "Bxh8" , "g3" , "h4" , "Qh5+" , "Rxh8" , "h6" , "Bg5" , "Bd3" , "Kd8" , "Nd5" , "Nxg5" , "d6" , "Nf3" , "Qf7" , "Bxf4" , "Nce7" , "Ke2" , "Qh4+" , "exf5" , "Qg6" , "Nxe7" , "g4" , "Kf2" , "c3" , "Ng8" , "Bg7" , "f5" ;
+        chon:nextHalfMove      :hmgamRWXwNqv , :hmgam3WTKlpz .
+
+:rolhgVZfn5seV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVZfn5s .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVZfn5s .

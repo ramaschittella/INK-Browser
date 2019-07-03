@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaSSskHK  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:gamSSskH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSSskHK ;
+        chon:atPlace           :plaSSskHK ;
+        chon:atTime            "1873.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkESE3Nk ;
+        chon:hasHalfMove       :hmgamkESE3Nk ;
+        chon:hasLastHalfMove   :hmgamkESE3Nk ;
+        chon:hasOpening        :opeSSskHK ;
+        chon:hasReport         :cgrSSskHK ;
+        chon:hasResult         :resSSskHKu ;
+        chon:subEventOf        :touSSskH .
+
+:touSSskH  a          chon:hessTournament ;
+        chon:atPlace  :plaSSskHK ;
+        chon:hasName  "Vienna" .
+
+:agSSskHK  a          chon:Agent ;
+        chon:hasName  "Pitschel, Karl" , "Steinitz, William" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSSskHK .
+
+:rolSSskHK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSSskHK .
+
+:opeSSskHK  a            chon:ChessOpening ;
+        chon:hasECOCode  "C01" .
+
+chon:HalfMove  chon:subEventOf  :gamSSskH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSSskHK .
+
+:rolhgkESE3NkH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSSskHK .
+
+:cgrSSskHK  a   chon:ChessGameReport .
+
+:resSSskHKu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamkESE3Nk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkESE3NkH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pitschel, Karl" ;
+        chon:hasSANRecord      "Nf6" , "e4" , "Nf3" , "g3" , "Ne2" , "Bb4" , "Bd6" , "exd5" , "c3" , "d4" , "Nc6" , "d5" , "Ngf5" , "e6" , "Nh4" , "Re8" , "Nc3" , "h6" , "Ne4" , "Bd3" , "Ng3" , "g5" , "Qf6" , "Bf8" , "Qh5" , "O-O" ;
+        chon:nextHalfMove      :hmgamkESE3Nk .

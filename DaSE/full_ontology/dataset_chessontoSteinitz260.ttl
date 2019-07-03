@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla71Y3cr  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:rolhgI17A7rYI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag71Y3cr .
+
+:hmgam71Y3cr5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgh1UgJq0h , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamh1UgJq0 .
+
+:cgr71Y3cr  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag71Y3cr .
+
+:ag71Y3cr  a          chon:Agent ;
+        chon:hasName  "Schwarz, Adolf" , "Steinitz, William" .
+
+:rol71Y3cr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag71Y3cr .
+
+chon:HalfMove  chon:subEventOf  :gam71Y3c .
+
+:ope71Y3cr  a            chon:ChessOpening ;
+        chon:hasECOCode  "C00" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag71Y3cr .
+
+:hmgamh1UgJq0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgh1UgJq0h , :rolhgI17A7rYI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schwarz, Adolf" ;
+        chon:hasSANRecord      "Rb8" , "Nh6" , "Nf7" , "c5" , "Nxf6+" , "e5" , "Ne3" , "O-O" , "c3" , "e6" , "Nc2" , "f4" , "Ng4" , "Bb7" , "exf6" , "Kh8" , "Be7" , "fxe5" , "d3" , "Nf3" , "Ne7" , "f6" , "gxf6" , "Nh4" , "g3" , "d5" , "Na3" , "Nc6" , "Bxf6" , "Qg4+" , "Bg2" , "b6" ;
+        chon:nextHalfMove      :hmgamI17A7rY , :hmgamh1UgJq0 .
+
+:rolhgh1UgJq0h  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag71Y3cr .
+
+:res71Y3cr5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamI17A7rY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgI17A7rYI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schwarz, Adolf" ;
+        chon:hasSANRecord      "Qh5" , "Rxf4" , "Nhg6" , "e4" , "Rd6" , "Nc6" , "Rc7" , "Rh6" , "Rxa7" , "Rc1" , "Rac1" , "Qe8" , "Ba6" , "Nh8" , "Kg8" , "Bf4" , "Rxh7" , "Bd3" , "cxd4" , "d4" , "Nxg6" , "Rd8" , "Qg5+" , "Re1" ;
+        chon:nextHalfMove      :hmgamI17A7rY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam71Y3c  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol71Y3cr ;
+        chon:atPlace           :pla71Y3cr ;
+        chon:atTime            "1882.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam71Y3cr5 ;
+        chon:hasHalfMove       :hmgamI17A7rY , :hmgamh1UgJq0 , :hmgam71Y3cr5 ;
+        chon:hasLastHalfMove   :hmgamI17A7rY ;
+        chon:hasOpening        :ope71Y3cr ;
+        chon:hasReport         :cgr71Y3cr ;
+        chon:hasResult         :res71Y3cr5 ;
+        chon:subEventOf        :tou71Y3c .
+
+:tou71Y3c  a          chon:hessTournament ;
+        chon:atPlace  :pla71Y3cr ;
+        chon:hasName  "Vienna" .

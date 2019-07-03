@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamVvR1LBE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVvR1LBET , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Maroczy, Geza" ;
+        chon:hasSANRecord      "Rxc8" , "Qxa4" , "Qa3" , "Bd2" , "gxh6" , "Kxh7" , "Be7" , "Bxg5" , "Rxh6" , "h5" , "Bxh7+" , "Kg2" , "Qa6+" , "Kg7" , "bxa4" , "Be3" , "Qc2+" , "Qg3" , "Qc6" , "Qxa2" , "Kxh8" , "Qxb5" , "Bxa4" , "Rxh8" , "Nc4" , "Nb2" , "Qb8" , "Qd7" , "Kg6" , "Rh3" , "Nxe5" , "b3" , "Kg1" , "g3" , "Qe2" , "Be2" , "Rh8" , "O-O" , "Bf6" , "Qe7" , "Kh6" , "Bd6" , "Kg8" , "Bd3" , "Qd8" , "b5" , "h6" , "Qxc8" , "Qc3" , "Qh4+" , "g5" , "g4" , "Qxb2" ;
+        chon:nextHalfMove      :hmgamVvR1LBE .
+
+:rolKvVMcB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKvVMcB .
+
+:touKvVMc  a          chon:hessTournament ;
+        chon:atPlace  :plaKvVMcB ;
+        chon:hasName  "Vienna" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKvVMcB .
+
+:hmgamKvVMcBB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKvVMcBBF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Maroczy, Geza" ;
+        chon:hasSANRecord      "e4" , "Rc1" , "Bxf3" , "Bd7" , "Nc3" , "cxd4" , "Nc6" , "Qb6" , "Be2" , "c5" , "Kf1" , "Nh6" , "d5" , "h4" , "Nf3" , "e6" , "Nxf3" , "Be1" , "Qa5+" , "Na4" , "d4" , "Qd8" , "e5" , "Nf5" , "Rc8" , "Bd2" , "c3" , "Nh4" ;
+        chon:nextHalfMove      :hmgamKvVMcBB , :hmgamVvR1LBE .
+
+chon:HalfMove  chon:subEventOf  :gamKvVMc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKvVMcB .
+
+:agKvVMcB  a          chon:Agent ;
+        chon:hasName  "Maroczy, Geza" , "Steinitz, William" .
+
+:opeKvVMcB  a            chon:ChessOpening ;
+        chon:hasECOCode  "C02" .
+
+:resKvVMcBB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgKvVMcBBF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKvVMcB .
+
+:gamKvVMc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKvVMcB ;
+        chon:atPlace           :plaKvVMcB ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKvVMcBB ;
+        chon:hasHalfMove       :hmgamKvVMcBB , :hmgamVvR1LBE ;
+        chon:hasLastHalfMove   :hmgamVvR1LBE ;
+        chon:hasOpening        :opeKvVMcB ;
+        chon:hasReport         :cgrKvVMcB ;
+        chon:hasResult         :resKvVMcBB ;
+        chon:subEventOf        :touKvVMc .
+
+:rolhgVvR1LBET  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKvVMcB .
+
+:plaKvVMcB  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrKvVMcB  a   chon:ChessGameReport .

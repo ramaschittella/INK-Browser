@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resvs7xW3A  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agvs7xW3  a          chon:Agent ;
+        chon:hasName  "Barlag,C" , "Karpov,Ana" .
+
+:hmgamqoNGGZQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqoNGGZQT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Barlag,C" ;
+        chon:hasSANRecord      "Qxf1+" , "g3" ;
+        chon:nextHalfMove      :hmgamqoNGGZQ .
+
+:opevs7xW3  a            chon:ChessOpening ;
+        chon:hasECOCode  "A52" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvs7xW3 .
+
+chon:HalfMove  chon:subEventOf  :gamvs7xW .
+
+:rolhgqoNGGZQT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvs7xW3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvs7xW3 .
+
+:cgrvs7xW3  a   chon:ChessGameReport .
+
+:gamvs7xW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvs7xW3 ;
+        chon:atPlace           :plavs7xW3 ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvs7xW3A ;
+        chon:hasHalfMove       :hmgamvs7xW3A , :hmgamqoNGGZQ ;
+        chon:hasLastHalfMove   :hmgamqoNGGZQ ;
+        chon:hasOpening        :opevs7xW3 ;
+        chon:hasReport         :cgrvs7xW3 ;
+        chon:hasResult         :resvs7xW3A ;
+        chon:subEventOf        :touvs7xW .
+
+:hmgamvs7xW3A  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvs7xW3AT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Barlag,C" ;
+        chon:hasSANRecord      "h6" , "h4" , "Rd8" , "Qxe4" , "Nxf3" , "d4" , "Ng4" , "Bxe5" , "Nh2" , "Bxe3" , "Ngxe5" , "Nd2" , "Qf5" , "Bf4" , "Qc7" , "Bc6" , "Qb2" , "Be2" , "e5" , "Re1" , "a2" , "Qd6" , "Qb1" , "Rb8" , "Nbd2" , "Qd5" , "Qa4" , "h5" , "c6" , "e4" , "Qc3" , "h3" , "Qxb2" , "c5" , "Bf8" , "e3" , "Bxf3" , "Qe7" , "Qa7" , "Bd7" , "Rab1" , "Bf3" , "Qc2" , "Qb5" , "d6" , "c4" , "Rf1" , "Nf6" , "Ne5" , "Ba4" , "Nxe5" , "Qb7" , "a5" , "Rb2" , "Rab8" , "Rxa2" , "Nc6" , "Rxb2" , "Qd3" , "Qxb7" , "Bc5" , "Qb6" , "dxe5" , "a4" , "O-O" , "a3" , "Nf3" , "Bd6" , "Bb4+" , "Qxe5" ;
+        chon:nextHalfMove      :hmgamvs7xW3A , :hmgamqoNGGZQ .
+
+:touvs7xW  a          chon:hessTournament ;
+        chon:atPlace  :plavs7xW3 ;
+        chon:hasName  "Simul" .
+
+:rolvs7xW3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvs7xW3 .
+
+:rolhgvs7xW3AT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvs7xW3 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plavs7xW3  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .

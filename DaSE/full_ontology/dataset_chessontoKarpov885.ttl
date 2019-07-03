@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam7OW9pef  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7OW9pefD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc3" , "Bd4" , "Nc6" , "b6" , "g6" , "Nf6" , "c4" , "Re1" , "Qh3" , "cxd6" , "Bg4" , "Bc3" , "cxd5" , "g4" , "Bd3" , "Nxe5" , "Be7" , "Rhd8" , "h3" , "Nxd6" , "Nb5" , "e5" , "Rad1" , "Bf5" , "Be3" , "Ne6" , "d6" , "Qd7" , "Qxd7+" , "Ke7" , "Bd6" , "Nxe4" , "Bc2" , "h6" , "Qxf3" , "f3" , "d4" , "Kxd7" , "Nxd4" , "O-O" , "Rac8" , "Nf3" , "Bxf3" , "d5" , "h5" , "Qxd5" ;
+        chon:nextHalfMove      :hmgam7OW9pef .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUO1URf .
+
+chon:HalfMove  chon:subEventOf  :gamUO1UR .
+
+:opeUO1URf  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:resUO1URfd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUO1URf .
+
+:rolhg7OW9pefD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUO1URf .
+
+:hmgamUO1URfd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUO1URfdq , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgam7OW9pef .
+
+:plaUO1URf  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:gamUO1UR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUO1URf ;
+        chon:atPlace           :plaUO1URf ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUO1URfd ;
+        chon:hasHalfMove       :hmgamUO1URfd , :hmgam7OW9pef ;
+        chon:hasLastHalfMove   :hmgam7OW9pef ;
+        chon:hasOpening        :opeUO1URf ;
+        chon:hasReport         :cgrUO1URf ;
+        chon:hasResult         :resUO1URfd ;
+        chon:subEventOf        :touUO1UR .
+
+:rolhgUO1URfdq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUO1URf .
+
+:touUO1UR  a          chon:hessTournament ;
+        chon:atPlace  :plaUO1URf ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+:cgrUO1URf  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agUO1URf  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolUO1URf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUO1URf .

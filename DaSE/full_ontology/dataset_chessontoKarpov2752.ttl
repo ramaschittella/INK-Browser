@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:platnKA85  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+:rolhgVqUSu5qq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtnKA85 .
+
+:gamtnKA8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltnKA85 ;
+        chon:atPlace           :platnKA85 ;
+        chon:atTime            "2003.11.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtnKA85B ;
+        chon:hasHalfMove       :hmgamVqUSu5q , :hmgamtnKA85B ;
+        chon:hasLastHalfMove   :hmgamVqUSu5q ;
+        chon:hasOpening        :opetnKA85 ;
+        chon:hasReport         :cgrtnKA85 ;
+        chon:hasResult         :restnKA85B ;
+        chon:subEventOf        :toutnKA8 .
+
+:cgrtnKA85  a   chon:ChessGameReport .
+
+:agtnKA85  a          chon:Agent ;
+        chon:hasName  "Shirov,A" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtnKA85 .
+
+:roltnKA85  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtnKA85 .
+
+chon:HalfMove  chon:subEventOf  :gamtnKA8 .
+
+:rolhgtnKA85B1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtnKA85 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtnKA85 .
+
+:hmgamVqUSu5q  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgVqUSu5qq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov,A" ;
+        chon:hasSANRecord      "Nf4+" , "Kd4" , "Ra4+" , "Bc4+" , "b4" , "Bf5" , "Ke5" , "Nxe5" , "Rxg7" , "Ra3" , "Rc8+" , "Bd5" , "Rd6" , "Kc4" , "b3" , "Rg8" , "g4" , "Kb6" , "Kb5" , "Ke3" , "Re2+" , "Ra2" , "Nd3+" , "Kd5" , "Rb6" , "Be4+" , "b2" , "Rg6" , "Kc5" ;
+        chon:nextHalfMove      :hmgamVqUSu5q .
+
+:restnKA85B  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:toutnKA8  a          chon:hessTournament ;
+        chon:atPlace  :platnKA85 ;
+        chon:hasName  "Corsica Masters KO" .
+
+:opetnKA85  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:hmgamtnKA85B  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtnKA85B1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov,A" ;
+        chon:hasSANRecord      "Rhd8" , "Nf3" , "d4" , "a6" , "Qxd4" , "Nbc3" , "d5" , "Nc6" , "h6" , "a3" , "Ra4" , "b5" , "Kxa5" , "Qxe3" , "Qc4" , "e4" , "Rc2" , "f6" , "Ne2" , "Ra1" , "Ba4" , "Kb8" , "Re6" , "c4" , "dxc4" , "O-O" , "Nbd5" , "Bxd4" , "Bb3" , "Ng3" , "Ra3+" , "Qb3" , "Nxe3" , "b6" , "e5" , "Rc3" , "Nfxe3" , "h4" , "Ke2" , "Nxe4" , "Qc1" , "Bf5" , "Ka7" , "e6" , "Rd1" , "Ke3" , "fxe3" , "bxa5+" , "Nf5" , "Bxf6" , "Nb6" , "R4d6" , "Be7" , "Nd5" , "Be3" , "a5" , "Ne7" , "Bc6" , "Qd7" , "Be4" , "Nd2" , "h5" , "exf6" , "Bxe4" , "Nce4" , "Rac1" , "b4" , "Nf6" , "Rxc7" , "Kb6" , "Rxd4" , "Qd5" , "Rxa3+" , "Bxc4" , "O-O-O" , "Kf2" ;
+        chon:nextHalfMove      :hmgamtnKA85B , :hmgamVqUSu5q .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

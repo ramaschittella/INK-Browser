@@ -1,0 +1,66 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamDlaaoU0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDlaaoU0x , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "cxd3" , "Kh1" , "Nge2" , "Qe2" , "Bh4" , "Kh8" , "a5" , "Bd3" , "h6" , "Rae8" , "Nc3" , "Nb3" , "Nxd4" , "Bc6" , "Be3" , "c5" , "Nf6" , "Be7" , "e6" , "d4" , "f5" , "Nd2" , "e5" , "Qc7" , "axb6" , "a4" , "g5" , "Nc6" , "Nb6" , "Nxd3" , "Bd8" , "Qb6" , "f4" , "e4" , "cxd4" , "Bxb6" , "Bg5" , "O-O" , "Qe7" , "a6" , "Bc4" , "Nc4" , "Nb4" , "Bd7" , "d6" ;
+        chon:nextHalfMove      :hmgam6nmtJUY , :hmgamDlaaoU0 .
+
+:opeDlaaoU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B57" .
+
+:hmgam6nmtJUY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6nmtJUYY , chon:AgentRole ;
+        chon:hasSANRecord      "fxg6" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDlaaoU .
+
+chon:HalfMove  chon:subEventOf  :gamDlaao .
+
+:cgrDlaaoU  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDlaaoU .
+
+:gamDlaao  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDlaaoU ;
+        chon:atPlace           :plaDlaaoU ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDlaaoU0 ;
+        chon:hasHalfMove       :hmgamDlaaoU0 , :hmgam6nmtJUY ;
+        chon:hasLastHalfMove   :hmgam6nmtJUY ;
+        chon:hasOpening        :opeDlaaoU ;
+        chon:hasReport         :cgrDlaaoU ;
+        chon:hasResult         :resDlaaoU0 ;
+        chon:subEventOf        :touDlaao .
+
+:touDlaao  a          chon:hessTournament ;
+        chon:atPlace  :plaDlaaoU ;
+        chon:hasName  "October Revolution 60" .
+
+:rolhg6nmtJUYY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDlaaoU .
+
+:resDlaaoU0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaDlaaoU  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:rolhgDlaaoU0x  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDlaaoU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agDlaaoU  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Romanishin, Oleg M" .
+
+:rolDlaaoU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDlaaoU .

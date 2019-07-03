@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrTXt2BR  a   chon:ChessGameReport .
+
+:rolhg6VphaSu4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTXt2BR .
+
+:rolTXt2BR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTXt2BR .
+
+:hmgamTXt2BRr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTXt2BRrS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "dxc5" , "Qxd3" , "Qe4" , "Bxc5" , "Bf5" , "Bxd3" , "Ne7" , "Bd3" , "Nbc6" , "d4" , "e5" , "Nf3" , "Ng6" , "c4" , "e4" , "Be2" , "O-O" , "c6" , "e6" , "d5" , "c5" ;
+        chon:nextHalfMove      :hmgamTXt2BRr , :hmgam6VphaSu .
+
+:gamTXt2B  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTXt2BR ;
+        chon:atPlace           :plaTXt2BR ;
+        chon:atTime            "2002.02.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTXt2BRr ;
+        chon:hasHalfMove       :hmgamTXt2BRr , :hmgam6VphaSu ;
+        chon:hasLastHalfMove   :hmgam6VphaSu ;
+        chon:hasOpening        :opeTXt2BR ;
+        chon:hasReport         :cgrTXt2BR ;
+        chon:hasResult         :resTXt2BRr ;
+        chon:subEventOf        :touTXt2B .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTXt2BR .
+
+:hmgam6VphaSu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6VphaSu4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Nb3" , "h5" , "Rc8" , "Rd4" , "Rf8+" , "Rc1" , "f6" , "Nd3" , "b6" , "Rfc1" , "hxg5" , "Nxd4" , "g3" , "Nxd5" , "Ke2" , "Qxd5" , "Re4+" , "Bb4" , "Kf5" , "a6" , "Kf1" , "Rxc6" , "b3" , "Nbd2" , "Nd5+" , "Kxg6" , "Nxg5+" , "h4" , "h6" , "Rac8" , "Rc2" , "Bxd2" , "Rg7" , "Nge7" , "a4" , "Ne1" , "Rg8" , "Bg5" , "O-O" , "e5" , "Kd6" , "a5" , "Ke3" , "Rxc8" , "Kh7" , "Kxf6" , "g4" , "Nf3" , "Qa6" , "Nc3+" , "Rc4" , "Rf5" , "exf6" , "Ke7" , "hxg6+" , "Qb6" , "g6" , "Qd5" , "Qxc4" , "Bd2" ;
+        chon:nextHalfMove      :hmgam6VphaSu .
+
+:touTXt2B  a          chon:hessTournament ;
+        chon:atPlace  :plaTXt2BR ;
+        chon:hasName  "NAO Masters" .
+
+:plaTXt2BR  a         chon:Place ;
+        chon:hasName  "Cannes FRA" .
+
+chon:HalfMove  chon:subEventOf  :gamTXt2B .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTXt2BR .
+
+:resTXt2BRr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agTXt2BR  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Gelfand,B" .
+
+:opeTXt2BR  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:rolhgTXt2BRrS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTXt2BR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

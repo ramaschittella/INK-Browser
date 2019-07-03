@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agGTRchY  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGTRchY .
+
+:rolGTRchY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGTRchY .
+
+:hmgamSTOpOZV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSTOpOZV3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc8" , "a5" , "Qf3" , "Rxe7" , "Kc7" , "h5" , "Bxd5" , "Be6" , "f3" , "Kf8" , "Red7" , "Rc6" , "Rxb6" , "a4" , "Kd7" , "Nc2" , "a6" , "d5" , "Ke7" , "Qxd5" , "Rb4" , "Ra6" , "Nb5" , "Nd6" , "Rxd4" , "Rb6" , "Re6" , "h4" , "Kf2" , "exd4" , "Bb7" , "Qd5" , "Rd1" , "Rb2" , "Rd4" , "Rc5" , "Na3" , "Nd4" , "Rc7" ;
+        chon:nextHalfMove      :hmgamSTOpOZV .
+
+:opeGTRchY  a            chon:ChessOpening ;
+        chon:hasECOCode  "E30" .
+
+chon:HalfMove  chon:subEventOf  :gamLXa4w .
+
+:touGTRch  a          chon:hessTournament ;
+        chon:atPlace  :plaLXa4w1 ;
+        chon:hasName  "Amsterdam" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGTRchY .
+
+:hmgamGTRchYS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGTRchYSR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "Rb1" , "Bb4" , "Ne7" , "Bxd7+" , "Bxd6" , "f6" , "Bxc3" , "exd5" , "e3" , "Bxd7" , "d6" , "Bxe7" , "Bf4" , "Bf5" , "cxd5" , "Bd3" , "Nbd7" , "Ne2" , "Nd4" , "Nf6" , "b6" , "Rfe8" , "Qa5" , "c5" , "bxc3" , "Bg5" , "c4" , "Nc3" , "Nxd5" , "e6" , "O-O" , "d4" ;
+        chon:nextHalfMove      :hmgamSTOpOZV , :hmgamGTRchYS .
+
+:rolhgSTOpOZV3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGTRchY .
+
+:gamLXa4w  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGTRchY ;
+        chon:atPlace           :plaLXa4w1 ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGTRchYS ;
+        chon:hasHalfMove       :hmgamGTRchYS , :hmgamSTOpOZV ;
+        chon:hasLastHalfMove   :hmgamSTOpOZV ;
+        chon:hasOpening        :opeGTRchY ;
+        chon:hasReport         :cgrGTRchY ;
+        chon:hasResult         :resGTRchYS ;
+        chon:subEventOf        :touGTRch .
+
+:rolhgGTRchYSR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGTRchY .
+
+:cgrGTRchY  a   chon:ChessGameReport .
+
+:resGTRchYS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaLXa4w1  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:placS9ivb  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+:resnA5y5ap  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcS9ivb .
+
+chon:HalfMove  chon:subEventOf  :gamcS9iv .
+
+:agcS9ivb  a          chon:Agent ;
+        chon:hasName  "Yamamoto,Paulo" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcS9ivb .
+
+:rolcS9ivb  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrnA5y5a  a   chon:ChessGameReport .
+
+:gamcS9iv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcS9ivb ;
+        chon:atPlace           :placS9ivb ;
+        chon:atTime            "2003.11.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnA5y5ap ;
+        chon:hasHalfMove       :hmgamnA5y5ap ;
+        chon:hasLastHalfMove   :hmgamnA5y5ap ;
+        chon:hasOpening        :opecS9ivb ;
+        chon:hasReport         :cgrnA5y5a ;
+        chon:hasResult         :resnA5y5ap ;
+        chon:subEventOf        :toucS9iv .
+
+:toucS9iv  a          chon:hessTournament ;
+        chon:atPlace  :placS9ivb ;
+        chon:hasName  "CXSP Simul" .
+
+:rolnA5y5a  a             chon:AuthorRole ;
+        chon:performedBy  :agnA5y5a .
+
+:rolhgnA5y5apI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcS9ivb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opecS9ivb  a            chon:ChessOpening ;
+        chon:hasECOCode  "E90" .
+
+:hmgamnA5y5ap  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnA5y5apI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Yamamoto,Paulo" ;
+        chon:hasSANRecord      "g6" , "Qb5" , "Nb4" , "Nc3" , "Nd2" , "a5" , "Be3" , "Nc4" , "Bxd6" , "h3" , "Nfd7" , "Re8" , "Qc2" , "d5" , "Kf3" , "Nf3" , "Rc2" , "g4" , "Nxb4" , "Nxd6" , "Bg7" , "Qc7" , "Nb5" , "e4" , "c6" , "dxc6" , "Qa8" , "Bf8" , "h4" , "c4" , "Rhb1" , "b4" , "d6" , "Nbxd6" , "Nf6" , "Re7" , "cxd5" , "Rb8" , "e5" , "c7" , "Nbd7" , "Nc5" , "Qc8" , "a3" , "Rxa3" , "Na6" , "Ba6" , "Be2" , "Nxc6" , "Qc6" , "b6" , "axb4" , "Qa3" , "Na2" , "O-O" , "Nf8" , "d4" , "Kxe2" , "Bxe2" , "Qb7" , "Rc1" , "g5" , "Qd3" ;
+        chon:nextHalfMove      :hmgamnA5y5ap .

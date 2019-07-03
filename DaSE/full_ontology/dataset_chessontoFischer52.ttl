@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrGaS3sn  a   chon:ChessGameReport .
+
+:gamGaS3s  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGaS3sn ;
+        chon:atPlace           :plaGaS3sn ;
+        chon:atTime            "1957.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamS9zgZmS ;
+        chon:hasHalfMove       :hmgamZ7cFild , :hmgamS9zgZmS , :hmgamO7gpLm9 ;
+        chon:hasLastHalfMove   :hmgamZ7cFild ;
+        chon:hasOpening        :opeGaS3sn ;
+        chon:hasReport         :cgrGaS3sn ;
+        chon:hasResult         :resGaS3snP ;
+        chon:subEventOf        :touGaS3s .
+
+:resGaS3snP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touGaS3s  a          chon:hessTournament ;
+        chon:atPlace  :plaGaS3sn ;
+        chon:hasName  "East Orange" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGaS3sn .
+
+:rolhgO7gpLm9e  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGaS3sn .
+
+:rolGaS3sn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGaS3sn .
+
+:hmgamO7gpLm9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgO7gpLm9e , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Di Camillo, Attilio" ;
+        chon:hasSANRecord      "Be4" , "h5" , "Nb7" , "Bc8" , "Rxe6" , "Bf3" , "a4" , "Bb2" , "Qd3" , "Bxb7" , "Qd5" , "Ree1" , "Re8" , "Qe4" , "b5" , "Nf5" , "Nd6" , "Rf7" , "g5" , "Nxf7" , "Rac1" , "Kxf7" , "Nc4" , "Ba3" , "Qxe6" , "Rc7" , "Rc8" , "Ne7" , "Kg6" , "Qxd6" , "Rc1" , "Rxa7" , "Nxd6" , "Qd7" , "Rd8" ;
+        chon:nextHalfMove      :hmgamZ7cFild , :hmgamO7gpLm9 .
+
+:rolhgZ7cFildp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGaS3sn .
+
+:hmgamS9zgZmS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgO7gpLm9e , :rolhgS9zgZmSe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Di Camillo, Attilio" ;
+        chon:hasSANRecord      "e6" , "g3" , "f6" , "d3" , "Bb2" , "Qc7" , "d4" , "O-O" , "Bg2" , "dxe4" , "Bd7" , "Rae8" , "b6" , "Bd6" , "Nd2" , "Nd8" , "c5" , "a3" , "e4" , "Nd5" , "Nfd2" , "Nxe4" , "Nge7" , "Nc6" , "Ngf3" , "d5" , "c3" , "Re1" , "cxd4" , "Qb8" , "b4" , "Qe2" ;
+        chon:nextHalfMove      :hmgamS9zgZmS , :hmgamO7gpLm9 .
+
+chon:HalfMove  chon:subEventOf  :gamGaS3s .
+
+:plaGaS3sn  a         chon:Place ;
+        chon:hasName  "East Orange" .
+
+:rolhgS9zgZmSe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGaS3sn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agGaS3sn  a          chon:Agent ;
+        chon:hasName  "Di Camillo, Attilio" , "Fischer, Robert James" .
+
+:hmgamZ7cFild  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZ7cFildp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Di Camillo, Attilio" ;
+        chon:hasSANRecord      "Ra6" , "d6" , "Nh4" , "Nf3+" , "Rxf6+" , "d5" , "Re8" , "h4" , "Kh5" , "b8=Q" , "Bxf3" , "h3" , "Re2" , "Rxb6" , "Rg4" , "Re4" , "Qg3" , "b7" , "Rxf3" , "g4" , "b6" , "Bc3" , "Rxe5" , "Bxg4" , "Be5" ;
+        chon:nextHalfMove      :hmgamZ7cFild .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGaS3sn .
+
+:opeGaS3sn  a            chon:ChessOpening ;
+        chon:hasECOCode  "A08" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agx998sp  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Bareev,E" .
+
+:opex998sp  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx998sp .
+
+:hmgamZaipMsG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZaipMsGG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qxd5" , "Bxe5" , "Ne7" , "Rac1" , "Nc3" , "exf4" , "Nxd5" , "Kd2" , "f4" , "Bf1" , "Rc8" , "e4" , "Ne5" , "Nxd3" , "Ke3" , "Ba6" , "Nc6" , "Ke6" , "Bd6" , "Rd1" , "Kf2" , "e5" , "fxe5" , "Rfd1" , "Qxd4" , "cxd5" , "Bxf4" , "Rfd8" , "d5" , "Kf7" , "Rxd1" , "Nf2" , "Bg3" , "f6" , "Qxd3" , "Rf8" , "Bc4" , "Nxd1" , "b4" ;
+        chon:nextHalfMove      :hmgamZaipMsG .
+
+:hmgamx998spR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgx998spRi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "d6" , "Qc2" , "cxd4" , "Bh4" , "Bd3" , "Bxc3+" , "Bb4" , "c4" , "e3" , "O-O" , "d4" , "Bb7" , "Nbd7" , "Qxc3" , "f3" , "e6" , "Bg5" , "Ne2" , "a3" , "c5" , "Nc3" , "Rc8" , "h6" , "b6" , "Nf6" ;
+        chon:nextHalfMove      :hmgamZaipMsG , :hmgamx998spR .
+
+:plax998sp  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:HalfMove  chon:subEventOf  :gamx998s .
+
+:rolhgx998spRi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx998sp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx998sp .
+
+:cgrx998sp  a   chon:ChessGameReport .
+
+:gamx998s  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolx998sp ;
+        chon:atPlace           :plax998sp ;
+        chon:atTime            "2002.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamx998spR ;
+        chon:hasHalfMove       :hmgamZaipMsG , :hmgamx998spR ;
+        chon:hasLastHalfMove   :hmgamZaipMsG ;
+        chon:hasOpening        :opex998sp ;
+        chon:hasReport         :cgrx998sp ;
+        chon:hasResult         :resx998spR ;
+        chon:subEventOf        :toux998s .
+
+:rolx998sp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agx998sp .
+
+:toux998s  a          chon:hessTournament ;
+        chon:atPlace  :plax998sp ;
+        chon:hasName  "Gp A" .
+
+:resx998spR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgZaipMsGG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx998sp .

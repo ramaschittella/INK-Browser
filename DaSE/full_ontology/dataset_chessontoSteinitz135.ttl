@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrrLLLEo  a   chon:ChessGameReport .
+
+:rolhg5LRkyo9n  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrLLLEo .
+
+:rolhgDLFZdojW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrLLLEo .
+
+:hmgamDLFZdoj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDLFZdojW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rousseau, Eugene" ;
+        chon:hasSANRecord      "Nc3" , "Qd4" , "Bc5" , "h4" , "Rgf1" , "exd6" , "Na6" , "Be3" , "Qe2" , "Qf6" , "Ne5" , "f4" , "Qe7" , "O-O" , "e5" , "Ng6" , "d3" , "Nxe4" , "g3" , "O-O-O" , "Bxg1" , "Bg2" , "fxe4" , "f5" , "Qxd6" , "Bg5" , "Rxg1" , "Rxf1" , "d6" , "c6" , "Bf4" , "Qxa2" , "h5" , "Qe6" , "e4" , "Ne7" , "fxe5" ;
+        chon:nextHalfMove      :hmgam5LRkyo9 , :hmgamDLFZdoj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrLLLEo .
+
+:plarLLLEo  a         chon:Place ;
+        chon:hasName  "Paris" .
+
+:hmgam5LRkyo9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5LRkyo9n ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rousseau, Eugene" ;
+        chon:hasSANRecord      "Nf7" , "Nxg5" , "Re8" , "Re1" , "Rxe6" , "Bh3" , "Qe6" , "Qg5" , "Bxe6+" , "Bd7" , "Nxe6" , "Qd2" , "h6" , "Bxe6" ;
+        chon:nextHalfMove      :hmgam5LRkyo9 .
+
+chon:HalfMove  chon:subEventOf  :gamrLLLE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrLLLEo .
+
+:agrLLLEo  a          chon:Agent ;
+        chon:hasName  "Rousseau, Eugene" , "Steinitz, William" .
+
+:rolrLLLEo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrLLLEo .
+
+:operLLLEo  a            chon:ChessOpening ;
+        chon:hasECOCode  "C25" .
+
+:gamrLLLE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrLLLEo ;
+        chon:atPlace           :plarLLLEo ;
+        chon:atTime            "1867.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDLFZdoj ;
+        chon:hasHalfMove       :hmgam5LRkyo9 , :hmgamDLFZdoj ;
+        chon:hasLastHalfMove   :hmgam5LRkyo9 ;
+        chon:hasOpening        :operLLLEo ;
+        chon:hasReport         :cgrrLLLEo ;
+        chon:hasResult         :resrLLLEog ;
+        chon:subEventOf        :tourLLLE .
+
+:tourLLLE  a          chon:hessTournament ;
+        chon:atPlace  :plarLLLEo ;
+        chon:hasName  "Paris it" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resrLLLEog  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

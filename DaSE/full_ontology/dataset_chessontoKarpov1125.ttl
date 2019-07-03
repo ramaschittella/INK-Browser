@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolP0Nrpm  a             chon:AuthorRole ;
+        chon:performedBy  :agP0Nrpm .
+
+:plaD0QeRl  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP0Nrpm .
+
+:resP0NrpmT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touD0QeR  a          chon:hessTournament ;
+        chon:atPlace  :plaD0QeRl ;
+        chon:hasName  "Optiebeurs" .
+
+:hmgamP0NrpmT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgP0NrpmTZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "cxd4" , "Rcd2" , "Rec8" , "Bg2" , "Ne4" , "a3" , "Qxc3" , "Nf3" , "Qe7" , "Ne7+" , "Rc4" , "Nxd4" , "Nf6" , "h4" , "Na6" , "Nxc8" , "Bf6" , "Re1" , "Rfe8" , "cxd5" , "Qf6" , "d5" , "Kg2" , "Be3" , "Qb2" , "Rc8" , "O-O" , "Re8" , "Qa3" , "b3" , "Nc5" , "Rad8" , "Rc2" , "d4" , "Bb7" , "b6" , "Qe8" , "Bxd4" , "Rc5" , "e3" , "Ne6" , "g3" , "Red8" , "c5" , "Nxc3" , "Rc1" , "c4" , "Bxd5" , "Qh6" , "Qd2" , "Bf3" , "Bh3" , "Bg4" , "Qa4" , "exd5" , "b4" , "Bd2" , "Red1" , "Bxc8" , "Nf5" , "Kf8" , "Qb3" , "Be7" , "Rfd1" , "e6" , "Nc3" , "Rxb4" , "Qxb4" , "h6" ;
+        chon:nextHalfMove      :hmgamgbXKLnJ , :hmgamP0NrpmT .
+
+:agD0QeRl  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:rolhggbXKLnJp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agD0QeRl , :agP0Nrpm .
+
+:rolhgP0NrpmTZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP0Nrpm , :agD0QeRl .
+
+chon:HalfMove  chon:subEventOf  :gamD0QeR .
+
+:agP0Nrpm  a          chon:Agent ;
+        chon:hasName  "Van der Wiel, John TH" .
+
+:cgrP0Nrpm  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamgbXKLnJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggbXKLnJp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "Bc6" , "Ra4" ;
+        chon:nextHalfMove      :hmgamgbXKLnJ .
+
+:gamD0QeR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolD0QeRl ;
+        chon:atPlace           :plaD0QeRl ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamP0NrpmT ;
+        chon:hasHalfMove       :hmgamP0NrpmT , :hmgamgbXKLnJ ;
+        chon:hasLastHalfMove   :hmgamgbXKLnJ ;
+        chon:hasOpening        :opeP0Nrpm ;
+        chon:hasReport         :cgrP0Nrpm ;
+        chon:hasResult         :resP0NrpmT ;
+        chon:subEventOf        :touD0QeR .
+
+:opeP0Nrpm  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+:rolD0QeRl  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agD0QeRl .

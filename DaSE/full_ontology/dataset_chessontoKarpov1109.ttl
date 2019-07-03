@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg4zo6fz9K  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBxdNTy .
+
+:rolhgBxdNTyjm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBxdNTy .
+
+:plaBxdNTy  a         chon:Place ;
+        chon:hasName  "Sevilla" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBxdNTy .
+
+:hmgam4zo6fz9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4zo6fz9K , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Nb5" , "Ke7" , "Rb1" , "f3" , "Ke6" , "Nxa7" , "Rb6+" , "Rb6" , "dxc5" , "a6" , "Ra4" , "Kf3" , "Ra8" , "Rbc8" , "Ke5" , "Rfa1" , "Rxg7" , "Re6+" , "Re1+" , "Re5+" , "f6" , "Kf8" , "Be4" , "Rcxa6" , "Rc6" , "Ra1" , "R1a2" , "fxe4" , "g4" , "Kxe6" , "Qxc5" , "dxc4" , "Rf1+" , "Rf5+" , "Kf2" , "Qxc4" , "Kf6" , "Rd6" , "Rxa7" , "Ke3" , "Rfa5" , "Rea5" , "Ke2" , "R2a3" , "Kxf4" , "Rb2" , "Re7+" , "h5" , "Qd6" , "h4" , "Ra5" , "Rxc5" , "Ba8" , "Qc5" , "Kd6" , "Rf4" , "Kf4" , "Rxb6" ;
+        chon:nextHalfMove      :hmgam4zo6fz9 .
+
+:hmgamBxdNTyj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBxdNTyjm , chon:AgentRole , :rolhg4zo6fz9K ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "e3" , "h6" , "cxd4" , "Nf6" , "d4" , "e6" , "Nc4" , "a4" , "exd4" , "b6" , "O-O" , "Rb8" , "Bxd4" , "Bb7" , "cxd5" , "a5" , "c5" , "Qb3" , "d5" , "Nd7" , "exd5" , "b4" , "Nxd4" , "Bxf6" , "Nf3" , "Bg5" , "c4" , "Nc3" , "Bxc4" , "Nb6" , "bxc5" , "Be2" , "Be7" , "Bh4" ;
+        chon:nextHalfMove      :hmgamBxdNTyj , :hmgam4zo6fz9 .
+
+:cgrBxdNTy  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamBxdNT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBxdNTy .
+
+:agBxdNTy  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolBxdNTy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBxdNTy .
+
+:resBxdNTyj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamBxdNT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBxdNTy ;
+        chon:atPlace           :plaBxdNTy ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBxdNTyj ;
+        chon:hasHalfMove       :hmgamBxdNTyj , :hmgam4zo6fz9 ;
+        chon:hasLastHalfMove   :hmgam4zo6fz9 ;
+        chon:hasOpening        :opeBxdNTy ;
+        chon:hasReport         :cgrBxdNTy ;
+        chon:hasResult         :resBxdNTyj ;
+        chon:subEventOf        :touBxdNT .
+
+:touBxdNT  a          chon:hessTournament ;
+        chon:atPlace  :plaBxdNTy ;
+        chon:hasName  "World Championship 34th-KK4" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeBxdNTy  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .

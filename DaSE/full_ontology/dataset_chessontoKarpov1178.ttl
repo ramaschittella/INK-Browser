@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam1IDMU7W  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1IDMU7Wx , :rolhgbIz1t6ZK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dzindzichashvili, Roman" ;
+        chon:hasSANRecord      "Nf6" , "Nf3" , "c4" , "Be7" , "O-O" , "Bb7" , "b6" , "g3" , "e6" , "Bg2" , "d4" ;
+        chon:nextHalfMove      :hmgam1IDMU7W , :hmgambIz1t6Z .
+
+:cgr1IDMU7  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1IDMU7 .
+
+:rol1IDMU7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1IDMU7 .
+
+:res1IDMU7W  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gam1IDMU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1IDMU7 .
+
+:pla1IDMU7  a         chon:Place ;
+        chon:hasName  "Mazatlan" .
+
+:rolhg1IDMU7Wx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1IDMU7 .
+
+:ag1IDMU7  a          chon:Agent ;
+        chon:hasName  "Dzindzichashvili, Roman" , "Karpov, Anatoly" .
+
+:ope1IDMU7  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+:gam1IDMU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1IDMU7 ;
+        chon:atPlace           :pla1IDMU7 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1IDMU7W ;
+        chon:hasHalfMove       :hmgam1IDMU7W , :hmgambIz1t6Z ;
+        chon:hasLastHalfMove   :hmgambIz1t6Z ;
+        chon:hasOpening        :ope1IDMU7 ;
+        chon:hasReport         :cgr1IDMU7 ;
+        chon:hasResult         :res1IDMU7W ;
+        chon:subEventOf        :tou1IDMU .
+
+:tou1IDMU  a          chon:hessTournament ;
+        chon:atPlace  :pla1IDMU7 ;
+        chon:hasName  "Mazatlan rapid" .
+
+:hmgambIz1t6Z  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbIz1t6ZK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dzindzichashvili, Roman" ;
+        chon:hasSANRecord      "exf3" , "dxe4" , "e5" , "d5" , "Bxe4" , "Ne4" , "Nc3" , "Bd6" , "O-O" , "Qc2" , "Ne1" , "Be3" , "Nd7" , "Nxe5" , "Nd3" , "Rd1" , "dxe5" , "f3" , "Qe8" , "Nxe4" , "f5" ;
+        chon:nextHalfMove      :hmgambIz1t6Z .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgbIz1t6ZK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1IDMU7 .

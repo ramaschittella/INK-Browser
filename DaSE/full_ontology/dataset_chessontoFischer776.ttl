@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res3zdpOu3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:ag3zdpOu  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+:rolhg3zdpOu3r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3zdpOu .
+
+:ope3zdpOu  a            chon:ChessOpening ;
+        chon:hasECOCode  "A77" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3zdpOu .
+
+chon:HalfMove  chon:subEventOf  :gam3zdpO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3zdpOu .
+
+:pla3zdpOu  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:cgr3zdpOu  a   chon:ChessGameReport .
+
+:gam3zdpO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3zdpOu ;
+        chon:atPlace           :pla3zdpOu ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3zdpOu3 ;
+        chon:hasHalfMove       :hmgam3zdpOu3 ;
+        chon:hasLastHalfMove   :hmgam3zdpOu3 ;
+        chon:hasOpening        :ope3zdpOu ;
+        chon:hasReport         :cgr3zdpOu ;
+        chon:hasResult         :res3zdpOu3 ;
+        chon:subEventOf        :tou3zdpO .
+
+:tou3zdpO  a          chon:hessTournament ;
+        chon:atPlace  :pla3zdpOu ;
+        chon:hasName  "World Championship 28th" .
+
+:rol3zdpOu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3zdpOu .
+
+:hmgam3zdpOu3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3zdpOu3r ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "a4" , "Qc2+" , "Qe4+" , "Qd3" , "Ng4" , "Nd2" , "Qf6" , "e4" , "Re3" , "Bc1" , "Rbe8" , "Rae1" , "e6" , "Nf6" , "Qe3" , "Qb3" , "c4" , "Kf1" , "R3e2" , "Bxh5" , "Rb8" , "Bg7" , "Nh5" , "Ne5" , "h5" , "Qg6" , "Qd2" , "Qc2" , "Bf4" , "Bd3+" , "c5" , "b6" , "cxd5" , "Qh4" , "d4" , "Re7" , "Re2" , "Bd2" , "Re8" , "Ke2" , "exd5" , "a6" , "Rfe1" , "Qd4" , "g6" , "Kh7" , "Bd7" , "g3" , "d6" , "Qb1" , "hxg4" , "b4" , "b5" , "Bxc3" , "Nxg4" , "Nbd7" , "Kg8" , "gxh5" , "Rxe4" , "Nf3" , "Ne3" , "Qxe4" , "axb5" , "Qxc3" , "Bf5" , "Nc3" , "O-O" , "Nc4" , "Bh6" , "d5" , "Be2" , "b3" ;
+        chon:nextHalfMove      :hmgam3zdpOu3 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

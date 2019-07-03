@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamyUXoB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnU1a2m ;
+        chon:atPlace           :playUXoBm ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnU1a2mo ;
+        chon:hasHalfMove       :hmgamnU1a2mo ;
+        chon:hasLastHalfMove   :hmgamnU1a2mo ;
+        chon:hasOpening        :openU1a2m ;
+        chon:hasReport         :cgrnU1a2m ;
+        chon:hasResult         :resnU1a2mo ;
+        chon:subEventOf        :tounU1a2 .
+
+:rolhgnU1a2moR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnU1a2m .
+
+:cgrnU1a2m  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnU1a2m .
+
+:rolnU1a2m  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnU1a2m .
+
+:hmgamnU1a2mo  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnU1a2moR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Nxf7" , "Rxc6" , "Nxd7" , "d4" , "axb3" , "Kg1" , "Re8" , "Rc8" , "Nd2" , "exd5" , "Bg2" , "Rd1" , "Bb4+" , "d5" , "e4" , "Nf3" , "Qd5" , "b3" , "cxb3" , "Bxc6" , "Rxe8+" , "Rxa7" , "Nxf3" , "O-O" , "Re3+" , "Re1+" , "Rd2+" , "Rexe7" , "dxc4" , "Nfd7" , "Ne8" , "Re1" , "f4" , "Kg2" , "Rb8" , "Bc3" , "g3" , "Re2+" , "Rg3+" , "g4" , "Rxb3" , "Rh3" , "Rd5" , "Kh3" , "Ba6" , "Qxf3" , "Kh7" , "Qf3" , "dxc5" , "Bd2" , "c5" , "Rd3" , "Reb7" , "c6" , "Be7" , "Bb5" , "h5" , "Ng5" , "Ne5" , "Kf1" , "Nf6" , "h4" , "e6" , "c4" , "Rxc3" , "b6" ;
+        chon:nextHalfMove      :hmgamnU1a2mo .
+
+chon:HalfMove  chon:subEventOf  :gamyUXoB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnU1a2m .
+
+:resnU1a2mo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agnU1a2m  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+:playUXoBm  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:openU1a2m  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:tounU1a2  a          chon:hessTournament ;
+        chon:atPlace  :playUXoBm ;
+        chon:hasName  "Tilburg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

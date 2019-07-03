@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamlbKUSRy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhglbKUSRyF , :rolhgNbWdfRp6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Nd5" , "d4" , "O-O" , "Qa5" , "Qb5" , "Qd2" , "Nc6" , "Nc3" , "d6" , "f3" , "e4" , "Nf3" , "c5" , "Rfc8" , "Bb3" , "Bc4" , "b4" , "b5" , "Rc7" , "Bg7" , "O-O-O" , "Bxd5" , "Nf6" , "Nxd4" , "g6" , "cxd4" , "Rac8" , "Kb1" , "Bxd4" , "Be3" , "Be6" , "h4" , "h5" ;
+        chon:nextHalfMove      :hmgamNbWdfRp , :hmgamlbKUSRy .
+
+:hmgamNbWdfRp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNbWdfRp6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Rxf7" , "Rf6" , "e5" , "hxg6" , "Rxh5" , "exd5" , "g6" , "Qd6+" , "Bg5" , "Kf8" , "Nh5" , "Qb7" , "g4" , "gxh5" , "d5" , "Bxf6" , "a5" , "Rd8" , "Be3" , "gxf7+" , "d6" , "g5" , "d7" ;
+        chon:nextHalfMove      :hmgamNbWdfRp .
+
+:rolhgNbWdfRp6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglbKUSR .
+
+:rolhglbKUSRyF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglbKUSR .
+
+chon:HalfMove  chon:subEventOf  :gamlbKUS .
+
+:plalbKUSR  a         chon:Place ;
+        chon:hasName  "Portoroz" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglbKUSR .
+
+:reslbKUSRy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamlbKUS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollbKUSR ;
+        chon:atPlace           :plalbKUSR ;
+        chon:atTime            "1958.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlbKUSRy ;
+        chon:hasHalfMove       :hmgamNbWdfRp , :hmgamlbKUSRy ;
+        chon:hasLastHalfMove   :hmgamNbWdfRp ;
+        chon:hasOpening        :opelbKUSR ;
+        chon:hasReport         :cgrlbKUSR ;
+        chon:hasResult         :reslbKUSRy ;
+        chon:subEventOf        :toulbKUS .
+
+:cgrlbKUSR  a   chon:ChessGameReport .
+
+:toulbKUS  a          chon:hessTournament ;
+        chon:atPlace  :plalbKUSR ;
+        chon:hasName  "Portoroz Interzonal" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglbKUSR .
+
+:aglbKUSR  a          chon:Agent ;
+        chon:hasName  "Larsen, Bent" , "Fischer, Robert James" .
+
+:rollbKUSR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglbKUSR .
+
+:opelbKUSR  a            chon:ChessOpening ;
+        chon:hasECOCode  "B77" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

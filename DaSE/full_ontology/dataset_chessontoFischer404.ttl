@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolKooqmg  a             chon:AuthorRole ;
+        chon:performedBy  :agKooqmg .
+
+:gamyordP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyordPh ;
+        chon:atPlace           :playordPh ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKooqmgz ;
+        chon:hasHalfMove       :hmgamKooqmgz ;
+        chon:hasLastHalfMove   :hmgamKooqmgz ;
+        chon:hasOpening        :opeKooqmg ;
+        chon:hasReport         :cgrKooqmg ;
+        chon:hasResult         :resKooqmgz ;
+        chon:subEventOf        :touyordP .
+
+:agKooqmg  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" .
+
+:touyordP  a          chon:hessTournament ;
+        chon:atPlace  :playordPh ;
+        chon:hasName  "Varna olm" .
+
+:resKooqmgz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeKooqmg  a            chon:ChessOpening ;
+        chon:hasECOCode  "E26" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyordPh .
+
+:rolyordPh  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:HalfMove  chon:subEventOf  :gamyordP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKooqmg .
+
+:playordPh  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+:rolhgKooqmgzb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKooqmg , :agyordPh .
+
+:agyordPh  a          chon:Agent ;
+        chon:hasName  "Rivera, D1." .
+
+:hmgamKooqmgz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKooqmgzb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "e3" , "Qxb2" , "O-O" , "Bxc4" , "b6" , "Na5" , "e6" , "Nc3" , "Ne2" , "dxc4" , "Bb3" , "Bxc3+" , "d5" , "c5" , "d4" , "Nc6" , "a3" , "Bb7" , "Qb5" , "Qc7" , "Nf6" , "Bb2" , "f3" , "Ng3" , "c4" , "Ba4" , "Bb4" , "bxc3" , "Rc1" , "Qc6" , "Bd3" ;
+        chon:nextHalfMove      :hmgamKooqmgz .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrKooqmg  a   chon:ChessGameReport .

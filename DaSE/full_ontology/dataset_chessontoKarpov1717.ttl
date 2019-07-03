@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaxvZ5Gq  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:hmgamYv0m1qZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYv0m1qZc , :rolhgav6Szq3p ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kaidanov, Grigory S" ;
+        chon:hasSANRecord      "Be4" , "d5" , "O-O" , "Bb2" , "Rxf6" , "Nxa2" , "Ne5" , "Rfd1" , "h4" , "Ba5" , "Rb8" , "Ra8" , "Rxc8" , "Re2+" , "c5" , "Bb4" , "Ke4" , "Nd8" , "Bxd7" , "Nb4" , "d4" , "Nbd2" , "c4" , "Ng4" , "Kf3" , "Qd4" , "h3" , "g3" , "Nd7" , "Kg2" , "Bd4" , "exd5" , "Bc4" , "Nxb4" , "dxc4" , "Ne7" , "Rxb7" , "e6" , "Qa5" , "Ba7" , "b4" , "Bb3" , "Rbc8" , "Rxd7" , "Ne4" , "Rb6" , "Be6" , "e3" , "Rxa6" , "Bb6" , "Bd5+" , "Nxf2" , "Nc6" , "Rac1" , "Nd3" , "g6" , "f6" , "Rc2" , "Bd3" , "exd4" , "Qd3" , "a6" , "Nxd5" , "Kd5" , "Kh8" , "Nxc4" , "Bxb6" , "Qxd5" , "Nxb6" , "Qxd5+" , "b3" , "Nf3" , "Nxd2" , "Ne3" , "cxd4" , "c6" , "Rc1+" , "Ng6" , "Nf6" , "Rb2" ;
+        chon:nextHalfMove      :hmgamav6Szq3 , :hmgamYv0m1qZ .
+
+:hmgamav6Szq3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgav6Szq3p , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kaidanov, Grigory S" ;
+        chon:hasSANRecord      "Nf7" , "Ra6" , "Rd2+" , "Ke4" , "Rd6" , "Be6" , "Bg4" , "Kg7" ;
+        chon:nextHalfMove      :hmgamav6Szq3 .
+
+:rolhgav6Szq3p  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYv0m1q .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYv0m1q .
+
+:cgrYv0m1q  a   chon:ChessGameReport .
+
+:resYv0m1qZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgYv0m1qZc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYv0m1q .
+
+chon:HalfMove  chon:subEventOf  :gamxvZ5G .
+
+:agYv0m1q  a          chon:Agent ;
+        chon:hasName  "Kaidanov, Grigory S" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYv0m1q .
+
+:rolYv0m1q  a             chon:AuthorRole ;
+        chon:performedBy  :agYv0m1q .
+
+:gamxvZ5G  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxvZ5Gq ;
+        chon:atPlace           :plaxvZ5Gq ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYv0m1qZ ;
+        chon:hasHalfMove       :hmgamav6Szq3 , :hmgamYv0m1qZ ;
+        chon:hasLastHalfMove   :hmgamav6Szq3 ;
+        chon:hasOpening        :opeYv0m1q ;
+        chon:hasReport         :cgrYv0m1q ;
+        chon:hasResult         :resYv0m1qZ ;
+        chon:subEventOf        :touxvZ5G .
+
+:touxvZ5G  a          chon:hessTournament ;
+        chon:atPlace  :plaxvZ5Gq ;
+        chon:hasName  "Tilburg rapid20" .
+
+:rolxvZ5Gq  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeYv0m1q  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .

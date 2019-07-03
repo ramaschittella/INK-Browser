@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resSFUgAWd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamGFY24  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSFUgAW ;
+        chon:atPlace           :plaGFY24X ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSFUgAWd ;
+        chon:hasHalfMove       :hmgamNDBpkWt , :hmgamSFUgAWd ;
+        chon:hasLastHalfMove   :hmgamNDBpkWt ;
+        chon:hasOpening        :opeSFUgAW ;
+        chon:hasReport         :cgrSFUgAW ;
+        chon:hasResult         :resSFUgAWd ;
+        chon:subEventOf        :touSFUgA .
+
+:touSFUgA  a          chon:hessTournament ;
+        chon:atPlace  :plaGFY24X ;
+        chon:hasName  "Leningrad Interzonal" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSFUgAW .
+
+:rolhgNDBpkWtl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSFUgAW .
+
+chon:HalfMove  chon:subEventOf  :gamGFY24 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSFUgAW .
+
+:rolhgSFUgAWdn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSFUgAW .
+
+:plaGFY24X  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:cgrSFUgAW  a   chon:ChessGameReport .
+
+:hmgamSFUgAWd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNDBpkWtl , :rolhgSFUgAWdn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Quinteros, Miguel A" ;
+        chon:hasSANRecord      "Bg3" , "h4" , "e4" , "Qc7" , "Nd6" , "cxd4" , "h6" , "Bd5" , "b5" , "Kb1" , "O-O" , "Qf3" , "Qb6" , "Ne4" , "Nc3" , "Nxd4" , "Nbd7" , "Bb7" , "d6" , "a6" , "Nh7" , "Qe2" , "Rxd5" , "fxe5" , "Bh4" , "Bg5" , "Bg5+" , "f4" , "e5" , "Nb3" , "Nf6" , "d4" , "Be7" , "e6" , "c5" , "dxe5" , "O-O-O" , "Nf3" ;
+        chon:nextHalfMove      :hmgamSFUgAWd , :hmgamNDBpkWt .
+
+:hmgamNDBpkWt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNDBpkWtl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Quinteros, Miguel A" ;
+        chon:hasSANRecord      "Qe8" , "g5" , "Bf6" , "Rg8" , "Nh6" , "Qd4" , "Qxe4" , "dxe4" , "Qg4" , "Bxe4" , "g6" , "Nf5+" , "Ne4" , "Kg7" , "Qf8" , "N5f6" , "Bxe5" , "Re1" , "Bd3" , "Ndf6" , "Nxh6+" , "Be5" , "exf7" , "h5" , "Qd8" , "Nxh5" , "Rxe5" , "e6" , "Kh8" , "Nf5" , "exd5" , "g4" , "Rg7" ;
+        chon:nextHalfMove      :hmgamNDBpkWt .
+
+:agSFUgAW  a          chon:Agent ;
+        chon:hasName  "Quinteros, Miguel A" , "Karpov, Anatoly" .
+
+:rolSFUgAW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSFUgAW .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeSFUgAW  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .

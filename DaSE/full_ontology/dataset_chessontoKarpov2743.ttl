@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agAIX7Pe  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Svidler,P" .
+
+:opeAIX7Pe  a            chon:ChessOpening ;
+        chon:hasECOCode  "C49" .
+
+:resAIX7PeS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAIX7Pe .
+
+:rolhgAIX7PeSM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAIX7Pe .
+
+chon:HalfMove  chon:subEventOf  :gamAIX7P .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAIX7Pe .
+
+:plaAIX7Pe  a         chon:Place ;
+        chon:hasName  "Cap D'Agde FRA" .
+
+:cgrAIX7Pe  a   chon:ChessGameReport .
+
+:gamAIX7P  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAIX7Pe ;
+        chon:atPlace           :plaAIX7Pe ;
+        chon:atTime            "2003.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAIX7PeS ;
+        chon:hasHalfMove       :hmgamAIX7PeS ;
+        chon:hasLastHalfMove   :hmgamAIX7PeS ;
+        chon:hasOpening        :opeAIX7Pe ;
+        chon:hasReport         :cgrAIX7Pe ;
+        chon:hasResult         :resAIX7PeS ;
+        chon:subEventOf        :touAIX7P .
+
+:touAIX7P  a          chon:hessTournament ;
+        chon:atPlace  :plaAIX7Pe ;
+        chon:hasName  "GpB" .
+
+:rolAIX7Pe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAIX7Pe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamAIX7PeS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAIX7PeSM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bb4" , "c5" , "dxe4" , "Qe7" , "Nc3" , "Bg5" , "Nh4" , "f3" , "Bb5" , "h6" , "Rd8" , "Nf3" , "Rc6" , "g3" , "e5" , "Rg5+" , "Nf8" , "Qh5" , "d6" , "Rxe3" , "Qh6" , "Rxe4" , "Bg4" , "Be6" , "cxd4" , "Bxf6" , "Bxc3" , "Ne6" , "Bc4" , "Bd7" , "e4" , "O-O" , "Qh3" , "Nf6" , "Bf1" , "d4" , "Rxc3" , "Re1" , "d5" , "Nd8" , "a4" , "Ng2" , "Qxh6" , "Bxh3" , "Qe8" , "Bxf5" , "f4" , "Ne3" , "Nc6" , "f5" , "Bc1" , "Nh7" , "d3" , "bxc3" , "Rb8" , "Rxe5" , "gxf6" , "Rbc8" , "dxe3" , "Qe6" , "Qxf6" ;
+        chon:nextHalfMove      :hmgamAIX7PeS .

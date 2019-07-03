@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag3d2npx  a          chon:Agent ;
+        chon:hasName  "Nikolic, Predrag" , "Karpov, Anatoly" .
+
+:res3d2npxA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ope3d2npx  a            chon:ChessOpening ;
+        chon:hasECOCode  "A91" .
+
+:gam3d2np  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3d2npx ;
+        chon:atPlace           :pla3d2npx ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3d2npxA ;
+        chon:hasHalfMove       :hmgam3d2npxA , :hmgamtfdFKxp ;
+        chon:hasLastHalfMove   :hmgamtfdFKxp ;
+        chon:hasOpening        :ope3d2npx ;
+        chon:hasReport         :cgr3d2npx ;
+        chon:hasResult         :res3d2npxA ;
+        chon:subEventOf        :tou3d2np .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3d2npx .
+
+:tou3d2np  a          chon:hessTournament ;
+        chon:atPlace  :pla3d2npx ;
+        chon:hasName  "World Cup" .
+
+chon:HalfMove  chon:subEventOf  :gam3d2np .
+
+:hmgam3d2npxA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3d2npxAf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nikolic, Predrag" ;
+        chon:hasSANRecord      "c6" , "Qe8" , "d6" , "Nh3" , "cxd5" , "Qxa3" , "Qa3" , "O-O" , "Be7" , "Nf3" , "Rac8" , "Qb3" , "Rc3" , "Bxa3" , "Na6" , "c4" , "a6" , "Qa4" , "Nc5" , "d4" , "e4" , "e3" , "Bd7" , "b3" , "Nf6" , "Rd1" , "Rac1" , "Be2" , "g3" , "e5" , "d5" , "Kf7" , "Bf1" , "f5" , "Bf6" , "Ng5" , "e6" , "Bg2" , "Nc3" , "h6" , "Nxd5" , "Nd4" , "Ke7" ;
+        chon:nextHalfMove      :hmgamtfdFKxp , :hmgam3d2npxA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3d2npx .
+
+:pla3d2npx  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:cgr3d2npx  a   chon:ChessGameReport .
+
+:rol3d2npx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3d2npx .
+
+:hmgamtfdFKxp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtfdFKxpD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nikolic, Predrag" ;
+        chon:hasSANRecord      "g6" , "Rdc1" ;
+        chon:nextHalfMove      :hmgamtfdFKxp .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgtfdFKxpD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3d2npx .
+
+:rolhg3d2npxAf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3d2npx .

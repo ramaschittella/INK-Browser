@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resmVxGjt1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gammVxGj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmVxGjt ;
+        chon:atPlace           :plamVxGjt ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammVxGjt1 ;
+        chon:hasHalfMove       :hmgammVxGjt1 ;
+        chon:hasLastHalfMove   :hmgammVxGjt1 ;
+        chon:hasOpening        :opemVxGjt ;
+        chon:hasReport         :cgrmVxGjt ;
+        chon:hasResult         :resmVxGjt1 ;
+        chon:subEventOf        :toumVxGj .
+
+:plamVxGjt  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:toumVxGj  a          chon:hessTournament ;
+        chon:atPlace  :plamVxGjt ;
+        chon:hasName  "Capablanca mem" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmVxGjt .
+
+:agmVxGjt  a          chon:Agent ;
+        chon:hasName  "Szabo, Laszlo" , "Fischer, Robert James" .
+
+chon:HalfMove  chon:subEventOf  :gammVxGj .
+
+:opemVxGjt  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmVxGjt .
+
+:rolhgmVxGjt1e  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmVxGjt .
+
+:hmgammVxGjt1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmVxGjt1e ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Szabo, Laszlo" ;
+        chon:hasSANRecord      "f4" , "e4" , "R3e2" , "Nb4" , "Nd7" , "e6" , "Kh1" , "Rf3" , "Re3" , "cxb4" , "dxe5" , "Bb3" , "Nd4" , "d5" , "Bb5" , "Bh4" , "Bf6" , "exd4" , "Qd2" , "Qd7" , "Bxd4" , "Ne4" , "Nc6" , "Rb7" , "Be7" , "a5" , "Na3" , "Kh2" , "f6" , "Bxb3" , "Ba4" , "fxe5" , "Rab8" , "Bg3" , "Nc2" , "h3" , "e5" , "cxd4" , "Qd4" , "c5" , "b5" , "d4" , "Qxd4" , "Be6" , "O-O" , "Rfd8" , "Qc7" , "a6" , "Nxb4" , "Re1" , "Nf6" , "f5" , "Qe2" , "Nc5" , "axb3" , "Qf5" , "d6" , "Rf8" , "c3" , "Rae1" , "Bf4" , "Qd3" , "Nf3" ;
+        chon:nextHalfMove      :hmgammVxGjt1 .
+
+:cgrmVxGjt  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolmVxGjt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmVxGjt .

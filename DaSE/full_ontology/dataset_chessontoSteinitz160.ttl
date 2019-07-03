@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolx1AaQY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agx1AaQY .
+
+:agx1AaQY  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Paulsen, Louis" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx1AaQY .
+
+:plaB3T271  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+chon:HalfMove  chon:subEventOf  :gamB3T27 .
+
+:resx1AaQYv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhga1GGJZpb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx1AaQY .
+
+:opex1AaQY  a            chon:ChessOpening ;
+        chon:hasECOCode  "C46" .
+
+:hmgamx1AaQYv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgx1AaQYvz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nf3" , "Bg5" , "Bc4" , "e4" , "a3" , "d3" , "Nc6" , "Nc3" , "d6" , "e5" , "g6" , "h6" , "Bg7" , "Bh4" , "Qd7" ;
+        chon:nextHalfMove      :hmgamx1AaQYv , :hmgamIYwopXA .
+
+:cgrx1AaQY  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toux1AaQ  a          chon:hessTournament ;
+        chon:atPlace  :plaB3T271 ;
+        chon:hasName  "Baden-Baden" .
+
+:rolhgx1AaQYvz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx1AaQY .
+
+:hmgama1GGJZp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhga1GGJZpb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rg5" , "Bf7" , "Kb8" , "Nb1" , "Qd4" , "Nd2" , "Rc1" , "c4" , "Rhf6" , "Rg7" , "gxf3" , "a6" , "Rhg1" , "cxd5" , "Bc7" , "Bd6" , "Be6" , "Nc3" , "Nb3" , "Rh6" ;
+        chon:nextHalfMove      :hmgama1GGJZp .
+
+:rolhgIYwopXAL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx1AaQY .
+
+:hmgamIYwopXA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhga1GGJZpb , :rolhgIYwopXAL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "c3" , "Nf1" , "f5" , "Nd2" , "Bxd5" , "Nxd5" , "Bd6" , "O-O-O" , "Kb1" , "Rdf8" , "c6" , "Bd7" , "Bb3" , "Bf8" , "g4" , "Qb6" , "d5" , "Ka1" , "h4" , "Nd5" , "Qe2" , "Nge7" , "h5" , "Qc7" , "Ne7" , "Bg3" , "f3" , "Nxf5" , "exf5" , "g5" , "Nxg3" , "Ba2" ;
+        chon:nextHalfMove      :hmgama1GGJZp , :hmgamIYwopXA .
+
+:gamB3T27  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolx1AaQY ;
+        chon:atPlace           :plaB3T271 ;
+        chon:atTime            "1870.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamx1AaQYv ;
+        chon:hasHalfMove       :hmgamx1AaQYv , :hmgamIYwopXA , :hmgama1GGJZp ;
+        chon:hasLastHalfMove   :hmgama1GGJZp ;
+        chon:hasOpening        :opex1AaQY ;
+        chon:hasReport         :cgrx1AaQY ;
+        chon:hasResult         :resx1AaQYv ;
+        chon:subEventOf        :toux1AaQ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx1AaQY .

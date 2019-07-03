@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg37N9wHlF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agB6BPbH .
+
+:hmgamB6BPbHu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgB6BPbHuf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qb6" , "Bd3" , "d6" , "a3" , "Bb7" , "Qxc7" , "Re4" , "Bh4" , "Qf2" , "Ngf4+" , "exd4" , "Ne2" , "Qb3" , "e6" , "g4" , "Nf5" , "Kg3" , "Nh5+" , "Bg5" , "Bxf5" , "e5" , "Re8+" , "Bb4" , "Kh3" , "c4+" , "Qc5" , "c4" , "Ba8" , "Bc8" , "Qg3" , "Rhf1" , "Nf6" , "Ng6" , "Ne5" , "c5" , "Rc8" , "Bb1" , "Rc7" , "Qc1" , "Bxc3+" , "g3" , "d3" , "Qxg3+" , "Nxd4" , "Re6" , "b6" , "Bxc7" , "O-O" , "Qxf4" , "Rxb2" , "bxc5" , "d5" , "Nxf4+" , "Ba6" , "Qc3" , "Bg3" , "Nc3" , "h6" , "Kf2" , "Kf1" , "e3" , "f3" , "Rxf4" , "gxf5" , "Qc2" , "Qd2" , "cxd4" , "Re2" , "Re1" , "d4" , "Nbd7" , "Qxc3" ;
+        chon:nextHalfMove      :hmgamB6BPbHu , :hmgam37N9wHl .
+
+:rolB6BPbH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agB6BPbH .
+
+:plaB6BPbH  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agB6BPbH .
+
+:hmgam37N9wHl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg37N9wHlF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxb1" , "hxg3" ;
+        chon:nextHalfMove      :hmgam37N9wHl .
+
+chon:HalfMove  chon:subEventOf  :gamB6BPb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agB6BPbH .
+
+:agB6BPbH  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Lautier, Joel" .
+
+:opeB6BPbH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:gamB6BPb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolB6BPbH ;
+        chon:atPlace           :plaB6BPbH ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamB6BPbHu ;
+        chon:hasHalfMove       :hmgam37N9wHl , :hmgamB6BPbHu ;
+        chon:hasLastHalfMove   :hmgam37N9wHl ;
+        chon:hasOpening        :opeB6BPbH ;
+        chon:hasReport         :cgrB6BPbH ;
+        chon:hasResult         :resB6BPbHu ;
+        chon:subEventOf        :touB6BPb .
+
+:touB6BPb  a          chon:hessTournament ;
+        chon:atPlace  :plaB6BPbH ;
+        chon:hasName  "Linares" .
+
+:resB6BPbHu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgB6BPbHuf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agB6BPbH .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrB6BPbH  a   chon:ChessGameReport .

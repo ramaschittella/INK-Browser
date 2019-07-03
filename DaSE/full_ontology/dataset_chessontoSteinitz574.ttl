@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolA8BXEp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agA8BXEp .
+
+:gamA8BXE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolA8BXEp ;
+        chon:atPlace           :plaA8BXEp ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamA8BXEp5 ;
+        chon:hasHalfMove       :hmgamA8BXEp5 ;
+        chon:hasLastHalfMove   :hmgamA8BXEp5 ;
+        chon:hasOpening        :opeA8BXEp ;
+        chon:hasReport         :cgrA8BXEp ;
+        chon:hasResult         :resA8BXEp5 ;
+        chon:subEventOf        :touA8BXE .
+
+:touA8BXE  a          chon:hessTournament ;
+        chon:atPlace  :plaA8BXEp ;
+        chon:hasName  "London" .
+
+:plaA8BXEp  a         chon:Place ;
+        chon:hasName  "London" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agA8BXEp .
+
+:resA8BXEp5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agA8BXEp  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Cohn, Wilhelm" .
+
+chon:HalfMove  chon:subEventOf  :gamA8BXE .
+
+:opeA8BXEp  a            chon:ChessOpening ;
+        chon:hasECOCode  "C62" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agA8BXEp .
+
+:rolhgA8BXEp5W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA8BXEp .
+
+:cgrA8BXEp  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamA8BXEp5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgA8BXEp5W , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Kg2" , "d4" , "f6" , "Bb3" , "Nf2" , "Nc3" , "Rd4" , "Nf3" , "Be3" , "Qe2" , "exd4" , "d6" , "Nc6" , "O-O" , "Nxf5" , "Bg4" , "Bc4" , "Qb6" , "Nce5" , "Nd4" , "Ng4" , "h3" , "e4" , "Rad8" , "fxe3" , "Bb5" , "Nd7" , "Rad1" , "Nf5" , "hxg4" , "g3" , "Nge7" , "Rd7" , "Qa2+" , "Ne5" , "Qc7" , "Nd1" , "Rxd6" , "gxf6" , "Bg5" , "Be7" , "Qe6" , "b5" , "Rb1" , "Rd3" , "Re7" , "Ng6" , "c3" , "e5" , "Qxb1" , "Qxb2" , "gxf5" , "Nf6" , "a6" , "Nxg4" , "Bc2" , "Qxa2" , "Qh5" , "Bd7" , "c6" , "dxe3" , "Ne7" , "Rd2" , "Bd1" ;
+        chon:nextHalfMove      :hmgamA8BXEp5 .

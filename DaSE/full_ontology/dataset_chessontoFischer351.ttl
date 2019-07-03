@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaO5SzM5  a         chon:Place ;
+        chon:hasName  "Curacao" .
+
+:cgrO5SzM5  a   chon:ChessGameReport .
+
+:rolhgHKF55UmM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agO5SzM5 .
+
+:hmgamO5SzM5o  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgO5SzM5oy , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamHKF55Um .
+
+:agO5SzM5  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Fischer, Robert James" .
+
+:rolO5SzM5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agO5SzM5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agO5SzM5 .
+
+chon:HalfMove  chon:subEventOf  :gamO5SzM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agO5SzM5 .
+
+:resO5SzM5o  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamHKF55Um  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHKF55UmM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Rg5" , "Bxe6" , "Nxd4" , "c7" , "Nc6" , "Be7" , "e5" , "hxg4" , "c4" , "Bb8" , "fxe6" , "Nxa7" , "Bf2" , "d6" , "Qd6" , "Qxd6" , "Bxc2" , "cxd4" , "Bxb6" , "Kf2" , "Nc3" , "h5" , "f5" , "Ba7" , "Bb4" , "e6" , "Ng4" , "dxe5" , "Nxb3" , "h4" , "Kf5" , "f4" , "b6" , "c8=Q" , "Kh7" , "Rb7" , "axb3" , "Bxg4" , "Rg3+" , "Bc4" , "Ke4" , "Ne8" , "g4" , "d4" , "Rf8" , "Nf6" , "Kf3" , "Rh8" , "Bxc3" , "Rxg4" , "Rxc8" , "Rxb5" , "c5" , "Rxb3" , "Bf5" , "Kg6" , "Bxd6" , "c6" , "Be3" , "Ra6" , "Nab5" , "Re8" , "Rb8" , "Ra1" , "bxc3" , "Na5" , "Rf8+" , "Bb3" , "Nf3" , "Ra8+" , "Rxb6" , "O-O" , "Bxc8" , "h3" ;
+        chon:nextHalfMove      :hmgamHKF55Um .
+
+:opeO5SzM5  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+:gamO5SzM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolO5SzM5 ;
+        chon:atPlace           :plaO5SzM5 ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamO5SzM5o ;
+        chon:hasHalfMove       :hmgamO5SzM5o , :hmgamHKF55Um ;
+        chon:hasLastHalfMove   :hmgamHKF55Um ;
+        chon:hasOpening        :opeO5SzM5 ;
+        chon:hasReport         :cgrO5SzM5 ;
+        chon:hasResult         :resO5SzM5o ;
+        chon:subEventOf        :touO5SzM .
+
+:touO5SzM  a          chon:hessTournament ;
+        chon:atPlace  :plaO5SzM5 ;
+        chon:hasName  "Candidats Tournament" .
+
+:rolhgO5SzM5oy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agO5SzM5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

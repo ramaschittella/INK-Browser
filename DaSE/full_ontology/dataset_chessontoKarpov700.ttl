@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamIN9WG3v  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUN6af2Ai , chon:AgentRole , :rolhgIN9WG3v6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Portisch, Lajos" ;
+        chon:hasSANRecord      "Qc7" , "Ba5" , "Qxb2" , "e3" , "d4" , "Nxd7" , "Qe2" , "Nxc5" , "c4" , "Nbd7" , "Bd3" , "Nd6" , "Nf6" , "Rb7" , "Qxd2" , "Ne5" , "dxc5" , "Na2" , "Nc6" , "gxf3" , "Bxf3" , "e6" , "Nf3" , "c5" , "dxc4" , "Bd2" , "Rfb8" , "b5" , "Rd1" , "Rxb2" , "Bxd7" , "Bb7" , "h3" , "axb5" , "Rc8" , "d5" , "Nb4" , "Bxd2" , "Bb4" , "Kf8" , "O-O" , "Bxb5" , "a6" , "Bxc4" , "a4" , "Qb7" , "Nc3" , "Rbc7" , "Nc4" , "Kg2" ;
+        chon:nextHalfMove      :hmgamIN9WG3v , :hmgamUN6af2A .
+
+:opeIN9WG3  a            chon:ChessOpening ;
+        chon:hasECOCode  "E55" .
+
+:hmgamUN6af2A  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUN6af2Ai , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Portisch, Lajos" ;
+        chon:hasSANRecord      "Rd7" , "Rxd1" , "Nb5" , "Rd8" ;
+        chon:nextHalfMove      :hmgamUN6af2A .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIN9WG3 .
+
+:resIN9WG3v  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamIN9WG .
+
+:plaIN9WG3  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIN9WG3 .
+
+:cgrIN9WG3  a   chon:ChessGameReport .
+
+:rolhgUN6af2Ai  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIN9WG3 .
+
+:agIN9WG3  a          chon:Agent ;
+        chon:hasName  "Portisch, Lajos" , "Karpov, Anatoly" .
+
+:rolIN9WG3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIN9WG3 .
+
+:rolhgIN9WG3v6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIN9WG3 .
+
+:gamIN9WG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIN9WG3 ;
+        chon:atPlace           :plaIN9WG3 ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIN9WG3v ;
+        chon:hasHalfMove       :hmgamIN9WG3v , :hmgamUN6af2A ;
+        chon:hasLastHalfMove   :hmgamUN6af2A ;
+        chon:hasOpening        :opeIN9WG3 ;
+        chon:hasReport         :cgrIN9WG3 ;
+        chon:hasResult         :resIN9WG3v ;
+        chon:subEventOf        :touIN9WG .
+
+:touIN9WG  a          chon:hessTournament ;
+        chon:atPlace  :plaIN9WG3 ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

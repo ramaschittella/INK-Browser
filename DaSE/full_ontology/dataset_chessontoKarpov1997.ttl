@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agNJy81Y  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolNJy81Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNJy81Y .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNJy81Y .
+
+chon:HalfMove  chon:subEventOf  :gamNJy81 .
+
+:hmgamNJy81Yf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZJslxXkX , :rolhgNJy81YfK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf2" , "Nbd7" , "Rad1" , "Nxg4" , "d5" , "Nf6" , "b6" , "a3" , "Ba4" , "Nh3" , "Bg5" , "bxc5" , "Nc3" , "dxc5" , "Bb3" , "d6" , "f3" , "Bxc3+" , "e6" , "Be2" , "Ng4" , "e3" , "c5" , "h6" , "Bc6" , "Qc2" , "Bb4" , "Qxc3" , "Bb7" , "Rd2" , "Bh4" , "Qb6" , "c4" , "O-O" , "d4" ;
+        chon:nextHalfMove      :hmgamNJy81Yf , :hmgamZJslxXk .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNJy81Y .
+
+:opeNJy81Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:hmgamZJslxXk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZJslxXkX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf8" , "exf5" , "Bc6" , "Qb5" , "Kxc5" , "Bxg5" , "Kc4" , "Bg1" , "Qxd2" , "Ne5+" , "Rxd2" , "g5" , "f5" , "Qxf1+" , "Re8" , "Rd8" , "Bh4" , "cxd5" , "Rb7" , "Rxd5" , "Rab8" , "a6" , "Kd3" , "Qd8" , "e4" , "Rd7" , "Bg3" , "Nd7" , "fxg4" , "Qe8" , "Kb6" , "Kxe2" , "Rd1+" , "Be8" , "Bxd1" , "Ba4" , "Kxf1" , "Rdd7" , "Bxe8" , "Bxe2+" , "Bf2" , "Be2" , "hxg5" , "Bh5" , "Be7" , "Bb5+" , "Nd3+" ;
+        chon:nextHalfMove      :hmgamZJslxXk .
+
+:rolhgZJslxXkX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNJy81Y .
+
+:rolhgNJy81YfK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNJy81Y .
+
+:resNJy81Yf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaNJy81Y  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamNJy81  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNJy81Y ;
+        chon:atPlace           :plaNJy81Y ;
+        chon:atTime            "1996.12.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNJy81Yf ;
+        chon:hasHalfMove       :hmgamZJslxXk , :hmgamNJy81Yf ;
+        chon:hasLastHalfMove   :hmgamZJslxXk ;
+        chon:hasOpening        :opeNJy81Y ;
+        chon:hasReport         :cgrNJy81Y ;
+        chon:hasResult         :resNJy81Yf ;
+        chon:subEventOf        :touNJy81 .
+
+:cgrNJy81Y  a   chon:ChessGameReport .
+
+:touNJy81  a          chon:hessTournament ;
+        chon:atPlace  :plaNJy81Y ;
+        chon:hasName  "Las Palmas" .

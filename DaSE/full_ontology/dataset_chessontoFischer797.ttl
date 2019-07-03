@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg25g8QHST  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQ5jTjI .
+
+:plaQ5jTjI  a         chon:Place ;
+        chon:hasName  "Cambridge" .
+
+:resQ5jTjIx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrQ5jTjI  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ5jTjI .
+
+:rolQ5jTjI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQ5jTjI .
+
+chon:HalfMove  chon:subEventOf  :gamQ5jTj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ5jTjI .
+
+:hmgam25g8QHS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg25g8QHST , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Greenblatt Programm" ;
+        chon:hasSANRecord      "Nxd5" , "Nf6" , "Bd6" , "Kg7" , "Rf3" , "Bxe5" , "Nxg5" , "Qxg5" , "c6" , "dxe5" , "d4" , "Bxd5" , "Nf3" , "Qg6" , "Bh3" , "Rf2" , "Qh6#" , "exf4" , "Qg7" , "d5" , "Qh5" , "Bb4" , "O-O" , "Na6" , "Rc1" , "Rd8" , "Bc4" , "Kh8" , "Nc3" , "g5" , "Bxf4" , "e5" , "Nf6+" , "Rh8" , "Rg3" , "Qxh3" ;
+        chon:nextHalfMove      :hmgam25g8QHS .
+
+:rolhgQ5jTjIxH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQ5jTjI .
+
+:agQ5jTjI  a          chon:Agent ;
+        chon:hasName  "Greenblatt Programm" , "Fischer, Robert James" .
+
+:gamQ5jTj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQ5jTjI ;
+        chon:atPlace           :plaQ5jTjI ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQ5jTjIx ;
+        chon:hasHalfMove       :hmgamQ5jTjIx , :hmgam25g8QHS ;
+        chon:hasLastHalfMove   :hmgam25g8QHS ;
+        chon:hasOpening        :opeQ5jTjI ;
+        chon:hasReport         :cgrQ5jTjI ;
+        chon:hasResult         :resQ5jTjIx ;
+        chon:subEventOf        :touQ5jTj .
+
+:hmgamQ5jTjIx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQ5jTjIxH , chon:AgentRole , :rolhg25g8QHST ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Greenblatt Programm" ;
+        chon:hasSANRecord      "e4" , "e5" , "f4" ;
+        chon:nextHalfMove      :hmgamQ5jTjIx , :hmgam25g8QHS .
+
+:touQ5jTj  a          chon:hessTournament ;
+        chon:atPlace  :plaQ5jTjI ;
+        chon:hasName  "Cambridge" .
+
+:opeQ5jTjI  a            chon:ChessOpening ;
+        chon:hasECOCode  "C33" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

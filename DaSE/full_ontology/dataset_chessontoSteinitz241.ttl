@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamk52yBsD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgk52yBsDf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "O-O-O" , "Kh1" , "Nf6" , "fxe6" , "Re1" , "Qxd4" , "Bb2" , "Ne4" , "Rxf2" , "Qxf2+" , "Rxe6" , "exf3" , "cxd4" , "e5" , "d6" , "Bxb4" , "Qb3" , "dxe5" , "d4" , "Be6" , "Rf1" , "b4" , "e4" , "Bc5" , "Ba3" , "c3" , "O-O" , "Nxf3" , "Nxf2+" , "Bb6" , "exd4" , "Kg1" , "Nbd2" ;
+        chon:nextHalfMove      :hmgamk52yBsD , :hmgamw3XL9rI .
+
+:cgrp7jpQs  a   chon:ChessGameReport .
+
+:gamd7nbi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolp7jpQs ;
+        chon:atPlace           :plad7nbit ;
+        chon:atTime            "1882.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamp7jpQsm ;
+        chon:hasHalfMove       :hmgamk52yBsD , :hmgamp7jpQsm , :hmgamw3XL9rI ;
+        chon:hasLastHalfMove   :hmgamw3XL9rI ;
+        chon:hasOpening        :opep7jpQs ;
+        chon:hasReport         :cgrp7jpQs ;
+        chon:hasResult         :resp7jpQsm ;
+        chon:subEventOf        :toup7jpQ .
+
+:hmgamp7jpQsm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgk52yBsDf , :rolhgp7jpQsmh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "e4" , "Bc4" , "Nc6" , "Nf3" , "e5" ;
+        chon:nextHalfMove      :hmgamp7jpQsm , :hmgamk52yBsD .
+
+:rolhgk52yBsDf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agp7jpQs .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agp7jpQs .
+
+:toup7jpQ  a          chon:hessTournament ;
+        chon:atPlace  :plad7nbit ;
+        chon:hasName  "Philadelphia m" .
+
+:opep7jpQs  a            chon:ChessOpening ;
+        chon:hasECOCode  "C51" .
+
+chon:HalfMove  chon:subEventOf  :gamd7nbi .
+
+:rolhgp7jpQsmh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agp7jpQs .
+
+:rolp7jpQs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agp7jpQs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamw3XL9rI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgw3XL9rIs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nxd1+" , "Qxd1" , "Rd1+" ;
+        chon:nextHalfMove      :hmgamw3XL9rI .
+
+:plad7nbit  a         chon:Place ;
+        chon:hasName  "Philadelphia" .
+
+:rolhgw3XL9rIs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agp7jpQs .
+
+:resp7jpQsm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agp7jpQs .
+
+:agp7jpQs  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Martinez, Dion M" .

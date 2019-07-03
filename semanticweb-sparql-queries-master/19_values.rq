@@ -1,0 +1,13 @@
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?country (GROUP_CONCAT(?city_name; separator=",") AS ?cities)
+WHERE {
+    VALUES ?country {dbr:Peru dbr:Belarus}
+    ?country a           dbo:Country .
+    ?city    a           dbo:City ;
+             dbo:country ?country ;
+             rdfs:label  ?city_name
+} GROUP BY ?country HAVING (COUNT(DISTINCT?city) < 10)

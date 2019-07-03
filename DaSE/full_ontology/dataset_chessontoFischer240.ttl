@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg8J4BisBf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1Npe1t .
+
+:rolcNmszs  a             chon:AuthorRole ;
+        chon:performedBy  :agcNmszs .
+
+:opecNmszs  a            chon:ChessOpening ;
+        chon:hasECOCode  "B44" .
+
+:gam1Npe1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1Npe1t ;
+        chon:atPlace           :pla1Npe1t ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcNmszsk ;
+        chon:hasHalfMove       :hmgam8J4BisB , :hmgamcNmszsk ;
+        chon:hasLastHalfMove   :hmgam8J4BisB ;
+        chon:hasOpening        :opecNmszs ;
+        chon:hasReport         :cgrcNmszs ;
+        chon:hasResult         :rescNmszsk ;
+        chon:subEventOf        :tou1Npe1 .
+
+:hmgamcNmszsk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8J4BisBf , chon:AgentRole , :rolhgcNmszskf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pachman, Ludek" ;
+        chon:hasSANRecord      "Nf6" , "Na3" , "e4" , "c5" , "Nb5" , "Nf5" , "d4" , "b5" , "N1c3" , "Nxd5" , "Nf3" , "Nc6" , "c4" , "e6" , "Nxd4" , "d6" , "Be3" , "exd5" , "a6" , "Bf4" , "Nd5" , "cxd4" , "e5" , "Ne7" ;
+        chon:nextHalfMove      :hmgam8J4BisB , :hmgamcNmszsk .
+
+:tou1Npe1  a          chon:hessTournament ;
+        chon:atPlace  :pla1Npe1t ;
+        chon:hasName  "Buenos Aires" .
+
+:hmgam8J4BisB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8J4BisBf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pachman, Ludek" ;
+        chon:hasSANRecord      "b3" , "Ne3" , "Nc3" , "b6" , "Nxd1" , "Nxb6" , "Bxb6" , "Bd2" , "Qxb6" , "Bc4" , "Bb7" , "O-O" , "Rac8" , "Be2" , "Be7" , "Bd4" , "Bc3" , "Bf6" , "Nc4" , "e4" , "cxb5" ;
+        chon:nextHalfMove      :hmgam8J4BisB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1Npe1t .
+
+:rolhgcNmszskf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1Npe1t .
+
+chon:HalfMove  chon:subEventOf  :gam1Npe1 .
+
+:rol1Npe1t  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1Npe1t .
+
+:cgrcNmszs  a   chon:ChessGameReport .
+
+:rescNmszsk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla1Npe1t  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:ag1Npe1t  a          chon:Agent ;
+        chon:hasName  "Pachman, Ludek" , "Fischer, Robert James" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

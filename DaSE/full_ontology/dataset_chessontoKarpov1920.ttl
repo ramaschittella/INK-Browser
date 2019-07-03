@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agcw8W7U  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kamsky, Gata" .
+
+:opecw8W7U  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:cgrcw8W7U  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcw8W7U .
+
+:rolhgou2aDTWS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcw8W7U .
+
+:toucw8W7  a          chon:hessTournament ;
+        chon:atPlace  :placw8W7U ;
+        chon:hasName  "Groningen" .
+
+chon:HalfMove  chon:subEventOf  :gamcw8W7 .
+
+:hmgamPwdt1UL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPwdt1UL1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kd2" , "Rc1+" , "Rb4+" , "Ra2" , "Rd4" , "Rb5+" , "Nc5" , "Rxh5" , "Ke1" , "Rg4+" , "Kxe1" , "Ke5" , "Ra1" , "Nd3" , "Kf1" , "Kg3" , "Bxe1" , "Nxa6" , "Rb4" , "Rh2+" , "Rb8" , "Rxf4" , "Re4+" , "f4" , "Kf3" , "Ke2" , "Kg2" , "Kf4" , "Ne5" , "Ra5" , "Ra3+" , "Rc2" , "Rh3+" , "Bg5" , "Bd2" , "Ra7" , "Rc7" , "Ne1+" , "Rxb7" , "Rh4" , "a6" , "Be7" , "f3" , "Kg4" , "Rb3+" , "Ke3" , "Ra4" , "Nc5+" ;
+        chon:nextHalfMove      :hmgamPwdt1UL .
+
+:rolhgPwdt1UL1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcw8W7U .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolcw8W7U  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcw8W7U .
+
+:rescw8W7UT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamou2aDTW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPwdt1UL1 , chon:AgentRole , :rolhgou2aDTWS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Be7" , "dxc4" , "Ba5" , "f6" , "h6" , "Ke4" , "Qe7" , "Nbd2" , "Rd3" , "Kg8" , "g4" , "Bb4+" , "f3" , "Rd1" , "Kf8" , "b4" , "Qb6" , "h4" , "Bf5" , "Bb6" , "Ne7" , "e6" , "Kf3" , "Kc3+" , "Bc2" , "Kd7" , "Ba2" , "c5" , "a5" , "Nf3" , "Bg6" , "Qd4" , "Rd8" , "Bc7" , "Ba7" , "Rxc1" , "Ra3" , "Re4" , "Kg2" , "Bxc4" , "h5" , "Ke3" , "Kc3" , "Bc5" , "Re2" , "gxf5" , "Qc7" , "Rxc3" , "Qg4" , "Qe4" , "c4" , "Ke8" , "a4" , "Ne1" , "d4" , "Nc2" , "Ke6" , "Rb1" , "Nxd4" , "Nec6" , "Be3" , "Rd5" , "a6" , "bxa5" , "Bb3" , "Qd7" , "f5+" , "Bh7" , "Bd8" , "exf6+" , "Rc1" , "Qc4" , "Rc8" , "Rb4" , "Qe8" , "N2f3" , "Ra2" , "gxf6" , "Kh8" , "f4" , "Kc2" , "Rd2" , "d5" , "Re1" , "Ne3" , "Rd5+" , "Rb3+" , "Nb8" , "Rxc2" , "Nc4" , "Ke7" , "a3" , "g3" , "cxd4" , "Rb3" , "Kh2" , "O-O" , "Bd4+" , "Kd3" , "Rxd4" , "Qh4" , "Bxc2" , "Qxd4" , "Qf4" , "Rc5" , "Nxa5" , "Be2" , "Bc3" , "exf5+" , "e5" , "Rb5" , "Nc6" ;
+        chon:nextHalfMove      :hmgamPwdt1UL , :hmgamou2aDTW .
+
+:hmgamcw8W7UT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgou2aDTWS , :rolhgcw8W7UTp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "e4" ;
+        chon:nextHalfMove      :hmgamou2aDTW , :hmgamcw8W7UT .
+
+:gamcw8W7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcw8W7U ;
+        chon:atPlace           :placw8W7U ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcw8W7UT ;
+        chon:hasHalfMove       :hmgamou2aDTW , :hmgamcw8W7UT , :hmgamPwdt1UL ;
+        chon:hasLastHalfMove   :hmgamPwdt1UL ;
+        chon:hasOpening        :opecw8W7U ;
+        chon:hasReport         :cgrcw8W7U ;
+        chon:hasResult         :rescw8W7UT ;
+        chon:subEventOf        :toucw8W7 .
+
+:rolhgcw8W7UTp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcw8W7U .
+
+:placw8W7U  a         chon:Place ;
+        chon:hasName  "Groningen" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcw8W7U .

@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeS7E18T  a            chon:ChessOpening ;
+        chon:hasECOCode  "B04" .
+
+:cgrS7E18T  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS7E18T .
+
+:rolhgdk9hp1WI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS7E18T .
+
+:rolS7E18T  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agS7E18T .
+
+:hmgamdk9hp1W  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdk9hp1WI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Vaganian, Rafael A" ;
+        chon:hasSANRecord      "Rac8" , "Nh4" , "Qh4" , "Bd4" , "Qb4" , "Qf6" , "Bxe5" , "Bf1" , "Rxa4" , "Qd2" , "Nd3" , "Nf5" , "dxe5" , "Ra2" , "Rc2" , "Kh1" , "Rfe8" , "Bg7" , "Qxh4" , "Ra8" , "e5" , "Qc1" , "Ne1" , "Qxa5" ;
+        chon:nextHalfMove      :hmgamdk9hp1W , :hmgamEmkBL1O .
+
+:resS7E18Tj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamS7E18 .
+
+:rolhg47AgESlN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS7E18T .
+
+:plaS7E18T  a         chon:Place ;
+        chon:hasName  "URS" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agS7E18T  a          chon:Agent ;
+        chon:hasName  "Vaganian, Rafael A" , "Karpov, Anatoly" .
+
+:gamS7E18  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolS7E18T ;
+        chon:atPlace           :plaS7E18T ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam47AgESl ;
+        chon:hasHalfMove       :hmgamdk9hp1W , :hmgamEmkBL1O , :hmgam3ke4R2T , :hmgam47AgESl ;
+        chon:hasLastHalfMove   :hmgamEmkBL1O ;
+        chon:hasOpening        :opeS7E18T ;
+        chon:hasReport         :cgrS7E18T ;
+        chon:hasResult         :resS7E18Tj ;
+        chon:subEventOf        :touS7E18 .
+
+:touS7E18  a          chon:hessTournament ;
+        chon:atPlace  :plaS7E18T ;
+        chon:hasName  "URS-chT" .
+
+:hmgamEmkBL1O  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEmkBL1O9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Vaganian, Rafael A" ;
+        chon:hasSANRecord      "Rc4" , "Rc1" , "Rxb7" , "Rxc2" , "g3" , "Rc8" , "Rxh4" , "Nxb5" , "Rb1" , "Nc3" , "Bg2" , "Nd4" , "Rdc1" , "Bd4" ;
+        chon:nextHalfMove      :hmgamEmkBL1O .
+
+:rolhg3ke4R2Tx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS7E18T .
+
+:rolhgEmkBL1O9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agS7E18T .
+
+:hmgam3ke4R2T  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdk9hp1WI , :rolhg3ke4R2Tx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Vaganian, Rafael A" ;
+        chon:hasSANRecord      "h5" , "a6" , "Qxb2" , "Nc2" , "b4" , "b5" , "Nc8" , "Qg5" , "Na5" , "Na3" , "Nc4" , "c5" , "Nf5" , "Qd2" , "Bxf3" , "N8e7" , "e6" , "Qc3" , "d5" , "Nxb2" , "a5" , "Qb4" , "Be2" , "Rfd1" , "a4" ;
+        chon:nextHalfMove      :hmgam3ke4R2T , :hmgamdk9hp1W .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agS7E18T .
+
+:hmgam47AgESl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg47AgESlN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Vaganian, Rafael A" ;
+        chon:hasSANRecord      "g6" , "Nb6" , "d6" , "e4" , "c4" , "Be2" , "h3" , "Bg4" , "Bb2" , "Nd5" , "d4" , "Nf6" , "exd6" , "Bxf3" , "O-O" , "Bg7" , "b3" , "Nc6" , "cxd6" , "e5" , "Nf3" ;
+        chon:nextHalfMove      :hmgam3ke4R2T , :hmgam47AgESl .

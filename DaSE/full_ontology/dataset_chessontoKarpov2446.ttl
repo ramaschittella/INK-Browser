@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr7qdzSW  a   chon:ChessGameReport .
+
+:res7qdzSWV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamUqgl4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUqgl4U ;
+        chon:atPlace           :plaUqgl4U ;
+        chon:atTime            "1999.07.10"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7qdzSWV ;
+        chon:hasHalfMove       :hmgam7qdzSWV ;
+        chon:hasLastHalfMove   :hmgam7qdzSWV ;
+        chon:hasOpening        :ope7qdzSW ;
+        chon:hasReport         :cgr7qdzSW ;
+        chon:hasResult         :res7qdzSWV ;
+        chon:subEventOf        :touUqgl4 .
+
+:touUqgl4  a          chon:hessTournament ;
+        chon:atPlace  :plaUqgl4U ;
+        chon:hasName  "Dortmunder Schachtage" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUqgl4U .
+
+:plaUqgl4U  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+chon:HalfMove  chon:subEventOf  :gamUqgl4 .
+
+:rol7qdzSW  a             chon:AuthorRole ;
+        chon:performedBy  :ag7qdzSW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUqgl4U .
+
+:ope7qdzSW  a            chon:ChessOpening ;
+        chon:hasECOCode  "E63" .
+
+:agUqgl4U  a          chon:Agent ;
+        chon:hasName  "Sokolov, Ivan" , "Karpov, Anatoly" .
+
+:rolUqgl4U  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhg7qdzSWVr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUqgl4U .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam7qdzSWV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7qdzSWVr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sokolov, Ivan" ;
+        chon:hasSANRecord      "Nd8" , "Kh8" , "a4" , "Kf2" , "Qc3" , "b3" , "Rxa2" , "h6" , "Nxc3" , "Be7" , "Qxa2+" , "O-O" , "Bxg2" , "Rfa8" , "Nf7" , "Qc6" , "Nc6" , "Rb8" , "cxb6" , "Bb7" , "Ra2" , "Qa8" , "d4" , "Bxc3" , "Rxa7" , "Ng1" , "a6" , "Qd7" , "b5" , "Kf1" , "Bg2" , "Bxd4" , "g3" , "axb5" , "Qe8" , "Nf6" , "Ra8" , "Qb1+" , "Qb3" , "Nf3" , "d6" , "e6" , "Ra1" , "c4" , "f5" , "Bb2" , "Qf8+" , "Rf2" , "e3" , "Nd5" , "Bg7" , "Ne4" , "b4" , "Rae1" , "Qd3" , "Kg7" , "Qe8+" , "Nd2" , "Kxg2" , "g6" , "Qe7" , "Nc3" , "c5" , "Ra7" , "Bb4" , "d5" , "Rc2" , "f4" , "Kh7" , "b6" ;
+        chon:nextHalfMove      :hmgam7qdzSWV .

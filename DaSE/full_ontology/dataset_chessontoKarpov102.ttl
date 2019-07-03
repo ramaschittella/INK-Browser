@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:playKcK8c  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+:rolhgyKcK8cjS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyKcK8c .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyKcK8c .
+
+:hmgamaKjh2be  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgaKjh2bee , :rolhgmKfxyahr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Robert E" ;
+        chon:hasSANRecord      "Rc3+" , "bxa5" , "f5" , "Raxb7+" , "Rf4" , "Rd8" , "Rb5" , "Rxb7" , "Kb8" , "Rxa5" , "Nd5+" , "Re3" , "Kd8" , "Rb8" , "Kb1" , "h5" , "Bxd5" , "Rxb7+" , "Rxd5" , "Rg1+" , "Rg3" , "Kc7" , "Ra7" , "Rf1" , "Bd5" , "Rg4" , "Rf2" , "Rca3" , "Ka2" , "a4" , "a5" , "Bh6+" ;
+        chon:nextHalfMove      :hmgammKfxyah , :hmgamaKjh2be .
+
+:agyKcK8c  a          chon:Agent ;
+        chon:hasName  "Byrne, Robert E" , "Karpov, Anatoly" .
+
+:resyKcK8cj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamyKcK8cj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyKcK8cjS , :rolhgJI0YEbmO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Robert E" ;
+        chon:hasSANRecord      "c5" , "Nc6" , "cxd4" , "Nf3" , "d4" , "e4" ;
+        chon:nextHalfMove      :hmgamJI0YEbm , :hmgamyKcK8cj .
+
+chon:HalfMove  chon:subEventOf  :gamyKcK8 .
+
+:touyKcK8  a          chon:hessTournament ;
+        chon:atPlace  :playKcK8c ;
+        chon:hasName  "Hastings7172" .
+
+:rolhgJI0YEbmO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyKcK8c .
+
+:opeyKcK8c  a            chon:ChessOpening ;
+        chon:hasECOCode  "B61" .
+
+:cgryKcK8c  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgmKfxyahr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyKcK8c .
+
+:hmgamJI0YEbm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJI0YEbmO , :rolhgaKjh2bee ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Robert E" ;
+        chon:hasSANRecord      "Rhe1" , "Nxd4" , "Bc6" , "Be2" , "h6" , "Nc3" , "Bg5" , "exf6" , "Bxf7" , "Qb6" , "e6" , "Bh4" , "Qxb6" , "Bh5" , "gxh4" , "axb6" , "Kc7" , "Qa5" , "Rg8" , "Bxe6+" , "d6" , "g5" , "Nf6" , "e5" , "Bd7" , "Bf3" , "Rxg2" , "Rxh2" , "f4" , "Kd7" , "Qxd4" , "Rc8" , "O-O-O" , "Qd2" , "Re5" ;
+        chon:nextHalfMove      :hmgamaKjh2be , :hmgamJI0YEbm .
+
+:rolyKcK8c  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyKcK8c .
+
+:hmgammKfxyah  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmKfxyahr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Robert E" ;
+        chon:hasSANRecord      "Rc7" , "h3" , "Ke8" , "Be6" , "Rd7+" ;
+        chon:nextHalfMove      :hmgammKfxyah .
+
+:rolhgaKjh2bee  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyKcK8c .
+
+:gamyKcK8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyKcK8c ;
+        chon:atPlace           :playKcK8c ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyKcK8cj ;
+        chon:hasHalfMove       :hmgamyKcK8cj , :hmgamJI0YEbm , :hmgammKfxyah , :hmgamaKjh2be ;
+        chon:hasLastHalfMove   :hmgammKfxyah ;
+        chon:hasOpening        :opeyKcK8c ;
+        chon:hasReport         :cgryKcK8c ;
+        chon:hasResult         :resyKcK8cj ;
+        chon:subEventOf        :touyKcK8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyKcK8c .

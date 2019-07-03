@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamWcFwR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWcFwRO ;
+        chon:atPlace           :plaWcFwRO ;
+        chon:atTime            "1999.07.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWcFwROk ;
+        chon:hasHalfMove       :hmgamWcFwROk ;
+        chon:hasLastHalfMove   :hmgamWcFwROk ;
+        chon:hasOpening        :opeWcFwRO ;
+        chon:hasReport         :cgrWcFwRO ;
+        chon:hasResult         :resWcFwROk ;
+        chon:subEventOf        :touWcFwR .
+
+:rolhgWcFwROkw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWcFwRO .
+
+:touWcFwR  a          chon:hessTournament ;
+        chon:atPlace  :plaWcFwRO ;
+        chon:hasName  "Dortmunder Schachtage" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWcFwRO .
+
+:opeWcFwRO  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+chon:HalfMove  chon:subEventOf  :gamWcFwR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWcFwRO .
+
+:hmgamWcFwROk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWcFwROkw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Qc5" , "O-O" , "d5" , "Bd3" , "Rfd1" , "Bd6" , "dxc4" , "Nxe6" , "Qe7" , "Rac1" , "e6" , "Rad8" , "Bxe6" , "Ba2" , "Nf6" , "h6" , "d4" , "dxe5" , "Rd8" , "Nc3" , "e3" , "Be1" , "Nbd7" , "Ng3" , "Nf1" , "Bb8" , "Bxc4" , "Qxe5" , "Be6" , "Nf8" , "Bd2" , "Qxd1" , "Bc7" , "Nh4" , "Qc2" , "e5" , "Ng5" , "c4" , "a3" , "Nf3" , "h3" , "Nf5" , "Qe8" , "Rxd7" , "Nd2" , "Rxd1" , "Qc4" , "Rd7" , "c6" , "Rd1" , "Be5" ;
+        chon:nextHalfMove      :hmgamWcFwROk .
+
+:plaWcFwRO  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:cgrWcFwRO  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resWcFwROk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agWcFwRO  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+:rolWcFwRO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWcFwRO .

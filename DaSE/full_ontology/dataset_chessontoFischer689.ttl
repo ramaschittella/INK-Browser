@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touRktOF  a          chon:hessTournament ;
+        chon:atPlace  :plaRktOFo ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+:resRktOFoe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRktOFo .
+
+chon:HalfMove  chon:subEventOf  :gamRktOF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRktOFo .
+
+:rolhgNiaXpmus  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRktOFo .
+
+:plaRktOFo  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .
+
+:rolhgRktOFoeu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRktOFo .
+
+:cgrRktOFo  a   chon:ChessGameReport .
+
+:hmgamRktOFoe  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNiaXpmus , :rolhgRktOFoeu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Nc3" , "Nc6" , "cxd4" , "Rxb4" , "d6" , "e4" , "a6" , "Rxe5" , "Rhg1" , "Bf7" , "Qg4" , "Be2" , "O-O" , "b5" , "axb3" , "Bxh5" , "Qc4" , "h6" , "Bxg5+" , "h4" , "Nce2" , "b4" , "O-O-O" , "Nd7" , "g4" , "Bb3" , "Ne6" , "Rb5" , "Qg2" , "Nc5" , "Bc4" , "Be7" , "Nf6" , "Nxd4" , "e6" , "Qxe6" , "Qe2" , "Qc7" , "c5" , "Bxg5" , "h5" , "Rxd6" , "b3" , "Qxg5" , "Ra8" , "Nxb3+" , "g6" , "Kb2" , "Rf2" , "fxg6" , "g5" , "Rf7" , "a5" , "f3" , "Re8" , "Be3" , "Nf3" , "d4" , "Bd7" , "a4" , "bxa4" , "e5" , "Rc1" , "Rb6" , "Bxe6" , "Rxf3" , "Rc8" ;
+        chon:nextHalfMove      :hmgamNiaXpmu , :hmgamRktOFoe .
+
+:hmgamNiaXpmu  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNiaXpmus ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Rd8+" , "Re2+" , "b4" , "Be4" , "Kd3" , "Rc3" , "Kd1" , "Kb2" , "Rxb4+" , "Kc2" , "h3" , "e6" , "e5" , "Kc3" , "Rc5" , "h4" , "Kb4" , "Ra1" , "Rg2" , "Bb7" , "Ka3" , "Rc6" , "Bd3" , "Bxc2" , "h5" , "Re3+" , "Rb8+" , "Re2" , "Bf3" , "Ba6" , "Rf1" ;
+        chon:nextHalfMove      :hmgamNiaXpmu .
+
+:agRktOFo  a          chon:Agent ;
+        chon:hasName  "Larsen, Bent" , "Fischer, Robert James" .
+
+:rolRktOFo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRktOFo .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeRktOFo  a            chon:ChessOpening ;
+        chon:hasECOCode  "B89" .
+
+:gamRktOF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRktOFo ;
+        chon:atPlace           :plaRktOFo ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRktOFoe ;
+        chon:hasHalfMove       :hmgamRktOFoe , :hmgamNiaXpmu ;
+        chon:hasLastHalfMove   :hmgamNiaXpmu ;
+        chon:hasOpening        :opeRktOFo ;
+        chon:hasReport         :cgrRktOFo ;
+        chon:hasResult         :resRktOFoe ;
+        chon:subEventOf        :touRktOF .

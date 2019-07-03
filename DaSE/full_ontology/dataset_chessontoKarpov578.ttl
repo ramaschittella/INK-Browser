@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaayUFJq  a         chon:Place ;
+        chon:hasName  "Waddinxveen" .
+
+:hmgamSA6Z7r3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSA6Z7r3c ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc7" , "Bd3" , "Qc5" , "Nxd4" , "Bg6" , "c4" , "Qa5+" , "Bf4" , "Kb1" , "Ngf6" , "Ne5" , "Qe2" , "Nxe4" , "O-O-O" , "Bf5" , "Nd7" , "Bxd3" , "h5" , "Bxe5" , "Nf3" , "Qxe4" , "Bc3" , "c5" , "a6" , "e6" , "cxd4" , "Bd2" , "h6" , "Be7" , "h4" , "Ng3" , "Ne4" , "Bh7" , "Nf6" , "Qxd3" , "Bd6" ;
+        chon:nextHalfMove      :hmgamSA6Z7r3 .
+
+:rolhgSA6Z7r3c  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agayUFJq .
+
+:cgrayUFJq  a   chon:ChessGameReport .
+
+:rolhgayUFJqbO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agayUFJq .
+
+:hmgamayUFJqb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgayUFJqbO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "e4" , "Nc3" , "dxe4" , "d4" , "c6" ;
+        chon:nextHalfMove      :hmgamayUFJqb , :hmgamSA6Z7r3 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agayUFJq .
+
+:agayUFJq  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hort, Vlastimil" .
+
+:rolayUFJq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agayUFJq .
+
+chon:HalfMove  chon:subEventOf  :gamayUFJ .
+
+:opeayUFJq  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agayUFJq .
+
+:resayUFJqb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamayUFJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolayUFJq ;
+        chon:atPlace           :plaayUFJq ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamayUFJqb ;
+        chon:hasHalfMove       :hmgamSA6Z7r3 , :hmgamayUFJqb ;
+        chon:hasLastHalfMove   :hmgamSA6Z7r3 ;
+        chon:hasOpening        :opeayUFJq ;
+        chon:hasReport         :cgrayUFJq ;
+        chon:hasResult         :resayUFJqb ;
+        chon:subEventOf        :touayUFJ .
+
+:touayUFJ  a          chon:hessTournament ;
+        chon:atPlace  :plaayUFJq ;
+        chon:hasName  "Waddinxveen" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

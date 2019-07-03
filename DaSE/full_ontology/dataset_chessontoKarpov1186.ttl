@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg8uxnn1lT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGul52X .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGul52X .
+
+chon:HalfMove  chon:subEventOf  :gamGul52 .
+
+:plaGul52X  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGul52X .
+
+:cgrGul52X  a   chon:ChessGameReport .
+
+:hmgamGul52Xw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGul52Xwt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kharitonov, Andrei Y" ;
+        chon:hasSANRecord      "c6" , "Nf6" , "c4" , "Nc3" , "exd5" , "d5" , "Be7" , "d4" , "e6" , "Nf3" , "Nbd7" , "Bg5" , "cxd5" , "e3" ;
+        chon:nextHalfMove      :hmgamGul52Xw , :hmgam8uxnn1l .
+
+:hmgam8uxnn1l  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8uxnn1lT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kharitonov, Andrei Y" ;
+        chon:hasSANRecord      "Nf3" , "Ra1" , "Rb1" , "bxa6" , "Qxc5" , "Nd6" , "h4" , "N6d7" , "Rc3" , "Rxc6" , "Nc8" , "Nf1" , "Qa3" , "a6" , "Bc8" , "Ra8" , "Be2" , "Ne4" , "Bxa6" , "Rfc1" , "Rxa6" , "Nb3" , "Bxd6" , "Nxc5" , "Qxd6" , "Ne7" , "h5" , "Bf5" , "a4" , "b4" , "Qc7" , "Qc2" , "Bd6" , "Bd3" , "Rac8" , "Nb6" , "Qxc6" , "Nf5" , "Re8" , "Nd2" , "Ne2" , "Nf8" , "Qd8" , "Ng3" , "h3" , "Qc5" , "Rbc1" , "Rcc1" , "Bf4" , "Ng6" , "g6" , "axb4" , "Be6" , "a5" , "Qa8" , "Qb8" , "O-O" , "Rab1" , "Qxb4" , "Nc5" ;
+        chon:nextHalfMove      :hmgam8uxnn1l .
+
+:agGul52X  a          chon:Agent ;
+        chon:hasName  "Kharitonov, Andrei Y" , "Karpov, Anatoly" .
+
+:rolGul52X  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGul52X .
+
+:rolhgGul52Xwt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGul52X .
+
+:opeGul52X  a            chon:ChessOpening ;
+        chon:hasECOCode  "D36" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resGul52Xw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamGul52  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGul52X ;
+        chon:atPlace           :plaGul52X ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGul52Xw ;
+        chon:hasHalfMove       :hmgamGul52Xw , :hmgam8uxnn1l ;
+        chon:hasLastHalfMove   :hmgam8uxnn1l ;
+        chon:hasOpening        :opeGul52X ;
+        chon:hasReport         :cgrGul52X ;
+        chon:hasResult         :resGul52Xw ;
+        chon:subEventOf        :touGul52 .
+
+:touGul52  a          chon:hessTournament ;
+        chon:atPlace  :plaGul52X ;
+        chon:hasName  "URS-ch55" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resd70m6SJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agd70m6S .
+
+chon:HalfMove  chon:subEventOf  :gamd70m6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agd70m6S .
+
+:hmgamd70m6SJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgd70m6SJY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Be3" , "Nb6" , "Rad1" , "dxe6" , "Bxd5" , "e6" , "Nf6" , "Bg4" , "Nd7" , "d4" , "Nd3" , "c4" , "Rd1" , "a6" , "Ne1" , "Nb4" , "b5" , "Rxd3" , "cxd3" , "Nf3" , "Be6" , "Nc4" , "Nc3" , "O-O" , "Bxe6" , "Rb8" , "d5" , "Rxd5" , "Rfd8" , "Qe7" , "f3" , "Qxe3" , "Nd5" , "Bc5+" , "e4" , "dxc4" , "Qe2" , "Bg2" , "Rd3" , "Be7" , "g3" , "e5" , "f4" , "Bxe3+" , "Nc6" , "Nxd3" ;
+        chon:nextHalfMove      :hmgamd70m6SJ .
+
+:plad70m6S  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:cgrd70m6S  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agd70m6S  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Gelfand,B" .
+
+:rold70m6S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agd70m6S .
+
+:gamd70m6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rold70m6S ;
+        chon:atPlace           :plad70m6S ;
+        chon:atTime            "2007.11.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamd70m6SJ ;
+        chon:hasHalfMove       :hmgamd70m6SJ ;
+        chon:hasLastHalfMove   :hmgamd70m6SJ ;
+        chon:hasOpening        :oped70m6S ;
+        chon:hasReport         :cgrd70m6S ;
+        chon:hasResult         :resd70m6SJ ;
+        chon:subEventOf        :toud70m6 .
+
+:oped70m6S  a            chon:ChessOpening ;
+        chon:hasECOCode  "E04" .
+
+:toud70m6  a          chon:hessTournament ;
+        chon:atPlace  :plad70m6S ;
+        chon:hasName  "World Blitz" .
+
+:rolhgd70m6SJY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agd70m6S .

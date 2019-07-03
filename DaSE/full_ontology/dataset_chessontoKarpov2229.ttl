@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamIHsGj8F  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIHsGj8FN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Innala, Tapio" ;
+        chon:hasSANRecord      "Qxf5" , "Nf1" , "dxe5" , "Nf3" , "Re1" , "e4" , "Nf5" , "b3" , "Bxf5" , "Qg5" , "Bd3" , "Rfd8" , "d5" , "Qe2" , "Bg7" , "O-O" , "Nc6" , "Rd2" , "e5" , "c3" , "Bb5" , "Rad1" , "Rc8" , "h5" , "g6" , "Be6" , "Kxg7" , "d4" , "Nxe5" , "c5" , "Nge7" , "Bxe5" , "Bxg7" , "Bh6" , "Nd2" ;
+        chon:nextHalfMove      :hmgamIHsGj8F , :hmgamDF0P46V .
+
+:rolhgIHsGj8FN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIHsGj8 .
+
+:opeIHsGj8  a            chon:ChessOpening ;
+        chon:hasECOCode  "C60" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIHsGj8 .
+
+:resIHsGj8F  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamIHsGj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIHsGj8 ;
+        chon:atPlace           :plaIHsGj8 ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIHsGj8F ;
+        chon:hasHalfMove       :hmgamDF0P46V , :hmgamIHsGj8F ;
+        chon:hasLastHalfMove   :hmgamDF0P46V ;
+        chon:hasOpening        :opeIHsGj8 ;
+        chon:hasReport         :cgrIHsGj8 ;
+        chon:hasResult         :resIHsGj8F ;
+        chon:subEventOf        :touIHsGj .
+
+chon:HalfMove  chon:subEventOf  :gamIHsGj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIHsGj8 .
+
+:hmgamDF0P46V  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDF0P46VN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Innala, Tapio" ;
+        chon:hasSANRecord      "Be6" , "Kh7" , "Bf5" , "Ng3" , "b4" , "a3" , "f3" , "Red1" , "Rcd8" , "Kh2" , "axb4" , "Qg3" , "Qf2" , "Rd7" , "Qb6+" , "Qe6" , "Nd4" , "Ne2" , "a5" , "h4" , "b5" , "Rc8" , "cxb4" , "Qe7" ;
+        chon:nextHalfMove      :hmgamDF0P46V .
+
+:rolhgDF0P46VN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIHsGj8 .
+
+:plaIHsGj8  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:cgrIHsGj8  a   chon:ChessGameReport .
+
+:agIHsGj8  a          chon:Agent ;
+        chon:hasName  "Innala, Tapio" , "Karpov, Anatoly" .
+
+:touIHsGj  a          chon:hessTournament ;
+        chon:atPlace  :plaIHsGj8 ;
+        chon:hasName  "Karpov sim" .
+
+:rolIHsGj8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIHsGj8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

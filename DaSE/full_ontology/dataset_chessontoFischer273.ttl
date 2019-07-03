@@ -1,0 +1,76 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opewosQgM  a            chon:ChessOpening ;
+        chon:hasECOCode  "C39" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwosQgM .
+
+:cgrwosQgM  a   chon:ChessGameReport .
+
+:rolhgGD1T2UhT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwosQgM .
+
+:gamwosQg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwosQgM ;
+        chon:atPlace           :plawosQgM ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwosQgMG ;
+        chon:hasHalfMove       :hmgamGD1T2Uh , :hmgamwosQgMG , :hmgamuD4FuTe ;
+        chon:hasLastHalfMove   :hmgamGD1T2Uh ;
+        chon:hasOpening        :opewosQgM ;
+        chon:hasReport         :cgrwosQgM ;
+        chon:hasResult         :reswosQgMG ;
+        chon:subEventOf        :touwosQg .
+
+chon:HalfMove  chon:subEventOf  :gamwosQg .
+
+:touwosQg  a          chon:hessTournament ;
+        chon:atPlace  :plawosQgM ;
+        chon:hasName  "Mar del Plata" .
+
+:rolhgwosQgMGY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwosQgM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhguD4FuTeI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwosQgM .
+
+:hmgamGD1T2Uh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGD1T2UhT , chon:AgentRole ;
+        chon:hasSANRecord      "Rf4" .
+
+:rolwosQgM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwosQgM .
+
+:plawosQgM  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:hmgamuD4FuTe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhguD4FuTeI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rf8" , "Be5+" , "Bxg4" , "Rf2" , "bxc3" , "Kh8" , "Qh4" , "Rg7" , "Re4" , "O-O" , "Kg1" , "c5" , "Bf8" , "Kh1" , "Qd4" , "Rxc8" , "Rg8" , "Nxc3" , "Qg3" , "Be7" , "cxd4" , "Qg4" , "Nc6" , "Re5" , "Rd8" , "Be2" , "Qxh4+" , "Nxe5" , "Qxe5+" , "Rxf5" , "Qe4" , "Rae1" , "f5" , "dxc3" , "Bxd6" , "Bxc8" , "Qg5" ;
+        chon:nextHalfMove      :hmgamGD1T2Uh , :hmgamuD4FuTe .
+
+:agwosQgM  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+:reswosQgMG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwosQgM .
+
+:hmgamwosQgMG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwosQgMGY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nc3" , "d6" , "e5" , "Nf3" , "e4" , "g5" , "h4" , "exf4" , "Ne5" , "Nf6" , "g4" , "Bg7" , "Nd3" , "Nxe4" , "Bxf4" , "f4" , "d4" ;
+        chon:nextHalfMove      :hmgamuD4FuTe , :hmgamwosQgMG .

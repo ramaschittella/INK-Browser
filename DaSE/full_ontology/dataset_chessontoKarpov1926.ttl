@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaYB3MVY  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:hmgamaBYZsXu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgaBYZsXui , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd6" , "Qf3" , "Rfc1" , "Ba6" , "dxc4" , "b4" , "bxc5" , "Ra1" , "e6" , "Qh3" , "Bb2" , "Rxa7" , "Nbd2" , "Raxc8" , "Qxd3" , "d4" , "Qc8" , "a3" , "Bd3" , "Rxc8" , "b6" , "Nf3" , "Nbd7" , "Bxa3" , "Be7" , "e3" , "O-O" , "Rb1" , "exd4" , "Nf6" , "cxd3" , "cxd4" , "d5" , "Bd5" , "Bb7" , "c5" , "Ne5" , "Nxd7" , "Bb4+" , "c4" , "Bc3" ;
+        chon:nextHalfMove      :hmgamaBYZsXu .
+
+:cgrYB3MVY  a   chon:ChessGameReport .
+
+:agYB3MVY  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Dreev, Alexey" .
+
+:rolYB3MVY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaBYZsX .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYB3MVY .
+
+chon:HalfMove  chon:subEventOf  :gamYB3MV .
+
+:gamYB3MV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYB3MVY ;
+        chon:atPlace           :plaYB3MVY ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaBYZsXu ;
+        chon:hasHalfMove       :hmgamaBYZsXu ;
+        chon:hasLastHalfMove   :hmgamaBYZsXu ;
+        chon:hasOpening        :opeYB3MVY ;
+        chon:hasReport         :cgrYB3MVY ;
+        chon:hasResult         :resYB3MVYr ;
+        chon:subEventOf        :touYB3MV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYB3MVY .
+
+:touYB3MV  a          chon:hessTournament ;
+        chon:atPlace  :plaYB3MVY ;
+        chon:hasName  "Linares" .
+
+:resYB3MVYr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeYB3MVY  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgaBYZsXui  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYB3MVY .

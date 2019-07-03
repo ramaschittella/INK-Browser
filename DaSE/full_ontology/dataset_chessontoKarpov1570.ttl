@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agDP5GJN  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Polugaevsky, Lev" .
+
+:rolDP5GJN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDP5GJN .
+
+:opeDP5GJN  a            chon:ChessOpening ;
+        chon:hasECOCode  "A08" .
+
+:hmgamOP2TiMH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOP2TiMHo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qb7" , "Ra4" , "Nc6" , "Rb4" , "Qa6" , "Rb1" , "Nb8" , "Qb3" , "Nc2" , "Na1" , "Rc8" , "Qc4" , "Qd1" , "Nb1" , "Bb2" , "Qxc3" , "Na3" , "Rb2" , "Qd3" ;
+        chon:nextHalfMove      :hmgamOP2TiMH .
+
+:rolhgOP2TiMHo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDP5GJN .
+
+:touDP5GJ  a          chon:hessTournament ;
+        chon:atPlace  :plaDP5GJN ;
+        chon:hasName  "Roquebrune" .
+
+:hmgamDP5GJNE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDP5GJNEb , :rolhgOP2TiMHo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxf1" , "e4" , "d5" , "Qxf1" , "Nb4" , "Qc2" , "Nf3" , "d4" , "Re1" , "e6" , "e5" , "g3" , "Qb5" , "Qf5" , "bxc3" , "c3" , "b6" , "cxd4" , "Nd7" , "Rc8" , "Nf6" , "Nd3" , "g6" , "c5" , "Rc3" , "Qe1" , "Nbd2" , "Ba6" , "Qf1" , "Qc7" , "Bg2" , "Rxc3" , "O-O" , "Nc6" , "Re3" , "Bf1" , "d3" , "Bg7" , "Qe2" ;
+        chon:nextHalfMove      :hmgamOP2TiMH , :hmgamDP5GJNE .
+
+:rolhgDP5GJNEb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDP5GJN .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDP5GJN .
+
+chon:HalfMove  chon:subEventOf  :gamDP5GJ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDP5GJN .
+
+:resDP5GJNE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamDP5GJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDP5GJN ;
+        chon:atPlace           :plaDP5GJN ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDP5GJNE ;
+        chon:hasHalfMove       :hmgamOP2TiMH , :hmgamDP5GJNE ;
+        chon:hasLastHalfMove   :hmgamOP2TiMH ;
+        chon:hasOpening        :opeDP5GJN ;
+        chon:hasReport         :cgrDP5GJN ;
+        chon:hasResult         :resDP5GJNE ;
+        chon:subEventOf        :touDP5GJ .
+
+:plaDP5GJN  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrDP5GJN  a   chon:ChessGameReport .

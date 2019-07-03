@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeodTI0S  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:plaEf0NXD  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:touodTI0  a          chon:hessTournament ;
+        chon:atPlace  :plaEf0NXD ;
+        chon:hasName  "Trophee CCAS KO" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agodTI0S .
+
+chon:HalfMove  chon:subEventOf  :gamEf0NX .
+
+:cgrodTI0S  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agodTI0S .
+
+:gamEf0NX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolodTI0S ;
+        chon:atPlace           :plaEf0NXD ;
+        chon:atTime            "2008.10.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamodTI0ST ;
+        chon:hasHalfMove       :hmgamkbSRTA0 , :hmgamodTI0ST ;
+        chon:hasLastHalfMove   :hmgamkbSRTA0 ;
+        chon:hasOpening        :opeodTI0S ;
+        chon:hasReport         :cgrodTI0S ;
+        chon:hasResult         :resodTI0ST ;
+        chon:subEventOf        :touodTI0 .
+
+:hmgamodTI0ST  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgodTI0STe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "b5" , "Nc3" , "Nc4" , "Rec8" , "d4" , "Nb6" , "b4" , "d5" , "Bg5" , "Bf8" , "Qf6" , "Nd7" , "Rc4" , "c6" , "Bb7" , "Nf3" , "Bc2" , "a5" , "Re3" , "e4" , "Qf4" , "b3" , "Ba4" , "O-O" , "Bh6" , "Bxf6" , "h3" , "Qe1" , "Bd3" , "Rc2" , "Rac8" , "Qd2" , "Bb5" , "Qxf6" , "Bb3" , "c3" , "Re8" , "Nc6" , "a6" , "Re1" , "a4" , "Re2" , "Be7" , "d6" , "g6" , "c4" , "Rc7" , "Na5" , "cxd5" , "e5" , "Nf6" , "Bf4" ;
+        chon:nextHalfMove      :hmgamkbSRTA0 , :hmgamodTI0ST .
+
+:agodTI0S  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Caruana,F" .
+
+:rolodTI0S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agodTI0S .
+
+:hmgamkbSRTA0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkbSRTA0c ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bf1" , "Bb3" , "e3" , "Kd6" , "Qd8" , "Kd1" , "Nc2" , "e4" , "Rc2" , "Nc6" , "exf5" , "Nb8" , "Raa2" , "Nxa6" , "Kxg6" , "Qc1" , "d4" , "Ba4" , "Bxd5" , "Nd4" , "Nd8" , "Bxc1" , "Bh6" , "h5" , "Ba2" , "Nc3" , "Ng3" , "Bxb5" , "Nb3" , "Nc1" , "Bd5" , "Qxc7" , "Ne4" , "Qc8" , "Bf7" , "Ne1" , "Kf6" , "Ke3" , "Ne2" , "Kf1" , "Rxc7" , "Bg8" , "Nf6" , "hxg3" , "Bc4+" , "Bc3" , "h4" , "Nxf6" , "Qd1" , "Bd2" , "f5" , "Bxa5" , "fxg6" , "d5" , "Be2" , "Na5" , "Ke5" , "Nc6+" , "Bf4" , "Bb2" , "d3" , "Nb7+" , "Ke2" , "g3" , "Kxf6" , "Qxc1" , "Kg7" , "Bxb4" , "fxg3" ;
+        chon:nextHalfMove      :hmgamkbSRTA0 .
+
+:rolhgodTI0STe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agodTI0S .
+
+:rolhgkbSRTA0c  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agodTI0S .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resodTI0ST  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaZo5GQD  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:touZo5GQ  a          chon:hessTournament ;
+        chon:atPlace  :plaZo5GQD ;
+        chon:hasName  "Trophee Karpov KO 2012" .
+
+:cgrZo5GQD  a   chon:ChessGameReport .
+
+:agZo5GQD  a          chon:Agent ;
+        chon:hasName  "Ivanchuk,V" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZo5GQD .
+
+:rolZo5GQD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZo5GQD .
+
+:resZo5GQDc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeZo5GQD  a            chon:ChessOpening ;
+        chon:hasECOCode  "D85" .
+
+chon:HalfMove  chon:subEventOf  :gamZo5GQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZo5GQD .
+
+:hmgamZo5GQDc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZo5GQDcS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk,V" ;
+        chon:hasSANRecord      "b3" , "Rc2" , "d4" , "Rxd2" , "Ke8" , "Nf3" , "Rd3" , "Nc3" , "Nc6" , "Kg2" , "Nc4" , "Kg3" , "Nf5" , "f6" , "Rxe6+" , "O-O" , "d5" , "e4" , "Rxe6" , "Re3" , "Bxf3" , "Rd1" , "Rc7" , "Rf4" , "Qa5" , "Kf7" , "Qd2" , "Bh6" , "a3" , "Na5" , "cxd5" , "Bg4" , "Rh4+" , "Bxg7" , "Re2" , "Re6+" , "Rxf2" , "Bxf5" , "h4" , "Nb6" , "g5" , "g6" , "Kh3" , "Be3" , "Nxc3" , "h6" , "Qxd2" , "bxc3" , "Rd6" , "g4" , "b4" , "Bf6" , "e5" , "b5" , "Rc4" , "Nxd5" , "cxd4" , "Rxf5" , "Kxf6" , "Bg7" , "c5" , "Kg4" , "Nf6" , "h3" , "Rac8" , "Be2" , "Rfe1" , "c4" , "h5" , "axb4" , "a5" , "exf6+" , "Kxg7" , "Rd4" , "Nd6" , "Rfd8" , "Bg5" ;
+        chon:nextHalfMove      :hmgamZo5GQDc .
+
+:rolhgZo5GQDcS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZo5GQD .
+
+:gamZo5GQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZo5GQD ;
+        chon:atPlace           :plaZo5GQD ;
+        chon:atTime            "2012.11.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZo5GQDc ;
+        chon:hasHalfMove       :hmgamZo5GQDc ;
+        chon:hasLastHalfMove   :hmgamZo5GQDc ;
+        chon:hasOpening        :opeZo5GQD ;
+        chon:hasReport         :cgrZo5GQD ;
+        chon:hasResult         :resZo5GQDc ;
+        chon:subEventOf        :touZo5GQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

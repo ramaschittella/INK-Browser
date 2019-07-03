@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam71MdX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol71MdXO ;
+        chon:atPlace           :pla71MdXO ;
+        chon:atTime            "2007.11.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamx2WxkQl ;
+        chon:hasHalfMove       :hmgamx2WxkQl ;
+        chon:hasLastHalfMove   :hmgamx2WxkQl ;
+        chon:hasOpening        :ope71MdXO ;
+        chon:hasReport         :cgr71MdXO ;
+        chon:hasResult         :res71MdXOv ;
+        chon:subEventOf        :tou71MdX .
+
+:tou71MdX  a          chon:hessTournament ;
+        chon:atPlace  :pla71MdXO ;
+        chon:hasName  "World Blitz" .
+
+:pla71MdXO  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag71MdXO .
+
+:cgr71MdXO  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam71MdX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag71MdXO .
+
+:rol71MdXO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag71MdXO .
+
+:res71MdXOv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamx2WxkQl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgx2WxkQlp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "d4" , "e6" , "Qf3" , "Rxa5" , "Ne8" , "Bxa6" , "Nbd2" , "Rxc6" , "cxd5" , "Qc8" , "a6" , "Rfc8" , "Nd3" , "Bf4" , "Ne5" , "Nf6" , "c3" , "Qb7" , "exd4" , "e3" , "Ba6" , "a4" , "d5" , "h3" , "Nac7" , "b6" , "Kf7" , "f6" , "Nb4" , "Be7" , "Qxf3" , "a5" , "Nc6" , "Ke2" , "Rhe1" , "Nd5" , "Ra2" , "exd5" , "b3" , "O-O" , "c4" , "Bh2" , "bxa5" , "Nd2" , "h6" , "Rec1" , "cxd4" , "Nxa6" , "Ndxf3" , "c5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamx2WxkQl .
+
+:rolhgx2WxkQlp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag71MdXO .
+
+:ag71MdXO  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Kamsky,G" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope71MdXO  a            chon:ChessOpening ;
+        chon:hasECOCode  "A47" .

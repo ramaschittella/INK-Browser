@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgEhiF8tUf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEhiF8t .
+
+:plaEhiF8t  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+:hmgamEhiF8tU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEhiF8tUf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Marinho,Mauro Aparecido" ;
+        chon:hasSANRecord      "Be3" , "Re1" , "Bxd7" , "Nc3" , "Bb4" , "Bc3" , "Nf6" , "g3" , "Rc1" , "Nc6" , "Nxc6" , "Bg2" , "bxc6" , "d5" , "Nxd4" , "Bf8" , "e6" , "h6" , "cxd5" , "Qd7" , "Na4" , "exd5" , "Be7" , "dxe4" , "Ne4" , "Bg5" , "c4" , "Bxe4" , "d4" , "Re8" , "Bxb4" , "cxb4" , "Nf3" , "c5" , "cxd4" , "O-O" , "Bd4" , "Qxd7" , "Bd2" , "Be6" ;
+        chon:nextHalfMove      :hmgamEhiF8tU .
+
+:cgrEhiF8t  a   chon:ChessGameReport .
+
+:touEhiF8  a          chon:hessTournament ;
+        chon:atPlace  :plaEhiF8t ;
+        chon:hasName  "CXSP Simul" .
+
+:agEhiF8t  a          chon:Agent ;
+        chon:hasName  "Marinho,Mauro Aparecido" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEhiF8t .
+
+:rolEhiF8t  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEhiF8t .
+
+:opeEhiF8t  a            chon:ChessOpening ;
+        chon:hasECOCode  "D34" .
+
+chon:HalfMove  chon:subEventOf  :gamEhiF8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEhiF8t .
+
+:gamEhiF8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEhiF8t ;
+        chon:atPlace           :plaEhiF8t ;
+        chon:atTime            "2003.11.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEhiF8tU ;
+        chon:hasHalfMove       :hmgamEhiF8tU ;
+        chon:hasLastHalfMove   :hmgamEhiF8tU ;
+        chon:hasOpening        :opeEhiF8t ;
+        chon:hasReport         :cgrEhiF8t ;
+        chon:hasResult         :resEhiF8tU ;
+        chon:subEventOf        :touEhiF8 .
+
+:resEhiF8tU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamLZxKamz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLZxKamz9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sveshnikov, Evgeny" ;
+        chon:hasSANRecord      "e4" , "Rg5" , "e3" , "Bd6" , "c6" , "Rxd5" , "Rc8" , "Qa1" , "Rxd4" , "Re1" , "Qe7" , "Bb2" , "Rxb7" , "O-O" , "Kf2" , "Nf3" , "cxd5" , "Rad8" , "Qxf6" , "Re8" , "Nxe5" , "Rg7" , "f4" , "c4" , "Rac1" , "e6" , "Qc2" , "f5" , "Be2" , "Qxe5" , "Re4" , "fxg6" , "Qd4" , "e5" , "Be6" , "Kf3" , "b3" , "Nf6" , "dxe5" , "Rxg6" , "g6" , "Bb8" , "a6" , "d5" , "Ra1" , "Qxd4" , "Rg5+" , "Ke4" , "Rg1" , "d4" , "Rf1+" , "gxh3" , "Bf3" , "Re5" , "Rf4" , "Bxh3" , "Nc3" , "Rxa2" , "h3" , "Kf5" , "Ke2" , "h5" , "Bxe5" , "Kg3" , "hxg4" , "Nf6+" , "Ne4" , "Rg1+" , "Nbd7" , "Rd4" , "Rd1" , "Bg4" , "Rc2+" , "Nxe4" , "Rg6" , "Bf5" , "Rc7" , "Qb1" ;
+        chon:nextHalfMove      :hmgamLZxKamz .
+
+:plaP4PBrp  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP4PBrp .
+
+chon:HalfMove  chon:subEventOf  :gamP4PBr .
+
+:agP4PBrp  a          chon:Agent ;
+        chon:hasName  "Sveshnikov, Evgeny" , "Karpov, Anatoly" .
+
+:rolP4PBrp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agP4PBrp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP4PBrp .
+
+:opeP4PBrp  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+:rolhgLZxKamz9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP4PBrp .
+
+:gamP4PBr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolP4PBrp ;
+        chon:atPlace           :plaP4PBrp ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLZxKamz ;
+        chon:hasHalfMove       :hmgamLZxKamz ;
+        chon:hasLastHalfMove   :hmgamLZxKamz ;
+        chon:hasOpening        :opeP4PBrp ;
+        chon:hasReport         :cgrP4PBrp ;
+        chon:hasResult         :resP4PBrpj ;
+        chon:subEventOf        :touP4PBr .
+
+:touP4PBr  a          chon:hessTournament ;
+        chon:atPlace  :plaP4PBrp ;
+        chon:hasName  "Moscow rapid" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrP4PBrp  a   chon:ChessGameReport .
+
+:resP4PBrpj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

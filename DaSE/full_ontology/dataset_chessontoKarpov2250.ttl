@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaMFSaFA  a         chon:Place ;
+        chon:hasName  "Voronezh" .
+
+:hmgamMFSaFAU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMFSaFAUU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shepilov, A." ;
+        chon:hasSANRecord      "d6" , "g3" , "Bg2" , "O-O" , "Nc3" , "g6" , "f5" , "Ne8" , "Bg7" , "Nd3" , "e5" , "c4" , "Nc6" , "c5" , "dxe5" , "Ne1" , "Kh1" , "Ne7" , "fxe4" , "d5" , "e3" , "Nf6" , "Nf3" , "d4" , "Nxc5" , "f4" , "fxe5" , "e4" ;
+        chon:nextHalfMove      :hmgamMFSaFAU .
+
+:gamMFSaF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMFSaFA ;
+        chon:atPlace           :plaMFSaFA ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMFSaFAU ;
+        chon:hasHalfMove       :hmgamMFSaFAU ;
+        chon:hasLastHalfMove   :hmgamMFSaFAU ;
+        chon:hasOpening        :opeMFSaFA ;
+        chon:hasReport         :cgrMFSaFA ;
+        chon:hasResult         :resMFSaFAU ;
+        chon:subEventOf        :touMFSaF .
+
+:cgrMFSaFA  a   chon:ChessGameReport .
+
+:touMFSaF  a          chon:hessTournament ;
+        chon:atPlace  :plaMFSaFA ;
+        chon:hasName  "Voronezh simul" .
+
+:agMFSaFA  a          chon:Agent ;
+        chon:hasName  "Shepilov, A." , "Karpov, Anatoly" .
+
+:rolMFSaFA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMFSaFA .
+
+:opeMFSaFA  a            chon:ChessOpening ;
+        chon:hasECOCode  "E62" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMFSaFA .
+
+:rolhgMFSaFAUU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMFSaFA .
+
+:resMFSaFAU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamMFSaF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMFSaFA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

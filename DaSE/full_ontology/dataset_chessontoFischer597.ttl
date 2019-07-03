@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agokqltc .
+
+:plaokqltc  a         chon:Place ;
+        chon:hasName  "Sousse" .
+
+:rolhgzknz1dE3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agokqltc .
+
+chon:HalfMove  chon:subEventOf  :gamokqlt .
+
+:cgrokqltc  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agokqltc .
+
+:agokqltc  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Portisch, Lajos" .
+
+:rolokqltc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agokqltc .
+
+:opeokqltc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E69" .
+
+:hmgamzknz1dE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzknz1dE3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qe3" , "Kh7" , "Bg5" , "Rd2" , "O-O" , "d6" , "Rd8" , "Qg4" , "Bxc5" , "Rh4" , "Kg8" , "Nc3" , "Rxd1+" , "Bf8" , "fxg5" , "f6" , "Nd1" , "Bh6" , "dxc5" , "Bh3" , "Kf1" , "dxc6" , "Bg7" , "h3" , "h6" , "Kh2" , "Qb3" , "Qb6" , "Qxg7" , "g3" , "Rxd1" , "Kg2" , "Nbd7" , "Qe8+" , "Qd7" , "c4" , "Nc5" , "gxh5" , "Rh1" , "Rxg7+" , "c6" , "Rxh5" , "a5" , "Rg6" , "h4" , "e4" , "Nh5" , "Nf3" , "Nf6" , "Qf5" , "Qg7" , "Qh5+" , "Be3" , "Re1" , "Qc7" , "Nxg5" , "Qxd1" , "g4" , "Rd7" , "Qxe5+" , "Qe2" , "Kg7" , "Rd1" , "d5" , "b3" , "Qg6" , "Rh2" , "d4" , "Ne6" , "Qf7" , "Re8" , "Rd3" , "Rb1" , "Na4" , "Ng7" , "Bg2" , "bxc6" , "Rxh6" , "Kxh3" , "Bxh3" , "Rad8" , "Qa7" , "h5" , "g6" , "e5" ;
+        chon:nextHalfMove      :hmgamzknz1dE .
+
+:resokqltcB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamokqlt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolokqltc ;
+        chon:atPlace           :plaokqltc ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzknz1dE ;
+        chon:hasHalfMove       :hmgamzknz1dE ;
+        chon:hasLastHalfMove   :hmgamzknz1dE ;
+        chon:hasOpening        :opeokqltc ;
+        chon:hasReport         :cgrokqltc ;
+        chon:hasResult         :resokqltcB ;
+        chon:subEventOf        :touokqlt .
+
+:touokqlt  a          chon:hessTournament ;
+        chon:atPlace  :plaokqltc ;
+        chon:hasName  "Sousse Interzonal+" .

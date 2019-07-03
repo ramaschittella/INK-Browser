@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamiBtuS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliBtuSv ;
+        chon:atPlace           :plaiBtuSv ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiBtuSvQ ;
+        chon:hasHalfMove       :hmgamiBtuSvQ ;
+        chon:hasLastHalfMove   :hmgamiBtuSvQ ;
+        chon:hasOpening        :opeiBtuSv ;
+        chon:hasReport         :cgriBtuSv ;
+        chon:hasResult         :resiBtuSvQ ;
+        chon:subEventOf        :touiBtuS .
+
+:hmgamiBtuSvQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiBtuSvQE ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kh2" , "Nd5" , "f2" , "Bf8" , "Qxd6" , "f6" , "g6" , "Nbxa4" , "Rha8" , "Nc5" , "bxc3" , "Bc4" , "Bd4" , "f3" , "h1=Q" , "Rf4" , "Bg7" , "Qe2" , "a2" , "c4" , "Qc3" , "Rd1" , "Re1" , "Kd5" , "Nxa4" , "a5" , "Ke1" , "Kf1" , "Nf6" , "Kc2" , "Kxd7" , "Rxe5" , "Nf3" , "Ke2" , "Rd7+" , "h6" , "Rxd2" , "Bg5" , "hxg5" , "gxh5" , "Ne5+" , "Qc8" , "Bxa4" , "fxg5" , "h3" , "g7" , "Rh8" , "Rxc4" , "Bxc3" , "Bd5" , "Kd3" , "Re4+" , "Re7+" , "a3" , "Nd6" , "Kd6" , "Ke6" , "Nb5" , "Nd3" , "Ka6" , "Be6" , "Kf2" , "Kb2" , "e4" , "f4" , "Qe8" , "Bg3" , "e6" , "Rd6+" , "Nxe5" , "Bf5" , "Rh7+" , "Rxh1" , "Bc5" , "Kg3" , "Kc3" , "Ra1" , "c3" , "Qd2" , "Nbd2" , "Rg8" , "Kf7" , "Ne4" , "Kb7" , "Rc2+" , "d7" , "Ke4" , "g4" , "h4" , "Rh4" , "exd6" , "Bd2" , "Nb6" , "Rd1+" , "Rad1" , "Be7" , "Qc6" , "Qd7" , "Ra3+" , "Bxc4" , "Rxc3+" , "f5" , "g5" , "a4" , "b4" , "Rc1" , "dxe5" , "d6" , "Bxe5" , "Nd4" , "Rexd5+" , "O-O" , "b3+" , "Bh4" , "R7d2" , "Kxd2" , "Rxg7" , "h2" , "Bf6" , "Na6" , "Rfe8" , "Rd7" , "e5" , "h5" , "d4" , "Bb3" , "Rf1" , "Nd7" , "b5" , "c5" , "Kb5" , "Kc6" ;
+        chon:nextHalfMove      :hmgamiBtuSvQ .
+
+:plaiBtuSv  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:rolhgiBtuSvQE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiBtuSv .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiBtuSv .
+
+chon:HalfMove  chon:subEventOf  :gamiBtuS .
+
+:resiBtuSvQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agiBtuSv  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiBtuSv .
+
+:touiBtuS  a          chon:hessTournament ;
+        chon:atPlace  :plaiBtuSv ;
+        chon:hasName  "World Championship 28th" .
+
+:roliBtuSv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiBtuSv .
+
+:opeiBtuSv  a            chon:ChessOpening ;
+        chon:hasECOCode  "B04" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgriBtuSv  a   chon:ChessGameReport .

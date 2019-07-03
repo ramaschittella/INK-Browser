@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agwiMc1v  a          chon:Agent ;
+        chon:hasName  "Smyslov, Vassily" , "Karpov, Anatoly" .
+
+:rolhgwiMc1vEA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwiMc1v .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwiMc1v .
+
+:opewiMc1v  a            chon:ChessOpening ;
+        chon:hasECOCode  "A91" .
+
+chon:HalfMove  chon:subEventOf  :gamAk64g .
+
+:plaAk64gv  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwiMc1v .
+
+:gamAk64g  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwiMc1v ;
+        chon:atPlace           :plaAk64gv ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwiMc1vE ;
+        chon:hasHalfMove       :hmgamwiMc1vE ;
+        chon:hasLastHalfMove   :hmgamwiMc1vE ;
+        chon:hasOpening        :opewiMc1v ;
+        chon:hasReport         :cgrwiMc1v ;
+        chon:hasResult         :reswiMc1vE ;
+        chon:subEventOf        :touwiMc1 .
+
+:reswiMc1vE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrwiMc1v  a   chon:ChessGameReport .
+
+:hmgamwiMc1vE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwiMc1vEA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Nf4" , "Bxe5" , "Bxe6" , "O-O" , "Be7" , "Bd7" , "Kg2" , "Qxf6" , "e3" , "Rxg1" , "Rxf4" , "Qxc3" , "fxg5" , "Rg3" , "Rg4" , "Qa3" , "d6" , "dxe6" , "Qxe6" , "Qxe5" , "c5" , "Bb6" , "c4" , "Nxc3" , "Nc6" , "dxe5" , "Ne5" , "hxg5" , "Ne6" , "Rd1" , "f5" , "cxd5" , "Qb3" , "exd5" , "Bd5" , "f4" , "Kg7" , "e6" , "Qxc5" , "Rg6" , "d5" , "Bxb7" , "Bd4" , "Nh3" , "Nf6" , "h6" , "Nc3" , "Rg1" , "Qg4" , "g5" , "Rxg1+" , "g3" , "Be3" , "Qc3" , "Re1" , "Ne4" , "Rb8" , "Kh8" , "Qe8" , "Rxf6" , "Bd8" , "Qf6" , "gxf4" , "d4" , "Rf8" , "Kh1" , "Qh4" , "Rac1" , "Bg2" ;
+        chon:nextHalfMove      :hmgamwiMc1vE .
+
+:rolwiMc1v  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwiMc1v .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touwiMc1  a          chon:hessTournament ;
+        chon:atPlace  :plaAk64gv ;
+        chon:hasName  "Moscow blitz" .

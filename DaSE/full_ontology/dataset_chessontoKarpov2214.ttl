@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr0ToKvb  a   chon:ChessGameReport .
+
+:ag0ToKvb  a          chon:Agent ;
+        chon:hasName  "Van Wely, Loek" , "Karpov, Anatoly" .
+
+:rol0ToKvb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0ToKvb .
+
+:res0ToKvbo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ope0ToKvb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D23" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0ToKvb .
+
+chon:HalfMove  chon:subEventOf  :gam0ToKv .
+
+:rolhg0ToKvbo5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0ToKvb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0ToKvb .
+
+:gam0ToKv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0ToKvb ;
+        chon:atPlace           :pla0ToKvb ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0ToKvbo ;
+        chon:hasHalfMove       :hmgam0ToKvbo ;
+        chon:hasLastHalfMove   :hmgam0ToKvbo ;
+        chon:hasOpening        :ope0ToKvb ;
+        chon:hasReport         :cgr0ToKvb ;
+        chon:hasResult         :res0ToKvbo ;
+        chon:subEventOf        :tou0ToKv .
+
+:tou0ToKv  a          chon:hessTournament ;
+        chon:atPlace  :pla0ToKvb ;
+        chon:hasName  "Amber-blind 6th" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam0ToKvbo  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0ToKvbo5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely, Loek" ;
+        chon:hasSANRecord      "d5" , "c6" , "Nf3" , "Bg5" , "Qd8" , "Qc6" , "Qe7" , "e4" , "b3" , "Nf8" , "Be2" , "Bxc4" , "Qc8" , "Bxg5" , "O-O" , "dxc4" , "e6" , "Qc2" , "Nxg5" , "Rc8" , "d4" , "Bb7" , "Bd2" , "Nd5" , "Rxc8+" , "Qa5" , "Qd7" , "Bxh6" , "b4" , "Nf6" , "Qxa4" , "e5" , "Nxd5" , "a4" , "Qb6" , "Bxc8" , "a6" , "Bd3" , "Nc3" , "Qd1" , "c4" , "Qc5" , "Qa4+" , "cxd5" , "Qc1" , "Rfc1" , "b5" , "h4" , "Qc7" , "Nbd7" , "h6" , "Be7" , "Bh7+" , "Rxc1" ;
+        chon:nextHalfMove      :hmgam0ToKvbo .
+
+:pla0ToKvb  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .

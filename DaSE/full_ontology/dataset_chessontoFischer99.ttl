@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg9Wcd6NiI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP1BAfP .
+
+:hmgam1YyQOOY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg1YyQOOYw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Haines, W." ;
+        chon:hasSANRecord      "c5" , "Bxd8" , "Bc2" , "Bd2" , "Bf8" , "Qb8" , "Qxd8" , "bxc4" , "Ba5" , "b3" , "Qd2" , "Qc7" , "Ne3" , "Na5" , "Nxc4" , "Rfe8" , "Rad8" , "b5" , "O-O" , "Bc3" , "Nf1" , "d4" , "Bd7" , "h3" , "Re1" , "g6" , "d6" , "Nbd2" , "Nc4" , "c3" , "cxd4" , "Bb3" ;
+        chon:nextHalfMove      :hmgamWWfZxMf , :hmgam1YyQOOY .
+
+:opeP1BAfP  a            chon:ChessOpening ;
+        chon:hasECOCode  "C97" .
+
+:hmgam9Wcd6Ni  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9Wcd6NiI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Haines, W." ;
+        chon:hasSANRecord      "h6" , "Kh7" , "fxe3" , "Rc8" , "Bxe3" , "Bb3" , "Qe3" , "Rd7" , "hxg4" , "Qxg4" , "Rxd6" ;
+        chon:nextHalfMove      :hmgam9Wcd6Ni .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP1BAfP .
+
+:planYpiSO  a         chon:Place ;
+        chon:hasName  "?" .
+
+:rolhgP1BAfPTl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP1BAfP .
+
+:rolhg1YyQOOYw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP1BAfP .
+
+:hmgamWWfZxMf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9Wcd6NiI , chon:AgentRole , :rolhgWWfZxMfw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Haines, W." ;
+        chon:hasSANRecord      "Nh2" , "Ree1" , "Qe2" , "Rxb1" , "Bf5" , "Bh6" , "Bc4" , "Rab1" , "e4" , "Bxb1" , "Nxe4" , "Rf8" , "Qg5" , "Ng4" , "Rb7" , "Qd8" , "Rxe4" , "Bxb3" , "Qb6" , "cxb3" , "Qh4" ;
+        chon:nextHalfMove      :hmgamWWfZxMf , :hmgam9Wcd6Ni .
+
+:rolhgWWfZxMfw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agP1BAfP .
+
+:touP1BAf  a          chon:hessTournament ;
+        chon:atPlace  :planYpiSO ;
+        chon:hasName  "USA-chJ" .
+
+:rolP1BAfP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agP1BAfP .
+
+chon:HalfMove  chon:subEventOf  :gamnYpiS .
+
+:resP1BAfPT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamP1BAfPT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgP1BAfPTl , :rolhg1YyQOOYw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Haines, W." ;
+        chon:hasSANRecord      "Nf3" , "Ba4" , "O-O" , "a6" , "e4" , "Bb5" , "Nf6" , "e5" , "Nc6" , "Be7" ;
+        chon:nextHalfMove      :hmgam1YyQOOY , :hmgamP1BAfPT .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agP1BAfP  a          chon:Agent ;
+        chon:hasName  "Haines, W." , "Fischer, Robert James" .
+
+:cgrP1BAfP  a   chon:ChessGameReport .
+
+:gamnYpiS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolP1BAfP ;
+        chon:atPlace           :planYpiSO ;
+        chon:atTime            "1957.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamP1BAfPT ;
+        chon:hasHalfMove       :hmgamP1BAfPT , :hmgam9Wcd6Ni , :hmgam1YyQOOY , :hmgamWWfZxMf ;
+        chon:hasLastHalfMove   :hmgam9Wcd6Ni ;
+        chon:hasOpening        :opeP1BAfP ;
+        chon:hasReport         :cgrP1BAfP ;
+        chon:hasResult         :resP1BAfPT ;
+        chon:subEventOf        :touP1BAf .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agP1BAfP .

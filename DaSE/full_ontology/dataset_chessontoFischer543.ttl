@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamSHaSn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4JkWJU ;
+        chon:atPlace           :plaSHaSnT ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4JkWJUf ;
+        chon:hasHalfMove       :hmgam4JkWJUf ;
+        chon:hasLastHalfMove   :hmgam4JkWJUf ;
+        chon:hasOpening        :ope4JkWJU ;
+        chon:hasReport         :cgr4JkWJU ;
+        chon:hasResult         :res4JkWJUf ;
+        chon:subEventOf        :tou4JkWJ .
+
+:hmgam4JkWJUf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4JkWJUf9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rb7" , "Nb5" , "Nxd8" , "O-O" , "Kf7" , "cxb5" , "Nc5" , "Kxb2" , "f6" , "Ne6" , "e4" , "d6" , "b4" , "Bxb2" , "Nd3" , "Rxb6" , "Rd7" , "c4" , "b5" , "d4" , "Nf6" , "Ba3" , "c6" , "Rb5" , "Nc6" , "Rxb2+" , "Re7" , "axb3" , "Re8" , "Bxc4" , "Rxb5" , "Nb2" , "Be3" , "dxe5" , "Nxe6" , "g6" , "b3" , "Rxc5" , "Ba5" , "bxc4" , "Kf2" , "Rxb2" , "a5" , "Ke2" , "Rc8" , "Kd6" , "Bf8" , "Be2" , "f3" , "Kc2" , "Nxc5" , "Nc3" , "Nd7" , "Bg7" , "Bd2" , "Ke6" , "b2" , "Bxe6" , "Ng5" , "Qxd8" , "b6" , "e5" , "Nf3" , "Rdc1" , "Bc4" , "Rb1" , "a4" , "Na4" , "Bc3" , "Rc5" , "Kd3" , "Rfd1" , "Rc6" ;
+        chon:nextHalfMove      :hmgam4JkWJUf .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4JkWJU .
+
+chon:HalfMove  chon:subEventOf  :gamSHaSn .
+
+:res4JkWJUf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4JkWJU .
+
+:plaSHaSnT  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+:cgr4JkWJU  a   chon:ChessGameReport .
+
+:rolhg4JkWJUf9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4JkWJU .
+
+:ag4JkWJU  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Reshevsky, Samuel Herman" .
+
+:rol4JkWJU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4JkWJU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope4JkWJU  a            chon:ChessOpening ;
+        chon:hasECOCode  "E97" .
+
+:tou4JkWJ  a          chon:hessTournament ;
+        chon:atPlace  :plaSHaSnT ;
+        chon:hasName  "Santa Monica" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resjq1sdck  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamRoQ8S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljq1sdc ;
+        chon:atPlace           :plajq1sdc ;
+        chon:atTime            "2010.11.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjq1sdck ;
+        chon:hasHalfMove       :hmgamjq1sdck ;
+        chon:hasLastHalfMove   :hmgamjq1sdck ;
+        chon:hasOpening        :opejq1sdc ;
+        chon:hasReport         :cgrjq1sdc ;
+        chon:hasResult         :resjq1sdck ;
+        chon:subEventOf        :toujq1sd .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjq1sdc .
+
+chon:HalfMove  chon:subEventOf  :gamRoQ8S .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjq1sdc .
+
+:plajq1sdc  a         chon:Place ;
+        chon:hasName  "Mexico City MEX" .
+
+:cgrjq1sdc  a   chon:ChessGameReport .
+
+:hmgamjq1sdck  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjq1sdckU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Garcia Almaguer,J" ;
+        chon:hasSANRecord      "Qxf6" , "Qd7" , "Qe7" , "cxd5" , "Bc3" , "Bxc6" , "dxc6" , "Ke7" , "O-O" , "b6" , "Nh4" , "Bc8" , "Nc3" , "Qd6#" , "Nf6" , "Nb4" , "Qd3" , "Ng4" , "Bg2" , "Qg6" , "f4" , "Rb8" , "d5" , "e5" , "Bf6" , "Qxc6" , "Nc6" , "Qxh6+" , "b4" , "c4" , "h4" , "f5" , "c6" , "Rxc6" , "d6" , "Rxe8+" , "Bxd5" , "Bb7" , "Nxh6+" , "Be7" , "Bd2" , "Re1" , "Qf6+" , "Nb5" , "Rac1" , "Qd4" , "Qg7+" , "Qxe8" , "Na6" , "exf6" , "Nh6" , "e6" , "a3" , "e4" , "g3" , "Rfe8" , "d4" , "Kf8" , "Nf5" , "Nf3" , "gxh6" , "exd5" , "Qg5" ;
+        chon:nextHalfMove      :hmgamjq1sdck .
+
+:agjq1sdc  a          chon:Agent ;
+        chon:hasName  "Garcia Almaguer,J" , "Karpov,Ana" .
+
+:toujq1sd  a          chon:hessTournament ;
+        chon:atPlace  :plajq1sdc ;
+        chon:hasName  "UNAM Selected Simul" .
+
+:roljq1sdc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjq1sdc .
+
+:opejq1sdc  a            chon:ChessOpening ;
+        chon:hasECOCode  "A40" .
+
+:rolhgjq1sdckU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjq1sdc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaHs8w6V  a         chon:Place ;
+        chon:hasName  "Frankfurt" .
+
+:gamHs8w6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0ujRsW ;
+        chon:atPlace           :plaHs8w6V ;
+        chon:atTime            "1999.06.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0ujRsWr ;
+        chon:hasHalfMove       :hmgam0ujRsWr , :hmgamkug6ZXu ;
+        chon:hasLastHalfMove   :hmgamkug6ZXu ;
+        chon:hasOpening        :ope0ujRsW ;
+        chon:hasReport         :cgr0ujRsW ;
+        chon:hasResult         :res0ujRsWr ;
+        chon:subEventOf        :tou0ujRs .
+
+:res0ujRsWr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag0ujRsW  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kramnik, Vladimir" .
+
+:rol0ujRsW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0ujRsW .
+
+:ope0ujRsW  a            chon:ChessOpening ;
+        chon:hasECOCode  "D26" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0ujRsW .
+
+:hmgamkug6ZXu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkug6ZXuS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a6" , "fxg2" , "Qb7" ;
+        chon:nextHalfMove      :hmgamkug6ZXu .
+
+:rolhgkug6ZXuS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0ujRsW .
+
+chon:HalfMove  chon:subEventOf  :gamHs8w6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0ujRsW .
+
+:tou0ujRs  a          chon:hessTournament ;
+        chon:atPlace  :plaHs8w6V ;
+        chon:hasName  "Siemens Giants" .
+
+:cgr0ujRsW  a   chon:ChessGameReport .
+
+:hmgam0ujRsWr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkug6ZXuS , :rolhg0ujRsWrp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxe7" , "Nf3" , "Qxa6" , "Rd2" , "Bxd5" , "Na5" , "Bd5" , "Nd5" , "Nf6" , "Nc3" , "Kxg7" , "Be5" , "a5" , "O-O" , "b4" , "cxd4" , "e3" , "Nxe7" , "bxc3" , "Rxe7" , "Ba4+" , "exd4" , "Bb7" , "Bf4" , "Bb3" , "Qe2" , "Nd4" , "R8xd5" , "Bc2" , "c5" , "dxc4" , "f4" , "d6" , "Be7" , "c4" , "Kf8" , "e6" , "Ne5" , "Ng6" , "Nf5+" , "a4" , "d4" , "Rd8" , "h3" , "dxe7+" , "Qxc4" , "Bxc4" , "f3" , "Nc4" , "d5" , "a6" , "Nc6" , "Re1" , "Bxg7+" , "b5" , "exf5" ;
+        chon:nextHalfMove      :hmgamkug6ZXu , :hmgam0ujRsWr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg0ujRsWrp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0ujRsW .

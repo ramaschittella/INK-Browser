@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamZLJoH0N  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqNTG5aDT , :rolhgZLJoH0Nu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Maeser, Fabian" ;
+        chon:hasSANRecord      "Bd7" , "a3" , "Rfc8" , "h6" , "Nc3" , "Nxa5" , "d3" , "Bb4" , "Ra1" , "Nf6" , "Rxc2+" , "Rc2" , "Bxc3" , "Qh5" , "Qb2" , "Kxc2" , "Bg2" , "Qc5" , "h3" , "g3" , "b5" , "a5" , "Nc6" , "Rxa5" , "c4" , "Kd2" , "Nf3" , "Qe8" , "c5" , "Qd5" , "bxa5" , "cxd6" , "Ke1" , "Nd2" , "O-O" , "b4" , "a6" , "O-O-O" , "Bxa5" , "Qf7" , "Rd2" , "Kh7" , "Qd2" , "d6" , "Bd2" , "f5" , "e5" , "Ra4" ;
+        chon:nextHalfMove      :hmgamZLJoH0N , :hmgamqNTG5aD .
+
+:plaZLJoH0  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:cgrZLJoH0  a   chon:ChessGameReport .
+
+:rolhgZLJoH0Nu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZLJoH0 .
+
+:agZLJoH0  a          chon:Agent ;
+        chon:hasName  "Maeser, Fabian" , "Karpov, Anatoly" .
+
+:rolZLJoH0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZLJoH0 .
+
+:gamZLJoH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZLJoH0 ;
+        chon:atPlace           :plaZLJoH0 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZLJoH0N ;
+        chon:hasHalfMove       :hmgamZLJoH0N , :hmgamqNTG5aD ;
+        chon:hasLastHalfMove   :hmgamqNTG5aD ;
+        chon:hasOpening        :opeZLJoH0 ;
+        chon:hasReport         :cgrZLJoH0 ;
+        chon:hasResult         :resZLJoH0N ;
+        chon:subEventOf        :touZLJoH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZLJoH0 .
+
+:opeZLJoH0  a            chon:ChessOpening ;
+        chon:hasECOCode  "A25" .
+
+:resZLJoH0N  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamZLJoH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZLJoH0 .
+
+:rolhgqNTG5aDT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZLJoH0 .
+
+:touZLJoH  a          chon:hessTournament ;
+        chon:atPlace  :plaZLJoH0 ;
+        chon:hasName  "Zuerich sim" .
+
+:hmgamqNTG5aD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqNTG5aDT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Maeser, Fabian" ;
+        chon:hasSANRecord      "d4+" , "Rxa3" , "Rb2" , "Kh2" , "f3" , "exf3+" , "Bxd5" , "Qa5" , "h5" , "c2" , "Ra6" , "Ra4" , "Ra2" , "Ra1" , "Qxc2" , "Kg1" , "Qc6" , "Qf8" , "Qc2" , "Rc2" , "Qxe2" , "d5" , "Qa8" , "g6" , "g4" , "g5" , "Nxd5" , "Qe2" , "Qd1" , "Rc1" , "Nxc3" , "Qb8" , "Nb3" , "Nb1" , "Re1" , "fxe2" , "Qb5" , "Qe7" , "Kxf3" , "Rxe2" , "Qe6" , "bxc3" , "Qc5" , "Qc1" , "f4" , "Qa7" , "Be6" , "Bd5" , "Qa6" , "h4" , "Qc4" , "Kg7" , "e4" , "Nc3" , "Nd2" , "Kg2" , "Kf1" , "b4" , "Qb3" , "Qe5" , "Rc4" , "e3" ;
+        chon:nextHalfMove      :hmgamqNTG5aD .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

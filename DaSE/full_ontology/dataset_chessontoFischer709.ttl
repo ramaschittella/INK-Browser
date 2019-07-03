@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agrUUUha  a          chon:Agent ;
+        chon:hasName  "Ibrahimoglu, Ismet" , "Fischer, Robert James" .
+
+:rolhgTW7cEbLV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrUUUha .
+
+:operUUUha  a            chon:ChessOpening ;
+        chon:hasECOCode  "A07" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrUUUha .
+
+:resrUUUhaU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamrUUUh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrUUUha .
+
+:hmgamTW7cEbL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTW7cEbLV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ibrahimoglu, Ismet" ;
+        chon:hasSANRecord      "Qxf7" , "Nc6" , "Bh6+" , "Bxf7+" , "Kg8" , "Rb8" , "Bg5" , "Be8" , "Qd5" , "Bf6" , "Nxb8" , "Na7" , "Qxd6" , "Kh7" , "Rxb8" ;
+        chon:nextHalfMove      :hmgamTW7cEbL .
+
+:hmgamrUUUhaU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrUUUhaUv , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ibrahimoglu, Ismet" ;
+        chon:hasSANRecord      "Qe2" , "Qc7" , "g6" , "Nb3" , "Bd6" , "Qc6" , "Qb7" , "Nc6" , "Ra8" , "b6" , "Rb8" , "Rxa1" , "e5" , "g3" , "Nb1" , "Bg4" , "Rad8" , "Ne8" , "d5" , "h3" , "Qb5" , "O-O" , "Bf8" , "Rb7" , "e4" , "c5" , "c6" , "Bxf3" , "Bg7" , "Be3" , "Qd1" , "Nb5" , "Nd2" , "Qa4" , "Nxc7" , "Bb5" , "Qd2" , "a5" , "Nc3" , "Kg7" , "Ngf3" , "axb6" , "Bg2" , "Nf6" , "Bf1" , "a4" , "Ra6" , "Nb8" , "Nc7" , "c3" , "Qxc7" , "dxe4" , "h5" , "Nbd7" , "d3" , "Qxf3" ;
+        chon:nextHalfMove      :hmgamTW7cEbL , :hmgamrUUUhaU .
+
+:cgrrUUUha  a   chon:ChessGameReport .
+
+:gamrUUUh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrUUUha ;
+        chon:atPlace           :plarUUUha ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrUUUhaU ;
+        chon:hasHalfMove       :hmgamTW7cEbL , :hmgamrUUUhaU ;
+        chon:hasLastHalfMove   :hmgamTW7cEbL ;
+        chon:hasOpening        :operUUUha ;
+        chon:hasReport         :cgrrUUUha ;
+        chon:hasResult         :resrUUUhaU ;
+        chon:subEventOf        :tourUUUh .
+
+:tourUUUh  a          chon:hessTournament ;
+        chon:atPlace  :plarUUUha ;
+        chon:hasName  "Siegen olm" .
+
+:rolrUUUha  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrUUUha .
+
+:rolhgrUUUhaUv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrUUUha .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plarUUUha  a         chon:Place ;
+        chon:hasName  "Siegen" .

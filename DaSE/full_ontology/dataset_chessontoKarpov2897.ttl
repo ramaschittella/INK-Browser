@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gameNsBy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleNsByc ;
+        chon:atPlace           :plaeNsByc ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameNsBycv ;
+        chon:hasHalfMove       :hmgameNsBycv ;
+        chon:hasLastHalfMove   :hmgameNsBycv ;
+        chon:hasOpening        :opeeNsByc ;
+        chon:hasReport         :cgreNsByc ;
+        chon:hasResult         :reseNsBycv ;
+        chon:subEventOf        :toueNsBy .
+
+:toueNsBy  a          chon:hessTournament ;
+        chon:atPlace  :plaeNsByc ;
+        chon:hasName  "Simul" .
+
+:ageNsByc  a          chon:Agent ;
+        chon:hasName  "Seitz,M" , "Karpov,Ana" .
+
+:roleNsByc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageNsByc .
+
+:reseNsBycv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeeNsByc  a            chon:ChessOpening ;
+        chon:hasECOCode  "D55" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageNsByc .
+
+chon:HalfMove  chon:subEventOf  :gameNsBy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageNsByc .
+
+:rolhgeNsBycvi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageNsByc .
+
+:hmgameNsBycv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeNsBycvi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seitz,M" ;
+        chon:hasSANRecord      "b4" , "Be7" , "Rfb8" , "Nf3" , "h6" , "Ra8" , "Na6" , "O-O" , "Qb3" , "Rc1" , "h3" , "c6" , "d4" , "dxe4" , "exd5" , "Nxe4" , "Ra1" , "Nc7" , "a3" , "Qxd5" , "Ne5" , "b5" , "Nc5" , "Be8" , "a6" , "Bd7" , "Bxf6" , "Rxa8" , "e3" , "Nc8" , "Qb7" , "a4" , "axb5" , "Qd5" , "Rfc1" , "Bg5" , "Qxa8" , "d5" , "cxb5" , "e4" , "Qb8" , "e6" , "Ne7" , "Nc6" , "Nc3" , "Nf6" , "Bd3" , "c4" ;
+        chon:nextHalfMove      :hmgameNsBycv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaeNsByc  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:cgreNsByc  a   chon:ChessGameReport .

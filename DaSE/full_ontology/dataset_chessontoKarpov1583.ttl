@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamoL4akL6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoL4akL61 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Re7" , "bxc5" , "Ke6" , "Rxc5" , "Nc5" , "Rc4" , "h4" , "Rc3" , "Nxd3" , "Kc6" , "Rad1" , "Kc3" , "Ra8" , "Qxd4" , "Kf5" , "Rd1" , "c5" , "a5" , "Bxg2" , "Nd3" , "Rxd4" , "Ne5" , "Rac8" , "Rc5" , "Rb8+" , "Kg6" , "Re4" , "Ke4" , "Re8" , "Kg3" , "Kb5" , "cxd4" , "Kf3" , "Rc7" , "e3" , "Kf7" , "Rc8+" , "f6" , "R1xd3" , "Qf6" , "Kd3" , "Rd7" , "Qxc4" , "Red1" , "Kd6" , "a4" , "Kxg2" , "Rd5" ;
+        chon:nextHalfMove      :hmgamoL4akL6 .
+
+:rolhgoL4akL61  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsPk2AO .
+
+:agsPk2AO  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+:ressPk2AOO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opesPk2AO  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsPk2AO .
+
+chon:HalfMove  chon:subEventOf  :gamsPk2A .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsPk2AO .
+
+:cgrsPk2AO  a   chon:ChessGameReport .
+
+:gamsPk2A  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsPk2AO ;
+        chon:atPlace           :plasPk2AO ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsPk2AOO ;
+        chon:hasHalfMove       :hmgamoL4akL6 , :hmgamsPk2AOO ;
+        chon:hasLastHalfMove   :hmgamoL4akL6 ;
+        chon:hasOpening        :opesPk2AO ;
+        chon:hasReport         :cgrsPk2AO ;
+        chon:hasResult         :ressPk2AOO ;
+        chon:subEventOf        :tousPk2A .
+
+:tousPk2A  a          chon:hessTournament ;
+        chon:atPlace  :plasPk2AO ;
+        chon:hasName  "Roquebrune rapid" .
+
+:rolsPk2AO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsPk2AO .
+
+:rolhgsPk2AOO3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsPk2AO .
+
+:hmgamsPk2AOO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgoL4akL61 , :rolhgsPk2AOO3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "dxc4" , "Nd7" , "Qa4+" , "Bb7" , "Nc3" , "bxc3" , "exd5" , "Nxc3" , "Bxf4" , "d4" , "Nf6" , "a3" , "Bf4" , "O-O" , "Bd6" , "d5" , "Nf3" , "b6" , "Ne4" , "g3" , "gxf4" , "c6" , "Re8" , "c4" , "cxd5" , "Rfe1" , "Bg2" , "e6" ;
+        chon:nextHalfMove      :hmgamoL4akL6 , :hmgamsPk2AOO .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plasPk2AO  a         chon:Place ;
+        chon:hasName  "Roquebrune" .

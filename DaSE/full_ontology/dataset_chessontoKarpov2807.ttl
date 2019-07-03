@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeBi6McZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:gamBi6Mc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBi6McZ ;
+        chon:atPlace           :plaBi6McZ ;
+        chon:atTime            "2005.03.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBi6McZQ ;
+        chon:hasHalfMove       :hmgamMi21JYS , :hmgamBi6McZQ ;
+        chon:hasLastHalfMove   :hmgamMi21JYS ;
+        chon:hasOpening        :opeBi6McZ ;
+        chon:hasReport         :cgrBi6McZ ;
+        chon:hasResult         :resBi6McZQ ;
+        chon:subEventOf        :touBi6Mc .
+
+:hmgamBi6McZQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBi6McZQb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bc4" , "Nxe4" , "dxc3" , "e4" , "O-O" , "Be6" , "Nxe5" , "Be3" , "Nf3" , "Re8" , "O-O-O" , "e5" , "Qd2" , "Bxe6" , "Be7" , "Nf6" , "Nc5" , "Bf4" , "d6" , "Nxc3" , "Nc3" , "Nd7" ;
+        chon:nextHalfMove      :hmgamMi21JYS , :hmgamBi6McZQ .
+
+:plaBi6McZ  a         chon:Place ;
+        chon:hasName  "Bucharest ROM" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBi6McZ .
+
+:rolhgMi21JYSo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBi6McZ .
+
+chon:HalfMove  chon:subEventOf  :gamBi6Mc .
+
+:cgrBi6McZ  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBi6McZ .
+
+:touBi6Mc  a          chon:hessTournament ;
+        chon:atPlace  :plaBi6McZ ;
+        chon:hasName  "Match" .
+
+:agBi6McZ  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Istratescu,A" .
+
+:rolBi6McZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBi6McZ .
+
+:resBi6McZQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamMi21JYS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMi21JYSo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rh5" , "hxg5" , "b4" , "Nxe6" , "Qh4" , "Kh8" , "Kb3" , "Qh2" , "Kc6" , "Rh4" , "Qc3" , "Nxg5" , "cxb6" , "Rc7" , "Bf4" , "R8e5" , "gxf5" , "f6" , "b7" , "Kf6" , "Qh4+" , "Rad8" , "Rf7" , "Rf5+" , "Kh6" , "a4" , "gxf6" , "Rf6" , "Qxg2" , "Qxf6" , "Kg7" , "Kxh7" , "Qg8+" , "Qe4" , "Rf6+" , "Kg6" , "Qd7" , "Qf3+" , "Be3" , "g6" , "Ra6" , "Kd5" , "Kb6" , "Rh3" , "Ke5" , "Kb1" , "Kb5" , "Bc5" , "Qd5" , "Ng5" , "Ra1" , "Ke4" , "Qe5+" , "Kg5" , "Ka6" , "f5" , "Qe2" , "Bh6" , "Re7" , "Qc4+" , "b8=Q" , "Qg4+" , "f4" , "d5" , "Ra4" , "Rxe7" , "Rf5" , "Qxd5+" , "Bxe7" , "b6" , "Qxa4" , "Qxf4" , "Qd5+" , "Rxf4" , "Qd8" , "Rxh7" , "Ka4" , "Qd3" , "Qc4" , "Ka2" , "Qxh7" , "c3" , "Re4" , "Rxh7+" , "R1h6" , "Rh7" , "Rde8" , "Rdh1" , "Kf7" , "c4" , "Qxb7" , "cxb4" , "Qf5" , "Bf8" , "c5" , "Qe4+" , "Qxf5+" , "axb6" , "Kg8" , "Qg2" , "b5" , "h4" , "Qb5" , "Rg7" ;
+        chon:nextHalfMove      :hmgamMi21JYS .
+
+:rolhgBi6McZQb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBi6McZ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

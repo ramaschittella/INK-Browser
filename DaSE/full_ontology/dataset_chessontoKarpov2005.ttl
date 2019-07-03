@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resrJRci1m  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agrJRci1  a          chon:Agent ;
+        chon:hasName  "Almasi, Zoltan" , "Karpov, Anatoly" .
+
+:gamrJRci  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrJRci1 ;
+        chon:atPlace           :plarJRci1 ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrJRci1m ;
+        chon:hasHalfMove       :hmgamDHOsRZp , :hmgamrJRci1m ;
+        chon:hasLastHalfMove   :hmgamDHOsRZp ;
+        chon:hasOpening        :operJRci1 ;
+        chon:hasReport         :cgrrJRci1 ;
+        chon:hasResult         :resrJRci1m ;
+        chon:subEventOf        :tourJRci .
+
+:rolrJRci1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrJRci1 .
+
+:tourJRci  a          chon:hessTournament ;
+        chon:atPlace  :plarJRci1 ;
+        chon:hasName  "Biel SKA" .
+
+:operJRci1  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrJRci1 .
+
+chon:HalfMove  chon:subEventOf  :gamrJRci .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrJRci1 .
+
+:rolhgrJRci1mq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrJRci1 .
+
+:cgrrJRci1  a   chon:ChessGameReport .
+
+:hmgamDHOsRZp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDHOsRZpB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Almasi, Zoltan" ;
+        chon:hasSANRecord      "Qf5+" , "Rxb6" , "exf5" , "Qxf5" , "Bxh5" , "Qf3" , "Qg4" , "Qh3" ;
+        chon:nextHalfMove      :hmgamDHOsRZp .
+
+:rolhgDHOsRZpB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrJRci1 .
+
+:hmgamrJRci1m  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrJRci1mq , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Almasi, Zoltan" ;
+        chon:hasSANRecord      "Qe7" , "b3" , "Qf6" , "Qe1" , "Qb4" , "f5" , "g3" , "Bb4+" , "Rf8+" , "Rxc5" , "a4" , "a3" , "Bb5" , "Bc4" , "Bc3" , "Bf1" , "Qf7" , "h4" , "Bxa3" , "Qxa5" , "a6" , "a5" , "Bb7" , "Qe8" , "b4" , "dxc5" , "Qg6" , "h5" , "Bd2" , "Bg2" , "Nf6" , "fxe4" , "fxe3" , "Rxc2" , "b5" , "Qe3" , "Nxe4" , "Rdc1" , "Nd2" , "O-O" , "axb5" , "exd4" , "Rf2" , "Bb8" , "c6" , "c5" , "Qf3" , "c4" , "Rc8" , "Nf3" , "Rc2" , "Rd6" , "Rc1" , "Qd8" , "b6" , "Nxd7" , "e4" , "Bd6" , "e3" , "Ne4" , "bxa5" , "Be8" , "Ba3" , "Be7" , "Bb2" , "Kh8" , "d4" , "Rd8" , "Qxa3" , "Nfd7" , "e6" , "Kh7" , "e5" , "d5" , "Ne5" , "Qc1" , "Rd1" , "cxb5" , "Ba6" ;
+        chon:nextHalfMove      :hmgamrJRci1m , :hmgamDHOsRZp .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plarJRci1  a         chon:Place ;
+        chon:hasName  "Biel" .

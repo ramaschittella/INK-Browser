@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgPst4IKUb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPst4IK .
+
+:cgrPst4IK  a   chon:ChessGameReport .
+
+:hmgamssAzEMN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgssAzEMNM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Unzicker, Wolfgang" ;
+        chon:hasSANRecord      "Be6" , "Ke1" ;
+        chon:nextHalfMove      :hmgamssAzEMN .
+
+:rolhghtDl6LKB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPst4IK .
+
+:resPst4IKU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPst4IK .
+
+:rolhgssAzEMNM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPst4IK .
+
+:hmgamPst4IKU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPst4IKUb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Unzicker, Wolfgang" ;
+        chon:hasSANRecord      "Be6" , "Ba4" , "d5" , "Bc2" , "d4" , "Nc6" , "a6" , "e5" , "Nf6" , "Bb3" , "Bb5" , "e4" , "b5" , "Nbd2" , "dxe5" , "Nxe4" , "Be7" , "c3" , "Nf3" , "O-O" ;
+        chon:nextHalfMove      :hmgamPst4IKU , :hmgamhtDl6LK .
+
+:touPst4I  a          chon:hessTournament ;
+        chon:atPlace  :plaPst4IK ;
+        chon:hasName  "Santa Monica" .
+
+chon:HalfMove  chon:subEventOf  :gamPst4I .
+
+:hmgamhtDl6LK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghtDl6LKB , :rolhgssAzEMNM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Unzicker, Wolfgang" ;
+        chon:hasSANRecord      "Qe3" , "Kg7" , "Ra1" , "Ke7" , "Ba7" , "Qg1" , "Bc8" , "bxc3" , "Bc5" , "Bb7" , "Rd7" , "Bf8" , "cxd4" , "Qh6" , "Bxf4" , "Qd7" , "f4" , "d4" , "Kh3" , "Bc4+" , "Be3" , "h5" , "Kh7" , "Bc4" , "d6" , "Ke2" , "Qe2" , "Rxa7+" , "Ne6" , "Ke6" , "Kd8" , "Qg3" , "Bf3" , "c5" , "Qb6" , "Bxg1" , "Qf2" , "Be7" , "Nxf4" , "Qh3" , "Kd2" , "Qxg1" , "Qc6" , "c3" , "Bf7" , "a4" , "Ne2" , "Rf7" , "Qd1" , "Bc1" , "Rxa7" , "f3" , "Bg2" , "Kh2" , "Kf2" , "Nbd4" , "h4" , "g6" , "axb5" , "Ba3" , "d5" , "Ng5" , "Nxd4" , "Bb6" , "Kg2" , "Rad8" , "Kf8" , "Ba5" , "Qh5" , "Bg5" , "Ra8" , "Ra5" , "Be6" , "Ke1" , "Ra7" , "Bd1" , "Rfa7" , "g3" , "f5" , "Kd7" , "Re8" , "Nb3" , "Bxa3" , "c4" , "Ba8" , "Nf4" , "Bxa7" ;
+        chon:nextHalfMove      :hmgamhtDl6LK , :hmgamssAzEMN .
+
+:rolPst4IK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPst4IK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agPst4IK  a          chon:Agent ;
+        chon:hasName  "Unzicker, Wolfgang" , "Fischer, Robert James" .
+
+:plaPst4IK  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+:gamPst4I  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPst4IK ;
+        chon:atPlace           :plaPst4IK ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPst4IKU ;
+        chon:hasHalfMove       :hmgamhtDl6LK , :hmgamPst4IKU , :hmgamssAzEMN ;
+        chon:hasLastHalfMove   :hmgamssAzEMN ;
+        chon:hasOpening        :opePst4IK ;
+        chon:hasReport         :cgrPst4IK ;
+        chon:hasResult         :resPst4IKU ;
+        chon:subEventOf        :touPst4I .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPst4IK .
+
+:opePst4IK  a            chon:ChessOpening ;
+        chon:hasECOCode  "C83" .

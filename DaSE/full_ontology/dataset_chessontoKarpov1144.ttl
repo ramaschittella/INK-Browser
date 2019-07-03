@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaHESAs7  a         chon:Place ;
+        chon:hasName  "Belfort" .
+
+:cgrHESAs7  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHESAs7 .
+
+:rolhgHESAs7Ik  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHESAs7 .
+
+chon:HalfMove  chon:subEventOf  :gamHESAs .
+
+:agHESAs7  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Spassky, Boris V" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHESAs7 .
+
+:rolHESAs7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHESAs7 .
+
+:gamHESAs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHESAs7 ;
+        chon:atPlace           :plaHESAs7 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHESAs7I ;
+        chon:hasHalfMove       :hmgamHESAs7I ;
+        chon:hasLastHalfMove   :hmgamHESAs7I ;
+        chon:hasOpening        :opeHESAs7 ;
+        chon:hasReport         :cgrHESAs7 ;
+        chon:hasResult         :resHESAs7I ;
+        chon:subEventOf        :touHESAs .
+
+:opeHESAs7  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:touHESAs  a          chon:hessTournament ;
+        chon:atPlace  :plaHESAs7 ;
+        chon:hasName  "World Cup" .
+
+:hmgamHESAs7I  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHESAs7Ik ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kf8" , "Rg3" , "Bg4" , "Nd7" , "e4" , "Re4" , "Kh2" , "dxe4" , "Ra3" , "c3" , "O-O" , "d5" , "Ne4" , "Bg7" , "Nc3" , "Nxe4" , "Qd3" , "h3" , "Qd7" , "Bxf6" , "d4" , "Re6" , "Bc4" , "Rxc1" , "g6" , "a4" , "N1f3" , "Rad8" , "Rxf3" , "Ng5" , "Reg4" , "Ndf6" , "Qc8" , "Nd5" , "Re1" , "Re1+" , "Nxf6+" , "Kg7" , "h6" , "b4" , "c6" , "Ngf6" , "Bxf3" , "Rd6" ;
+        chon:nextHalfMove      :hmgamHESAs7I .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resHESAs7I  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

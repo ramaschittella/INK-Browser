@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrTTNhu5  a   chon:ChessGameReport .
+
+:resTTNhu59  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgTTNhu59F  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTTNhu5 .
+
+:agTTNhu5  a          chon:Agent ;
+        chon:hasName  "Ivanchuk, Vassily" , "Karpov, Anatoly" .
+
+:rolTTNhu5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTTNhu5 .
+
+:opeTTNhu5  a            chon:ChessOpening ;
+        chon:hasECOCode  "E62" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTTNhu5 .
+
+:touTTNhu  a          chon:hessTournament ;
+        chon:atPlace  :plaHVQ4V5 ;
+        chon:hasName  "Las Palmas" .
+
+chon:HalfMove  chon:subEventOf  :gamHVQ4V .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTTNhu5 .
+
+:gamHVQ4V  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTTNhu5 ;
+        chon:atPlace           :plaHVQ4V5 ;
+        chon:atTime            "1996.12.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTTNhu59 ;
+        chon:hasHalfMove       :hmgamkVZSP7X , :hmgamTTNhu59 ;
+        chon:hasLastHalfMove   :hmgamkVZSP7X ;
+        chon:hasOpening        :opeTTNhu5 ;
+        chon:hasReport         :cgrTTNhu5 ;
+        chon:hasResult         :resTTNhu59 ;
+        chon:subEventOf        :touTTNhu .
+
+:rolhgkVZSP7X5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTTNhu5 .
+
+:hmgamTTNhu59  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTTNhu59F , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "Kc2" , "Qb5" , "Kf1" , "Bc3" , "Rc2" , "Ba3" , "Ba5" , "c5" , "Kf7" , "Kd7" , "Qxa6" , "g6" , "axb5+" , "b5+" , "Rac8" , "Ke8" , "Qa3" , "Kc6" , "Bxa2" , "Bb1" , "Nc3" , "Nc5" , "Na4" , "f4" , "dxe5" , "Kd3" , "dxc5" , "bxc6" , "Bb4" , "b6" , "Rxc2" , "Be7" , "Bxd3" , "h5" , "Re1" , "a4" , "Be3" , "g3" , "Kc4" , "Bc5" , "Nxa6" , "Ne5+" , "Nxe5" , "Nxc5" , "Nxd3" , "Ra2" , "Bf1" , "f3" , "Bf8" , "Bd3" , "Rec1" , "Ne5" , "b5" , "exf5" , "Be6" , "Qb3" , "Bf4" , "Bxb2" , "Kd1" , "Na6" , "Nf3" , "Nd3" , "Qb2" , "Bg2" , "e4" , "Rxa2" , "Qb6" , "Bc4" , "Rxc6" , "Bd2" , "Nf6" , "c6" , "Nd6" , "a6" , "d4" , "Bg5" , "Ke2" , "Rd8" , "e6" , "O-O" , "Qxb2" , "Ne4" , "d6" , "b4" , "Nc4" , "Bg7" , "Rdc8" , "f5" , "c4" , "Be1" , "Bd5" , "e3" ;
+        chon:nextHalfMove      :hmgamTTNhu59 , :hmgamkVZSP7X .
+
+:hmgamkVZSP7X  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkVZSP7X5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "Be7" , "Ba3" , "Kd5" , "Kc6" , "Bc5" , "Bf8" , "Bc1" , "Bb4" , "Be3" , "Bd2" ;
+        chon:nextHalfMove      :hmgamkVZSP7X .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaHVQ4V5  a         chon:Place ;
+        chon:hasName  "Las Palmas" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opezlzxXS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C05" .
+
+:hmgamzlzxXSS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzlzxXSSw , chon:AgentRole , :rolhgLlwLuRXH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Enschede, C." ;
+        chon:hasSANRecord      "e6" , "e4" , "d4" , "d5" ;
+        chon:nextHalfMove      :hmgamzlzxXSS , :hmgamLlwLuRX .
+
+:hmgamLlwLuRX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLlwLuRXH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Enschede, C." ;
+        chon:hasSANRecord      "Qd5" , "Qxd6" , "Rxd6" , "Ra4" , "Nd5" , "Nf6" , "Nbd7" , "Rxe8+" , "Nb3" , "Qh5" , "exd5" , "Red1" , "Bc6" , "O-O" , "Qd6" , "Qxd5" , "Bb6" , "Bxb6" , "c3" , "Be2" , "Kxe8" , "axb6" , "Bd7" , "bxc6" , "Re8" , "Nbd4" , "Nxc6" , "dxc5" , "Nd2" , "g3" , "Rec8" , "Rfe8" , "Kf8" , "c5" , "Nb8" , "Bf3" , "Be3" , "Bd3" , "Nf3" , "Bxd5" , "Nd4" , "b5" , "Bxc5" , "Re1" ;
+        chon:nextHalfMove      :hmgamLlwLuRX .
+
+:rolhgLlwLuRXH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzlzxXS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzlzxXS .
+
+:plazlzxXS  a         chon:Place ;
+        chon:hasName  "New York" .
+
+chon:HalfMove  chon:subEventOf  :gamzlzxX .
+
+:touzlzxX  a          chon:hessTournament ;
+        chon:atPlace  :plazlzxXS ;
+        chon:hasName  "New York sim" .
+
+:cgrzlzxXS  a   chon:ChessGameReport .
+
+:reszlzxXSS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzlzxXS .
+
+:rolzlzxXS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzlzxXS .
+
+:rolhgzlzxXSSw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzlzxXS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamzlzxX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzlzxXS ;
+        chon:atPlace           :plazlzxXS ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzlzxXSS ;
+        chon:hasHalfMove       :hmgamzlzxXSS , :hmgamLlwLuRX ;
+        chon:hasLastHalfMove   :hmgamLlwLuRX ;
+        chon:hasOpening        :opezlzxXS ;
+        chon:hasReport         :cgrzlzxXS ;
+        chon:hasResult         :reszlzxXSS ;
+        chon:subEventOf        :touzlzxX .
+
+:agzlzxXS  a          chon:Agent ;
+        chon:hasName  "Enschede, C." , "Steinitz, William" .

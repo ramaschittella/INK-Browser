@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgreSFr3A  a   chon:ChessGameReport .
+
+:ageSFr3A  a          chon:Agent ;
+        chon:hasName  "Hracek, Zbynek" , "Karpov, Anatoly" .
+
+:roleSFr3A  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageSFr3A .
+
+:opeeSFr3A  a            chon:ChessOpening ;
+        chon:hasECOCode  "A32" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageSFr3A .
+
+chon:HalfMove  chon:subEventOf  :gamMSv7H .
+
+:hmgameSFr3Ap  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeSFr3Ap3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hracek, Zbynek" ;
+        chon:hasSANRecord      "e5" , "Rf4" , "g3" , "Nc6" , "Nf6" , "d5" , "Kf1" , "Rg2" , "Ne4" , "Rg7+" , "b4" , "Bd7" , "Nxd4" , "Nxd5" , "Qd4" , "Bh3" , "Rxh4" , "Bd5" , "Rf6+" , "Rg8" , "O-O" , "Rc7" , "Bd2" , "exd4" , "Ke7" , "Rg7" , "Bxc4" , "f6" , "Nf3" , "h4" , "gxh4" , "e6" , "e3" , "Nxg8+" , "c5" , "Rxg8" , "Rf2" , "Qxd4" , "Rg6+" , "Be6" , "Rb8" , "Bc5" , "Bxg7" , "Rh8" , "Bxb7" , "Rg6" , "Rh6" , "Ra3" , "h5" , "Re3" , "Rxa7+" , "Kc5" , "Bxd4" , "dxc4" , "Qb6" , "f4" , "Rad1" , "d4" , "a3" , "Ra6+" , "c4" , "Rde1" , "Ra5+" , "Nf6+" , "Bb4+" , "Re7" , "Be4" , "Be2" , "Nxc3" , "Bc6" , "Bg2" , "Bc3" , "Bc4" , "cxd4" , "fxe5" , "Kd6" , "Rf6" , "Rf7" ;
+        chon:nextHalfMove      :hmgameSFr3Ap .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageSFr3A .
+
+:toueSFr3  a          chon:hessTournament ;
+        chon:atPlace  :plaeSFr3A ;
+        chon:hasName  "EU-ch Rapid-30'" .
+
+:reseSFr3Ap  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgeSFr3Ap3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageSFr3A .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamMSv7H  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleSFr3A ;
+        chon:atPlace           :plaeSFr3A ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameSFr3Ap ;
+        chon:hasHalfMove       :hmgameSFr3Ap ;
+        chon:hasLastHalfMove   :hmgameSFr3Ap ;
+        chon:hasOpening        :opeeSFr3A ;
+        chon:hasReport         :cgreSFr3A ;
+        chon:hasResult         :reseSFr3Ap ;
+        chon:subEventOf        :toueSFr3 .
+
+:plaeSFr3A  a         chon:Place ;
+        chon:hasName  "Cap d`Agde" .

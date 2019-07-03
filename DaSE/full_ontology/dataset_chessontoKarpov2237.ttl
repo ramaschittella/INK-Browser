@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamRoueoYq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRoueoYqh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bidjukov�" ;
+        chon:hasSANRecord      "Ng4#" , "Nc5" , "Kf7" , "dxe6" , "h6" , "Nd6" , "g4" , "Nxe4+" , "Rc1" , "fxe6" , "Nc6+" , "hxg5" , "Ke3" , "Kxf8" , "Kf6" , "Nd4" , "Nf3" , "Bb3" , "a5" , "Bc4" , "Ba6" , "Nd7" , "Kxd2" , "f4" , "Ne5" , "Rc7+" , "Nd3" , "Rc8" , "Ke7" , "a4" , "g5+" , "Bc2" , "Nxb4" , "Bd5" , "Bb7" ;
+        chon:nextHalfMove      :hmgamRoueoYq .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVsL6FY .
+
+:hmgamVsL6FY0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVsL6FY0h , :rolhgRoueoYqh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bidjukov�" ;
+        chon:hasSANRecord      "c4" , "Qxc5" , "g6" , "cxd5" , "Bc3" , "b4" , "O-O" , "c5" , "Bc4" , "Rc1" , "Bg7" , "b5" , "Nc3" , "d4" , "Be2" , "Nxd5" , "Nxc3" , "Bxc5" , "d5" , "Be3" , "Qa5" , "e4" , "e6" , "Qd2" , "cxb4" , "Nf6" , "Rc5" , "Bxd2+" , "bxc3" , "Bxf8" ;
+        chon:nextHalfMove      :hmgamVsL6FY0 , :hmgamRoueoYq .
+
+chon:HalfMove  chon:subEventOf  :gamVsL6F .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVsL6FY .
+
+:rolhgRoueoYqh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVsL6FY .
+
+:plaVsL6FY  a         chon:Place ;
+        chon:hasName  "Voronezh" .
+
+:resVsL6FY0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgVsL6FY0h  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVsL6FY .
+
+:cgrVsL6FY  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agVsL6FY  a          chon:Agent ;
+        chon:hasName  "Bidjukov�" , "Karpov, Anatoly" .
+
+:rolVsL6FY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVsL6FY .
+
+:gamVsL6F  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVsL6FY ;
+        chon:atPlace           :plaVsL6FY ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVsL6FY0 ;
+        chon:hasHalfMove       :hmgamRoueoYq , :hmgamVsL6FY0 ;
+        chon:hasLastHalfMove   :hmgamRoueoYq ;
+        chon:hasOpening        :opeVsL6FY ;
+        chon:hasReport         :cgrVsL6FY ;
+        chon:hasResult         :resVsL6FY0 ;
+        chon:subEventOf        :touVsL6F .
+
+:opeVsL6FY  a            chon:ChessOpening ;
+        chon:hasECOCode  "D85" .
+
+:touVsL6F  a          chon:hessTournament ;
+        chon:atPlace  :plaVsL6FY ;
+        chon:hasName  "Voronezh simul" .

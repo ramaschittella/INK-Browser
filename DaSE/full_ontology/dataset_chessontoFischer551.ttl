@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg5kKMkIxx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSmOzLH .
+
+:plaSmOzLH  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+:cgrSmOzLH  a   chon:ChessGameReport .
+
+:resSmOzLHu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agSmOzLH  a          chon:Agent ;
+        chon:hasName  "Petrosian, Tigran V" , "Fischer, Robert James" .
+
+:rolSmOzLH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSmOzLH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSmOzLH .
+
+:opeSmOzLH  a            chon:ChessOpening ;
+        chon:hasECOCode  "B48" .
+
+chon:HalfMove  chon:subEventOf  :gamSmOzL .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSmOzLH .
+
+:gamSmOzL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSmOzLH ;
+        chon:atPlace           :plaSmOzLH ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSmOzLHu ;
+        chon:hasHalfMove       :hmgam5kKMkIx , :hmgamSmOzLHu ;
+        chon:hasLastHalfMove   :hmgam5kKMkIx ;
+        chon:hasOpening        :opeSmOzLH ;
+        chon:hasReport         :cgrSmOzLH ;
+        chon:hasResult         :resSmOzLHu ;
+        chon:subEventOf        :touSmOzL .
+
+:hmgam5kKMkIx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5kKMkIxx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "a5" , "c3" , "Re4" , "Bd6" , "Rxe6" , "Re6+" , "Kf3" , "Rxc5" , "Be5" , "Ke2" , "Rcf5" , "b4" , "fxe6" , "Nd7" , "O-O-O" , "Rc6+" , "Re5+" , "Rae1" , "Rd5" , "Nxe6" , "Kc6" , "Kf2" , "Rf7+" , "h5" , "Nxe5" , "Nc5" , "Rxf8" , "b3" , "Na4" , "Rf8" , "Rxd4" , "Re2" , "Bd4" , "Rf2" , "Kf1" , "Ke3" , "Rxg7" , "Kb7" , "Re7" , "Bxe6" , "Bxf8" , "Rf5+" ;
+        chon:nextHalfMove      :hmgam5kKMkIx .
+
+:hmgamSmOzLHu  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5kKMkIxx , :rolhgSmOzLHuk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Qd3" , "dxc4" , "e5" , "Ne5" , "Nf6" , "e6" , "Bd3" , "d5" , "f4" , "Bxc4" , "e4" , "Nf3" , "Nxd4" , "Nc3" , "O-O" , "Nd7" , "Nc6" , "Qc7" , "c5" , "Nc4" , "d4" , "Qxc4" , "b5" , "Be3" , "f5" , "h3" , "cxd4" , "a6" ;
+        chon:nextHalfMove      :hmgamSmOzLHu , :hmgam5kKMkIx .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touSmOzL  a          chon:hessTournament ;
+        chon:atPlace  :plaSmOzLH ;
+        chon:hasName  "Santa Monica" .
+
+:rolhgSmOzLHuk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSmOzLH .

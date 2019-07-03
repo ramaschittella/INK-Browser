@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeondgMW  a            chon:ChessOpening ;
+        chon:hasECOCode  "E06" .
+
+:resondgMWr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agondgMW .
+
+chon:HalfMove  chon:subEventOf  :gamondgM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agondgMW .
+
+:plaondgMW  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+:hmgamzlaulVu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzlaulVuv , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Nxe6" , "Nc2" , "Kc6" , "Nxg4" , "Kc4" , "Qxf3" , "Ke4" , "Ke2" , "Kb4" , "g5" , "Qxa8" , "Ned4" , "Kd3" , "Be1" , "hxg4+" , "Bxf1" , "Nf5" , "a5" , "Ncb6+" , "Ne7" , "Bd6" , "Na3" , "Bxc1" , "Kf7" , "b4" , "Rc8" , "Nxa5" , "Nb7" , "Nfd5" , "Kxf1" , "Bxf2" , "Ngxf3" , "Ned5+" , "Ba7" , "Bf4" , "Nd8" , "Bc7" , "Rc1" , "Bc5" , "Bh2" , "h3" , "Nf6+" , "Nc6" , "Nce4" , "Nc4" , "Nd6+" , "Nd3" , "Ne5+" , "Ke6" , "Ka4" , "Bb6" , "Kh5" , "Rxc1+" , "Ne5" , "Nxg3" , "Nb6+" , "Kd7" , "Be3" , "g4" , "Nb5" , "h6" , "Bxa8" , "Qf3" , "Kg6" , "Ba5" , "Bf2" , "Nc5" , "bxa5" , "Nd4" , "a6" , "a4" , "Ka5" , "Nc4+" , "Ne6" ;
+        chon:nextHalfMove      :hmgamzlaulVu .
+
+:cgrondgMW  a   chon:ChessGameReport .
+
+:agondgMW  a          chon:Agent ;
+        chon:hasName  "Tal, Mihail" , "Karpov, Anatoly" .
+
+:rolondgMW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agondgMW .
+
+:rolhgzlaulVuv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agondgMW .
+
+:gamondgM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolondgMW ;
+        chon:atPlace           :plaondgMW ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamondgMWr ;
+        chon:hasHalfMove       :hmgamondgMWr , :hmgamzlaulVu ;
+        chon:hasLastHalfMove   :hmgamzlaulVu ;
+        chon:hasOpening        :opeondgMW ;
+        chon:hasReport         :cgrondgMW ;
+        chon:hasResult         :resondgMWr ;
+        chon:subEventOf        :touondgM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touondgM  a          chon:hessTournament ;
+        chon:atPlace  :plaondgMW ;
+        chon:hasName  "Brussels" .
+
+:rolhgondgMWrk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agondgMW .
+
+:hmgamondgMWr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgondgMWrk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Ne4" , "Qc2" , "exf6" , "Nd7" , "Nbd2" , "c6" , "Bc4" , "cxd4" , "Nf3" , "b6" , "c4" , "a3" , "e6" , "Qd3" , "Bg2" , "d5" , "g3" , "cxd5" , "Be7" , "Rd8" , "Nxf6" , "e4" , "Bxd5" , "Nf6" , "Bb7" , "e5" , "c5" , "Qd1" , "Qc8" , "O-O" , "Neg5" , "f5" , "Nxd4" , "d4" , "Na6" ;
+        chon:nextHalfMove      :hmgamzlaulVu , :hmgamondgMWr .

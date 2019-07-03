@@ -1,0 +1,77 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamkiQuJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkiQuJM ;
+        chon:atPlace           :plakiQuJM ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkiQuJMy ;
+        chon:hasHalfMove       :hmgamQZJwUBr , :hmgamkiQuJMy , :hmgam2ZGKrSt ;
+        chon:hasLastHalfMove   :hmgam2ZGKrSt ;
+        chon:hasOpening        :opekiQuJM ;
+        chon:hasReport         :cgrkiQuJM ;
+        chon:hasResult         :reskiQuJMy ;
+        chon:subEventOf        :toukiQuJ .
+
+:rolhg2ZGKrStV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkiQuJM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkiQuJM .
+
+:hmgamkiQuJMy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoXxbxAzj , chon:AgentRole ;
+        chon:hasSANRecord      "Nf3" ;
+        chon:nextHalfMove      :hmgamQZJwUBr .
+
+:opekiQuJM  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+:cgrkiQuJM  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamkiQuJ .
+
+:hmgam2ZGKrSt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2ZGKrStV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kc4" , "Nxd5" , "Kxe4" , "Bd5" , "Rxg2" , "Kxd5" , "Rf3+" , "Rxb3" , "axb4" , "b4" , "Kf8" , "Kc5" , "Bc4+" , "Ne7" , "Rf2" , "b5+" ;
+        chon:nextHalfMove      :hmgam2ZGKrSt .
+
+:hmgamQZJwUBr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2ZGKrStV , :rolhgQZJwUBrJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "f4" , "Kc3" , "Bxa6" , "e6" , "Rf6" , "Ne4" , "Rfd1" , "Rf8" , "Qg5+" , "Bd2" , "Qxg2+" , "Kd2" , "e3" , "d5" , "Qd3" , "Ke1" , "g4" , "Bd3" , "fxg2" , "f3" , "dxe4" , "Rh6" , "Kf1" , "Rg1" , "Rxg2" , "Nc3" , "Qg1+" , "Qxg2" , "Nf6" , "Bb2" , "a3" , "c4" , "b6" , "O-O" , "Qc2" , "Qf1" , "Qg3" , "Ba6" , "b3" , "Bf1" , "Rc1" , "f5" , "Rc8" , "Rg2" , "gxf3" , "exd5" , "Rxh2" , "Qxf2+" , "e5" , "g5" , "cxd5" , "Bxc3" , "Nc6" , "e4" , "fxe4" , "Bb4" , "a5" , "d4" ;
+        chon:nextHalfMove      :hmgam2ZGKrSt , :hmgamQZJwUBr .
+
+:rolhgoXxbxAzj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkiQuJM .
+
+:rolkiQuJM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkiQuJM .
+
+:toukiQuJ  a          chon:hessTournament ;
+        chon:atPlace  :plakiQuJM ;
+        chon:hasName  "Santiago" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plakiQuJM  a         chon:Place ;
+        chon:hasName  "Santiago" .
+
+:reskiQuJMy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agkiQuJM  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Pachman, Ludek" .
+
+:rolhgQZJwUBrJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkiQuJM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkiQuJM .

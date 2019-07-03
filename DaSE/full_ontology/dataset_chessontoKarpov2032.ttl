@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamjaP1r  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhpqNFl ;
+        chon:atPlace           :plajaP1rd ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhpqNFlh ;
+        chon:hasHalfMove       :hmgamhpqNFlh ;
+        chon:hasLastHalfMove   :hmgamhpqNFlh ;
+        chon:hasOpening        :opehpqNFl ;
+        chon:hasReport         :cgrhpqNFl ;
+        chon:hasResult         :reshpqNFlh ;
+        chon:subEventOf        :touhpqNF .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghpqNFl .
+
+chon:HalfMove  chon:subEventOf  :gamjaP1r .
+
+:plajaP1rd  a         chon:Place ;
+        chon:hasName  "Elista" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghpqNFl .
+
+:hmgamhpqNFlh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghpqNFlhA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bb5" , "Be7" , "a5" , "Be3" , "Rdd1" , "Nd3" , "Qe6" , "exf5" , "Ne5" , "Qe7" , "Rc8" , "Bxa7" , "Rc2" , "Nf6" , "Bxf5" , "Kh7" , "g6" , "Nc6" , "Nc5" , "Rd2" , "Kh2" , "h4" , "Qf4" , "Qa6" , "Bxd5" , "Bd5" , "Nf3" , "c6" , "cxd5" , "Qd7" , "d4" , "Rc3" , "Bxf6" , "d5" , "Qg3" , "Ne7" , "Rc4" , "b4" , "Bd7" , "Qe2" , "O-O" , "b5" , "Rxe4" , "Qc6" , "Nc3" , "h6" , "Bc4" , "Nc4" , "e4" , "Nxd5" , "Bd6" , "Bd2" , "Rac1" , "Bf8" , "Rc6" , "Qe5" , "Nf4" , "Rad8" , "Qe4" , "exd5" , "Nh3" , "Nf5" , "Rdc1" , "c4" , "Nd7" , "Bxe4" , "Bc6" , "a3" , "e6" , "Rxc6" , "Rfe8" , "Nxf6+" , "a4" , "Re4" , "Bxc6" , "b6" , "Bd3" , "Qb6" , "Bg7" , "Ne4" , "Bb4" , "Rfd1" ;
+        chon:nextHalfMove      :hmgamhpqNFlh .
+
+:cgrhpqNFl  a   chon:ChessGameReport .
+
+:rolhghpqNFlhA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghpqNFl .
+
+:aghpqNFl  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kamsky, Gata" .
+
+:touhpqNF  a          chon:hessTournament ;
+        chon:atPlace  :plajaP1rd ;
+        chon:hasName  "FIDE-Wch" .
+
+:rolhpqNFl  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghpqNFl .
+
+:opehpqNFl  a            chon:ChessOpening ;
+        chon:hasECOCode  "B14" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reshpqNFlh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

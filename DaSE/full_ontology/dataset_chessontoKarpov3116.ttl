@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agNqQtNd  a          chon:Agent ;
+        chon:hasName  "Ghaem Maghami,E" , "Karpov,Ana" .
+
+:rolNqQtNd  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrJmxSzb  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNqQtNd .
+
+chon:HalfMove  chon:subEventOf  :gamNqQtN .
+
+:rolJmxSzb  a             chon:AuthorRole ;
+        chon:performedBy  :agJmxSzb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNqQtNd .
+
+:resJmxSzb5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamNqQtN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNqQtNd ;
+        chon:atPlace           :plaNqQtNd ;
+        chon:atTime            "2009.02.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJmxSzb5 ;
+        chon:hasHalfMove       :hmgamJmxSzb5 ;
+        chon:hasLastHalfMove   :hmgamJmxSzb5 ;
+        chon:hasOpening        :opeJmxSzb ;
+        chon:hasReport         :cgrJmxSzb ;
+        chon:hasResult         :resJmxSzb5 ;
+        chon:subEventOf        :touNqQtN .
+
+:touNqQtN  a          chon:hessTournament ;
+        chon:atPlace  :plaNqQtNd ;
+        chon:hasName  "Mate of the King Blitz" .
+
+:rolhgJmxSzb5r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNqQtNd .
+
+:hmgamJmxSzb5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJmxSzb5r ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ghaem Maghami,E" ;
+        chon:hasSANRecord      "d4" , "f6" , "Kg3" , "e4" , "Rd2" , "Nh3+" , "Nb6" , "Bd2" , "Rc6" , "Bf4" , "Qb6" , "Nxb3" , "cxb5" , "h4" , "h6" , "d5" , "Nd5" , "Nxe5" , "Qc2" , "Nf4+" , "Nc3" , "b5" , "Qxc3" , "Qb6+" , "Ng4" , "a3" , "Kxh4" , "Nb4" , "Re6+" , "Ra1" , "Nf2" , "Bxe5" , "Kf2" , "Rc3" , "Bxa6" , "Ba1" , "Qc5" , "Qd3" , "Bg5" , "Qc7" , "Qxc7" , "Ba6" , "Re4" , "Rg5+" , "Rd1" , "Nd4" , "Bd3" , "Rac8" , "c6" , "Qxb5" , "N4xe5" , "Kf6" , "h5" , "Bxc3+" , "Rgxg2" , "Qxe5" , "Kg6" , "Rxa3" , "Kh3" , "Re8" , "Nc5" , "Rf5" , "Qxa6" , "dxe5" , "Nc6" , "Re5+" , "Rc1" , "Nb3" , "O-O" , "Nh3" , "a5" , "Rc2+" , "Kf5" , "Kh7" , "Kg4" , "Nd3" , "Kg5" , "e5" , "h4+" , "c4" , "e6" , "b3" , "Nd7" , "Rxc7" , "Nc4" , "Kxe5" , "Be5" , "Be3" , "Nxc1" , "a4" , "Kh2" , "Nf4" , "g5" , "gxh4+" , "Nf6" , "fxe5" , "Qe3" , "Bb4" , "f3" , "Re1" , "Rxe5" ;
+        chon:nextHalfMove      :hmgamJmxSzb5 .
+
+:plaNqQtNd  a         chon:Place ;
+        chon:hasName  "Tehran IRI" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeJmxSzb  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .

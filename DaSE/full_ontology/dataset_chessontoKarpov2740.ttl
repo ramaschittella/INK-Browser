@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgz8xehqin  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ago8S2Ir .
+
+:reso8S2Irf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plao8S2Ir  a         chon:Place ;
+        chon:hasName  "Cap D'Agde FRA" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ago8S2Ir .
+
+chon:HalfMove  chon:subEventOf  :gamo8S2I .
+
+:opeo8S2Ir  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:ago8S2Ir  a          chon:Agent ;
+        chon:hasName  "Leko,P" , "Karpov,Ana" .
+
+:rolo8S2Ir  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ago8S2Ir .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ago8S2Ir .
+
+:gamo8S2I  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolo8S2Ir ;
+        chon:atPlace           :plao8S2Ir ;
+        chon:atTime            "2003.10.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamo8S2Irf ;
+        chon:hasHalfMove       :hmgamz8xehqi , :hmgamo8S2Irf ;
+        chon:hasLastHalfMove   :hmgamz8xehqi ;
+        chon:hasOpening        :opeo8S2Ir ;
+        chon:hasReport         :cgro8S2Ir ;
+        chon:hasResult         :reso8S2Irf ;
+        chon:subEventOf        :touo8S2I .
+
+:touo8S2I  a          chon:hessTournament ;
+        chon:atPlace  :plao8S2Ir ;
+        chon:hasName  "GpB" .
+
+:rolhgo8S2Irfc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ago8S2Ir .
+
+:hmgamz8xehqi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgz8xehqin ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko,P" ;
+        chon:hasSANRecord      "Nf5" , "Ng6" , "Bf8" , "Bd6" , "Nh4" , "Bxe3" , "Ne3" , "Rxf6" , "Bxh6" , "Bf4" ;
+        chon:nextHalfMove      :hmgamz8xehqi .
+
+:hmgamo8S2Irf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgo8S2Irfc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko,P" ;
+        chon:hasSANRecord      "b6" , "Nxd5" , "Nh4" , "Ba6" , "fxg6+" , "Bf4" , "Be7" , "Kd3" , "e4" , "g4" , "Re2" , "c4" , "Ng2" , "f6" , "O-O" , "h6" , "Rd7" , "Rc2" , "Ne3" , "Rfe1" , "Rxf1" , "Kd7" , "Kf7" , "b4" , "hxg6" , "Nf5" , "Rc6" , "Nc3" , "e6" , "Rd8" , "Bd6" , "c6" , "f4" , "h4" , "Ke6" , "gxh5" , "Rac1" , "Qb3" , "Rxc8" , "Qxd5" , "b5" , "Rfd8" , "Bxb8" , "Raxb8" , "Nf6" , "Rh7" , "g6" , "exd5" , "Bxf1" , "Nf3" , "Kd2" , "cxd5" , "d4" , "g3" , "Bf8" , "f5" , "h5" , "Rbc8" , "d5" , "Bb4" ;
+        chon:nextHalfMove      :hmgamz8xehqi , :hmgamo8S2Irf .
+
+:cgro8S2Ir  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

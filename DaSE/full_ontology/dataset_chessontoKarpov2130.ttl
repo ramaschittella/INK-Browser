@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope8biKUn  a            chon:ChessOpening ;
+        chon:hasECOCode  "D97" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8biKUn .
+
+:pla8biKUn  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:hmgam8biKUn2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8biKUn2M ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko, Peter" ;
+        chon:hasSANRecord      "Raxc8" , "Nf6" , "Qxe3+" , "Nfd7" , "e5" , "c4" , "a6" , "fxe5" , "dxc4" , "Nc6" , "g6" , "Nxc8" , "Qc5" , "Nb4" , "Qxd5" , "Be2" , "Nxe7+" , "Rac1" , "Nd5" , "Nc3" , "Qd2" , "f4" , "d4" , "Qb3" , "Qb6" , "Qe3" , "O-O" , "c5" , "Nf3" , "Nf5" , "Qxc4" , "cxd4" , "Bg7" , "Nxe3" , "Be3" , "Qd3" , "Bxd4" , "d5" , "Kh8" , "e4" , "Nb6" , "Nxd5" , "Nxd4" , "f6" ;
+        chon:nextHalfMove      :hmgam8biKUn2 .
+
+:rolhg8biKUn2M  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8biKUn .
+
+chon:HalfMove  chon:subEventOf  :gam8biKU .
+
+:cgr8biKUn  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8biKUn .
+
+:gam8biKU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8biKUn ;
+        chon:atPlace           :pla8biKUn ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8biKUn2 ;
+        chon:hasHalfMove       :hmgam8biKUn2 ;
+        chon:hasLastHalfMove   :hmgam8biKUn2 ;
+        chon:hasOpening        :ope8biKUn ;
+        chon:hasReport         :cgr8biKUn ;
+        chon:hasResult         :res8biKUn2 ;
+        chon:subEventOf        :tou8biKU .
+
+:rol8biKUn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8biKUn .
+
+:tou8biKU  a          chon:hessTournament ;
+        chon:atPlace  :pla8biKUn ;
+        chon:hasName  "Vienna Millenium" .
+
+:res8biKUn2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag8biKUn  a          chon:Agent ;
+        chon:hasName  "Leko, Peter" , "Karpov, Anatoly" .

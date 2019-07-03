@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resHxm6xn3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touHxm6x  a          chon:hessTournament ;
+        chon:atPlace  :plaHxm6xn ;
+        chon:hasName  "Bled" .
+
+:cgrHxm6xn  a   chon:ChessGameReport .
+
+:rolHxm6xn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHxm6xn .
+
+:rolhgHxm6xn33  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHxm6xn .
+
+:hmgamHxm6xn3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHxm6xn33 , chon:AgentRole , :rolhgDt4ehli1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Keres, Paul" ;
+        chon:hasSANRecord      "c6" , "dxe4" , "Bg4" , "h3" , "d4" , "d5" , "Qxe4" , "Nbd7" , "Nf6" , "Bxf3" , "Qxf3" , "e4" , "Qe3" , "Nf3" , "Nxe4" , "Nc3" ;
+        chon:nextHalfMove      :hmgamDt4ehli , :hmgamHxm6xn3 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHxm6xn .
+
+:plaHxm6xn  a         chon:Place ;
+        chon:hasName  "Bled" .
+
+chon:HalfMove  chon:subEventOf  :gamHxm6x .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHxm6xn .
+
+:hmgamDt4ehli  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDt4ehli1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Keres, Paul" ;
+        chon:hasSANRecord      "e4" , "Qc7" , "Qc5" , "Qa1+" , "Rfd1" , "Bxb7" , "c5" , "Kg7" , "Bc5" , "Qxc1" , "Rc2" , "g5" , "b5" , "Ra2" , "c4" , "f5" , "axb4" , "O-O" , "Kh1" , "Qf2" , "Rad1" , "h5" , "Qxc7" , "Qg8+" , "b7" , "a5" , "Qc2" , "Qd2" , "e2" , "c6" , "Be2" , "Qd5" , "Qxd4" , "e5" , "Rxd4" , "d5" , "g6" , "Rfd8" , "Bg4+" , "b6" , "Nd7" , "fxe3" , "Qe5" , "a3" , "Nxb7" , "Nd8" , "Qxe3" , "Kf6" , "Be7" , "e3" , "Kg1" , "Nb8" , "c7" , "Rc1" , "Be3" , "Bf3" , "Qe5+" , "h4" , "dxc6" , "Qd3" , "Rd4" , "Kg6" , "Qg3" , "Qd8+" , "Qf2+" , "Qb4" , "Qd6" , "Ke6" , "Qc3" , "Nc6" , "Qxe2" , "Bf1" , "Rxc1" , "Kh2" , "Qf8+" , "b4" , "Kh6" , "Bxe3" , "Bd1" , "Qxb6" , "Qxc6" ;
+        chon:nextHalfMove      :hmgamDt4ehli .
+
+:gamHxm6x  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHxm6xn ;
+        chon:atPlace           :plaHxm6xn ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHxm6xn3 ;
+        chon:hasHalfMove       :hmgamDt4ehli , :hmgamHxm6xn3 ;
+        chon:hasLastHalfMove   :hmgamDt4ehli ;
+        chon:hasOpening        :opeHxm6xn ;
+        chon:hasReport         :cgrHxm6xn ;
+        chon:hasResult         :resHxm6xn3 ;
+        chon:subEventOf        :touHxm6x .
+
+:agHxm6xn  a          chon:Agent ;
+        chon:hasName  "Keres, Paul" , "Fischer, Robert James" .
+
+:opeHxm6xn  a            chon:ChessOpening ;
+        chon:hasECOCode  "B11" .
+
+:rolhgDt4ehli1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHxm6xn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

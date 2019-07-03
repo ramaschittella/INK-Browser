@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSi6rqRul  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSi6rqR .
+
+:gamSi6rq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSi6rqR ;
+        chon:atPlace           :plaSi6rqR ;
+        chon:atTime            "1999.03.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSi6rqRu ;
+        chon:hasHalfMove       :hmgamSfSlBQI , :hmgamOfMAaPL , :hmgamSi6rqRu ;
+        chon:hasLastHalfMove   :hmgamOfMAaPL ;
+        chon:hasOpening        :opeSi6rqR ;
+        chon:hasReport         :cgrSi6rqR ;
+        chon:hasResult         :resSi6rqRu ;
+        chon:subEventOf        :touSi6rq .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSi6rqR .
+
+:opeSi6rqR  a            chon:ChessOpening ;
+        chon:hasECOCode  "E46" .
+
+:resSi6rqRu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrSi6rqR  a   chon:ChessGameReport .
+
+:hmgamSi6rqRu  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSfSlBQI7 , :rolhgSi6rqRul ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Piket, Jeroen" ;
+        chon:hasSANRecord      "Nc3" , "e6" , "d4" , "g3" , "c4" , "Ne2" , "Bg2" , "Bb4" , "Bd2" , "d5" , "O-O" , "exd5" , "Nf6" , "cxd5" , "e3" , "c6" , "Be7" , "a3" , "Na6" , "Nc7" ;
+        chon:nextHalfMove      :hmgamSi6rqRu , :hmgamSfSlBQI .
+
+chon:HalfMove  chon:subEventOf  :gamSi6rq .
+
+:rolhgSfSlBQI7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSi6rqR .
+
+:hmgamSfSlBQI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSfSlBQI7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Piket, Jeroen" ;
+        chon:hasSANRecord      "O-O" , "g6" , "Ne6" , "Re8" , "Na4" , "f3" , "Qc2" ;
+        chon:nextHalfMove      :hmgamOfMAaPL , :hmgamSfSlBQI .
+
+:rolhgOfMAaPLj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSi6rqR .
+
+:touSi6rq  a          chon:hessTournament ;
+        chon:atPlace  :plaSi6rqR ;
+        chon:hasName  "Karpov-Piket Match" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamOfMAaPL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOfMAaPLj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Piket, Jeroen" ;
+        chon:hasSANRecord      "Kh1" , "Ra1" , "Bf3" , "Ne3" , "Qa6" , "Rb1" , "Kg2" , "Qa4" , "f4" , "Qd3" , "Ba7" , "Nxb5" , "Bc5" , "Bxb4" , "dxc5" , "Rxa8" , "a5" , "Nxd4" , "axb4" , "b5" , "Rb3" , "exd4" , "Rd8" , "Qd7" , "Ba6" , "Bxb5" , "Nac3" , "c5" , "Reb1" , "Ne3+" , "Qa7" , "Ng4" , "Re8" , "Qxa8" , "b4" , "d4" , "Nd5" , "Ba5" , "Bc3" , "Bxc5" , "Qc3" , "Rfe1" , "Rxb5" ;
+        chon:nextHalfMove      :hmgamOfMAaPL .
+
+:rolSi6rqR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSi6rqR .
+
+:plaSi6rqR  a         chon:Place ;
+        chon:hasName  "Monaco" .
+
+:agSi6rqR  a          chon:Agent ;
+        chon:hasName  "Piket, Jeroen" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSi6rqR .

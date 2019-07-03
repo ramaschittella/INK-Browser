@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agpsO9cg  a          chon:Agent ;
+        chon:hasName  "De Vere/MacDonnell" , "Steinitz/Blackburne" .
+
+:cgrpsO9cg  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpsO9cg .
+
+:gampsO9c  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpsO9cg ;
+        chon:atPlace           :plapsO9cg ;
+        chon:atTime            "1868.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampsO9cgY ;
+        chon:hasHalfMove       :hmgampsO9cgY , :hmgamAsLlJf2 , :hmgam3uVE7gQ ;
+        chon:hasLastHalfMove   :hmgam3uVE7gQ ;
+        chon:hasOpening        :opepsO9cg ;
+        chon:hasReport         :cgrpsO9cg ;
+        chon:hasResult         :respsO9cgY ;
+        chon:subEventOf        :toupsO9c .
+
+:hmgam3uVE7gQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3uVE7gQB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "De Vere/MacDonnell" ;
+        chon:hasSANRecord      "Nxe6" , "Be8" , "Bg2" , "d4" , "Ne5" , "Nd7" , "f5" , "Nf4" , "Nxh5" , "Kd8" , "cxd4" , "fxe6" , "Ne6+" , "Ke8" ;
+        chon:nextHalfMove      :hmgam3uVE7gQ .
+
+:rolhg3uVE7gQB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpsO9cg .
+
+:rolhgpsO9cgYZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpsO9cg .
+
+chon:HalfMove  chon:subEventOf  :gampsO9c .
+
+:respsO9cgY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opepsO9cg  a            chon:ChessOpening ;
+        chon:hasECOCode  "B24" .
+
+:rolhgAsLlJf2c  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpsO9cg .
+
+:hmgampsO9cgY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpsO9cgYZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "De Vere/MacDonnell" ;
+        chon:hasSANRecord      "e6" , "c5" , "e4" , "Nc3" , "Bg2" , "g3" , "Nc6" ;
+        chon:nextHalfMove      :hmgampsO9cgY , :hmgamAsLlJf2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolpsO9cg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpsO9cg .
+
+:toupsO9c  a          chon:hessTournament ;
+        chon:atPlace  :plapsO9cg ;
+        chon:hasName  "GBR tour sim" .
+
+:hmgamAsLlJf2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3uVE7gQB , :rolhgAsLlJf2c , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "De Vere/MacDonnell" ;
+        chon:hasSANRecord      "Qxh5" , "Nc7" , "f4" , "c3" , "e5" , "d6" , "Kh2" , "Nd4" , "Ng3" , "Bd7" , "Qh5" , "Ne6" , "Nxg7+" , "Nxf6+" , "d3" , "Rc8" , "exf4" , "Bf6" , "h3" , "Nd5" , "Bg4" , "h5" , "Nxh5" , "Kf8" , "Ne7" , "a6" , "Nc6" , "f6" , "O-O" , "Bf3" , "gxf4" , "Ne3" , "Be7" , "Qh4" , "Nh5" , "Qxf6" , "Nge2" ;
+        chon:nextHalfMove      :hmgam3uVE7gQ , :hmgamAsLlJf2 .
+
+:plapsO9cg  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpsO9cg .

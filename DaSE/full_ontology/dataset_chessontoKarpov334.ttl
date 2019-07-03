@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resNJ3ZWVl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agNJ3ZWV  a          chon:Agent ;
+        chon:hasName  "Parma, Bruno" , "Karpov, Anatoly" .
+
+:opeNJ3ZWV  a            chon:ChessOpening ;
+        chon:hasECOCode  "C63" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNJ3ZWV .
+
+chon:HalfMove  chon:subEventOf  :gamNJ3ZW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNJ3ZWV .
+
+:cgrNJ3ZWV  a   chon:ChessGameReport .
+
+:hmgamJHL9GVS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJHL9GVS0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Parma, Bruno" ;
+        chon:hasSANRecord      "fxe5" , "Qh3" , "Qg4" , "Nxc6" , "Qg5" , "Ng4" , "Be3" , "Bxe5" , "dxe4" , "Bxf1" , "d4" , "Nxe5" , "d5" , "c6" , "b6" , "Qxe4" , "Bg5" , "g3" , "Bf6" , "Bxd4" , "f4" , "Kg2" , "Qxg4" , "Rdf8" , "d3" , "Bc5" , "c3" , "Nxe4" , "Qh4+" , "Qe2" , "Rae1" , "O-O" , "Bxg4" , "Ne5+" , "Rxf1" , "Nf6" , "O-O-O" , "h6" , "Bc4" ;
+        chon:nextHalfMove      :hmgamJHL9GVS .
+
+:hmgamNJ3ZWVl  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNJ3ZWVlb , :rolhgJHL9GVS0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Parma, Bruno" ;
+        chon:hasSANRecord      "fxe4" , "Bb5" , "f5" , "Nf3" , "Nc6" , "e4" , "e5" , "Nc3" ;
+        chon:nextHalfMove      :hmgamJHL9GVS , :hmgamNJ3ZWVl .
+
+:rolNJ3ZWV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNJ3ZWV .
+
+:rolhgNJ3ZWVlb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNJ3ZWV .
+
+:rolhgJHL9GVS0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNJ3ZWV .
+
+:plaNJ3ZWV  a         chon:Place ;
+        chon:hasName  "Ljubljana" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamNJ3ZW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNJ3ZWV ;
+        chon:atPlace           :plaNJ3ZWV ;
+        chon:atTime            "1975.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNJ3ZWVl ;
+        chon:hasHalfMove       :hmgamJHL9GVS , :hmgamNJ3ZWVl ;
+        chon:hasLastHalfMove   :hmgamJHL9GVS ;
+        chon:hasOpening        :opeNJ3ZWV ;
+        chon:hasReport         :cgrNJ3ZWV ;
+        chon:hasResult         :resNJ3ZWVl ;
+        chon:subEventOf        :touNJ3ZW .
+
+:touNJ3ZW  a          chon:hessTournament ;
+        chon:atPlace  :plaNJ3ZWV ;
+        chon:hasName  "Portoroz/Ljubljana" .

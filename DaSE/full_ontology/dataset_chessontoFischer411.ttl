@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamT6oYr8l  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgT6oYr8lS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ra8" , "g4" , "Bf3" , "Rxh8" , "g3" , "b3" , "Ke7" , "Nd3+" , "Ne4" , "Bd7" , "d3" , "Ne3" , "Nd5+" , "Nc3" , "hxg5" , "Rxc1" , "c4" , "Qxd1+" , "Nxc1+" , "Bc6" , "Rh1" , "h6" , "Nxd1" , "g5" , "c5" , "Bxe4" , "Nf6" , "Bxd5" , "Nxe4" , "f5" , "b5" , "Nf2" , "f4" , "b4" , "exd5" , "Nh3" , "e5" , "a5" , "h4" , "Nc6" , "e4" , "Ne5" , "a4" , "Ke2" , "dxc4" , "Bg2" , "Bd6" , "Bc2" , "e6" , "d5" ;
+        chon:nextHalfMove      :hmgamT6oYr8l .
+
+:agT6oYr8  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Poschel, Paul" .
+
+:rolT6oYr8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agT6oYr8 .
+
+:opeT6oYr8  a            chon:ChessOpening ;
+        chon:hasECOCode  "A19" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agT6oYr8 .
+
+chon:HalfMove  chon:subEventOf  :gamT6oYr .
+
+:gamT6oYr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolT6oYr8 ;
+        chon:atPlace           :plaT6oYr8 ;
+        chon:atTime            "1963.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamT6oYr8l ;
+        chon:hasHalfMove       :hmgamT6oYr8l ;
+        chon:hasLastHalfMove   :hmgamT6oYr8l ;
+        chon:hasOpening        :opeT6oYr8 ;
+        chon:hasReport         :cgrT6oYr8 ;
+        chon:hasResult         :resT6oYr8l ;
+        chon:subEventOf        :touT6oYr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agT6oYr8 .
+
+:touT6oYr  a          chon:hessTournament ;
+        chon:atPlace  :plaT6oYr8 ;
+        chon:hasName  "Bay City" .
+
+:rolhgT6oYr8lS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agT6oYr8 .
+
+:resT6oYr8l  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaT6oYr8  a         chon:Place ;
+        chon:hasName  "Bay City" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrT6oYr8  a   chon:ChessGameReport .

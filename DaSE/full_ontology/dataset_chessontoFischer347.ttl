@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamBW11Z1b  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBW11Z1bu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ne3" , "Bd1" , "b5" , "Bxf5" , "Nf5" , "Kg4" , "Ke3" , "Bxa6" , "Ne7" , "Kg6" , "Kg3" , "Bxh3" , "Bf3+" , "Nf5+" , "Kf2" , "Bf1" , "Bd3" , "cxb5" , "Be4" , "Bf3" , "Nh6" , "Kg7" , "Bxh7" , "Kf6" , "Kf3" , "Nc2" , "Bc8" , "Bc2+" , "Kf5" , "c4" , "bxa6" , "a6" , "Kh5" , "Bxb5" ;
+        chon:nextHalfMove      :hmgamBW11Z1b .
+
+:resYURt61h  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYURt61 .
+
+:hmgamaUOHEZm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBW11Z1bu , :rolhgaUOHEZm6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qd8" , "Qa6" , "f5" , "f4" , "Ne8" , "Nf6" , "c5" , "e6" , "Qc3+" , "Qxe7" , "Nxe4" , "c3" , "Nbd7" , "Kg1" , "h3" , "Nf7" , "Bxg7" , "Bf5" , "Re1" , "Ra3" , "e4" , "Re7" , "Bd2" , "d5" , "fxe4" , "exd5" , "Ne5" , "Qb6" , "Kxg7" , "Qe1+" , "axb5" , "Rb8" , "Bg7" , "Bc3" , "a4" , "Qb3" , "bxc3" , "b6" , "Rxe7" , "Nd2" , "c4" , "O-O" , "Rxe1" , "d6" , "Na3" , "cxd5" , "Qa5" , "Nc4" , "Nc3" , "Rxe1+" , "g3" , "Nf3" , "Kf2" , "Bd3" , "Nxb5" , "Kg6" , "Qxc3" , "Nb5" , "g6" , "g5" , "Re8" , "Rb7" , "Raa1" , "gxf4" , "Nc7" , "d4" , "Bg2" , "Kh2" ;
+        chon:nextHalfMove      :hmgamBW11Z1b , :hmgamaUOHEZm .
+
+chon:HalfMove  chon:subEventOf  :gamYURt6 .
+
+:opeYURt61  a            chon:ChessOpening ;
+        chon:hasECOCode  "A49" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYURt61 .
+
+:gamYURt6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYURt61 ;
+        chon:atPlace           :plaYURt61 ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaUOHEZm ;
+        chon:hasHalfMove       :hmgamBW11Z1b , :hmgamaUOHEZm ;
+        chon:hasLastHalfMove   :hmgamBW11Z1b ;
+        chon:hasOpening        :opeYURt61 ;
+        chon:hasReport         :cgrYURt61 ;
+        chon:hasResult         :resYURt61h ;
+        chon:subEventOf        :touYURt6 .
+
+:touYURt6  a          chon:hessTournament ;
+        chon:atPlace  :plaYURt61 ;
+        chon:hasName  "Candidats Tournament" .
+
+:plaYURt61  a         chon:Place ;
+        chon:hasName  "Curacao" .
+
+:rolhgBW11Z1bu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYURt61 .
+
+:rolhgaUOHEZm6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYURt61 .
+
+:cgrYURt61  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agYURt61  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Benko, Pal C" .
+
+:rolYURt61  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYURt61 .

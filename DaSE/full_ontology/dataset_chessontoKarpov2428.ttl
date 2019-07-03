@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag8IUED5  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Anand, Viswanathan" .
+
+:rol8IUED5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8IUED5 .
+
+:ope8IUED5  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:gam8IUED  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8IUED5 ;
+        chon:atPlace           :pla8IUED5 ;
+        chon:atTime            "1999.06.11"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8IUED5Z ;
+        chon:hasHalfMove       :hmgam8IUED5Z ;
+        chon:hasLastHalfMove   :hmgam8IUED5Z ;
+        chon:hasOpening        :ope8IUED5 ;
+        chon:hasReport         :cgr8IUED5 ;
+        chon:hasResult         :res8IUED5Z ;
+        chon:subEventOf        :tou8IUED .
+
+:tou8IUED  a          chon:hessTournament ;
+        chon:atPlace  :pla8IUED5 ;
+        chon:hasName  "Leon Man+Comp m" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8IUED5 .
+
+chon:HalfMove  chon:subEventOf  :gam8IUED .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8IUED5 .
+
+:hmgam8IUED5Z  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8IUED5Z0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b3" , "Ba6" , "Nf6" , "Qxc7" , "Rac8" , "Qxd2" , "g3" , "dxc5" , "Qc2" , "b6" , "Nxc5" , "e6" , "c6" , "d4" , "e4" , "Nf3" , "Nxe4" , "Qc7" , "Bxd2+" , "Rfd1" , "Qe5" , "Bg2" , "Nbd2" , "d5" , "Qxe4" , "O-O" , "Bb4+" , "Nbd7" , "Bd2" , "Bb7" , "c5" , "dxe4" , "c4" ;
+        chon:nextHalfMove      :hmgam8IUED5Z .
+
+:pla8IUED5  a         chon:Place ;
+        chon:hasName  "Leon" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res8IUED5Z  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgr8IUED5  a   chon:ChessGameReport .
+
+:rolhg8IUED5Z0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8IUED5 .

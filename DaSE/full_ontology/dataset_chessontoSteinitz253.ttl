@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaAt3lfF  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglpNgpE .
+
+:aglpNgpE  a          chon:Agent ;
+        chon:hasName  "Meitner, Philipp" , "Steinitz, William" .
+
+:cgrlpNgpE  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamAt3lf .
+
+:rolhg6nzcSDMH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglpNgpE .
+
+:hmgamIpGIwEG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIpGIwEGj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Meitner, Philipp" ;
+        chon:hasSANRecord      "Bxf4" , "Rc6" , "e6" , "Qh3" , "Rxd3" , "e5" , "Rxc4" , "Re1" , "Nxf3" , "e7" , "exf4" , "Rxe6" , "Rf2" , "Qa5" , "Qe6" , "Rc1+" ;
+        chon:nextHalfMove      :hmgamIpGIwEG .
+
+:opelpNgpE  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+:gamAt3lf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollpNgpE ;
+        chon:atPlace           :plaAt3lfF ;
+        chon:atTime            "1882.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6nzcSDM ;
+        chon:hasHalfMove       :hmgamwpJuZDB , :hmgamIpGIwEG , :hmgam6nzcSDM ;
+        chon:hasLastHalfMove   :hmgamIpGIwEG ;
+        chon:hasOpening        :opelpNgpE ;
+        chon:hasReport         :cgrlpNgpE ;
+        chon:hasResult         :reslpNgpEy ;
+        chon:subEventOf        :tou0rS4S .
+
+:tou0rS4S  a          chon:hessTournament ;
+        chon:atPlace  :plaAt3lfF ;
+        chon:hasName  "Vienna" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reslpNgpEy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgam6nzcSDM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6nzcSDMH , :rolhgwpJuZDB7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Meitner, Philipp" ;
+        chon:hasSANRecord      "c3" , "Nf3" , "fxe5" , "f4" , "Kg7" , "dxe5" , "Bg4" , "Bb3" , "Bxf7+" , "d3" , "Nc6" , "Na4" , "Bb4+" , "g6" , "Kf8" , "Nc3" , "e4" , "e5" , "d6" , "Bc4" , "Bc5" ;
+        chon:nextHalfMove      :hmgam6nzcSDM , :hmgamwpJuZDB .
+
+:rollpNgpE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglpNgpE .
+
+:rolhgIpGIwEGj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglpNgpE .
+
+:rolhgwpJuZDB7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglpNgpE .
+
+:hmgamwpJuZDB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwpJuZDB7 , :rolhgIpGIwEGj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Meitner, Philipp" ;
+        chon:hasSANRecord      "Rbd8" , "Bxa4" , "Kf1" , "Nxb4" , "gxf3" , "Rhf8" , "Nd4" , "Rac1" , "Nf6" , "Rb8" , "Kh1" , "Rf1" , "Be3" , "Bxf3" , "Kg2" , "Nf4+" , "b5" , "Qh4+" , "Bc4" , "bxa4" , "Nc6" , "Bb5" , "Rf6" , "b3" , "Nh5" , "cxb4" , "Qd2" ;
+        chon:nextHalfMove      :hmgamIpGIwEG , :hmgamwpJuZDB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglpNgpE .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamGXVqG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGXVqGc ;
+        chon:atPlace           :plaGXVqGc ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGXVqGct ;
+        chon:hasHalfMove       :hmgamGXVqGct ;
+        chon:hasLastHalfMove   :hmgamGXVqGct ;
+        chon:hasOpening        :opeGXVqGc ;
+        chon:hasReport         :cgrGXVqGc ;
+        chon:hasResult         :resGXVqGct ;
+        chon:subEventOf        :touGXVqG .
+
+:resGXVqGct  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touGXVqG  a          chon:hessTournament ;
+        chon:atPlace  :plaGXVqGc ;
+        chon:hasName  "Sousse Interzonal+" .
+
+:agGXVqGc  a          chon:Agent ;
+        chon:hasName  "Myagmarsuren, Lhamsuren" , "Fischer, Robert James" .
+
+:rolGXVqGc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGXVqGc .
+
+:opeGXVqGc  a            chon:ChessOpening ;
+        chon:hasECOCode  "A08" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGXVqGc .
+
+chon:HalfMove  chon:subEventOf  :gamGXVqG .
+
+:rolhgGXVqGctG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGXVqGc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGXVqGc .
+
+:cgrGXVqGc  a   chon:ChessGameReport .
+
+:hmgamGXVqGct  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGXVqGctG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Myagmarsuren, Lhamsuren" ;
+        chon:hasSANRecord      "Qh6" , "Ng5" , "a5" , "Qh5" , "Re1" , "Qe8" , "Bh3" , "Ra7" , "h5" , "O-O" , "dxc2" , "Ne4" , "Nb6" , "c5" , "Nf6" , "e4" , "Rxe4" , "bxa3" , "Bf4" , "Bd2" , "Ngf3" , "Qg5" , "Qd7" , "d4" , "Rh4" , "Rfc8" , "Bxg5" , "Bg2" , "Nd7" , "Be7" , "b5" , "Na5" , "e5" , "b4" , "Ne3" , "Qf8" , "h4" , "Nc6" , "d5" , "Nf1" , "Nd5" , "a3" , "g6" , "a4" , "g3" , "Qxh7+" , "Nd2" , "cxd3" , "e6" , "Nxe4" , "Bf6" , "Ba6" , "c4" , "Nc3" , "d3" ;
+        chon:nextHalfMove      :hmgamGXVqGct .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaGXVqGc  a         chon:Place ;
+        chon:hasName  "Sousse" .

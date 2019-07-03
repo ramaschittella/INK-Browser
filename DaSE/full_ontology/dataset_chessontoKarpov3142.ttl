@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam8AfLM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8AfLMM ;
+        chon:atPlace           :pla8AfLMM ;
+        chon:atTime            "2009.08.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8AfLMMM ;
+        chon:hasHalfMove       :hmgam8AfLMMM , :hmgamjycZlNR ;
+        chon:hasLastHalfMove   :hmgamjycZlNR ;
+        chon:hasOpening        :ope8AfLMM ;
+        chon:hasReport         :cgr8AfLMM ;
+        chon:hasResult         :res8AfLMMM ;
+        chon:subEventOf        :tou8AfLM .
+
+:hmgam8AfLMMM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjycZlNRP , :rolhg8AfLMMMS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rc7" , "Rc8" , "Kf4" , "Rxc4" , "Re3" , "Nd5" , "Ne5+" , "Kg2" , "Bb7" , "c3" , "Re8" , "Kg3" , "e5" , "Bd6" , "Nf5" , "Bf4" , "h5" , "Rc4" , "Rf3+" , "Rd1+" , "Kxd8" , "Bxc7" , "a4" , "fxe6" , "dxc4" , "Rf4" , "Qxd8+" , "cxd5" , "Nxe4" , "Kh7" , "d4" , "Nd6" , "axb5" , "Nc6" , "e6" , "Rh8" , "Rxa5" , "b4" , "Rxe5" , "Nxd5" , "Kg8" , "Nf6" , "b5" , "Ke7" , "Be5" , "a5" , "Kd7" , "Re1" , "Ne7" , "a6" , "dxc6" , "Bb5" , "bxa5" , "Kg5" , "Nc3" , "Kf7" , "Bxe5" , "dxe5" , "Bd4" , "Nf3" , "h3" , "hxg4" , "e4" , "Rh6" , "Ba6" , "Rd7" , "b6" , "Ree1" , "Ke8" , "Bxc6" , "O-O" , "g4" ;
+        chon:nextHalfMove      :hmgamjycZlNR , :hmgam8AfLMMM .
+
+:hmgamjycZlNR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjycZlNRP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "c3" , "b4" , "Bc6" , "cxb4" , "g5" , "Kh4" , "Ra7" , "Rg6+" ;
+        chon:nextHalfMove      :hmgamjycZlNR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8AfLMM .
+
+:ope8AfLMM  a            chon:ChessOpening ;
+        chon:hasECOCode  "C67" .
+
+:rolhg8AfLMMMS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8AfLMM .
+
+chon:HalfMove  chon:subEventOf  :gam8AfLM .
+
+:res8AfLMMM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8AfLMM .
+
+:tou8AfLM  a          chon:hessTournament ;
+        chon:atPlace  :pla8AfLMM ;
+        chon:hasName  "Champions Rapid" .
+
+:rolhgjycZlNRP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8AfLMM .
+
+:pla8AfLMM  a         chon:Place ;
+        chon:hasName  "Zuerich SUI" .
+
+:cgr8AfLMM  a   chon:ChessGameReport .
+
+:ag8AfLMM  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Anand,V" .
+
+:rol8AfLMM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8AfLMM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

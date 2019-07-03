@@ -1,0 +1,66 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr6pQKDe  a   chon:ChessGameReport .
+
+:ag6pQKDe  a          chon:Agent ;
+        chon:hasName  "Sofrevski, Jovan" , "Fischer, Robert James" .
+
+:rol6pQKDe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6pQKDe .
+
+:hmgam2mxTnev  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2mxTnevt , chon:AgentRole ;
+        chon:hasSANRecord      "Qxf6" .
+
+:ope6pQKDe  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6pQKDe .
+
+:rolhg2mxTnevt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6pQKDe .
+
+:hmgam6pQKDef  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6pQKDefv , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sofrevski, Jovan" ;
+        chon:hasSANRecord      "Nd5" , "c5" , "Bb3" , "Qe3" , "Be3" , "gxf6" , "Nxd4" , "Be8" , "Rad8" , "d4" , "Rxe7" , "Nf3" , "e4" , "Qa5" , "O-O" , "d6" , "Bxf6" , "Qe2" , "Bd7" , "Rc8" , "cxd4" , "e6" , "Rfe8" , "Rxd6" , "Qd4" , "Kb1" , "b6" , "Nc3" , "Nxe7+" , "Bc4" , "O-O-O" , "Nf6" , "Nc6" , "Bxd4" , "Be7" ;
+        chon:nextHalfMove      :hmgam2mxTnev , :hmgam6pQKDef .
+
+chon:HalfMove  chon:subEventOf  :gam6pQKD .
+
+:gam6pQKD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6pQKDe ;
+        chon:atPlace           :pla6pQKDe ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6pQKDef ;
+        chon:hasHalfMove       :hmgam6pQKDef , :hmgam2mxTnev ;
+        chon:hasLastHalfMove   :hmgam2mxTnev ;
+        chon:hasOpening        :ope6pQKDe ;
+        chon:hasReport         :cgr6pQKDe ;
+        chon:hasResult         :res6pQKDef ;
+        chon:subEventOf        :tou6pQKD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6pQKDe .
+
+:rolhg6pQKDefv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6pQKDe .
+
+:res6pQKDef  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou6pQKD  a          chon:hessTournament ;
+        chon:atPlace  :pla6pQKDe ;
+        chon:hasName  "Skopje" .
+
+:pla6pQKDe  a         chon:Place ;
+        chon:hasName  "Skopje" .

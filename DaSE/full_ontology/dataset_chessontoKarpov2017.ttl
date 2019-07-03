@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgZa0riHHw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZa0riH .
+
+:opeZa0riH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:resZa0riHH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZa0riH .
+
+:plaZa0riH  a         chon:Place ;
+        chon:hasName  "Cap d`Agde" .
+
+:hmgamZa0riHH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZa0riHHw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "g6" , "Bc5" , "Kh2" , "Qa4" , "e5" , "Nfd7" , "Re1" , "Red1" , "Bxc4" , "Ne3" , "Nd7" , "e6" , "b6" , "Nf6" , "Qc7" , "Nd5" , "Bxd4" , "Bd2" , "cxd4" , "b3" , "Nf3" , "Rxc5" , "Rcd2" , "Nd2" , "Be7" , "Qa3" , "e4" , "Ne5" , "h4" , "O-O" , "d4" , "Nxc2" , "f4" , "c6" , "Rc3" , "Qf3" , "Rd6" , "d5" , "Kg7" , "Qc5+" , "Bg2" , "b5" , "Qxc8" , "Nxd7" , "g3" , "Rxc8" , "c3" , "Rc1" , "Ra5" , "Bc3" , "Bxc5" , "Bb4+" , "bxc4" , "dxc4" , "Nxc4" , "Rc8" , "Ba6" , "Rd8+" , "c4" , "Nb6" , "c5" , "Rc2" ;
+        chon:nextHalfMove      :hmgamZa0riHH .
+
+:gamZa0ri  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZa0riH ;
+        chon:atPlace           :plaZa0riH ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZa0riHH ;
+        chon:hasHalfMove       :hmgamZa0riHH ;
+        chon:hasLastHalfMove   :hmgamZa0riHH ;
+        chon:hasOpening        :opeZa0riH ;
+        chon:hasReport         :cgrZa0riH ;
+        chon:hasResult         :resZa0riHH ;
+        chon:subEventOf        :touZa0ri .
+
+chon:HalfMove  chon:subEventOf  :gamZa0ri .
+
+:cgrZa0riH  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZa0riH .
+
+:agZa0riH  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Van Wely, Loek" .
+
+:rolZa0riH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZa0riH .
+
+:touZa0ri  a          chon:hessTournament ;
+        chon:atPlace  :plaZa0riH ;
+        chon:hasName  "EU-ch Rapid-30'" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

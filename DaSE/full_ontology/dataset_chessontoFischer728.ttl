@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opernmrSU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B26" .
+
+:gamrnmrS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrnmrSU ;
+        chon:atPlace           :plarnmrSU ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSnjFbT8 ;
+        chon:hasHalfMove       :hmgamSnjFbT8 ;
+        chon:hasLastHalfMove   :hmgamSnjFbT8 ;
+        chon:hasOpening        :opernmrSU ;
+        chon:hasReport         :cgrrnmrSU ;
+        chon:hasResult         :resrnmrSU5 ;
+        chon:subEventOf        :tournmrS .
+
+:tournmrS  a          chon:hessTournament ;
+        chon:atPlace  :plarnmrSU ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrnmrSU .
+
+:plarnmrSU  a         chon:Place ;
+        chon:hasName  "Zagreb" .
+
+chon:HalfMove  chon:subEventOf  :gamrnmrS .
+
+:cgrrnmrSU  a   chon:ChessGameReport .
+
+:resrnmrSU5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrnmrSU .
+
+:hmgamSnjFbT8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSnjFbT8e ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qd2" , "Ra6" , "f4" , "g3" , "d3" , "Nd7" , "Rfb1" , "g5" , "e5" , "Nb6" , "Bg2" , "b5" , "Bxb2" , "axb4" , "Nd4" , "a3" , "Qe3" , "Bf6" , "dxc4" , "Nxc4" , "Bd5" , "Bxd4+" , "g4" , "e4" , "Bc3" , "Qc5" , "Ne3" , "Bg7" , "Rab1" , "Bh6" , "Bxf3" , "Nd1" , "Bg4" , "Rb6" , "Nc4" , "axb6" , "Re8" , "Nf6" , "Rf8" , "Ra2" , "Rxb6" , "f5" , "b4" , "fxe6" , "h3" , "Kh8" , "e6" , "O-O" , "Qxe6+" , "c5" , "Bh8" , "Nc3" , "Be3" , "Kh1" , "Nc6" , "Qd5" , "g6" , "cxb4" , "d6" , "Rxb4" , "Nf3" , "Rb8" , "Qc8" ;
+        chon:nextHalfMove      :hmgamSnjFbT8 .
+
+:agrnmrSU  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Smyslov, Vassily" .
+
+:rolrnmrSU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrnmrSU .
+
+:rolhgSnjFbT8e  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrnmrSU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag9doOAO  a          chon:Agent ;
+        chon:hasName  "Hort, Vlastimil" , "Karpov, Anatoly" .
+
+:ope9doOAO  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:res9doOAOv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9doOAO .
+
+:gam9doOA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9doOAO ;
+        chon:atPlace           :pla9doOAO ;
+        chon:atTime            "1978.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9doOAOv ;
+        chon:hasHalfMove       :hmgam9doOAOv ;
+        chon:hasLastHalfMove   :hmgam9doOAOv ;
+        chon:hasOpening        :ope9doOAO ;
+        chon:hasReport         :cgr9doOAO ;
+        chon:hasResult         :res9doOAOv ;
+        chon:subEventOf        :tou9doOA .
+
+chon:HalfMove  chon:subEventOf  :gam9doOA .
+
+:tou9doOA  a          chon:hessTournament ;
+        chon:atPlace  :pla9doOAO ;
+        chon:hasName  "Bugojno" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9doOAO .
+
+:hmgam9doOAOv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9doOAOv8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hort, Vlastimil" ;
+        chon:hasSANRecord      "Nf5" , "Ke7" , "Rxe6+" , "Bf5" , "Qb8+" , "d4" , "Kf7" , "fxg6" , "c6" , "Rg8" , "g4" , "Ne5" , "Nxf6" , "Nxg6" , "g5" , "Qd7" , "gxf5" , "Bc4" , "g6" , "Qe5" , "Bg6" , "Re1" , "Re8" , "Nd2" , "h5" , "Ne7" , "Qc2" , "h4" , "d5" , "Ngf6" , "Kd8" , "Nxe4" , "Qxf5+" , "Rh3" , "Bf4" , "e6" , "Bg7" , "e4" , "Nf3" , "Nxf6+" , "c3" , "Rf3" , "Nd7" , "Rxf5+" , "dxe4" , "O-O-O" , "Qe4" , "Nd5" ;
+        chon:nextHalfMove      :hmgam9doOAOv .
+
+:cgr9doOAO  a   chon:ChessGameReport .
+
+:rolhg9doOAOv8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9doOAO .
+
+:rol9doOAO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9doOAO .
+
+:pla9doOAO  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

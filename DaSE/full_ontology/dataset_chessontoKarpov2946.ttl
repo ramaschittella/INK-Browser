@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgAzvkwz2S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEBObMS .
+
+:rolhgEBObMSJU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEBObMS .
+
+:agEBObMS  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Bareev,E" .
+
+:rolEBObMS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEBObMS .
+
+:opeEBObMS  a            chon:ChessOpening ;
+        chon:hasECOCode  "E13" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEBObMS .
+
+:resEBObMSJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamAzvkwz2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAzvkwz2S ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ke4" , "Kd5" , "Ra5" , "Nc7" , "b5" , "Rh3" , "Re8+" , "Qg3" , "Rc2" , "Rf5" , "Ke3" , "f3" , "Rxf6" , "Kd4" , "Nxd4" , "Rxg5" , "Nxd5+" , "R1h6" , "Rb3" , "Kd7" , "Rxf3" , "Kd1" , "Rxd5" , "Rg7+" , "Qf6" , "Raxf3" , "Rxa2" , "Kf4" , "Rf7" , "Qxe5" , "Ne6" , "Ke2" , "Nxb5" , "fxe5" , "Bxg2" , "Bxd5" , "Rf8+" , "Rgg8" , "Re5" , "Kd6" , "Nb3" , "Qxf6" , "Kc4" , "Ra3+" , "Bd5" , "Nxd4+" , "Kxe5" , "exd5" , "Ra2+" , "Rg5" , "Ke7" , "Kc1" , "Rg8" , "Rhh8" , "e5" , "Rf6" , "a6" , "Be4" , "Ra8" ;
+        chon:nextHalfMove      :hmgamAzvkwz2 .
+
+chon:HalfMove  chon:subEventOf  :gamEBObM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEBObMS .
+
+:gamEBObM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEBObMS ;
+        chon:atPlace           :plaEBObMS ;
+        chon:atTime            "2007.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEBObMSJ ;
+        chon:hasHalfMove       :hmgamAzvkwz2 , :hmgamEBObMSJ ;
+        chon:hasLastHalfMove   :hmgamAzvkwz2 ;
+        chon:hasOpening        :opeEBObMS ;
+        chon:hasReport         :cgrEBObMS ;
+        chon:hasResult         :resEBObMSJ ;
+        chon:subEventOf        :touEBObM .
+
+:hmgamEBObMSJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAzvkwz2S , :rolhgEBObMSJU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rg7" , "Bh4" , "Rh8+" , "Bg5" , "Qg3" , "Qb8" , "cxd4" , "Qh2" , "Nd7" , "Rd7" , "Nf8" , "Nc3" , "Rh6" , "Rc8" , "Ke2" , "Nc6" , "c4" , "Kf7" , "bxc3" , "d6" , "Bg3" , "Ke8" , "Bb4" , "Rg8" , "Kg7" , "Nd2" , "e3" , "e6" , "Bd5" , "Bb7" , "Nde5" , "Bxe5" , "h6" , "Nf3" , "Nf6" , "Nc4" , "Rh1" , "Rd8" , "Rh7" , "d4" , "Bb5+" , "Kf8" , "Bxc3+" , "Bxc7" , "Qf3" , "hxg5" , "e4" , "Bd3" , "h4" , "f6" , "Nxe5" , "Rc7" , "g5" , "Ng6" , "Qe7" , "b6" , "dxc5" , "c5" , "Rh5" ;
+        chon:nextHalfMove      :hmgamAzvkwz2 , :hmgamEBObMSJ .
+
+:plaEBObMS  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touEBObM  a          chon:hessTournament ;
+        chon:atPlace  :plaEBObMS ;
+        chon:hasName  "ch-Euro Blitz" .
+
+:cgrEBObMS  a   chon:ChessGameReport .

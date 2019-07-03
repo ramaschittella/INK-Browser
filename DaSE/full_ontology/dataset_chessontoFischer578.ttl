@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toue3ZVN  a          chon:hessTournament ;
+        chon:atPlace  :plae3ZVNz ;
+        chon:hasName  "Monte Carlo" .
+
+:age3ZVNz  a          chon:Agent ;
+        chon:hasName  "Geller, Efim P" , "Fischer, Robert James" .
+
+:role3ZVNz  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resq1U0myA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrq1U0my  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age3ZVNz .
+
+:rolhgq1U0myAc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age3ZVNz .
+
+:rolq1U0my  a             chon:AuthorRole ;
+        chon:performedBy  :agq1U0my .
+
+chon:HalfMove  chon:subEventOf  :game3ZVN .
+
+:opeq1U0my  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age3ZVNz .
+
+:hmgamq1U0myA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgq1U0myAc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "Nxd4" , "d6" , "Rf8" , "bxc6" , "e4" , "Nxc6" , "c4" , "Rf7+" , "Qd2" , "Rxf1+" , "Qb6" , "fxe6" , "Qxb2" , "Nd5" , "O-O" , "Qa3" , "Be4" , "Bg4" , "cxd4" , "Bxe6" , "Ke6" , "f5" , "Bd1" , "f4" , "d4" , "a6" , "c5" , "Rb1" , "dxe5" , "Nc6" , "Kd7" , "Nf3" , "e6" , "Be2" , "e5" , "Bc5+" , "Rxf1" , "Qd3" , "Kh1" , "Qe1" , "Nf6" , "dxc4" , "Bg5" , "cxd5" , "Nc3" , "Nxd5" , "Bb7" , "Rb8" ;
+        chon:nextHalfMove      :hmgamq1U0myA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plae3ZVNz  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:game3ZVN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :role3ZVNz ;
+        chon:atPlace           :plae3ZVNz ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamq1U0myA ;
+        chon:hasHalfMove       :hmgamq1U0myA ;
+        chon:hasLastHalfMove   :hmgamq1U0myA ;
+        chon:hasOpening        :opeq1U0my ;
+        chon:hasReport         :cgrq1U0my ;
+        chon:hasResult         :resq1U0myA ;
+        chon:subEventOf        :toue3ZVN .

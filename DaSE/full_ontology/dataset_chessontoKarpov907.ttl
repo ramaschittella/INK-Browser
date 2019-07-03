@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:openVhaxN  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+:resnVhaxNK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnVhaxN .
+
+:tounVhax  a          chon:hessTournament ;
+        chon:atPlace  :planVhaxN ;
+        chon:hasName  "Oslo" .
+
+:hmgamnVhaxNK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnVhaxNKO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "De Firmian, Nick E" ;
+        chon:hasSANRecord      "Rd6" , "Rdd8" , "Ra3" , "Rc3" , "Nxc3" , "d5" , "Qb3" , "Qe3" , "Ne4" , "Rdc1" , "Qxc5" , "exd4" , "Bxb7" , "Bb7" , "a4" , "e5" , "Qe4" , "Rc7" , "h6" , "hxg3" , "Qd7" , "e6" , "Bxg3" , "Rd1" , "a5" , "Qe8" , "c5" , "Rfd8" , "cxd4" , "Qa7" , "Qc7" , "Rb1" , "bxa5" , "Nd2" , "Rxc5" , "Na5" , "Bg3" , "Ne6" , "Bd3" , "Ng6" , "bxc3" , "f3" , "Rc8" , "Nc5" , "Nf3" , "Rdb3" , "Rb5" , "Bd6" , "Be4" , "f6" , "Nxd5" , "g4" , "Nc6" , "Nf6" , "a6" , "e3" , "Qc2" , "cxd5" , "Nc3" , "Qxb7" , "Rd3" , "Nxc5" , "Qxa4" , "Rcd7" , "Bf4" , "b6" , "c4" , "a3" , "Rac1" , "Be7" , "Ne7" , "Re3" , "d4" , "Rcd1" , "Qd3" , "O-O" , "Nf4" , "Qe7" ;
+        chon:nextHalfMove      :hmgamnVhaxNK .
+
+chon:HalfMove  chon:subEventOf  :gambVlXY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnVhaxN .
+
+:planVhaxN  a         chon:Place ;
+        chon:hasName  "Oslo" .
+
+:cgrnVhaxN  a   chon:ChessGameReport .
+
+:agnVhaxN  a          chon:Agent ;
+        chon:hasName  "De Firmian, Nick E" , "Karpov, Anatoly" .
+
+:rolnVhaxN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnVhaxN .
+
+:rolhgnVhaxNKO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnVhaxN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gambVlXY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnVhaxN ;
+        chon:atPlace           :planVhaxN ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnVhaxNK ;
+        chon:hasHalfMove       :hmgamnVhaxNK ;
+        chon:hasLastHalfMove   :hmgamnVhaxNK ;
+        chon:hasOpening        :openVhaxN ;
+        chon:hasReport         :cgrnVhaxN ;
+        chon:hasResult         :resnVhaxNK ;
+        chon:subEventOf        :tounVhax .

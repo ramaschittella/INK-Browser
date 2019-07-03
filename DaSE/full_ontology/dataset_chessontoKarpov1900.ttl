@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrDVQpS7  a   chon:ChessGameReport .
+
+:rolhgDVQpS7qq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDVQpS7 .
+
+:resDVQpS7q  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamDVQpS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDVQpS7 ;
+        chon:atPlace           :plaDVQpS7 ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDVQpS7q ;
+        chon:hasHalfMove       :hmgamDVQpS7q ;
+        chon:hasLastHalfMove   :hmgamDVQpS7q ;
+        chon:hasOpening        :opeDVQpS7 ;
+        chon:hasReport         :cgrDVQpS7 ;
+        chon:hasResult         :resDVQpS7q ;
+        chon:subEventOf        :touDVQpS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDVQpS7 .
+
+:touDVQpS  a          chon:hessTournament ;
+        chon:atPlace  :plaDVQpS7 ;
+        chon:hasName  "Dortmund" .
+
+:plaDVQpS7  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:hmgamDVQpS7q  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDVQpS7qq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxd6" , "Bg6" , "Qc7" , "Nxf4" , "Nd5" , "dxe4" , "e4" , "d5" , "Bd6" , "Nf4" , "Bg4" , "Nxe4" , "Nxf6+" , "Qxg3" , "Ngf6" , "f3" , "hxg3" , "Qg3" , "Kxd6" , "g4" , "c3" , "Bc4" , "Bxf4" , "Ke2" , "Ne2" , "Bf5" , "e6" , "Nd7" , "Qf3" , "Nd2" , "d4" , "Nxf6" , "Kd7" , "c6" ;
+        chon:nextHalfMove      :hmgamDVQpS7q .
+
+chon:HalfMove  chon:subEventOf  :gamDVQpS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDVQpS7 .
+
+:agDVQpS7  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ivanchuk, Vassily" .
+
+:rolDVQpS7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDVQpS7 .
+
+:opeDVQpS7  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

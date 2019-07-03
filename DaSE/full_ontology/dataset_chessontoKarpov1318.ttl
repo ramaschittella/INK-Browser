@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolSSKJce  a             chon:AuthorRole ;
+        chon:performedBy  :agSSKJce .
+
+:agrSOvFe  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tal, Mihail" .
+
+:rolrSOvFe  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgSSKJcejr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrSOvFe .
+
+:operSOvFe  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:tourSOvF  a          chon:hessTournament ;
+        chon:atPlace  :plarSOvFe ;
+        chon:hasName  "World Cup" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrSOvFe .
+
+:hmgamSSKJcej  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSSKJcejr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b5" , "Bb7" , "b4" , "Bd4" , "Nf6" , "axb5" , "Bd2" , "Ba4" , "Qxa5" , "Qg7" , "Qxd4" , "Nxd4" , "e5" , "Be7" , "Re7" , "O-O" , "Nc6" , "Rf7" , "Nc4" , "c3" , "Kh8" , "Qc5" , "Na5" , "Bb5" , "Na3" , "Nd7" , "Bb3" , "Bd1" , "Nf3" , "bxc3" , "Re8+" , "Re1" , "Qf7" , "Qd2" , "Qh5" , "Rf8" , "e4" , "Bg4" , "Re6" , "exd4" , "Qe2" , "d6" , "d4" , "a6" , "a4" , "Nxa5" , "exf5" , "Bc3" , "gxf6" , "Qxa8" , "Bxf6" , "cxd4" , "Qg6" , "Rxa8" , "Qc2" , "f5" , "h3" , "Bf6" , "Bxd4" ;
+        chon:nextHalfMove      :hmgamSSKJcej .
+
+chon:HalfMove  chon:subEventOf  :gamrSOvF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrSOvFe .
+
+:resrSOvFeh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamrSOvF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrSOvFe ;
+        chon:atPlace           :plarSOvFe ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSSKJcej ;
+        chon:hasHalfMove       :hmgamSSKJcej ;
+        chon:hasLastHalfMove   :hmgamSSKJcej ;
+        chon:hasOpening        :operSOvFe ;
+        chon:hasReport         :cgrSSKJce ;
+        chon:hasResult         :resrSOvFeh ;
+        chon:subEventOf        :tourSOvF .
+
+:plarSOvFe  a         chon:Place ;
+        chon:hasName  "Skelleftea" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrSSKJce  a   chon:ChessGameReport .

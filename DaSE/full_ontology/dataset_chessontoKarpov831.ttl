@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plafFIsj0  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:resfFIsj0X  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamfFIsj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfFIsj0 ;
+        chon:atPlace           :plafFIsj0 ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfFIsj0X ;
+        chon:hasHalfMove       :hmgamfFIsj0X ;
+        chon:hasLastHalfMove   :hmgamfFIsj0X ;
+        chon:hasOpening        :opefFIsj0 ;
+        chon:hasReport         :cgrfFIsj0 ;
+        chon:hasResult         :resfFIsj0X ;
+        chon:subEventOf        :toufFIsj .
+
+:agfFIsj0  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Vaganian, Rafael A" .
+
+:rolfFIsj0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfFIsj0 .
+
+:opefFIsj0  a            chon:ChessOpening ;
+        chon:hasECOCode  "A36" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfFIsj0 .
+
+:hmgamfFIsj0X  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfFIsj0XT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bg2" , "e3" , "g6" , "cxd5" , "d5" , "O-O" , "g3" , "Be3" , "Nxd4" , "Nc6" , "exd5" , "cxd4" , "Nge7" , "e6" , "c5" , "c4" , "d4" , "exd4" , "Nxd5" , "Nc3" , "Bg7" , "Nge2" ;
+        chon:nextHalfMove      :hmgamfFIsj0X .
+
+chon:HalfMove  chon:subEventOf  :gamfFIsj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfFIsj0 .
+
+:toufFIsj  a          chon:hessTournament ;
+        chon:atPlace  :plafFIsj0 ;
+        chon:hasName  "Tilburg" .
+
+:cgrfFIsj0  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgfFIsj0XT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfFIsj0 .

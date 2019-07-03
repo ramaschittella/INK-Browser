@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeXRdLQy  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .
+
+:gamXRdLQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXRdLQy ;
+        chon:atPlace           :plaXRdLQy ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXRdLQyn ;
+        chon:hasHalfMove       :hmgamXRdLQyn , :hmgam9RaZnxs ;
+        chon:hasLastHalfMove   :hmgam9RaZnxs ;
+        chon:hasOpening        :opeXRdLQy ;
+        chon:hasReport         :cgrXRdLQy ;
+        chon:hasResult         :resXRdLQyn ;
+        chon:subEventOf        :touXRdLQ .
+
+:hmgam9RaZnxs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9RaZnxsX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Glek, Igor V" ;
+        chon:hasSANRecord      "b3" , "Rac1" , "d4" , "h6" , "Rc1" , "cxd5" , "e3" , "Re1" , "Re8" , "Qd2" , "Qxd2" , "Nf3" , "Bxa4" , "Bc1" , "Be3" , "d7" , "Nc3" , "d5" , "Qe7" , "bxa4" , "d8=Q" , "Rc2" , "Qa1+" , "Bf3" , "Rc8+" , "Nxd2" , "Rd1" , "Qc7" , "Kg2" , "fxe3" , "Rxc8+" , "Rfc1" , "Qc6" , "Bd7" , "Qf6" , "Kh8" , "Qb2" , "dxe5" , "Nxe5" , "Rf7" , "f6" , "Ne8" , "Nd6" , "Bxe5" , "Kh1" , "Nc6" , "a6" , "c6" , "c4" , "a5" , "Qxe5" , "Qb6" , "Bd2" , "Bg2" , "Ne5" , "b5" , "Qxa2" , "Qc4+" , "Qd6" , "Bc6" , "g6" , "g4" , "exd4" , "Bg7" , "Bxf8" , "e5" , "g5" , "g3" , "Qa5" , "Kf1" , "Qd3" , "f5" , "Qe2" , "f4" , "Na4" , "Qb2+" , "d6" , "e6" , "Rd8" , "Rf8" , "Rxf8+" , "Rxc8" , "Ne4" , "Qxa5" , "Bf4" , "Qb4" , "O-O" , "Qf8" ;
+        chon:nextHalfMove      :hmgam9RaZnxs .
+
+:resXRdLQyn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXRdLQy .
+
+chon:HalfMove  chon:subEventOf  :gamXRdLQ .
+
+:cgrXRdLQy  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXRdLQy .
+
+:touXRdLQ  a          chon:hessTournament ;
+        chon:atPlace  :plaXRdLQy ;
+        chon:hasName  "EU-ch Rapid-30'" .
+
+:rolXRdLQy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXRdLQy .
+
+:plaXRdLQy  a         chon:Place ;
+        chon:hasName  "Cap d`Agde" .
+
+:rolhgXRdLQynM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXRdLQy .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg9RaZnxsX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXRdLQy .
+
+:hmgamXRdLQyn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9RaZnxsX , :rolhgXRdLQynM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Glek, Igor V" ;
+        chon:hasSANRecord      "Nf6" , "d4" ;
+        chon:nextHalfMove      :hmgam9RaZnxs , :hmgamXRdLQyn .
+
+:agXRdLQy  a          chon:Agent ;
+        chon:hasName  "Glek, Igor V" , "Karpov, Anatoly" .

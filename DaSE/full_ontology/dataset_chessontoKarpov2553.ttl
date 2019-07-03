@@ -1,0 +1,66 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plarLkn1N  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:rolhgrLkn1NsB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrLkn1N .
+
+:agrLkn1N  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Gelfand,B" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrLkn1N .
+
+:operLkn1N  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:gamrLkn1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrLkn1N ;
+        chon:atPlace           :plarLkn1N ;
+        chon:atTime            "2001.03.19"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrLkn1Ns ;
+        chon:hasHalfMove       :hmgamSNuInNh , :hmgamrLkn1Ns ;
+        chon:hasLastHalfMove   :hmgamSNuInNh ;
+        chon:hasOpening        :operLkn1N ;
+        chon:hasReport         :cgrrLkn1N ;
+        chon:hasResult         :resrLkn1Ns ;
+        chon:subEventOf        :tourLkn1 .
+
+chon:HalfMove  chon:subEventOf  :gamrLkn1 .
+
+:tourLkn1  a          chon:hessTournament ;
+        chon:atPlace  :plarLkn1N ;
+        chon:hasName  "Amber Blindfold" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrLkn1N .
+
+:rolhgSNuInNhZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrLkn1N .
+
+:resrLkn1Ns  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrrLkn1N  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolrLkn1N  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrLkn1N .
+
+:hmgamSNuInNh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSNuInNhZ , chon:AgentRole ;
+        chon:hasSANRecord      "Bxe5" .
+
+:hmgamrLkn1Ns  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrLkn1NsB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Rd2" , "Be2" , "Qxd4" , "Nc6" , "Qg5" , "c6" , "h6" , "Nec6" , "c5" , "Nc3" , "Bb5+" , "Nxd5" , "Kb8" , "Bc5" , "Bb2" , "Nxd4" , "Ne7" , "Qxg5" , "Bxd5" , "e6" , "c4" , "Rd1" , "b3" , "e5" , "cxd5" , "Bd6+" , "Nxe5" , "Nf3" , "Kc8" , "f6" , "Rfd1" , "Na3" , "e4" , "Rxd5" , "Ba5" , "Qe3" , "Be4" , "O-O" , "d5" , "hxg5" , "Bb6" , "d4" , "O-O-O" , "Nb5" , "cxd4" , "Ba3" , "Bc7" , "Rc1" , "Rc8" , "h3" , "Bf5" , "exd5" , "Kd7" ;
+        chon:nextHalfMove      :hmgamrLkn1Ns , :hmgamSNuInNh .

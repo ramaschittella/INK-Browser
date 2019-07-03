@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agEVLYNG  a          chon:Agent ;
+        chon:hasName  "Lorenzi, P." , "Karpov, Anatoly" .
+
+:gamEVLYN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEVLYNG ;
+        chon:atPlace           :plaEVLYNG ;
+        chon:atTime            "1998.11.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPTIckHn ;
+        chon:hasHalfMove       :hmgamPTIckHn ;
+        chon:hasLastHalfMove   :hmgamPTIckHn ;
+        chon:hasOpening        :opeEVLYNG ;
+        chon:hasReport         :cgrPTIckH ;
+        chon:hasResult         :resPTIckHn ;
+        chon:subEventOf        :touEVLYN .
+
+:rolEVLYNG  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:opeEVLYNG  a            chon:ChessOpening ;
+        chon:hasECOCode  "A35" .
+
+:cgrPTIckH  a   chon:ChessGameReport .
+
+:rolPTIckH  a             chon:AuthorRole ;
+        chon:performedBy  :agPTIckH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEVLYNG .
+
+chon:HalfMove  chon:subEventOf  :gamEVLYN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEVLYNG .
+
+:touEVLYN  a          chon:hessTournament ;
+        chon:atPlace  :plaEVLYNG ;
+        chon:hasName  "Bastia sim" .
+
+:hmgamPTIckHn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPTIckHnI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lorenzi, P." ;
+        chon:hasSANRecord      "Nc3" , "Bg7" , "Bf8" , "Nb4" , "e4" , "Nd6+" , "Qd3" , "g6" , "c4" , "Bh6" , "Nc6" , "Bf4" , "a3" , "e6" , "Nf3" , "c5" , "Ke7" , "b6" , "d5" , "Nb5" , "e3" , "Bb7" , "d4" , "Na6" , "Nxb7" ;
+        chon:nextHalfMove      :hmgamPTIckHn .
+
+:rolhgPTIckHnI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEVLYNG .
+
+:plaEVLYNG  a         chon:Place ;
+        chon:hasName  "Bastia" .
+
+:resPTIckHn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

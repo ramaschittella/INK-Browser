@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla5zjSkI  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:hmgam1x325Ik  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1x325Ikt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ka2" , "Nf6" , "g4" , "c6" , "Bc5" , "Qxb6" , "bxa4" , "Rg8" , "Nc3" , "f8=Q" , "Ne4" , "Qxa4" , "Qg3" , "Bxb6" , "Rd2" , "Rf6" , "e4" , "Be3" , "Bg4" , "O-O-O" , "Qxd6+" , "Rh3" , "Kc7" , "h3" , "h5" , "Bxf3" , "Nf3" , "Ra7" , "Rxh5" , "c5" , "exf7+" , "hxg4" , "Ke5" , "Qxf8" , "Bf4" , "Bd3" , "Rd1" , "Rf5" , "Be2" , "Nxc3" , "Qf4" , "Rxf8" , "Re7" , "c4" , "e6" , "Qe2" , "Bf1" , "Bd6" , "Qb8" , "Rd7" , "Nd7" , "Ra1" , "a4" , "Qc7" , "Bxg4" , "c3" , "e5" , "Rf4" , "Rxf2" , "Qxf3" , "Rg1" , "Kc5" , "Bd1" , "cxd5" , "Kb7" , "Kb1" , "d5" , "Bg2" , "dxc3" , "b5" , "Bb4" , "exd5" , "e6+" , "Nb6" , "Qxg4" , "Rf3" , "Kd6" , "g5" , "Kc2" , "Re1" , "h4" , "Kxd6" , "a5" ;
+        chon:nextHalfMove      :hmgam1x325Ik .
+
+:ag1x325I  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Nepomniachtchi,I" .
+
+:rol1x325I  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1x325I .
+
+:gam5zjSk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1x325I ;
+        chon:atPlace           :pla5zjSkI ;
+        chon:atTime            "2013.02.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1x325Ik ;
+        chon:hasHalfMove       :hmgam1x325Ik ;
+        chon:hasLastHalfMove   :hmgam1x325Ik ;
+        chon:hasOpening        :ope1x325I ;
+        chon:hasReport         :cgr1x325I ;
+        chon:hasResult         :res1x325Ik ;
+        chon:subEventOf        :tou5zjSk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1x325I .
+
+chon:HalfMove  chon:subEventOf  :gam5zjSk .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1x325I .
+
+:rolhg1x325Ikt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1x325I .
+
+:ope1x325I  a            chon:ChessOpening ;
+        chon:hasECOCode  "B10" .
+
+:tou5zjSk  a          chon:hessTournament ;
+        chon:atPlace  :pla5zjSkI ;
+        chon:hasName  "Aeroflot Open Rapid Final" .
+
+:res1x325Ik  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr1x325I  a   chon:ChessGameReport .

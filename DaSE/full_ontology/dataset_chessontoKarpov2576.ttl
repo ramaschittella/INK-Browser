@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam39V93  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol39V93s ;
+        chon:atPlace           :pla39V93s ;
+        chon:atTime            "2001.06.14"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam39V93sn ;
+        chon:hasHalfMove       :hmgam39V93sn , :hmgamd9Smzsp ;
+        chon:hasLastHalfMove   :hmgamd9Smzsp ;
+        chon:hasOpening        :ope39V93s ;
+        chon:hasReport         :cgr39V93s ;
+        chon:hasResult         :res39V93sn ;
+        chon:subEventOf        :tou39V93 .
+
+:res39V93sn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag39V93s  a          chon:Agent ;
+        chon:hasName  "Llobel Cortell,E" , "Karpov,An" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag39V93s .
+
+:rolhg39V93snQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag39V93s .
+
+:hmgam39V93sn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg39V93snQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Llobel Cortell,E" ;
+        chon:hasSANRecord      "Bc5" , "Nc3" , "c4" , "Be3" , "Nd7" , "Bb4" , "Nf6" , "O-O-O" , "Qd2" , "Nge2" , "e4" , "e5" , "g3" , "d4" , "Nc6" , "O-O" , "Ne7" , "d5" , "f3" , "d6" , "Ng6" ;
+        chon:nextHalfMove      :hmgam39V93sn , :hmgamd9Smzsp .
+
+:ope39V93s  a            chon:ChessOpening ;
+        chon:hasECOCode  "A50" .
+
+chon:HalfMove  chon:subEventOf  :gam39V93 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag39V93s .
+
+:tou39V93  a          chon:hessTournament ;
+        chon:atPlace  :pla39V93s ;
+        chon:hasName  "Rapid Exhibition g/10" .
+
+:rolhgd9Smzsp4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag39V93s .
+
+:pla39V93s  a         chon:Place ;
+        chon:hasName  "Manises ESP" .
+
+:hmgamd9Smzsp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgd9Smzsp4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Llobel Cortell,E" ;
+        chon:hasSANRecord      "Rxh4" , "b6" , "a4" , "Qf4" , "e3" , "e4" , "Re1+" , "Ke8" , "Rd7+" , "Rc1+" , "a6" , "Rxe3" , "Ra1" , "Rg3" , "Kd3" , "Kd8" , "Nxc5" , "Ra8" , "Ne6+" , "Ke4" , "exf5" , "Qxe3" , "Rd3" , "f5" , "e2" , "Ke7" , "Rf2+" , "Rf7" , "Ng5" , "Ne4" , "Rxc7+" , "Nc5" , "Bxg6" , "Nb3" , "Rh1" , "bxc5" , "Bd7" , "Rxf3" , "Rbf8" , "Rh3" , "Rf4" , "Rxg7" , "h4" , "Ra7" , "Kf8" , "Rd1+" , "Nc1" , "Rxf5" , "Bxe3" , "Be8" , "Rxa5" , "Rg8+" , "a8=Q+" , "a5" , "Bd3" , "g4" , "Bxe6" , "Kb1" , "Rxa8" , "hxg6" , "a7" , "Rxg4" , "Ra3" , "Qf6" , "Kd5" , "dxe6" , "Rb8" , "Kc2" , "Kc6" , "Kc3" ;
+        chon:nextHalfMove      :hmgamd9Smzsp .
+
+:cgr39V93s  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol39V93s  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag39V93s .

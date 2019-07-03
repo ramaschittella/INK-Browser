@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrAUh4mN  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAUh4mN .
+
+chon:HalfMove  chon:subEventOf  :gamAUh4m .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAUh4mN .
+
+:plaAUh4mN  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:resAUh4mNU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgAUh4mNUy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAUh4mN .
+
+:agAUh4mN  a          chon:Agent ;
+        chon:hasName  "Ivanchuk,V" , "Karpov,Ana" .
+
+:gamAUh4m  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAUh4mN ;
+        chon:atPlace           :plaAUh4mN ;
+        chon:atTime            "2007.11.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAUh4mNU ;
+        chon:hasHalfMove       :hmgamAUh4mNU ;
+        chon:hasLastHalfMove   :hmgamAUh4mNU ;
+        chon:hasOpening        :opeAUh4mN ;
+        chon:hasReport         :cgrAUh4mN ;
+        chon:hasResult         :resAUh4mNU ;
+        chon:subEventOf        :touAUh4m .
+
+:rolAUh4mN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAUh4mN .
+
+:touAUh4m  a          chon:hessTournament ;
+        chon:atPlace  :plaAUh4mN ;
+        chon:hasName  "World Blitz" .
+
+:opeAUh4mN  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamAUh4mNU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAUh4mNUy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk,V" ;
+        chon:hasSANRecord      "Rfe8" , "Kf2" , "Rd1" , "Bg5" , "Qb6" , "e5" , "Qxb1" , "Rxb1+" , "Bb4" , "Ng5" , "Bxc4" , "Nh3" , "Rd8+" , "Be2" , "e6" , "c5" , "c3" , "Bg3" , "Rb8" , "Nxc3" , "e3" , "f3" , "bxc5" , "Nd5" , "Nxa8" , "Qb1+" , "c4" , "Be5" , "Rad8" , "Rd2" , "Nb6" , "dxc4" , "h6" , "Qc2" , "Nf6" , "h3" , "Ne3" , "Ba6" , "b6" , "Bc3" , "O-O" , "a3" , "d4" , "Kh7" , "Bh4" , "d5" , "e4" , "bxc3" , "Qxc3" , "Qb5" , "Nd7" , "Ncxe4+" , "dxc5" , "Rh1" , "Na4" , "Ke2" , "Nf4" , "Nbd7" , "Bxc3+" , "Rxd2" , "Rfd1" , "Nc3" , "d6" , "Bf2" , "Ra8" ;
+        chon:nextHalfMove      :hmgamAUh4mNU .

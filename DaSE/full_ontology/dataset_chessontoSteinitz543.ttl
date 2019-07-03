@@ -1,0 +1,77 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgiSiBhNsS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRQ9hUM .
+
+:rolhgtQfPQMv6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRQ9hUM .
+
+:hmgamiSiBhNs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiSiBhNsS , chon:AgentRole , :rolhgtQfPQMv6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Blackburne, Joseph Henry" ;
+        chon:hasSANRecord      "Qxf4" , "Rg4" , "Bb5+" , "Ke2" , "Re4+" , "Re8+" , "Rf4" , "Ba4" , "Nh6" , "dxc6" , "Rg7" , "O-O" , "Be2" , "Bxe4+" , "Be6" , "Bd5" , "Ne4" , "Rxg3+" , "Rf7+" , "h6" , "Re6" , "h4" , "Nd5" , "Nc4" , "Bxf4" , "dxe5" , "Nc3" , "b3" , "Re7+" , "bxc6" , "Rxa2" , "O-O-O" , "Ng5" , "Nxg4" , "exd5" , "Bxc6" , "Rxh4+" , "Rgg8" , "Rh3" , "Ke7" , "Qc7" , "Bc4" , "Nxf4" , "Ref6" , "Bxe5" , "Rf3" , "Nh5" , "Kd8" , "Ng4" , "g3" , "Ng3" , "Kd3" , "c5+" , "Bd3" , "Nf6" , "d5" , "h5" , "Kc4" , "Rb4" , "Qf2" , "Bc6" , "Nd3" , "c6" , "Ng4+" , "Kd6" , "g5" , "Kd4" , "Nc6" , "gxf4" , "Kc7" , "Rhg8" , "Rf5" , "Re1" , "Nf2" , "Kb5" , "Bxe4" , "Bd6" , "Rxh5" , "c4" , "Rxg4" , "Ne3" , "Rg5" , "Nh3" , "Qe1" , "Na5" , "Rh2" , "f5" , "Rh2+" , "Rdg8" , "Nf3" , "f4" , "Rxf4" , "Kf2" , "a5" , "Kg2" , "e5" , "d4" ;
+        chon:nextHalfMove      :hmgamiSiBhNs , :hmgamtQfPQMv .
+
+:touRQ9hU  a          chon:hessTournament ;
+        chon:atPlace  :plaRQ9hUM ;
+        chon:hasName  "Vienna" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRQ9hUM .
+
+:hmgamtQfPQMv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtQfPQMv6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Blackburne, Joseph Henry" ;
+        chon:hasSANRecord      "Rg6+" , "Rh7+" , "Kb8" , "Rh6+" , "Nc3+" , "Kd7" , "a6" , "Rc1" , "Kxa5" , "bxa4" , "Rc6" , "Rc6+" , "Ke6" , "Nxa4" , "Kb7" , "Rd8" , "Re8+" , "Ka7" , "c7" , "Kc6" , "Rh1" , "Kd8" , "Rd5" , "Rb1+" , "Re7" , "Re4" , "Rg7+" , "Kd5" , "Rg8" , "Rg5+" , "Ra2" , "Kb5" , "Rc7+" , "Kc7" , "Rb4+" , "Kc4" , "Kd6" , "Kxa7" , "a5" , "Re7+" , "Re5" , "Ra6" , "Kb6" , "a7+" , "Rh6" , "Rc2" , "Rd7" , "Rh8" , "c6" ;
+        chon:nextHalfMove      :hmgamtQfPQMv .
+
+:opeRQ9hUM  a            chon:ChessOpening ;
+        chon:hasECOCode  "C59" .
+
+:cgrRQ9hUM  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamRQ9hU .
+
+:rolRQ9hUM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRQ9hUM .
+
+:rolhgRQ9hUMDr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRQ9hUM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamRQ9hU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRQ9hUM ;
+        chon:atPlace           :plaRQ9hUM ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRQ9hUMD ;
+        chon:hasHalfMove       :hmgamRQ9hUMD , :hmgamtQfPQMv , :hmgamiSiBhNs ;
+        chon:hasLastHalfMove   :hmgamtQfPQMv ;
+        chon:hasOpening        :opeRQ9hUM ;
+        chon:hasReport         :cgrRQ9hUM ;
+        chon:hasResult         :resRQ9hUMD ;
+        chon:subEventOf        :touRQ9hU .
+
+:resRQ9hUMD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaRQ9hUM  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:hmgamRQ9hUMD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRQ9hUMDr , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamiSiBhNs .
+
+:agRQ9hUM  a          chon:Agent ;
+        chon:hasName  "Blackburne, Joseph Henry" , "Steinitz, William" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRQ9hUM .

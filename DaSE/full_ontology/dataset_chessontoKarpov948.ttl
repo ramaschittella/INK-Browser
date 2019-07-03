@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrpeM2Hp  a   chon:ChessGameReport .
+
+:toupeM2H  a          chon:hessTournament ;
+        chon:atPlace  :plapeM2Hp ;
+        chon:hasName  "World Championship 32th-KK2" .
+
+:hmgamBeIhgos  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBeIhgosH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "b6" , "Ne5" , "Bxb7" , "Rxd1+" , "Qc7" , "Bb7" , "Na5" , "Qd4" , "Rb8" , "Rac1" , "Qe3" , "Rxb6" , "Rxb7" , "Nd4" , "dxc5" , "Rc6" , "Rxc1+" , "Qxd2" , "Nxd2" , "Nb3" , "d5" , "g6" , "f6" , "Rfd1" , "Qg5" , "cxd6" , "Qb6+" , "Nf7" , "Rxd1" , "Rc1" , "Qxc1" , "Rd8" , "cxb6" , "c4" , "f4" , "Rdxd6" , "Nxc4" , "Qf4" , "Qc5" ;
+        chon:nextHalfMove      :hmgamBeIhgos .
+
+:rolhgpeM2Hppu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpeM2Hp .
+
+:agpeM2Hp  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolpeM2Hp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpeM2Hp .
+
+:respeM2Hpp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opepeM2Hp  a            chon:ChessOpening ;
+        chon:hasECOCode  "E20" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpeM2Hp .
+
+chon:HalfMove  chon:subEventOf  :gampeM2H .
+
+:hmgampeM2Hpp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpeM2Hppu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf6" , "d4" , "c5" , "Nc6" , "c4" , "Bb4" , "e6" , "O-O" , "Nf3" , "Nc3" , "Ne4" , "Bd2" , "Bg2" , "g3" , "bxc3" , "Bxc3" ;
+        chon:nextHalfMove      :hmgamBeIhgos , :hmgampeM2Hpp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpeM2Hp .
+
+:rolhgBeIhgosH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpeM2Hp .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plapeM2Hp  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:gampeM2H  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpeM2Hp ;
+        chon:atPlace           :plapeM2Hp ;
+        chon:atTime            "1985.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampeM2Hpp ;
+        chon:hasHalfMove       :hmgamBeIhgos , :hmgampeM2Hpp ;
+        chon:hasLastHalfMove   :hmgamBeIhgos ;
+        chon:hasOpening        :opepeM2Hp ;
+        chon:hasReport         :cgrpeM2Hp ;
+        chon:hasResult         :respeM2Hpp ;
+        chon:subEventOf        :toupeM2H .

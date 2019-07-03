@@ -1,0 +1,76 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamqORckpS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqORckpSn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Clement, C." ;
+        chon:hasSANRecord      "Rg4" , "Rd4" , "Bxd4" , "Kb2" , "Rxd4" ;
+        chon:nextHalfMove      :hmgamqORckpS .
+
+:resRR5xGqr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeRR5xGq  a            chon:ChessOpening ;
+        chon:hasECOCode  "C19" .
+
+:hmgamRR5xGqr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRR5xGqrO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Clement, C." ;
+        chon:hasSANRecord      "c5" , "bxc6" , "Nxd4" , "Bxg4" , "bxc3" , "Bb4" , "Qxd4" , "cxd4" , "Be6" , "O-O-O" , "Bd7" , "Bxc3+" , "Rxg7" , "Bb2" , "Qxe5+" , "e4" , "d5" , "Qc7" , "Nbc6" , "Nfxd4" , "g4" , "e6" , "Qd2" , "Rxg8+" , "Rg1" , "a3" , "Qe3" , "Rd2" , "d4" , "Rxg8" , "Nc6" , "Nc3" , "Bxe5" , "Bxc6" , "Nf3" , "Ne7" , "Rdg8" , "e5" , "a4" , "Bb5" , "Ba3" , "Nf5" ;
+        chon:nextHalfMove      :hmgamRR5xGqr , :hmgamYMHUZpK .
+
+:plaFR8h0r  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRR5xGq .
+
+:rolhgRR5xGqrO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRR5xGq .
+
+chon:HalfMove  chon:subEventOf  :gamFR8h0 .
+
+:cgrRR5xGq  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRR5xGq .
+
+:rolhgqORckpSn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRR5xGq .
+
+:hmgamYMHUZpK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqORckpSn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Clement, C." ;
+        chon:hasSANRecord      "Rg1+" ;
+        chon:nextHalfMove      :hmgamqORckpS .
+
+:agRR5xGq  a          chon:Agent ;
+        chon:hasName  "Clement, C." , "Fischer, Robert James" .
+
+:rolRR5xGq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRR5xGq .
+
+:touRR5xG  a          chon:hessTournament ;
+        chon:atPlace  :plaFR8h0r ;
+        chon:hasName  "Santa Monica sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamFR8h0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRR5xGq ;
+        chon:atPlace           :plaFR8h0r ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRR5xGqr ;
+        chon:hasHalfMove       :hmgamRR5xGqr , :hmgamYMHUZpK , :hmgamqORckpS ;
+        chon:hasLastHalfMove   :hmgamqORckpS ;
+        chon:hasOpening        :opeRR5xGq ;
+        chon:hasReport         :cgrRR5xGq ;
+        chon:hasResult         :resRR5xGqr ;
+        chon:subEventOf        :touRR5xG .

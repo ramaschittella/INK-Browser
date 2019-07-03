@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgvWlQofnp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvWlQof .
+
+:touvWlQo  a          chon:hessTournament ;
+        chon:atPlace  :plavWlQof ;
+        chon:hasName  "EE Internet sim" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvWlQof .
+
+:plavWlQof  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:rolhgpB9jG5mD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvWlQof .
+
+chon:HalfMove  chon:subEventOf  :gamvWlQo .
+
+:cgrvWlQof  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvWlQof .
+
+:hmgampB9jG5m  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpB9jG5mD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Cernousek, Lukas" ;
+        chon:hasSANRecord      "Qc3" , "Rfd8" , "Rd6" , "Qd7" , "Rcd1" , "Rh3" , "Rc1" , "Qd6+" , "Ka2" , "Qb7" , "O-O" , "Qd2" , "Kb1" , "Qb6" , "Rd3" , "Ra4+" , "Rd4" , "Ka3" , "h4" ;
+        chon:nextHalfMove      :hmgampB9jG5m .
+
+:agvWlQof  a          chon:Agent ;
+        chon:hasName  "Cernousek, Lukas" , "Karpov, Anatoly" .
+
+:rolvWlQof  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvWlQof .
+
+:hmgamvWlQofn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpB9jG5mD , chon:AgentRole , :rolhgvWlQofnp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Cernousek, Lukas" ;
+        chon:hasSANRecord      "cxb5" , "Qd5+" , "Kxb4" , "Bxd2+" , "Bxe4" , "c6" , "c4" , "Nb4+" , "Nf3" , "Na6" , "Qe2" , "b5" , "Kc3" , "Bf5" , "e4" , "Nxc4" , "Kxd2" , "a4" , "Nc3" , "Nxe4" , "Bb4" , "fxe4" , "dxc4" , "Kc2" , "axb5" , "Qxc4" , "bxc4" , "Nf6" , "d5" , "e6" , "Qxe4+" , "f3" , "Ne5" , "Bd2" , "Qxd4" , "Rb8+" , "d4" ;
+        chon:nextHalfMove      :hmgampB9jG5m , :hmgamvWlQofn .
+
+:opevWlQof  a            chon:ChessOpening ;
+        chon:hasECOCode  "D17" .
+
+:gamvWlQo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvWlQof ;
+        chon:atPlace           :plavWlQof ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvWlQofn ;
+        chon:hasHalfMove       :hmgamvWlQofn , :hmgampB9jG5m ;
+        chon:hasLastHalfMove   :hmgampB9jG5m ;
+        chon:hasOpening        :opevWlQof ;
+        chon:hasReport         :cgrvWlQof ;
+        chon:hasResult         :resvWlQofn ;
+        chon:subEventOf        :touvWlQo .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resvWlQofn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

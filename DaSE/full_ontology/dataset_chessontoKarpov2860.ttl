@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg7L06fd7e  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agULdQIe .
+
+:agULdQIe  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Zvjaginsev,V" .
+
+:rolULdQIe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agULdQIe .
+
+:opeULdQIe  a            chon:ChessOpening ;
+        chon:hasECOCode  "E13" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agULdQIe .
+
+:hmgam7L06fd7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7L06fd7e , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "f3" , "e6" , "Qe7" , "Nf3" , "e4" , "e3" , "Nc3" , "Bc8" , "c4" , "b6" , "Na6" , "Nf1" , "Bb7" , "Bg5" , "Bh4" , "Ne3" , "e5" , "Nc6" , "d5" , "g5" , "O-O" , "Be2" , "h6" , "Qc2" , "Nb7" , "a4" , "Bb4" , "d4" , "bxc3" , "Nc5" , "Nb8" , "d6" , "Nf6" , "a5" , "Rfb8" , "Bf2" , "Bxc3" , "axb6" , "Nd2" ;
+        chon:nextHalfMove      :hmgam7L06fd7 .
+
+chon:HalfMove  chon:subEventOf  :gamULdQI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agULdQIe .
+
+:resULdQIe5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaULdQIe  a         chon:Place ;
+        chon:hasName  "Sochi RUS" .
+
+:gamULdQI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolULdQIe ;
+        chon:atPlace           :plaULdQIe ;
+        chon:atTime            "2006.04.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7L06fd7 ;
+        chon:hasHalfMove       :hmgam7L06fd7 ;
+        chon:hasLastHalfMove   :hmgam7L06fd7 ;
+        chon:hasOpening        :opeULdQIe ;
+        chon:hasReport         :cgrULdQIe ;
+        chon:hasResult         :resULdQIe5 ;
+        chon:subEventOf        :touULdQI .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touULdQI  a          chon:hessTournament ;
+        chon:atPlace  :plaULdQIe ;
+        chon:hasName  "XIII TCh-RUS" .
+
+:cgrULdQIe  a   chon:ChessGameReport .

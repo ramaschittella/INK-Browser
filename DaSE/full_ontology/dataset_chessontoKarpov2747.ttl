@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamqTZcw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollQGlgi ;
+        chon:atPlace           :plaqTZcwi ;
+        chon:atTime            "2003.11.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlQGlgiX ;
+        chon:hasHalfMove       :hmgamlQGlgiX ;
+        chon:hasLastHalfMove   :hmgamlQGlgiX ;
+        chon:hasOpening        :opelQGlgi ;
+        chon:hasReport         :cgrlQGlgi ;
+        chon:hasResult         :reslQGlgiX ;
+        chon:subEventOf        :toulQGlg .
+
+:hmgamlQGlgiX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglQGlgiXq , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "c4" , "Kc5" , "Bb7" , "f4" , "Nf3" , "Qa4" , "Rc6" , "Qxb7" , "Qb3" , "Kxe5" , "dxc5" , "Rfd1" , "Ra7" , "Bh2" , "d4" , "a4+" , "d1=Q" , "Kd3" , "Rxc7" , "Ka3" , "g4" , "a4" , "Bg2" , "Nf6" , "Nd7" , "d5" , "Rxc1" , "Kd6" , "Ne5+" , "f6" , "Kb3" , "e6" , "Bxc7" , "Kh7" , "a6" , "Qc2" , "Kd4" , "Rc8" , "Rc7" , "Bd4" , "Na4" , "Nxc3" , "Be5" , "h5" , "Kxc3" , "Qf3" , "Bxc3" , "b5" , "b4" , "axb5" , "Ke2" , "d6" , "Ka2" , "Bc5" , "h3" , "g3" , "Qc8" , "b8=Q" , "bxa5" , "Rc8+" , "Bg1" , "d2" , "b7" , "Qb3+" , "Kd5" , "Qxc3" , "Kxg2" , "Ba6" , "O-O" , "e4" , "f3" , "Ne2" , "Bf4" , "a5" , "Be7" , "exd5" , "Rac1" , "Kf1" , "cxb5" , "d4+" , "Nc3" , "Kf5" , "Bxg2" , "h6" , "d3" , "Kg6" , "Nd4" , "Bxc5" , "Nce4" , "b6" , "c5" , "Rxb7" , "Nc5" , "h4" , "Na6" , "Qb7+" , "Bxe5" ;
+        chon:nextHalfMove      :hmgamlQGlgiX .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglQGlgi .
+
+:plaqTZcwi  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+:cgrlQGlgi  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamqTZcw .
+
+:aglQGlgi  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Van Wely,L" .
+
+:toulQGlg  a          chon:hessTournament ;
+        chon:atPlace  :plaqTZcwi ;
+        chon:hasName  "Corsica Masters KO" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglQGlgi .
+
+:rollQGlgi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglQGlgi .
+
+:opelQGlgi  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:rolhglQGlgiXq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglQGlgi .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reslQGlgiX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

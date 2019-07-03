@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touPDjKn  a          chon:hessTournament ;
+        chon:atPlace  :plaPDjKnY ;
+        chon:hasName  "World Championship 30th" .
+
+:rolhgPDjKnYYq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPDjKnY .
+
+:plaPDjKnY  a         chon:Place ;
+        chon:hasName  "Merano" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPDjKnY .
+
+:agPDjKnY  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+:opePDjKnY  a            chon:ChessOpening ;
+        chon:hasECOCode  "C67" .
+
+:rolhghDv3J1QQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPDjKnY .
+
+:cgrPDjKnY  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamPDjKn .
+
+:resPDjKnYY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamPDjKnYY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPDjKnYYq , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Qe2" , "exd6" , "Nc3" , "Nc5" , "Rad1" , "e4" , "Nf6" , "d5" , "d4" , "Nc6" , "Nf3" , "O-O" , "Be7" , "Nd6" , "Bb5" , "cxd6" , "Ne6" , "Be3" , "Re1" , "dxe5" , "Nb7" , "Nxe4" , "bxc6" , "e5" , "Bxc6" ;
+        chon:nextHalfMove      :hmgamPDjKnYY , :hmgamhDv3J1Q .
+
+:gamPDjKn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPDjKnY ;
+        chon:atPlace           :plaPDjKnY ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPDjKnYY ;
+        chon:hasHalfMove       :hmgamsDqggZT , :hmgamhDv3J1Q , :hmgamPDjKnYY ;
+        chon:hasLastHalfMove   :hmgamsDqggZT ;
+        chon:hasOpening        :opePDjKnY ;
+        chon:hasReport         :cgrPDjKnY ;
+        chon:hasResult         :resPDjKnYY ;
+        chon:subEventOf        :touPDjKn .
+
+:rolhgsDqggZT2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPDjKnY .
+
+:rolPDjKnY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPDjKnY .
+
+:hmgamhDv3J1Q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsDqggZT2 , chon:AgentRole , :rolhghDv3J1QQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Bf7" , "Nxe7+" , "Rc8" , "b4" , "Rde1" , "Re7" , "Ra7" , "Qxd5" , "Be8" , "Rd8" , "h6" , "Qh4" , "Qd7" , "d4" , "Qd2" , "d5" , "Bd7" , "a3" , "Nf5" , "Re8" , "Qg6" , "Nd4" , "Bg3" , "b3" , "Rxa7" , "Re5" , "Qd8" , "Qf5" , "Rd7" , "Qb7" , "Rxd5" , "Qf6" , "Bf2" , "Qd5" , "Ne2" , "h3" , "Rd5" , "Nc1" , "Kh2" , "Nd3" , "Ng3" , "Qe4" , "Ra5" , "Qe1" , "f6" , "f3" , "Rfe8" , "Qxe7" ;
+        chon:nextHalfMove      :hmgamsDqggZT , :hmgamhDv3J1Q .
+
+:hmgamsDqggZT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsDqggZT2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "h5" , "Nd3" , "a5" , "a4" , "Bxd3" , "Bg6" , "Ne5" , "Bxe5" , "Nxd3" , "Ra7" , "h4" , "Rc8" , "Nxc5" , "Qe8" , "cxd3" , "bxc5" , "Bf5" , "Qb6" , "c5" , "Ra6" , "Rc7" , "Qd7" , "Qg6" , "Kh7" , "Rxc7" , "Qa5" , "Qxd4" , "Bxc7" , "Nf2" ;
+        chon:nextHalfMove      :hmgamsDqggZT .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPDjKnY .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agTtDHis  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Fischer, Robert James" .
+
+:touTtDHi  a          chon:hessTournament ;
+        chon:atPlace  :plaTtDHis ;
+        chon:hasName  "World Championship 28th" .
+
+:rolhgTtDHisBp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTtDHis .
+
+:opeTtDHis  a            chon:ChessOpening ;
+        chon:hasECOCode  "A39" .
+
+:hmgamTtDHisB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTtDHisBp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Bxb8" , "g3" , "Rab8" , "O-O" , "Rxb8" , "a6" , "Nf6" , "bxc4" , "Qa5" , "Bg7" , "Nxd4" , "b3" , "Qd2" , "Qf4" , "Rfc8" , "Ba7" , "d6" , "b5" , "Qxd4" , "Bg5" , "Nf3" , "Bg2" , "c5" , "g6" , "c4" , "Be3" , "Nc3" , "Rac1" , "Be6" , "Nc6" , "cxd4" , "d4" ;
+        chon:nextHalfMove      :hmgamRIfuvA0 , :hmgamTtDHisB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTtDHis .
+
+chon:HalfMove  chon:subEventOf  :gamTtDHi .
+
+:plaTtDHis  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTtDHis .
+
+:resTtDHisB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrTtDHis  a   chon:ChessGameReport .
+
+:gamTtDHi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTtDHis ;
+        chon:atPlace           :plaTtDHis ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTtDHisB ;
+        chon:hasHalfMove       :hmgamRIfuvA0 , :hmgamTtDHisB ;
+        chon:hasLastHalfMove   :hmgamRIfuvA0 ;
+        chon:hasOpening        :opeTtDHis ;
+        chon:hasReport         :cgrTtDHis ;
+        chon:hasResult         :resTtDHisB ;
+        chon:subEventOf        :touTtDHi .
+
+:rolTtDHis  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTtDHis .
+
+:rolhgRIfuvA08  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTtDHis .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamRIfuvA0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRIfuvA08 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "f5+" , "Nc5" , "Bb2" , "Rd2" , "Rxc4" , "Ke7" , "Ba3" , "Nd7" , "Bxc4" , "f4" , "Rxd6+" , "Rec2" , "Kf8" , "Bf1" , "Rxd2" , "Rd5+" , "a5" , "Ke6" , "bxc4" , "Qxd2" , "f6" , "Be2" , "Nd5" , "e4" , "Ke5" , "Rc6" , "Kg2" , "Rb1+" , "Rfd1" , "Rcd4" , "Re2" , "Kxe7" , "exf5+" , "gxf5" , "Nxe7+" , "h5" , "Ba1" , "Kxf5" ;
+        chon:nextHalfMove      :hmgamRIfuvA0 .

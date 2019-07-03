@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamP73aROL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgP73aROLc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shipman, Walter" ;
+        chon:hasSANRecord      "Qg4" , "Bxd5" , "Bf6" , "exd5" , "Be3" , "Bg5" ;
+        chon:nextHalfMove      :hmgamP73aROL .
+
+:plaIbpNAR  a         chon:Place ;
+        chon:hasName  "?" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIbpNAR .
+
+:agIbpNAR  a          chon:Agent ;
+        chon:hasName  "Shipman, Walter" , "Fischer, Robert James" .
+
+:cgrIbpNAR  a   chon:ChessGameReport .
+
+:rolhgP73aROLc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIbpNAR .
+
+:gamIbpNA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIbpNAR ;
+        chon:atPlace           :plaIbpNAR ;
+        chon:atTime            "1957.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIbpNARs ;
+        chon:hasHalfMove       :hmgamP73aROL , :hmgamD99WkPJ , :hmgamIbpNARs ;
+        chon:hasLastHalfMove   :hmgamP73aROL ;
+        chon:hasOpening        :opeIbpNAR ;
+        chon:hasReport         :cgrIbpNAR ;
+        chon:hasResult         :resIbpNARs ;
+        chon:subEventOf        :touIbpNA .
+
+chon:HalfMove  chon:subEventOf  :gamIbpNA .
+
+:rolhgD99WkPJZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIbpNAR .
+
+:opeIbpNAR  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:rolhgIbpNARs2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIbpNAR .
+
+:resIbpNARs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamD99WkPJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgD99WkPJZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shipman, Walter" ;
+        chon:hasSANRecord      "c3" , "d6" , "b4" , "a6" , "O-O" , "Nf6" , "cxd4" , "Bb3" , "Re1" , "h3" , "Bb5" , "a5" , "Nxd5" , "Bb7" , "b5" , "exd4" , "Nxd4" , "Be7" , "Nd5" , "Ba4" , "Nc3" , "d4" ;
+        chon:nextHalfMove      :hmgamD99WkPJ , :hmgamP73aROL .
+
+:hmgamIbpNARs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgD99WkPJZ , :rolhgIbpNARs2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shipman, Walter" ;
+        chon:hasSANRecord      "Nf3" , "Nc6" , "e4" , "e5" ;
+        chon:nextHalfMove      :hmgamD99WkPJ , :hmgamIbpNARs .
+
+:touIbpNA  a          chon:hessTournament ;
+        chon:atPlace  :plaIbpNAR ;
+        chon:hasName  "USA-op" .
+
+:rolIbpNAR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIbpNAR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIbpNAR .

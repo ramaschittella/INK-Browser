@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agGFf3xn  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Rashkovsky, Nukhim N" .
+
+:rolGFf3xn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGFf3xn .
+
+:gamGFf3x  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGFf3xn ;
+        chon:atPlace           :plaGFf3xn ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGFf3xnt ;
+        chon:hasHalfMove       :hmgamGFf3xnt , :hmgamSFbg7mw ;
+        chon:hasLastHalfMove   :hmgamSFbg7mw ;
+        chon:hasOpening        :opeGFf3xn ;
+        chon:hasReport         :cgrGFf3xn ;
+        chon:hasResult         :resGFf3xnt ;
+        chon:subEventOf        :touGFf3x .
+
+:opeGFf3xn  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+:touGFf3x  a          chon:hessTournament ;
+        chon:atPlace  :plaGFf3xn ;
+        chon:hasName  "URS-ch44" .
+
+:hmgamSFbg7mw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSFbg7mwi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rac8" , "Rc3" , "f3" , "Bxf6" , "Qd4" , "Red8" , "Nxf6" , "Qc7" , "h6" , "Rfd1" ;
+        chon:nextHalfMove      :hmgamSFbg7mw .
+
+:hmgamGFf3xnt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGFf3xnt8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxe4" , "Bd2" , "d4" , "Ne3" , "c4" , "Bxg2" , "b6" , "e4" , "Bxd4" , "Nf6" , "d6" , "cxd4" , "Rc1" , "e6" , "Bg2" , "Be7" , "Bf6" , "Nd7" , "Nf3" , "Ne4" , "Nc3" , "O-O" , "Re8" , "Ne1" , "Nxe4" , "c5" , "Nxg2" , "Bc3" , "Bb7" , "g3" ;
+        chon:nextHalfMove      :hmgamSFbg7mw , :hmgamGFf3xnt .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGFf3xn .
+
+:rolhgGFf3xnt8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGFf3xn .
+
+chon:HalfMove  chon:subEventOf  :gamGFf3x .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGFf3xn .
+
+:resGFf3xnt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaGFf3xn  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrGFf3xn  a   chon:ChessGameReport .
+
+:rolhgSFbg7mwi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGFf3xn .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agSwroVo  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Salov, Valery" .
+
+:rolhgSwroVoP6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSwroVo .
+
+:opeSwroVo  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSwroVo .
+
+:hmgamSwroVoP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSwroVoP6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxc8" , "Qxa7" , "Qb1+" , "c5" , "Bxb7" , "Nd3" , "d4" , "Rc7" , "Ned5" , "Qd3" , "Bd3" , "Kh2" , "Ne5" , "Ba6" , "Qxf2" , "Qc6" , "cxd4" , "b7" , "Bxe7" , "Qxe3" , "c3" , "Qxb7" , "Qb8" , "Rc8" , "b4" , "Qxb4" , "Kg7" , "Kg1" , "Qc7" , "Qd5" , "g5" , "d6" , "Nxe7" , "Nc6" , "Qe2" , "Nbd2" , "Rc1" , "h5" , "g3+" , "Be7" , "a3" , "Rxc8+" , "Nxh3+" , "b5" , "Bg5" , "e6" , "Nb4" , "Qb2" , "Ne7" , "O-O" , "Qc4" , "Nxb4" , "Qxc7" , "Nh5" , "g4" , "Rxc7" , "h6" , "Bb7" , "Bh4" , "Qf5" , "Kh1" , "Ne4" , "h3" , "Rfc1" , "a4" , "Nf6" , "e3" , "Nf2+" , "Nf3" , "b6" , "Qxb6" , "Qb7" ;
+        chon:nextHalfMove      :hmgamSwroVoP .
+
+chon:HalfMove  chon:subEventOf  :gamSwroV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSwroVo .
+
+:cgrSwroVo  a   chon:ChessGameReport .
+
+:resSwroVoP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolSwroVo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSwroVo .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamSwroV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSwroVo ;
+        chon:atPlace           :plaSwroVo ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSwroVoP ;
+        chon:hasHalfMove       :hmgamSwroVoP ;
+        chon:hasLastHalfMove   :hmgamSwroVoP ;
+        chon:hasOpening        :opeSwroVo ;
+        chon:hasReport         :cgrSwroVo ;
+        chon:hasResult         :resSwroVoP ;
+        chon:subEventOf        :touSwroV .
+
+:touSwroV  a          chon:hessTournament ;
+        chon:atPlace  :plaSwroVo ;
+        chon:hasName  "Alma-Ata m1" .
+
+:plaSwroVo  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resnXtHZS7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgnXtHZS79  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnXtHZS .
+
+:planXtHZS  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnXtHZS .
+
+:cgrnXtHZS  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamnXtHZ .
+
+:agnXtHZS  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Polgar, Judit" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnXtHZS .
+
+:rolnXtHZS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnXtHZS .
+
+:hmgamnXtHZS7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnXtHZS79 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rd3" , "c5" , "N3c4" , "Qc7" , "b3" , "Qxb4" , "Nc3" , "Bd2" , "Nxe4" , "dxe4" , "Nxa4" , "O-O" , "Ne3" , "a4" , "Bb4" , "Ngf3" , "Rac8" , "hxg5" , "Nbd5" , "Ne5" , "d5" , "h4" , "Bd7" , "b5" , "Rcd1" , "Ngf6" , "Re1" , "a3" , "Bb3" , "Nb6" , "Nfe5" , "Ba4" , "Rc3" , "Rac1" , "Ng5" , "c3" , "c6" , "Bxb4" , "a5" , "Qe2" , "Qe7" , "b4" , "Nc4" , "g5" , "h6" , "Bxa4" , "g4" , "Nd7" , "e6" , "Bd6" , "d4" , "N5f3" , "Nh7" , "e4" , "Qf3" , "Bc4" , "cxd4" , "Nf8" , "Rc8" ;
+        chon:nextHalfMove      :hmgamnXtHZS7 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamnXtHZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnXtHZS ;
+        chon:atPlace           :planXtHZS ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnXtHZS7 ;
+        chon:hasHalfMove       :hmgamnXtHZS7 ;
+        chon:hasLastHalfMove   :hmgamnXtHZS7 ;
+        chon:hasOpening        :openXtHZS ;
+        chon:hasReport         :cgrnXtHZS ;
+        chon:hasResult         :resnXtHZS7 ;
+        chon:subEventOf        :tounXtHZ .
+
+:openXtHZS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:tounXtHZ  a          chon:hessTournament ;
+        chon:atPlace  :planXtHZS ;
+        chon:hasName  "Alma-Ata m3" .

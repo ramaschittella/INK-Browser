@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrTEnJbt  a   chon:ChessGameReport .
+
+:agTEnJbt  a          chon:Agent ;
+        chon:hasName  "Tkachiev, Vladislav" , "Karpov, Anatoly" .
+
+:rolTEnJbt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTEnJbt .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTEnJbt .
+
+:hmgamTEnJbtX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTEnJbtXY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tkachiev, Vladislav" ;
+        chon:hasSANRecord      "Rxe8+" , "d6" , "Rae1" , "Rxf3+" , "Nf6" , "Bh4+" , "d4" , "e3" , "e4" , "Rxe5" , "a6" , "Re8+" , "Kg7" , "d5" , "Bg2" , "Nbd7" , "g3" , "c3" , "g4" , "Ne6" , "Rf4" , "Rxg5" , "a4" , "Nxe4" , "Bxg2" , "dxe5" , "h3" , "Bb7" , "Kg3" , "b3" , "Bg7" , "Rxe3" , "c4" , "Rf5" , "Qe2" , "Qe3" , "Rxe8" , "Qb7+" , "Bg5" , "Bf6" , "Qxf3" , "dxe4" , "Kxg2" , "g6" , "b6" , "Qc8" , "Nf3" , "Qc2" , "Re8" , "Re1" , "O-O" , "Nd2" , "Nf8" , "Nbd2" , "e5" ;
+        chon:nextHalfMove      :hmgamTEnJbtX .
+
+chon:HalfMove  chon:subEventOf  :gamTEnJb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTEnJbt .
+
+:rolhgTEnJbtXY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTEnJbt .
+
+:opeTEnJbt  a            chon:ChessOpening ;
+        chon:hasECOCode  "A49" .
+
+:resTEnJbtX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamTEnJb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTEnJbt ;
+        chon:atPlace           :plaTEnJbt ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTEnJbtX ;
+        chon:hasHalfMove       :hmgamTEnJbtX ;
+        chon:hasLastHalfMove   :hmgamTEnJbtX ;
+        chon:hasOpening        :opeTEnJbt ;
+        chon:hasReport         :cgrTEnJbt ;
+        chon:hasResult         :resTEnJbtX ;
+        chon:subEventOf        :touTEnJb .
+
+:touTEnJb  a          chon:hessTournament ;
+        chon:atPlace  :plaTEnJbt ;
+        chon:hasName  "Alma-Ata m2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaTEnJbt  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .

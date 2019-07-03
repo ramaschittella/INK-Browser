@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrhvra5S  a   chon:ChessGameReport .
+
+:reshvra5SN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:aghvra5S  a          chon:Agent ;
+        chon:hasName  "Huebner,R" , "Karpov,An" .
+
+:rolhvra5S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghvra5S .
+
+:opehvra5S  a            chon:ChessOpening ;
+        chon:hasECOCode  "D10" .
+
+:touhvra5  a          chon:hessTournament ;
+        chon:atPlace  :plahvra5S ;
+        chon:hasName  "WDR Rapid" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghvra5S .
+
+:hmgamhvra5SN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghvra5SNG , :rolhgsvooBBPR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Huebner,R" ;
+        chon:hasSANRecord      "d4" , "Nd7" , "e3" , "Be6" , "Bd3" , "e5" , "Bb4+" , "Bf5" , "Qa5" , "exd4" , "f3" , "Nxd5" , "Nf6" , "Ng3" , "O-O" , "Bd2" , "cxd4" , "c4" , "Ne2" , "c6" , "Nc3" , "bxc3" , "Ne4" , "Nxc3" , "cxd5" , "d5" ;
+        chon:nextHalfMove      :hmgamsvooBBP , :hmgamhvra5SN .
+
+chon:HalfMove  chon:subEventOf  :gamhvra5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghvra5S .
+
+:gamhvra5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhvra5S ;
+        chon:atPlace           :plahvra5S ;
+        chon:atTime            "2002.08.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhvra5SN ;
+        chon:hasHalfMove       :hmgamsvooBBP , :hmgamhvra5SN ;
+        chon:hasLastHalfMove   :hmgamsvooBBP ;
+        chon:hasOpening        :opehvra5S ;
+        chon:hasReport         :cgrhvra5S ;
+        chon:hasResult         :reshvra5SN ;
+        chon:subEventOf        :touhvra5 .
+
+:hmgamsvooBBP  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsvooBBPR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Huebner,R" ;
+        chon:hasSANRecord      "e5" , "Kg8" , "Rad8" , "Rd4" , "O-O" , "Qd2" , "Rfe1" , "Bd5" , "f5" , "Re7" , "e6+" , "Bxd2+" , "Rxc6" , "f4" , "Bd7" , "Rc1" , "a5" , "Qxa5" , "Be6" , "Nxd7" , "Qb4" , "Qxd7" , "Qxd2" , "Qh4" , "Nb6" , "Bc4" , "Rxd7" , "e4" , "Bxf7+" , "b5" , "Rxd4" , "Rxa4" , "Na8" , "Kxf7" , "Rc7" , "Qh5" , "a3" , "Nf1" , "exd7" , "a4" , "Ng3" , "Qa7" , "Bc8" , "Qh6" ;
+        chon:nextHalfMove      :hmgamsvooBBP .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgsvooBBPR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghvra5S .
+
+:plahvra5S  a         chon:Place ;
+        chon:hasName  "Cologne GER" .
+
+:rolhghvra5SNG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghvra5S .

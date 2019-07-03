@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gameHUnb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleHUnby ;
+        chon:atPlace           :plaeHUnby ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameHUnby2 ;
+        chon:hasHalfMove       :hmgameHUnby2 , :hmgampHQDIA5 ;
+        chon:hasLastHalfMove   :hmgampHQDIA5 ;
+        chon:hasOpening        :opeeHUnby ;
+        chon:hasReport         :cgreHUnby ;
+        chon:hasResult         :reseHUnby2 ;
+        chon:subEventOf        :toueHUnb .
+
+:rolhgpHQDIA5E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageHUnby .
+
+:toueHUnb  a          chon:hessTournament ;
+        chon:atPlace  :plaeHUnby ;
+        chon:hasName  "Herceg Novi blitz" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageHUnby .
+
+:opeeHUnby  a            chon:ChessOpening ;
+        chon:hasECOCode  "C63" .
+
+chon:HalfMove  chon:subEventOf  :gameHUnb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageHUnby .
+
+:hmgampHQDIA5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpHQDIA5E ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Matulovic, Milan" ;
+        chon:hasSANRecord      "Qf5+" , "fxe5" , "Qxf4" , "Bg5" , "Qg4#" , "Ne5+" , "Bd6" , "Rf7+" , "Ba4" , "Qe6+" , "Rc8" , "Kf7" , "Qxe4+" , "Nf6" , "dxe5" , "Qxh2" , "Qe2" , "Bd7" , "Ke8" , "Qh4+" , "gxf6" , "Ke6" , "Qd7+" , "Rf4+" , "O-O-O" , "Qg5" , "Kh5" , "Kf6" , "Rf5+" , "g3" , "Bxf6" , "Qb7+" , "Kg6" , "d4" , "Bxd7" , "Kxe5" , "Qh3" , "Kg4" , "Rxe7+" , "Kh6" , "Ke7" , "Be7" , "Rf1+" , "f4" , "Rxb7" , "Kxd7" , "Qd5+" , "a6" , "Rxc7" , "Kxg3" , "Kxe7" ;
+        chon:nextHalfMove      :hmgampHQDIA5 .
+
+:plaeHUnby  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+:reseHUnby2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgreHUnby  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ageHUnby  a          chon:Agent ;
+        chon:hasName  "Matulovic, Milan" , "Fischer, Robert James" .
+
+:roleHUnby  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageHUnby .
+
+:rolhgeHUnby2t  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageHUnby .
+
+:hmgameHUnby2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpHQDIA5E , chon:AgentRole , :rolhgeHUnby2t ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Matulovic, Milan" ;
+        chon:hasSANRecord      "e5" , "Bb5" , "Nxe5" , "Nf3" , "Nxc6" , "e4" , "Nc6" , "d5" , "dxe4" , "Nxe4" , "fxe4" , "Nc3" , "f5" ;
+        chon:nextHalfMove      :hmgampHQDIA5 , :hmgameHUnby2 .

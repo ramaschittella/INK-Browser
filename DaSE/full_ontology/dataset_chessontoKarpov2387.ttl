@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resWjO7XnQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrWjO7Xn  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWjO7Xn .
+
+:rolhgWjO7XnQq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWjO7Xn .
+
+:rolhg8jLkwoTD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWjO7Xn .
+
+chon:HalfMove  chon:subEventOf  :gamWjO7X .
+
+:rolWjO7Xn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWjO7Xn .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWjO7Xn .
+
+:gamWjO7X  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWjO7Xn ;
+        chon:atPlace           :plaWjO7Xn ;
+        chon:atTime            "1998.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWjO7XnQ ;
+        chon:hasHalfMove       :hmgam8jLkwoT , :hmgamWjO7XnQ ;
+        chon:hasLastHalfMove   :hmgam8jLkwoT ;
+        chon:hasOpening        :opeWjO7Xn ;
+        chon:hasReport         :cgrWjO7Xn ;
+        chon:hasResult         :resWjO7XnQ ;
+        chon:subEventOf        :touWjO7X .
+
+:touWjO7X  a          chon:hessTournament ;
+        chon:atPlace  :plaWjO7Xn ;
+        chon:hasName  "Hoogovens" .
+
+:plaWjO7Xn  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:hmgam8jLkwoT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8jLkwoTD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov, Alexei" ;
+        chon:hasSANRecord      "Rxh3" , "Rec1" , "cxd6" , "Bxc6" , "Qa3" , "Bb4" , "Rd1" , "Nxd2" , "Nd2" , "Rxb3" , "Bd7" , "Bxd2" , "Bxd4" , "b3" , "Rxc5" , "Qxb7" , "Rh2" , "c5" , "Rba8" , "Bd2" , "Nxe4" , "h3" , "Rcc1" , "h5" , "Nc4" , "Na5" , "Qa7" , "Qxa6" , "Rb4" , "Rb6" , "Bc1" , "e3" , "Bxd6" , "Rxa1" , "e4" , "Rxc6" , "Ra1" , "f6" , "Qa4" , "Bc6" , "Ne4" , "Rh8" , "Ra6" , "Bxe4" , "b4" , "Rb8" , "b5" , "Kf7" , "g4" , "Kf3" , "Bxb7" , "h4" , "Ke6" , "Bd6" , "f3" , "Ke2" , "g5" , "Re1" , "Rb1" , "Qc8" , "Rc4" , "Rh1" , "a4" , "dxc5" , "hxg3" , "Kg2" , "Qa5" , "b6" , "Rxa1+" , "Qb7" , "Rb5" , "Be5" , "Rxa4" ;
+        chon:nextHalfMove      :hmgam8jLkwoT .
+
+:hmgamWjO7XnQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8jLkwoTD , :rolhgWjO7XnQq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov, Alexei" ;
+        chon:hasSANRecord      "d6" , "Bg7" , "Nf3" , "d4" , "g3" , "Nf6" , "a6" , "Bg2" , "Nc6" , "g6" , "c4" , "O-O" , "Nc3" ;
+        chon:nextHalfMove      :hmgamWjO7XnQ , :hmgam8jLkwoT .
+
+:agWjO7Xn  a          chon:Agent ;
+        chon:hasName  "Shirov, Alexei" , "Karpov, Anatoly" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeWjO7Xn  a            chon:ChessOpening ;
+        chon:hasECOCode  "E63" .

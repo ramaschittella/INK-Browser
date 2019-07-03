@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhglJq0m6Px  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglJq0m6 .
+
+:aglJq0m6  a          chon:Agent ;
+        chon:hasName  "Yanofsky, Daniel Abraham" , "Fischer, Robert James" .
+
+:opelJq0m6  a            chon:ChessOpening ;
+        chon:hasECOCode  "B14" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglJq0m6 .
+
+chon:HalfMove  chon:subEventOf  :gamlJq0m .
+
+:hmgamlJq0m6P  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhglJq0m6Px , :rolhgwJnnV5SL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Yanofsky, Daniel Abraham" ;
+        chon:hasSANRecord      "Nxb4" , "Be2" , "Nc3" , "cxd5" , "axb4" , "Bg7" , "d4" , "Qxb6" , "Rd1" , "c4" , "Bf5" , "Qb6" , "Nf6" , "Na6" , "g6" , "Rac8" , "Bxf6" , "Bc4" , "a3" , "c6" , "Bg5" , "exd5" , "Nf3" , "Rd8" , "axb6" , "Qb3" , "b5" , "b4" , "O-O" , "Bb3" , "e4" , "d5" ;
+        chon:nextHalfMove      :hmgamlJq0m6P , :hmgamwJnnV5S .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglJq0m6 .
+
+:plalJq0m6  a         chon:Place ;
+        chon:hasName  "Netanya" .
+
+:hmgamwJnnV5S  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwJnnV5SL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Yanofsky, Daniel Abraham" ;
+        chon:hasSANRecord      "Rxh6" , "Rf8" , "f4" , "Kxg5" , "Rxb7+" , "h6+" , "Bc2" , "Kf6" , "Ne5" , "Rg2" , "Rc8" , "Bg7" , "Ke4" , "Kg7" , "Bxc2" , "gxf5+" , "exd5" , "Ng5" , "Rd7+" , "Nf3" , "Rb3" , "Rd6" , "Rd2" , "Rhg1" , "Nxc2" , "d5" , "h4" , "Rg4" , "Rb6" , "Kh8" , "Kh5" , "Rge1" , "e6" , "Rcd6" , "Bxg5+" , "Nf7+" , "Ke2" , "Nxd5+" , "Re5" , "Kf7" , "Nxd5" , "gxf5" , "g4" , "Rb5" , "Kf4" , "Bf6" , "Kd3" , "Rc6" , "Rd6+" , "Nb4+" , "f5+" , "Rxb2" , "Rxd5" ;
+        chon:nextHalfMove      :hmgamwJnnV5S .
+
+:cgrlJq0m6  a   chon:ChessGameReport .
+
+:gamlJq0m  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollJq0m6 ;
+        chon:atPlace           :plalJq0m6 ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlJq0m6P ;
+        chon:hasHalfMove       :hmgamlJq0m6P , :hmgamwJnnV5S ;
+        chon:hasLastHalfMove   :hmgamwJnnV5S ;
+        chon:hasOpening        :opelJq0m6 ;
+        chon:hasReport         :cgrlJq0m6 ;
+        chon:hasResult         :reslJq0m6P ;
+        chon:subEventOf        :toulJq0m .
+
+:toulJq0m  a          chon:hessTournament ;
+        chon:atPlace  :plalJq0m6 ;
+        chon:hasName  "Netanya-A" .
+
+:reslJq0m6P  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rollJq0m6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglJq0m6 .
+
+:rolhgwJnnV5SL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglJq0m6 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

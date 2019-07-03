@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla7ToxjS  a         chon:Place ;
+        chon:hasName  "La Valetta" .
+
+:res3P6G3AD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3P6G3A .
+
+:cgr3P6G3A  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam7Toxj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3P6G3A .
+
+:rolhg3P6G3ADp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3P6G3A .
+
+:tou3P6G3  a          chon:hessTournament ;
+        chon:atPlace  :pla7ToxjS ;
+        chon:hasName  "Malta ol (Men)" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag3P6G3A  a          chon:Agent ;
+        chon:hasName  "Portisch, Lajos" , "Karpov, Anatoly" .
+
+:rol3P6G3A  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3P6G3A .
+
+:ope3P6G3A  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .
+
+:gam7Toxj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3P6G3A ;
+        chon:atPlace           :pla7ToxjS ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3P6G3AD ;
+        chon:hasHalfMove       :hmgam3P6G3AD ;
+        chon:hasLastHalfMove   :hmgam3P6G3AD ;
+        chon:hasOpening        :ope3P6G3A ;
+        chon:hasReport         :cgr3P6G3A ;
+        chon:hasResult         :res3P6G3AD ;
+        chon:subEventOf        :tou3P6G3 .
+
+:hmgam3P6G3AD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3P6G3ADp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Portisch, Lajos" ;
+        chon:hasSANRecord      "Qb8" , "Rcd8" , "Nf6" , "Rc8" , "Re8" , "Ne4" , "Re1" , "Nxe4" , "Bxe5" , "c4" , "exd4" , "Bf1" , "Be5" , "Ng5" , "f6" , "fxe5" , "O-O" , "Bd3" , "Nf3" , "e3" , "Bg2" , "Bxe4" , "Bb2" , "cxd4" , "d5" , "Nxd2" , "c5" , "b3" , "d4" , "Qe3" , "f4" , "Qe2" , "Bd6" , "e6" , "Ba3" , "Qd3" , "g6" , "Nbd2" , "Qc7" , "e5" , "Bb7" , "bxc4" , "b6" , "Nd7" , "Rc1" , "Be7" , "dxc4" , "g3" ;
+        chon:nextHalfMove      :hmgam3P6G3AD .

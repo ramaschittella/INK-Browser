@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgammyPSgpe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxyM9Pqjc , chon:AgentRole , :rolhgmyPSgpeZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Nc3" , "d4" , "e4" , "Bf8" , "Nd7" , "Bg5" , "cxd4" , "Qd4" , "cxb5" , "c4" , "a6" , "O-O" , "Bxd5" , "f4" , "Rd1" , "Be2" , "Qe1" , "Nf3" , "Nd5" , "Qb7" , "exf4" , "Qxc6" , "e5" , "Be6" , "Nce5" , "b5" , "Nde5" , "Re8" , "Nxc6" , "c5" , "Qc8" , "Na5" , "Qf2" , "Bg3" , "Nf6" , "Nc6" , "Nb3" , "Nxd4" , "d6" , "Bxf4" , "c3" , "Kh1" , "Be7" , "Bh4" ;
+        chon:nextHalfMove      :hmgammyPSgpe , :hmgamxyM9Pqj .
+
+:agmyPSgp  a          chon:Agent ;
+        chon:hasName  "Kavalek, Lubomir" , "Karpov, Anatoly" .
+
+:rolmyPSgp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmyPSgp .
+
+:rolhgxyM9Pqjc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmyPSgp .
+
+:opemyPSgp  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+:hmgamxyM9Pqj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxyM9Pqjc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Bd3" , "a5" , "h4" , "Kf7" , "Bxb5" , "Bh4" , "h5" , "Kg6" , "Be7" , "Ra4" , "Rf4" , "Bc1" , "Nc4" , "Bxc3" , "b4" , "Bxe4" , "Bg3" , "f6" , "Rxd5" , "Rxc3" , "Rb3" , "Rxg7" , "Qxd5" , "Ne4" , "Ke2" , "Rc2" , "Nd6" , "Kf5" , "Rb8" , "a4" , "Rd5" , "h3" , "Rd7+" , "Re8" , "Be5" , "Rxe4" , "axb5" , "Rxd6" , "Rf2" , "Kf1" , "Rb4" , "Ne5" , "Rc3" , "Kg1" , "Bd2" ;
+        chon:nextHalfMove      :hmgamxyM9Pqj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmyPSgp .
+
+chon:HalfMove  chon:subEventOf  :gamUwFAV .
+
+:plaUwFAVp  a         chon:Place ;
+        chon:hasName  "Waddinxveen" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmyPSgp .
+
+:resmyPSgpe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamUwFAV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmyPSgp ;
+        chon:atPlace           :plaUwFAVp ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammyPSgpe ;
+        chon:hasHalfMove       :hmgammyPSgpe , :hmgamxyM9Pqj ;
+        chon:hasLastHalfMove   :hmgamxyM9Pqj ;
+        chon:hasOpening        :opemyPSgp ;
+        chon:hasReport         :cgrmyPSgp ;
+        chon:hasResult         :resmyPSgpe ;
+        chon:subEventOf        :toumyPSg .
+
+:cgrmyPSgp  a   chon:ChessGameReport .
+
+:rolhgmyPSgpeZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmyPSgp .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toumyPSg  a          chon:hessTournament ;
+        chon:atPlace  :plaUwFAVp ;
+        chon:hasName  "Waddinxveen" .

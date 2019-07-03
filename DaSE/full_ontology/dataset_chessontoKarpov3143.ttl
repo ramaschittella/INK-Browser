@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res6jVi29U  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhg6jVi29UN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6jVi29 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6jVi29 .
+
+chon:HalfMove  chon:subEventOf  :gam6jVi2 .
+
+:pla6jVi29  a         chon:Place ;
+        chon:hasName  "Zuerich SUI" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6jVi29 .
+
+:cgr6jVi29  a   chon:ChessGameReport .
+
+:gam6jVi2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6jVi29 ;
+        chon:atPlace           :pla6jVi29 ;
+        chon:atTime            "2009.08.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6jVi29U ;
+        chon:hasHalfMove       :hmgam6jVi29U ;
+        chon:hasLastHalfMove   :hmgam6jVi29U ;
+        chon:hasOpening        :ope6jVi29 ;
+        chon:hasReport         :cgr6jVi29 ;
+        chon:hasResult         :res6jVi29U ;
+        chon:subEventOf        :tou6jVi2 .
+
+:tou6jVi2  a          chon:hessTournament ;
+        chon:atPlace  :pla6jVi29 ;
+        chon:hasName  "Champions Rapid" .
+
+:ag6jVi29  a          chon:Agent ;
+        chon:hasName  "Topalov,V" , "Karpov,Ana" .
+
+:rol6jVi29  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6jVi29 .
+
+:ope6jVi29  a            chon:ChessOpening ;
+        chon:hasECOCode  "A30" .
+
+:hmgam6jVi29U  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6jVi29UN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov,V" ;
+        chon:hasSANRecord      "Bxg2" , "Qc8" , "Nc6" , "Rxd1" , "O-O" , "Bb4" , "Rad8" , "Nf3" , "Ba5" , "d6" , "b4" , "Qxe2+" , "b5" , "a5" , "Ne5" , "cxd4" , "Qd3" , "g3" , "d4" , "dxe5" , "Qb7" , "Rf2" , "fxe4" , "Qe3+" , "Bb2" , "e6" , "Bxe5" , "Ne4" , "Bg2" , "Qe1+" , "Qa4" , "a3" , "b3" , "Qe3" , "Kg2" , "Kxg2" , "a6" , "e4" , "Qxc7" , "Qxc2" , "Qxe4" , "Nc3" , "Qa6" , "f3" , "Qd2" , "Qe4+" , "Rf1" , "Re1" , "Qc3" , "Nfg4" , "c4" , "Kg1" , "Nc2" , "c6" , "Bb7" , "b6" , "Nf6" , "bxa5" , "Qd7" , "c5" , "Qxa5" , "Nxe4" , "Nxd4" , "Rad1" , "Bc7" ;
+        chon:nextHalfMove      :hmgam6jVi29U .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

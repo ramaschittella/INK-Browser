@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agDSbM7e  a          chon:Agent ;
+        chon:hasName  "Hajenius, Willem" , "Karpov, Anatoly" .
+
+:opeDSbM7e  a            chon:ChessOpening ;
+        chon:hasECOCode  "A51" .
+
+:resDSbM7eU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDSbM7e .
+
+chon:HalfMove  chon:subEventOf  :gamDSbM7 .
+
+:plaDSbM7e  a         chon:Place ;
+        chon:hasName  "Antwerp" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDSbM7e .
+
+:rolhgDSbM7eUS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDSbM7e .
+
+:cgrDSbM7e  a   chon:ChessGameReport .
+
+:rolDSbM7e  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDSbM7e .
+
+:hmgamDSbM7eU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDSbM7eUS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hajenius, Willem" ;
+        chon:hasSANRecord      "exf6" , "Ba6" , "e3" , "dxe5" , "f6" , "Bb4+" , "Nxd2" , "Nd2" , "Rh3" , "d4" , "Qxa3" , "Qb4+" , "e5" , "c4" , "Qb1+" , "Nf3" , "Qe7" , "Qa1+" , "h4" , "Rd1" , "Ne4" , "Ke1" , "b4" , "Qg4" , "Bxd2" , "Qd4" , "O-O" , "Bb7" , "Nf6" , "Bxd2+" , "Nc5" , "a3" , "Rxd2" , "Ke2" , "Qxb4" , "Qd5" , "Qxf6" , "b6" , "Rd2" ;
+        chon:nextHalfMove      :hmgamDSbM7eU .
+
+:gamDSbM7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDSbM7e ;
+        chon:atPlace           :plaDSbM7e ;
+        chon:atTime            "1997.05.31"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDSbM7eU ;
+        chon:hasHalfMove       :hmgamDSbM7eU ;
+        chon:hasLastHalfMove   :hmgamDSbM7eU ;
+        chon:hasOpening        :opeDSbM7e ;
+        chon:hasReport         :cgrDSbM7e ;
+        chon:hasResult         :resDSbM7eU ;
+        chon:subEventOf        :touDSbM7 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touDSbM7  a          chon:hessTournament ;
+        chon:atPlace  :plaDSbM7e ;
+        chon:hasName  "Antwerp" .

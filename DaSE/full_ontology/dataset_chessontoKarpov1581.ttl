@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgiBMYQGd8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8BPKiH .
+
+:gam8BPKi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8BPKiH ;
+        chon:atPlace           :pla8BPKiH ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8BPKiHa ;
+        chon:hasHalfMove       :hmgam8BPKiHa , :hmgamiBMYQGd ;
+        chon:hasLastHalfMove   :hmgamiBMYQGd ;
+        chon:hasOpening        :ope8BPKiH ;
+        chon:hasReport         :cgr8BPKiH ;
+        chon:hasResult         :res8BPKiHa ;
+        chon:subEventOf        :tou8BPKi .
+
+:pla8BPKiH  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+:cgr8BPKiH  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8BPKiH .
+
+:hmgam8BPKiHa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8BPKiHaU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Nf2" , "Ne5" , "Kf8" , "Nxe7" , "Bg7" , "d4" , "Bxe7" , "Nd7" , "Bxc5" , "g6" , "Nh3" , "e4" , "Nc6" , "Bxb2" , "Nxe7+" , "f3" , "d6" , "Bb7" , "Nf6" , "f4" , "dxc5" , "Ba3" , "b6" , "Be2" , "Rxd8" , "Rb1" , "Nd5" , "Qxd8" , "c5" , "Be3" , "c4" , "O-O" , "Nc3" ;
+        chon:nextHalfMove      :hmgam8BPKiHa , :hmgamiBMYQGd .
+
+:hmgamiBMYQGd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiBMYQGd8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Ra1" , "Ke3" , "Nc2+" , "Rxd5" , "b4" , "b5" , "Kg8" , "Bxd5" , "Nf6" , "Kg3" , "R3xd5" , "Nc6" , "Ng4" , "Bd3" , "Rxa7" , "Rd4+" , "Rf1" , "b3" , "Rac8" , "Rxa3" , "Ke2" , "h4" , "Nxh7+" , "Rd1" , "Kf3" , "Rd2+" , "h6" , "Nd4" , "Kh8" , "Rxf7" , "Nxd5" , "Bc4" , "Rxc4" , "Na3" , "Rxa2" , "Nd4+" , "cxd5" , "Kf2" , "Rxe4" , "h5" , "Ra2" , "Nf6+" , "Rb7" , "Rd3+" , "Kd2" , "Nb5" , "Rc2" , "Rh3" ;
+        chon:nextHalfMove      :hmgamiBMYQGd .
+
+chon:HalfMove  chon:subEventOf  :gam8BPKi .
+
+:ag8BPKiH  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:rol8BPKiH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8BPKiH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8BPKiH .
+
+:ope8BPKiH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E81" .
+
+:tou8BPKi  a          chon:hessTournament ;
+        chon:atPlace  :pla8BPKiH ;
+        chon:hasName  "Roquebrune rapid" .
+
+:res8BPKiHa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhg8BPKiHaU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8BPKiH .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag2xvS8X  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Lasker, Emanuel" .
+
+:ope2xvS8X  a            chon:ChessOpening ;
+        chon:hasECOCode  "C62" .
+
+:hmgam9v0ZqUY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9v0ZqUYW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rb7" , "Rac2" , "Bxa5" , "Ra2+" , "R2c3" , "Rxc3" , "Bxh5" , "Rf3" , "Rb8" , "Bd2" , "Rc8" , "c3" , "g3" , "a5" , "Ra8" , "b4" , "bxc3" , "Bg6" , "Rd8" , "Ne3" , "N7c5" , "Bd4" , "Rc2" , "Ng2" , "Kh3" , "Rb3" , "Nc1" , "Bxc3" , "Nxc3" , "Rfxc3" , "Nd7" , "Rgc8" , "Re2" , "Na4" , "Nd1" , "Qh4" , "Nxa2" , "Rb6" ;
+        chon:nextHalfMove      :hmgam9v0ZqUY .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2xvS8X .
+
+:hmgamXvcLRVV  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXvcLRVVJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Be7" , "Kh8" , "Ne2" , "Nb7" , "Nb6" , "c4" , "g6" , "g5" , "Bb5" , "Nd2" , "Qe7" , "Nc3" , "Qf3" , "f6" , "Rc2" , "Bd3" , "b5" , "Nd8" , "h4" , "Nf3" , "Nc8" , "Bg5" , "d5" , "Bb6" , "Nxh4" , "Na4" , "Ne6" , "Be2" , "Qe8" , "Kh2" , "Nh4" , "c5" , "Ng3" , "Nh5" , "Bh6" , "e4" , "gxh4" , "Be8" , "Rg8" , "Bd7" , "Nac5" , "d6" , "Qh3" , "c3" , "O-O" , "Bf3" , "f4" , "Nd3" , "Rc1" , "Nge7" , "Be3" , "Rf1" , "Nbc5" , "f5" , "d4" , "Naxb2" , "Bd8" , "Nc6" , "Re1" , "Bg4" , "e5" ;
+        chon:nextHalfMove      :hmgamXvcLRVV , :hmgam9v0ZqUY .
+
+chon:HalfMove  chon:subEventOf  :gam2xvS8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2xvS8X .
+
+:rolhgXvcLRVVJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2xvS8X .
+
+:gam2xvS8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2xvS8X ;
+        chon:atPlace           :pla2xvS8X ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXvcLRVV ;
+        chon:hasHalfMove       :hmgam9v0ZqUY , :hmgamXvcLRVV ;
+        chon:hasLastHalfMove   :hmgam9v0ZqUY ;
+        chon:hasOpening        :ope2xvS8X ;
+        chon:hasReport         :cgr2xvS8X ;
+        chon:hasResult         :res2xvS8XE ;
+        chon:subEventOf        :tou2xvS8 .
+
+:pla2xvS8X  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:tou2xvS8  a          chon:hessTournament ;
+        chon:atPlace  :pla2xvS8X ;
+        chon:hasName  "World Championship 6th" .
+
+:cgr2xvS8X  a   chon:ChessGameReport .
+
+:rolhg9v0ZqUYW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2xvS8X .
+
+:rol2xvS8X  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolXvcLRV  a             chon:AuthorRole ;
+        chon:performedBy  :agXvcLRV .
+
+:res2xvS8XE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

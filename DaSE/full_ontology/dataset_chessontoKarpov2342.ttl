@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resqMGOBDS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamROQ0YEJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgROQ0YEJP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko, Peter" ;
+        chon:hasSANRecord      "Bc4" , "a5" , "e3" , "e6" , "Rd1" , "Qc6" , "Bd7" , "c5" , "g6" , "Nb3" , "Qxe5" , "Ba3" , "Nc6" , "bxc3" , "Rb8" , "Rac8" , "dxe5" , "Qf1" , "Bd3" , "cxd5" , "Na5" , "Bc6" , "e5" , "Nxc3" , "Nxb3" , "Rb2" , "Ra2" , "Bg7" , "h3" , "d5" , "O-O" , "Rfc1" , "Nf3" , "axb3" , "Nc3" , "Bb5" , "Nf6" , "Rbb1" , "Be8" , "b6" , "Qe2" , "Nxd5" , "cxd4" , "Nd2" , "Rb1" , "Ra1" , "Bd5" , "Qa7" , "d4" , "c4" , "Qc7" , "Ba6" , "Bb5+" , "Rfd8" ;
+        chon:nextHalfMove      :hmgamROQ0YEJ .
+
+:opeqMGOBD  a            chon:ChessOpening ;
+        chon:hasECOCode  "A34" .
+
+:agqMGOBD  a          chon:Agent ;
+        chon:hasName  "Leko, Peter" , "Karpov, Anatoly" .
+
+:rolqMGOBD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqMGOBD .
+
+:gameOKB3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqMGOBD ;
+        chon:atPlace           :plaeOKB3S ;
+        chon:atTime            "1998.08.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamROQ0YEJ ;
+        chon:hasHalfMove       :hmgamROQ0YEJ ;
+        chon:hasLastHalfMove   :hmgamROQ0YEJ ;
+        chon:hasOpening        :opeqMGOBD ;
+        chon:hasReport         :cgrqMGOBD ;
+        chon:hasResult         :resqMGOBDS ;
+        chon:subEventOf        :touqMGOB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqMGOBD .
+
+:rolhgROQ0YEJP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqMGOBD .
+
+:plaeOKB3S  a         chon:Place ;
+        chon:hasName  "Polanica Zdroj" .
+
+chon:HalfMove  chon:subEventOf  :gameOKB3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqMGOBD .
+
+:cgrqMGOBD  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touqMGOB  a          chon:hessTournament ;
+        chon:atPlace  :plaeOKB3S ;
+        chon:hasName  "Rubinstein mem 35th" .

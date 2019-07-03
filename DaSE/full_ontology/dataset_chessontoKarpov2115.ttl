@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamPptTS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPptTSu ;
+        chon:atPlace           :plaPptTSu ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKna3EsQ ;
+        chon:hasHalfMove       :hmgamKna3EsQ ;
+        chon:hasLastHalfMove   :hmgamKna3EsQ ;
+        chon:hasOpening        :opePptTSu ;
+        chon:hasReport         :cgrKna3Es ;
+        chon:hasResult         :resPptTSuz ;
+        chon:subEventOf        :touPptTS .
+
+:rolPptTSu  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:touPptTS  a          chon:hessTournament ;
+        chon:atPlace  :plaPptTSu ;
+        chon:hasName  "Valkeakoski sim" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPptTSu .
+
+chon:HalfMove  chon:subEventOf  :gamPptTS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPptTSu .
+
+:rolhgKna3EsQd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPptTSu .
+
+:cgrKna3Es  a   chon:ChessGameReport .
+
+:agPptTSu  a          chon:Agent ;
+        chon:hasName  "Harjula, Mika" , "Karpov, Anatoly" .
+
+:opePptTSu  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:rolKna3Es  a             chon:AuthorRole ;
+        chon:performedBy  :agKna3Es .
+
+:hmgamKna3EsQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKna3EsQd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Harjula, Mika" ;
+        chon:hasSANRecord      "Qxc3" , "O-O" , "Qc7" , "a5" , "b5" , "Rc7" , "Rc8" , "Bg5" , "b4" , "Rfe1" , "Red1" , "Bf8" , "Rxc3" , "h4" , "c4" , "Nd7" , "Bg7" , "c6" , "Re8" , "Bxc3" , "e3" , "Bd3" , "exd5" , "Nf3" , "Bb7" , "Ne5" , "b6" , "Bb4" , "e6" , "d5" , "Nf6" , "axb5" , "Nc3" , "d4" , "Qd6" , "Rc1" , "Bxf6" , "a6" , "g6" , "a4" , "a3" , "Bb1" , "cxd5" , "Qb3" , "Be7" , "g3" , "Qb2" , "cxb5" , "Qa4+" , "Rd1" ;
+        chon:nextHalfMove      :hmgamKna3EsQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resPptTSuz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaPptTSu  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .

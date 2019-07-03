@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhsYRiV  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamhsYRi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhsYRiV ;
+        chon:atPlace           :plahsYRiV ;
+        chon:atTime            "1978.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtsT6SU0 ;
+        chon:hasHalfMove       :hmgamtsT6SU0 ;
+        chon:hasLastHalfMove   :hmgamtsT6SU0 ;
+        chon:hasOpening        :opehsYRiV ;
+        chon:hasReport         :cgrtsT6SU ;
+        chon:hasResult         :reshsYRiV7 ;
+        chon:subEventOf        :touhsYRi .
+
+:hmgamtsT6SU0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtsT6SU0f , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qb3" , "c4" , "Nxc6" , "Be3" , "Qc7" , "Nxd4" , "Nc3" , "g6" , "Bg2" , "Nf3" , "g3" , "Nxd5" , "d5" , "Be6" , "Nxc3" , "Bg7" , "d4" , "O-O" , "c5" , "bxc6" , "Nc6" , "cxd4" , "Nf6" , "bxc3" , "cxd5" ;
+        chon:nextHalfMove      :hmgamtsT6SU0 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghsYRiV .
+
+:plahsYRiV  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+chon:HalfMove  chon:subEventOf  :gamhsYRi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghsYRiV .
+
+:cgrtsT6SU  a   chon:ChessGameReport .
+
+:aghsYRiV  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Huebner, Robert" .
+
+:reshsYRiV7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opehsYRiV  a            chon:ChessOpening ;
+        chon:hasECOCode  "D75" .
+
+:roltsT6SU  a             chon:AuthorRole ;
+        chon:performedBy  :agtsT6SU .
+
+:touhsYRi  a          chon:hessTournament ;
+        chon:atPlace  :plahsYRiV ;
+        chon:hasName  "Bugojno" .
+
+:rolhgtsT6SU0f  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghsYRiV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

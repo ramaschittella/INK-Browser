@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgEnkgJjpY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdn8Woj .
+
+:gamdn8Wo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldn8Woj ;
+        chon:atPlace           :pladn8Woj ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEnkgJjp ;
+        chon:hasHalfMove       :hmgamEnkgJjp ;
+        chon:hasLastHalfMove   :hmgamEnkgJjp ;
+        chon:hasOpening        :opedn8Woj ;
+        chon:hasReport         :cgrdn8Woj ;
+        chon:hasResult         :resdn8Wojz ;
+        chon:subEventOf        :toudn8Wo .
+
+:agdn8Woj  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kamsky, Gata" .
+
+:toudn8Wo  a          chon:hessTournament ;
+        chon:atPlace  :pladn8Woj ;
+        chon:hasName  "FIDE-Wch" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdn8Woj .
+
+:opedn8Woj  a            chon:ChessOpening ;
+        chon:hasECOCode  "C43" .
+
+chon:HalfMove  chon:subEventOf  :gamdn8Wo .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdn8Woj .
+
+:pladn8Woj  a         chon:Place ;
+        chon:hasName  "Elista" .
+
+:hmgamEnkgJjp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEnkgJjpY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc3" , "Kg2" , "Rc1" , "Qc3" , "Kd8" , "Bg4" , "Qh4" , "Bb3" , "Re7" , "Bd3" , "c4" , "Rae8" , "Bc6" , "Qd3" , "b6" , "Nf3" , "g3" , "Nxc3" , "Bf1" , "Nd7" , "e4" , "Be2" , "Rxe2" , "d5" , "Kf8" , "Bd7" , "d4" , "Rb1" , "Rxd2" , "Bd2" , "h6" , "Nxe4" , "Ke8" , "Nf6" , "Re1+" , "bxc3" , "Nxd7" , "Qf6" , "Qg4" , "O-O" , "Re8" , "Qf5" , "Bxc4" , "Rf1" , "Bc2" , "Bd6" , "e5" , "Be3" , "Bxd7" , "Nxe5" , "dxc4" , "Re2" ;
+        chon:nextHalfMove      :hmgamEnkgJjp .
+
+:cgrdn8Woj  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:roldn8Woj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdn8Woj .
+
+:resdn8Wojz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

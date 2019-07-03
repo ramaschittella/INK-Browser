@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam4eBg4sq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4eBg4sqI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "c6" , "h6" , "e4" , "Bd3+" , "Ne4" , "Qe1+" , "Qg4" , "Rd8" , "Bb2" , "Bd3" , "dxe4" , "Qf4+" , "Kh6" , "Rxe6" , "Kf8" , "Nxg5" , "d4" , "Qa5" , "f4" , "b6" , "Qg3+" , "Kg8" , "d5" , "Qh3" , "Qd6" , "Qf5" , "Bxf3" , "Kh2" , "g5" , "exf4" , "e5" , "Ng5" , "Qxf3" , "g6" , "e6" , "Re6" , "Bd4" , "b3" , "Nxe4" , "Nd7" , "dxe6" , "Rxe7+" , "Bb5" , "Bb7" , "Nh7" , "Qa6" , "Rce1" , "h4" , "Qc7" , "f6" , "Re1" , "Qxe4" , "Qxe6" , "Bc6" , "Qc3" , "Qe2" , "h5" , "Re2" , "Rd6" , "cxd4" , "Rc1" , "Qb7" , "Qxf4+" , "O-O" , "N1f3" , "Rae1" , "Kg6" , "Qc7+" , "Ngf6" , "Bd6" , "Qxa2" , "Kg7" , "Nf8" , "Qd4" , "Re7+" , "Qf3" , "Bxe7" , "c3" , "c5" , "Nc3" , "hxg5+" ;
+        chon:nextHalfMove      :hmgam4eBg4sq , :hmgamueNzpth .
+
+:ag4eBg4s  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Leko,P" .
+
+:rolhg4eBg4sqI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4eBg4s .
+
+:ope4eBg4s  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamueNzpth  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgueNzpth0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qd7+" , "Kg1" , "Re4" , "Qd8" , "Kxh7" , "Kg6" , "Bxh7" , "Qd3+" , "Re8" , "Qh4+" , "Re6" , "g3" , "h4" , "Bf2" , "Qg4" ;
+        chon:nextHalfMove      :hmgamueNzpth .
+
+:tou4eBg4  a          chon:hessTournament ;
+        chon:atPlace  :pla4eBg4s ;
+        chon:hasName  "RUS vs. ROW" .
+
+:rolhgueNzpth0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4eBg4s .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4eBg4s .
+
+:res4eBg4sq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gam4eBg4 .
+
+:pla4eBg4s  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4eBg4s .
+
+:cgr4eBg4s  a   chon:ChessGameReport .
+
+:rol4eBg4s  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4eBg4s .
+
+:gam4eBg4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4eBg4s ;
+        chon:atPlace           :pla4eBg4s ;
+        chon:atTime            "2002.09.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4eBg4sq ;
+        chon:hasHalfMove       :hmgamueNzpth , :hmgam4eBg4sq ;
+        chon:hasLastHalfMove   :hmgamueNzpth ;
+        chon:hasOpening        :ope4eBg4s ;
+        chon:hasReport         :cgr4eBg4s ;
+        chon:hasResult         :res4eBg4sq ;
+        chon:subEventOf        :tou4eBg4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

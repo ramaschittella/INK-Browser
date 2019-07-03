@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plasGmTzk  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:hmgamDGi87jL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDGi87jL1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "c4" , "Ng4" , "Qh6+" , "b3" , "Kg7" , "e4" , "Be7" , "Rh5" , "Red1" , "a5" , "Nb5" , "Ng6" , "Ba8" , "Bd7" , "Bxg4" , "b6" , "Kg2" , "Rb8" , "Nb4" , "a4" , "Rh1" , "Nf8" , "axb3" , "Bf2" , "Qc7" , "O-O" , "Rdc1" , "Qc5" , "Nxg6" , "Red8" , "Ra1" , "g3" , "f4" , "Re1" , "Nxd4" , "Be6" , "Nxh8" , "Rh8" , "Nc6" , "Na2" , "Rc2" , "d4" , "Bf3" , "a6" , "axb5" , "Nf6" , "Bb7" , "Ne5" , "g6" , "Ra2" , "Re8" , "g5" , "Nd3" , "Qe3" , "Bf6" , "Nh7" , "Rfe8" , "Rc1" , "b5" , "Qe2" , "Bxe4" , "Kg8" , "fxg5" , "Rah1" , "h6" , "Ne4" , "Nd7" , "h4" , "e6" , "Nf2" , "g4" , "Nc3" , "Be3" , "d3" , "c5" , "hxg5" , "cxd4" , "Qd4" , "Bg2" , "Nf3" , "e5" , "Nxe4" , "Bc6" , "Rxh8" , "d6" ;
+        chon:nextHalfMove      :hmgamDGi87jL .
+
+:cgrDGi87j  a   chon:ChessGameReport .
+
+:rolDGi87j  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDGi87j .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDGi87j .
+
+:resDGi87jL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamsGmTz .
+
+:gamsGmTz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDGi87j ;
+        chon:atPlace           :plasGmTzk ;
+        chon:atTime            "2010.10.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDGi87jL ;
+        chon:hasHalfMove       :hmgamDGi87jL ;
+        chon:hasLastHalfMove   :hmgamDGi87jL ;
+        chon:hasOpening        :opeDGi87j ;
+        chon:hasReport         :cgrDGi87j ;
+        chon:hasResult         :resDGi87jL ;
+        chon:subEventOf        :touDGi87 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDGi87j .
+
+:touDGi87  a          chon:hessTournament ;
+        chon:atPlace  :plasGmTzk ;
+        chon:hasName  "Trophee CCAS GpA" .
+
+:agDGi87j  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Bu Xiangzhi" .
+
+:opeDGi87j  a            chon:ChessOpening ;
+        chon:hasECOCode  "A15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgDGi87jL1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDGi87j .

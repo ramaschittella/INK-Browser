@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeaBMRWk  a            chon:ChessOpening ;
+        chon:hasECOCode  "C84" .
+
+:plaJzAyzk  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:resaBMRWkV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touaBMRW  a          chon:hessTournament ;
+        chon:atPlace  :plaJzAyzk ;
+        chon:hasName  "Skopje" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaBMRWk .
+
+:rolhgaBMRWkVE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaBMRWk .
+
+chon:HalfMove  chon:subEventOf  :gamJzAyz .
+
+:cgraBMRWk  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaBMRWk .
+
+:gamJzAyz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaBMRWk ;
+        chon:atPlace           :plaJzAyzk ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaBMRWkV ;
+        chon:hasHalfMove       :hmgamaBMRWkV ;
+        chon:hasLastHalfMove   :hmgamaBMRWkV ;
+        chon:hasOpening        :opeaBMRWk ;
+        chon:hasReport         :cgraBMRWk ;
+        chon:hasResult         :resaBMRWkV ;
+        chon:subEventOf        :touaBMRW .
+
+:rolaBMRWk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaBMRWk .
+
+:hmgamaBMRWkV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgaBMRWkVE , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nicevski, Risto" ;
+        chon:hasSANRecord      "Rd2" , "Kxe8" , "e2+" , "Ne4" , "e3" , "Bxd7" , "Bxd1" , "e4" , "Be3" , "Nxe5" , "Qh4" , "Rxd7" , "Bc2" , "Be7" , "Ne5" , "d5" , "Nf6" , "Ke1" , "O-O" , "Ba4" , "e5" , "Re1" , "Bf5" , "Rae8" , "Ng4" , "Re2" , "a6" , "f3" , "Rf7" , "Rfe7" , "Bd7" , "Nf3" , "Na5" , "b3" , "Nd4" , "c4" , "Bc3" , "Rd3" , "Bd2" , "d6" , "Nxh4" , "Rc2" , "Nc6" , "Rd1" , "Nxd1" , "d4" , "Re3" , "Bc5" , "Rxd4" , "h3" , "Nxe3" , "Re2+" , "Nxe4" , "Rdd2" , "f5" , "fxe4" , "Bxd4" , "Rxe8" , "Kf7" , "Rxe2" , "Kf1" , "Bb4" , "Re7" , "Nc3" , "Bb5" , "Re8" , "Nc4" , "c3" , "Rc3" ;
+        chon:nextHalfMove      :hmgamaBMRWkV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agaBMRWk  a          chon:Agent ;
+        chon:hasName  "Nicevski, Risto" , "Karpov, Anatoly" .

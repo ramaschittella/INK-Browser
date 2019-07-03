@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgOHKGoYsP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnFym3Y .
+
+:rolhgnFym3YDo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnFym3Y .
+
+:planFym3Y  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnFym3Y .
+
+:cgrnFym3Y  a   chon:ChessGameReport .
+
+:hmgamnFym3YD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOHKGoYsP , :rolhgnFym3YDo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik, Vladimir" ;
+        chon:hasSANRecord      "d5" , "e6" , "Nf6" , "Nf3" , "Nc3" , "c6" , "c4" , "d4" ;
+        chon:nextHalfMove      :hmgamOHKGoYs , :hmgamnFym3YD .
+
+chon:HalfMove  chon:subEventOf  :gamnFym3 .
+
+:agnFym3Y  a          chon:Agent ;
+        chon:hasName  "Kramnik, Vladimir" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnFym3Y .
+
+:rolnFym3Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnFym3Y .
+
+:hmgamOHKGoYs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOHKGoYsP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik, Vladimir" ;
+        chon:hasSANRecord      "e3" , "f3" , "Rxg3" , "Qd6+" , "Kg8" , "Kh8" , "Qg3" , "Nxd4" , "g4" , "h4" , "Qc2" , "Qb3" , "Qg6" , "Qh6" , "Bxg4" , "Bg3" , "Nbd7" , "fxg4" , "cxd5" , "O-O" , "hxg5" , "Kxh7" , "Qxd6" , "Qf3" , "e4" , "Nb6" , "Qh4" , "Qc7" , "Nh2" , "Rh8" , "exd4" , "Qd2+" , "Kg3" , "Nxd5" , "Rh4" , "Nf6" , "Qb4" , "Bf5" , "Qxg3" , "Nf3" , "Bg4" , "g5" , "Kf2" , "Rh1+" , "Bd6" , "Qf6+" , "Bd3" , "Qh5" , "Nxg4" , "h6" , "Bf4" , "e5" , "exd5" , "Rad8" , "Qxb7" , "Rd3" , "Qf5" , "Bh7+" ;
+        chon:nextHalfMove      :hmgamOHKGoYs .
+
+:resnFym3YD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamnFym3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnFym3Y ;
+        chon:atPlace           :planFym3Y ;
+        chon:atTime            "1996.12.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnFym3YD ;
+        chon:hasHalfMove       :hmgamOHKGoYs , :hmgamnFym3YD ;
+        chon:hasLastHalfMove   :hmgamOHKGoYs ;
+        chon:hasOpening        :openFym3Y ;
+        chon:hasReport         :cgrnFym3Y ;
+        chon:hasResult         :resnFym3YD ;
+        chon:subEventOf        :tounFym3 .
+
+:openFym3Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:tounFym3  a          chon:hessTournament ;
+        chon:atPlace  :planFym3Y ;
+        chon:hasName  "Las Palmas" .

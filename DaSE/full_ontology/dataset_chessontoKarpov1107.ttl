@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrVDKIWA  a   chon:ChessGameReport .
+
+:resVDKIWAP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolVDKIWA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVDKIWA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVDKIWA .
+
+:hmgam8DGWwzS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8DGWwzSM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "bxc5" , "f3" , "Rb6" , "Kg7" , "h6" , "Nxf3+" , "Bxf3" , "Ra7+" , "g3" , "hxg5" , "Kh7" , "Qxd8" , "Be4" , "Kg8" , "Re7" , "Ra8" , "Rb8" , "g4" , "Kf2" , "h4" , "Bxf5" , "Qg5" , "Bf5" , "Ke3" , "g5" , "Nd4" , "Rf8" , "Kg2" , "Rf6" , "Rxd8" , "Kg6" , "Nf5" , "Kf7" , "Rxf5" , "Ke4" , "Rd8" ;
+        chon:nextHalfMove      :hmgam8DGWwzS .
+
+:plaVDKIWA  a         chon:Place ;
+        chon:hasName  "Sevilla" .
+
+:hmgamVDKIWAP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8DGWwzSM , chon:AgentRole , :rolhgVDKIWAPB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Nxe4" , "a3" , "fxe4" , "Nf3" , "Be2" , "d4" , "Nc3" , "Qxc1" , "Nc6" , "Rb1" , "Ra1" , "c4" , "Ne8" , "g6" , "Qb3" , "c5" , "b6" , "Rxc1" , "Nd2" , "Bxc1" , "Nf6" , "Bf4" , "Ne7" , "Bd3" , "f5" , "e5" , "d6" , "b4" , "a5" , "Bg7" , "Qc2" , "O-O" , "axb4" , "Bxe4" , "e4" , "Bh6" , "Rb2" , "b3" , "d5" ;
+        chon:nextHalfMove      :hmgamVDKIWAP , :hmgam8DGWwzS .
+
+chon:HalfMove  chon:subEventOf  :gamVDKIW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVDKIWA .
+
+:gamVDKIW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVDKIWA ;
+        chon:atPlace           :plaVDKIWA ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVDKIWAP ;
+        chon:hasHalfMove       :hmgamVDKIWAP , :hmgam8DGWwzS ;
+        chon:hasLastHalfMove   :hmgam8DGWwzS ;
+        chon:hasOpening        :opeVDKIWA ;
+        chon:hasReport         :cgrVDKIWA ;
+        chon:hasResult         :resVDKIWAP ;
+        chon:subEventOf        :touVDKIW .
+
+:rolhgVDKIWAPB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVDKIWA .
+
+:touVDKIW  a          chon:hessTournament ;
+        chon:atPlace  :plaVDKIWA ;
+        chon:hasName  "World Championship 34th-KK4" .
+
+:agVDKIWA  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:opeVDKIWA  a            chon:ChessOpening ;
+        chon:hasECOCode  "E97" .
+
+:rolhg8DGWwzSM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVDKIWA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

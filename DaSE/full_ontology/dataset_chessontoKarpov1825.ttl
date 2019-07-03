@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg4Qnzc8aY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4Qnzc8 .
+
+:ag4Qnzc8  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kortschnoj, Viktor" .
+
+:rol4Qnzc8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4Qnzc8 .
+
+:ope4Qnzc8  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+:tou4Qnzc  a          chon:hessTournament ;
+        chon:atPlace  :pla4Qnzc8 ;
+        chon:hasName  "Amber-rapid 3rd" .
+
+:res4Qnzc8a  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4Qnzc8 .
+
+chon:HalfMove  chon:subEventOf  :gam4Qnzc .
+
+:hmgam4Qnzc8a  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4Qnzc8aY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a6" , "c5" , "Be6" , "Qxe5" , "exd5" , "Nd2" , "O-O" , "c4" , "Rad8" , "e3" , "Qc3" , "Rad1" , "Ra8" , "Qc2" , "Qxd5" , "Rxe8" , "Nb6" , "Nb1" , "cxd4" , "Rxf4" , "Bb2" , "Kg2" , "Kf1" , "Bxd5" , "h5" , "Nd4" , "Nf3" , "b4" , "Nc3" , "Rb5" , "Nc1" , "Bg2" , "c6" , "Ne6" , "Rd8" , "a5" , "Be7" , "Re1" , "Bg5" , "e4" , "Rf4+" , "Rb1" , "f6" , "Kf7" , "Rg5+" , "g4" , "Ne2" , "a3" , "cxd5" , "Ra4" , "Ra2" , "Be3+" , "Nf6" , "Re8" , "Nd5" , "Nf4" , "h4" , "Bf5" , "Nxd5" , "Rf8" , "g5" , "Nb3" , "d3" , "Nc6" , "fxe5" , "Bxd5+" , "Bxf4" , "bxa5" , "Kg1" , "Ra1+" , "Bf7" , "Qxd5+" , "Rxe8+" , "Kh1" , "a4" , "g3" , "Nd7" , "Rxh5" , "d5" , "Rxa5" , "Rxg4" , "Kg6" , "f4" , "Nxd2" , "Na2" , "Rf2" , "Rxb7" , "Bd2" , "Rxd4" , "Nb4" , "e5" , "d4" , "Nc7" , "gxf4" , "Nc2" , "Na6" , "Rfd1" , "Bc3" ;
+        chon:nextHalfMove      :hmgam4Qnzc8a .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4Qnzc8 .
+
+:gam4Qnzc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4Qnzc8 ;
+        chon:atPlace           :pla4Qnzc8 ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4Qnzc8a ;
+        chon:hasHalfMove       :hmgam4Qnzc8a ;
+        chon:hasLastHalfMove   :hmgam4Qnzc8a ;
+        chon:hasOpening        :ope4Qnzc8 ;
+        chon:hasReport         :cgr4Qnzc8 ;
+        chon:hasResult         :res4Qnzc8a ;
+        chon:subEventOf        :tou4Qnzc .
+
+:pla4Qnzc8  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr4Qnzc8  a   chon:ChessGameReport .

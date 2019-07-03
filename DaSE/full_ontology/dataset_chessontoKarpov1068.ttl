@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resaBURr4W  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaJzKx54  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaBURr4 .
+
+:cgraBURr4  a   chon:ChessGameReport .
+
+:rolhgaBURr4WR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaBURr4 .
+
+chon:HalfMove  chon:subEventOf  :gamJzKx5 .
+
+:agaBURr4  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Short, Nigel D" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaBURr4 .
+
+:rolaBURr4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaBURr4 .
+
+:opeaBURr4  a            chon:ChessOpening ;
+        chon:hasECOCode  "B10" .
+
+:touaBURr  a          chon:hessTournament ;
+        chon:atPlace  :plaJzKx54 ;
+        chon:hasName  "Brussels blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamaBURr4W  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgaBURr4WR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e4" , "Bh2" , "Qf3" , "Bg2" , "Nf3" , "Nc7" , "Nd2" , "Kd7" , "Bxf5+" , "c6" , "f3" , "Bb5+" , "Bc4" , "Kc6" , "Rxg1+" , "Qh4" , "Qxg4" , "g4" , "Ncxd5" , "Kf2" , "Qxg4+" , "b5" , "Be5" , "Kxg1" , "Bd3" , "exd6" , "Rxg4+" , "Nf6" , "Rg1" , "Bxd6" , "Rg8" , "exd5" , "Rc1+" , "Rd2" , "a5" , "gxh6" , "O-O" , "f6" , "Nh5" , "Rc1" , "Rxd5" , "Qg3" , "Bg6" , "Rc8" , "Re2" , "Rc2+" , "d5" , "Bb3" , "Nxe5" , "Rcg8" , "Re1" , "Nd7" , "d4" , "a4" , "Bc2" , "a3" , "Bf5" , "Kh1" , "h6" , "Bf4" , "Na6" , "Ne5" , "Bg4" , "Bxd5" , "Nd6+" , "Bd7" , "c4" , "Rg6" , "Ba2" , "f5" , "Bh3" , "Ne4" , "e6" , "Rd4" , "Nhf6" , "Be7" , "Bd5" , "dxe5" , "cxd5" , "Ke3" , "h5" , "h4" , "Bxc2" ;
+        chon:nextHalfMove      :hmgamaBURr4W .
+
+:gamJzKx5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaBURr4 ;
+        chon:atPlace           :plaJzKx54 ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaBURr4W ;
+        chon:hasHalfMove       :hmgamaBURr4W ;
+        chon:hasLastHalfMove   :hmgamaBURr4W ;
+        chon:hasOpening        :opeaBURr4 ;
+        chon:hasReport         :cgraBURr4 ;
+        chon:hasResult         :resaBURr4W ;
+        chon:subEventOf        :touaBURr .

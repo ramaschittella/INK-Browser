@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touRiyyK  a          chon:hessTournament ;
+        chon:atPlace  :plaRiyyKU ;
+        chon:hasName  "Linares" .
+
+:plaRiyyKU  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:cgrRiyyKU  a   chon:ChessGameReport .
+
+:rolhgRiyyKUEP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRiyyKU .
+
+:resRiyyKUE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agRiyyKU  a          chon:Agent ;
+        chon:hasName  "Gulko, Boris F" , "Karpov, Anatoly" .
+
+:rolRiyyKU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRiyyKU .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRiyyKU .
+
+:opeRiyyKU  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .
+
+chon:HalfMove  chon:subEventOf  :gamRiyyK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRiyyKU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamRiyyKUE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRiyyKUEP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gulko, Boris F" ;
+        chon:hasSANRecord      "d6" , "d4" , "Ra1" , "e4" , "f4" , "Ke3" , "Nxb3" , "Nxd4" , "Be3" , "Nb3" , "e6" , "Qd3" , "Bxc5" , "f5" , "Qb6" , "Rf1" , "Ke2" , "Rfd8" , "c4" , "dxc5" , "Nc3" , "axb3" , "c5" , "Qe2" , "e5" , "Nc6" , "Rd1" , "Nd4" , "g3" , "Nf3" , "Bc6" , "Bb4" , "a5" , "Bd2" , "O-O" , "f6" , "Bxc3" , "Bg2" , "cxd4" , "Ne5" , "Rd6" , "Nd7" , "Nc5" , "Bd7" , "Qc2" , "Nf6" , "bxc3" ;
+        chon:nextHalfMove      :hmgamRiyyKUE .
+
+:gamRiyyK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRiyyKU ;
+        chon:atPlace           :plaRiyyKU ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRiyyKUE ;
+        chon:hasHalfMove       :hmgamRiyyKUE ;
+        chon:hasLastHalfMove   :hmgamRiyyKUE ;
+        chon:hasOpening        :opeRiyyKU ;
+        chon:hasReport         :cgrRiyyKU ;
+        chon:hasResult         :resRiyyKUE ;
+        chon:subEventOf        :touRiyyK .

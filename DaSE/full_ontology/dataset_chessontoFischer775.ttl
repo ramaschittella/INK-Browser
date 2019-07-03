@@ -1,0 +1,56 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaXUwG1G  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:cgrQzh0fv  a   chon:ChessGameReport .
+
+:gamXUwG1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQzh0fv ;
+        chon:atPlace           :plaXUwG1G ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQzh0fvZ ;
+        chon:hasHalfMove       :hmgamQzh0fvZ ;
+        chon:hasLastHalfMove   :hmgamQzh0fvZ ;
+        chon:hasOpening        :opeQzh0fv ;
+        chon:hasReport         :cgrQzh0fv ;
+        chon:hasResult         :resQzh0fvZ ;
+        chon:subEventOf        :touQzh0f .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQzh0fv .
+
+chon:HalfMove  chon:subEventOf  :gamXUwG1 .
+
+:agQzh0fv  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Fischer, Robert James" .
+
+:rolQzh0fv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQzh0fv .
+
+:opeQzh0fv  a            chon:ChessOpening ;
+        chon:hasECOCode  "A00" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQzh0fv .
+
+:hmgamQzh0fvZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQzh0fvZg , chon:AgentRole ;
+        chon:hasSANRecord      "d4" .
+
+:resQzh0fvZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgQzh0fvZg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQzh0fv .
+
+:touQzh0f  a          chon:hessTournament ;
+        chon:atPlace  :plaXUwG1G ;
+        chon:hasName  "World Championship 28th" .

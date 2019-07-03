@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plauDN4ok  a         chon:Place ;
+        chon:hasName  "Odessa UKR" .
+
+:gamuDN4o  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roluDN4ok ;
+        chon:atPlace           :plauDN4ok ;
+        chon:atTime            "2008.05.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamuDN4ok0 ;
+        chon:hasHalfMove       :hmgamuDN4ok0 ;
+        chon:hasLastHalfMove   :hmgamuDN4ok0 ;
+        chon:hasOpening        :opeuDN4ok ;
+        chon:hasReport         :cgruDN4ok ;
+        chon:hasResult         :resuDN4ok0 ;
+        chon:subEventOf        :touuDN4o .
+
+:touuDN4o  a          chon:hessTournament ;
+        chon:atPlace  :plauDN4ok ;
+        chon:hasName  "4th Pivdenny Bank Chess Cup" .
+
+:aguDN4ok  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Golubev,M" .
+
+:roluDN4ok  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aguDN4ok .
+
+:opeuDN4ok  a            chon:ChessOpening ;
+        chon:hasECOCode  "C47" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aguDN4ok .
+
+:hmgamuDN4ok0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhguDN4ok0T ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ke7" , "Nc3" , "Ree4" , "Re1" , "Re4" , "Ra4" , "Kxe7" , "e4" , "Kd2" , "exd4" , "Bxe6" , "Nxd5" , "Nc6" , "Qe2" , "Re4+" , "Ke6" , "Qe7+" , "d5" , "Red4+" , "Bd3" , "Rhd8" , "Rd5" , "Kxe6" , "bxc3" , "Bd2" , "Bc4" , "Nxc3" , "Nxd4" , "Nxc6" , "Qxe7+" , "d4" , "a5" , "Nf3" , "e5" , "Bxc3+" , "Nf6" , "Bb4" , "Kd6" , "bxc6" , "Rb1" , "Be6" , "Bxc3" , "Rc5" , "Rab8" , "Rhe1" , "exd5" ;
+        chon:nextHalfMove      :hmgamuDN4ok0 .
+
+chon:HalfMove  chon:subEventOf  :gamuDN4o .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aguDN4ok .
+
+:rolhguDN4ok0T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aguDN4ok .
+
+:cgruDN4ok  a   chon:ChessGameReport .
+
+:resuDN4ok0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

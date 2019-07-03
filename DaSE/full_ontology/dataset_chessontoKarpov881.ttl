@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrTG5zD0  a   chon:ChessGameReport .
+
+:rolTG5zD0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTG5zD0 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTG5zD0 .
+
+chon:HalfMove  chon:subEventOf  :gamTG5zD .
+
+:plaTG5zD0  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTG5zD0 .
+
+:hmgamTG5zD04  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTG5zD04z , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nb3" , "Nf6" , "Qc7" , "cxd5" , "d4" , "Qa4" , "Nc6" , "bxc3" , "Nc3" , "d5" , "cxd4" , "c5" , "Rd8" , "Nxc6" , "Be3" , "g3" , "Qb6" , "Be7" , "Nxd5" , "e6" , "Bg2" , "Bxc6" , "O-O" , "Bd7" , "Nf3" , "bxc6" , "Nxc3" , "c4" , "Nd4" , "Nxd4" ;
+        chon:nextHalfMove      :hmgamTG5zD04 .
+
+:agTG5zD0  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:opeTG5zD0  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .
+
+:gamTG5zD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTG5zD0 ;
+        chon:atPlace           :plaTG5zD0 ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTG5zD04 ;
+        chon:hasHalfMove       :hmgamTG5zD04 ;
+        chon:hasLastHalfMove   :hmgamTG5zD04 ;
+        chon:hasOpening        :opeTG5zD0 ;
+        chon:hasReport         :cgrTG5zD0 ;
+        chon:hasResult         :resTG5zD04 ;
+        chon:subEventOf        :touTG5zD .
+
+:touTG5zD  a          chon:hessTournament ;
+        chon:atPlace  :plaTG5zD0 ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resTG5zD04  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgTG5zD04z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTG5zD0 .

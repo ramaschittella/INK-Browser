@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamU4U1QkK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgU4U1QkKM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "O-O" , "b3" , "Be7" , "c4" , "Bb2" , "f5" , "Nc3" , "e3" , "Be2" , "cxd5" , "Nc6" , "d5" , "c5" , "f4" , "e6" , "Nf6" , "Nf3" ;
+        chon:nextHalfMove      :hmgam72RenlN , :hmgamU4U1QkK .
+
+:gamY6dR8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolY6dR8m ;
+        chon:atPlace           :plaY6dR8m ;
+        chon:atTime            "1864.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamU4U1QkK ;
+        chon:hasHalfMove       :hmgam72RenlN , :hmgamU4U1QkK ;
+        chon:hasLastHalfMove   :hmgam72RenlN ;
+        chon:hasOpening        :opeY6dR8m ;
+        chon:hasReport         :cgrU4U1Qk ;
+        chon:hasResult         :resY6dR8mu ;
+        chon:subEventOf        :touY6dR8 .
+
+:touY6dR8  a          chon:hessTournament ;
+        chon:atPlace  :plaY6dR8m ;
+        chon:hasName  "London m6364" .
+
+:hmgam72RenlN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg72RenlNX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Be6" , "Nh3" , "Ne4" , "h6" , "Nc4" , "Bf3" , "d4" , "Bxc6" , "Qa5" , "Ng5" , "Kh8" , "exd5" , "Nxc4" , "bxc6" , "Nd3" , "Bxc4" , "O-O" , "Nb5" , "Nf2" , "a6" , "Nxd2" , "Re1" , "bxc4" , "Bf6" , "Na3" ;
+        chon:nextHalfMove      :hmgam72RenlN .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agY6dR8m .
+
+chon:HalfMove  chon:subEventOf  :gamY6dR8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agY6dR8m .
+
+:plaY6dR8m  a         chon:Place ;
+        chon:hasName  "London" .
+
+:rolhgU4U1QkKM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agY6dR8m .
+
+:cgrU4U1Qk  a   chon:ChessGameReport .
+
+:rolhg72RenlNX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agY6dR8m .
+
+:rolU4U1Qk  a             chon:AuthorRole ;
+        chon:performedBy  :agU4U1Qk .
+
+:agY6dR8m  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Green, Valentine" .
+
+:rolY6dR8m  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resY6dR8mu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeY6dR8m  a            chon:ChessOpening ;
+        chon:hasECOCode  "A00" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

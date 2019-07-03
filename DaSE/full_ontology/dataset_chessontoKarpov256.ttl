@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope9eFO5e  a            chon:ChessOpening ;
+        chon:hasECOCode  "B33" .
+
+:rolhgLgOmXeJG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9eFO5e .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9eFO5e .
+
+:rol9eFO5e  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9eFO5e .
+
+:hmgamLgOmXeJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLgOmXeJG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sveshnikov, Evgeny" ;
+        chon:hasSANRecord      "Ne7" , "Rc7" , "a5" , "b5" , "Nc8" , "Rxa4" , "Qxe5+" , "Bd8" , "cxb4" , "Rxd7" , "Rb3" , "gxf5" , "Ke2" , "Rfd8" , "Rcxc4" , "Bg5" , "Be6" , "O-O" , "axb4" , "Nxc4" , "Rd2+" , "Nb6" , "Rb8" , "b3" , "Qd7" , "Rb4" , "Bb6" , "Rd1" , "exf5" , "Bc4" , "bxa4" , "f5" , "Ba5" , "Kf1" , "Bxd5" , "Rc6" , "c3" , "Nc2" , "a4" , "b4" , "dxe5" , "Qa1" , "g6" , "Rxd5" , "Kh8" ;
+        chon:nextHalfMove      :hmgamWeJAwfM , :hmgamLgOmXeJ .
+
+chon:HalfMove  chon:subEventOf  :gam9eFO5 .
+
+:hmgamjeS3BdU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLgOmXeJG , chon:AgentRole , :rolhgjeS3BdUf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sveshnikov, Evgeny" ;
+        chon:hasSANRecord      "Na3" , "d6" , "Nf6" , "Nd5" , "e6" , "N1c3" , "Nf3" , "Nc6" , "Nxd4" , "c5" , "e5" , "Be7" , "cxd4" , "a6" , "Nb5" , "Bf4" , "d4" , "Bxf6" , "b5" , "Bg5" , "e4" ;
+        chon:nextHalfMove      :hmgamjeS3BdU , :hmgamLgOmXeJ .
+
+:hmgamWeJAwfM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWeJAwfMR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sveshnikov, Evgeny" ;
+        chon:hasSANRecord      "Ba5" , "Kxe5" , "Ke7" , "Rd6" , "Rxg2" , "Rh5+" , "f3" , "Rxf3" , "Bb6" , "Rxh2" , "Nd4" , "Rb2" , "Rc6" , "Ke4" , "Ke3" , "Rxf2" , "Rxb5" , "Ne6" , "Kf6" , "f4+" ;
+        chon:nextHalfMove      :hmgamWeJAwfM .
+
+:pla9eFO5e  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:gam9eFO5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9eFO5e ;
+        chon:atPlace           :pla9eFO5e ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjeS3BdU ;
+        chon:hasHalfMove       :hmgamWeJAwfM , :hmgamLgOmXeJ , :hmgamjeS3BdU ;
+        chon:hasLastHalfMove   :hmgamWeJAwfM ;
+        chon:hasOpening        :ope9eFO5e ;
+        chon:hasReport         :cgr9eFO5e ;
+        chon:hasResult         :res9eFO5eP ;
+        chon:subEventOf        :tou9eFO5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgWeJAwfMR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9eFO5e .
+
+:ag9eFO5e  a          chon:Agent ;
+        chon:hasName  "Sveshnikov, Evgeny" , "Karpov, Anatoly" .
+
+:res9eFO5eP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgr9eFO5e  a   chon:ChessGameReport .
+
+:rolhgjeS3BdUf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9eFO5e .
+
+:tou9eFO5  a          chon:hessTournament ;
+        chon:atPlace  :pla9eFO5e ;
+        chon:hasName  "URS-ch41" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9eFO5e .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touWoYto  a          chon:hessTournament ;
+        chon:atPlace  :placqezbm ;
+        chon:hasName  "Hofmann Cup" .
+
+:gamcqezb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWoYtol ;
+        chon:atPlace           :placqezbm ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWoYtolS ;
+        chon:hasHalfMove       :hmgamWoYtolS ;
+        chon:hasLastHalfMove   :hmgamWoYtolS ;
+        chon:hasOpening        :opeWoYtol ;
+        chon:hasReport         :cgrWoYtol ;
+        chon:hasResult         :resWoYtolS ;
+        chon:subEventOf        :touWoYto .
+
+:hmgamWoYtolS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWoYtolSg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rb4" , "bxc4" , "Qe3" , "Rab8" , "a3" , "Bb4" , "b5" , "Qxc3" , "Bxe4" , "Ne4" , "Ne2" , "hxg6" , "Qc7" , "Qc5" , "e6" , "Nf6" , "Rxd3" , "Bb7" , "Ne8" , "Bg5" , "g6" , "Qxa3+" , "e5" , "d4" , "Bxd3" , "Rxb8" , "dxc5" , "b6" , "Nd3+" , "c4" , "e3" , "cxd3" , "Bd3" , "d6" , "Bf4" , "c3" , "Bc6" , "Qd3" , "c5" , "a6" , "Re4" , "Kd1" , "h5" , "Bxc3+" , "Re3" , "Bxb8" , "Rdc8" , "O-O" , "Qb5" , "Bc2" , "O-O-O" , "e4" , "Qc3" , "Na4" , "Qxe5" , "Qc2" , "Nbd7" , "Nb6" , "Rd2" , "Qa5" , "h4" , "Nc3" , "f3" , "Rfd8" , "Qb7" , "Ra4" , "Nxb2" , "Ra2" ;
+        chon:nextHalfMove      :hmgamWoYtolS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWoYtol .
+
+:agWoYtol  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gavrikov, Viktor" .
+
+:rolWoYtol  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWoYtol .
+
+chon:HalfMove  chon:subEventOf  :gamcqezb .
+
+:opeWoYtol  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:resWoYtolS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWoYtol .
+
+:rolhgWoYtolSg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWoYtol .
+
+:placqezbm  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+:cgrWoYtol  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

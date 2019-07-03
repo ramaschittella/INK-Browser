@@ -1,0 +1,99 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeOgEXMS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C54" .
+
+:touOgEXM  a          chon:hessTournament ;
+        chon:atPlace  :plaOgEXMS ;
+        chon:hasName  "GBR tour sim" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOgEXMS .
+
+:rolOgEXMS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOgEXMS .
+
+:rolhgycpSYA8m  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOgEXMS .
+
+chon:HalfMove  chon:subEventOf  :gamOgEXM .
+
+:rolhgVcik6zfK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOgEXMS .
+
+:hmgamZeBalBZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZeBalBZM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz/Boden" ;
+        chon:hasSANRecord      "Nxe4" , "Nc6" , "Nf3" , "O-O" , "e5" , "e4" , "Bc5" , "Bc4" , "c3" , "Nf6" , "d5" , "d4" ;
+        chon:nextHalfMove      :hmgamZeBalBZ , :hmgamVcik6zf .
+
+:hmgam8cezSyi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8cezSyiX , :rolhgycpSYA8m , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz/Boden" ;
+        chon:hasSANRecord      "Qe6" , "Ra5" , "b6" , "Qb5" , "Qxd5" , "Kf7" , "Rhe8" , "Be3" , "Rfd1" , "Qe2" , "Rac1" ;
+        chon:nextHalfMove      :hmgamycpSYA8 , :hmgam8cezSyi .
+
+:plaOgEXMS  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamOgEXM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOgEXMS ;
+        chon:atPlace           :plaOgEXMS ;
+        chon:atTime            "1868.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZeBalBZ ;
+        chon:hasHalfMove       :hmgam8cezSyi , :hmgamKcl7yAa , :hmgamycpSYA8 , :hmgamZeBalBZ , :hmgamVcik6zf ;
+        chon:hasLastHalfMove   :hmgamKcl7yAa ;
+        chon:hasOpening        :opeOgEXMS ;
+        chon:hasReport         :cgrOgEXMS ;
+        chon:hasResult         :resOgEXMSU ;
+        chon:subEventOf        :touOgEXM .
+
+:agOgEXMS  a          chon:Agent ;
+        chon:hasName  "Steinitz/Boden" , "De Vere/MacDonnell" .
+
+:cgrOgEXMS  a   chon:ChessGameReport .
+
+:rolhg8cezSyiX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOgEXMS .
+
+:hmgamVcik6zf  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgVcik6zfK , :rolhg8cezSyiX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz/Boden" ;
+        chon:hasSANRecord      "Qc4" , "Qe5" , "Ne5" , "Nxf7" , "Kf8" , "Nf6" , "a6" , "g3" , "Kxf7" , "Qe7" , "exd4" , "Qxd5" , "Bd7" , "cxd4" , "Qxb5" , "Nxb5" , "Nc3" , "Bd6" , "axb5" , "Qh5+" , "d5" , "Bxc6" , "Bb5" ;
+        chon:nextHalfMove      :hmgamVcik6zf , :hmgam8cezSyi .
+
+:rolhgZeBalBZM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOgEXMS .
+
+:hmgamycpSYA8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgycpSYA8m , :rolhgKcl7yAaz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz/Boden" ;
+        chon:hasSANRecord      "h4" , "b5" , "Qd7" , "Rxe1+" , "Nxd7" , "h5" , "b4" , "a3" , "Qxd7+" , "Rxc5" , "Qb7" , "Qc8" , "Rc2" , "Rxe1" , "Bxc5" , "Bc5" , "Re1" , "Rd5" , "Rf1" , "Qd2" , "Rd1" , "Qc6" ;
+        chon:nextHalfMove      :hmgamKcl7yAa , :hmgamycpSYA8 .
+
+:hmgamKcl7yAa  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKcl7yAaz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz/Boden" ;
+        chon:hasSANRecord      "Nc5" , "Kg8" , "Ke1" , "a4" , "h3" , "Rc8+" , "Ne4" , "Rxh2" , "Kf1" , "Kh7" , "Rd7+" , "Nxg3" , "Rxf2+" , "Rxc7" , "Rd8" ;
+        chon:nextHalfMove      :hmgamKcl7yAa .
+
+:resOgEXMSU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOgEXMS .
+
+:rolhgKcl7yAaz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOgEXMS .

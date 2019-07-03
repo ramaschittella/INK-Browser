@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla4g6EhH  a         chon:Place ;
+        chon:hasName  "Poughskeepie" .
+
+:rolhg4g6EhHtE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4g6EhH .
+
+:cgr4g6EhH  a   chon:ChessGameReport .
+
+:gam4g6Eh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4g6EhH ;
+        chon:atPlace           :pla4g6EhH ;
+        chon:atTime            "1963.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4g6EhHt ;
+        chon:hasHalfMove       :hmgamed3SQGw , :hmgam4g6EhHt ;
+        chon:hasLastHalfMove   :hmgamed3SQGw ;
+        chon:hasOpening        :ope4g6EhH ;
+        chon:hasReport         :cgr4g6EhH ;
+        chon:hasResult         :res4g6EhHt ;
+        chon:subEventOf        :tou4g6Eh .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4g6EhH .
+
+:res4g6EhHt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag4g6EhH  a          chon:Agent ;
+        chon:hasName  "Radojcic, Miroslav" , "Fischer, Robert James" .
+
+:rol4g6EhH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4g6EhH .
+
+chon:HalfMove  chon:subEventOf  :gam4g6Eh .
+
+:ope4g6EhH  a            chon:ChessOpening ;
+        chon:hasECOCode  "C59" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4g6EhH .
+
+:rolhged3SQGwP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4g6EhH .
+
+:hmgam4g6EhHt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4g6EhHtE ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Radojcic, Miroslav" ;
+        chon:hasSANRecord      "O-O" , "exd5" , "Nf6" , "gxh3" , "Be2" , "c6" , "Nc3" , "dxc6" , "Nh3" , "Na5" , "d5" , "Re8" , "Bc5" , "Nc6" , "e5" , "Bc4" , "Nf3" , "e4" , "bxc6" , "Ng5" , "Bb5+" , "d3" , "Bxh3" , "h6" ;
+        chon:nextHalfMove      :hmgamed3SQGw , :hmgam4g6EhHt .
+
+:tou4g6Eh  a          chon:hessTournament ;
+        chon:atPlace  :pla4g6EhH ;
+        chon:hasName  "Poughskeepie" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamed3SQGw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhged3SQGwP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Radojcic, Miroslav" ;
+        chon:hasSANRecord      "hxg4" , "Nxg4" , "Bg4" , "Qd7" ;
+        chon:nextHalfMove      :hmgamed3SQGw .

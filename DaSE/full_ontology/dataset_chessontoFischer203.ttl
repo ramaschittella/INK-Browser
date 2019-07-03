@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agdTKA75  a          chon:Agent ;
+        chon:hasName  "Bernstein, Sidney Norman" , "Fischer, Robert James" .
+
+:resdTKA755  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opedTKA75  a            chon:ChessOpening ;
+        chon:hasECOCode  "C89" .
+
+:gamLRyiJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldTKA75 ;
+        chon:atPlace           :plaLRyiJ4 ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdTKA755 ;
+        chon:hasHalfMove       :hmgamoTHOD48 , :hmgamdTKA755 ;
+        chon:hasLastHalfMove   :hmgamoTHOD48 ;
+        chon:hasOpening        :opedTKA75 ;
+        chon:hasReport         :cgrdTKA75 ;
+        chon:hasResult         :resdTKA755 ;
+        chon:subEventOf        :toudTKA7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdTKA75 .
+
+:plaLRyiJ4  a         chon:Place ;
+        chon:hasName  "New York" .
+
+chon:HalfMove  chon:subEventOf  :gamLRyiJ .
+
+:rolhgoTHOD48o  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdTKA75 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdTKA75 .
+
+:hmgamoTHOD48  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoTHOD48o , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bernstein, Sidney Norman" ;
+        chon:hasSANRecord      "Rxb2" , "c4" , "Bc4" , "fxg4" , "d6" , "Rb8" , "dxc4" , "Rc8" , "a7" , "Bc6" , "b4" , "Kxh2" , "f6" , "h5+" , "Kxg5" , "Kg3" , "Ra8" , "Ra2" , "Rxc1" , "Ng4+" , "Bb5" , "gxf5" , "a4" , "Rc1" , "h6+" , "Rxb1" , "Bxa6" , "g5+" , "Rxe1" , "Kxh4" , "Rxc6" , "d5" , "Rxc4" , "Bxh2+" , "a5" , "Kg4" , "Rd8" , "a6" , "Kg5" , "cxd6" , "Rxa7" , "Rb6" , "Qxh4+" ;
+        chon:nextHalfMove      :hmgamoTHOD48 .
+
+:cgrdTKA75  a   chon:ChessGameReport .
+
+:toudTKA7  a          chon:hessTournament ;
+        chon:atPlace  :plaLRyiJ4 ;
+        chon:hasName  "USA-ch" .
+
+:roldTKA75  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdTKA75 .
+
+:hmgamdTKA755  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdTKA755c , :rolhgoTHOD48o ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bernstein, Sidney Norman" ;
+        chon:hasSANRecord      "e4" , "Bg4" , "Bf5" , "d5" , "Be7" , "Nc6" , "Re1" , "Bd6" , "Nf3" , "a6" , "b5" , "exd5" , "Qh4" , "Bb5" , "c3" , "Re8" , "O-O" , "Nf6" , "f3" , "Qg3" , "Ba4" , "Bb3" , "exf3" , "Qxf3" , "e5" , "d4" , "dxc6" ;
+        chon:nextHalfMove      :hmgamoTHOD48 , :hmgamdTKA755 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgdTKA755c  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdTKA75 .

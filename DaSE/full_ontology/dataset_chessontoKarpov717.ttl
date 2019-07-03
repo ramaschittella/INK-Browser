@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agYh48eN  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Seirawan, Yasser" .
+
+:rolYh48eN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYh48eN .
+
+:opeYh48eN  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+:hmgamYh48eNH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYh48eNHT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxe7" , "Qxc6" , "Bh4" , "Qc3+" , "Ke2" , "Qa5" , "Nc3" , "c4" , "O-O" , "g3" , "Qa8+" , "Rb6" , "Rc3" , "exd5" , "Bg5" , "Rc1" , "Bxe7" , "Na6" , "Qe4" , "dxc4" , "cxd5" , "Qa4" , "Bc4" , "Rc6" , "Qb1" , "b3" , "h6" , "Be7" , "Qxa7" , "d5" , "Ne1" , "Kd2" , "c3" , "Nf3" , "Re8" , "Rxe6" , "b5" , "b4" , "Bf5" , "Re6" , "Rb8" , "Bxe6" , "e3" , "Qxa6" , "d4" , "Nf6" , "Kh7" , "e6" , "Kd1" , "Re3" , "b6" , "Nxd5" , "Qa1+" , "Qb2+" ;
+        chon:nextHalfMove      :hmgamYh48eNH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYh48eN .
+
+:rolhgYh48eNHT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYh48eN .
+
+chon:HalfMove  chon:subEventOf  :gamYh48e .
+
+:cgrYh48eN  a   chon:ChessGameReport .
+
+:gamYh48e  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYh48eN ;
+        chon:atPlace           :plaYh48eN ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYh48eNH ;
+        chon:hasHalfMove       :hmgamYh48eNH ;
+        chon:hasLastHalfMove   :hmgamYh48eNH ;
+        chon:hasOpening        :opeYh48eN ;
+        chon:hasReport         :cgrYh48eN ;
+        chon:hasResult         :resYh48eNH ;
+        chon:subEventOf        :touYh48e .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYh48eN .
+
+:touYh48e  a          chon:hessTournament ;
+        chon:atPlace  :plaYh48eN ;
+        chon:hasName  "Hamburg TV-A" .
+
+:plaYh48eN  a         chon:Place ;
+        chon:hasName  "Hamburg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resYh48eNH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

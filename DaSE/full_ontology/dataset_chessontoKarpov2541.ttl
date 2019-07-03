@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamgyyMRFS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggyyMRFSB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qa3" , "Qc3" , "Qd7" , "b4" , "Qc7" ;
+        chon:nextHalfMove      :hmgamgyyMRFS .
+
+:hmgam5ABykEz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5ABykEzq , :rolhggyyMRFSB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "dxc5" , "Bd3" , "c6" , "c5" , "Ng5" , "Rac1" , "Qg4" , "Qe4" , "e4" , "Be3" , "h6" , "f6" , "Nxd3" , "Ngf6" , "Rc1+" , "Nxe5" , "Qe7" , "e6" , "Kg7" , "Qb4" , "Rxe5" , "d5" , "Rfe1" , "Qc7" , "Nc3" , "h3" , "g6" , "Nd7" , "g5" , "e5" , "d4" , "Bxe5" , "Qxe5" , "Qxe4" , "Bf5" , "O-O" , "Ne4" , "Rhc8" , "b6" , "dxe4" , "Qe2" , "Bd6" , "cxd3" , "Kf8" , "Bf4" , "Bxc1" , "Rxc8" , "N1f3" , "Nxe4" , "Qa4" , "Nxc5" ;
+        chon:nextHalfMove      :hmgamgyyMRFS , :hmgam5ABykEz .
+
+:gam5AByk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5ABykE ;
+        chon:atPlace           :pla5ABykE ;
+        chon:atTime            "2001.02.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5ABykEz ;
+        chon:hasHalfMove       :hmgam5ABykEz , :hmgamgyyMRFS ;
+        chon:hasLastHalfMove   :hmgamgyyMRFS ;
+        chon:hasOpening        :ope5ABykE ;
+        chon:hasReport         :cgr5ABykE ;
+        chon:hasResult         :res5ABykEz ;
+        chon:subEventOf        :tou5AByk .
+
+:tou5AByk  a          chon:hessTournament ;
+        chon:atPlace  :pla5ABykE ;
+        chon:hasName  "SuperGM" .
+
+:rolhggyyMRFSB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5ABykE .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ABykE .
+
+:res5ABykEz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gam5AByk .
+
+:pla5ABykE  a         chon:Place ;
+        chon:hasName  "Linares ESP" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ABykE .
+
+:cgr5ABykE  a   chon:ChessGameReport .
+
+:rolhg5ABykEzq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5ABykE .
+
+:ag5ABykE  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Polgar,Ju" .
+
+:rol5ABykE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5ABykE .
+
+:ope5ABykE  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resxLSwrx5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touyxYHe  a          chon:hessTournament ;
+        chon:atPlace  :playxYHer ;
+        chon:hasName  "EU-chT" .
+
+:agyxYHer  a          chon:Agent ;
+        chon:hasName  "Ljubojevic, Ljubomir" .
+
+:rolyxYHer  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgxLSwrx5Z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxLSwrx , :agyxYHer .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyxYHer .
+
+:cgrxLSwrx  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamyxYHe .
+
+:agxLSwrx  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxLSwrx .
+
+:rolxLSwrx  a             chon:AuthorRole ;
+        chon:performedBy  :agxLSwrx .
+
+:opexLSwrx  a            chon:ChessOpening ;
+        chon:hasECOCode  "C69" .
+
+:gamyxYHe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyxYHer ;
+        chon:atPlace           :playxYHer ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxLSwrx5 ;
+        chon:hasHalfMove       :hmgamxLSwrx5 ;
+        chon:hasLastHalfMove   :hmgamxLSwrx5 ;
+        chon:hasOpening        :opexLSwrx ;
+        chon:hasReport         :cgrxLSwrx ;
+        chon:hasResult         :resxLSwrx5 ;
+        chon:subEventOf        :touyxYHe .
+
+:hmgamxLSwrx5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxLSwrx5Z ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a4" , "Bxd5" , "Qxd1" , "a6" , "e5" , "b6" , "Be3" , "Nc3" , "exd5" , "Bg4" , "Nb3" , "exd4" , "Nd2" , "Be6" , "Bb5" , "O-O" , "Nc6" , "Nxd4" , "c4" , "Rxd1" , "dxc6" , "d6" , "Nd5" , "c5" , "e4" , "O-O-O" , "f3" , "Ne7" , "Bd7" , "f6" , "d4" , "Nf3" , "Bxc6" ;
+        chon:nextHalfMove      :hmgamxLSwrx5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:playxYHer  a         chon:Place ;
+        chon:hasName  "Skara" .

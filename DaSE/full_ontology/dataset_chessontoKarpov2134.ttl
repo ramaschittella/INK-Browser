@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaAlsovt  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:cgrAlsovt  a   chon:ChessGameReport .
+
+:resAlsovt1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agAlsovt  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Topalov, Veselin" .
+
+:rolAlsovt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAlsovt .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAlsovt .
+
+chon:HalfMove  chon:subEventOf  :gamAlsov .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAlsovt .
+
+:hmgamAlsovt1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAlsovt15 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ng4" , "Bc6" , "Nd7" , "Ne5" , "dxc5" , "Bc4" , "Bd6" , "Rc7" , "Kh2" , "Rc1" , "Qxe4" , "Bxe6" , "dxe4" , "Rac1" , "Qe2" , "Nxe4" , "a4" , "f3" , "Kg8" , "Bxh2+" , "Be3" , "Nd2" , "Bd3" , "d4" , "Bxd4" , "Rxd1" , "Be5" , "Qc7" , "a5" , "Ke7" , "e6" , "Rxb7" , "Kh1" , "Ng5" , "cxd4" , "fxe6" , "O-O" , "Rxd4" , "Bd7" , "c3" , "Rad8" , "Kf7" , "b3" , "Nxg4" , "Ngf6" , "Bb5+" , "c5" , "h6" , "Qxg4" , "c6" , "d5" , "Ne4" , "Qf4+" , "Qb6" , "Bd4" , "Rd1+" , "Qxc5" , "Rd8" , "N1f3" , "Qxd4" , "Nf6" , "Rxd1+" , "Be4" , "e4" ;
+        chon:nextHalfMove      :hmgamAlsovt1 .
+
+:opeAlsovt  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:gamAlsov  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAlsovt ;
+        chon:atPlace           :plaAlsovt ;
+        chon:atTime            "1997.04.06"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAlsovt1 ;
+        chon:hasHalfMove       :hmgamAlsovt1 ;
+        chon:hasLastHalfMove   :hmgamAlsovt1 ;
+        chon:hasOpening        :opeAlsovt ;
+        chon:hasReport         :cgrAlsovt ;
+        chon:hasResult         :resAlsovt1 ;
+        chon:subEventOf        :touAlsov .
+
+:touAlsov  a          chon:hessTournament ;
+        chon:atPlace  :plaAlsovt ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgAlsovt15  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAlsovt .

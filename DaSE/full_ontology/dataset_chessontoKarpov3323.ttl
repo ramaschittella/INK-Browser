@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeN0vjz2  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agN0vjz2 .
+
+:rolhgN0vjz2LF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agN0vjz2 .
+
+chon:HalfMove  chon:subEventOf  :gamN0vjz .
+
+:gamN0vjz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolN0vjz2 ;
+        chon:atPlace           :plaN0vjz2 ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamN0vjz2L ;
+        chon:hasHalfMove       :hmgamN0vjz2L ;
+        chon:hasLastHalfMove   :hmgamN0vjz2L ;
+        chon:hasOpening        :opeN0vjz2 ;
+        chon:hasReport         :cgrN0vjz2 ;
+        chon:hasResult         :resN0vjz2L ;
+        chon:subEventOf        :touN0vjz .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agN0vjz2 .
+
+:touN0vjz  a          chon:hessTournament ;
+        chon:atPlace  :plaN0vjz2 ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+:plaN0vjz2  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+:cgrN0vjz2  a   chon:ChessGameReport .
+
+:hmgamN0vjz2L  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgN0vjz2LF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qxd5" , "exd5" , "e6" , "Bc4" , "axb3" , "h3" , "Bh5" , "g5" , "Kb1" , "Nbxd5" , "a4" , "Qe2" , "Ne4" , "Be3" , "O-O-O" , "Ngf6" , "Nd7" , "Qxb3" , "Bg4" , "Nc3" , "Bb3" , "Qd6" , "Nb6" , "e4" , "Nxc3" , "g4" , "Qc4" , "a5" , "Ne5" , "Nxc3+" , "Nf3" , "c6" , "Bg6" , "d5" , "d4" , "bxc3" , "Qa3+" ;
+        chon:nextHalfMove      :hmgamN0vjz2L .
+
+:agN0vjz2  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Ozols,Andris" .
+
+:rolN0vjz2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agN0vjz2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resN0vjz2L  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

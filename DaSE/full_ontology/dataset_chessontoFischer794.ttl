@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolEtYNbU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEtYNbU .
+
+:resEtYNbUc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEtYNbU .
+
+chon:HalfMove  chon:subEventOf  :gamEtYNb .
+
+:opeEtYNbU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B46" .
+
+:gamEtYNb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEtYNbU ;
+        chon:atPlace           :plaEtYNbU ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEtYNbUc ;
+        chon:hasHalfMove       :hmgamEtYNbUc , :hmgamPtV2IUf ;
+        chon:hasLastHalfMove   :hmgamPtV2IUf ;
+        chon:hasOpening        :opeEtYNbU ;
+        chon:hasReport         :cgrEtYNbU ;
+        chon:hasResult         :resEtYNbUc ;
+        chon:subEventOf        :touEtYNb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEtYNbU .
+
+:touEtYNb  a          chon:hessTournament ;
+        chon:atPlace  :plaEtYNbU ;
+        chon:hasName  "World Championship 28th" .
+
+:hmgamPtV2IUf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPtV2IUfi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bxd5" , "Bxf6" , "f5" , "Rb1" , "Kf8" , "b3" , "gxf5" , "Rd2" , "Kxh2" , "Rxd5" , "Bxa6" , "Bxe2" , "Qxf6" , "Kg3" , "Kg2" , "Rxe2" , "Kf3" , "Ke5" , "Bxh2+" , "Rxc2" , "gxf6" , "Ra2" , "Rad1" , "a4" , "Ra1" , "Be2" , "Bg8" , "h6" , "c4" , "g4" , "Bd7" , "Re2" , "Kd6" , "f6" , "Rfd8" , "Rab8" , "Be6" , "Ke7" , "Bxc4" , "Rb2" , "Bc4" , "Kf4" , "Nxd5" , "c5" , "Rd8" , "h5" ;
+        chon:nextHalfMove      :hmgamPtV2IUf .
+
+:plaEtYNbU  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:rolhgPtV2IUfi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEtYNbU .
+
+:hmgamEtYNbUc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEtYNbUc8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bd4" , "Be6" , "Be3" , "Nf6" , "Nxc6" , "Nc6" , "cxd4" , "exd5" , "e4" , "Bd6" , "c5" , "bxc6" , "Nc3" , "d4" , "O-O" , "Bd3" , "Nf3" , "Rfe1" , "Qf3" , "Nxd4" , "d5" , "e6" , "a6" ;
+        chon:nextHalfMove      :hmgamEtYNbUc , :hmgamPtV2IUf .
+
+:rolhgEtYNbUc8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEtYNbU .
+
+:cgrEtYNbU  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agEtYNbU  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .

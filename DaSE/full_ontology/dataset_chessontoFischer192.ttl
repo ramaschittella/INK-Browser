@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touBbl0d  a          chon:hessTournament ;
+        chon:atPlace  :plaBbl0dc ;
+        chon:hasName  "Mar del Plata" .
+
+:rolBbl0dc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBbl0dc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBbl0dc .
+
+:hmgamebsF8c9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgebsF8c9U , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Emma, Jaime" ;
+        chon:hasSANRecord      "Rb7" , "Rc8" , "Kf2" , "Ra1" , "Bb5" , "Kb4" , "Rb8" , "Ra8" , "Kd4" , "Kxf8" , "Ke3" , "Be4" , "d3" , "Kc4" , "Rxa5" , "a3" , "a4" , "Bc6" , "Rc7+" , "exd5" , "a5" , "e4" , "a6" , "b4" , "Kd6" , "d4" , "Ke5" , "Be2" , "bxa5" , "Bb3" , "Rxf8+" , "g3" , "Bc2" , "Rf8+" , "Ke7" , "Rae8" , "Ba4" , "a7" , "Bf3" , "Ra7" , "cxd5" , "Kc3" ;
+        chon:nextHalfMove      :hmgamebsF8c9 .
+
+chon:HalfMove  chon:subEventOf  :gamBbl0d .
+
+:plaBbl0dc  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:rolhgebsF8c9U  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBbl0dc .
+
+:hmgamNbgnMbh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgebsF8c9U , :rolhgNbgnMbhu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Emma, Jaime" ;
+        chon:hasSANRecord      "Nf3" , "bxc6" , "Nc3" , "fxe6" , "c4" , "Bh5" , "Qc3" , "exd5" , "Nf6" , "Bxe3" , "Nc6" , "Rad1" , "fxe3" , "Bg6" , "dxe6" , "dxe5" , "e5" , "Qa5" , "Nxd5" , "c5" , "Bg4" , "Qa4" , "h3" , "Be3" , "Qxc7" , "Be7" , "Qxe5" , "d6" , "Nd5" , "Nd4" , "Qd7" , "d4" , "O-O" , "Nb8" , "Qe8" , "Be2" , "Bxc5" , "Nxc6" , "Bd6" , "d5" , "Qxe3" ;
+        chon:nextHalfMove      :hmgamNbgnMbh , :hmgamebsF8c9 .
+
+:rolhgBbl0dcei  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBbl0dc .
+
+:agBbl0dc  a          chon:Agent ;
+        chon:hasName  "Emma, Jaime" , "Fischer, Robert James" .
+
+:opeBbl0dc  a            chon:ChessOpening ;
+        chon:hasECOCode  "B00" .
+
+:cgrBbl0dc  a   chon:ChessGameReport .
+
+:gamBbl0d  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBbl0dc ;
+        chon:atPlace           :plaBbl0dc ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBbl0dce ;
+        chon:hasHalfMove       :hmgamebsF8c9 , :hmgamBbl0dce , :hmgamNbgnMbh ;
+        chon:hasLastHalfMove   :hmgamebsF8c9 ;
+        chon:hasOpening        :opeBbl0dc ;
+        chon:hasReport         :cgrBbl0dc ;
+        chon:hasResult         :resBbl0dce ;
+        chon:subEventOf        :touBbl0d .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resBbl0dce  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgNbgnMbhu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBbl0dc .
+
+:hmgamBbl0dce  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNbgnMbhu , :rolhgBbl0dcei , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Emma, Jaime" ;
+        chon:hasSANRecord      "Nc6" , "e4" ;
+        chon:nextHalfMove      :hmgamNbgnMbh , :hmgamBbl0dce .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBbl0dc .

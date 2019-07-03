@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resDxIfr54  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgDxIfr54X  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDxIfr5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDxIfr5 .
+
+:cgrDxIfr5  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamszM2U .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDxIfr5 .
+
+:plaDxIfr5  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:hmgamDxIfr54  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDxIfr54X , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Poelig,Juergen" ;
+        chon:hasSANRecord      "Be5" , "Kg1" , "Qg6" , "cxd4" , "Be8" , "Bd4" , "Re8" , "bxc6" , "Rh6" , "Rb4" , "Rf5" , "Kh8" , "O-O" , "Nc6" , "c4" , "Nf3" , "Nd3" , "Nxd4" , "Qd8" , "h3" , "f5" , "Nf6" , "Bd7" , "Qf4" , "Be3" , "h6" , "e3" , "Rc1" , "Qf7" , "c5" , "e6" , "Qe5" , "Kh2" , "Rfc1" , "Ne4" , "Nxc6" , "Be7" , "Rxd5" , "d5" , "b3" , "Qa5" , "Bxe4" , "Rab8" , "Bd6" , "Qf3" , "Bg2" , "Nc3" , "Nc5" , "Rb6" , "Qf6" , "a4" , "Ra6" , "Qxe4+" , "h5" , "Bg5" , "Bf8" , "g3" , "g5" , "Ke2" , "fxe4" , "Rg1+" , "Re6" , "Rc6" , "hxg5" , "d4" , "cxd5" , "Rh2" , "Na4" , "Rxc5" , "Nxg5" , "Kh7" , "Bf3" , "exd5" , "Nf4" , "Qd1" , "h4" , "Qxd4" , "Kf1" , "Bg4" , "Rcc1" , "Rc2" , "Rxh4" , "Bxd4" , "gxh4" ;
+        chon:nextHalfMove      :hmgamDxIfr54 .
+
+:agDxIfr5  a          chon:Agent ;
+        chon:hasName  "Poelig,Juergen" , "Karpov,Ana" .
+
+:rolDxIfr5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDxIfr5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeDxIfr5  a            chon:ChessOpening ;
+        chon:hasECOCode  "D34" .
+
+:gamszM2U  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDxIfr5 ;
+        chon:atPlace           :plaDxIfr5 ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDxIfr54 ;
+        chon:hasHalfMove       :hmgamDxIfr54 ;
+        chon:hasLastHalfMove   :hmgamDxIfr54 ;
+        chon:hasOpening        :opeDxIfr5 ;
+        chon:hasReport         :cgrDxIfr5 ;
+        chon:hasResult         :resDxIfr54 ;
+        chon:subEventOf        :touDxIfr .
+
+:touDxIfr  a          chon:hessTournament ;
+        chon:atPlace  :plaDxIfr5 ;
+        chon:hasName  "Simul" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamEa862  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEa862S ;
+        chon:atPlace           :plaEa862S ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEa862Sn ;
+        chon:hasHalfMove       :hmgamEa862Sn ;
+        chon:hasLastHalfMove   :hmgamEa862Sn ;
+        chon:hasOpening        :opeEa862S ;
+        chon:hasReport         :cgrEa862S ;
+        chon:hasResult         :resEa862Sn ;
+        chon:subEventOf        :touEa862 .
+
+:touEa862  a          chon:hessTournament ;
+        chon:atPlace  :plaEa862S ;
+        chon:hasName  "Simul" .
+
+:rolhgEa862Snm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEa862S .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEa862S .
+
+:hmgamEa862Sn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEa862Snm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Wolter,Kerstin" ;
+        chon:hasSANRecord      "d4" , "Ne4" , "Kb8" , "Be3" , "Ng3" , "Nd7" , "Nf3" , "c6" , "Bd2" , "h5" , "Nxe5" , "Bh7" , "e4" , "Rhe1" , "Rxd1" , "Qxe4" , "Be7" , "Rxd1+" , "O-O-O" , "Rhe8" , "Ngf6" , "Bxd3" , "Ne5" , "g4" , "Bg6" , "h6" , "Bd6" , "dxe4" , "Qe2" , "e6" , "Bf5" , "Bd3" , "Qxd3" , "f4" , "Rd7" , "d5" , "Qc7" , "dxe5" , "Nd2" , "h4" , "Nxe4" ;
+        chon:nextHalfMove      :hmgamEa862Sn .
+
+:opeEa862S  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+chon:HalfMove  chon:subEventOf  :gamEa862 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEa862S .
+
+:resEa862Sn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaEa862S  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:cgrEa862S  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agEa862S  a          chon:Agent ;
+        chon:hasName  "Wolter,Kerstin" , "Karpov,Ana" .
+
+:rolEa862S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEa862S .

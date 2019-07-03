@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamGTrRK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGTrRKk ;
+        chon:atPlace           :plaGTrRKk ;
+        chon:atTime            "2001.07.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSR91ukX ;
+        chon:hasHalfMove       :hmgamSR91ukX ;
+        chon:hasLastHalfMove   :hmgamSR91ukX ;
+        chon:hasOpening        :opeSR91uk ;
+        chon:hasReport         :cgrSR91uk ;
+        chon:hasResult         :resSR91ukX ;
+        chon:subEventOf        :touGTrRK .
+
+:plaGTrRKk  a         chon:Place ;
+        chon:hasName  "Seixal POR" .
+
+:touGTrRK  a          chon:hessTournament ;
+        chon:atPlace  :plaGTrRKk ;
+        chon:hasName  "Simul Match" .
+
+:cgrSR91uk  a   chon:ChessGameReport .
+
+:rolGTrRKk  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSR91uk .
+
+chon:HalfMove  chon:subEventOf  :gamGTrRK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSR91uk .
+
+:rolhgSR91ukXH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSR91uk .
+
+:resSR91ukX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agSR91uk  a          chon:Agent ;
+        chon:hasName  "Fernandes,An" , "Karpov,An" .
+
+:rolSR91uk  a             chon:AuthorRole ;
+        chon:performedBy  :agSR91uk .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeSR91uk  a            chon:ChessOpening ;
+        chon:hasECOCode  "D78" .
+
+:hmgamSR91ukX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSR91ukXH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fernandes,An" ;
+        chon:hasSANRecord      "Nxc5" , "h6" , "Be4" , "Rd2" , "e3" , "f3" , "e4" , "Qc2" , "Qd2" , "h4" , "Bxd4" , "Qd4" , "Qe2" , "Ra3" , "Qe3" , "bxc4" , "Nf6" , "Nbd2" , "Bf5" , "b3" , "Re3" , "Ng4" , "Nxf6" , "d4" , "e5" , "Bf3" , "f4" , "Qe7" , "O-O" , "Bg2" , "Qd3" , "Rfe6" , "Nxg4+" , "Nbd7" , "Kg2" , "Kh2" , "Bxg4" , "Rf6" , "cxd4" , "Rad8" , "Nd7" , "b5" , "exd4" , "Ne4" , "R6e7" , "exf6" , "b4" , "c4" , "Bb2" , "h5" , "g6" , "Rac1" , "Qg7" , "Nxd4" , "Nxe4" , "Re8" , "Ndc5" , "g3" , "h3" , "Qf8" , "Rxe3" , "Qg5" , "Rd6" , "dxc4" , "Ne5" , "Bg7" , "Rc2" , "c5" , "d5" , "Red8" , "Nd6" , "b6" , "c6" , "Nf3" , "d3" , "Rfd1" , "Qxd4" , "Re1" ;
+        chon:nextHalfMove      :hmgamSR91ukX .

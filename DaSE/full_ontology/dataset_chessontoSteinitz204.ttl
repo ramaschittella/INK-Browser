@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaQSRAuS  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:cgrQSRAuS  a   chon:ChessGameReport .
+
+:hmgam2SOO2RS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXQvXLR98 , chon:AgentRole , :rolhg2SOO2RS0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qd3" , "Nf3" , "Be7" , "dxe5" , "Nxc3" , "Na7" , "Nc3" , "a4" , "Qxa8" , "Qe3" , "a6" , "Rd8" , "Qxe7" , "b5" , "axb5" , "Be6" , "gxf3" , "Nc6" , "Ba4" , "Nxe4" , "Qxa7" , "Nf6" , "Bg5" , "Qd8" , "Bxe7" , "O-O" , "Bxd5" , "d4" , "e5" , "Qg5+" , "Bb5" , "Bxf3" , "Rxa8" , "Bb3" , "bxc3" , "d5" , "e4" ;
+        chon:nextHalfMove      :hmgamXQvXLR9 , :hmgam2SOO2RS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQSRAuS .
+
+:agQSRAuS  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Gelbfuhs, Oscar" .
+
+:rolQSRAuS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQSRAuS .
+
+chon:HalfMove  chon:subEventOf  :gamQSRAu .
+
+:opeQSRAuS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C80" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQSRAuS .
+
+:rolhgXQvXLR98  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQSRAuS .
+
+:resQSRAuSP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamXQvXLR9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXQvXLR98 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qxe5" , "Rxc5" , "g5" , "g6" , "Qe4+" , "Re3+" , "Qxf4" , "Qh4" , "Rd5" , "f4" , "f5" , "Rxf2" , "Rc6+" , "Qf6" , "Kh7" , "Kf3" , "Re5" , "Qxf2" , "Rxc2+" , "Rc3" , "Kh1" , "Kg2" , "Qb4" , "Kg3" , "Rf5" , "Qe2" , "Qe3" , "c5" , "Kg6" , "Kf2" , "Re7" , "h6" , "Rc2" , "Re1" , "Rd2" , "Rxh2" , "Rd6" , "Rc7" , "Rc8" , "Kh5" , "Qe8+" , "c4" , "Rc3+" , "Qxb5" ;
+        chon:nextHalfMove      :hmgamXQvXLR9 .
+
+:rolhg2SOO2RS0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQSRAuS .
+
+:gamQSRAu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQSRAuS ;
+        chon:atPlace           :plaQSRAuS ;
+        chon:atTime            "1873.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2SOO2RS ;
+        chon:hasHalfMove       :hmgamXQvXLR9 , :hmgam2SOO2RS ;
+        chon:hasLastHalfMove   :hmgamXQvXLR9 ;
+        chon:hasOpening        :opeQSRAuS ;
+        chon:hasReport         :cgrQSRAuS ;
+        chon:hasResult         :resQSRAuSP ;
+        chon:subEventOf        :touQSRAu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touQSRAu  a          chon:hessTournament ;
+        chon:atPlace  :plaQSRAuS ;
+        chon:hasName  "Vienna" .

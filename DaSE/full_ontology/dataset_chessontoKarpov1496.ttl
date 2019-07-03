@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr4pzUl5  a   chon:ChessGameReport .
+
+:ag4pzUl5  a          chon:Agent ;
+        chon:hasName  "Shirov, Alexei" .
+
+:rol4pzUl5  a             chon:AuthorRole ;
+        chon:performedBy  :ag4pzUl5 .
+
+:rolhg4pzUl594  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4pzUl5 , :agSnpAY4 .
+
+:ope4pzUl5  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSnpAY4 .
+
+:plaSnpAY4  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+chon:HalfMove  chon:subEventOf  :gamSnpAY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4pzUl5 .
+
+:gamSnpAY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSnpAY4 ;
+        chon:atPlace           :plaSnpAY4 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4pzUl59 ;
+        chon:hasHalfMove       :hmgam4pzUl59 ;
+        chon:hasLastHalfMove   :hmgam4pzUl59 ;
+        chon:hasOpening        :ope4pzUl5 ;
+        chon:hasReport         :cgr4pzUl5 ;
+        chon:hasResult         :res4pzUl59 ;
+        chon:subEventOf        :touSnpAY .
+
+:agSnpAY4  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:rolSnpAY4  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgam4pzUl59  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4pzUl594 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov, Alexei" ;
+        chon:hasSANRecord      "Bxc4" , "axb5" , "Nxe4" , "c6" , "dxe5" , "Qe6+" , "f6" , "Nc3" , "c5" , "Bd3" , "Qe7" , "Rf8" , "Qg4" , "a6" , "Bb2" , "b5" , "Nf3" , "h3" , "e5" , "Bd6" , "Re8" , "d4" , "Nbd7" , "Nh4" , "Be4" , "Rxb7" , "Ng3" , "Bxe5" , "Ra8" , "Qxd1" , "dxc4" , "e6" , "Qc2" , "h6" , "a4" , "O-O" , "Nf6" , "d5" , "Nce4" , "Qc7" , "Be2" , "Nxe5" , "Qc6" , "b3" , "Ng5" , "e3" , "Rad8" , "Ra7" , "Qxb7" , "Qxe5" , "c4" , "Bb7" , "Bb4" , "Nf5" , "Rd1" , "Kh8" , "Rxd1+" , "Bg6" ;
+        chon:nextHalfMove      :hmgam4pzUl59 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touSnpAY  a          chon:hessTournament ;
+        chon:atPlace  :plaSnpAY4 ;
+        chon:hasName  "Biel" .
+
+:res4pzUl59  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

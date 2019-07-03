@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgQvdKhtrH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQvdKht .
+
+:rolhgiyn6Evg6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQvdKht .
+
+:resQvdKhtr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQvdKht .
+
+:plaQvdKht  a         chon:Place ;
+        chon:hasName  "New York" .
+
+chon:HalfMove  chon:subEventOf  :gamQvdKh .
+
+:cgrQvdKht  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQvdKht .
+
+:gamQvdKh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQvdKht ;
+        chon:atPlace           :plaQvdKht ;
+        chon:atTime            "1890.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQvdKhtr ;
+        chon:hasHalfMove       :hmgamQvdKhtr , :hmgamiyn6Evg ;
+        chon:hasLastHalfMove   :hmgamiyn6Evg ;
+        chon:hasOpening        :opeQvdKht ;
+        chon:hasReport         :cgrQvdKht ;
+        chon:hasResult         :resQvdKhtr ;
+        chon:subEventOf        :touQvdKh .
+
+:agQvdKht  a          chon:Agent ;
+        chon:hasName  "Gunsberg, Isidor" , "Steinitz, William" .
+
+:rolQvdKht  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQvdKht .
+
+:opeQvdKht  a            chon:ChessOpening ;
+        chon:hasECOCode  "D35" .
+
+:hmgamQvdKhtr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiyn6Evg6 , chon:AgentRole , :rolhgQvdKhtrH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gunsberg, Isidor" ;
+        chon:hasSANRecord      "e3" , "Nc3" , "Re8" , "dxe5" , "Be2" , "f3" , "e6" , "e5" , "Bb4" , "d5" , "d4" , "Nf6" , "c4" , "Nc6" , "Be7" , "Nf2" , "Nh3" , "Bd2" , "O-O" ;
+        chon:nextHalfMove      :hmgamQvdKhtr , :hmgamiyn6Evg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamiyn6Evg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiyn6Evg6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gunsberg, Isidor" ;
+        chon:hasSANRecord      "Qa5" , "Bd3" , "O-O" , "c6" , "bxc3" , "Kh1" , "Qc2" , "Nxc3" , "Qe7" , "Bd4" , "Bc1" , "Nd3" , "Nxd5" , "Bb6" , "Be6" , "c4" , "Be2" , "Rxe5" , "Ba5" , "Qh5" , "Nxe5" , "e4" , "cxd5" , "Qxe5" , "Rad1" , "Rd8" , "Bd2" , "Re8" , "Ne5" ;
+        chon:nextHalfMove      :hmgamiyn6Evg .
+
+:touQvdKh  a          chon:hessTournament ;
+        chon:atPlace  :plaQvdKht ;
+        chon:hasName  "World Championship 3rd" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag0XHVHf  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:rol0XHVHf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0XHVHf .
+
+:ope0XHVHf  a            chon:ChessOpening ;
+        chon:hasECOCode  "D24" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0XHVHf .
+
+:hmgamAXRg4hk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAXRg4hkt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "a6" , "Qb7" , "Bd2" , "Bb4+" , "d5" , "Qxa8" , "e4" , "d4" , "e6" , "Nbd7" , "Bd7" , "Nb6" , "c4" , "Qa4+" , "dxc4" , "Nc3" , "b5" , "Nf3" , "axb5" , "Bc8" , "Qc6+" , "Nf6" , "Bf4" , "Nxb5" ;
+        chon:nextHalfMove      :hmgamAXRg4hk .
+
+chon:HalfMove  chon:subEventOf  :gam0XHVH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0XHVHf .
+
+:rolhgAXRg4hkt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0XHVHf .
+
+:cgr0XHVHf  a   chon:ChessGameReport .
+
+:gam0XHVH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0XHVHf ;
+        chon:atPlace           :pla0XHVHf ;
+        chon:atTime            "1997.07.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAXRg4hk ;
+        chon:hasHalfMove       :hmgamAXRg4hk ;
+        chon:hasLastHalfMove   :hmgamAXRg4hk ;
+        chon:hasOpening        :ope0XHVHf ;
+        chon:hasReport         :cgr0XHVHf ;
+        chon:hasResult         :res0XHVHft ;
+        chon:subEventOf        :tou0XHVH .
+
+:tou0XHVH  a          chon:hessTournament ;
+        chon:atPlace  :pla0XHVHf ;
+        chon:hasName  "Dortmund" .
+
+:res0XHVHft  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla0XHVHf  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

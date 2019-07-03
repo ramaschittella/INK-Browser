@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agTcnibN  a          chon:Agent ;
+        chon:hasName  "Hermann, Manfred" , "Karpov, Anatoly" .
+
+:rolTcnibN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTcnibN .
+
+:opeTcnibN  a            chon:ChessOpening ;
+        chon:hasECOCode  "C63" .
+
+:gamTcnib  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTcnibN ;
+        chon:atPlace           :plaTcnibN ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTcnibNW ;
+        chon:hasHalfMove       :hmgam5akwIMZ , :hmgamTcnibNW ;
+        chon:hasLastHalfMove   :hmgam5akwIMZ ;
+        chon:hasOpening        :opeTcnibN ;
+        chon:hasReport         :cgrTcnibN ;
+        chon:hasResult         :resTcnibNW ;
+        chon:subEventOf        :touTcnib .
+
+:touTcnib  a          chon:hessTournament ;
+        chon:atPlace  :plaTcnibN ;
+        chon:hasName  "Bad Lauterberg" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTcnibN .
+
+:hmgam5akwIMZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5akwIMZ0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hermann, Manfred" ;
+        chon:hasSANRecord      "h5" , "Rf7" , "Rf6" , "c6" , "Qg5" , "Bxc7" , "c5" , "Qb7" , "Ne4" , "Be5" , "c3" , "Ng3" , "Qb4" , "Bg6" , "Qb3" , "h6" , "Kh2" , "Rh6" , "Rxf8+" , "d4" , "Rxf2" , "Bg4" , "Kh7" , "Qg6" , "Qc4" , "Re2" , "Bf4" , "Re1" , "Kh8" , "a4" , "Qe2" , "bxa4" , "Bb5" , "Qd2" , "Rxf8" , "Qc5" , "h3" , "c4" , "Ne2" , "axb5" , "Bh5" , "Rf2" , "Nxg3" , "Qe6" , "Bxg3" , "Be4" , "Qa6" , "Bxf2+" , "Qd6" , "Qf4" , "Qe7" , "Qxb7" , "h4" , "a6" , "Rg6" , "Qd7" , "Qh4" ;
+        chon:nextHalfMove      :hmgam5akwIMZ .
+
+chon:HalfMove  chon:subEventOf  :gamTcnib .
+
+:resTcnibNW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTcnibN .
+
+:rolhgTcnibNWW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTcnibN .
+
+:hmgamTcnibNW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTcnibNWW , chon:AgentRole , :rolhg5akwIMZ0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hermann, Manfred" ;
+        chon:hasSANRecord      "e4" , "Nf3" , "Nf6" , "d5" , "Bb5" , "Nxe5" , "Nd4" , "f5" , "Bxf5" , "Nc3" , "e5" , "Nc6" , "exf5" , "Bc5" , "Nxd4" , "Bxd4" , "O-O" , "Ba4" ;
+        chon:nextHalfMove      :hmgam5akwIMZ , :hmgamTcnibNW .
+
+:plaTcnibN  a         chon:Place ;
+        chon:hasName  "Bad Lauterberg" .
+
+:rolhg5akwIMZ0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTcnibN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrTcnibN  a   chon:ChessGameReport .

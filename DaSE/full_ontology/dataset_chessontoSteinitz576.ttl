@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam3Kc9zed  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3Kc9zedJ , chon:AgentRole , :rolhgeK9l7fgW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bird, Henry Edward" ;
+        chon:hasSANRecord      "b6" , "Qxg3" , "Ng3" , "f5" , "c4" , "fxe4" , "e6" , "Bb4" , "Bd3" , "d4" , "O-O" , "g6" , "g5" , "Be3" , "Nc6" , "Qh3" , "Bb7" , "bxc3" , "Nf6" , "Nxg3" , "Qe7" , "Nc3" , "f3" , "g4" , "d6" , "Qxf1" , "e4" , "e3" , "Bxc3" , "Nh5" , "c5" , "Ne2" , "Rxf1+" ;
+        chon:nextHalfMove      :hmgam3Kc9zed , :hmgameK9l7fg .
+
+:hmgameK9l7fg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeK9l7fgW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bird, Henry Edward" ;
+        chon:hasSANRecord      "cxd6" , "Kd2" , "Kxf1" , "Rf1" , "Ba6" , "Ke2" , "Nf7" , "Kb2" , "Qa4" , "Rxf1+" , "Kc1" , "Rf8" , "Qd7" , "Nd8" ;
+        chon:nextHalfMove      :hmgameK9l7fg .
+
+:pla3Kc9ze  a         chon:Place ;
+        chon:hasName  "London" .
+
+:tou3Kc9z  a          chon:hessTournament ;
+        chon:atPlace  :pla3Kc9ze ;
+        chon:hasName  "London" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3Kc9ze .
+
+chon:HalfMove  chon:subEventOf  :gam3Kc9z .
+
+:ag3Kc9ze  a          chon:Agent ;
+        chon:hasName  "Bird, Henry Edward" , "Steinitz, William" .
+
+:rol3Kc9ze  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3Kc9ze .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3Kc9ze .
+
+:ope3Kc9ze  a            chon:ChessOpening ;
+        chon:hasECOCode  "A85" .
+
+:gam3Kc9z  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3Kc9ze ;
+        chon:atPlace           :pla3Kc9ze ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3Kc9zed ;
+        chon:hasHalfMove       :hmgam3Kc9zed , :hmgameK9l7fg ;
+        chon:hasLastHalfMove   :hmgameK9l7fg ;
+        chon:hasOpening        :ope3Kc9ze ;
+        chon:hasReport         :cgr3Kc9ze ;
+        chon:hasResult         :res3Kc9zed ;
+        chon:subEventOf        :tou3Kc9z .
+
+:rolhgeK9l7fgW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3Kc9ze .
+
+:rolhg3Kc9zedJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3Kc9ze .
+
+:res3Kc9zed  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr3Kc9ze  a   chon:ChessGameReport .

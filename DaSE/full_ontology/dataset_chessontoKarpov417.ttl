@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgFPD2f896  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtPHOI7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtPHOI7 .
+
+:hmgamtPHOI76  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFPD2f896 , :rolhgtPHOI76S ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b5" , "gxf3" , "c5" , "Ne2" , "Nxd4" , "Bb4" , "Qc2" , "Nc3" , "d5" , "Be3" , "Rc8" , "Bb7" , "cxd4" , "Nc6" , "e6" , "b6" , "c6" , "Nf3" , "a3" , "Bxd4" , "d4" , "e5" , "Be7" , "Bd3" , "Nf6" , "Kh1" , "b4" , "g6" , "Bxf3" , "e3" , "exd4" , "Nh5" , "c4" , "O-O" ;
+        chon:nextHalfMove      :hmgamFPD2f89 , :hmgamtPHOI76 .
+
+chon:HalfMove  chon:subEventOf  :gamtPHOI .
+
+:opetPHOI7  a            chon:ChessOpening ;
+        chon:hasECOCode  "E38" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtPHOI7 .
+
+:rolhgtPHOI76S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtPHOI7 .
+
+:hmgamFPD2f89  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFPD2f896 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc7" , "Kg2" , "Nxd4" , "Nxg2" , "dxe4" , "Kxg2" , "Bd6" , "Be4" , "Rg2" , "Kf1" , "Bxh2" , "Rfe8" , "Nf4" , "Rd1" , "Qxe7" , "Nf5" , "a4" , "Qh4" , "Rg1" , "Qf6" , "Rce7" , "Nxe7+" , "Qg5+" ;
+        chon:nextHalfMove      :hmgamFPD2f89 .
+
+:restPHOI76  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:platPHOI7  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:cgrtPHOI7  a   chon:ChessGameReport .
+
+:gamtPHOI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltPHOI7 ;
+        chon:atPlace           :platPHOI7 ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtPHOI76 ;
+        chon:hasHalfMove       :hmgamFPD2f89 , :hmgamtPHOI76 ;
+        chon:hasLastHalfMove   :hmgamFPD2f89 ;
+        chon:hasOpening        :opetPHOI7 ;
+        chon:hasReport         :cgrtPHOI7 ;
+        chon:hasResult         :restPHOI76 ;
+        chon:subEventOf        :toutPHOI .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toutPHOI  a          chon:hessTournament ;
+        chon:atPlace  :platPHOI7 ;
+        chon:hasName  "Skopje" .
+
+:agtPHOI7  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Jancev, Lazo" .
+
+:roltPHOI7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtPHOI7 .

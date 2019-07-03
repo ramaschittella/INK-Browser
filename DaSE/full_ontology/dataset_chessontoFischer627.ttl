@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeJkKt4S  a            chon:ChessOpening ;
+        chon:hasECOCode  "B13" .
+
+:hmgamJkKt4Sd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJkKt4Sdl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hort, Vlastimil" ;
+        chon:hasSANRecord      "Qxc7" , "e4" , "Bf4" , "Kh7" , "Rc6" , "Bxd5" , "Nxd5" , "Bb5+" , "Ke3" , "Nc8" , "Rd8" , "Bd2" , "Ra3" , "d4" , "Kf5" , "Be4" , "e6" , "Ra4" , "Bf6" , "bxc3" , "Kb6" , "Rb6" , "Ke8" , "Rxa6" , "c4" , "Rxd4" , "a4" , "Nd5" , "h3" , "g4+" , "Kg2" , "Rd4" , "Bxa3" , "Nxc3" , "Be3" , "Kg6" , "g5" , "Qb8" , "Nb6" , "Nxc4" , "Rc7" , "c3" , "Rc8" , "Rb3" , "Kc5" , "Nf1" , "Kf3" , "Rc1" , "Rac1" , "Qb3" , "O-O" , "Bg6" , "Rd3" , "Kf7" , "Rxc3" , "Rxa3" , "Ra6" , "Bc3" , "Qxb3" , "Rxc7" , "Ne4" , "cxd5" , "Nf6" , "c6" , "a6" , "Rc4" , "Na5" , "Bd6" , "Rxf7" , "Nxb3" , "Rd6" , "Bc1+" , "hxg6" , "dxc4" , "Rd7" , "Nh4" , "Nxg6" , "Kd4" , "Nh5" , "Rc8+" , "Nxa4" , "Bf5" , "Nbd7" , "Kc6" , "Nd2" , "exd5" , "Ke7" , "Be7" , "Nf3" , "Nb3" , "Nxb7" , "Bd3" , "Ra7" , "Ncb6" , "d5" , "Nc5" , "g3" ;
+        chon:nextHalfMove      :hmgamJkKt4Sd .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJkKt4S .
+
+:resJkKt4Sd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamJkKt4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJkKt4S ;
+        chon:atPlace           :plaJkKt4S ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJkKt4Sd ;
+        chon:hasHalfMove       :hmgamJkKt4Sd ;
+        chon:hasLastHalfMove   :hmgamJkKt4Sd ;
+        chon:hasOpening        :opeJkKt4S ;
+        chon:hasReport         :cgrJkKt4S ;
+        chon:hasResult         :resJkKt4Sd ;
+        chon:subEventOf        :touJkKt4 .
+
+chon:HalfMove  chon:subEventOf  :gamJkKt4 .
+
+:touJkKt4  a          chon:hessTournament ;
+        chon:atPlace  :plaJkKt4S ;
+        chon:hasName  "Vinkovci" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJkKt4S .
+
+:plaJkKt4S  a         chon:Place ;
+        chon:hasName  "Vinkovci" .
+
+:rolhgJkKt4Sdl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJkKt4S .
+
+:cgrJkKt4S  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agJkKt4S  a          chon:Agent ;
+        chon:hasName  "Hort, Vlastimil" , "Fischer, Robert James" .
+
+:rolJkKt4S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJkKt4S .

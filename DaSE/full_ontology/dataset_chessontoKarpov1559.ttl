@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agqSiK4b  a          chon:Agent ;
+        chon:hasName  "Ivanchuk, Vassily" , "Karpov, Anatoly" .
+
+:gameSmwu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqSiK4b ;
+        chon:atPlace           :plaeSmwub ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqSiK4bZ ;
+        chon:hasHalfMove       :hmgamqSiK4bZ ;
+        chon:hasLastHalfMove   :hmgamqSiK4bZ ;
+        chon:hasOpening        :opeqSiK4b ;
+        chon:hasReport         :cgrqSiK4b ;
+        chon:hasResult         :resqSiK4bZ ;
+        chon:subEventOf        :touqSiK4 .
+
+:rolqSiK4b  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqSiK4b .
+
+:opeqSiK4b  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:resqSiK4bZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqSiK4b .
+
+chon:HalfMove  chon:subEventOf  :gameSmwu .
+
+:plaeSmwub  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqSiK4b .
+
+:cgrqSiK4b  a   chon:ChessGameReport .
+
+:hmgamqSiK4bZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqSiK4bZc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "Bd2" , "Nf3" , "Nxc3" , "b5" , "d5" , "Ra3" , "Nb4" , "Qb4" , "Nd5" , "cxb4" , "Qxd2" , "Be2" , "axb5" , "Bg2" , "Rg8" , "Qg6+" , "Qc2" , "Ne1" , "Qf7+" , "Qe4+" , "e4" , "g4" , "Qc1+" , "Nc3" , "Nc4" , "Qd7" , "Rxc8" , "O-O-O" , "Bf1" , "a3" , "a4" , "c4" , "Qd1" , "Qxh6" , "Bxb4" , "Bxc4" , "Nd3" , "Kd8" , "Ke8" , "Qc6" , "Qe7" , "Be6" , "Bxg2" , "h4" , "Rxc8+" , "h6" , "Qxd4" , "Kd7" , "Rc8" , "Bd5" , "Qd5" , "Rfc1" , "Kxc8" , "Kxg2" , "Nxd2" , "e5" , "g5" , "Kb8" , "Kh2" , "O-O" , "Ke7" , "Nf6" , "cxb5" , "Qh8+" , "Be3" , "h3" , "g3" , "Qg7+" , "c6" , "Qf6+" , "Rac3" , "Nc6" , "e6" , "Nb6" , "N4d5" , "d4" , "f5" , "bxc3" , "dxc4" , "Bd3" , "Bc4" ;
+        chon:nextHalfMove      :hmgamqSiK4bZ .
+
+:touqSiK4  a          chon:hessTournament ;
+        chon:atPlace  :plaeSmwub ;
+        chon:hasName  "Reggio Emilia9192" .
+
+:rolhgqSiK4bZc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqSiK4b .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

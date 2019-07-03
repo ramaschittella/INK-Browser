@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamAQ0GY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roly7Kt0Y ;
+        chon:atPlace           :plaAQ0GYP ;
+        chon:atTime            "2002.04.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamy7Kt0YH ;
+        chon:hasHalfMove       :hmgamy7Kt0YH ;
+        chon:hasLastHalfMove   :hmgamy7Kt0YH ;
+        chon:hasOpening        :opey7Kt0Y ;
+        chon:hasReport         :cgry7Kt0Y ;
+        chon:hasResult         :resy7Kt0YH ;
+        chon:subEventOf        :touy7Kt0 .
+
+:agy7Kt0Y  a          chon:Agent ;
+        chon:hasName  "Van Wely,L" , "Karpov,An" .
+
+:opey7Kt0Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+:resy7Kt0YH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agy7Kt0Y .
+
+chon:HalfMove  chon:subEventOf  :gamAQ0GY .
+
+:plaAQ0GYP  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agy7Kt0Y .
+
+:rolhgy7Kt0YHp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agy7Kt0Y .
+
+:touy7Kt0  a          chon:hessTournament ;
+        chon:atPlace  :plaAQ0GYP ;
+        chon:hasName  "FIDE GP" .
+
+:cgry7Kt0Y  a   chon:ChessGameReport .
+
+:roly7Kt0Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agy7Kt0Y .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamy7Kt0YH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgy7Kt0YHp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely,L" ;
+        chon:hasSANRecord      "Bc1" , "Bb8" , "Bf4" , "h3" , "Be2" , "Kxb3" , "Qxd1" , "dxe4" , "e5" , "Qc2" , "Ba5" , "exf3" , "Kf8" , "f3" , "Nxe5" , "Rad8" , "Kd3" , "Bg5" , "Kf7" , "b6" , "exd5" , "Bb2" , "Kf3" , "Kb3" , "Nc6" , "a4" , "Nbd2" , "Qg4" , "Ke4" , "Bb7" , "Rd8" , "Bd6" , "Nf3" , "Kd7" , "cxb5+" , "Bxe6+" , "c4" , "Bc4" , "Ne5" , "Rd1" , "Kc4" , "Bf6" , "Kxg6" , "Nxe4" , "e4" , "Kxc2" , "e7" , "Be7" , "b4" , "e3" , "Kb5" , "Kxe7" , "b5" , "Bd2" , "gxf3" , "cxd5" , "Kb6" , "Kf2" , "Qd2" , "h4" , "Bd4" , "Kd5" , "c3" , "fxe6" , "Bxd6" , "h5" , "Qd6" , "d5" , "dxe5" , "Bd5" , "Kxa6" , "Nf6" , "Kd6" , "c5" , "Bf8" , "Kc6" , "Kg2" , "f4" , "Qc7" , "e6" , "Be3" , "a6" , "Ke7" , "f5" , "Rxd1+" , "Ke6" , "a5" , "O-O" , "Qxd6" , "Bd8" , "Bxc4" , "Ke2" , "d4" , "Ne4" , "g6" , "b3" , "c2" , "bxc4" , "Bxh4" , "Qe2" , "Rxd1" , "axb5" ;
+        chon:nextHalfMove      :hmgamy7Kt0YH .

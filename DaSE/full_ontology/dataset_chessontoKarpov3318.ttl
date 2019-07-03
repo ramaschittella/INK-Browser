@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolz3ocnW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agz3ocnW .
+
+:rolhgL3kqWXoJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agz3ocnW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agz3ocnW .
+
+:rolhgz3ocnWly  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agz3ocnW .
+
+chon:HalfMove  chon:subEventOf  :gamz3ocn .
+
+:opez3ocnW  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agz3ocnW .
+
+:gamz3ocn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolz3ocnW ;
+        chon:atPlace           :plaz3ocnW ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamz3ocnWl ;
+        chon:hasHalfMove       :hmgamL3kqWXo , :hmgamz3ocnWl ;
+        chon:hasLastHalfMove   :hmgamL3kqWXo ;
+        chon:hasOpening        :opez3ocnW ;
+        chon:hasReport         :cgrz3ocnW ;
+        chon:hasResult         :resz3ocnWl ;
+        chon:subEventOf        :touz3ocn .
+
+:hmgamz3ocnWl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgz3ocnWly , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rauk,T" ;
+        chon:hasSANRecord      "d4" , "e6" , "Nf6" , "Nf3" , "c4" ;
+        chon:nextHalfMove      :hmgamL3kqWXo , :hmgamz3ocnWl .
+
+:plaz3ocnW  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+:hmgamL3kqWXo  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgL3kqWXoJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rauk,T" ;
+        chon:hasSANRecord      "Re1" , "Nc3" , "Qxc4" , "Qxe8" , "g3" , "Nd5" , "Rxe2" , "Qe5" , "Nxe7+" , "Re7" , "Qxd5" , "Qxc7" , "d5" , "Rxc7" , "Rxe8+" , "Ba6" , "Qe8" , "a5" , "Qa8+" , "Nf5" , "Rb7" , "b4" , "Qb3" , "cxb4" , "Nc7" , "Qc8" , "dxc4" , "Qxe7" , "Nfd7" , "Nd4" , "Bc6" , "Rxe7" , "Nxb4" , "c5" , "Na6" , "Rd1" , "Bb7" , "Qf4" , "Be7" , "Bg5" , "Kg1" , "Qa4" , "Kxg2" , "Nc6" , "Bxf6" , "Ne5" , "Bg2" , "b6" , "Nd3" , "Rac1" , "Qf3" , "Qf8" , "Rb8" , "Bxg2" , "exd5" , "Re8" , "Qe8+" , "O-O" , "g6" , "Nf6" ;
+        chon:nextHalfMove      :hmgamL3kqWXo .
+
+:cgrz3ocnW  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resz3ocnWl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agz3ocnW  a          chon:Agent ;
+        chon:hasName  "Rauk,T" , "Karpov,Ana" .
+
+:touz3ocn  a          chon:hessTournament ;
+        chon:atPlace  :plaz3ocnW ;
+        chon:hasName  "14th Puhajarve Rapid" .

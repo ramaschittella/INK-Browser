@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrZ6I3ol  a   chon:ChessGameReport .
+
+:rolZ6I3ol  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZ6I3ol .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ6I3ol .
+
+chon:HalfMove  chon:subEventOf  :gamZ6I3o .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ6I3ol .
+
+:plaZ6I3ol  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:gamZ6I3o  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZ6I3ol ;
+        chon:atPlace           :plaZ6I3ol ;
+        chon:atTime            "1997.04.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZ6I3olA ;
+        chon:hasHalfMove       :hmgama6FgVkD , :hmgamZ6I3olA ;
+        chon:hasLastHalfMove   :hmgama6FgVkD ;
+        chon:hasOpening        :opeZ6I3ol ;
+        chon:hasReport         :cgrZ6I3ol ;
+        chon:hasResult         :resZ6I3olA ;
+        chon:subEventOf        :touZ6I3o .
+
+:touZ6I3o  a          chon:hessTournament ;
+        chon:atPlace  :plaZ6I3ol ;
+        chon:hasName  "Dos Hermanas" .
+
+:rolhgZ6I3olAI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ6I3ol .
+
+:resZ6I3olA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agZ6I3ol  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:opeZ6I3ol  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:hmgama6FgVkD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhga6FgVkDV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "fxe6" , "a4" , "Kd2" , "dxc4" , "b3" , "exd5" , "O-O" , "Nb2" , "Rbc8" , "e6" , "Qd8" , "Qa3+" , "Bg2" , "e5" , "Qd7" , "Qf8" , "Qe8" , "Rb8" , "Qc4+" , "Qf7" , "Bf6" , "Rfd8" , "Qe5+" , "Re1" , "Qc8+" , "g3" , "Bxb5" , "Qxd8" , "Rd6" , "Kc1" , "Qc2" , "Qe2" , "Qa6+" , "d4" , "bxc6" , "Qe6+" , "Ne5" , "Bf1" , "Kxd2" , "Rfd1" , "d5" , "Bg5" , "Re6" , "Qxe6+" , "Rxc6" , "Qxc6" , "Nd1" , "Kg2" , "Be7" , "Ra8" , "Bd7" , "Qxe5" , "Qe7" , "a6" , "c6" , "axb5" , "Bxf6" , "a5" , "Bh5" , "Kf1" , "Qb6" , "e4" , "Nd4" , "h6" , "Nxd1" , "Qf5" , "Bxd1" , "d3" , "Nf5" , "Qxb5" , "Na6" , "Bxe5" , "Kf8" , "b5" , "Bc6" , "Kh8" , "Kg8" , "Rd8" , "d2" , "Qe4" , "Bg4" , "Nc3" , "Ke2" , "Ne3" , "Bh3" , "Qd6+" , "Qc5+" , "Rc4" , "h4" , "Rac1" , "Qxc4" , "Nd3" , "Rxd8" , "Qa8" , "Nb4" , "Nb5" ;
+        chon:nextHalfMove      :hmgama6FgVkD .
+
+:rolhga6FgVkDV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ6I3ol .
+
+:hmgamZ6I3olA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhga6FgVkDV , :rolhgZ6I3olAI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "d4" , "d5" , "Nf3" , "Nf6" , "c4" ;
+        chon:nextHalfMove      :hmgamZ6I3olA , :hmgama6FgVkD .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

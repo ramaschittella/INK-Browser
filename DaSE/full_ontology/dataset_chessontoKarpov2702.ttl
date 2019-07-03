@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolUSmpOP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUSmpOP .
+
+:resUSmpOPA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamUSmpO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUSmpOP ;
+        chon:atPlace           :plaUSmpOP ;
+        chon:atTime            "2003.01.14"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUSmpOPA ;
+        chon:hasHalfMove       :hmgamUSmpOPA ;
+        chon:hasLastHalfMove   :hmgamUSmpOPA ;
+        chon:hasOpening        :opeUSmpOP ;
+        chon:hasReport         :cgrUSmpOP ;
+        chon:hasResult         :resUSmpOPA ;
+        chon:subEventOf        :touUSmpO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUSmpOP .
+
+:hmgamUSmpOPA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUSmpOPAW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "bxc3" , "Ba2" , "Nxc3" , "Qf6" , "Ne3" , "Qh5" , "Rd8" , "Qe4" , "Re1" , "c4" , "Be7" , "Nf6" , "Nf3" , "Re8" , "Qf4" , "a3" , "Bxb1" , "Nd5" , "Nh2" , "Qg4" , "Kf8" , "Kxe7" , "Bxc4" , "Nc6" , "O-O" , "e4" , "Rxb1" , "Nxd5" , "Bb1" , "Be2" , "Rd7" , "Nb4" , "cxd6" , "d6" , "Nxe5" , "Rxe7" , "Ng5" , "Qe7" , "Re7" , "h4" , "Ne7" , "Qg3" , "Rxe8+" , "Qxe8" , "Bg6" , "Qxd5" , "Bxd6" , "d4" , "dxc4" , "d5" , "Nxe4" , "g3" , "Bf4" , "Nc3" , "Qf5" , "Bd6" , "Bd3" , "Qe3+" , "Bf5" , "h6" , "e5" , "Ng4" , "Qe6" ;
+        chon:nextHalfMove      :hmgamUSmpOPA .
+
+chon:HalfMove  chon:subEventOf  :gamUSmpO .
+
+:opeUSmpOP  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUSmpOP .
+
+:rolhgUSmpOPAW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUSmpOP .
+
+:touUSmpO  a          chon:hessTournament ;
+        chon:atPlace  :plaUSmpOP ;
+        chon:hasName  "GMA" .
+
+:plaUSmpOP  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee NED" .
+
+:cgrUSmpOP  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agUSmpOP  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Grischuk,A" .

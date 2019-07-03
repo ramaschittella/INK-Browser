@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg4KzQ4NqJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBIpxIL .
+
+:rolBIpxIL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBIpxIL .
+
+:gamBIpxI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBIpxIL ;
+        chon:atPlace           :plaBIpxIL ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBIpxILA ;
+        chon:hasHalfMove       :hmgamBIpxILA , :hmgam4KzQ4Nq ;
+        chon:hasLastHalfMove   :hmgam4KzQ4Nq ;
+        chon:hasOpening        :opeBIpxIL ;
+        chon:hasReport         :cgrBIpxIL ;
+        chon:hasResult         :resBIpxILA ;
+        chon:subEventOf        :touBIpxI .
+
+:hmgamBIpxILA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBIpxILAi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "Be2" , "Nf3" , "e6" , "Qxd2" , "Bd2" , "Rg8" , "e5" , "f5" , "g5" , "Nh6" , "h3" , "Nf7" , "gxf4" , "e4" , "b6" , "f4" , "d4" , "Nc3" , "c4" , "O-O-O" , "Bb4+" , "Bb7" , "Bxd2+" , "Na6" ;
+        chon:nextHalfMove      :hmgam4KzQ4Nq , :hmgamBIpxILA .
+
+:touBIpxI  a          chon:hessTournament ;
+        chon:atPlace  :plaBIpxIL ;
+        chon:hasName  "Biel" .
+
+:hmgam4KzQ4Nq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4KzQ4NqJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "e6" , "Qf6" , "g5" , "Nc6" , "Kd2" , "Reg8" , "d5" , "a3" , "g4" , "O-O-O" , "Rxc8+" , "Qxf4" , "Nd5" , "cxd5" , "hxg4" , "Rg7" , "exd5" , "Bxc8" , "dxe6" , "Rxf7" , "Ng5" , "Re8" , "Nb4" , "Qf8" , "Qh3" , "Rc8" , "Rf6" , "Bxf3" , "e7" , "Kb8" , "Rf8" , "b4" , "Qe6" , "Qe7" , "Bh5" , "fxg4" , "Qd6" , "Qxa3+" , "Rh6" , "Bf7" , "Ne5" , "Nxf3" , "Qxe5" ;
+        chon:nextHalfMove      :hmgam4KzQ4Nq .
+
+:rolhgBIpxILAi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBIpxIL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBIpxIL .
+
+chon:HalfMove  chon:subEventOf  :gamBIpxI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBIpxIL .
+
+:agBIpxIL  a          chon:Agent ;
+        chon:hasName  "Miles, Anthony J" , "Karpov, Anatoly" .
+
+:resBIpxILA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeBIpxIL  a            chon:ChessOpening ;
+        chon:hasECOCode  "A40" .
+
+:plaBIpxIL  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrBIpxIL  a   chon:ChessGameReport .

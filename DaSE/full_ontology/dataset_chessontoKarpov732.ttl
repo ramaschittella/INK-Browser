@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrvznZ1q  a   chon:ChessGameReport .
+
+:plakzqLrr  a         chon:Place ;
+        chon:hasName  "London" .
+
+:rolvznZ1q  a             chon:AuthorRole , chon:BlackPlayerRole ;
+        chon:performedBy  :agvznZ1q .
+
+:resvznZ1qS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolkzqLrr  a   chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvznZ1q .
+
+:gamkzqLr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkzqLrr , :rolvznZ1q ;
+        chon:atPlace           :plakzqLrr ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvznZ1qS ;
+        chon:hasHalfMove       :hmgamvznZ1qS ;
+        chon:hasLastHalfMove   :hmgamvznZ1qS ;
+        chon:hasOpening        :opevznZ1q ;
+        chon:hasReport         :cgrvznZ1q ;
+        chon:hasResult         :resvznZ1qS ;
+        chon:subEventOf        :toukzqLr .
+
+chon:HalfMove  chon:subEventOf  :gamkzqLr .
+
+:toukzqLr  a          chon:hessTournament ;
+        chon:atPlace  :plakzqLrr ;
+        chon:hasName  "Phillips&Drew" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvznZ1q .
+
+:agvznZ1q  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Andersson, Ulf" .
+
+:opevznZ1q  a            chon:ChessOpening ;
+        chon:hasECOCode  "E19" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgvznZ1qS7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvznZ1q .
+
+:hmgamvznZ1qS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvznZ1qS7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Be7" , "dxc5" , "Bb7" , "Ke7" , "Qf4" , "Rd1" , "Kxg2" , "Nxc7" , "h4" , "Bb2" , "gxf6" , "Bxg2" , "Rg8" , "Rd8" , "Kf3" , "g3" , "Qc2" , "Bxf6" , "Bf6" , "Nd2" , "e6" , "Rxd8" , "Na6" , "Nb4" , "Nf3" , "e3" , "Qc7" , "Nxc3" , "d4" , "Kf8" , "Bg2" , "h5" , "Qd2" , "Nc3" , "Ne4" , "b6" , "Nf6" , "O-O" , "c4" , "b3" , "Qxc3" , "d6" , "Qxc7" , "c5" ;
+        chon:nextHalfMove      :hmgamvznZ1qS .

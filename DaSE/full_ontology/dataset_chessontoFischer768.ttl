@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag8KuzjB  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Taimanov, Mark E" .
+
+:rol8KuzjB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8KuzjB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8KuzjB .
+
+chon:HalfMove  chon:subEventOf  :gam8Kuzj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8KuzjB .
+
+:ope8KuzjB  a            chon:ChessOpening ;
+        chon:hasECOCode  "E97" .
+
+:gam8Kuzj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8KuzjB ;
+        chon:atPlace           :pla8KuzjB ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8KuzjBV ;
+        chon:hasHalfMove       :hmgam8KuzjBV ;
+        chon:hasLastHalfMove   :hmgam8KuzjBV ;
+        chon:hasOpening        :ope8KuzjB ;
+        chon:hasReport         :cgr8KuzjB ;
+        chon:hasResult         :res8KuzjBV ;
+        chon:subEventOf        :tou8Kuzj .
+
+:hmgam8KuzjBV  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8KuzjBVk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "gxf5" , "Rxb2" , "g3" , "Qa6" , "Qb4" , "Rb7" , "Qb6" , "Qa4" , "Nf3" , "e4" , "c6" , "Rf8" , "Kh7" , "Bxe3" , "dxe6" , "Nb5" , "cxd5" , "Kh2" , "c4" , "Re1" , "Nxf5" , "Rc7" , "Kf7" , "e5" , "Qd6+" , "h6" , "Kxg7" , "f5" , "Ba6" , "Rfb8" , "exf5" , "Nc6" , "Rfd1" , "Rxb1+" , "Ne6" , "Ng6" , "O-O" , "d5" , "Ne8" , "Bf4" , "Nf6" , "Bxe6" , "Qxe3" , "Rc1" , "g6" , "Rxb1" , "Qd7" , "Qb3" , "Qxb7" , "Qc8" , "Ng5" , "Bd2" , "d4" , "Rb6" , "Rxg7+" , "Bxh6+" , "Qa3" , "Rb1" , "Ne7" , "Qe3" , "d6" , "Nc3" , "Nd4" , "Nxa7" , "Bg7" , "Qxe6" , "Bh5" , "h3" , "Be2" ;
+        chon:nextHalfMove      :hmgam8KuzjBV .
+
+:tou8Kuzj  a          chon:hessTournament ;
+        chon:atPlace  :pla8KuzjB ;
+        chon:hasName  "Candidats qf3" .
+
+:pla8KuzjB  a         chon:Place ;
+        chon:hasName  "Vancouver" .
+
+:rolhg8KuzjBVk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8KuzjB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr8KuzjB  a   chon:ChessGameReport .
+
+:res8KuzjBV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

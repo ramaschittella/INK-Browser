@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:operoKmVu  a            chon:ChessOpening ;
+        chon:hasECOCode  "B85" .
+
+:hmgamSmGAuuS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSmGAuuSy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Bc8" , "Qd2" , "Rae1" , "Bf2" , "Nxc5" , "Nd7" , "Rf8" , "bxc5" , "Bf4" , "Bg3" , "Bb7" , "Re8" , "Rbd8" , "a4" , "Bf3" , "Nc6" , "Be4" , "b6" , "fxe5" , "e5" , "Rb8" , "Be3" , "dxe5" , "Nb3" , "Qf2" , "Nc5" , "Bd7" ;
+        chon:nextHalfMove      :hmgamSmGAuuS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agroKmVu .
+
+:rolhgroKmVuxn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agroKmVu .
+
+chon:HalfMove  chon:subEventOf  :gamroKmV .
+
+:hmgamroKmVux  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgroKmVuxn , chon:AgentRole , :rolhgSmGAuuSy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "e6" , "d4" , "e4" , "Nf6" , "Nc3" , "cxd4" , "c5" , "a6" , "Kh1" , "Be2" , "Nxd4" , "f4" , "Nf3" , "O-O" , "Be7" , "d6" , "Qc7" ;
+        chon:nextHalfMove      :hmgamSmGAuuS , :hmgamroKmVux .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agroKmVu .
+
+:resroKmVux  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamroKmV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolroKmVu ;
+        chon:atPlace           :plaroKmVu ;
+        chon:atTime            "1985.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamroKmVux ;
+        chon:hasHalfMove       :hmgamroKmVux , :hmgamSmGAuuS ;
+        chon:hasLastHalfMove   :hmgamSmGAuuS ;
+        chon:hasOpening        :operoKmVu ;
+        chon:hasReport         :cgrroKmVu ;
+        chon:hasResult         :resroKmVux ;
+        chon:subEventOf        :touroKmV .
+
+:plaroKmVu  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:touroKmV  a          chon:hessTournament ;
+        chon:atPlace  :plaroKmVu ;
+        chon:hasName  "World Championship 32th-KK2" .
+
+:rolhgSmGAuuSy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agroKmVu .
+
+:cgrroKmVu  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agroKmVu  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolroKmVu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agroKmVu .

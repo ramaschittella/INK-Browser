@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaaJIue7  a         chon:Place ;
+        chon:hasName  "Zagreb" .
+
+:cgraJIue7  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaJIue7 .
+
+chon:HalfMove  chon:subEventOf  :gamaJIue .
+
+:agaJIue7  a          chon:Agent ;
+        chon:hasName  "Uhlmann, Wolfgang" , "Fischer, Robert James" .
+
+:rolaJIue7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaJIue7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaJIue7 .
+
+:opeaJIue7  a            chon:ChessOpening ;
+        chon:hasECOCode  "C15" .
+
+:hmgamaJIue7Z  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgaJIue7Zp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uhlmann, Wolfgang" ;
+        chon:hasSANRecord      "Ne4" , "Qd2" , "Qh6" , "Rg3" , "Nxe4+" , "Qxg7" , "Qe5" , "Bxe4" , "Nd7" , "Bd7" , "Rg6" , "c5" , "Qe3" , "Nd6+" , "Qd6" , "f5" , "Rdg8" , "bxc3" , "Kb6" , "Kc1" , "h3" , "Ba4" , "Bb4" , "Bxe5" , "Kb1" , "Qg4" , "Bxc2+" , "Ng4" , "Nf6" , "dxe4" , "Ne5" , "c4" , "d4" , "Bb2" , "Rxg2" , "Qf4+" , "Qd4" , "f3" , "Nxg8" , "Nb8" , "a3" , "Nc3" , "Bd3" , "e6" , "Kc7" , "Rg8" , "exf3" , "Qxe5" , "d5" , "fxe4" , "Bxc3+" , "Nc6" , "Rdg1" , "O-O-O" , "e4" , "Nxf3" , "Nf7" ;
+        chon:nextHalfMove      :hmgamaJIue7Z .
+
+:gamaJIue  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaJIue7 ;
+        chon:atPlace           :plaaJIue7 ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaJIue7Z ;
+        chon:hasHalfMove       :hmgamaJIue7Z ;
+        chon:hasLastHalfMove   :hmgamaJIue7Z ;
+        chon:hasOpening        :opeaJIue7 ;
+        chon:hasReport         :cgraJIue7 ;
+        chon:hasResult         :resaJIue7Z ;
+        chon:subEventOf        :touaJIue .
+
+:touaJIue  a          chon:hessTournament ;
+        chon:atPlace  :plaaJIue7 ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+:rolhgaJIue7Zp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaJIue7 .
+
+:resaJIue7Z  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

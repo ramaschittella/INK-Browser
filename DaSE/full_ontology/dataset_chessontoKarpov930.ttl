@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamZVTXP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZVTXPJ ;
+        chon:atPlace           :plaZVTXPJ ;
+        chon:atTime            "1985.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZVTXPJk ;
+        chon:hasHalfMove       :hmgamZVTXPJk ;
+        chon:hasLastHalfMove   :hmgamZVTXPJk ;
+        chon:hasOpening        :opeZVTXPJ ;
+        chon:hasReport         :cgrZVTXPJ ;
+        chon:hasResult         :resZVTXPJk ;
+        chon:subEventOf        :touZVTXP .
+
+:touZVTXP  a          chon:hessTournament ;
+        chon:atPlace  :plaZVTXPJ ;
+        chon:hasName  "WchT" .
+
+:rolhgZVTXPJko  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZVTXPJ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZVTXPJ .
+
+:agZVTXPJ  a          chon:Agent ;
+        chon:hasName  "Miles, Anthony J" , "Karpov, Anatoly" .
+
+:hmgamZVTXPJk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZVTXPJko ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "Be2" , "Nf6" , "Bxc4" , "dxc5" , "Rac8" , "b4" , "c5" , "Nf3" , "d4" , "c4" , "Nd4" , "Nc3" , "Be7" , "a6" , "Nbd7" , "dxc4" , "Nb3" , "e6" , "O-O" , "Qb6" , "Rc1" , "Bxc5" , "Bb7" , "a3" , "e3" , "d5" , "Bb2" , "Rfd8" , "b5" ;
+        chon:nextHalfMove      :hmgamZVTXPJk .
+
+chon:HalfMove  chon:subEventOf  :gamZVTXP .
+
+:opeZVTXPJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "D40" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZVTXPJ .
+
+:plaZVTXPJ  a         chon:Place ;
+        chon:hasName  "Luzern" .
+
+:resZVTXPJk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrZVTXPJ  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolZVTXPJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZVTXPJ .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaTnLinU  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:agTnLinU  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Petrosian, Tigran V" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTnLinU .
+
+:rolTnLinU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTnLinU .
+
+:opeTnLinU  a            chon:ChessOpening ;
+        chon:hasECOCode  "D82" .
+
+chon:HalfMove  chon:subEventOf  :gamTnLin .
+
+:rolhgTnLinU8u  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTnLinU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTnLinU .
+
+:gamTnLin  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTnLinU ;
+        chon:atPlace           :plaTnLinU ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTnLinU8 ;
+        chon:hasHalfMove       :hmgamTnLinU8 ;
+        chon:hasLastHalfMove   :hmgamTnLinU8 ;
+        chon:hasOpening        :opeTnLinU ;
+        chon:hasReport         :cgrTnLinU ;
+        chon:hasResult         :resTnLinU8 ;
+        chon:subEventOf        :touTnLin .
+
+:hmgamTnLinU8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTnLinU8u ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d6" , "Qe2" , "Kg7" , "O-O" , "c4" , "Qc2" , "Ne2" , "fxe3" , "Kh1" , "Rf1" , "Bg7" , "Nd4" , "Rcd1" , "Nxc3" , "dxc5" , "Qb3" , "d4" , "exd1=Q" , "d5" , "Rxd1" , "Bf4" , "Nxf5" , "Bf5" , "gxf5" , "Bxe5" , "Rxf5" , "f6" , "Qxc5" , "Ne5" , "Ba2" , "e3" , "Kh6" , "Nf6" , "Qd2" , "Qh5" , "Qf7+" , "dxe7" , "Rc1" , "bxc3" , "f4" , "f5" , "Ne4" , "e2" , "fxe5" , "Qxa2" , "Qd4+" , "Nc3" , "Kf8" , "cxd5" , "Bc4" , "Qa5" , "g6" , "Nd7" , "Qxe5" , "c5" , "Qa4+" ;
+        chon:nextHalfMove      :hmgamTnLinU8 .
+
+:touTnLin  a          chon:hessTournament ;
+        chon:atPlace  :plaTnLinU ;
+        chon:hasName  "Candidats final" .
+
+:cgrTnLinU  a   chon:ChessGameReport .
+
+:resTnLinU8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

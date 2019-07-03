@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg13SqBhJN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agO3Fb3i .
+
+:plaO3Fb3i  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:touO3Fb3  a          chon:hessTournament ;
+        chon:atPlace  :plaO3Fb3i ;
+        chon:hasName  "Hoogovens" .
+
+:cgrO3Fb3i  a   chon:ChessGameReport .
+
+:hmgam13SqBhJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg13SqBhJN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "h3" , "Bd4" , "Rd3" , "h5" , "Qxe6" , "Kg2" , "Re8" , "Rc1" , "Be4" , "cxd4" , "Bc6" , "Rfd8" , "Ne6" , "Bxf3" , "Qxe2" , "Rfd1" , "Rc8" , "Qa3" , "Qd2" , "Nc7" , "Qc2" , "Qxc1" , "Bb2" , "Nce5" , "Qxh3" , "Bxb7" , "Rf3" , "Rxf7" , "Ra8" , "Bxf6" , "Rf8" , "Re3" , "Rxc1" , "Nxf7" , "Qh5" , "Qd5" , "Qxe7" , "Qd1+" , "Bc3" , "Bxd4" , "Bxa7" , "Qf5" ;
+        chon:nextHalfMove      :hmgam13SqBhJ .
+
+:rolhgO3Fb3iGz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agO3Fb3i .
+
+:agO3Fb3i  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:rolO3Fb3i  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agO3Fb3i .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agO3Fb3i .
+
+:opeO3Fb3i  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+:hmgamO3Fb3iG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgO3Fb3iGz , chon:AgentRole , :rolhg13SqBhJN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Na3" , "Bg7" , "dxc4" , "c5" , "d5" , "Bf5" , "Nxc4" , "Na6" , "d4" , "b3" , "Bg2" , "Nf6" , "g6" , "g3" , "c4" , "O-O" , "Nf3" ;
+        chon:nextHalfMove      :hmgam13SqBhJ , :hmgamO3Fb3iG .
+
+chon:HalfMove  chon:subEventOf  :gamO3Fb3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agO3Fb3i .
+
+:gamO3Fb3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolO3Fb3i ;
+        chon:atPlace           :plaO3Fb3i ;
+        chon:atTime            "1998.01.27"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamO3Fb3iG ;
+        chon:hasHalfMove       :hmgam13SqBhJ , :hmgamO3Fb3iG ;
+        chon:hasLastHalfMove   :hmgam13SqBhJ ;
+        chon:hasOpening        :opeO3Fb3i ;
+        chon:hasReport         :cgrO3Fb3i ;
+        chon:hasResult         :resO3Fb3iG ;
+        chon:subEventOf        :touO3Fb3 .
+
+:resO3Fb3iG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

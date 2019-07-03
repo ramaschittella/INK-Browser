@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgoVSVD81E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoVSVD8 .
+
+:plaoVSVD8  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:hmgamAVzbc74  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAVzbc74S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "Ne7" , "Rg1" , "Bg7" , "exd4" , "Qxe3" , "gxf5" , "g6" , "Rb8" , "a6" , "Bxa6" , "d6" , "exf5" , "f5" , "e6" , "h5" , "Qe6+" , "cxd4" , "Nf6" , "Bg5" , "Ng8" , "Bd7" , "Be2" , "Nxd4" , "g6+" , "Rgf1" , "Kxf7" , "Ne5" , "Qc7" , "O-O-O" , "d4" , "Re4" , "Rbxe8" , "g4" , "fxe7" , "f6" , "h6" , "h4" , "b4" , "Qxa6" , "f3" , "Be3" , "Kg8" , "Rxf7" , "Be6" , "Ng4" , "Nb1" , "Bf8" , "Rxd4" , "Qa5" , "e5" , "Nc3" , "g5" , "Qd2" , "Rxe6" , "Rxe8+" , "b5" , "e8=Q+" , "Nxe3" , "f4" ;
+        chon:nextHalfMove      :hmgamAVzbc74 .
+
+:resoVSVD81  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agoVSVD8  a          chon:Agent ;
+        chon:hasName  "Van der Wiel, John TH" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoVSVD8 .
+
+:opeoVSVD8  a            chon:ChessOpening ;
+        chon:hasECOCode  "B66" .
+
+chon:HalfMove  chon:subEventOf  :gamoVSVD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoVSVD8 .
+
+:gamoVSVD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloVSVD8 ;
+        chon:atPlace           :plaoVSVD8 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoVSVD81 ;
+        chon:hasHalfMove       :hmgamAVzbc74 , :hmgamoVSVD81 ;
+        chon:hasLastHalfMove   :hmgamAVzbc74 ;
+        chon:hasOpening        :opeoVSVD8 ;
+        chon:hasReport         :cgroVSVD8 ;
+        chon:hasResult         :resoVSVD81 ;
+        chon:subEventOf        :touoVSVD .
+
+:touoVSVD  a          chon:hessTournament ;
+        chon:atPlace  :plaoVSVD8 ;
+        chon:hasName  "IBM" .
+
+:cgroVSVD8  a   chon:ChessGameReport .
+
+:hmgamoVSVD81  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAVzbc74S , :rolhgoVSVD81E , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "c5" , "e4" , "Nc6" , "Nf3" ;
+        chon:nextHalfMove      :hmgamoVSVD81 , :hmgamAVzbc74 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:roloVSVD8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoVSVD8 .
+
+:rolhgAVzbc74S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoVSVD8 .

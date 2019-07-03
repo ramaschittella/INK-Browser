@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr48eApg  a   chon:ChessGameReport .
+
+:gam48eAp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol48eApg ;
+        chon:atPlace           :pla48eApg ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam48eApgk ;
+        chon:hasHalfMove       :hmgam48eApgk , :hmgamZ4WJ9eA ;
+        chon:hasLastHalfMove   :hmgamZ4WJ9eA ;
+        chon:hasOpening        :ope48eApg ;
+        chon:hasReport         :cgr48eApg ;
+        chon:hasResult         :res48eApgk ;
+        chon:subEventOf        :tou48eAp .
+
+:tou48eAp  a          chon:hessTournament ;
+        chon:atPlace  :pla48eApg ;
+        chon:hasName  "Tilburg" .
+
+:ag48eApg  a          chon:Agent ;
+        chon:hasName  "Kavalek, Lubomir" , "Karpov, Anatoly" .
+
+:rol48eApg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag48eApg .
+
+:ope48eApg  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+:hmgam48eApgk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZ4WJ9eA0 , chon:AgentRole , :rolhg48eApgkb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "d6" , "cxd4" , "exd4" , "c5" , "Bg5" , "c3" , "Be7" , "Qc2" , "Bb5" , "h5" , "Nh4" , "Nf1" , "Bg7" , "Bd3" , "Ng3" , "exd5" , "Nf8" , "Re1" , "c6" , "e4" , "Ba4" , "Nbd7" , "dxc5" , "O-O" , "h6" , "Nc6" , "Bc2" , "Nf6" , "Bb3" , "h3" , "Bb7" , "Ne7" , "b5" , "Bd2" , "Nf3" , "Kh7" , "Nxd5" , "a6" , "d5" , "Nbd2" , "Qd4" , "Re8" , "g6" , "e5" , "Nb8" , "d4" , "a4" , "h4" , "Bf8" ;
+        chon:nextHalfMove      :hmgam48eApgk , :hmgamZ4WJ9eA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag48eApg .
+
+:rolhgZ4WJ9eA0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag48eApg .
+
+chon:HalfMove  chon:subEventOf  :gam48eAp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag48eApg .
+
+:res48eApgk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamZ4WJ9eA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZ4WJ9eA0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Bg7" , "axb5" , "Rf8" , "Be5" , "Nc5" , "Kh3" , "b4" , "Rb3" , "Qxe3+" , "Rxe3" , "fxg6" , "Qg5" , "Kh7" , "Nxg6" , "Bxc6" , "Qxc6" , "Rb6" , "Ra3" , "Be3" , "Qxg6" , "hxg6+" , "Kh2" , "fxe3" , "Rxg6" , "Rg8" , "Bxg6+" , "Kf3" , "Ne4" , "g3" , "c6" , "Kh8" , "Kg4" , "Rxe7" ;
+        chon:nextHalfMove      :hmgamZ4WJ9eA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla48eApg  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:rolhg48eApgkb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag48eApg .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toulvaOD  a          chon:hessTournament ;
+        chon:atPlace  :plasPqllj ;
+        chon:hasName  "Najdorf Memorial" .
+
+:rolhglvaODa7M  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglvaODa .
+
+:hmgamlvaODa7  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhglvaODa7M ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mecking,H" ;
+        chon:hasSANRecord      "Bb6" , "Nf6" , "Bxb6" , "e6" , "dxc5" , "Bc4" , "Nbd7" , "Bd3" , "Nf3" , "Bb3" , "f5" , "Qg5" , "e3" , "Nxe4" , "Rc8" , "c5" , "Qe7" , "d4" , "Bb2" , "g6" , "Rxd4" , "Bxd4" , "b6" , "Rd6" , "c4" , "a4" , "b3" , "Bb5" , "dxe4" , "Rad1" , "Be7" , "h4" , "exd6" , "e2" , "Kh7" , "Qe6" , "Bc6" , "Nxc5" , "Qb1" , "Rxd6" , "O-O" , "Kf2" , "Nbd2" , "e5" , "Qg3" , "Qxd3" , "d5" , "Rc1" , "Kg8" , "hxg5" , "Bd4" , "Nd4" , "h6" , "Qd7" , "cxd5" , "Qc2" , "Re1" , "e4" , "f3" , "Qxg5" , "c6" , "a6" , "exd5" , "Nxd3" , "Be3" , "Rc6" , "Bb7" , "Qe5" , "Bc5" , "Qf4" , "Rc8+" , "Rf7" , "Qxh6" , "Nfe4" , "b4" ;
+        chon:nextHalfMove      :hmgamlvaODa7 .
+
+:cgrlvaODa  a   chon:ChessGameReport .
+
+:aglvaODa  a          chon:Agent ;
+        chon:hasName  "Mecking,H" , "Karpov,An" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglvaODa .
+
+:rollvaODa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglvaODa .
+
+chon:HalfMove  chon:subEventOf  :gamsPqll .
+
+:opelvaODa  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+:plasPqllj  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglvaODa .
+
+:reslvaODa7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamsPqll  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollvaODa ;
+        chon:atPlace           :plasPqllj ;
+        chon:atTime            "2001.09.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlvaODa7 ;
+        chon:hasHalfMove       :hmgamlvaODa7 ;
+        chon:hasLastHalfMove   :hmgamlvaODa7 ;
+        chon:hasOpening        :opelvaODa ;
+        chon:hasReport         :cgrlvaODa ;
+        chon:hasResult         :reslvaODa7 ;
+        chon:subEventOf        :toulvaOD .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

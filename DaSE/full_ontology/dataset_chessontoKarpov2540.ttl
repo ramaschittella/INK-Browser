@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agryu1qE  a          chon:Agent ;
+        chon:hasName  "Grischuk,A" , "Karpov,An" .
+
+:rolryu1qE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agryu1qE .
+
+:operyu1qE  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agryu1qE .
+
+:gamryu1q  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolryu1qE ;
+        chon:atPlace           :plaryu1qE ;
+        chon:atTime            "2001.02.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamryu1qEG ;
+        chon:hasHalfMove       :hmgamryu1qEG ;
+        chon:hasLastHalfMove   :hmgamryu1qEG ;
+        chon:hasOpening        :operyu1qE ;
+        chon:hasReport         :cgrryu1qE ;
+        chon:hasResult         :resryu1qEG ;
+        chon:subEventOf        :touryu1q .
+
+:touryu1q  a          chon:hessTournament ;
+        chon:atPlace  :plaryu1qE ;
+        chon:hasName  "SuperGM" .
+
+chon:HalfMove  chon:subEventOf  :gamryu1q .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agryu1qE .
+
+:hmgamryu1qEG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgryu1qEGO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Grischuk,A" ;
+        chon:hasSANRecord      "Bxf6" , "b5" , "e5" , "Qc2" , "Qb6" , "Nf3" , "a6" , "c5" , "O-O" , "Nbd7" , "h6" , "d4" , "Bg5" , "dxc5" , "Nbd2" , "Ne4" , "a4" , "e6" , "Bxe4" , "e4" , "g3" , "d5" , "dxc4" , "axb5" , "Qd8" , "Nxc5" , "Be7" , "Bb7" , "Qxc4" , "Rxa1" , "Qxf6" , "Nf6" , "c6" , "Bd3" , "c4" ;
+        chon:nextHalfMove      :hmgamryu1qEG .
+
+:rolhgryu1qEGO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agryu1qE .
+
+:plaryu1qE  a         chon:Place ;
+        chon:hasName  "Linares ESP" .
+
+:resryu1qEG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrryu1qE  a   chon:ChessGameReport .

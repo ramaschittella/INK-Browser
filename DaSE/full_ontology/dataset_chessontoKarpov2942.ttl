@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamDtPSy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzpw2iw ;
+        chon:atPlace           :plaDtPSyw ;
+        chon:atTime            "2007.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzpw2iwR ;
+        chon:hasHalfMove       :hmgamzpw2iwR ;
+        chon:hasLastHalfMove   :hmgamzpw2iwR ;
+        chon:hasOpening        :opezpw2iw ;
+        chon:hasReport         :cgrzpw2iw ;
+        chon:hasResult         :reszpw2iwR ;
+        chon:subEventOf        :touzpw2i .
+
+:cgrzpw2iw  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzpw2iw .
+
+:agzpw2iw  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Levitov,Ilya" .
+
+:rolzpw2iw  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzpw2iw .
+
+chon:HalfMove  chon:subEventOf  :gamDtPSy .
+
+:opezpw2iw  a            chon:ChessOpening ;
+        chon:hasECOCode  "B43" .
+
+:rolhgzpw2iwRZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzpw2iw .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzpw2iw .
+
+:touzpw2i  a          chon:hessTournament ;
+        chon:atPlace  :plaDtPSyw ;
+        chon:hasName  "ch-Euro Blitz" .
+
+:hmgamzpw2iwR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzpw2iwRZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Be3" , "cxd4" , "f6" , "Rab1" , "Qxd1" , "Kh1" , "Nxd4" , "f3" , "d5" , "Bh2" , "Nh5" , "Bxc3" , "Rb3" , "Ng3" , "Nc6" , "Qc7" , "h3" , "gxh5" , "Nxe4" , "Qd2" , "Bd6" , "f4" , "Rg3" , "Nxf3+" , "Rf7" , "Rxf6" , "Bf3" , "e5" , "Nxc3" , "c5" , "exf6" , "Nc3" , "Nf6" , "bxc3" , "Qxc2" , "g6" , "Qc4" , "Kf8" , "Ba5" , "Nf3" , "Qd3" , "Be2" , "Be6" , "Rxf3" , "Bf4" , "Ne2" , "e6" , "Bg3" , "d4" , "Rd2" , "fxe5" , "Qd1" , "Ne5" , "a3" , "Rxd1" , "b5" , "Rac8" , "Bb4" , "e4" , "O-O" , "a6" ;
+        chon:nextHalfMove      :hmgamzpw2iwR .
+
+:plaDtPSyw  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .
+
+:reszpw2iwR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

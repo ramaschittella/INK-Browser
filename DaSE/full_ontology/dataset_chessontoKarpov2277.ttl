@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam8YfNSe3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8YfNSe3Y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "Be7" , "d4" , "b3" , "Bc3" , "c4" , "c6" , "Bg2" , "Bd2" , "Ba6" , "Ne5" , "Re1" , "b2" , "cxb3" , "dxc5" , "Rc8" , "O-O" , "g3" , "Nf6" , "e4" , "d5" , "Nf3" , "exd5" , "Nxd7" , "c5" , "dxc4" , "Nd2" , "Nfd7" , "Bb4+" , "e6" ;
+        chon:nextHalfMove      :hmgamy1s7ehR , :hmgam8YfNSe3 .
+
+:rolhgy1s7ehRm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8YfNSe .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8YfNSe .
+
+:pla8YfNSe  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:rolhg8YfNSe3Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8YfNSe .
+
+chon:HalfMove  chon:subEventOf  :gam8YfNS .
+
+:res8YfNSe3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgr8YfNSe  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8YfNSe .
+
+:ag8YfNSe  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Van der Sterren, Paul" .
+
+:rol8YfNSe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8YfNSe .
+
+:ope8YfNSe  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:hmgamy1s7ehR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgy1s7ehRm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qg4" , "Bb5" , "Qxc5" , "Qxf6" , "Qxa7" , "Bxf6" , "Qxc6" , "Bf6" , "Rxb7" , "Bb7" , "Bxb2" , "Nc5" , "Ne4" , "Nxc5" , "Bc6" , "Qxb7" , "Qa4" , "Rc7" ;
+        chon:nextHalfMove      :hmgamy1s7ehR .
+
+:gam8YfNS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8YfNSe ;
+        chon:atPlace           :pla8YfNSe ;
+        chon:atTime            "1998.01.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8YfNSe3 ;
+        chon:hasHalfMove       :hmgam8YfNSe3 , :hmgamy1s7ehR ;
+        chon:hasLastHalfMove   :hmgamy1s7ehR ;
+        chon:hasOpening        :ope8YfNSe ;
+        chon:hasReport         :cgr8YfNSe ;
+        chon:hasResult         :res8YfNSe3 ;
+        chon:subEventOf        :tou8YfNS .
+
+:tou8YfNS  a          chon:hessTournament ;
+        chon:atPlace  :pla8YfNSe ;
+        chon:hasName  "Hoogovens" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

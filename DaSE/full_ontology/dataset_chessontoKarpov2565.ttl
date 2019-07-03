@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamHqYko  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTqVyXS ;
+        chon:atPlace           :plaHqYkoB ;
+        chon:atTime            "2001.03.27"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTqVyXSz ;
+        chon:hasHalfMove       :hmgamks6TiSr , :hmgamTqVyXSz ;
+        chon:hasLastHalfMove   :hmgamks6TiSr ;
+        chon:hasOpening        :opeTqVyXS ;
+        chon:hasReport         :cgrTqVyXS ;
+        chon:hasResult         :resTqVyXSz ;
+        chon:subEventOf        :touTqVyX .
+
+:rolTqVyXS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTqVyXS .
+
+:plaHqYkoB  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTqVyXS .
+
+:touTqVyX  a          chon:hessTournament ;
+        chon:atPlace  :plaHqYkoB ;
+        chon:hasName  "Amber Rapidplay" .
+
+chon:HalfMove  chon:subEventOf  :gamHqYko .
+
+:resTqVyXSz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTqVyXS .
+
+:agTqVyXS  a          chon:Agent ;
+        chon:hasName  "Almasi,Z" , "Karpov,An" .
+
+:opeTqVyXS  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:hmgamTqVyXSz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTqVyXSzo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Almasi,Z" ;
+        chon:hasSANRecord      "c5" , "Be2" , "f5" , "h3" , "Nd4" , "Qe4" , "c4" , "Ng4" , "Qxf3" , "e4" , "Bb4" , "d4" , "Nh6" , "Nc6" , "Bf4" , "O-O" , "Nc3" , "e6" , "Qd3" , "Nf3" , "d6" , "Nf6" , "Nxf3+" , "dxe5" , "Qc2" , "e5" ;
+        chon:nextHalfMove      :hmgamTqVyXSz , :hmgamks6TiSr .
+
+:hmgamks6TiSr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgks6TiSrP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Almasi,Z" ;
+        chon:hasSANRecord      "Nd8" , "Be3" , "Bxg4" , "Nc6" , "Bh5" , "Bxc3" , "Qa5" , "Kc1" , "Re7" , "h4" , "Qxc3" , "Qc8" , "Rad8" , "Bxd1" , "Qg4" , "Bd7" , "Bxc6" , "Bc8" , "bxc6" , "Bxc5" , "fxg4" , "Ba4" , "hxg7" , "a3" , "Be8" , "h6" , "Qg3" , "Rd7" , "Rxd1+" , "g4" , "Qc7" , "Rhg1" , "Rf5" , "O-O-O" , "Kb1" , "Nf7" , "Qh4" , "Bh6" , "h5" , "Rf7" , "Qe7" , "Qd8" ;
+        chon:nextHalfMove      :hmgamks6TiSr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgks6TiSrP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTqVyXS .
+
+:rolhgTqVyXSzo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTqVyXS .
+
+:cgrTqVyXS  a   chon:ChessGameReport .

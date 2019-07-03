@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resW7M0WhP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamR5tiGe7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgR5tiGe7z , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kramnik,V" ;
+        chon:hasSANRecord      "Nxc6" , "Be7" , "Bb7" , "Bf6" , "cxd4" , "e3" , "Ne4" , "Qe2" , "e6" , "Nd7" , "Bd3" , "Bxb7" , "Bxc6" , "Nbd2" , "Rfd8" , "Nxd4" , "b3" , "Qxb7" , "b6" , "Rfd1" , "Bb2" , "Bxb2" , "Nf3" , "Nc3" , "d5" , "Nf6" , "Nc6" , "Qe7" , "Bxd5" , "Be4" , "c5" , "cxd5" , "d4" , "c4" , "Rd4" , "O-O" , "Qxb2" ;
+        chon:nextHalfMove      :hmgamR5tiGe7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agW7M0Wh .
+
+chon:HalfMove  chon:subEventOf  :gamW7M0W .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agW7M0Wh .
+
+:rolR5tiGe  a             chon:AuthorRole ;
+        chon:performedBy  :agR5tiGe .
+
+:plaW7M0Wh  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:gamW7M0W  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolW7M0Wh ;
+        chon:atPlace           :plaW7M0Wh ;
+        chon:atTime            "2000.03.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamR5tiGe7 ;
+        chon:hasHalfMove       :hmgamR5tiGe7 ;
+        chon:hasLastHalfMove   :hmgamR5tiGe7 ;
+        chon:hasOpening        :opeW7M0Wh ;
+        chon:hasReport         :cgrW7M0Wh ;
+        chon:hasResult         :resW7M0WhP ;
+        chon:subEventOf        :touW7M0W .
+
+:rolhgR5tiGe7z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agW7M0Wh .
+
+:touW7M0W  a          chon:hessTournament ;
+        chon:atPlace  :plaW7M0Wh ;
+        chon:hasName  "Amber Rapidplay" .
+
+:cgrW7M0Wh  a   chon:ChessGameReport .
+
+:agW7M0Wh  a          chon:Agent ;
+        chon:hasName  "Kramnik,V" , "Karpov,An" .
+
+:rolW7M0Wh  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeW7M0Wh  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .

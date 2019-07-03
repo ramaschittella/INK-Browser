@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agAGSJRO  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Schwarz, Adolf" .
+
+:rolAGSJRO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAGSJRO .
+
+:opeAGSJRO  a            chon:ChessOpening ;
+        chon:hasECOCode  "C50" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAGSJRO .
+
+:hmgamLGPXoNb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLGPXoNb6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "gxf3" , "Nf6" , "Kb1" , "Nc6" , "Nf3" , "h6" , "c3" , "Rh8" , "Bxe2" , "g4" , "Kc2" , "Qe7" , "Qf6" , "fxg4" , "Rg1" , "Bxf3" , "Rxf2" , "Bg4" , "Bc5" , "Qb3" , "Nc3" , "Rxh8" , "Qd5" , "d4" , "Rd1" , "d6" , "Rh2" , "hxg5" , "Ne6" , "Rd3" , "c4" , "Nh5" , "Nd4" , "dxc5" , "Nxe2+" , "Rg8" , "e5" , "a6" , "b5" , "Bg3" , "Bc4" , "Qd2" , "d3" , "g5" , "h4" , "c6" , "O-O-O" , "Bf1" , "Qe3" , "Nd8" , "Ne2" , "Nxg3" , "e4" , "Bg5" , "b4" , "Bh4" ;
+        chon:nextHalfMove      :hmgamLGPXoNb .
+
+:gamAGSJR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAGSJRO ;
+        chon:atPlace           :plaAGSJRO ;
+        chon:atTime            "1873.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLGPXoNb ;
+        chon:hasHalfMove       :hmgamLGPXoNb ;
+        chon:hasLastHalfMove   :hmgamLGPXoNb ;
+        chon:hasOpening        :opeAGSJRO ;
+        chon:hasReport         :cgrAGSJRO ;
+        chon:hasResult         :resAGSJRO9 ;
+        chon:subEventOf        :touAGSJR .
+
+chon:HalfMove  chon:subEventOf  :gamAGSJR .
+
+:touAGSJR  a          chon:hessTournament ;
+        chon:atPlace  :plaAGSJRO ;
+        chon:hasName  "Vienna" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAGSJRO .
+
+:resAGSJRO9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaAGSJRO  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:rolhgLGPXoNb6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAGSJRO .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrAGSJRO  a   chon:ChessGameReport .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opePXSzLD  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:hmgamPXSzLD9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPXSzLD9B , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "b3" , "Rfd8" , "Bb7" , "Bc3" , "Rxd1" , "c4" , "Bd2" , "Bg2" , "c6" , "Be5" , "a5" , "Nf3" , "e6" , "Bxd6" , "Rac8" , "Qxe4" , "Nc3" , "e4" , "Ba6" , "g3" , "Bxc5" , "Qc2" , "Be7" , "Ne8" , "c5" , "Rad1" , "Bb4+" , "d4" , "Bf3" , "Nxe4" , "Qe7" , "Qxd1" , "Rxd8" , "Bxc6" , "O-O" , "Rd1" , "f6" , "Qe2" , "Qd6" , "Nd7" , "Nf6" , "Nxd6" , "d5" , "dxc5" , "Kg2" , "Qxd6" , "Nc6" , "Ne5" , "dxe4" ;
+        chon:nextHalfMove      :hmgamPXSzLD9 .
+
+:gamPXSzL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPXSzLD ;
+        chon:atPlace           :plaPXSzLD ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPXSzLD9 ;
+        chon:hasHalfMove       :hmgamPXSzLD9 ;
+        chon:hasLastHalfMove   :hmgamPXSzLD9 ;
+        chon:hasOpening        :opePXSzLD ;
+        chon:hasReport         :cgrPXSzLD ;
+        chon:hasResult         :resPXSzLD9 ;
+        chon:subEventOf        :touPXSzL .
+
+:touPXSzL  a          chon:hessTournament ;
+        chon:atPlace  :plaPXSzLD ;
+        chon:hasName  "Amber-blind 4th" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPXSzLD .
+
+:resPXSzLD9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamPXSzL .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPXSzLD .
+
+:rolhgPXSzLD9B  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPXSzLD .
+
+:plaPXSzLD  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:cgrPXSzLD  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agPXSzLD  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Nikolic, Predrag" .
+
+:rolPXSzLD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPXSzLD .

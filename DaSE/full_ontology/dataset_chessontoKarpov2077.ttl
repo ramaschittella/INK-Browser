@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgIMT6etMB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agD8cmpF .
+
+:rolhgwMXPGuHq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agD8cmpF .
+
+:hmgamwMXPGuH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwMXPGuHq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Xie Jun" ;
+        chon:hasSANRecord      "e6" , "Qa8+" , "Rd5" , "h5" , "Rd4" , "Ra1" , "Bg7" , "Rd2" , "Re7" , "Bh3" , "Bf3" , "Rcc1" , "Qc7+" , "Nxe5" , "Be6" , "Kh3" , "Bb2" , "a4" , "Nf6" , "a3" , "Qf8+" , "Qxd3" , "Nb6" , "Qb4" , "Qe3" , "Ra2" , "Qb3" , "Ra6" , "Kh6" , "Be4" , "Qc6" , "Qd7" , "Rb4" , "bxa4" , "Rb8" , "Bc8" , "Rc1" , "Red1" , "Rd6" , "Bg2" , "dxe5" , "Qg8+" , "Qd4" , "Qe5" , "g6" , "e5" , "h4" , "Qf8" , "Qf7" , "Rd8" , "Ra5" , "Qf4+" , "Re2" , "Re1" , "d5" , "Nxd5" , "Kh7" , "Qc3+" , "Rc5" , "O-O" , "Qa5" , "Kg2" , "Kg7" , "b3" , "Bg4" , "Bd5" , "Qb8" , "Bxb7" , "Nc6" , "c6" , "f4" , "c5" , "Qd6" , "a5" , "Qg7" , "Qe7" , "Rc8" , "g3" , "Re8" , "Qc1" , "Red8" , "Qd5" , "Rc7" , "Rd3" , "Qxa5" , "Qxa4" , "Rd1" , "c4" , "Rxa3" , "Rf8" , "cxd5" , "Kh2" , "Rb2+" , "Bxe6" , "Qc7" , "Rxd3" , "Bxe5" , "Nc3" , "Rb5" , "e4" , "Qa6" , "d4" , "Bxf7+" , "Qb2" , "e3" , "Rxe5" , "Qf6" , "Nf3" , "Qc5" , "Qf4" , "Qc2" , "Bf5" , "Rbxc5" , "Nxa4" ;
+        chon:nextHalfMove      :hmgamwMXPGuH , :hmgamIMT6etM .
+
+:resD8cmpFI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamD8cmp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolD8cmpF ;
+        chon:atPlace           :plaD8cmpF ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwMXPGuH ;
+        chon:hasHalfMove       :hmgamIMT6etM , :hmgamwMXPGuH ;
+        chon:hasLastHalfMove   :hmgamIMT6etM ;
+        chon:hasOpening        :opeD8cmpF ;
+        chon:hasReport         :cgrD8cmpF ;
+        chon:hasResult         :resD8cmpFI ;
+        chon:subEventOf        :touD8cmp .
+
+:touD8cmp  a          chon:hessTournament ;
+        chon:atPlace  :plaD8cmpF ;
+        chon:hasName  "Amber-rapid 5th" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agD8cmpF .
+
+chon:HalfMove  chon:subEventOf  :gamD8cmp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agD8cmpF .
+
+:plaD8cmpF  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:hmgamIMT6etM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIMT6etMB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Xie Jun" ;
+        chon:hasSANRecord      "Bg2" , "Qd7+" , "Be4" , "Kg7" , "Qb7+" , "Qc6" , "Qd5" , "Qb2" , "Qf6" , "Kh6" ;
+        chon:nextHalfMove      :hmgamIMT6etM .
+
+:cgrD8cmpF  a   chon:ChessGameReport .
+
+:agD8cmpF  a          chon:Agent ;
+        chon:hasName  "Xie Jun" , "Karpov, Anatoly" .
+
+:rolD8cmpF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agD8cmpF .
+
+:opeD8cmpF  a            chon:ChessOpening ;
+        chon:hasECOCode  "D76" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

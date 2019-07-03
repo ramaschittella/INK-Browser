@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agjzg63m  a          chon:Agent ;
+        chon:hasName  "Johannsson, Ingi Randver" , "Fischer, Robert James" .
+
+:roljzg63m  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjzg63m .
+
+:rolhgjzg63mHB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjzg63m .
+
+:toujzg63  a          chon:hessTournament ;
+        chon:atPlace  :pla8zjPtn ;
+        chon:hasName  "Reykjavik" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjzg63m .
+
+:gam8zjPt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljzg63m ;
+        chon:atPlace           :pla8zjPtn ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjzg63mH ;
+        chon:hasHalfMove       :hmgamjzg63mH , :hmgamKBqnnny ;
+        chon:hasLastHalfMove   :hmgamKBqnnny ;
+        chon:hasOpening        :opejzg63m ;
+        chon:hasReport         :cgrjzg63m ;
+        chon:hasResult         :resjzg63mH ;
+        chon:subEventOf        :toujzg63 .
+
+chon:HalfMove  chon:subEventOf  :gam8zjPt .
+
+:resjzg63mH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjzg63m .
+
+:opejzg63m  a            chon:ChessOpening ;
+        chon:hasECOCode  "C79" .
+
+:rolhgKBqnnny1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjzg63m .
+
+:hmgamKBqnnny  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKBqnnny1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Johannsson, Ingi Randver" ;
+        chon:hasSANRecord      "Kb4" , "Kf8" , "Reb1" , "Kf2" , "Rh1" , "Ka3" , "Nd3+" , "Rd7" , "Kc3" , "Bxg7" , "Bxc8" , "Rxb4" , "Kd2" , "Kg7" , "Rb6" , "Rxc8" , "Kxg7" , "Rd1" , "Rc8" , "Nc5" , "f3" , "Rd8" , "Ke8" , "Ke2" , "Nd7" ;
+        chon:nextHalfMove      :hmgamKBqnnny .
+
+:hmgamjzg63mH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjzg63mHB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Johannsson, Ingi Randver" ;
+        chon:hasSANRecord      "a6" , "Bxe3" , "Qh5" , "Bd7" , "d4" , "O-O" , "g3" , "f5" , "Bh6" , "Ne8" , "d6" , "Ne3" , "g5" , "e5" , "Bd1" , "c3" , "Nb8" , "Nf3" , "Bxf3" , "Nf8" , "g4" , "e4" , "cxb4" , "Re1" , "f4" , "d5" , "Bb5" , "Rfb8" , "Qxh4" , "Ng7" , "Bg5" , "c5" , "a5" , "Qxf3" , "Bg4" , "Be7" , "c4" , "Ba4" , "a4" , "Nbd2" , "Nf1" , "Nbd7" , "h4" , "Bc2" , "Nf6" , "Nc6" , "g6" , "b4" ;
+        chon:nextHalfMove      :hmgamKBqnnny , :hmgamjzg63mH .
+
+:pla8zjPtn  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrjzg63m  a   chon:ChessGameReport .

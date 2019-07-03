@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toulVr3I  a          chon:hessTournament ;
+        chon:atPlace  :plaaXuP0S ;
+        chon:hasName  "Malta ol (Men)" .
+
+:cgrlVr3ID  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglVr3ID .
+
+chon:HalfMove  chon:subEventOf  :gamaXuP0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglVr3ID .
+
+:hmgamlVr3IDW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglVr3IDWS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jakobsen, Ole" ;
+        chon:hasSANRecord      "c6" , "Nxc4" , "Rxf3" , "exf4" , "Qd5" , "Nxf4" , "Nd2" , "Rad8" , "Nxb5" , "Re8+" , "bxa6" , "Bg5" , "Kf2" , "Qf5" , "Rg2" , "Rb1" , "Kh5" , "Kd5" , "b4" , "Nc7" , "Ke3" , "axb5" , "c4" , "Nb5" , "Rd4" , "f3" , "Re1+" , "Rxb4+" , "Rg4+" , "Ne8" , "Kg6" , "c5" , "a5" , "Nbd7" , "Kc6" , "Ne5" , "Rxf4" , "Qxd3" , "Rcd1" , "Nxd4" , "Re4" , "Nf4" , "Nf6" , "Nd6" , "exf3" , "Kd4" , "Kf4" , "Qh7" , "Qe8" , "b3" , "d5" , "Qc6" , "Qxe7" , "Qe2" , "Qc2" , "Rb3" , "Kb7" , "Bc4" , "Ke5" , "Bc6" , "a4" , "a6" , "e6" , "Ne4" , "Nc4" , "Nxd3" , "f5" , "h6" , "e3" , "c7" , "Qd3" , "Rd6+" , "Rxc6" , "Be7" , "Rxa6" , "Ne7" , "Rc1" , "Bxc4" , "O-O" , "Nf3" , "Nf5" , "Nd5" , "Rg5+" , "Rb2" , "Re3" , "Bd5" , "Bxe7" , "Bd7" , "Qb3" , "d4" , "Rd1" , "Rf1" , "Kh7" , "Rd7" , "f4" , "Rxg2" , "Rxe6" , "dxe4" , "Nc3" , "Nxe4" ;
+        chon:nextHalfMove      :hmgamlVr3IDW .
+
+:rolhglVr3IDWS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglVr3ID .
+
+:aglVr3ID  a          chon:Agent ;
+        chon:hasName  "Jakobsen, Ole" , "Karpov, Anatoly" .
+
+:rollVr3ID  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglVr3ID .
+
+:opelVr3ID  a            chon:ChessOpening ;
+        chon:hasECOCode  "D63" .
+
+:plaaXuP0S  a         chon:Place ;
+        chon:hasName  "La Valetta" .
+
+:gamaXuP0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollVr3ID ;
+        chon:atPlace           :plaaXuP0S ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlVr3IDW ;
+        chon:hasHalfMove       :hmgamlVr3IDW ;
+        chon:hasLastHalfMove   :hmgamlVr3IDW ;
+        chon:hasOpening        :opelVr3ID ;
+        chon:hasReport         :cgrlVr3ID ;
+        chon:hasResult         :reslVr3IDW ;
+        chon:subEventOf        :toulVr3I .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reslVr3IDW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

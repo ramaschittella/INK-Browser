@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamDAZqE88  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDAZqE88V , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Brodsky,M" ;
+        chon:hasSANRecord      "b4" , "Nf3" , "Rxc8" , "Nxg2" , "d5" , "Nd7" , "Ne1" , "g3" , "cxd5" , "Bd2" , "d4" , "Bxg2" , "b6" , "a4" , "Bg5" , "Be7" , "Rac1" , "Bg2" , "Bxd5" , "Qxc8" , "cxb5" , "Nf6" , "f5" , "Qb2" , "Rfd1" , "Qd2" , "Bf6" , "b5" , "Bxc3" , "Rxd2" , "Qd7" , "Be4" , "e6" , "Nd5" , "Ne4" , "c4" , "Rc8" , "axb5" , "c6" , "Bb7" , "Qb3" , "Nc3" , "Bxd2" , "Nxc3" , "O-O" , "Qc2" ;
+        chon:nextHalfMove      :hmgamDAZqE88 .
+
+:touDAZqE  a          chon:hessTournament ;
+        chon:atPlace  :placyP8i8 ;
+        chon:hasName  "Keres Mem Rapid" .
+
+:rolhgDAZqE88V  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDAZqE8 .
+
+:cgrDAZqE8  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDAZqE8 .
+
+chon:HalfMove  chon:subEventOf  :gamcyP8i .
+
+:gamcyP8i  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDAZqE8 ;
+        chon:atPlace           :placyP8i8 ;
+        chon:atTime            "2005.01.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDAZqE88 ;
+        chon:hasHalfMove       :hmgamDAZqE88 ;
+        chon:hasLastHalfMove   :hmgamDAZqE88 ;
+        chon:hasOpening        :opeDAZqE8 ;
+        chon:hasReport         :cgrDAZqE8 ;
+        chon:hasResult         :resDAZqE88 ;
+        chon:subEventOf        :touDAZqE .
+
+:rolDAZqE8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDAZqE8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDAZqE8 .
+
+:resDAZqE88  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agDAZqE8  a          chon:Agent ;
+        chon:hasName  "Brodsky,M" , "Karpov,Ana" .
+
+:placyP8i8  a         chon:Place ;
+        chon:hasName  "Tallinn EST" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeDAZqE8  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .

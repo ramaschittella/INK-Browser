@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamrMTp1D8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrMTp1D8t , :rolhgSM4ImEWS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Morovic Fernandez, Ivan" ;
+        chon:hasSANRecord      "Nxg4" , "O-O" , "e3" , "e4" , "Kg7" , "Ng4" , "b5" , "dxc4" , "Rd1" , "Bd6" , "Be2" , "Qd6" , "c5" , "e5" , "exd5" , "c6" , "c4" , "Nd5" , "Nbd7" , "Bxg4" , "Nxd4" , "d4" , "Nxd5" , "Bg2" , "e6" , "Qc2" , "g6" , "Bd3" , "Nf3" , "Bf3" , "Nf5" , "Bb7" , "d5" , "Be3" , "Qc7" , "Rc8" , "g3" , "Rac8" , "Rcd8" , "Be5" , "a6" , "Re8" , "Bxc4" , "Bd4" , "Nf6" , "a3" , "Nh6+" , "Nc3" , "exd4" ;
+        chon:nextHalfMove      :hmgamSM4ImEW , :hmgamrMTp1D8 .
+
+:gamrMTp1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrMTp1D ;
+        chon:atPlace           :plarMTp1D ;
+        chon:atTime            "1998.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrMTp1D8 ;
+        chon:hasHalfMove       :hmgamrMTp1D8 , :hmgamSM4ImEW ;
+        chon:hasLastHalfMove   :hmgamSM4ImEW ;
+        chon:hasOpening        :operMTp1D ;
+        chon:hasReport         :cgrrMTp1D ;
+        chon:hasResult         :resrMTp1D8 ;
+        chon:subEventOf        :tourMTp1 .
+
+:tourMTp1  a          chon:hessTournament ;
+        chon:atPlace  :plarMTp1D ;
+        chon:hasName  "Santiago m g25/30" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrMTp1D .
+
+:rolhgSM4ImEWS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrMTp1D .
+
+chon:HalfMove  chon:subEventOf  :gamrMTp1 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrMTp1D .
+
+:resrMTp1D8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plarMTp1D  a         chon:Place ;
+        chon:hasName  "Santiago" .
+
+:hmgamSM4ImEW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSM4ImEWS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Morovic Fernandez, Ivan" ;
+        chon:hasSANRecord      "Qe1" , "Re1" , "Kg8" , "Qc3+" , "Qxe5" , "Qd6" , "Kg7" , "Bd7" , "Rd4" , "Rcd8" , "Rxe1+" , "Qe5" , "Qf4" , "Rxe1" , "Rd1" , "Bc8" , "Kf1" , "h5" , "Qb4" , "Rab1" , "Bxe5" , "Re8" , "Bf3" , "Kg2" , "Qd2" , "Qf6" , "Qc3" , "Bd4" , "h4" ;
+        chon:nextHalfMove      :hmgamSM4ImEW .
+
+:cgrrMTp1D  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agrMTp1D  a          chon:Agent ;
+        chon:hasName  "Morovic Fernandez, Ivan" , "Karpov, Anatoly" .
+
+:rolrMTp1D  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrMTp1D .
+
+:rolhgrMTp1D8t  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrMTp1D .
+
+:operMTp1D  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .

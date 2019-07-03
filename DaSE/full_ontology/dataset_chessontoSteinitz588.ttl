@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamoA8gr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloA8gr0 ;
+        chon:atPlace           :plaoA8gr0 ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzA4uY9e ;
+        chon:hasHalfMove       :hmgamzA4uY9e ;
+        chon:hasLastHalfMove   :hmgamzA4uY9e ;
+        chon:hasOpening        :opeoA8gr0 ;
+        chon:hasReport         :cgroA8gr0 ;
+        chon:hasResult         :resoA8gr0b ;
+        chon:subEventOf        :touoA8gr .
+
+:agoA8gr0  a          chon:Agent ;
+        chon:hasName  "Lasker, Emanuel" , "Steinitz, William" .
+
+:opeoA8gr0  a            chon:ChessOpening ;
+        chon:hasECOCode  "C29" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoA8gr0 .
+
+:resoA8gr0b  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gamoA8gr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoA8gr0 .
+
+:touoA8gr  a          chon:hessTournament ;
+        chon:atPlace  :plaoA8gr0 ;
+        chon:hasName  "London" .
+
+:cgroA8gr0  a   chon:ChessGameReport .
+
+:rolhgzA4uY9es  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoA8gr0 .
+
+:roloA8gr0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoA8gr0 .
+
+:plaoA8gr0  a         chon:Place ;
+        chon:hasName  "London" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamzA4uY9e  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzA4uY9es , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lasker, Emanuel" ;
+        chon:hasSANRecord      "exd5" , "Bg4" , "Rxg5" , "Nxg5" , "Rg5" , "Nxd5" , "c3" , "O-O" , "Rh1" , "Nc6" , "Bxh3+" , "Qf6+" , "Bd6" , "fxg5" , "Qb5" , "Bf5" , "Nf3" , "Ng6" , "Rg1" , "Ng5" , "O-O-O" , "fxe5" , "Kxg2" , "d5" , "g5" , "e5" , "Qc2+" , "Qxd5" , "Bd7" , "Qe6" , "Kf2" , "Nxg2" , "Bf3" , "c6" , "Nxh7" , "Nc3" , "d3" , "Qd3" , "Rh5" , "f4" , "Rhe8" , "Nxe5" , "Qa5" , "h3" , "Be2" , "Re7" , "Bf4" , "Bxf3" , "Bxg5" , "Nf6" , "Qg6" , "e4" , "d4" , "f6" , "Kg3" , "Nh4" ;
+        chon:nextHalfMove      :hmgamzA4uY9e .

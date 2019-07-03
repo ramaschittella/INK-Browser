@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res4gxEhQO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ag4gxEhQ  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Mecking, Henrique" .
+
+:rol4gxEhQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4gxEhQ .
+
+:ope4gxEhQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "D80" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4gxEhQ .
+
+chon:HalfMove  chon:subEventOf  :gam4gxEh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4gxEhQ .
+
+:cgr4gxEhQ  a   chon:ChessGameReport .
+
+:rolhg4gxEhQOK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4gxEhQ .
+
+:hmgam4gxEhQO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4gxEhQOK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Na5" , "Nb5" , "Na3" , "O-O" , "Nc3" , "Be6" , "g6" , "dxe5" , "e3" , "f3" , "Ra1" , "dxc4" , "Rb1" , "Rd8" , "Bxb3" , "Rxc7" , "Bd5" , "Nxc3" , "Bh4" , "Nc6" , "c4" , "Ne4" , "bxc3" , "Nd2" , "Qxa2" , "Qa3" , "Qb3" , "c5" , "Rac8" , "Bg7" , "Nxc4" , "Bg5" , "Qd7" , "Qc1" , "Nc7" , "d5" , "Bb3" , "Nf3" , "Be2" , "Qa4" , "b6" , "e5" , "Ra3" , "Bxe5" , "Rxb3" , "Qc2" , "Qd2" , "Bc4" , "Rcd7" , "d4" , "Nf6" , "Bg3" ;
+        chon:nextHalfMove      :hmgam4gxEhQO .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam4gxEh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4gxEhQ ;
+        chon:atPlace           :pla4gxEhQ ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4gxEhQO ;
+        chon:hasHalfMove       :hmgam4gxEhQO ;
+        chon:hasLastHalfMove   :hmgam4gxEhQO ;
+        chon:hasOpening        :ope4gxEhQ ;
+        chon:hasReport         :cgr4gxEhQ ;
+        chon:hasResult         :res4gxEhQO ;
+        chon:subEventOf        :tou4gxEh .
+
+:tou4gxEh  a          chon:hessTournament ;
+        chon:atPlace  :pla4gxEhQ ;
+        chon:hasName  "Buenos Aires" .
+
+:pla4gxEhQ  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .

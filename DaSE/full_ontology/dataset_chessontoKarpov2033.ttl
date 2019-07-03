@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag7puz7m  a          chon:Agent ;
+        chon:hasName  "Kamsky, Gata" , "Karpov, Anatoly" .
+
+:rol7puz7m  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7puz7m .
+
+:res7puz7me  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7puz7m .
+
+:rolhg7puz7men  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7puz7m .
+
+:hmgam7puz7me  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7puz7men , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kamsky, Gata" ;
+        chon:hasSANRecord      "Bf6" , "Be4" , "Nb6" , "Nfd7" , "Rg1" , "dxc4" , "c4" , "Qe4" , "Bg7" , "Kh8" , "Qxc4" , "e4" , "e6" , "c5" , "Qh6" , "Bf5" , "a6" , "Nf6" , "d5" , "Nc3" , "fxe6" , "Qb3" , "Rc8" , "Be3" , "Nc6" , "g6" , "Bd3" , "Rxf3" , "Nxd4" , "Nf3" , "Qh4" , "gxf3" , "e5" , "d4" , "b5" , "O-O" , "Qxe6+" , "Bxd4" , "Rd1" , "cxd4" ;
+        chon:nextHalfMove      :hmgam7puz7me .
+
+chon:HalfMove  chon:subEventOf  :gam7puz7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7puz7m .
+
+:gam7puz7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7puz7m ;
+        chon:atPlace           :pla7puz7m ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7puz7me ;
+        chon:hasHalfMove       :hmgam7puz7me ;
+        chon:hasLastHalfMove   :hmgam7puz7me ;
+        chon:hasOpening        :ope7puz7m ;
+        chon:hasReport         :cgr7puz7m ;
+        chon:hasResult         :res7puz7me ;
+        chon:subEventOf        :tou7puz7 .
+
+:ope7puz7m  a            chon:ChessOpening ;
+        chon:hasECOCode  "D97" .
+
+:tou7puz7  a          chon:hessTournament ;
+        chon:atPlace  :pla7puz7m ;
+        chon:hasName  "FIDE-Wch" .
+
+:pla7puz7m  a         chon:Place ;
+        chon:hasName  "Elista" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr7puz7m  a   chon:ChessGameReport .

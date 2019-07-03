@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgruTvKxe  a   chon:ChessGameReport .
+
+:aguTvKxe  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:roluTvKxe  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aguTvKxe .
+
+:resuTvKxer  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeuTvKxe  a            chon:ChessOpening ;
+        chon:hasECOCode  "D31" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aguTvKxe .
+
+chon:HalfMove  chon:subEventOf  :gamuTvKx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aguTvKxe .
+
+:hmgamGTsY5fu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGTsY5fu7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b4" , "f6" , "g4" , "Bd7" , "Nb6" , "Nxf4" , "Na8" , "Kd8" , "Rxh2" , "f3" , "cxd5" , "Qg3" , "Ng4" , "Rf8" , "Qxd6" , "Rc1" , "Qg1" , "Bxf4" , "Ne2" , "Nc3" , "Rh1" , "Bh7" , "Ng7" , "e6" , "d5" , "Nxf5" , "Nd7" , "b6" , "Nc5" , "Nf7" , "O-O-O" , "b3" , "Nb5" , "Kd3" , "c6" , "hxg6" , "Ng3" , "g5" , "d4" , "Rch1" , "h4" , "Nd6" , "c4" , "exd5" , "Rh8" , "Be7" , "Bd6" , "Bc8" , "Nd3" , "Be2" , "Rdg8" , "Ne6" , "Bd3" , "gxf5" , "e4" , "Qe7" , "Qd6" , "Nh6" , "Nxh8" , "Rg1" , "Rxh8" , "Nf2" , "Nh3" , "Rd8" , "Kd2" , "h5" , "Nc7" , "Bf5" , "fxe4" , "Na3+" , "Ne3" , "Rh2" , "Ba6" , "Rh6" , "Be6" , "Ke7" , "Nxd6" , "dxe4" , "Bf4" , "e3" ;
+        chon:nextHalfMove      :hmgamGTsY5fu .
+
+:rolhgGTsY5fu7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aguTvKxe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plauTvKxe  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:gamuTvKx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roluTvKxe ;
+        chon:atPlace           :plauTvKxe ;
+        chon:atTime            "1985.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGTsY5fu ;
+        chon:hasHalfMove       :hmgamGTsY5fu ;
+        chon:hasLastHalfMove   :hmgamGTsY5fu ;
+        chon:hasOpening        :opeuTvKxe ;
+        chon:hasReport         :cgruTvKxe ;
+        chon:hasResult         :resuTvKxer ;
+        chon:subEventOf        :touuTvKx .
+
+:touuTvKx  a          chon:hessTournament ;
+        chon:atPlace  :plauTvKxe ;
+        chon:hasName  "World Championship 32th-KK2" .

@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resev2RxyG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agev2Rxy  a          chon:Agent ;
+        chon:hasName  "Saidy, Anthony Fred" , "Fischer, Robert James" .
+
+:rolev2Rxy  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgqvY65xKr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agev2Rxy .
+
+:opeev2Rxy  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+:gamev2Rx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolev2Rxy ;
+        chon:atPlace           :plaev2Rxy ;
+        chon:atTime            "1957.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqvY65xK ;
+        chon:hasHalfMove       :hmgamqvY65xK , :hmgammsFeOx2 ;
+        chon:hasLastHalfMove   :hmgammsFeOx2 ;
+        chon:hasOpening        :opeev2Rxy ;
+        chon:hasReport         :cgrqvY65x ;
+        chon:hasResult         :resev2RxyG ;
+        chon:subEventOf        :touev2Rx .
+
+:hmgamqvY65xK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqvY65xKr , :rolhgmsFeOx2p , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Saidy, Anthony Fred" ;
+        chon:hasSANRecord      "f4" , "Nc6" , "cxd4" , "e4" , "Bd7" , "d4" , "Nc3" , "Bxd4" , "c5" , "Nxd4" , "Qe2" , "e6" , "Nf3" , "Bc4" , "Nf6" , "Bc6" , "Be7" , "d6" , "Bb3" , "Be3" , "O-O" ;
+        chon:nextHalfMove      :hmgammsFeOx2 , :hmgamqvY65xK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agev2Rxy .
+
+chon:HalfMove  chon:subEventOf  :gamev2Rx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agev2Rxy .
+
+:rolhgmsFeOx2p  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agev2Rxy .
+
+:touev2Rx  a          chon:hessTournament ;
+        chon:atPlace  :plaev2Rxy ;
+        chon:hasName  "East Orange" .
+
+:cgrqvY65x  a   chon:ChessGameReport .
+
+:plaev2Rxy  a         chon:Place ;
+        chon:hasName  "East Orange" .
+
+:rolqvY65x  a             chon:AuthorRole ;
+        chon:performedBy  :agqvY65x .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgammsFeOx2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmsFeOx2p , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Saidy, Anthony Fred" ;
+        chon:hasSANRecord      "Qb8" , "h5" , "Nxb5" , "Kh1" , "Bxc5" , "e5" , "Nc3" , "Be3" , "dxe5" , "Rb8" , "Rad1" , "Qb4" , "Nb5" , "Bxe4" , "Ba7" , "Qh4" , "b5" , "Nxa7" , "fxe5" , "Bc6" , "Qg3" , "Ra5" , "Rc5" , "Rd2" , "Bxc5+" , "Rd3" , "Qxe5" , "Bb6" ;
+        chon:nextHalfMove      :hmgammsFeOx2 .

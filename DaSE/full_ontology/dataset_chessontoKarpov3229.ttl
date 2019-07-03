@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agINHWGR  a          chon:Agent ;
+        chon:hasName  "Kraemer,Mart" , "Karpov,Ana" .
+
+:rolINHWGR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agINHWGR .
+
+:opeINHWGR  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:rolhgUNDafSdb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agINHWGR .
+
+:hmgamINHWGRa  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgINHWGRaX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kraemer,Mart" ;
+        chon:hasSANRecord      "d5" , "Nbd7" , "f3" , "Nb4" , "d4" , "Nxd5" , "cxd4" , "Bxc2" , "Rc3" , "f6" , "Bc3" , "h3" , "Qxd4" , "Be5" , "Nd4" , "Rc6" , "Nc2" , "h6" , "a6" , "Bb4" , "g4" , "Rfd8" , "Ne2" , "Kf7" , "Nxd4" , "hxg4" , "Bd4" , "b4" , "Rc2" , "f5" , "Rfd1" , "e3" , "Rc1" , "Bd7" , "Bxc4" , "Bf5" , "Bc5" , "h5" , "a5" , "Be7" , "Bb3" , "Bf4" , "Rc8" , "Rxc2" , "Nf3" , "dxc4" , "Be2" , "Nbd5" , "exd5" , "Kf2" , "c5" , "Nb6" , "Nf6" , "Re8" , "Kg6" , "O-O" , "c4" , "Bxd5" , "e6" , "Re1" , "Bc4" , "a4" , "Be6" , "Nc3" , "Rg1" , "Bxb4" , "Rd2" , "Rac8" , "g5" ;
+        chon:nextHalfMove      :hmgamUNDafSd , :hmgamINHWGRa .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agINHWGR .
+
+chon:HalfMove  chon:subEventOf  :gamINHWG .
+
+:hmgamUNDafSd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUNDafSdb ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kraemer,Mart" ;
+        chon:hasSANRecord      "Rc1" , "Bf5" , "g5" , "Kd6" , "Bd3" , "Ba7" , "Rh6" , "Rg2" , "Kf6" , "Bg3" , "g4" , "Kxg5" , "Bh8" , "Rxg4" , "exd4" , "Bxh1" , "Bg6" , "Rd2" , "Kf2" , "Rh2+" , "Kb6" , "Bf4" , "Rc6" , "Rg1" , "Kg3" , "hxg4" , "d5" , "Bh4" , "fxg4" , "Kf5" , "Kg6" , "Bg2" , "Rc2" , "Rxh1" , "Rh1" , "Ke6" , "Bf3" , "Rc8" , "Kd4" , "Be4" , "Bd8+" , "Bd4" , "Be5" , "Rh3+" , "Kc5" , "Rh7" , "Bc7+" , "Bh6" , "Kf7" , "Ke5" , "d4" , "Ke2" , "Rf7" , "Bb6" , "Kd3" , "Bg7" ;
+        chon:nextHalfMove      :hmgamUNDafSd .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agINHWGR .
+
+:rolhgINHWGRaX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agINHWGR .
+
+:resINHWGRa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamINHWG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolINHWGR ;
+        chon:atPlace           :plaINHWGR ;
+        chon:atTime            "2012.02.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamINHWGRa ;
+        chon:hasHalfMove       :hmgamUNDafSd , :hmgamINHWGRa ;
+        chon:hasLastHalfMove   :hmgamUNDafSd ;
+        chon:hasOpening        :opeINHWGR ;
+        chon:hasReport         :cgrINHWGR ;
+        chon:hasResult         :resINHWGRa ;
+        chon:subEventOf        :touINHWG .
+
+:touINHWG  a          chon:hessTournament ;
+        chon:atPlace  :plaINHWGR ;
+        chon:hasName  "Schachbundesliga 2011-12" .
+
+:plaINHWGR  a         chon:Place ;
+        chon:hasName  "Hockenheim GER" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrINHWGR  a   chon:ChessGameReport .

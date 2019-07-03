@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gammbjOy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOdu9TP ;
+        chon:atPlace           :plambjOyO ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOdu9TPf ;
+        chon:hasHalfMove       :hmgamOdu9TPf ;
+        chon:hasLastHalfMove   :hmgamOdu9TPf ;
+        chon:hasOpening        :opeOdu9TP ;
+        chon:hasReport         :cgrOdu9TP ;
+        chon:hasResult         :resOdu9TPf ;
+        chon:subEventOf        :touOdu9T .
+
+:touOdu9T  a          chon:hessTournament ;
+        chon:atPlace  :plambjOyO ;
+        chon:hasName  "Manhattan blitz" .
+
+:rolOdu9TP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOdu9TP .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOdu9TP .
+
+chon:HalfMove  chon:subEventOf  :gammbjOy .
+
+:hmgamOdu9TPf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOdu9TPfB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Soltis, Andrew E" ;
+        chon:hasSANRecord      "Nxf4" , "g4" , "a6" , "gxf6" , "e4" , "c5" , "Bc4" , "Ndb5" , "cxd4" , "Bxf6" , "Nd4" , "Nf3" , "Be4" , "Nxd4" , "Rb8" , "Bxe4+" , "f3" , "exf5" , "f6" , "Bd3" , "Bg5" , "Bg7" , "d4" , "d6" , "g6" , "Nc6" , "Ne6" , "e5" , "O-O" , "Bd7" , "Nc3" , "Qh5" , "Na3" , "Qa5+" , "f5" , "Rf7" , "Rad1" , "Be8" , "Ne2+" , "c3" , "d5" , "Nf4" , "Nf6" , "Kh1" , "Bc6" , "g5" , "Nd5" ;
+        chon:nextHalfMove      :hmgamOdu9TPf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOdu9TP .
+
+:agOdu9TP  a          chon:Agent ;
+        chon:hasName  "Soltis, Andrew E" , "Fischer, Robert James" .
+
+:opeOdu9TP  a            chon:ChessOpening ;
+        chon:hasECOCode  "B33" .
+
+:rolhgOdu9TPfB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOdu9TP .
+
+:resOdu9TPf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plambjOyO  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:cgrOdu9TP  a   chon:ChessGameReport .

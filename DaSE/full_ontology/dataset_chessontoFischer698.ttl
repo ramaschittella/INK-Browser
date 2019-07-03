@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgPrlQ2sRn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPrlQ2s .
+
+:hmgam2pf5ArU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2pf5ArUy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nh5" , "Bxf3" , "Rxa4" , "Nf6" , "Be3" , "Rb6" , "Rae1" , "Ra7" , "Kd4" , "Kg7" , "Nd7" , "Rf8" , "Bc6" , "Rxf4" , "Bxf1" , "Rxe4" , "Bb5" , "Be2" , "Rd8" , "Rb4" , "Qe8" , "Rxb7" , "Re7+" , "f4" , "Bd4+" , "Re7" , "Bxf4+" , "Kf6" , "Qxa4" , "Rd7" , "Bxf4" , "Bd3" , "Bg5" , "Kh2" , "Qxf3" , "Kh1" , "Qd1" , "Ke5" , "Rxa6" , "Rxf1" , "Be5" ;
+        chon:nextHalfMove      :hmgam2pf5ArU .
+
+:hmgamPrlQ2sR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2pf5ArUy , :rolhgPrlQ2sRn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "O-O" , "Nc3" , "Nf3" , "c5" , "d6" , "Be2" , "Bg4" , "d5" , "h3" , "a6" , "g6" , "e4" , "Nf6" , "Bf4" , "e6" , "c4" , "Re8" , "cxd5" , "d4" , "Nxe4" , "a4" , "Bg7" , "exd5" ;
+        chon:nextHalfMove      :hmgam2pf5ArU , :hmgamPrlQ2sR .
+
+:plaPrlQ2s  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .
+
+:gamPrlQ2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPrlQ2s ;
+        chon:atPlace           :plaPrlQ2s ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPrlQ2sR ;
+        chon:hasHalfMove       :hmgam2pf5ArU , :hmgamPrlQ2sR ;
+        chon:hasLastHalfMove   :hmgam2pf5ArU ;
+        chon:hasOpening        :opePrlQ2s ;
+        chon:hasReport         :cgrPrlQ2s ;
+        chon:hasResult         :resPrlQ2sR ;
+        chon:subEventOf        :touPrlQ2 .
+
+:touPrlQ2  a          chon:hessTournament ;
+        chon:atPlace  :plaPrlQ2s ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPrlQ2s .
+
+:cgrPrlQ2s  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamPrlQ2 .
+
+:agPrlQ2s  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Uhlmann, Wolfgang" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPrlQ2s .
+
+:rolPrlQ2s  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPrlQ2s .
+
+:resPrlQ2sR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhg2pf5ArUy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPrlQ2s .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opePrlQ2s  a            chon:ChessOpening ;
+        chon:hasECOCode  "A75" .

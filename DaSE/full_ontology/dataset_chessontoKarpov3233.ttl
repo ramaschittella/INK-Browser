@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamVVBvtVn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVVBvtVn3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nc3" , "Nf6" , "e6" , "d5" , "d4" , "Nf3" , "c4" ;
+        chon:nextHalfMove      :hmgamRTjEcVD , :hmgamVVBvtVn .
+
+:rolhgRTjEcVD3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVVBvtV .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVVBvtV .
+
+:resVVBvtVn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrVVBvtV  a   chon:ChessGameReport .
+
+:hmgamRTjEcVD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRTjEcVD3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bh4" , "g3" , "Red7" , "Kh7" , "c4" , "Bg5" , "h5" , "cxd5" , "Rxb4" , "Be2" , "Rd5" , "Qb3" , "Ne4" , "Rc6" , "Nxb4" , "Rd8" , "Na5" , "Nxb7" , "Qe6" , "bxc3" , "Rfc1" , "Kg7" , "Qxe7" , "exd5" , "Rf4" , "Re7" , "Rxe6" , "h6" , "Nxc3" , "Bb7" , "Nc6" , "Rc4" , "Nd3" , "Bxe7" , "a4" , "g6" , "Rc8+" , "Nc5" , "h4" , "dxc4" , "b6" , "Bxc4" , "cxd4" , "O-O" , "Rd2" , "e3" , "c5" , "Bxb7" , "Nd4" , "Be7" , "Bf3" , "Nb4" , "Rfe8" , "Kg2" , "Rc1" , "Qxe6" , "Nxd4" ;
+        chon:nextHalfMove      :hmgamRTjEcVD .
+
+chon:HalfMove  chon:subEventOf  :gamVVBvt .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVVBvtV .
+
+:rolVVBvtV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVVBvtV .
+
+:gamVVBvt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVVBvtV ;
+        chon:atPlace           :plaVVBvtV ;
+        chon:atTime            "2012.06.12"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVVBvtVn ;
+        chon:hasHalfMove       :hmgamVVBvtVn , :hmgamRTjEcVD ;
+        chon:hasLastHalfMove   :hmgamRTjEcVD ;
+        chon:hasOpening        :opeVVBvtV ;
+        chon:hasReport         :cgrVVBvtV ;
+        chon:hasResult         :resVVBvtVn ;
+        chon:subEventOf        :touVVBvt .
+
+:plaVVBvtV  a         chon:Place ;
+        chon:hasName  "Saint Louis USA" .
+
+:touVVBvt  a          chon:hessTournament ;
+        chon:atPlace  :plaVVBvtV ;
+        chon:hasName  "Rapid Exhibition Match" .
+
+:rolhgVVBvtVn3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVVBvtV .
+
+:agVVBvtV  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Seirawan,Y" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeVVBvtV  a            chon:ChessOpening ;
+        chon:hasECOCode  "D57" .

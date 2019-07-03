@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrah9jiv  a   chon:ChessGameReport .
+
+:agah9jiv  a          chon:Agent ;
+        chon:hasName  "Ivanovic, Bozidar" , "Karpov, Anatoly" .
+
+:rolah9jiv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agah9jiv .
+
+:resah9jivL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeah9jiv  a            chon:ChessOpening ;
+        chon:hasECOCode  "D94" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agah9jiv .
+
+:gamah9ji  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolah9jiv ;
+        chon:atPlace           :plaah9jiv ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamah9jivL ;
+        chon:hasHalfMove       :hmgamah9jivL ;
+        chon:hasLastHalfMove   :hmgamah9jivL ;
+        chon:hasOpening        :opeah9jiv ;
+        chon:hasReport         :cgrah9jiv ;
+        chon:hasResult         :resah9jivL ;
+        chon:subEventOf        :touah9ji .
+
+:touah9ji  a          chon:hessTournament ;
+        chon:atPlace  :plaah9jiv ;
+        chon:hasName  "Moscow blitz" .
+
+chon:HalfMove  chon:subEventOf  :gamah9ji .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agah9jiv .
+
+:rolhgah9jivLe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agah9jiv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamah9jivL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgah9jivLe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanovic, Bozidar" ;
+        chon:hasSANRecord      "Kh1" , "Bh6" , "Qg5" , "Rc2" , "Nc3" , "Bg4" , "e3" , "Bg7" , "e4" , "O-O" , "Nfd7" , "Bxh3" , "Qh3" , "Rac1" , "Be3+" , "d4" , "Bxd2" , "Ne5" , "f4" , "Nc6" , "e6" , "Nb4" , "Qd1" , "g3" , "Nxe5" , "Be2" , "fxe5" , "Nf6" , "cxd5" , "Qh4" , "c6" , "g6" , "c4" , "Bd2" , "Rcf2" , "Nf3" , "Qb3" , "Bc8" , "d5" ;
+        chon:nextHalfMove      :hmgamah9jivL .
+
+:plaah9jiv  a         chon:Place ;
+        chon:hasName  "Moscow" .

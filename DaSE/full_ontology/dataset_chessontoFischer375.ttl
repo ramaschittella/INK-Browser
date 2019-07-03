@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resJjis4IS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamJjis4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJjis4I ;
+        chon:atPlace           :plaJjis4I ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFhZSMG9 ;
+        chon:hasHalfMove       :hmgamFhZSMG9 ;
+        chon:hasLastHalfMove   :hmgamFhZSMG9 ;
+        chon:hasOpening        :opeJjis4I ;
+        chon:hasReport         :cgrJjis4I ;
+        chon:hasResult         :resJjis4IS ;
+        chon:subEventOf        :touJjis4 .
+
+:touJjis4  a          chon:hessTournament ;
+        chon:atPlace  :plaJjis4I ;
+        chon:hasName  "Stockholm Interzonal" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJjis4I .
+
+:cgrJjis4I  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamJjis4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJjis4I .
+
+:rolhgFhZSMG9b  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJjis4I .
+
+:plaJjis4I  a         chon:Place ;
+        chon:hasName  "Stockholm" .
+
+:hmgamFhZSMG9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFhZSMG9b ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "cxd4" , "e5" , "d4" , "Be7" , "Nxd4" , "O-O" , "Bxf7+" , "Qf2" , "Qxc2" , "Nc3" , "Rxf7" , "Qd8+" , "Bc4" , "Qxb2" , "Nf3" , "Qa3" , "Kg6" , "Nf8" , "Kxf7" , "Kh1" , "e6" , "Rg8" , "Qd2" , "Qxc3" , "Qxa2" , "Qb6" , "f4" , "Qh4" , "Rf8" , "Kh7" , "Qxg5" , "e4" , "Rxf8" , "Bd7" , "Qc1+" , "Nf6" , "dxe5" , "Rb1" , "Rf1+" , "a6" , "c5" , "fxe5" , "Rf3" , "Nfd7" , "Ng1" , "Bxg5" , "Bxe6" , "d6" , "Bg5" , "h6" , "Qe3+" ;
+        chon:nextHalfMove      :hmgamFhZSMG9 .
+
+:agJjis4I  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Bilek, Istvan" .
+
+:rolJjis4I  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJjis4I .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeJjis4I  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .

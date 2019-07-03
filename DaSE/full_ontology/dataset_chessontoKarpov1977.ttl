@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resEz41yoj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolEz41yo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEz41yo .
+
+:rolhgMvHnRnFY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEz41yo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEz41yo .
+
+:touEz41y  a          chon:hessTournament ;
+        chon:atPlace  :plaEz41yo ;
+        chon:hasName  "Candidats FIDE f1" .
+
+chon:HalfMove  chon:subEventOf  :gamEz41y .
+
+:agEz41yo  a          chon:Agent ;
+        chon:hasName  "Gelfand, Boris" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEz41yo .
+
+:opeEz41yo  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .
+
+:hmgamQx1e7oo  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQx1e7oo1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelfand, Boris" ;
+        chon:hasSANRecord      "e4" , "Rc1" , "fxg5" , "Bh3" , "Nf6" , "O-O" , "Rf3" , "fxe5" , "f6" , "Rb7" , "Ned5" , "Nc6" , "Bb5" , "Rb8" , "Nd2" , "Qd1" , "d4" , "Re1" , "Re2" , "Rf8" , "h4" , "Qd2" , "Ne5" , "d5" , "Bh5" , "Bg2" , "a5" , "Nf3" , "Rf4" , "Nc7" , "Be3" , "g3" , "Re8" , "c6" , "Nfd7" , "Rec2" , "Nd5" , "Bd6" , "g5" , "hxg5" , "Ng4" , "gxf4" , "g6" , "Bg7" , "c4" , "Nb6" , "Bxe5" , "Nxc3" , "Nce7" , "Bf8" , "Nf5" , "Nc3" , "dxe4" , "Qb3" , "Bd7" , "Rg7" , "Ng7" , "Nxe4" , "e6" , "Nc4" , "cxd5" , "f4" , "Bf2" , "Rxc3" , "Kh2" , "Ne3" , "a3" , "Ne4" , "Ne8" , "Be7" , "a4" , "Be8" , "b6" ;
+        chon:nextHalfMove      :hmgamQx1e7oo , :hmgamMvHnRnF .
+
+:rolhgQx1e7oo1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEz41yo .
+
+:plaEz41yo  a         chon:Place ;
+        chon:hasName  "Sanghi Nagar" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamEz41y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEz41yo ;
+        chon:atPlace           :plaEz41yo ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQx1e7oo ;
+        chon:hasHalfMove       :hmgamMvHnRnF , :hmgamQx1e7oo ;
+        chon:hasLastHalfMove   :hmgamMvHnRnF ;
+        chon:hasOpening        :opeEz41yo ;
+        chon:hasReport         :cgrEz41yo ;
+        chon:hasResult         :resEz41yoj ;
+        chon:subEventOf        :touEz41y .
+
+:cgrEz41yo  a   chon:ChessGameReport .
+
+:hmgamMvHnRnF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMvHnRnFY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelfand, Boris" ;
+        chon:hasSANRecord      "Kxg7" , "Bf6" , "e6" , "Bg4" , "Bh4" , "Rc7+" , "Kg1" , "Bxf5" , "Bxg7+" , "Qh5+" , "Ke3" , "Kh8" , "Qe8" , "exf5" , "Qh4+" , "Kf2" , "Qg5" ;
+        chon:nextHalfMove      :hmgamMvHnRnF .

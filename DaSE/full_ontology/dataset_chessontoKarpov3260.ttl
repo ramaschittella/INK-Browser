@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agT7mVKw  a          chon:Agent ;
+        chon:hasName  "Edouard,R" , "Karpov,Ana" .
+
+:opeT7mVKw  a            chon:ChessOpening ;
+        chon:hasECOCode  "A35" .
+
+:gamT7mVK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolT7mVKw ;
+        chon:atPlace           :plaT7mVKw ;
+        chon:atTime            "2012.10.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamT7mVKwt ;
+        chon:hasHalfMove       :hmgamT7mVKwt ;
+        chon:hasLastHalfMove   :hmgamT7mVKwt ;
+        chon:hasOpening        :opeT7mVKw ;
+        chon:hasReport         :cgrT7mVKw ;
+        chon:hasResult         :resT7mVKwt ;
+        chon:subEventOf        :touT7mVK .
+
+:hmgamT7mVKwt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgT7mVKwtQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Edouard,R" ;
+        chon:hasSANRecord      "Qa6" , "Rfd8" , "Bd7" , "c4" , "Bf5" , "Qc7" , "Bd6" , "cxd5" , "Bxc5" , "Nf6" , "Rc1" , "e6" , "Bxc6" , "Be6" , "d4" , "Bb2" , "Qb6" , "e3" , "Rfd1" , "Be7" , "Qf4" , "Bb5" , "Nf3" , "Qa5" , "dxc5" , "exd5" , "Bc8" , "Qa4" , "O-O" , "Qd4" , "Rab8" , "h3" , "Nc3" , "d5" , "bxc6" , "Ba3" , "b3" , "Nc6" , "c5" ;
+        chon:nextHalfMove      :hmgamT7mVKwt .
+
+:touT7mVK  a          chon:hessTournament ;
+        chon:atPlace  :plaT7mVKw ;
+        chon:hasName  "Trophee Karpov Preliminary 2012" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agT7mVKw .
+
+:plaT7mVKw  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:HalfMove  chon:subEventOf  :gamT7mVK .
+
+:rolhgT7mVKwtQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agT7mVKw .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agT7mVKw .
+
+:cgrT7mVKw  a   chon:ChessGameReport .
+
+:rolT7mVKw  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agT7mVKw .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resT7mVKwt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

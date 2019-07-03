@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaIGFcvc  a         chon:Place ;
+        chon:hasName  "London" .
+
+:hmgam0IPuRdx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0IPuRdxU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Ne3" , "Be2" , "Kg2" , "a4" , "Be1" , "Kf3" , "a3" , "e6" , "Qa7" , "Rb5" , "Kh1" , "Bxh3" , "h5" , "Qxf6" , "h3" , "Rfe1" , "Ng3" , "Rb8" , "a6" , "c4" , "Nf1" , "fxe4" , "g6" , "Be7" , "Bf3" , "d3" , "g5" , "exd3" , "Ne4" , "b5" , "Ne2" , "Rg1" , "Rb1" , "Rf1" , "bxc4" , "exd4" , "Rxb8" , "Nh6" , "Nf7" , "Bd1" , "Bg3" , "Rxd3" , "O-O" , "Bd3" , "Qxf6+" , "Bb2" , "Qf2" , "Rd1" , "Qc6" , "Bxe4" , "Ng5" , "f6" , "Bc7" , "Be6" , "Nf3" , "c5" , "exf5" , "e3" , "Kf7" , "gxf6" , "cxd3" , "b3" , "Bd6" , "Bxf6" , "Nc3" , "Nxd4" , "Bc3" , "Nc6" , "Rae1" , "Qd6" , "g4" , "Nd4" , "a5" , "Qe2" , "Qe7" , "Bd8" , "Qa4" , "f5" ;
+        chon:nextHalfMove      :hmgam0IPuRdx .
+
+:cgrIGFcvc  a   chon:ChessGameReport .
+
+:hmgamIGFcvcH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIGFcvcHu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "d5" , "f4" ;
+        chon:nextHalfMove      :hmgam0IPuRdx , :hmgamIGFcvcH .
+
+:agIGFcvc  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Bird, Henry Edward" .
+
+:rolIGFcvc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIGFcvc .
+
+:opeIGFcvc  a            chon:ChessOpening ;
+        chon:hasECOCode  "A03" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIGFcvc .
+
+:touIGFcv  a          chon:hessTournament ;
+        chon:atPlace  :plaIGFcvc ;
+        chon:hasName  "London" .
+
+chon:HalfMove  chon:subEventOf  :gamIGFcv .
+
+:rolhg0IPuRdxU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIGFcvc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIGFcvc .
+
+:resIGFcvcH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgIGFcvcHu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIGFcvc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamIGFcv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIGFcvc ;
+        chon:atPlace           :plaIGFcvc ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIGFcvcH ;
+        chon:hasHalfMove       :hmgamIGFcvcH , :hmgam0IPuRdx ;
+        chon:hasLastHalfMove   :hmgam0IPuRdx ;
+        chon:hasOpening        :opeIGFcvc ;
+        chon:hasReport         :cgrIGFcvc ;
+        chon:hasResult         :resIGFcvcH ;
+        chon:subEventOf        :touIGFcv .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamDZbMNNd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDZbMNNdt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kessler,Juergen" ;
+        chon:hasSANRecord      "Kg7" , "Kf7" , "Qf7" , "Bxe5" , "Nh5" , "exf4" , "Rc1" , "Ba2" , "Nxe6" , "Nf6+" , "Nb4" , "d6" , "Qf5" , "Ne8" , "c6" , "fxe6" , "bxc6" , "Kg8" , "Qd2" , "Qf8" , "Bxe6" , "g5" , "Qd4+" , "Na6" , "Nf5" , "Bg5" , "h6" , "Ne5+" , "Kg6" , "Be6" , "Rxd8" , "Bc4" , "Ne2" , "Bxf4" , "Nxc6" , "Rfe1" , "e5" , "Qf6" , "Qe7" , "Nc7" , "Nxd8" , "Qd3" , "Kh7" , "Bf4" , "Nd5" , "Ng4" , "Ne7" , "Nxe5" , "Qc4" , "Nf4" , "Bb3" , "Ned4" , "Bh2" , "Nbd7" , "d5" , "Nc5" , "d7" , "Ndf3" ;
+        chon:nextHalfMove      :hmgamDZbMNNd .
+
+:rolhgDZbMNNdt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agH5tD5P .
+
+:cgrH5tD5P  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agH5tD5P .
+
+:gamH5tD5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolH5tD5P ;
+        chon:atPlace           :plaH5tD5P ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamH5tD5PX ;
+        chon:hasHalfMove       :hmgamH5tD5PX , :hmgamDZbMNNd ;
+        chon:hasLastHalfMove   :hmgamDZbMNNd ;
+        chon:hasOpening        :opeH5tD5P ;
+        chon:hasReport         :cgrH5tD5P ;
+        chon:hasResult         :resH5tD5PX ;
+        chon:subEventOf        :touH5tD5 .
+
+chon:HalfMove  chon:subEventOf  :gamH5tD5 .
+
+:touH5tD5  a          chon:hessTournament ;
+        chon:atPlace  :plaH5tD5P ;
+        chon:hasName  "Simul" .
+
+:rolH5tD5P  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agH5tD5P .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agH5tD5P .
+
+:resH5tD5PX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaH5tD5P  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:hmgamH5tD5PX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDZbMNNdt , :rolhgH5tD5PXv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kessler,Juergen" ;
+        chon:hasSANRecord      "Qb3" , "a5" , "Be3" , "h3" , "d5" , "Rd8" , "O-O" , "Nf6" , "Rd1" , "e4" , "g6" , "Bg7" , "Nxd5" , "Nb6" , "d4" , "N8d7" , "Qe7" , "e6" , "Qc2" , "c4" , "Nc3" , "cxd5" , "Nf3" , "a4" , "Be2" ;
+        chon:nextHalfMove      :hmgamDZbMNNd , :hmgamH5tD5PX .
+
+:agH5tD5P  a          chon:Agent ;
+        chon:hasName  "Kessler,Juergen" , "Karpov,Ana" .
+
+:rolhgH5tD5PXv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agH5tD5P .
+
+:opeH5tD5P  a            chon:ChessOpening ;
+        chon:hasECOCode  "D70" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

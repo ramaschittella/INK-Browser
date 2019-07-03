@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgqMuI41iN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZMinHY .
+
+:plaZMinHY  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZMinHY .
+
+:rolhgZMinHYtn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZMinHY .
+
+:opeZMinHY  a            chon:ChessOpening ;
+        chon:hasECOCode  "C09" .
+
+:touZMinH  a          chon:hessTournament ;
+        chon:atPlace  :plaZMinHY ;
+        chon:hasName  "Leningrad Interzonal" .
+
+:cgrZMinHY  a   chon:ChessGameReport .
+
+:resZMinHYt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamZMinH .
+
+:hmgamqMuI41i  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqMuI41iN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kuzmin, Gennadi P" ;
+        chon:hasSANRecord      "g4" , "Ne7" , "Bg5" , "Qb6" , "Bxc5" , "Bd6" , "c3" , "a3" , "fxg3" , "g5" , "Re2" , "Re1" , "Bh4" , "Nb3" , "Rae1" , "Bd3" , "gxf3" , "Nd7" , "Rh8" , "f4" , "Bb5" , "Rfd8" , "Nd2" , "Bxg3" , "dxc5" , "Rad8" , "Bg4" , "Bg3" , "Kf8" , "Nf8" , "h5" , "h4" , "Nc6" , "O-O" , "hxg3" , "Qc7" , "Nf3" , "Kg3" , "Kg2" , "Rd6" , "Ng6" , "Bxf3" , "Qc2" , "Rh6" ;
+        chon:nextHalfMove      :hmgamqMuI41i , :hmgamSMoWA1l .
+
+:hmgamZMinHYt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZMinHYtn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kuzmin, Gennadi P" ;
+        chon:hasSANRecord      "d4" , "exd5" , "c5" , "d5" , "e6" , "Ngf3" , "Nd2" , "e4" ;
+        chon:nextHalfMove      :hmgamqMuI41i , :hmgamZMinHYt .
+
+:hmgamSMoWA1l  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSMoWA1lY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kuzmin, Gennadi P" ;
+        chon:hasSANRecord      "Ree7" , "Bf5" , "b4" , "Rc7" , "Rd3" , "b5" , "Qe7" , "dxe4" , "Kg4" , "Na5" , "Rxe7" , "Ne4+" , "Qxe7" , "Rf8" , "Nb3" , "Kg7" , "g6" , "Qxe4" , "Bxe4" , "Nc5" ;
+        chon:nextHalfMove      :hmgamSMoWA1l .
+
+:rolhgSMoWA1lY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZMinHY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolZMinHY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZMinHY .
+
+:gamZMinH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZMinHY ;
+        chon:atPlace           :plaZMinHY ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZMinHYt ;
+        chon:hasHalfMove       :hmgamZMinHYt , :hmgamqMuI41i , :hmgamSMoWA1l ;
+        chon:hasLastHalfMove   :hmgamSMoWA1l ;
+        chon:hasOpening        :opeZMinHY ;
+        chon:hasReport         :cgrZMinHY ;
+        chon:hasResult         :resZMinHYt ;
+        chon:subEventOf        :touZMinH .
+
+:agZMinHY  a          chon:Agent ;
+        chon:hasName  "Kuzmin, Gennadi P" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZMinHY .

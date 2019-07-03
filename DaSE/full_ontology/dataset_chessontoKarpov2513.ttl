@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opehSDKad  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghSDKad .
+
+:touhSDKa  a          chon:hessTournament ;
+        chon:atPlace  :plahSDKad ;
+        chon:hasName  "Super Final" .
+
+chon:HalfMove  chon:subEventOf  :gamhSDKa .
+
+:reshSDKadj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghSDKad .
+
+:plahSDKad  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:cgrhSDKad  a   chon:ChessGameReport .
+
+:hmgamhSDKadj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghSDKadjz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Bxe5" , "d6" , "Qc5" , "Qf2" , "Nf6" , "Rxb3" , "Qg4" , "Rab1" , "Nf3" , "fxe4" , "Qxf5" , "h6" , "Bf6" , "Bd3" , "Bxf5" , "Nxd5" , "Bg5" , "Qd3" , "Qa2" , "f5" , "a6" , "Be6" , "Qb4" , "Bd7" , "cxd4" , "d4" , "Re8" , "Nb6" , "Ra3" , "Qc2" , "Rxb1" , "Nb3" , "Qxb6" , "Be2" , "Nc3" , "Rc8" , "Be7" , "Qe2" , "Kh1" , "e4" , "O-O" , "Qc7" , "Bxb6" , "Qg6" , "Rc5" , "f3" , "a4" , "Bd8" , "Qa7" , "Be3" , "Rfe1" , "b3" , "Qc3" , "Nd5" , "c5" , "Rxa5" , "Nbd7" , "Rf8" , "e5" , "exd5" , "Nf1" , "Nxd4" , "Qd2" , "Rfd8" , "a5" , "Nd2" , "c4" ;
+        chon:nextHalfMove      :hmgamhSDKadj .
+
+:aghSDKad  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Pierrot,F" .
+
+:rolhSDKad  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghSDKad .
+
+:gamhSDKa  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhSDKad ;
+        chon:atPlace           :plahSDKad ;
+        chon:atTime            "2000.09.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhSDKadj ;
+        chon:hasHalfMove       :hmgamhSDKadj ;
+        chon:hasLastHalfMove   :hmgamhSDKadj ;
+        chon:hasOpening        :opehSDKad ;
+        chon:hasReport         :cgrhSDKad ;
+        chon:hasResult         :reshSDKadj ;
+        chon:subEventOf        :touhSDKa .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhghSDKadjz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghSDKad .

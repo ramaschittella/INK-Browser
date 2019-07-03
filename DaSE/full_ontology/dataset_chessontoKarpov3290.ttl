@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope0X7VHo  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0X7VHo .
+
+chon:HalfMove  chon:subEventOf  :gam0X7VH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0X7VHo .
+
+:gam0X7VH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0X7VHo ;
+        chon:atPlace           :pla0X7VHo ;
+        chon:atTime            "2013.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAXie5rF ;
+        chon:hasHalfMove       :hmgamAXie5rF ;
+        chon:hasLastHalfMove   :hmgamAXie5rF ;
+        chon:hasOpening        :ope0X7VHo ;
+        chon:hasReport         :cgr0X7VHo ;
+        chon:hasResult         :res0X7VHoO ;
+        chon:subEventOf        :tou0X7VH .
+
+:tou0X7VH  a          chon:hessTournament ;
+        chon:atPlace  :pla0X7VHo ;
+        chon:hasName  "2nd Karpov Trophy Prelim" .
+
+:res0X7VHoO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:pla0X7VHo  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:cgr0X7VHo  a   chon:ChessGameReport .
+
+:hmgamAXie5rF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAXie5rFB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qxc4" , "Rc6" , "Nh5" , "e4" , "Qxd5" , "Qg4" , "e6" , "Bxc5" , "Bc4" , "h5" , "Qd5" , "e5" , "Qxc2" , "Nc3" , "Qb7" , "a4" , "Rae8" , "Ra8" , "Qxb2" , "Qc7" , "Re1" , "Ra5" , "Be7" , "Nxc4" , "Ne4" , "Qd8" , "d5" , "Rc4" , "Kf1" , "Rd1" , "h3" , "h6" , "Qd6" , "Nhf6" , "Rxa4" , "d4" , "b5" , "Ra6" , "Rd3" , "Qe2" , "Ne5" , "O-O" , "Qc5" , "Qd2" , "c6" , "Be3" , "Bxa7" , "Ra3" , "Qxd4" , "Bxf3" , "Nd5" , "cxd5" , "exd5" , "Qb5" , "Nc5" , "Rc5" , "Qa5" , "Rd2" , "h4" , "bxa4" , "Qd4" , "Rb3" , "Qg3" , "Qf3" , "Ngf6" , "Bg4" , "Re6" , "Nd7" , "Rfd1" , "Qxf3" , "Qc4" , "Rfe8" , "Nf3" , "Nf6" ;
+        chon:nextHalfMove      :hmgamAXie5rF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag0X7VHo  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Muzychuk,M" .
+
+:rol0X7VHo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0X7VHo .
+
+:rolhgAXie5rFB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0X7VHo .

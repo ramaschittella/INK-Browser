@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg4DTZkl1u  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjF058m , :aguF6hGl .
+
+:rolhgSBJGXk04  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aguF6hGl , :agjF058m .
+
+:opeuF6hGl  a            chon:ChessOpening ;
+        chon:hasECOCode  "C60" .
+
+:hmgamSBJGXk0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSBJGXk04 , :rolhg4DTZkl1u , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rae8" , "Bd5" , "d6" , "Bd7" , "Nf3" , "g4" , "Rf2" , "Kh8" , "Rf8" , "exf5" , "Bc4+" , "Rg2" , "e5" , "f5" , "g6" , "exd4" , "Nge7" , "Qh4" , "Bg7" , "Rxf5" , "Bb5" , "Nc6" , "Nc3" , "O-O" , "Nxd4" , "Nxf5" , "Be3" , "e4" , "d4" , "f4" ;
+        chon:nextHalfMove      :hmgamSBJGXk0 , :hmgam4DTZkl1 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aguF6hGl .
+
+:plajF058m  a         chon:Place ;
+        chon:hasName  "Paris" .
+
+:gamjF058  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljF058m ;
+        chon:atPlace           :plajF058m ;
+        chon:atTime            "1867.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSBJGXk0 ;
+        chon:hasHalfMove       :hmgam4DTZkl1 , :hmgamSBJGXk0 ;
+        chon:hasLastHalfMove   :hmgam4DTZkl1 ;
+        chon:hasOpening        :opeuF6hGl ;
+        chon:hasReport         :cgruF6hGl ;
+        chon:hasResult         :resuF6hGlQ ;
+        chon:subEventOf        :toujF058 .
+
+:agjF058m  a          chon:Agent ;
+        chon:hasName  "De Riviere, Jules Arnous" .
+
+chon:HalfMove  chon:subEventOf  :gamjF058 .
+
+:roluF6hGl  a             chon:AuthorRole ;
+        chon:performedBy  :aguF6hGl .
+
+:resuF6hGlQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgam4DTZkl1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4DTZkl1u , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rxe6" , "Kxg7" , "Nxa7" , "Nb5" , "Bxa7" , "Bf2" , "Bxe6" , "Qa1+" , "Rb1" , "Be6" , "Rf2" , "Rxb7" , "Rxg7" , "Ne2" , "g5" , "Qxb2" , "Qe3" , "Rxc7" , "Qf6" , "Kg8" , "Qf3" , "Qa3" ;
+        chon:nextHalfMove      :hmgam4DTZkl1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toujF058  a          chon:hessTournament ;
+        chon:atPlace  :plajF058m ;
+        chon:hasName  "Paris it" .
+
+:aguF6hGl  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" .
+
+:cgruF6hGl  a   chon:ChessGameReport .
+
+:roljF058m  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjF058m .

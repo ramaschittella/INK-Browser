@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamQaz6cVI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQaz6cVIA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Carlsen,M" ;
+        chon:hasSANRecord      "exd4" , "Nf6" , "cxd4" , "g6" , "Nge5" , "c4" , "Nc3" , "O-O" , "d4" , "d6" , "c5" , "Bg7" , "h3" , "Ng4" , "Nf3" , "Nxd4" , "b3" , "g3" , "e3" , "Nc6" , "Bg2" ;
+        chon:nextHalfMove      :hmgamQaz6cVI , :hmgam3avkKUK .
+
+:plaQaz6cV  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:gamQaz6c  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQaz6cV ;
+        chon:atPlace           :plaQaz6cV ;
+        chon:atTime            "2006.10.27"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQaz6cVI ;
+        chon:hasHalfMove       :hmgam3avkKUK , :hmgamQaz6cVI ;
+        chon:hasLastHalfMove   :hmgam3avkKUK ;
+        chon:hasOpening        :opeQaz6cV ;
+        chon:hasReport         :cgrQaz6cV ;
+        chon:hasResult         :resQaz6cVI ;
+        chon:subEventOf        :touQaz6c .
+
+:hmgam3avkKUK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3avkKUKL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Carlsen,M" ;
+        chon:hasSANRecord      "Re1" , "b5" , "a3" , "Qxd4" , "b6" , "Bxd4" , "Rxc8" , "Nd3" , "Nc5" , "Be3" , "Bd4" , "Rac8" , "Nxa4" , "b4" , "Qd2" , "Rfd1" , "Nb4" , "Rfe8" , "cxb5" , "Nb1" , "Nc6" , "Qxa4" , "Qa5" , "Rac1" , "Qxa7" , "Nb2" , "d5" , "Bd7" , "Rd1" , "Na6" , "Qa4" ;
+        chon:nextHalfMove      :hmgam3avkKUK .
+
+:agQaz6cV  a          chon:Agent ;
+        chon:hasName  "Carlsen,M" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQaz6cV .
+
+:rolQaz6cV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQaz6cV .
+
+:resQaz6cVI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeQaz6cV  a            chon:ChessOpening ;
+        chon:hasECOCode  "A39" .
+
+chon:HalfMove  chon:subEventOf  :gamQaz6c .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQaz6cV .
+
+:touQaz6c  a          chon:hessTournament ;
+        chon:atPlace  :plaQaz6cV ;
+        chon:hasName  "GpB" .
+
+:rolhg3avkKUKL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQaz6cV .
+
+:cgrQaz6cV  a   chon:ChessGameReport .
+
+:rolhgQaz6cVIA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQaz6cV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

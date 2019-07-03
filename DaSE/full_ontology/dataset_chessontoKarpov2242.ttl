@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toufDcpD  a          chon:hessTournament ;
+        chon:atPlace  :plajFtgUz ;
+        chon:hasName  "Voronezh simul" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfDcpDz .
+
+:resfDcpDz9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamjFtgU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfDcpDz .
+
+:agfDcpDz  a          chon:Agent ;
+        chon:hasName  "Kozlova, Olga" , "Karpov, Anatoly" .
+
+:rolfDcpDz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfDcpDz .
+
+:opefDcpDz  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+:hmgamfDcpDz9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfDcpDz9r , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kozlova, Olga" ;
+        chon:hasSANRecord      "Bb2" , "O-O" , "Bb7" , "a5" , "c5" , "Qxd2" , "Nd6" , "Ng6" , "d6" , "Nf6" , "Qc7" , "Ne5" , "dxc5" , "Qe3" , "b4" , "Rad1" , "b5" , "Bg2" , "Ne8" , "Bxg2" , "Ra8" , "f4" , "Nbd2" , "Rfd8" , "Bb4+" , "Nf5" , "a4" , "a3" , "Nbd7" , "Nf8" , "Rdc8" , "Qc3" , "Qe4" , "c4" , "e6" , "g3" , "Nf3" , "Bxd2+" , "bxa5" , "Ba3" , "Rc8" , "d4" , "b6" , "Kxg2" ;
+        chon:nextHalfMove      :hmgamfDcpDz9 .
+
+:plajFtgUz  a         chon:Place ;
+        chon:hasName  "Voronezh" .
+
+:rolhgfDcpDz9r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfDcpDz .
+
+:gamjFtgU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfDcpDz ;
+        chon:atPlace           :plajFtgUz ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfDcpDz9 ;
+        chon:hasHalfMove       :hmgamfDcpDz9 ;
+        chon:hasLastHalfMove   :hmgamfDcpDz9 ;
+        chon:hasOpening        :opefDcpDz ;
+        chon:hasReport         :cgrfDcpDz ;
+        chon:hasResult         :resfDcpDz9 ;
+        chon:subEventOf        :toufDcpD .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrfDcpDz  a   chon:ChessGameReport .

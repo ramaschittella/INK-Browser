@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgZSTL86Bl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZSTL86 .
+
+:agZSTL86  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Portisch, Lajos" .
+
+:opeZSTL86  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZSTL86 .
+
+:gamZSTL8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZSTL86 ;
+        chon:atPlace           :plaZSTL86 ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZSTL86B ;
+        chon:hasHalfMove       :hmgamZSTL86B ;
+        chon:hasLastHalfMove   :hmgamZSTL86B ;
+        chon:hasOpening        :opeZSTL86 ;
+        chon:hasReport         :cgrZSTL86 ;
+        chon:hasResult         :resZSTL86B ;
+        chon:subEventOf        :touZSTL8 .
+
+:touZSTL8  a          chon:hessTournament ;
+        chon:atPlace  :plaZSTL86 ;
+        chon:hasName  "Linares" .
+
+chon:HalfMove  chon:subEventOf  :gamZSTL8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZSTL86 .
+
+:resZSTL86B  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaZSTL86  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:cgrZSTL86  a   chon:ChessGameReport .
+
+:hmgamZSTL86B  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZSTL86Bl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rfd1" , "d2" , "Bb2" , "Qd5+" , "Nf4" , "h5" , "cxd5" , "Be7" , "Qc2" , "Bg2" , "Nc6" , "fxg4" , "Nc4" , "Ne4" , "e4" , "Rd8" , "Nh4" , "Nb6" , "Rac1" , "Rce1" , "d3" , "Qe6" , "Rd5" , "Kb8" , "Qd3" , "Qxb2" , "Rh1" , "Qc5" , "Qd6" , "Nxe7+" , "e5" , "g5" , "O-O-O" , "O-O" , "Bh3" , "hxg3" , "Nf5" , "f5" , "g3" , "a6" , "d4" , "Bxg2" , "c4" , "h4" , "Be6" , "Rd1" , "Rf1" , "a3" , "Qxe7" , "Qc4" , "Nxd5" , "Nc5" , "Qxd5+" , "Nd3" , "Nf3" , "f3" , "Nf6" , "f6" , "g4" , "exd4" , "Nc3" , "Kxg2" , "Nxb2" , "b4" , "Qd7" , "d5" ;
+        chon:nextHalfMove      :hmgamZSTL86B .
+
+:rolZSTL86  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZSTL86 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgOmfTIUap  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOmfTIU .
+
+:hmgamOmfTIUa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOmfTIUap , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qxe4" , "e6" , "Nc6" , "Ne4" , "c3" , "Rd8" , "e4" , "hxg5" , "Rh4" , "Kf8" , "d6" , "Rab1" , "Bxf4" , "O-O" , "Rb4" , "h6" , "Kf2" , "g4" , "Ng5" , "Bg4" , "Qa4" , "exd5" , "Qc1" , "d4" , "fxg4" , "Nf3" , "c5" , "Bf1" , "Qe5" , "Kd6" , "Nc3" , "Nd5" , "Be3" , "a5" , "Nd4" , "h3" , "Ke5" , "Rxd5" , "Re1" , "Bxb2" , "Qxb2" , "dxc5" , "Rxd4" , "Rxb7" , "cxd4" , "g6" , "Bg2" , "Nxf4" , "f3" , "Bxg4" , "Ke7" , "Bf4" , "Qa5" , "Be5" , "Red1" , "a6" , "Bg7" , "Ba6" , "g3" , "Rxg4" , "Bf5" , "Bd2" , "Nf6" , "Ke3" ;
+        chon:nextHalfMove      :hmgamOmfTIUa .
+
+:cgrOmfTIU  a   chon:ChessGameReport .
+
+:agOmfTIU  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Kurajica, Bojan" .
+
+:rolOmfTIU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOmfTIU .
+
+:opeOmfTIU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B50" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOmfTIU .
+
+:gamOmfTI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOmfTIU ;
+        chon:atPlace           :plaOmfTIU ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOmfTIUa ;
+        chon:hasHalfMove       :hmgamOmfTIUa ;
+        chon:hasLastHalfMove   :hmgamOmfTIUa ;
+        chon:hasOpening        :opeOmfTIU ;
+        chon:hasReport         :cgrOmfTIU ;
+        chon:hasResult         :resOmfTIUa ;
+        chon:subEventOf        :touOmfTI .
+
+:resOmfTIUa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touOmfTI  a          chon:hessTournament ;
+        chon:atPlace  :plaOmfTIU ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+chon:HalfMove  chon:subEventOf  :gamOmfTI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOmfTIU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaOmfTIU  a         chon:Place ;
+        chon:hasName  "Zagreb" .

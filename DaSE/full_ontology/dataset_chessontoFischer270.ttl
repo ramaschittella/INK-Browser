@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamdtSgqOi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdtSgqOiS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pachman, Ludek" ;
+        chon:hasSANRecord      "Bb5" , "Rd3" , "Kf7" , "Qxg7+" , "a4" , "f6" , "Kxc7" , "Rfd8" , "b3" , "Rfe1" , "Kg1" , "h4" , "Bb7" , "Rgxd4" , "Qh5" , "g5" , "Rd8" , "Rxc7" , "h6" , "cxd4" , "Bxb5" , "Qd6" , "Kf8" , "f4" , "Re8" , "Qe4" , "Rxg7+" , "axb5" , "e5" , "c4" , "Ra8" , "Qg6+" , "Rg4" , "Nxe4" , "h3" , "Qh7" , "Rc8" , "Ne4" , "Rg3" , "Qh4" , "Qxd4" , "Ke7" , "Qc7" , "c5" , "Bc6" , "c3" , "Rxe4" , "Rxd4" , "Ng5" , "Kf1" , "a5" , "Kd6" , "Rg8" , "Rxg7" , "g4" ;
+        chon:nextHalfMove      :hmgamdtSgqOi .
+
+:cgrivb8HO  a   chon:ChessGameReport .
+
+:hmgamivb8HO2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgivb8HO2E , :rolhgdtSgqOiS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pachman, Ludek" ;
+        chon:hasSANRecord      "Qe5" , "Bxf6" , "Qe7" , "Bc4" , "Rad1" , "Nf3" , "Qe2" , "d4" , "Nc3" , "b6" , "d5" , "Nd7" , "Nxf6" , "dxe4" , "O-O" , "Qc7" , "Nxe4" , "Bg5" , "Be7" , "Nxf6+" , "Nf6" , "e6" , "e4" , "c6" ;
+        chon:nextHalfMove      :hmgamivb8HO2 , :hmgamdtSgqOi .
+
+:rolivb8HO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agivb8HO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agivb8HO .
+
+chon:HalfMove  chon:subEventOf  :gamivb8H .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agivb8HO .
+
+:plaivb8HO  a         chon:Place ;
+        chon:hasName  "Leipzig" .
+
+:resivb8HO2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agivb8HO  a          chon:Agent ;
+        chon:hasName  "Pachman, Ludek" , "Fischer, Robert James" .
+
+:rolhgdtSgqOiS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agivb8HO .
+
+:opeivb8HO  a            chon:ChessOpening ;
+        chon:hasECOCode  "C11" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamivb8H  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolivb8HO ;
+        chon:atPlace           :plaivb8HO ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamivb8HO2 ;
+        chon:hasHalfMove       :hmgamivb8HO2 , :hmgamdtSgqOi ;
+        chon:hasLastHalfMove   :hmgamdtSgqOi ;
+        chon:hasOpening        :opeivb8HO ;
+        chon:hasReport         :cgrivb8HO ;
+        chon:hasResult         :resivb8HO2 ;
+        chon:subEventOf        :touivb8H .
+
+:rolhgivb8HO2E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agivb8HO .
+
+:touivb8H  a          chon:hessTournament ;
+        chon:atPlace  :plaivb8HO ;
+        chon:hasName  "Leipzig olm fin-A" .

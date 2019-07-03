@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg6ZcjjSDs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agU2g6MT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agU2g6MT .
+
+:touU2g6M  a          chon:hessTournament ;
+        chon:atPlace  :plaU2g6MT ;
+        chon:hasName  "Roquebrune rapid" .
+
+:opeU2g6MT  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+chon:HalfMove  chon:subEventOf  :gamU2g6M .
+
+:rolhgw2oEGTsT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agU2g6MT .
+
+:rolU2g6MT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agU2g6MT .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resU2g6MTA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamU2g6MTA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgU2g6MTAh , :rolhg6ZcjjSDs ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "c4" , "Kxd8" , "Qxd4" , "Bb4+" , "Rd8" , "Rd1" , "f3" , "Bxc4" , "Qxd8+" , "Nf6" , "Bd2" , "e5" , "d5" , "Nxe6" , "Bxd2+" , "e4" , "g5" , "exd4" , "Kxd1" , "d4" , "Nc3" , "fxe6" , "Rxd1+" , "Qxd2" , "Rd8+" , "Nc6" , "Nd4" , "Ke7" , "Nf3" , "dxc4" , "Be6" , "Kc1" ;
+        chon:nextHalfMove      :hmgamU2g6MTA , :hmgam6ZcjjSD .
+
+:hmgam6ZcjjSD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6ZcjjSDs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "c6" , "Rd2" , "Rc1" , "Ra3" , "Rc3" , "e5" , "Rf7" , "h4" , "Rd8" , "Ne5" , "Kxe5" , "Rg7" , "Kf6" , "Ke3" , "c5" , "a5" , "Rd1" , "g3" , "Rc5" , "Rd7" , "Rc2" , "h5" , "Nc4" , "Nb5" , "Kd2" , "Kxd2" , "a4" , "Rf8" , "Bb5" , "Rd4" , "Nd6" , "Rxd2" , "Bd3" , "a3" , "Nf4" , "Nh5" , "Kd6" , "Be2" , "b6" , "Nxe5" ;
+        chon:nextHalfMove      :hmgamw2oEGTs , :hmgam6ZcjjSD .
+
+:gamU2g6M  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolU2g6MT ;
+        chon:atPlace           :plaU2g6MT ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamU2g6MTA ;
+        chon:hasHalfMove       :hmgamU2g6MTA , :hmgam6ZcjjSD , :hmgamw2oEGTs ;
+        chon:hasLastHalfMove   :hmgamw2oEGTs ;
+        chon:hasOpening        :opeU2g6MT ;
+        chon:hasReport         :cgrU2g6MT ;
+        chon:hasResult         :resU2g6MTA ;
+        chon:subEventOf        :touU2g6M .
+
+:plaU2g6MT  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+:agU2g6MT  a          chon:Agent ;
+        chon:hasName  "Ivanchuk, Vassily" , "Karpov, Anatoly" .
+
+:rolhgU2g6MTAh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agU2g6MT .
+
+:hmgamw2oEGTs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgw2oEGTsT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "c3" , "Ne6" , "axb4+" , "Kd2" , "hxg3" , "Kc5" , "Bxa4" , "Bd1" , "bxc3+" , "Nf4" , "c4" , "Ke3" , "Kxc3" , "b4" , "Nd4" , "Nh5" , "g4" , "Kc3" , "b5" , "Kxb4" ;
+        chon:nextHalfMove      :hmgamw2oEGTs .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agU2g6MT .
+
+:cgrU2g6MT  a   chon:ChessGameReport .

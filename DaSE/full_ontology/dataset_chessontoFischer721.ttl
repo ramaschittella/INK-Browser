@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resKQuv80i  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamKQuv8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKQuv80 ;
+        chon:atPlace           :plaKQuv80 ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKQuv80i ;
+        chon:hasHalfMove       :hmgamKQuv80i ;
+        chon:hasLastHalfMove   :hmgamKQuv80i ;
+        chon:hasOpening        :opeKQuv80 ;
+        chon:hasReport         :cgrKQuv80 ;
+        chon:hasResult         :resKQuv80i ;
+        chon:subEventOf        :touKQuv8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKQuv80 .
+
+:cgrKQuv80  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamKQuv8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKQuv80 .
+
+:rolKQuv80  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKQuv80 .
+
+:plaKQuv80  a         chon:Place ;
+        chon:hasName  "Zagreb" .
+
+:rolhgKQuv80iR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKQuv80 .
+
+:hmgamKQuv80i  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKQuv80iR ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nicevski, Risto" ;
+        chon:hasSANRecord      "Rxa3" , "e6" , "Rxd5" , "Bd7" , "Be7" , "c5" , "Qe5" , "h6" , "Qxa2" , "Qd2" , "Rfc8" , "e5" , "Qa1+" , "Bxd5" , "Qc7" , "Nd5" , "Re1" , "Rd4" , "R4d6" , "b3" , "R3d4" , "Qxd6" , "Rd7" , "d6" , "Be6" , "c4" , "Nxc6" , "a5" , "O-O" , "dxe5" , "Kg2" , "Nc6" , "Rc1" , "exd5" , "Bxe5" , "Kh7" , "e4" , "Qe2" , "Nxd4" , "Nxd5" , "Bb2" , "Nf6" , "cxd5" , "Kh3" , "Bd6" , "a3" , "a4" , "Rad1" , "Qd3+" , "g3" , "d4" , "a6" , "Rab8" , "bxc6" , "Bg2" , "Rad3" , "Nf3" , "Nc3" , "g6" , "Bxd6" , "Rg1+" , "Re3" , "b4" , "cxd4" ;
+        chon:nextHalfMove      :hmgamKQuv80i .
+
+:touKQuv8  a          chon:hessTournament ;
+        chon:atPlace  :plaKQuv80 ;
+        chon:hasName  "Rovinj/Zagreb" .
+
+:agKQuv80  a          chon:Agent ;
+        chon:hasName  "Nicevski, Risto" , "Fischer, Robert James" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeKQuv80  a            chon:ChessOpening ;
+        chon:hasECOCode  "B80" .

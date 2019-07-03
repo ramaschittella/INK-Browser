@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resxhxFmsW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agxhxFms  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Platonov, Igor V" .
+
+:opexhxFms  a            chon:ChessOpening ;
+        chon:hasECOCode  "A36" .
+
+:touxhxFm  a          chon:hessTournament ;
+        chon:atPlace  :plaxhxFms ;
+        chon:hasName  "URS-ch38 Riga" .
+
+:hmgamYjHXHtN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYjHXHtNs ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nh3" , "d6" , "Bg7" , "a3" , "Bb2" , "e6" , "Nc3" , "Bg2" , "Nf4" , "Nb5" , "Bxe5" , "Nge7" , "Ne5" , "b4" , "Rb8" , "Bb7" , "c5" , "g3" , "bxc5" , "b6" , "dxc5" , "c4" , "Rb1" , "Nc6" , "O-O" , "g6" ;
+        chon:nextHalfMove      :hmgamYjHXHtN , :hmgamajEbgsQ .
+
+:hmgamajEbgsQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgajEbgsQG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qd7" , "h6" , "Rc1" , "Rda8" , "Nd3" , "Rfd8" , "Bxg2" , "Ra8" , "Qb1" , "Nb5" , "Kxg2" , "Kg1" , "Rc2" , "Ra6" , "Na5" , "Nd2" , "Bg7" , "Qb3" , "Qd4" , "Nxa7" , "Bxe5" , "Ne1" , "Nc6" , "Nf3" , "d3" ;
+        chon:nextHalfMove      :hmgamajEbgsQ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxhxFms .
+
+:rolhgYjHXHtNs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxhxFms .
+
+chon:HalfMove  chon:subEventOf  :gammjArN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxhxFms .
+
+:plaxhxFms  a         chon:Place ;
+        chon:hasName  "Riga" .
+
+:gammjArN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxhxFms ;
+        chon:atPlace           :plaxhxFms ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYjHXHtN ;
+        chon:hasHalfMove       :hmgamYjHXHtN , :hmgamajEbgsQ ;
+        chon:hasLastHalfMove   :hmgamajEbgsQ ;
+        chon:hasOpening        :opexhxFms ;
+        chon:hasReport         :cgrxhxFms ;
+        chon:hasResult         :resxhxFmsW ;
+        chon:subEventOf        :touxhxFm .
+
+:cgrxhxFms  a   chon:ChessGameReport .
+
+:rolxhxFms  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxhxFms .
+
+:rolhgajEbgsQG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxhxFms .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

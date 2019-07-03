@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamSTIbb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSTIbbO ;
+        chon:atPlace           :plaSTIbbO ;
+        chon:atTime            "2006.12.06"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSTIbbOl ;
+        chon:hasHalfMove       :hmgam5VUvyOc , :hmgamSTIbbOl ;
+        chon:hasLastHalfMove   :hmgam5VUvyOc ;
+        chon:hasOpening        :opeSTIbbO ;
+        chon:hasReport         :cgrSTIbbO ;
+        chon:hasResult         :resSTIbbOl ;
+        chon:subEventOf        :touSTIbb .
+
+:cgrSTIbbO  a   chon:ChessGameReport .
+
+:touSTIbb  a          chon:hessTournament ;
+        chon:atPlace  :plaSTIbbO ;
+        chon:hasName  "Rapid Match" .
+
+:agSTIbbO  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Vescovi,G" .
+
+:rolSTIbbO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSTIbbO .
+
+:opeSTIbbO  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+:rolhg5VUvyOc4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSTIbbO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSTIbbO .
+
+chon:HalfMove  chon:subEventOf  :gamSTIbb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSTIbbO .
+
+:hmgamSTIbbOl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5VUvyOc4 , chon:AgentRole , :rolhgSTIbbOlS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qa5+" , "Bf5" , "Bg6" , "Bd2" , "Bd3" , "Bxd3" , "Qxd3" , "dxe4" , "c3" , "d4" , "Nf3" , "Ng3" , "e4" , "Nxe4" , "Bb4" , "Bh7" , "h5" , "Be7" , "Nd7" , "h6" , "d5" , "c6" , "Bf4" , "h4" , "Nc3" , "e6" ;
+        chon:nextHalfMove      :hmgam5VUvyOc , :hmgamSTIbbOl .
+
+:rolhgSTIbbOlS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSTIbbO .
+
+:hmgam5VUvyOc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5VUvyOc4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "g4" , "Rxa2" , "Nb4" , "Rxd7" , "Kc1" , "c5" , "Qxe4+" , "Ra1+" , "Rxe4" , "Kxh6" , "Nh2" , "Ne6" , "Kb1" , "Ne3" , "c4" , "Rb8+" , "Ngf6" , "b6" , "Qc7" , "Ke1" , "Kh7" , "cxd5" , "Rc7" , "Rd7" , "Kd2" , "Kg7" , "gxf6" , "Bf6" , "hxg5" , "Nxf2" , "Kg1" , "Rd1" , "Rde1" , "Re8" , "d5" , "Bxg5" , "Rg1+" , "Nxd7" , "f5" , "Nd3" , "Qd6" , "Qxd5" , "Bxf6" , "Nxe4" , "f4" , "Kf1" , "Nc2+" , "Nd1" , "Rxa7" , "Nc3" , "Rxf7" , "Nf8" , "Kg5" , "Rd6" , "h6+" , "g5" , "Kh2" , "O-O-O" , "Qc2" , "Nd5" , "Ra5" , "Rb5" , "Ng4" , "Kf3" , "Nd4" , "Ne4" , "Qxe4" , "Re7" , "O-O" , "b4" , "Kg4" , "Rfd8" , "bxc5" , "exd5" ;
+        chon:nextHalfMove      :hmgam5VUvyOc .
+
+:resSTIbbOl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaSTIbbO  a         chon:Place ;
+        chon:hasName  "Guarulhos BRA" .

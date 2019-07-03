@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaIQMs92  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:agEOtBS2  a          chon:Agent ;
+        chon:hasName  "Anand, Viswanathan" , "Karpov, Anatoly" .
+
+:rolEOtBS2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEOtBS2 .
+
+:opeEOtBS2  a            chon:ChessOpening ;
+        chon:hasECOCode  "D47" .
+
+:gamIQMs9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEOtBS2 ;
+        chon:atPlace           :plaIQMs92 ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEOtBS2v ;
+        chon:hasHalfMove       :hmgamEOtBS2v ;
+        chon:hasLastHalfMove   :hmgamEOtBS2v ;
+        chon:hasOpening        :opeEOtBS2 ;
+        chon:hasReport         :cgrEOtBS2 ;
+        chon:hasResult         :resEOtBS2v ;
+        chon:subEventOf        :touEOtBS .
+
+:rolhgEOtBS2vu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEOtBS2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEOtBS2 .
+
+chon:HalfMove  chon:subEventOf  :gamIQMs9 .
+
+:hmgamEOtBS2v  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEOtBS2vu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "Bc2" , "Nxf6" , "Bb7" , "dxc5" , "Rf2" , "fxe3" , "Rb8" , "Rd1" , "Nf8" , "e5" , "axb4" , "c6" , "Rb5" , "Reb7" , "Qe4" , "h6" , "gxf3" , "Qxg6" , "f5" , "Rxb2" , "Kg3" , "Qxf7+" , "e6" , "Be3" , "Kf3" , "b5" , "Ne4" , "Be7" , "Nbd7" , "Rf4" , "R4b6" , "dxc4" , "Re8" , "Nxf6+" , "g5" , "e4" , "d4" , "Qg4" , "c5" , "Rb4" , "exf4" , "h5" , "Qd3" , "O-O" , "f4" , "Bxf3" , "Nc3" , "Bxc5" , "d5" , "fxg6" , "Bxe3" , "Bxg6" , "Kf2" , "b4" , "Qe7" , "Nd7" , "Ra6" , "Re7" , "Qf7" , "Bd3" , "Rd2" , "Kxf7" , "Nf6" , "Rxb6" , "e3" , "gxf4" , "Bxb4" , "c4" , "Nf3" , "a3" , "Ng6" , "Bxc4" ;
+        chon:nextHalfMove      :hmgamEOtBS2v .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEOtBS2 .
+
+:resEOtBS2v  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touEOtBS  a          chon:hessTournament ;
+        chon:atPlace  :plaIQMs92 ;
+        chon:hasName  "Amber-rapid 5th" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrEOtBS2  a   chon:ChessGameReport .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamR9QUZIi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgR9QUZIis , :rolhgi91elJ9S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Khalifman, Alexander" ;
+        chon:hasSANRecord      "Rc8" , "Nc3" , "Bg2" , "e3" , "Bd2" , "Nxd4" , "Nd5" , "Ne4" , "Qd7" , "Bc6" , "Nxd2" , "g6" , "g3" , "Bxd5" , "Rfd8" , "d6" , "Nf3" , "Qd8" , "c4" , "Bg7" , "c5" , "Bd7" , "Nc6" , "cxd4" , "h4" , "a4" , "b3" , "Rac1" , "O-O" , "Rfd1" , "exd4" , "Qxd2" , "h3" , "d4" , "Qa5+" , "Nf6" ;
+        chon:nextHalfMove      :hmgamR9QUZIi , :hmgami91elJ9 .
+
+:hmgami91elJ9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgi91elJ9S ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Khalifman, Alexander" ;
+        chon:hasSANRecord      "d5" , "Bd5" , "Qf5" , "Rb8" , "Qxa6" , "dxe6" , "h5" , "Rc5" , "Rb7" , "Rf3" , "Qf3+" , "Bf3" , "Rb1" , "b6" , "Kxf6" , "Bf6" , "Be4" , "bxc4" , "Rxf6" , "e6" , "Qd7" , "Qc7" , "Kg2" , "Re3" , "Qd3" , "b5" , "Ra1" , "Qxe6" , "Rc2" , "Qa5" , "Kg7" , "a6" , "Re2" , "Ra5" , "a5" , "Re1" , "Bb7" , "Rd8" , "Rf8" ;
+        chon:nextHalfMove      :hmgami91elJ9 .
+
+:opeR9QUZI  a            chon:ChessOpening ;
+        chon:hasECOCode  "E60" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR9QUZI .
+
+:resR9QUZIi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgi91elJ9S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR9QUZI .
+
+chon:HalfMove  chon:subEventOf  :gamR9QUZ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR9QUZI .
+
+:plaR9QUZI  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:cgrR9QUZI  a   chon:ChessGameReport .
+
+:agR9QUZI  a          chon:Agent ;
+        chon:hasName  "Khalifman, Alexander" , "Karpov, Anatoly" .
+
+:rolR9QUZI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agR9QUZI .
+
+:rolhgR9QUZIis  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR9QUZI .
+
+:gamR9QUZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolR9QUZI ;
+        chon:atPlace           :plaR9QUZI ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamR9QUZIi ;
+        chon:hasHalfMove       :hmgamR9QUZIi , :hmgami91elJ9 ;
+        chon:hasLastHalfMove   :hmgami91elJ9 ;
+        chon:hasOpening        :opeR9QUZI ;
+        chon:hasReport         :cgrR9QUZI ;
+        chon:hasResult         :resR9QUZIi ;
+        chon:subEventOf        :touR9QUZ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touR9QUZ  a          chon:hessTournament ;
+        chon:atPlace  :plaR9QUZI ;
+        chon:hasName  "Linares" .

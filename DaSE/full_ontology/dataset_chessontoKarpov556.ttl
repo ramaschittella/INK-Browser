@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamYP6Z1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYP6Z1B ;
+        chon:atPlace           :plaYP6Z1B ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYP6Z1BY ;
+        chon:hasHalfMove       :hmgam0P2fxS2 , :hmgamYP6Z1BY ;
+        chon:hasLastHalfMove   :hmgam0P2fxS2 ;
+        chon:hasOpening        :opeYP6Z1B ;
+        chon:hasReport         :cgrYP6Z1B ;
+        chon:hasResult         :resYP6Z1BY ;
+        chon:subEventOf        :touYP6Z1 .
+
+:hmgam0P2fxS2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0P2fxS2y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Balashov, Yuri S" ;
+        chon:hasSANRecord      "Ned4" , "g5" , "Bxc6" , "Rxf2" , "Rf1" , "Ne6" , "Nc7" , "Qe7" , "Rxd8" , "d8=Q" , "f4" , "Nf2+" , "d7" , "e5" , "Rf8" , "Nc3" , "Qd6" , "Nxg7" , "Qd8" , "Qxf2" , "Qd3" , "Ne4" , "Nxd5" , "Qe8" , "Rc8" , "Bf4" , "f5" , "Nf6" , "Na5" , "Bh2" , "Re1" , "Nac6" , "Nxc6" , "Nxd8" , "exd6" , "Bxf4" , "Qh4" , "Be5" , "Bxb5" , "Rc1" , "Nh5" , "Kh1" , "Qa7+" , "Nxb5" , "Bg7" , "Kg1" ;
+        chon:nextHalfMove      :hmgam0P2fxS2 .
+
+:touYP6Z1  a          chon:hessTournament ;
+        chon:atPlace  :plaYP6Z1B ;
+        chon:hasName  "Munich+" .
+
+:plaYP6Z1B  a         chon:Place ;
+        chon:hasName  "Munich" .
+
+:resYP6Z1BY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrYP6Z1B  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYP6Z1B .
+
+:rolhg0P2fxS2y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYP6Z1B .
+
+:agYP6Z1B  a          chon:Agent ;
+        chon:hasName  "Balashov, Yuri S" , "Karpov, Anatoly" .
+
+:rolYP6Z1B  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYP6Z1B .
+
+chon:HalfMove  chon:subEventOf  :gamYP6Z1 .
+
+:rolhgYP6Z1BYn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYP6Z1B .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYP6Z1B .
+
+:opeYP6Z1B  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+:hmgamYP6Z1BY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYP6Z1BYn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Balashov, Yuri S" ;
+        chon:hasSANRecord      "exf4" , "g6" , "Nbd2" , "Qb6+" , "d5" , "f4" , "Re1" , "Bc2" , "Kh7" , "Qb7" , "Qd2" , "Re8" , "b3" , "Qd8" , "Bd7" , "c4" , "Rec8" , "e4" , "O-O" , "Bxc8" , "d6" , "Nd2" , "Nc6" , "Bxf4" , "Rxc8" , "Qc7" , "c6" , "Nbd7" , "Nb8" , "d4" , "Bf6" , "b5" , "b4" , "Bd8" , "Nf1" , "Bf8" , "Ng3" , "Ng8" , "Qd7" , "cxd5" , "Bb5" , "Nb3" , "h3" , "Nf3" , "c3" , "Rc1" , "Nc5" , "Qc2" , "Bb3" , "Na4" , "Bb7" , "a4" , "Ne2" , "Kh1" , "e5" , "Be3" , "Be7" , "Bd3" , "axb5" , "h6" , "Nf6" , "a6" , "Ba4" ;
+        chon:nextHalfMove      :hmgamYP6Z1BY , :hmgam0P2fxS2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

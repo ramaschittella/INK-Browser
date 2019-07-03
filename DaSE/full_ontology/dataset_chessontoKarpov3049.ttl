@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrPvIaef  a   chon:ChessGameReport .
+
+:agPvIaef  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Mamedyarov,S" .
+
+:rolPvIaef  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPvIaef .
+
+:hmgam2tFoNea  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2tFoNeaA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "h6" , "Qd7" , "Bxd5" , "fxe5" , "Nc3" , "Rd1" , "Qf3+" , "e5" , "Rfe8" , "Bxf6" , "cxd5" , "Qe6" , "exf6+" , "Bg5" , "a6" , "dxe5" , "Qxd3" , "Bd7" , "Rg8" , "Qd3" , "Re3" , "Qxd5" , "c4" , "f4" , "Kf8" , "Rae1" , "Qg4" , "Rg3" , "Bc6" , "Qc2" , "Nd5" , "Kd7" , "Kc6" , "Rg7" , "O-O" , "Ne5" , "Bh4" , "Ke7" , "gxf6" , "Qc3" , "Nxd3" ;
+        chon:nextHalfMove      :hmgam2tFoNea .
+
+:rolhgPvIaef8p  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPvIaef .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPvIaef .
+
+chon:HalfMove  chon:subEventOf  :gamPvIae .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPvIaef .
+
+:resPvIaef8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opePvIaef  a            chon:ChessOpening ;
+        chon:hasECOCode  "E20" .
+
+:hmgamPvIaef8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPvIaef8p , chon:AgentRole , :rolhg2tFoNeaA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "c4" , "O-O" , "c5" , "Ne2" , "a4" , "exd5" , "Nxd5" , "d4" , "bxc3" , "Nc3" , "N5f6" , "Bxc3+" , "e4" , "d6" , "f3" , "Nf6" , "Nbd7" , "cxd5" , "e6" , "d5" , "Bb4" , "Qe7" , "Bd3" ;
+        chon:nextHalfMove      :hmgam2tFoNea , :hmgamPvIaef8 .
+
+:rolhg2tFoNeaA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPvIaef .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaPvIaef  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:gamPvIae  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPvIaef ;
+        chon:atPlace           :plaPvIaef ;
+        chon:atTime            "2008.08.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPvIaef8 ;
+        chon:hasHalfMove       :hmgam2tFoNea , :hmgamPvIaef8 ;
+        chon:hasLastHalfMove   :hmgam2tFoNea ;
+        chon:hasOpening        :opePvIaef ;
+        chon:hasReport         :cgrPvIaef ;
+        chon:hasResult         :resPvIaef8 ;
+        chon:subEventOf        :touPvIae .
+
+:touPvIae  a          chon:hessTournament ;
+        chon:atPlace  :plaPvIaef ;
+        chon:hasName  "Tal Memorial Blitz" .

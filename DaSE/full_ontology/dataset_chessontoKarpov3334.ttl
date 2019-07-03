@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plarptABD  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+:hmgamTrDSYE7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTrDSYE7t , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Georgiev,Ki" ;
+        chon:hasSANRecord      "Nf3" , "b5" , "Ng5" , "Ne5" , "b4" , "e3" , "O-O" , "Ng3" , "Qc2" , "Rxc3" , "Kf2" , "Bxd4" , "Bc6" , "a3" , "Nd5" , "Be2" , "Kf8" , "Nxc3" , "Bd2" , "d4" , "Bd5" , "Rc1" , "Rfc1" , "Bb4" , "Nc3" , "cxd4" , "Ne4" , "Rd8" , "d5" , "Rac8" , "Bxc3" , "Nf6" , "Ke7" , "Bc3" , "c5" , "Qc5" , "Ne4+" , "e6" , "Qxc3" , "f4" , "c4" , "Nd7" , "cxd5" , "Qxd5" , "Nc6" , "Bd7" ;
+        chon:nextHalfMove      :hmgamTrDSYE7 .
+
+chon:HalfMove  chon:subEventOf  :gamrptAB .
+
+:cgrTrDSYE  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrptABD .
+
+:agrptABD  a          chon:Agent ;
+        chon:hasName  "Georgiev,Ki" , "Karpov,Ana" .
+
+:rolrptABD  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolTrDSYE  a             chon:AuthorRole ;
+        chon:performedBy  :agTrDSYE .
+
+:operptABD  a            chon:ChessOpening ;
+        chon:hasECOCode  "E34" .
+
+:gamrptAB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrptABD ;
+        chon:atPlace           :plarptABD ;
+        chon:atTime            "2013.12.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTrDSYE7 ;
+        chon:hasHalfMove       :hmgamTrDSYE7 ;
+        chon:hasLastHalfMove   :hmgamTrDSYE7 ;
+        chon:hasOpening        :operptABD ;
+        chon:hasReport         :cgrTrDSYE ;
+        chon:hasResult         :resrptABDf ;
+        chon:subEventOf        :tourptAB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrptABD .
+
+:tourptAB  a          chon:hessTournament ;
+        chon:atPlace  :plarptABD ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+:rolhgTrDSYE7t  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrptABD .
+
+:resrptABDf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

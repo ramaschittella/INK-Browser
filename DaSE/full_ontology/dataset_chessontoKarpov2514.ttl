@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgQArpPasa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUFKg7d .
+
+:plaUFKg7d  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUFKg7d .
+
+chon:HalfMove  chon:subEventOf  :gamUFKg7 .
+
+:rolUFKg7d  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUFKg7d .
+
+:hmgamQArpPas  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQArpPasa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Ju" ;
+        chon:hasSANRecord      "Qc5" , "Rc2" , "d4" , "e4" , "Rad1" , "dxe4" , "O-O" , "d5" , "cxd5" , "Bb2" , "Nf6" , "Nxd7" , "b6" , "c6" , "Re1" , "exd4" , "Ne3" , "Nf3" , "Rc6" , "Qb1" , "Bxc4" , "Rxc4" , "b3" , "Bf1" , "Qb6" , "Ba6" , "Rc3" , "Kxf5" , "e5" , "f5" , "Rxe1" , "Qb3" , "Bc3" , "Qxc4+" , "e6" , "d2" , "Nxd5" , "Qc2" , "Bxc4+" , "Bf6" , "b4" , "Bd2" , "Bg2" , "Nfd7" , "Ra4" , "Nxf6+" , "Kf6" , "Be7" , "Kf2" , "exf5" , "d3" , "Ke3" , "f3" , "g3" , "bxc3" , "Bb4+" , "c4" , "Nd5" , "Ne5" , "Nf1" , "Rc8" , "dxe1=Q+" , "b5" , "Rxf6" , "Nc2" , "Nd2" , "Qc4" , "Rc5" , "Ra5" , "Rc1" , "fxe4" , "Kf7" , "Bxc3" ;
+        chon:nextHalfMove      :hmgamQArpPas .
+
+:gamUFKg7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUFKg7d ;
+        chon:atPlace           :plaUFKg7d ;
+        chon:atTime            "2000.09.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQArpPas ;
+        chon:hasHalfMove       :hmgamQArpPas ;
+        chon:hasLastHalfMove   :hmgamQArpPas ;
+        chon:hasOpening        :opeUFKg7d ;
+        chon:hasReport         :cgrQArpPa ;
+        chon:hasResult         :resQArpPas ;
+        chon:subEventOf        :touUFKg7 .
+
+:cgrQArpPa  a   chon:ChessGameReport .
+
+:touUFKg7  a          chon:hessTournament ;
+        chon:atPlace  :plaUFKg7d ;
+        chon:hasName  "Super Final" .
+
+:rolQArpPa  a             chon:AuthorRole ;
+        chon:performedBy  :agQArpPa .
+
+:agUFKg7d  a          chon:Agent ;
+        chon:hasName  "Polgar,Ju" , "Karpov,An" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resQArpPas  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeUFKg7d  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgbmvbNyYL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbmvbNy .
+
+:hmgambmvbNyY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbmvbNyYL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "d5" , "O-O" , "Kg1" , "Ne1" , "Rfd1" , "Be6" , "Rc8" , "Kxg2" , "Nf6" , "Qd6" , "Bf6" , "b3" , "a3" , "Bb2" , "Qc2" , "c4" , "g3" , "Ba1" , "e3" , "Bg2" , "Qd5+" , "Bxc3" , "Bxg2" , "e6" , "Rfd8" , "cxd5" , "c5" , "Qb1" , "Nc6" , "Bd5" , "Nc3" , "Rac1" , "a5" , "Nxd5" , "Nf3" , "Nxc3" , "d3" , "Be7" , "b5" , "e5" ;
+        chon:nextHalfMove      :hmgambmvbNyY , :hmgamnmqpkz1 .
+
+:cgrbmvbNy  a   chon:ChessGameReport .
+
+:agbmvbNy  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Ljubojevic,L" .
+
+:rolbmvbNy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbmvbNy .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbmvbNy .
+
+chon:HalfMove  chon:subEventOf  :gamiHIGv .
+
+:rolhgnmqpkz1Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbmvbNy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbmvbNy .
+
+:hmgamnmqpkz1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnmqpkz1Y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qe2" , "Be7" , "Ne1" , "Rb8" , "Bf8" , "Rb1" , "Qe6" , "f6" , "Rb7" , "Qc2" , "Ng2" , "Qd5" , "Bc3" , "Rbd7" ;
+        chon:nextHalfMove      :hmgamnmqpkz1 .
+
+:gamiHIGv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbmvbNy ;
+        chon:atPlace           :plaiHIGvJ ;
+        chon:atTime            "2001.03.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambmvbNyY ;
+        chon:hasHalfMove       :hmgambmvbNyY , :hmgamnmqpkz1 ;
+        chon:hasLastHalfMove   :hmgamnmqpkz1 ;
+        chon:hasOpening        :opebmvbNy ;
+        chon:hasReport         :cgrbmvbNy ;
+        chon:hasResult         :resbmvbNyY ;
+        chon:subEventOf        :toubmvbN .
+
+:toubmvbN  a          chon:hessTournament ;
+        chon:atPlace  :plaiHIGvJ ;
+        chon:hasName  "Amber Blindfold" .
+
+:plaiHIGvJ  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:opebmvbNy  a            chon:ChessOpening ;
+        chon:hasECOCode  "A14" .
+
+:resbmvbNyY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

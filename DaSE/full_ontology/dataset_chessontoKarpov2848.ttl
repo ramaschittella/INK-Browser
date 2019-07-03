@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgE9xVkoXp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agE9xVko .
+
+:cgrE9xVko  a   chon:ChessGameReport .
+
+:agE9xVko  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Yemelin,V" .
+
+:rolE9xVko  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agE9xVko .
+
+:opeE9xVko  a            chon:ChessOpening ;
+        chon:hasECOCode  "B14" .
+
+:resE9xVkoX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamE9xVk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolE9xVko ;
+        chon:atPlace           :plaE9xVko ;
+        chon:atTime            "2006.01.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamE9xVkoX ;
+        chon:hasHalfMove       :hmgamz4g55md , :hmgamE9xVkoX ;
+        chon:hasLastHalfMove   :hmgamz4g55md ;
+        chon:hasOpening        :opeE9xVko ;
+        chon:hasReport         :cgrE9xVko ;
+        chon:hasResult         :resE9xVkoX ;
+        chon:subEventOf        :touE9xVk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agE9xVko .
+
+:touE9xVk  a          chon:hessTournament ;
+        chon:atPlace  :plaE9xVko ;
+        chon:hasName  "Keres Mem Rapid" .
+
+chon:HalfMove  chon:subEventOf  :gamE9xVk .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agE9xVko .
+
+:rolhgz4g55mdp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agE9xVko .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaE9xVko  a         chon:Place ;
+        chon:hasName  "Tallinn EST" .
+
+:hmgamE9xVkoX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgE9xVkoXp , chon:AgentRole , :rolhgz4g55mdp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "c6" , "e4" , "d5" , "d4" , "exd5" , "cxd5" ;
+        chon:nextHalfMove      :hmgamz4g55md , :hmgamE9xVkoX .
+
+:hmgamz4g55md  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgz4g55mdp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Re1" , "O-O" , "Rc2" , "Ra7" , "Na4" , "Qxc5" , "c4" , "Nf6" , "b4" , "Kd1" , "Qd2" , "Bxd4" , "Bd2" , "Ba4+" , "Rxa2" , "axb4" , "Qxc1" , "Bc2" , "Qc2" , "c5" , "Qa5" , "Bxf8" , "Nfd7" , "Ke2" , "h6" , "Bxb4" , "Nxc6" , "Nc6" , "a5" , "Nc3" , "Bf6" , "Rc1" , "e6" , "Qf3+" , "Qb2" , "Bxc6" , "Qf2+" , "Bd3" , "Nxb6" , "Qd6" , "Nf3" , "Nbxd7" , "Bxd7" , "f4" , "Be7" , "Rxc1+" , "Ne5" , "b6" , "Ra1+" , "Qxf4" , "Qxg2" , "Rac1" ;
+        chon:nextHalfMove      :hmgamz4g55md .

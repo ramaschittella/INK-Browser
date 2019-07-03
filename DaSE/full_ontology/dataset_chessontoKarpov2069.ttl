@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toucfLNS  a          chon:hessTournament ;
+        chon:atPlace  :placfLNSI ;
+        chon:hasName  "Amber-blind 5th" .
+
+:hmgamnfG2pJS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnfG2pJSN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rf8" , "Ne3" , "f4" , "Rb5" , "Bc3" , "Nd7" , "Bc6" , "Nxb4" , "a4" , "Ke2" , "Be6" , "Bd5" , "e5" , "b3" , "Kf7" , "Kg2" , "Rb8" , "Kh7" , "Nb6" , "g3" , "Nf5" , "Rd8" , "Bxd5" , "Ba3" , "h5" , "Qxc4" , "Rxd5" , "Kb5" , "Bg2" , "exf7+" , "c5" , "Ne4" , "g7+" , "Bc4" , "Ke3" , "Bc4+" , "Bd6" , "e6" , "d5" , "Kf2" , "Nxa6" , "Rxb8+" , "bxa6" , "Nb4" , "Bc7" , "Be2" , "Rc7" , "Nc3" , "Be7" , "Bf1" , "Nf3" , "Nf6" , "Kf8" , "Nc6" , "Rd1" , "Qxf7" , "axb5" , "Kg6" , "h6" , "Qe8" , "Kh8" , "Bxb8" , "exd5" , "c4" , "Bg6" , "Re8" , "Ra2" , "e4" , "Nxd5" , "Ra5" , "Kf3" , "Ne5" , "Rb7" , "Rxf7" , "Bd2" , "a6" , "Nc4" , "Ne8" , "Bd7" , "Ra8" , "O-O" , "b5" , "Bf7" , "Nbd7" , "Nc7" , "Rxa6" , "h4" , "Kg7" , "Bb4" , "Qxf7+" , "Kc6" , "g5" , "Ncd5" , "Bf5" , "Kd3" , "Nec5" , "Ng4" , "Ba5" , "Qc2" , "Kc4" , "N6d5" , "hxg6" , "dxc4" , "Nd4" , "Bxb4" , "d4" ;
+        chon:nextHalfMove      :hmgamnfG2pJS .
+
+:agcfLNSI  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Piket, Jeroen" .
+
+:rolhgnfG2pJSN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcfLNSI .
+
+:opecfLNSI  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:rescfLNSIN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcfLNSI .
+
+chon:HalfMove  chon:subEventOf  :gamcfLNS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcfLNSI .
+
+:placfLNSI  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:cgrcfLNSI  a   chon:ChessGameReport .
+
+:rolcfLNSI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcfLNSI .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamcfLNS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcfLNSI ;
+        chon:atPlace           :placfLNSI ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnfG2pJS ;
+        chon:hasHalfMove       :hmgamnfG2pJS ;
+        chon:hasLastHalfMove   :hmgamnfG2pJS ;
+        chon:hasOpening        :opecfLNSI ;
+        chon:hasReport         :cgrcfLNSI ;
+        chon:hasResult         :rescfLNSIN ;
+        chon:subEventOf        :toucfLNS .

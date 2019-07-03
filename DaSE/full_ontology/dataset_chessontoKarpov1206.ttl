@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgW822pNA6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag10kSFP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag10kSFP .
+
+:rolhg98VfYMDg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag10kSFP .
+
+:rol10kSFP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag10kSFP .
+
+:rolhg10kSFPk8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag10kSFP .
+
+chon:HalfMove  chon:subEventOf  :gam10kSF .
+
+:ag10kSFP  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Panno, Oscar" .
+
+:gam10kSF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol10kSFP ;
+        chon:atPlace           :pla10kSFP ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam10kSFPk ;
+        chon:hasHalfMove       :hmgam10kSFPk , :hmgamW822pNA , :hmgam98VfYMD ;
+        chon:hasLastHalfMove   :hmgam98VfYMD ;
+        chon:hasOpening        :ope10kSFP ;
+        chon:hasReport         :cgr10kSFP ;
+        chon:hasResult         :res10kSFPk ;
+        chon:subEventOf        :tou10kSF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla10kSFP  a         chon:Place ;
+        chon:hasName  "Thessaloniki" .
+
+:hmgam98VfYMD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg98VfYMDg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxd5" , "Rd3" , "Rde8" , "Ne4+" , "Bxd5" , "Nxd5" ;
+        chon:nextHalfMove      :hmgam98VfYMD .
+
+:ope10kSFP  a            chon:ChessOpening ;
+        chon:hasECOCode  "A30" .
+
+:res10kSFPk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgr10kSFP  a   chon:ChessGameReport .
+
+:hmgam10kSFPk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg10kSFPk8 , :rolhgW822pNA6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b3" , "Rc2" , "Rhg6" , "Nc7" , "Qb8" , "f4" , "Kc3" , "Nxe7" , "Nf3" , "Rf2" , "Qxf4" , "Ba8" , "h3" , "d5" , "Rdd8" , "Bg2" , "Kg6" , "a6" , "d4" , "Raf1" , "Qc8" , "Kd3" , "Rfd2" , "Bb2" , "Nd2" , "g5" , "Rad1" , "Kf2" , "Rh8" , "Rdg8" , "O-O" , "Kf1" , "b6" , "Ne6" , "Kf7" , "Rc5" , "Nf6" , "N6c7" , "a3" , "Qxd4" , "Rd2" , "Rd3" , "g4" , "Bc3" , "Nc6" , "Rh6" , "Rh7" , "Rd8" , "Bh3" , "g3" , "Nb3" , "Bd7" , "Nd8" , "e6" , "gxf4" , "Qf4" , "Na5" , "Rab8" , "Rd7" , "Nc3" , "Rd6" , "Bh1" , "b5" , "f6" , "exf5" , "b4" , "h5" , "Bd4" , "Rc3" , "Be7" , "Rd1" , "h4" , "e3" , "d6" , "Re8" , "Bc8" , "Rhe7" , "Bb7" , "Ke2" , "Bc1" , "c4" , "c6" , "Rbd8" , "c5" , "Rdc1" , "cxd4" , "Nde6" , "Nxe7+" , "Ne8" , "Ra1" , "Nd5" , "f5" , "Ng5" , "Nd4" ;
+        chon:nextHalfMove      :hmgam10kSFPk , :hmgamW822pNA .
+
+:tou10kSF  a          chon:hessTournament ;
+        chon:atPlace  :pla10kSFP ;
+        chon:hasName  "Thessaloniki ol (Men)" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag10kSFP .
+
+:hmgamW822pNA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgW822pNA6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nd6" , "Rd1" , "Rd8" ;
+        chon:nextHalfMove      :hmgam98VfYMD , :hmgamW822pNA .

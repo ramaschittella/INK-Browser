@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plasZI80e  a         chon:Place ;
+        chon:hasName  "Cap d'Agde" .
+
+:rolhgoXpgScYd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsZI80e .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsZI80e .
+
+:gamsZI80  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsZI80e ;
+        chon:atPlace           :plasZI80e ;
+        chon:atTime            "1998.10.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsZI80eH ;
+        chon:hasHalfMove       :hmgamoXpgScY , :hmgamsZI80eH ;
+        chon:hasLastHalfMove   :hmgamoXpgScY ;
+        chon:hasOpening        :opesZI80e ;
+        chon:hasReport         :cgrsZI80e ;
+        chon:hasResult         :ressZI80eH ;
+        chon:subEventOf        :tousZI80 .
+
+:hmgamoXpgScY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgoXpgScYd ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qd7" , "Nb4" , "Nxe2+" , "Ba3" , "a5" , "Nc6" , "Nf4" , "b6+" , "Qa4" , "Rxe2" , "b5" , "Re1" , "Ng6" , "Nc3" , "d4" , "b4" , "d3" , "dxc5" , "Rd2" ;
+        chon:nextHalfMove      :hmgamoXpgScY .
+
+chon:HalfMove  chon:subEventOf  :gamsZI80 .
+
+:agsZI80e  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hamdouchi, Hichem" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsZI80e .
+
+:rolsZI80e  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsZI80e .
+
+:opesZI80e  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:hmgamsZI80eH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsZI80eHf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e6" , "Ne7" , "c5" , "e4" , "Be2" , "Nf3" , "d4" , "c6" , "c4" , "Bf5" , "Nbc6" , "O-O" , "e5" , "d5" ;
+        chon:nextHalfMove      :hmgamsZI80eH , :hmgamoXpgScY .
+
+:rolhgsZI80eHf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsZI80e .
+
+:tousZI80  a          chon:hessTournament ;
+        chon:atPlace  :plasZI80e ;
+        chon:hasName  "Cap d'Agde-A" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrsZI80e  a   chon:ChessGameReport .
+
+:ressZI80eH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

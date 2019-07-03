@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolNFwFfp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNFwFfp .
+
+:touNFwFf  a          chon:hessTournament ;
+        chon:atPlace  :plaNFwFfp ;
+        chon:hasName  "Buenos Aires" .
+
+:agNFwFfp  a          chon:Agent ;
+        chon:hasName  "Uhlmann, Wolfgang" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNFwFfp .
+
+:rolhgqFDc9qXB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNFwFfp .
+
+:hmgamfHHYzpU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfHHYzpUo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uhlmann, Wolfgang" ;
+        chon:hasSANRecord      "g4" , "Qa5" , "Bd3" , "f5" , "O-O" , "Nf5" , "Ng6" , "Ba3" , "Nd6" , "Qd2" , "Nbc6" , "Nce7" , "f4" , "hxg6" , "Be2" , "Nh4" , "Nxg6" , "Bd7" , "Bh2" , "h3" , "f6" , "hxg4" , "c4" , "exf6" , "gxf6" , "a4" , "g5" , "Rde8" , "Bd6" , "O-O-O" , "Bf3" ;
+        chon:nextHalfMove      :hmgamqFDc9qX , :hmgamfHHYzpU .
+
+:plaNFwFfp  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+chon:HalfMove  chon:subEventOf  :gamNFwFf .
+
+:hmgamqFDc9qX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqFDc9qXB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uhlmann, Wolfgang" ;
+        chon:hasSANRecord      "Ra1" , "g6" , "Bg3" , "Qg7" , "Qe1" , "a2" , "Rxe2" , "e2" , "Qd7" , "Re7" , "axb5" , "Qxb5" , "Be8" , "Kf2" , "Qd5" , "Re5" , "Qe3" , "Reh7" , "Kxh1" , "a4" , "a3" , "b6" , "Rh1" , "Rxh1+" , "Bxe4" , "Kg1" , "Rxe6" , "Qxh1" , "Qxg6" , "e3+" , "Rfb1" , "Bxb5" , "Bh4" , "dxe4" , "Ne4" , "Rb5" , "Re1" , "a5" ;
+        chon:nextHalfMove      :hmgamqFDc9qX .
+
+:opeNFwFfp  a            chon:ChessOpening ;
+        chon:hasECOCode  "C19" .
+
+:resNFwFfp6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrNFwFfp  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamNFwFf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNFwFfp ;
+        chon:atPlace           :plaNFwFfp ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNFwFfp6 ;
+        chon:hasHalfMove       :hmgamfHHYzpU , :hmgamNFwFfp6 , :hmgamqFDc9qX ;
+        chon:hasLastHalfMove   :hmgamqFDc9qX ;
+        chon:hasOpening        :opeNFwFfp ;
+        chon:hasReport         :cgrNFwFfp ;
+        chon:hasResult         :resNFwFfp6 ;
+        chon:subEventOf        :touNFwFf .
+
+:rolhgfHHYzpUo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNFwFfp .
+
+:hmgamNFwFfp6  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfHHYzpUo , :rolhgNFwFfp6Z ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uhlmann, Wolfgang" ;
+        chon:hasSANRecord      "d4" , "e5" , "d5" , "a3" , "Ne7" , "e4" , "Nf3" , "Bb4" , "e6" , "Bxc3+" , "c5" , "bxc3" , "Nc3" ;
+        chon:nextHalfMove      :hmgamfHHYzpU , :hmgamNFwFfp6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNFwFfp .
+
+:rolhgNFwFfp6Z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNFwFfp .

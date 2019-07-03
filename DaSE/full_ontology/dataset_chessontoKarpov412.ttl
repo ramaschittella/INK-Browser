@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr47A2Y7  a   chon:ChessGameReport .
+
+:plaR9ENr6  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:resR9ENr6H  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgam47A2Y7J  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg47A2Y7J2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sofrevski, Jovan" ;
+        chon:hasSANRecord      "b4" , "Rcc8" , "b5" , "a5" , "Rxa1" , "Bg2" , "Nc3" , "Nge2" , "f5" , "e5" , "Nf6" , "h4" , "Qxe5" , "d5" , "Be3" , "Bh6" , "Bd7" , "h5" , "Rxa4" , "Na4" , "cxd5" , "Rfc8" , "Be8" , "hxg3+" , "b3" , "a3" , "e4" , "Qb2" , "Qb6" , "c4" , "Nc5" , "f3" , "Ne8" , "Bxg7" , "Bf1" , "Ra8" , "Bg7" , "h3" , "g3" , "Qxd6" , "Nxg7" , "axb4" , "Ra3" , "Ra7" , "Qh6" , "gxf5" , "c6" , "exf5" , "g6" , "Qd8" , "d6" , "Nbd7" , "Nxa4" , "Rcb8" , "Rfc1" , "Rc4" , "d4" , "Qd2" , "Kh2" , "Kg2" , "Rb1" , "Ra1" , "O-O" ;
+        chon:nextHalfMove      :hmgam47A2Y7J , :hmgamY5haH53 .
+
+:rol47A2Y7  a             chon:AuthorRole ;
+        chon:performedBy  :ag47A2Y7 .
+
+:agR9ENr6  a          chon:Agent ;
+        chon:hasName  "Sofrevski, Jovan" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR9ENr6 .
+
+:opeR9ENr6  a            chon:ChessOpening ;
+        chon:hasECOCode  "E72" .
+
+chon:HalfMove  chon:subEventOf  :gamR9ENr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR9ENr6 .
+
+:gamR9ENr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolR9ENr6 ;
+        chon:atPlace           :plaR9ENr6 ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam47A2Y7J ;
+        chon:hasHalfMove       :hmgamY5haH53 , :hmgam47A2Y7J ;
+        chon:hasLastHalfMove   :hmgamY5haH53 ;
+        chon:hasOpening        :opeR9ENr6 ;
+        chon:hasReport         :cgr47A2Y7 ;
+        chon:hasResult         :resR9ENr6H ;
+        chon:subEventOf        :touR9ENr .
+
+:touR9ENr  a          chon:hessTournament ;
+        chon:atPlace  :plaR9ENr6 ;
+        chon:hasName  "Skopje" .
+
+:hmgamY5haH53  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgY5haH53Z ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sofrevski, Jovan" ;
+        chon:hasSANRecord      "Qxf4" , "Bd3" , "Rb6" , "Qg5" , "Bf7" , "f4+" , "Kxh3" , "Ne2" , "Kxg3" , "Qh5+" , "Rh6" , "Rc7" , "Bxb5" , "Rxh3" ;
+        chon:nextHalfMove      :hmgamY5haH53 .
+
+:rolhgY5haH53Z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR9ENr6 .
+
+:rolhg47A2Y7J2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR9ENr6 .
+
+:rolR9ENr6  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

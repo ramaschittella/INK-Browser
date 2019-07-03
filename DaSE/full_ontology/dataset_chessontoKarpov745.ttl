@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resRpi8SlO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamjrsqdmF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjrsqdmF2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan, Yasser" ;
+        chon:hasSANRecord      "Nc6" , "Nxa7" , "Rg8+" , "Re4+" , "Qf3" , "Qg8" , "Kd6" , "Bb6" , "Bxc5" , "Ka6" , "Rxf4+" , "Rg3" , "Rh8" , "Bf2" , "Qxg3" , "Qg3" , "Rb2" , "Rh2+" , "Ra8" , "Nxe5" , "Qe8" , "Kb6" , "c5" , "Rh3" , "Ra7" , "Rg7+" , "a6" , "hxg4" , "Nc4+" , "a5" , "Rb7" , "Qh1" , "d4" , "Rxa7+" , "Bd4" , "Qxf1+" , "Nc4" , "Rc4" , "Ra2" , "Ra1" , "Rxa6" , "Ka5" , "Qh5+" , "Qf1" , "dxc5" , "Ke8" , "Rh6" , "Rg2" , "Rh7" , "Rd3" , "Kd3" , "Rg1" , "Rxg3" , "Qg1" , "h5" , "e5" , "Rc7" , "Bh4" , "Ke2" , "Kd8" , "Qc6" , "Kd7" , "f4" , "Rg6" , "Kf2" , "Rxc3" , "Qg5" , "Bb8+" , "Kf1" , "Rh5" , "g4" , "Kb7" , "Bf2+" , "Kd2" , "Rh4" , "Nb6" , "a7" , "Kc7" , "Kxf1" , "Ba7" , "Rh3+" , "bxc5" , "Qh2+" , "gxf5" , "Kc6" ;
+        chon:nextHalfMove      :hmgamjrsqdmF .
+
+:rolhgRpi8SlOD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRpi8Sl .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRpi8Sl .
+
+:cgrRpi8Sl  a   chon:ChessGameReport .
+
+:hmgamRpi8SlO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRpi8SlOD , :rolhgjrsqdmF2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seirawan, Yasser" ;
+        chon:hasSANRecord      "Bb4" , "Ba6" , "Bxa6" , "Rc8" , "Bf6" , "c6" , "Nxa6" , "Qf7" , "Qh6" , "Qg7" , "Rf3" , "Bg5" , "Ne7" , "Nc3" , "Nh3" , "Rg8" , "Qd7" , "Nf4" , "Qh5+" , "Bxc3+" , "Ng6" , "Qh3" , "g6" , "Qg4" , "O-O" , "Nb8" , "a4" , "a3" , "d4" , "bxc3" , "f5" , "f4" , "Nxf4" , "d5" , "e5" , "Bxf4" , "Nc6" , "e6" , "h3" , "Na5" , "e4" , "b6" ;
+        chon:nextHalfMove      :hmgamjrsqdmF , :hmgamRpi8SlO .
+
+chon:HalfMove  chon:subEventOf  :gamRpi8S .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRpi8Sl .
+
+:rolhgjrsqdmF2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRpi8Sl .
+
+:plaRpi8Sl  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:agRpi8Sl  a          chon:Agent ;
+        chon:hasName  "Seirawan, Yasser" , "Karpov, Anatoly" .
+
+:gamRpi8S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRpi8Sl ;
+        chon:atPlace           :plaRpi8Sl ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRpi8SlO ;
+        chon:hasHalfMove       :hmgamRpi8SlO , :hmgamjrsqdmF ;
+        chon:hasLastHalfMove   :hmgamjrsqdmF ;
+        chon:hasOpening        :opeRpi8Sl ;
+        chon:hasReport         :cgrRpi8Sl ;
+        chon:hasResult         :resRpi8SlO ;
+        chon:subEventOf        :touRpi8S .
+
+:touRpi8S  a          chon:hessTournament ;
+        chon:atPlace  :plaRpi8Sl ;
+        chon:hasName  "Mar del Plata" .
+
+:rolRpi8Sl  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRpi8Sl .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeRpi8Sl  a            chon:ChessOpening ;
+        chon:hasECOCode  "C16" .

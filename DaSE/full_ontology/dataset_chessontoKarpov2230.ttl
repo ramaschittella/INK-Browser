@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhggFilZ6Np  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggFilZ6 .
+
+:hmgamgFilZ6N  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhggFilZ6Np , :rolhgsFcBw7QA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "exd5" , "e4" , "d5" ;
+        chon:nextHalfMove      :hmgamsFcBw7Q , :hmgamgFilZ6N .
+
+:rolhgsFcBw7QA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggFilZ6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggFilZ6 .
+
+chon:HalfMove  chon:subEventOf  :gamgFilZ .
+
+:hmgamsFcBw7Q  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsFcBw7QA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "g6" , "hxg3" , "h5" , "Nf6" , "Bg5" , "Nd5" , "Nf3" , "Rc7" , "Bxe7" , "Rxh3+" , "Re3" , "a4" , "Bc4" , "Ra1" , "Rc4" , "Ne5" , "Rb8" , "Be7" , "R3e2" , "Kg7" , "d4" , "Nbd7" , "Rh8" , "h4" , "Bg4" , "Rxc6" , "e6" , "Rc1" , "Re2" , "f4" , "Bxe2" , "Rfe1" , "Qe2" , "b6" , "Qxe7" , "Ne4" , "Qxc6" , "Rac8" , "Qb3" , "Qc6" , "c3" , "g3" , "Bxd5" , "c6" , "Kf6" , "Nf4" , "h3" , "Nxe2" , "a5" , "cxd5" , "Rg2" , "Nd3" , "Nc3" , "Rxg3" , "Kg1" , "Qe1" , "Qb5" , "Qd1" , "Qd8" , "Qd6" , "Qxd5" , "Rbc8" , "Kh1" , "Rae1" , "O-O" , "Nge2" ;
+        chon:nextHalfMove      :hmgamsFcBw7Q .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggFilZ6 .
+
+:plagFilZ6  a         chon:Place ;
+        chon:hasName  "Villarrobledo" .
+
+:cgrgFilZ6  a   chon:ChessGameReport .
+
+:aggFilZ6  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Martos, J." .
+
+:rolgFilZ6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggFilZ6 .
+
+:opegFilZ6  a            chon:ChessOpening ;
+        chon:hasECOCode  "B01" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamgFilZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgFilZ6 ;
+        chon:atPlace           :plagFilZ6 ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgFilZ6N ;
+        chon:hasHalfMove       :hmgamgFilZ6N , :hmgamsFcBw7Q ;
+        chon:hasLastHalfMove   :hmgamsFcBw7Q ;
+        chon:hasOpening        :opegFilZ6 ;
+        chon:hasReport         :cgrgFilZ6 ;
+        chon:hasResult         :resgFilZ6N ;
+        chon:subEventOf        :tougFilZ .
+
+:tougFilZ  a          chon:hessTournament ;
+        chon:atPlace  :plagFilZ6 ;
+        chon:hasName  "Villarrobledo rapid op" .
+
+:resgFilZ6N  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

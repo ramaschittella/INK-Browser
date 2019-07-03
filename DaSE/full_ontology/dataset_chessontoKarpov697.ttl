@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag1BKciV  a          chon:Agent ;
+        chon:hasName  "Smyslov, Vassily" , "Karpov, Anatoly" .
+
+:rol1BKciV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1BKciV .
+
+:gam1BKci  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1BKciV ;
+        chon:atPlace           :pla1BKciV ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1BKciVJ ;
+        chon:hasHalfMove       :hmgam1BKciVJ , :hmgamrBVvEWB ;
+        chon:hasLastHalfMove   :hmgamrBVvEWB ;
+        chon:hasOpening        :ope1BKciV ;
+        chon:hasReport         :cgr1BKciV ;
+        chon:hasResult         :res1BKciVJ ;
+        chon:subEventOf        :tou1BKci .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1BKciV .
+
+:hmgamrBVvEWB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrBVvEWBZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Bf8" , "O-O" , "hxg6" , "Be2" , "dxc4" , "Qd4" , "Re7" , "Rxg6+" , "Rc1" , "Qe5" , "Nxc5" , "h3" , "Bb2" , "Rf3" , "Qb3" , "Bg7" , "Rf8" , "Qf6" , "h5" , "Bd5" , "Qb2" , "bxc4" , "Qc7" , "Nf6" , "e3" , "Nc5" , "Ne4" , "Qa3" , "Bg4" , "Nd7" , "Qh4+" , "dxc5" , "c5" , "Bxf3" , "exd4" , "Re8" , "Nbd7" , "b3" , "h4" , "g6" , "Kh7" , "Nxc3" , "Rg3" , "Rxc3" , "e5" , "Bxc3" , "Rfd1" , "Rb8" , "Nc3" ;
+        chon:nextHalfMove      :hmgamrBVvEWB .
+
+chon:HalfMove  chon:subEventOf  :gam1BKci .
+
+:res1BKciVJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1BKciV .
+
+:ope1BKciV  a            chon:ChessOpening ;
+        chon:hasECOCode  "D94" .
+
+:rolhgrBVvEWBZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1BKciV .
+
+:tou1BKci  a          chon:hessTournament ;
+        chon:atPlace  :pla1BKciV ;
+        chon:hasName  "Moscow" .
+
+:rolhg1BKciVJA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1BKciV .
+
+:hmgam1BKciVJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg1BKciVJA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Nf3" , "d5" , "d4" , "c4" , "c6" ;
+        chon:nextHalfMove      :hmgamrBVvEWB , :hmgam1BKciVJ .
+
+:pla1BKciV  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr1BKciV  a   chon:ChessGameReport .

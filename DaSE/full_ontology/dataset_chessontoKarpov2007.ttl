@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamci314LS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgci314LSA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Glek, Igor V" ;
+        chon:hasSANRecord      "Kh1" , "Qe6" , "Kxg7" , "Qe3+" , "Nf6" , "Qc8" , "Bxe5" , "Ng4" , "Bxg7" , "Qg4" , "Rad1" , "b3" , "dxe5" , "Bd4" , "e5" , "h3" ;
+        chon:nextHalfMove      :hmgamci314LS .
+
+:res1i6MwMP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla1i6MwM  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:cgr1i6MwM  a   chon:ChessGameReport .
+
+:rolhgci314LSA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1i6MwM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1i6MwM .
+
+:ag1i6MwM  a          chon:Agent ;
+        chon:hasName  "Glek, Igor V" , "Karpov, Anatoly" .
+
+:rol1i6MwM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1i6MwM .
+
+chon:HalfMove  chon:subEventOf  :gam1i6Mw .
+
+:ope1i6MwM  a            chon:ChessOpening ;
+        chon:hasECOCode  "E94" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1i6MwM .
+
+:hmgam1i6MwMP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgci314LSA , chon:AgentRole , :rolhg1i6MwMPp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Glek, Igor V" ;
+        chon:hasSANRecord      "f4" , "Nf6" , "Nf3" , "Bg7" , "Nxd4" , "Nxc6" , "Re8" , "Be2" , "e5" , "exd4" , "g6" , "O-O" , "Nc3" , "bxc6" , "d4" , "Be3" , "d6" , "Bxf3" , "f3" , "Bg4" , "Nc6" , "c4" , "Bf3" , "Nh5" , "Qxf3" , "e4" ;
+        chon:nextHalfMove      :hmgam1i6MwMP , :hmgamci314LS .
+
+:rolhg1i6MwMPp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1i6MwM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam1i6Mw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1i6MwM ;
+        chon:atPlace           :pla1i6MwM ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1i6MwMP ;
+        chon:hasHalfMove       :hmgamci314LS , :hmgam1i6MwMP ;
+        chon:hasLastHalfMove   :hmgamci314LS ;
+        chon:hasOpening        :ope1i6MwM ;
+        chon:hasReport         :cgr1i6MwM ;
+        chon:hasResult         :res1i6MwMP ;
+        chon:subEventOf        :tou1i6Mw .
+
+:tou1i6Mw  a          chon:hessTournament ;
+        chon:atPlace  :pla1i6MwM ;
+        chon:hasName  "Biel SKA" .

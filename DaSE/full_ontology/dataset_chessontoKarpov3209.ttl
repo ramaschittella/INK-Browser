@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res9B3xTgp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gam9B3xT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9B3xTg ;
+        chon:atPlace           :pla9B3xTg ;
+        chon:atTime            "2010.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamADeRghf ;
+        chon:hasHalfMove       :hmgamLBb6Nii , :hmgamADeRghf ;
+        chon:hasLastHalfMove   :hmgamLBb6Nii ;
+        chon:hasOpening        :ope9B3xTg ;
+        chon:hasReport         :cgr9B3xTg ;
+        chon:hasResult         :res9B3xTgp ;
+        chon:subEventOf        :tou9B3xT .
+
+:tou9B3xT  a          chon:hessTournament ;
+        chon:atPlace  :pla9B3xTg ;
+        chon:hasName  "Trophee CCAS GpA" .
+
+:hmgamADeRghf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLBb6Niid , chon:AgentRole , :rolhgADeRghf1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Kg2" , "Nc6" , "Rxd4" , "Bf8" , "O-O" , "Rc4" , "a4" , "Rcc1" , "Rfd1" , "Bd2" , "Qe6" , "Qc3" , "c5" , "Re8" , "e5" , "Ba4" , "g6" , "Rd3" , "h4" , "Ra3" , "Bd7" , "Nd4" , "Rdd8" , "Qd8" , "Kg7" , "Ne6" , "Nc3" , "Nd7" , "Rxe4" , "R8d7" , "Rac1" , "Nb8" , "Qc7" , "Qb8" , "Nf8" , "d3" , "Rd4" , "c4" , "Qxd6" , "Red7" , "Qb2" , "Qxa4" , "d6" , "b4" , "Rd7" , "Rcd1" , "a5" , "Bxd4" , "Bxc5" , "Qf6" , "Rxa5" , "Qe7" , "c6" , "Bxd7" , "Kf1" , "Rxb7" , "g3" , "bxc5" , "Be3" , "Qd6" , "Re3" , "h5" , "Nd2" , "Ra4" , "Kg1" , "Nb3" , "Bh6" , "Nxd5" , "Nf3" , "Bg7" , "Qb3" , "Nd5" , "Rb6" , "Nc5" , "Nb6" , "Rxd3" , "Nf6" , "Qe2" , "Qf4" , "Rad8" , "Qc2" , "Re7" , "a6" , "e4" , "Nxa4" , "Re1" , "cxd6" , "Bb5" , "h3" , "g4" , "Rb1" , "Rf3" , "Bd6" , "Qa2" ;
+        chon:nextHalfMove      :hmgamADeRghf , :hmgamLBb6Nii .
+
+:pla9B3xTg  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9B3xTg .
+
+chon:HalfMove  chon:subEventOf  :gam9B3xT .
+
+:cgr9B3xTg  a   chon:ChessGameReport .
+
+:rolhgADeRghf1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9B3xTg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9B3xTg .
+
+:rolhgLBb6Niid  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9B3xTg .
+
+:ag9B3xTg  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Kosintseva,N" .
+
+:rol9B3xTg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9B3xTg .
+
+:ope9B3xTg  a            chon:ChessOpening ;
+        chon:hasECOCode  "C65" .
+
+:hmgamLBb6Nii  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLBb6Niid , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qd5" , "Qb2" , "Qc4" ;
+        chon:nextHalfMove      :hmgamLBb6Nii .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

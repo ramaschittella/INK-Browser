@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgWGkVE5dx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWGkVE5 .
+
+:gamWGkVE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWGkVE5 ;
+        chon:atPlace           :plaWGkVE5 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWGkVE5d ;
+        chon:hasHalfMove       :hmgamnIwe155 , :hmgamWGkVE5d ;
+        chon:hasLastHalfMove   :hmgamnIwe155 ;
+        chon:hasOpening        :opeWGkVE5 ;
+        chon:hasReport         :cgrWGkVE5 ;
+        chon:hasResult         :resWGkVE5d ;
+        chon:subEventOf        :touWGkVE .
+
+:rolhgnIwe155V  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWGkVE5 .
+
+:touWGkVE  a          chon:hessTournament ;
+        chon:atPlace  :plaWGkVE5 ;
+        chon:hasName  "Mazatlan rapid" .
+
+:resWGkVE5d  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWGkVE5 .
+
+chon:HalfMove  chon:subEventOf  :gamWGkVE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWGkVE5 .
+
+:plaWGkVE5  a         chon:Place ;
+        chon:hasName  "Mazatlan" .
+
+:hmgamnIwe155  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnIwe155V ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxg4" , "Rh7" , "Rg8" , "Nb7" , "g3" , "Nd2" , "Bd2" , "Kh2" , "h5" , "a5" , "f6" , "Bc3" , "Nc5" , "Nxg4" , "Ke6" , "Qe6" , "Rg6" , "Rf7" , "Qg4" , "Rf1" , "Rxe7" , "g4" , "f4" , "Nxe7+" , "Kd7" , "Rf5" , "Ref1" , "Rxf3" , "Nh6" , "Rae1" , "Rge8" , "h4" , "Rg4" , "Ne3" , "Reg7" , "c5" , "R5f3" , "b6" , "Nf1" , "Nf5" , "gxf3" , "Nd6" ;
+        chon:nextHalfMove      :hmgamnIwe155 .
+
+:cgrWGkVE5  a   chon:ChessGameReport .
+
+:agWGkVE5  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gavrikov, Viktor" .
+
+:rolWGkVE5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWGkVE5 .
+
+:hmgamWGkVE5d  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWGkVE5dx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxc4" , "Nd7" , "Nbd2" , "Bb5" , "Qe2" , "d3" , "b3" , "Nc6" , "Nf6" , "Be7" , "g5" , "e4" , "Ba4" , "Nf3" , "Nc4" , "Bb2" , "dxc6" , "Rfb1" , "bxc4" , "Be6" , "O-O" , "Bxc6" , "a6" , "Rhg8" , "Qd6" , "O-O-O" , "e5" ;
+        chon:nextHalfMove      :hmgamWGkVE5d , :hmgamnIwe155 .
+
+:opeWGkVE5  a            chon:ChessOpening ;
+        chon:hasECOCode  "C85" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

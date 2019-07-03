@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touueDHf  a          chon:hessTournament ;
+        chon:atPlace  :plaueDHfE ;
+        chon:hasName  "Montilla" .
+
+:opeueDHfE  a            chon:ChessOpening ;
+        chon:hasECOCode  "D86" .
+
+:hmgamueDHfE4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGeAXME7y , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamGeAXME7 .
+
+:hmgamGeAXME7  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGeAXME7y ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Bg7" , "Na5" , "Nc6" , "Bxg7" , "f3" , "c4" , "Nc3" , "cxd5" , "Rac1" , "Qd7" , "cxd4" , "O-O" , "Ne2" , "Bh6" , "c5" , "Bc4" , "Qd2" , "Nxd5" , "Be3" , "Bb7" , "Rac8" , "Nxc3" , "bxc3" , "b6" , "Nf6" , "d5" , "g6" , "e4" , "Bd3" , "Kxg7" ;
+        chon:nextHalfMove      :hmgamGeAXME7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agueDHfE .
+
+chon:HalfMove  chon:subEventOf  :gamueDHf .
+
+:resueDHfE4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agueDHfE .
+
+:gamueDHf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolueDHfE ;
+        chon:atPlace           :plaueDHfE ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamueDHfE4 ;
+        chon:hasHalfMove       :hmgamGeAXME7 , :hmgamueDHfE4 ;
+        chon:hasLastHalfMove   :hmgamGeAXME7 ;
+        chon:hasOpening        :opeueDHfE ;
+        chon:hasReport         :cgrueDHfE ;
+        chon:hasResult         :resueDHfE4 ;
+        chon:subEventOf        :touueDHf .
+
+:plaueDHfE  a         chon:Place ;
+        chon:hasName  "Montilla" .
+
+:cgrueDHfE  a   chon:ChessGameReport .
+
+:rolhgGeAXME7y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agueDHfE .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agueDHfE  a          chon:Agent ;
+        chon:hasName  "Kavalek, Lubomir" , "Karpov, Anatoly" .
+
+:rolueDHfE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agueDHfE .

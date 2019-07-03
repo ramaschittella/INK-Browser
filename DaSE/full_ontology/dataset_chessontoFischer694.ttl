@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrmeabtm  a   chon:ChessGameReport .
+
+:agmeabtm  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Minic, Dragoljub" .
+
+:rolmeabtm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmeabtm .
+
+:opemeabtm  a            chon:ChessOpening ;
+        chon:hasECOCode  "B03" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmeabtm .
+
+chon:HalfMove  chon:subEventOf  :gammeabt .
+
+:hmgammeabtmS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmeabtmS7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kh6" , "h5" , "Rd5" , "Rd3+" , "Kg7" , "Be3" , "g6" , "Ree5" , "Qg5" , "Rc3" , "d6" , "Nxe5" , "c4" , "Kg1" , "e5" , "Re2" , "Nc6" , "Nf6" , "exd6" , "f4" , "dxe5" , "Ra7" , "bxc6" , "a6" , "Nc3" , "cxd6" , "Bxc6" , "Bd3" , "Rxa6" , "Rxe5" , "Nd5" , "g5" , "Kf1" , "Qg4" , "Bb5" , "d5" , "Bf4" , "O-O" , "Kh2" , "Qxc3" , "Qd4" , "Be2" , "Kg3" , "Bxe6" , "Rxc6" , "Rxg5" , "Nb6" , "e4" , "Bd5" , "Rb2" , "Rd1+" , "Bc6" , "fxe5" , "Bxb3" , "Ra3" , "Qxg4" , "Kxf1" , "Nxc5" , "Nd7" , "Ne6" , "Bf3" , "Nxe6" , "h3" , "c5" , "Nxd4" , "Qa5" , "Bxe5" , "d4" , "hxg4" , "f5" , "Bg7" , "Ra8" , "Rxf1+" , "b3" , "Rd8" , "a4" , "Rae8" , "Rf5+" , "Kf2" , "Nge2" , "Rb1" , "Rf1" ;
+        chon:nextHalfMove      :hmgammeabtmS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmeabtm .
+
+:gammeabt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmeabtm ;
+        chon:atPlace           :plameabtm ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammeabtmS ;
+        chon:hasHalfMove       :hmgammeabtmS ;
+        chon:hasLastHalfMove   :hmgammeabtmS ;
+        chon:hasOpening        :opemeabtm ;
+        chon:hasReport         :cgrmeabtm ;
+        chon:hasResult         :resmeabtmS ;
+        chon:subEventOf        :toumeabt .
+
+:resmeabtmS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:toumeabt  a          chon:hessTournament ;
+        chon:atPlace  :plameabtm ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plameabtm  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .
+
+:rolhgmeabtmS7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmeabtm .

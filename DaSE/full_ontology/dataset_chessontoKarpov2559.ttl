@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamWkg5Yzb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWkg5Yzbx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Re8" , "Bg2" , "Rg1+" , "Bf8" , "Bg1+" , "Rd6" , "Nxb7" , "b5" , "Kh3" , "Bxb2" , "e4" , "Rg3+" , "Bf3" , "Ra7" , "Kf6" , "Re3" , "Rc7" , "Kxe3" , "h4" , "fxg6" , "Rxf2+" , "Kg4" , "Rd1" , "Bb7" , "Qxe5" , "Ba3" , "Rd8+" , "Nc3" , "Nc5" , "Be4" , "Re7" , "c6" , "Bxd5" , "Rc7+" , "Bd5" , "b4" , "Qb2" , "Kh2" , "f5" , "Nxd5" , "Bc3" , "Rd4+" , "Rf7+" , "Nbd7" , "Rxe3" , "Rf6+" , "Kf3" , "Rf7" , "Bc6" , "Re2" , "Rc6" , "a5" , "Kg3" , "Rh3+" , "hxg6" , "Qd2" , "cxd5" , "axb6" , "Re7+" , "Kf8" , "Rd3" , "exf5" , "Be3" , "Re6" , "c5" , "Bxd4" , "Bd4" , "g4" , "g6" , "Rd4" , "Rxg6" , "Kh1" , "Rg5" , "Bf2+" , "Rd7" , "Be7" , "Kf4" , "Rf6" , "Bc5" , "Re1" , "Ne5" , "d5" , "Qc7" , "a4" , "Re4" , "Kg2" , "Rxe5" , "cxd4" , "exd5" , "Qxb2" , "Bd2" , "Ra8" , "Bxe5" , "Rc8" , "Be2" , "Rd2" , "Kg5" , "Ke5" , "Kg7" , "Nh4" , "O-O" , "g5" , "Rxb7" , "Rxh4+" , "Nf3" , "Qc2" , "Bxb7" ;
+        chon:nextHalfMove      :hmgamWkg5Yzb .
+
+:ag1mzVez  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Kramnik,V" .
+
+:rolhg1mzVezVz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1mzVez .
+
+:ope1mzVez  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1mzVez .
+
+chon:HalfMove  chon:subEventOf  :gam1mzVe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1mzVez .
+
+:hmgam1mzVezV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWkg5Yzbx , :rolhg1mzVezVz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "e6" , "c4" , "d4" , "Ba6" , "Nf6" , "Bb4+" , "b3" , "g3" , "b6" , "Nf3" ;
+        chon:nextHalfMove      :hmgamWkg5Yzb , :hmgam1mzVezV .
+
+:rolhgWkg5Yzbx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1mzVez .
+
+:cgr1mzVez  a   chon:ChessGameReport .
+
+:rol1mzVez  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1mzVez .
+
+:res1mzVezV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gam1mzVe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1mzVez ;
+        chon:atPlace           :pla1mzVez ;
+        chon:atTime            "2001.03.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1mzVezV ;
+        chon:hasHalfMove       :hmgam1mzVezV , :hmgamWkg5Yzb ;
+        chon:hasLastHalfMove   :hmgamWkg5Yzb ;
+        chon:hasOpening        :ope1mzVez ;
+        chon:hasReport         :cgr1mzVez ;
+        chon:hasResult         :res1mzVezV ;
+        chon:subEventOf        :tou1mzVe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou1mzVe  a          chon:hessTournament ;
+        chon:atPlace  :pla1mzVez ;
+        chon:hasName  "Amber Rapidplay" .
+
+:pla1mzVez  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .

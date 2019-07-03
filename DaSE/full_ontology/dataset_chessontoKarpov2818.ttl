@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla4VFW8O  a         chon:Place ;
+        chon:hasName  "Bordeaux FRA" .
+
+:res4VFW8OZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gam4VFW8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4VFW8O ;
+        chon:atPlace           :pla4VFW8O ;
+        chon:atTime            "2005.04.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4VFW8OZ ;
+        chon:hasHalfMove       :hmgam4VFW8OZ , :hmgameVSaEN3 ;
+        chon:hasLastHalfMove   :hmgameVSaEN3 ;
+        chon:hasOpening        :ope4VFW8O ;
+        chon:hasReport         :cgr4VFW8O ;
+        chon:hasResult         :res4VFW8OZ ;
+        chon:subEventOf        :tou4VFW8 .
+
+:cgr4VFW8O  a   chon:ChessGameReport .
+
+:tou4VFW8  a          chon:hessTournament ;
+        chon:atPlace  :pla4VFW8O ;
+        chon:hasName  "Grand Prix" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4VFW8O .
+
+:ag4VFW8O  a          chon:Agent ;
+        chon:hasName  "Chabanon,JL" , "Karpov,Ana" .
+
+:rol4VFW8O  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4VFW8O .
+
+chon:HalfMove  chon:subEventOf  :gam4VFW8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4VFW8O .
+
+:rolhg4VFW8OZY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4VFW8O .
+
+:hmgameVSaEN3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeVSaEN3c ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chabanon,JL" ;
+        chon:hasSANRecord      "Ra7+" , "Rb1+" , "f3" , "Rad1" , "Kg8" , "e4" , "Rd3+" , "Rxc6" , "dxc6" , "Rxe4" , "Ra7" , "Bb7" , "Qf6" , "Rab8" , "Ke6" , "Kxh6" , "Qxd6" , "g4" , "O-O" , "Kc5" , "Rf6" , "Ra1" , "Qxc3" , "Rf7" , "Kb4" , "Rc4" , "Bg2" , "Ra4" , "Bc8" , "Kb3" , "h6+" , "Nb3" , "Kf7" , "Ra8+" , "a3" , "b3" , "Rexc8" , "Ra2+" , "Rb8" , "a4" , "bxa4" , "Ra8" , "h5" , "Kd6" , "Rxa4" , "Qc2" , "a6" , "Rf8" , "e5" , "g3" , "Bh3" , "Ke1" , "d5" , "Rd7" , "Na5" , "Ne4" , "Rxd6" , "Kg2" , "Rc5" , "Ra5" , "b5" , "g5" , "Kg3" , "Nd2" , "f6" , "g6" , "b4" , "Nxc4" , "Ra3" , "Re3" , "Rf3" , "Kd1" , "Nxc3" , "Rb3+" , "Ra6" , "Kg6" , "h6" , "Re8" , "Kc1" , "Kg7" , "Rxb5" , "a5" , "Qd3" , "Kf1" , "Kc6" , "Rc1+" , "h4" , "Rb6" , "d6" , "Kd5" , "Nc5" , "Rfe1" , "Rb7" , "Kb2" , "c5" , "Nd7" , "Bxc8" , "b6" , "Rxc4" ;
+        chon:nextHalfMove      :hmgameVSaEN3 .
+
+:ope4VFW8O  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+:hmgam4VFW8OZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4VFW8OZY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Chabanon,JL" ;
+        chon:hasSANRecord      "d4" , "c4" , "Nf6" , "e6" , "Nf3" , "Nc3" , "Bd2" , "Bxc3" , "Qe7" , "Bb4+" ;
+        chon:nextHalfMove      :hmgameVSaEN3 , :hmgam4VFW8OZ .
+
+:rolhgeVSaEN3c  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4VFW8O .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

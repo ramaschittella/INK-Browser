@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plamdYrkI  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+:rolhgxdTFSIXc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxdTFSI .
+
+:hmgamtbSOBFf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtbSOBFfa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Qd6" , "Qa1" , "Qh6" , "Qd2" , "Qa3" , "a2" , "Kg3" , "h7" , "Qf8" , "Qf2" , "Qh1" , "Qxa3+" , "Qa8" , "h8=Q" , "Qxe4" , "Kg2" , "g4" , "Qa7" , "Kb3" , "Qf7" , "Kb4" , "Qh2" , "Qae7" , "Qg8" , "Kc5" , "a3" , "Kxa3" , "a1=Q" , "Qxh7" , "h6" , "Qh7" ;
+        chon:nextHalfMove      :hmgamtbSOBFf .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxdTFSI .
+
+chon:HalfMove  chon:subEventOf  :gammdYrk .
+
+:resxdTFSIX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agxdTFSI  a          chon:Agent ;
+        chon:hasName  "Petrosian, Tigran V" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxdTFSI .
+
+:touxdTFS  a          chon:hessTournament ;
+        chon:atPlace  :plamdYrkI ;
+        chon:hasName  "Candidats Tournament" .
+
+:rolxdTFSI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxdTFSI .
+
+:opexdTFSI  a            chon:ChessOpening ;
+        chon:hasECOCode  "B11" .
+
+:rolhgtbSOBFfa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxdTFSI .
+
+:hmgamxdTFSIX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtbSOBFfa , :rolhgxdTFSIXc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "c6" , "Ne8" , "Qxb4" , "O-O" , "Nc4" , "d3" , "Nxc6" , "f4" , "Rdf8" , "g6" , "Na5" , "Bd2" , "Bg2" , "Nc6" , "Bb4" , "Nxd2" , "Qxg6" , "Bxf1" , "Rf2" , "Nf6" , "h3" , "a3" , "fxe5" , "h5" , "Rxf1+" , "Qe2" , "d5" , "d4" , "Nb5" , "cxb4" , "Nc7" , "Kb6" , "Qe7" , "h4" , "Rxh7" , "a4" , "axb4" , "bxc6" , "Qxf3" , "c5" , "Nb1" , "Rf7+" , "Nc3" , "c4" , "Qf2" , "Qf6" , "e4" , "a5" , "f6" , "O-O-O" , "Nf3" , "Bg4" , "Bxd2+" , "e6" , "Rf1" , "g3" , "Kb7" , "e5" , "Bxf3" , "Qc5" , "b4" ;
+        chon:nextHalfMove      :hmgamxdTFSIX , :hmgamtbSOBFf .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrxdTFSI  a   chon:ChessGameReport .
+
+:gammdYrk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxdTFSI ;
+        chon:atPlace           :plamdYrkI ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxdTFSIX ;
+        chon:hasHalfMove       :hmgamxdTFSIX , :hmgamtbSOBFf ;
+        chon:hasLastHalfMove   :hmgamtbSOBFf ;
+        chon:hasOpening        :opexdTFSI ;
+        chon:hasReport         :cgrxdTFSI ;
+        chon:hasResult         :resxdTFSIX ;
+        chon:subEventOf        :touxdTFS .

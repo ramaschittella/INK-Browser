@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agaME9wo  a          chon:Agent ;
+        chon:hasName  "Smyslov, Vassily" , "Fischer, Robert James" .
+
+:rolaME9wo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaME9wo .
+
+:hmgamaME9woN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgaME9woNa ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Kf6" , "Be7" , "Rxa1" , "Nb5" , "c6" , "Nf6" , "Qe2" , "Rc8" , "Rd8" , "Nb8" , "Nf3" , "Rfa1" , "d5" , "Nxb6" , "dxe4" , "Rxd3" , "axb5" , "Nbd7" , "Be3" , "h6" , "Bb3" , "Qxd3" , "g3" , "h3" , "Rd6" , "Nb6" , "Nc6" , "Bc1" , "Ra5" , "Ndb8" , "a6" , "Kf7" , "Ra6" , "bxc4" , "Nd3" , "Qd7" , "O-O" , "Kh1" , "Nbd2" , "d6" , "c3" , "d3" , "Ng3" , "e4" , "a4" , "b4" , "Ke7" , "Ba4" , "Bb8" , "Ne1" , "fxe6" , "Nc7" , "c5" , "Kh2" , "Nd7" , "Qd3" , "Kf1" , "Be6" , "Bb2" , "Bxe6" , "b5" , "Rad8" , "Bb5" , "c4" , "N1d2" , "Kg2" , "Bd6" , "Rd1+" , "Nf1" , "Nxc4" , "Nc5" , "Rxb6" , "Ne8" , "Ra8" , "e5" ;
+        chon:nextHalfMove      :hmgamaME9woN .
+
+:opeaME9wo  a            chon:ChessOpening ;
+        chon:hasECOCode  "C77" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaME9wo .
+
+:touaME9w  a          chon:hessTournament ;
+        chon:atPlace  :plaaME9wo ;
+        chon:hasName  "Capablanca mem" .
+
+:rolhgaME9woNa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaME9wo .
+
+chon:HalfMove  chon:subEventOf  :gamaME9w .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaME9wo .
+
+:resaME9woN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgraME9wo  a   chon:ChessGameReport .
+
+:gamaME9w  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaME9wo ;
+        chon:atPlace           :plaaME9wo ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaME9woN ;
+        chon:hasHalfMove       :hmgamaME9woN ;
+        chon:hasLastHalfMove   :hmgamaME9woN ;
+        chon:hasOpening        :opeaME9wo ;
+        chon:hasReport         :cgraME9wo ;
+        chon:hasResult         :resaME9woN ;
+        chon:subEventOf        :touaME9w .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaaME9wo  a         chon:Place ;
+        chon:hasName  "Havana" .

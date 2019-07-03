@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:placcx2mW  a         chon:Place ;
+        chon:hasName  "?" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agccx2mW .
+
+chon:HalfMove  chon:subEventOf  :gam1cBNP .
+
+:hmgamDeHjIWP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDeHjIWPZ , :rolhgPcEzgVUa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Santasiere, Anthony Edward" ;
+        chon:hasSANRecord      "d5" , "Bxb7" , "g3" , "Nc6" , "dxe6" , "c4" , "g6" , "cxd5" , "Bxf3" , "Bg7" , "O-O" , "Qd7" , "Nxd4" , "Bg2" , "Nf3" , "d4" , "e5" , "Bg4" , "Nxe6" ;
+        chon:nextHalfMove      :hmgamPcEzgVU , :hmgamDeHjIWP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agccx2mW .
+
+:agccx2mW  a          chon:Agent ;
+        chon:hasName  "Santasiere, Anthony Edward" , "Fischer, Robert James" .
+
+:rolccx2mW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agccx2mW .
+
+:touccx2m  a          chon:hessTournament ;
+        chon:atPlace  :placcx2mW ;
+        chon:hasName  "USA-op" .
+
+:opeccx2mW  a            chon:ChessOpening ;
+        chon:hasECOCode  "D02" .
+
+:rolhgDeHjIWPZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agccx2mW .
+
+:rolhgPcEzgVUa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agccx2mW .
+
+:gam1cBNP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolccx2mW ;
+        chon:atPlace           :placcx2mW ;
+        chon:atTime            "1956.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDeHjIWP ;
+        chon:hasHalfMove       :hmgamDeHjIWP , :hmgamPcEzgVU ;
+        chon:hasLastHalfMove   :hmgamPcEzgVU ;
+        chon:hasOpening        :opeccx2mW ;
+        chon:hasReport         :cgrccx2mW ;
+        chon:hasResult         :resccx2mW1 ;
+        chon:subEventOf        :touccx2m .
+
+:hmgamPcEzgVU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgPcEzgVUa ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Santasiere, Anthony Edward" ;
+        chon:hasSANRecord      "Bxb2" , "Rab1" , "Rxb2" , "Nb5" , "Rxd1" , "Rb6" , "Rfb8" , "Rxb6" , "Qxd1" , "Bg2" , "O-O" , "Ne7" , "Rb8" , "Nxa7" , "Nc3" ;
+        chon:nextHalfMove      :hmgamPcEzgVU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resccx2mW1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrccx2mW  a   chon:ChessGameReport .

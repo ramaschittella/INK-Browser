@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agHaiSVt  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+:opeHaiSVt  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHaiSVt .
+
+chon:HalfMove  chon:subEventOf  :gamHaiSV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHaiSVt .
+
+:plaHaiSVt  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:gamHaiSV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHaiSVt ;
+        chon:atPlace           :plaHaiSVt ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHaiSVtR ;
+        chon:hasHalfMove       :hmgamHaiSVtR ;
+        chon:hasLastHalfMove   :hmgamHaiSVtR ;
+        chon:hasOpening        :opeHaiSVt ;
+        chon:hasReport         :cgrHaiSVt ;
+        chon:hasResult         :resHaiSVtR ;
+        chon:subEventOf        :touHaiSV .
+
+:hmgamHaiSVtR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHaiSVtRX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Bxe2" , "Nxe5" , "Nc3" , "Bc3" , "cxd5" , "d4" , "Re8" , "c4" , "Bb8" , "Bd6" , "Qc4" , "Bd2" , "dxe5" , "e6" , "Qc7" , "Bg4" , "Nf6" , "e5" , "Nxe2" , "Rad1" , "Nbd7" , "h3" , "c6" , "Qb6" , "Nb5" , "Qc2" , "Nbd4" , "Bb4" , "Bxe5" , "Nf3" , "d5" , "O-O" , "Ne4" , "e3" , "Be2" ;
+        chon:nextHalfMove      :hmgamHaiSVtR .
+
+:touHaiSV  a          chon:hessTournament ;
+        chon:atPlace  :plaHaiSVt ;
+        chon:hasName  "Euwe mem" .
+
+:cgrHaiSVt  a   chon:ChessGameReport .
+
+:rolHaiSVt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHaiSVt .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resHaiSVtR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgHaiSVtRX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHaiSVt .

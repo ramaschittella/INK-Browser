@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeWmQgF2  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+:plaKmT492  a         chon:Place ;
+        chon:hasName  "Miskolc HUN" .
+
+:resWmQgF2z  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWmQgF2 .
+
+:rolKmT492  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:HalfMove  chon:subEventOf  :gamKmT49 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWmQgF2 .
+
+:rolhgWmQgF2zt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWmQgF2 .
+
+:gamKmT49  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKmT492 ;
+        chon:atPlace           :plaKmT492 ;
+        chon:atTime            "2006.08.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWmQgF2z ;
+        chon:hasHalfMove       :hmgamWmQgF2z ;
+        chon:hasLastHalfMove   :hmgamWmQgF2z ;
+        chon:hasOpening        :opeWmQgF2 ;
+        chon:hasReport         :cgrWmQgF2 ;
+        chon:hasResult         :resWmQgF2z ;
+        chon:subEventOf        :touKmT49 .
+
+:touKmT49  a          chon:hessTournament ;
+        chon:atPlace  :plaKmT492 ;
+        chon:hasName  "Rapid Match" .
+
+:cgrWmQgF2  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agWmQgF2  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Leko,P" .
+
+:rolWmQgF2  a             chon:AuthorRole ;
+        chon:performedBy  :agWmQgF2 .
+
+:hmgamWmQgF2z  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWmQgF2zt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "b5" , "Kc1" , "d4" , "Qd6" , "dxe4" , "Ng3" , "Qxa2" , "Nh4" , "Nf3" , "Nxe4" , "Qe2" , "h5" , "Bf5" , "c6" , "c4" , "Nd7" , "Rhe1" , "Ncd7" , "Nxf5" , "Bg6" , "g5" , "Bd2" , "h4" , "Bxd3" , "Qd5" , "e6" , "Bd3" , "Nc3" , "Qa1+" , "exf5" , "Nf5" , "e4" , "d5" , "c5" , "Kc2" , "Be7" , "Rxe7" , "Bf4" , "hxg5" , "O-O" , "Bh7" , "Nxc5" , "O-O-O" , "Qe3" , "Qxd3" , "Ngf6" , "h6" , "c3" , "Bb4" , "g4" , "Qc7" , "Qa5+" , "Qa4+" ;
+        chon:nextHalfMove      :hmgamWmQgF2z .

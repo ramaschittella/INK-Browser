@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgUnp0S19o  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUnp0S1 .
+
+:hmgamUnp0S19  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUnp0S19o , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Z" ;
+        chon:hasSANRecord      "g6" , "e4" , "Nc3" , "c4" , "Bg7" , "d4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamUnp0S19 , :hmgamlpBrc4Y .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUnp0S1 .
+
+:plaUnp0S1  a         chon:Place ;
+        chon:hasName  "Lindsborg USA" .
+
+chon:HalfMove  chon:subEventOf  :gamUnp0S .
+
+:cgrUnp0S1  a   chon:ChessGameReport .
+
+:resUnp0S19  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUnp0S1 .
+
+:agUnp0S1  a          chon:Agent ;
+        chon:hasName  "Polgar,Z" , "Karpov,Ana" .
+
+:rolUnp0S1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUnp0S1 .
+
+:opeUnp0S1  a            chon:ChessOpening ;
+        chon:hasECOCode  "E71" .
+
+:hmgamlpBrc4Y  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglpBrc4YM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Z" ;
+        chon:hasSANRecord      "a7" , "Qxd8" , "Kg8" , "Rb7" , "Ra7+" , "dxc5" , "Kf7" , "Nc5" , "Rc5" , "a4" , "g5" , "e6" , "g3" , "b6" , "Kc2" , "Nxa7" , "Rxa5" , "Rb1" , "Ba6" , "Bxf1" , "Ra8" , "Bxc5" , "c5" , "Kf8" , "bxc5" , "Rc6" , "a5" , "Nd5" , "c4" , "Nb2" , "Rb5" , "Na4" , "Ne7" , "d6" , "Rhxf1" , "Nxc4" , "Nc8" , "Rxd8+" , "Nd2" , "h6" , "Nd7" , "fxe4" , "h3" , "Ke7" , "Ra6" , "Nxe4" , "Rxd8" , "Bxc3" , "Nf3" , "O-O" , "f5" , "bxc3" , "a6" , "Kg7" , "Be3" , "Re8" , "Nxc5" , "Rxe6" , "O-O-O" , "Nc6" , "Rc8" ;
+        chon:nextHalfMove      :hmgamlpBrc4Y .
+
+:rolhglpBrc4YM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUnp0S1 .
+
+:gamUnp0S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUnp0S1 ;
+        chon:atPlace           :plaUnp0S1 ;
+        chon:atTime            "2004.09.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUnp0S19 ;
+        chon:hasHalfMove       :hmgamlpBrc4Y , :hmgamUnp0S19 ;
+        chon:hasLastHalfMove   :hmgamlpBrc4Y ;
+        chon:hasOpening        :opeUnp0S1 ;
+        chon:hasReport         :cgrUnp0S1 ;
+        chon:hasResult         :resUnp0S19 ;
+        chon:subEventOf        :touUnp0S .
+
+:touUnp0S  a          chon:hessTournament ;
+        chon:atPlace  :plaUnp0S1 ;
+        chon:hasName  "Clash of the Titans" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

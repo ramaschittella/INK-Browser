@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resSi1TsEV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSi1TsE .
+
+:hmgamSi1TsEV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSi1TsEVo , :rolhgOiX0ZDYz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Baxter, CM." ;
+        chon:hasSANRecord      "f4" , "e4" , "Nf6" , "Nc3" , "e5" ;
+        chon:nextHalfMove      :hmgamOiX0ZDY , :hmgamSi1TsEV .
+
+:rolhgOiX0ZDYz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSi1TsE .
+
+chon:HalfMove  chon:subEventOf  :gamSi1Ts .
+
+:rolSi1TsE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSi1TsE .
+
+:hmgamOiX0ZDY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOiX0ZDYz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Baxter, CM." ;
+        chon:hasSANRecord      "Qxd5" , "Kxg2" , "Rfe1" , "Bxd4" , "Bxd5" , "Rg6" , "Rb8" , "hxg3" , "Ne2" , "Nc6" , "Qxg2+" , "Kf7" , "d6" , "Nd4" , "Be7" , "Bc4" , "Nc4" , "Bd6" , "exd4" , "Rf8" , "Nxd5" , "a4" , "Kf3" , "b6" , "Ra8" , "Rh6" , "h4" , "Nb3" , "Qg2" , "Rae1" , "h5" , "f5" , "Qxf3" , "Qd1" , "b3" , "Re8" , "exd5" , "O-O" , "bxa5" , "Qd2" , "Bb8" , "c5" , "a5" , "Rf6" , "Rb7" , "Be3" , "Qd7" , "Nd2" , "Re2" , "Bg4" , "Nf3" , "d5" , "Nc1" , "g3" , "Bxf3" , "d3" , "Nxa5" ;
+        chon:nextHalfMove      :hmgamOiX0ZDY , :hmgamKgEiJDe .
+
+:rolhgKgEiJDex  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSi1TsE .
+
+:gamSi1Ts  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSi1TsE ;
+        chon:atPlace           :plaSi1TsE ;
+        chon:atTime            "1867.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSi1TsEV ;
+        chon:hasHalfMove       :hmgamOiX0ZDY , :hmgamSi1TsEV , :hmgamKgEiJDe ;
+        chon:hasLastHalfMove   :hmgamKgEiJDe ;
+        chon:hasOpening        :opeSi1TsE ;
+        chon:hasReport         :cgrSi1TsE ;
+        chon:hasResult         :resSi1TsEV ;
+        chon:subEventOf        :touSi1Ts .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamKgEiJDe  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKgEiJDex ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Baxter, CM." ;
+        chon:hasSANRecord      "Rxe2" , "Re7" , "g5" , "Ke2" , "R1e2" , "Rxe7+" , "Kxe7" , "Bxg3" , "Rh2" , "Bc7" , "fxg5" , "Nd2" ;
+        chon:nextHalfMove      :hmgamKgEiJDe .
+
+:plaSi1TsE  a         chon:Place ;
+        chon:hasName  "Dundee" .
+
+:rolhgSi1TsEVo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSi1TsE .
+
+:agSi1TsE  a          chon:Agent ;
+        chon:hasName  "Baxter, CM." , "Steinitz, William" .
+
+:opeSi1TsE  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+:cgrSi1TsE  a   chon:ChessGameReport .
+
+:touSi1Ts  a          chon:hessTournament ;
+        chon:atPlace  :plaSi1TsE ;
+        chon:hasName  "Dundee" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSi1TsE .

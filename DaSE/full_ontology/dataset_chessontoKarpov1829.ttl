@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolrrFTTU  a             chon:AuthorRole ;
+        chon:performedBy  :agrrFTTU .
+
+:operrFTTU  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .
+
+:gamfrIFk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfrIFkU ;
+        chon:atPlace           :plafrIFkU ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrrFTTUA ;
+        chon:hasHalfMove       :hmgamrrFTTUA ;
+        chon:hasLastHalfMove   :hmgamrrFTTUA ;
+        chon:hasOpening        :operrFTTU ;
+        chon:hasReport         :cgrrrFTTU ;
+        chon:hasResult         :resrrFTTUA ;
+        chon:subEventOf        :toufrIFk .
+
+:toufrIFk  a          chon:hessTournament ;
+        chon:atPlace  :plafrIFkU ;
+        chon:hasName  "Amber-blind 3rd" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfrIFkU .
+
+chon:HalfMove  chon:subEventOf  :gamfrIFk .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfrIFkU .
+
+:cgrrrFTTU  a   chon:ChessGameReport .
+
+:hmgamrrFTTUA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrrFTTUAJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Bf1" , "Qxf6" , "Qa1" , "dxc4" , "Rd3+" , "Bxa8" , "Nf6" , "c6" , "Qb6" , "Na5" , "Bc4" , "Kg8" , "Qe7" , "Qf4" , "Kg3" , "Kg5" , "Ne5" , "dxc6" , "Kf6" , "Qb8" , "Nxc4" , "c3" , "Be5" , "exd5" , "Ra8" , "cxd4" , "Qxa8" , "Bf8" , "f5" , "Rd8" , "Kg7" , "Nf3" , "Rd3" , "b5" , "gxf6" , "Bd3" , "O-O" , "Qc8" , "Bb7" , "Nd4" , "d6" , "Nc4" , "Bd6" , "hxg4" , "a6" , "Kg2" , "h3" , "g3" , "Rxa8" , "Ra1" , "h5" , "Re8" , "Kh7" , "Bg5" , "Qf6" , "Rd2" , "f4" , "e4" , "Qa7" , "Bg2" , "Bxc6" , "Bd7" , "Nd7" , "b4" , "a4" , "Be7" , "N2b3" , "Bxf6" , "Rxd5" , "Qe5" , "Qc5" , "Qf8" , "g4" , "axb5" , "Rd5" , "Bxd4" , "Nbd2" , "d5" , "Kh4" , "d4" , "Rd1" , "e6" , "Be6" , "Qxc3" , "Qe4" , "Be8" ;
+        chon:nextHalfMove      :hmgamrrFTTUA .
+
+:plafrIFkU  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agfrIFkU  a          chon:Agent ;
+        chon:hasName  "Ljubojevic, Ljubomir" , "Karpov, Anatoly" .
+
+:rolfrIFkU  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgrrFTTUAJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfrIFkU .
+
+:resrrFTTUA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

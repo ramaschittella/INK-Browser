@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agzvDKVQ  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Reshevsky, Samuel Herman" .
+
+:opezvDKVQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "E98" .
+
+:touzvDKV  a          chon:hessTournament ;
+        chon:atPlace  :plazvDKVQ ;
+        chon:hasName  "New York/Los Angeles m" .
+
+:reszvDKVQ2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrzvDKVQ  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzvDKVQ .
+
+:hmgamutkTFQk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgutkTFQkR , :rolhgGte0ePm5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "h6" , "Re1" , "e3" , "Qg6" , "exf5" , "Nd7" , "g4" , "a5" , "bxa5" , "g3" , "Nh5" , "Ndf2" , "Nxg3+" , "gxf3" , "b6" , "Rb6" , "Qxe2" , "Rg7" , "a4" , "Nxe4" , "Nf6" , "Rc6" , "Bf5" , "a3" , "Ra8" , "f5" , "Bxa5" , "Nd3" , "Rxd5" , "Bf8" , "Ne2+" , "Bxe4" , "Ne4" , "Nxf5" , "Rxf8" , "Qe8" , "Kh2" , "g5" , "Rac1" , "Kh1" , "Kh7" , "b4" , "hxg3" , "d5" , "Nf4" , "Ra6" , "Nc6" , "f3" , "Qxf3" , "c5" , "Rb3" , "Bf4" , "Rd3" , "Rf4" , "Bd2" , "Qxe4" , "Rxe4" , "Bc7" , "Rc2" , "Ne1" , "Rc8" , "Ne7" , "Rf7" , "Qe3" , "Nxe2+" , "Rxg4" , "Rf6" , "b3" , "Nd4" , "cxd6" , "e4" , "Qg3" , "Bg5" , "Rxd6" ;
+        chon:nextHalfMove      :hmgamGte0ePm , :hmgamutkTFQk .
+
+chon:HalfMove  chon:subEventOf  :gamzvDKV .
+
+:hmgamzvDKVQ2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzvDKVQ2T , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Be2" , "g6" , "e4" , "O-O" , "e5" , "d6" , "Nf3" , "c4" , "Bg7" , "Nc3" , "d4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamzvDKVQ2 , :hmgamutkTFQk .
+
+:rolhgutkTFQkR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzvDKVQ .
+
+:rolzvDKVQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzvDKVQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamGte0ePm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGte0ePm5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kg2" , "Re7" , "Rxe3" , "Ra2+" , "Rxa5" , "Kg4" , "Re5+" , "Kf5" , "Re2" , "Rb7" , "Re6+" , "Rd5" , "Ra3" , "Kg6" , "Rc1" , "Rb3+" , "Re1" , "Kf3" , "Kf6" ;
+        chon:nextHalfMove      :hmgamGte0ePm .
+
+:gamzvDKV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzvDKVQ ;
+        chon:atPlace           :plazvDKVQ ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzvDKVQ2 ;
+        chon:hasHalfMove       :hmgamutkTFQk , :hmgamGte0ePm , :hmgamzvDKVQ2 ;
+        chon:hasLastHalfMove   :hmgamGte0ePm ;
+        chon:hasOpening        :opezvDKVQ ;
+        chon:hasReport         :cgrzvDKVQ ;
+        chon:hasResult         :reszvDKVQ2 ;
+        chon:subEventOf        :touzvDKV .
+
+:rolhgzvDKVQ2T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzvDKVQ .
+
+:plazvDKVQ  a         chon:Place ;
+        chon:hasName  "Los Angeles" .
+
+:rolhgGte0ePm5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzvDKVQ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzvDKVQ .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgammSkrVz6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmSkrVz6E , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Nf4" , "d5" , "Ne7" , "Rae8" , "Qxa4" , "f5" , "Bd4+" , "Qe6" , "Kf7" , "Qxc4" , "Kxe7" , "Bxc6+" , "Bb5+" , "c4" , "Bxd4" , "Nc6" , "Be3" , "Nd3" , "Bc6" , "Nxg6+" , "Bxh6" , "f3" , "Rc1" , "Nxd4" , "Ne1" , "Rxc7+" , "Bxf6" , "Nxf6" , "Qd7" , "Nxd5" , "Rxe7+" , "Re7" , "Nxc6" , "Bg5" , "Rae1" , "exd5" , "Nf6" ;
+        chon:nextHalfMove      :hmgammSkrVz6 .
+
+:gamVQa7y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVQa7yz ;
+        chon:atPlace           :plaVQa7yz ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVQa7yzg ;
+        chon:hasHalfMove       :hmgammSkrVz6 , :hmgamVQa7yzg ;
+        chon:hasLastHalfMove   :hmgammSkrVz6 ;
+        chon:hasOpening        :opeVQa7yz ;
+        chon:hasReport         :cgrVQa7yz ;
+        chon:hasResult         :resVQa7yzg ;
+        chon:subEventOf        :touVQa7y .
+
+:plaVQa7yz  a         chon:Place ;
+        chon:hasName  "Hamburg" .
+
+:touVQa7y  a          chon:hessTournament ;
+        chon:atPlace  :plaVQa7yz ;
+        chon:hasName  "Hamburg TV-1pl" .
+
+:rolhgmSkrVz6E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVQa7yz .
+
+:hmgamVQa7yzg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVQa7yzgg , chon:AgentRole , :rolhgmSkrVz6E ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Qd2" , "Ne7" , "Be2" , "Nd7" , "O-O" , "Nc3" , "b6" , "d4" , "a4" , "d6" , "e4" , "Be3" , "g6" , "Bg5" , "Bg7" , "e6" , "Nf3" , "h6" , "a5" , "Bb7" ;
+        chon:nextHalfMove      :hmgamVQa7yzg , :hmgammSkrVz6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVQa7yz .
+
+chon:HalfMove  chon:subEventOf  :gamVQa7y .
+
+:agVQa7yz  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Karpov, Anatoly" .
+
+:rolVQa7yz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVQa7yz .
+
+:opeVQa7yz  a            chon:ChessOpening ;
+        chon:hasECOCode  "B06" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVQa7yz .
+
+:resVQa7yzg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgVQa7yzgg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVQa7yz .
+
+:cgrVQa7yz  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

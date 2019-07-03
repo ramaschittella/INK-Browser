@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamjSSosSQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjSSosSQo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Raxd1" , "Qd7" , "d4" , "e4" , "d6" , "Bb5" , "Nxh6" , "Qxd1" , "f6" , "c5" , "Nc6" , "Nd2" , "Bb2" , "e5" , "Ke7" , "Nf3" , "Nf5" , "Bb7" , "O-O" , "Bg7" , "Nc4" , "Nxd4" , "cxb4" , "g6" , "bxc6" , "Re1" , "b4" , "Ncxd6+" , "Ndf7" , "Nh6" , "Bxc6" , "a3" , "exd4" , "Kf8" , "axb4" , "Bxb2" ;
+        chon:nextHalfMove      :hmgamjSSosSQ , :hmgamvQOS2BT .
+
+:agjSSosS  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Fischer, Robert James" .
+
+:roljSSosS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjSSosS .
+
+:opejSSosS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B31" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjSSosS .
+
+:resjSSosSQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamjSSos .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjSSosS .
+
+:hmgamvQOS2BT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvQOS2BTz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Be8" , "gxf5" , "Bc6" , "e7" , "Kxb1" , "Rd1+" , "Kc2" , "Rc1" , "Kd4" , "Ke5" , "Rxb1" , "Kd6" , "exf5+" , "b3" , "Nf5+" , "Rxh8" , "Rxc1" , "a5" , "Ra7" , "Ke3" , "Kc3" , "b1=Q" , "Nxh8" , "Be5" , "Kc5" , "Rb7" , "Bf7" , "f4" , "fxe5" , "Rc8" , "e6" , "Bd7" , "Rxa5" , "b2" , "Kf2" , "Rc5+" , "g4" , "Rxc2" ;
+        chon:nextHalfMove      :hmgamvQOS2BT .
+
+:rolhgjSSosSQo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjSSosS .
+
+:rolhgvQOS2BTz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjSSosS .
+
+:plajSSosS  a         chon:Place ;
+        chon:hasName  "Belgrade" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamjSSos  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljSSosS ;
+        chon:atPlace           :plajSSosS ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjSSosSQ ;
+        chon:hasHalfMove       :hmgamvQOS2BT , :hmgamjSSosSQ ;
+        chon:hasLastHalfMove   :hmgamvQOS2BT ;
+        chon:hasOpening        :opejSSosS ;
+        chon:hasReport         :cgrjSSosS ;
+        chon:hasResult         :resjSSosSQ ;
+        chon:subEventOf        :toujSSos .
+
+:cgrjSSosS  a   chon:ChessGameReport .
+
+:toujSSos  a          chon:hessTournament ;
+        chon:atPlace  :plajSSosS ;
+        chon:hasName  "St Stefan/Belgrade m" .

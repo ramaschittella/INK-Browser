@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touk8Tm0  a          chon:hessTournament ;
+        chon:atPlace  :plak8Tm0S ;
+        chon:hasName  "Keres Mem Rapid" .
+
+:resk8Tm0ST  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgv8OAIUYi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agk8Tm0S .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agk8Tm0S .
+
+chon:HalfMove  chon:subEventOf  :gamk8Tm0 .
+
+:rolhgk8Tm0ST6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agk8Tm0S .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agk8Tm0S .
+
+:plak8Tm0S  a         chon:Place ;
+        chon:hasName  "Tallinn EST" .
+
+:cgrk8Tm0S  a   chon:ChessGameReport .
+
+:hmgamv8OAIUY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgv8OAIUYi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov,A" ;
+        chon:hasSANRecord      "Rc1" , "Nf3" , "Qxa4+" , "Bd2" , "Qf2+" , "Qd3" , "Qb7" , "Qh3" , "a4" , "Bd3" , "Ne5" , "Kb1" , "f5" , "dxe4+" , "Qxg2" , "Nbd7" , "Qd7" , "g6" , "Rxe4" , "b4" , "b5" , "Ka2" , "Bxd7" , "Rh4" , "Rd8" , "f3" , "Nf6" , "cxd5" , "Re1" , "c6" , "Kc2" , "Bd6" , "a5" , "a6" , "Ne4" , "Ke2" , "e6" , "Qf7" , "Rc8+" , "Qxe4" , "Qxh1+" , "Qh5" , "Qxh2" , "Bxb5" , "Qc6" , "fxe4" , "Qxb5" , "e3" , "e4" , "Nxd7" , "Bb5" , "Qh4+" , "Rfb8" , "Qe2" , "Kd3" , "c4" , "Nbd2" , "Qd5" , "O-O" , "Nb3" ;
+        chon:nextHalfMove      :hmgamv8OAIUY .
+
+:hmgamk8Tm0ST  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgv8OAIUYi , :rolhgk8Tm0ST6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Shirov,A" ;
+        chon:hasSANRecord      "d5" , "d4" ;
+        chon:nextHalfMove      :hmgamv8OAIUY , :hmgamk8Tm0ST .
+
+:agk8Tm0S  a          chon:Agent ;
+        chon:hasName  "Shirov,A" , "Karpov,Ana" .
+
+:rolk8Tm0S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agk8Tm0S .
+
+:opek8Tm0S  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamk8Tm0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolk8Tm0S ;
+        chon:atPlace           :plak8Tm0S ;
+        chon:atTime            "2005.01.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamk8Tm0ST ;
+        chon:hasHalfMove       :hmgamk8Tm0ST , :hmgamv8OAIUY ;
+        chon:hasLastHalfMove   :hmgamv8OAIUY ;
+        chon:hasOpening        :opek8Tm0S ;
+        chon:hasReport         :cgrk8Tm0S ;
+        chon:hasResult         :resk8Tm0ST ;
+        chon:subEventOf        :touk8Tm0 .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agkq2yz6  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Anand, Viswanathan" .
+
+:rolhgwqYM75au  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkq2yz6 .
+
+:opekq2yz6  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkq2yz6 .
+
+chon:HalfMove  chon:subEventOf  :gamkq2yz .
+
+:gamkq2yz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkq2yz6 ;
+        chon:atPlace           :plakq2yz6 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkq2yz68 ;
+        chon:hasHalfMove       :hmgamwqYM75a , :hmgamkq2yz68 ;
+        chon:hasLastHalfMove   :hmgamwqYM75a ;
+        chon:hasOpening        :opekq2yz6 ;
+        chon:hasReport         :cgrkq2yz6 ;
+        chon:hasResult         :reskq2yz68 ;
+        chon:subEventOf        :toukq2yz .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkq2yz6 .
+
+:toukq2yz  a          chon:hessTournament ;
+        chon:atPlace  :plakq2yz6 ;
+        chon:hasName  "Reggio Emilia9192" .
+
+:cgrkq2yz6  a   chon:ChessGameReport .
+
+:hmgamkq2yz68  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkq2yz68j ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "e5" , "e4" , "d5" , "d4" ;
+        chon:nextHalfMove      :hmgamwqYM75a , :hmgamkq2yz68 .
+
+:rolkq2yz6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkq2yz6 .
+
+:hmgamwqYM75a  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwqYM75au , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bg4" , "b5" , "Qe1" , "dxe4" , "Nge7" , "a6" , "Bxf8" , "Qd8" , "Rb8" , "Nxf3" , "e6" , "Be7" , "Bxf3" , "Rac8" , "h6" , "c5" , "Qd3" , "fxe6" , "Bxe4" , "h3" , "Nbd2" , "Rxf8+" , "Qd4" , "Nf5" , "Kh1" , "fxe3" , "Qb6" , "c3" , "Bd3" , "Rxb5" , "Be2" , "Nc6" , "e4" , "Rb1" , "Nxd4" , "b4" , "Bf5" , "Nxe6" , "axb5" , "cxd4" , "O-O" , "Be3" , "Nf3" , "Qb1" , "Nxe3" ;
+        chon:nextHalfMove      :hmgamwqYM75a .
+
+:plakq2yz6  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:rolhgkq2yz68j  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkq2yz6 .
+
+:reskq2yz68  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

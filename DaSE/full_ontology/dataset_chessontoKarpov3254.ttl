@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrjma3iF  a   chon:ChessGameReport .
+
+:roljma3iF  a             chon:AuthorRole ;
+        chon:performedBy  :agjma3iF .
+
+:agjma3iF  a          chon:Agent ;
+        chon:hasName  "Ivanchuk,V" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjma3iF .
+
+:opejma3iF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E60" .
+
+chon:HalfMove  chon:subEventOf  :gaml7wf7 .
+
+:gaml7wf7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roll7wf7w ;
+        chon:atPlace           :plal7wf7w ;
+        chon:atTime            "2012.10.27"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjma3iFQ ;
+        chon:hasHalfMove       :hmgamjma3iFQ ;
+        chon:hasLastHalfMove   :hmgamjma3iFQ ;
+        chon:hasOpening        :opejma3iF ;
+        chon:hasReport         :cgrjma3iF ;
+        chon:hasResult         :resjma3iFQ ;
+        chon:subEventOf        :toul7wf7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjma3iF .
+
+:toul7wf7  a          chon:hessTournament ;
+        chon:atPlace  :plal7wf7w ;
+        chon:hasName  "Trophee Karpov Preliminary 2012" .
+
+:hmgamjma3iFQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjma3iFQ2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk,V" ;
+        chon:hasSANRecord      "bxa6" , "Nb6" , "c5" , "Nd7" , "Qa8" , "Nge5" , "d5" , "Nc3" , "e4" , "cxb5" , "Nxe5" , "f4" , "O-O" , "Rb8" , "a6" , "Bg2" , "c4" , "Qc2" , "Nbd7" , "Ng4" , "b3" , "d4" , "Bxa6" , "Bg7" , "Rd1" , "Nf6" , "Ra7" , "Nf3" , "Nd2" , "b5" , "d6" , "g6" , "g3" , "Rb1" , "h3" ;
+        chon:nextHalfMove      :hmgamjma3iFQ .
+
+:plal7wf7w  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:rolhgjma3iFQ2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjma3iF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:roll7wf7w  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resjma3iFQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

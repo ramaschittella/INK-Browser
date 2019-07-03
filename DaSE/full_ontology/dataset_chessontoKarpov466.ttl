@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resee9NDQG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgree9NDQ  a   chon:ChessGameReport .
+
+:gamee9ND  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolee9NDQ ;
+        chon:atPlace           :plaee9NDQ ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamee9NDQG ;
+        chon:hasHalfMove       :hmgamacPWnOW , :hmgamee9NDQG ;
+        chon:hasLastHalfMove   :hmgamacPWnOW ;
+        chon:hasOpening        :opeee9NDQ ;
+        chon:hasReport         :cgree9NDQ ;
+        chon:hasResult         :resee9NDQG ;
+        chon:subEventOf        :touee9ND .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agee9NDQ .
+
+:hmgamee9NDQG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgee9NDQGe , :rolhgacPWnOWe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Nc6" , "Nbd2" , "Nf3" , "O-O" , "b5" , "Be6" , "d4" , "Re1" , "e5" , "Bf4" , "d5" , "Nf6" , "Qxf3" , "c3" , "Bh5" , "dxe5" , "Bf5" , "Bxf3" , "a6" , "Bb5" , "Bb3" , "Re8" , "Nxc5" , "Nxd4" , "Nb3" , "Bc2" , "Bg4" , "h3" , "Bc5" , "e4" , "cxd4" , "Ba4" , "Nxe4" ;
+        chon:nextHalfMove      :hmgamee9NDQG , :hmgamacPWnOW .
+
+chon:HalfMove  chon:subEventOf  :gamee9ND .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agee9NDQ .
+
+:plaee9NDQ  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:hmgamacPWnOW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgacPWnOWe , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Kg6" , "a3" , "Re1" , "Rb8" , "h6" , "h4" , "Qg6" , "Kh7" , "Rad1" , "b4" , "Ng5" , "Rxd1" , "Qe7" , "Qe6" , "Qd3" , "hxg5" , "Bg5" , "Qc3" , "Re8" , "f5" , "f4" , "Nxc2" , "Rg8" , "Qxf5" , "Qb6+" , "Rg4" , "Ne6" , "Qf8" , "Qg7" , "Qxc2" , "Re4" , "Qf3" , "gxf5" , "Bf6" , "Be3" , "Red8" , "g6" , "Bxg5" , "Rh8" ;
+        chon:nextHalfMove      :hmgamacPWnOW .
+
+:touee9ND  a          chon:hessTournament ;
+        chon:atPlace  :plaee9NDQ ;
+        chon:hasName  "October Revolution 60" .
+
+:rolhgacPWnOWe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agee9NDQ .
+
+:agee9NDQ  a          chon:Agent ;
+        chon:hasName  "Beliavsky, Alexander G" , "Karpov, Anatoly" .
+
+:rolee9NDQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agee9NDQ .
+
+:opeee9NDQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C82" .
+
+:rolhgee9NDQGe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agee9NDQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

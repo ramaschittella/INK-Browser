@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgKQ0rW96a  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRamYEi .
+
+:hmgamKQ0rW96  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKQ0rW96a , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a3" , "e6" , "fxe4" , "Bxd4" , "Nxd5" , "Nf6" , "axb6" , "Rxc2+" , "Bg4" , "Qc2" , "e4" , "Bf8+" , "Ka5" , "Nd1" , "Rcd2" , "Kxb4" , "Na4" , "dxe4" , "exd3+" , "Bg7" , "e5" , "Nge4" , "Qb1" , "exd3" , "Nd4" , "g3" , "cxd5" , "Nb6" , "Kc4" , "f3" , "Qxc4" , "c5" , "Qb5" , "Bd7" , "Nxb6" , "Nc3" , "Kd2" , "d3" , "d5" , "O-O" , "Re2+" , "Re8" , "b4" , "g6" , "Qa4+" , "Kxd3" , "b5" , "Ng5" , "Bg2" , "Be3" , "Nc6" , "Rd8+" , "Qd3" , "f5" , "Qxd4" , "c4" ;
+        chon:nextHalfMove      :hmgamKQ0rW96 .
+
+:cgrRamYEi  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRamYEi .
+
+:rolhgRamYEi7W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRamYEi .
+
+:gamRamYE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRamYEi ;
+        chon:atPlace           :plaRamYEi ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRamYEi7 ;
+        chon:hasHalfMove       :hmgamKQ0rW96 , :hmgamRamYEi7 ;
+        chon:hasLastHalfMove   :hmgamKQ0rW96 ;
+        chon:hasOpening        :opeRamYEi ;
+        chon:hasReport         :cgrRamYEi ;
+        chon:hasResult         :resRamYEi7 ;
+        chon:subEventOf        :touRamYE .
+
+chon:HalfMove  chon:subEventOf  :gamRamYE .
+
+:touRamYE  a          chon:hessTournament ;
+        chon:atPlace  :plaRamYEi ;
+        chon:hasName  "Las Palmas" .
+
+:rolRamYEi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRamYEi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRamYEi .
+
+:plaRamYEi  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+:hmgamRamYEi7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRamYEi7W , chon:AgentRole ;
+        chon:hasSANRecord      "Nf3" ;
+        chon:nextHalfMove      :hmgamKQ0rW96 .
+
+:agRamYEi  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tatai, Stefano" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeRamYEi  a            chon:ChessOpening ;
+        chon:hasECOCode  "A34" .
+
+:resRamYEi7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

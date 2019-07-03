@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgfmtrsHoG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfmtrsH .
+
+:hmgamfmtrsHo  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfmtrsHoG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ina, D." ;
+        chon:hasSANRecord      "Qb4" , "Na2" , "Qa6" , "a4" , "Nxd5" , "Bb4" , "e5" , "b6" , "Rc8" , "g5" , "Qg4" , "axb5" , "Ra1" , "Nd5" , "Nf5" , "Qe6+" , "Rxa1" , "Be7" , "Nc3" , "Nxd6" , "exd4" , "e6" , "g6" , "Kg7" , "Qc7+" , "Bb2" , "cxd6" , "Qc1" , "Qd6" , "b4" , "g3" , "d4" , "Be3+" , "Kh6" , "Nf6" , "Qxb5" , "Nf3" , "a6" , "Bxa1" , "Bd6" , "Bxg5+" , "exd5" , "Nxd4" , "Bg2" , "O-O" , "b5" , "e4" , "d5" , "f6" , "Qxd6" , "Bxd4" , "Qd1" , "Bc5" , "Bb7" ;
+        chon:nextHalfMove      :hmgamfmtrsHo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfmtrsH .
+
+:plaNki07H  a         chon:Place ;
+        chon:hasName  "Cleveland" .
+
+:gamNki07  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfmtrsH ;
+        chon:atPlace           :plaNki07H ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfmtrsHo ;
+        chon:hasHalfMove       :hmgamfmtrsHo ;
+        chon:hasLastHalfMove   :hmgamfmtrsHo ;
+        chon:hasOpening        :opefmtrsH ;
+        chon:hasReport         :cgrfmtrsH ;
+        chon:hasResult         :resfmtrsHo ;
+        chon:subEventOf        :toufmtrs .
+
+:cgrfmtrsH  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamNki07 .
+
+:agfmtrsH  a          chon:Agent ;
+        chon:hasName  "Ina, D." , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfmtrsH .
+
+:rolfmtrsH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfmtrsH .
+
+:opefmtrsH  a            chon:ChessOpening ;
+        chon:hasECOCode  "A00" .
+
+:resfmtrsHo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toufmtrs  a          chon:hessTournament ;
+        chon:atPlace  :plaNki07H ;
+        chon:hasName  "Cleveland sim" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrwEQrSn  a   chon:ChessGameReport .
+
+:gamwEQrS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwEQrSn ;
+        chon:atPlace           :plawEQrSn ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXG3JWnH ;
+        chon:hasHalfMove       :hmgamXG3JWnH ;
+        chon:hasLastHalfMove   :hmgamXG3JWnH ;
+        chon:hasOpening        :opewEQrSn ;
+        chon:hasReport         :cgrwEQrSn ;
+        chon:hasResult         :reswEQrSnP ;
+        chon:subEventOf        :touwEQrS .
+
+:touwEQrS  a          chon:hessTournament ;
+        chon:atPlace  :plawEQrSn ;
+        chon:hasName  "Stockholm Interzonal" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwEQrSn .
+
+:hmgamXG3JWnH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXG3JWnH7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bolbochan, Julio" ;
+        chon:hasSANRecord      "Rcd8" , "g4" , "e4" , "Kf8" , "Qh8" , "h4" , "exf4" , "h6" , "Rxe8+" , "Nxd4" , "Qd8" , "a3" , "Qxh6" , "Bxb6" , "Nf4" , "Nf6" , "Qa7" , "a6" , "d6" , "Nc5" , "cxd4" , "Be6" , "Rd5" , "Qxb6" , "Nb6" , "Qf5" , "Ra3" , "Qd2" , "Qe6" , "f3" , "g5" , "e5" , "Qb3" , "Be3" , "Rxh3" , "g6" , "d4" , "Qd7" , "O-O-O" , "fxg6" , "Qxd4" , "c5" , "Rc3" , "Rxf4" , "Nd7" , "Qg4" , "Be7" , "Nc6" , "Bxh3" , "Qd3" , "O-O" , "Re5+" , "f4" , "h3" , "h5" , "Qxf4" , "Bh3" , "Nf3" , "Bg5" , "gxh6" , "hxg6" , "Nd5" , "Nc3" , "b5" , "Rde8" , "Qf3" , "Rc7" , "Kb1" , "Qe5" , "Rc8" ;
+        chon:nextHalfMove      :hmgamXG3JWnH .
+
+:rolhgXG3JWnH7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwEQrSn .
+
+chon:HalfMove  chon:subEventOf  :gamwEQrS .
+
+:plawEQrSn  a         chon:Place ;
+        chon:hasName  "Stockholm" .
+
+:reswEQrSnP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwEQrSn .
+
+:agwEQrSn  a          chon:Agent ;
+        chon:hasName  "Bolbochan, Julio" , "Fischer, Robert James" .
+
+:rolwEQrSn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwEQrSn .
+
+:opewEQrSn  a            chon:ChessOpening ;
+        chon:hasECOCode  "B90" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

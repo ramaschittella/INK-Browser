@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res8UAMHvi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:tou8UAMH  a          chon:hessTournament ;
+        chon:atPlace  :plabYTDYx ;
+        chon:hasName  "Stockholm Interzonal" .
+
+:cgr8UAMHv  a   chon:ChessGameReport .
+
+:rolhg8UAMHvi2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8UAMHv .
+
+:ag8UAMHv  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Cuellar Gacharna, Miguel" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8UAMHv .
+
+:rol8UAMHv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8UAMHv .
+
+chon:HalfMove  chon:subEventOf  :gambYTDY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8UAMHv .
+
+:hmgamiUx1ewl  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiUx1ewlc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bc8" , "Rxc8" , "f5" , "Bb6" , "e6" , "Ra7" , "Nb4" , "Bg5" , "Rb3" , "a6" , "Bd8" , "gxf5" , "Nxd5" , "Ra8" ;
+        chon:nextHalfMove      :hmgamiUx1ewl .
+
+:plabYTDYx  a         chon:Place ;
+        chon:hasName  "Stockholm" .
+
+:gambYTDY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8UAMHv ;
+        chon:atPlace           :plabYTDYx ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8UAMHvi ;
+        chon:hasHalfMove       :hmgamiUx1ewl , :hmgam8UAMHvi ;
+        chon:hasLastHalfMove   :hmgamiUx1ewl ;
+        chon:hasOpening        :ope8UAMHv ;
+        chon:hasReport         :cgr8UAMHv ;
+        chon:hasResult         :res8UAMHvi ;
+        chon:subEventOf        :tou8UAMH .
+
+:hmgam8UAMHvi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8UAMHvi2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d5" , "Bg2" , "Nf6" , "b5" , "Nb3" , "cxb5" , "Nxa5" , "Rb7" , "Bd7" , "exd3" , "Qxd3" , "Rb2" , "Re1" , "Ra3" , "Bc3" , "Bh3" , "O-O" , "Bd2" , "Ne8" , "Bg4" , "Bc1" , "Nc3" , "Nc6" , "a5" , "Ng4" , "Bxb5" , "Kf8" , "Na5" , "Rfb8" , "Nd4" , "Nf3" , "Rb4" , "Rf2" , "bxa6" , "Rc2" , "Bd1" , "Qd3" , "d6" , "a6" , "c5" , "c4" , "Kh1" , "Nxb5" , "Qxa6" , "Qxa5" , "d4" , "g3" , "g6" , "a4" , "Rb5" , "f4" , "Bg7" , "Rxb2" , "Bd4+" , "Bf5" , "Bf3" ;
+        chon:nextHalfMove      :hmgamiUx1ewl , :hmgam8UAMHvi .
+
+:rolhgiUx1ewlc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8UAMHv .
+
+:ope8UAMHv  a            chon:ChessOpening ;
+        chon:hasECOCode  "E62" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

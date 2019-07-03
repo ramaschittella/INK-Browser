@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou6tlTL  a          chon:hessTournament ;
+        chon:atPlace  :pla6tlTLY ;
+        chon:hasName  "Havana+" .
+
+:hmgam6tlTLYw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2r33vWOU , :rolhg6tlTLYwW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "O-O" , "Qa4" , "Bg5" , "d4" , "Nxd4" , "Bb5" , "e4" , "Bd7" , "g6" , "Nc3" , "c3" , "Bg7" , "d6" , "e5" , "Nf3" , "exd4" , "Nce2" , "Nf6" , "Nc6" ;
+        chon:nextHalfMove      :hmgam6tlTLYw , :hmgam2r33vWO .
+
+:hmgam2r33vWO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2r33vWOU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nc5" , "Ng3" , "f4" , "Nd3+" , "Kg1" , "Qxb6" , "Rd1" , "Ne6" , "Qb6" , "Re1" , "Kf1" , "Nxe6" , "c6" , "Ndc5" , "Bh4" , "a3" , "h6" , "axb6" , "Bxd7" , "Nd7" , "h3" , "Rfe8" , "Nxf4" , "Ne5" , "Qc2" , "Ncxd7" , "Qf2" ;
+        chon:nextHalfMove      :hmgam2r33vWO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6tlTLY .
+
+chon:HalfMove  chon:subEventOf  :gam6tlTL .
+
+:res6tlTLYw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6tlTLY .
+
+:pla6tlTLY  a         chon:Place ;
+        chon:hasName  "Havana" .
+
+:rolhg2r33vWOU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6tlTLY .
+
+:cgr6tlTLY  a   chon:ChessGameReport .
+
+:rolhg6tlTLYwW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6tlTLY .
+
+:ag6tlTLY  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Gavilan/Ponce" .
+
+:rol6tlTLY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6tlTLY .
+
+:ope6tlTLY  a            chon:ChessOpening ;
+        chon:hasECOCode  "C62" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam6tlTL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6tlTLY ;
+        chon:atPlace           :pla6tlTLY ;
+        chon:atTime            "1888.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6tlTLYw ;
+        chon:hasHalfMove       :hmgam6tlTLYw , :hmgam2r33vWO ;
+        chon:hasLastHalfMove   :hmgam2r33vWO ;
+        chon:hasOpening        :ope6tlTLY ;
+        chon:hasReport         :cgr6tlTLY ;
+        chon:hasResult         :res6tlTLYw ;
+        chon:subEventOf        :tou6tlTL .

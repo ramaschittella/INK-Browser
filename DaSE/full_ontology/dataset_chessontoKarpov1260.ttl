@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaDzc8p2  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:resDzc8p29  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agDzc8p2  a          chon:Agent ;
+        chon:hasName  "Baertschi, W." , "Karpov, Anatoly" .
+
+:opeDzc8p2  a            chon:ChessOpening ;
+        chon:hasECOCode  "C16" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDzc8p2 .
+
+:gamDzc8p  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDzc8p2 ;
+        chon:atPlace           :plaDzc8p2 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDzc8p29 ;
+        chon:hasHalfMove       :hmgamPz0lY3c , :hmgamDzc8p29 ;
+        chon:hasLastHalfMove   :hmgamPz0lY3c ;
+        chon:hasOpening        :opeDzc8p2 ;
+        chon:hasReport         :cgrDzc8p2 ;
+        chon:hasResult         :resDzc8p29 ;
+        chon:subEventOf        :touDzc8p .
+
+:touDzc8p  a          chon:hessTournament ;
+        chon:atPlace  :plaDzc8p2 ;
+        chon:hasName  "Zuerich sim" .
+
+chon:HalfMove  chon:subEventOf  :gamDzc8p .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDzc8p2 .
+
+:hmgamPz0lY3c  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPz0lY3cz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Baertschi, W." ;
+        chon:hasSANRecord      "Qe6+" , "Rg8" , "Qh6" , "Qh8" ;
+        chon:nextHalfMove      :hmgamPz0lY3c .
+
+:rolhgPz0lY3cz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDzc8p2 .
+
+:cgrDzc8p2  a   chon:ChessGameReport .
+
+:hmgamDzc8p29  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDzc8p29m , chon:AgentRole , :rolhgPz0lY3cz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Baertschi, W." ;
+        chon:hasSANRecord      "Rg1" , "Nce2" , "Ba5" , "d5" , "exf6" , "gxf5" , "Qh4" , "Ng3" , "Kf7" , "Ne7" , "Rxf5" , "e6" , "fxe5" , "bxc3" , "f4" , "Nf3" , "Rh3" , "Nf5" , "Nh4" , "Qg7" , "Bxf5" , "Rxf3" , "f5" , "Nc3" , "Nxf3+" , "Bd2" , "gxf6" , "Nbc6" , "d4" , "Nxf5" , "O-O" , "Qf6" , "e4" , "Qg3+" , "Bd3" , "b4" , "Qe1" , "Bf5" , "Bb4" , "g4" , "Bb6" , "e5" , "b5" , "Kh1" , "c3" , "a6" ;
+        chon:nextHalfMove      :hmgamDzc8p29 , :hmgamPz0lY3c .
+
+:rolhgDzc8p29m  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDzc8p2 .
+
+:rolDzc8p2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDzc8p2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

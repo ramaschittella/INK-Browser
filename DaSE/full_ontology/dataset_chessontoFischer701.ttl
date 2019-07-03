@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrop9wHp  a   chon:ChessGameReport .
+
+:resop9wHp1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agop9wHp  a          chon:Agent ;
+        chon:hasName  "Mecking, Henrique" , "Fischer, Robert James" .
+
+:gamop9wH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolop9wHp ;
+        chon:atPlace           :plaop9wHp ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamop9wHp1 ;
+        chon:hasHalfMove       :hmgamjlPFqpg , :hmgamop9wHp1 ;
+        chon:hasLastHalfMove   :hmgamjlPFqpg ;
+        chon:hasOpening        :opeop9wHp ;
+        chon:hasReport         :cgrop9wHp ;
+        chon:hasResult         :resop9wHp1 ;
+        chon:subEventOf        :touop9wH .
+
+:rolop9wHp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agop9wHp .
+
+:touop9wH  a          chon:hessTournament ;
+        chon:atPlace  :plaop9wHp ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agop9wHp .
+
+:rolhgjlPFqpgX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agop9wHp .
+
+chon:HalfMove  chon:subEventOf  :gamop9wH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agop9wHp .
+
+:hmgamjlPFqpg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjlPFqpgX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mecking, Henrique" ;
+        chon:hasSANRecord      "Nxc8" , "Rd6" , "Kc7" , "Kf2" , "Kxc8" ;
+        chon:nextHalfMove      :hmgamjlPFqpg .
+
+:opeop9wHp  a            chon:ChessOpening ;
+        chon:hasECOCode  "A03" .
+
+:hmgamop9wHp1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgop9wHp1X , chon:AgentRole , :rolhgjlPFqpgX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mecking, Henrique" ;
+        chon:hasSANRecord      "Rd7" , "Kf2" , "axb3" , "Bb2" , "Bg4" , "e3" , "e4" , "c4" , "dxe4" , "Qe7" , "Ng6+" , "Re8" , "Qxg7" , "exf6" , "Qg4" , "Ke8" , "Qxg7+" , "Rg7" , "a4" , "O-O" , "Kg7" , "Rc8" , "Bf6" , "Nf6" , "Nh4" , "f4" , "f5" , "Bd7" , "d5" , "g6+" , "Nd6" , "Rf3" , "b4" , "g5" , "Raf1" , "d3" , "Nf3" , "Nd7" , "Be7" , "Kf7" , "Qxg3" , "Nxe5" , "e5" , "c5" , "Rxf6" , "Rd6" , "fxe5" , "a5" , "gxh7" , "e6" , "Bxc6" , "Nxc4" , "Kf8" , "Rxh7" , "Re7" , "b3" , "Bc8" , "Nd2" , "Be6" , "hxg3" , "Kd8" , "Rb6" , "Rg3" , "Ke3" , "Nc6" , "Bb5" , "g4" , "Ne5" , "Bxe5" ;
+        chon:nextHalfMove      :hmgamjlPFqpg , :hmgamop9wHp1 .
+
+:rolhgop9wHp1X  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agop9wHp .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaop9wHp  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .

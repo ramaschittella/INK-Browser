@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamF7bGV0z  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgF7bGV0zc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxb5" , "Nf4" , "Rd4" , "Re4" , "Rxc3" , "b3" , "Qf1" , "Nh5" , "Rc2" , "Be2" , "Rc1" , "b5" , "Rc8" , "Rxd1" ;
+        chon:nextHalfMove      :hmgamF7bGV0z .
+
+:opeJauxc0  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJauxc0 .
+
+:resJauxc0j  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamJauxc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJauxc0 ;
+        chon:atPlace           :plaJauxc0 ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJauxc0j ;
+        chon:hasHalfMove       :hmgamF7bGV0z , :hmgamJauxc0j ;
+        chon:hasLastHalfMove   :hmgamF7bGV0z ;
+        chon:hasOpening        :opeJauxc0 ;
+        chon:hasReport         :cgrJauxc0 ;
+        chon:hasResult         :resJauxc0j ;
+        chon:subEventOf        :touJauxc .
+
+chon:HalfMove  chon:subEventOf  :gamJauxc .
+
+:touJauxc  a          chon:hessTournament ;
+        chon:atPlace  :plaJauxc0 ;
+        chon:hasName  "Internet FIN m" .
+
+:rolhgF7bGV0zc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJauxc0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJauxc0 .
+
+:rolhgJauxc0je  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJauxc0 .
+
+:hmgamJauxc0j  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJauxc0je , :rolhgF7bGV0zc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nd7" , "Nf6" , "d4" , "Qb6" , "Bg4" , "Be3" , "h3" , "Kh1" , "Bxe4" , "Ngf6" , "Bd3" , "g6" , "Qe2" , "Re1" , "Be7" , "O-O" , "c5" , "Nxe4" , "gxf3" , "Rb1" , "Bh5" , "Qg5+" , "Qf4+" , "Bf4" , "Bc4" , "Bxf3" , "Nc3" , "Rbd1" , "Rg1" , "dxe4" , "Qxc5" , "dxc5" , "c6" , "Rfd8" , "d5" , "Nf3" , "c3" , "e4" , "Bxc5" , "Kh2" , "Qd5" , "Qh4" , "e6" ;
+        chon:nextHalfMove      :hmgamF7bGV0z , :hmgamJauxc0j .
+
+:plaJauxc0  a         chon:Place ;
+        chon:hasName  "Internet" .
+
+:cgrJauxc0  a   chon:ChessGameReport .
+
+:agJauxc0  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "The World" .
+
+:rolJauxc0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJauxc0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

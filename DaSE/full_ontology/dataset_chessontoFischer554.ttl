@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:reslxWclNt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglxWclN .
+
+chon:HalfMove  chon:subEventOf  :gamlxWcl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglxWclN .
+
+:gamlxWcl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollxWclN ;
+        chon:atPlace           :plalxWclN ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlxWclNt ;
+        chon:hasHalfMove       :hmgamlxWclNt , :hmgamMz9xINj ;
+        chon:hasLastHalfMove   :hmgamMz9xINj ;
+        chon:hasOpening        :opelxWclN ;
+        chon:hasReport         :cgrlxWclN ;
+        chon:hasResult         :reslxWclNt ;
+        chon:subEventOf        :toulxWcl .
+
+:hmgamMz9xINj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMz9xINj3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivkov, Borislav" ;
+        chon:hasSANRecord      "Rdg8" , "Rad1" , "Rg8" , "exf6" , "Nh5" , "f7" , "Kh8" , "Rxg4" , "Bf4" , "Nf6" , "Nxf6" ;
+        chon:nextHalfMove      :hmgamMz9xINj .
+
+:rolhglxWclNtD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglxWclN .
+
+:plalxWclN  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+:hmgamlxWclNt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMz9xINj3 , :rolhglxWclNtD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivkov, Borislav" ;
+        chon:hasSANRecord      "Re8" , "Nh4" , "e6" , "Bg2" , "Na5" , "e5" , "Kh1" , "Ne4" , "c4" , "Bxe4" , "c3" , "Bb7" , "Nf4" , "Bd6" , "c5" , "Qh6" , "Bc5+" , "e4" , "Nbd2" , "g4" , "fxg6" , "g3" , "d5" , "O-O" , "Ne7" , "f4" , "Nf3" , "Re1" , "Nd5" , "f5" , "Qh5" , "Nxg6" , "g6" , "d3" , "Nc6" , "b6" , "Rad8" , "Qd7" , "dxe4" , "Ba6" , "Nge7" ;
+        chon:nextHalfMove      :hmgamMz9xINj , :hmgamlxWclNt .
+
+:cgrlxWclN  a   chon:ChessGameReport .
+
+:rolhgMz9xINj3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglxWclN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:aglxWclN  a          chon:Agent ;
+        chon:hasName  "Ivkov, Borislav" , "Fischer, Robert James" .
+
+:rollxWclN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglxWclN .
+
+:toulxWcl  a          chon:hessTournament ;
+        chon:atPlace  :plalxWclN ;
+        chon:hasName  "Santa Monica" .
+
+:opelxWclN  a            chon:ChessOpening ;
+        chon:hasECOCode  "A08" .

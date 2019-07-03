@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamihcMr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolihcMrk ;
+        chon:atPlace           :plaihcMrk ;
+        chon:atTime            "1999.03.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJhm7Oku ;
+        chon:hasHalfMove       :hmgamJhm7Oku ;
+        chon:hasLastHalfMove   :hmgamJhm7Oku ;
+        chon:hasOpening        :opeihcMrk ;
+        chon:hasReport         :cgrihcMrk ;
+        chon:hasResult         :resihcMrkE ;
+        chon:subEventOf        :touihcMr .
+
+:plaihcMrk  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:cgrihcMrk  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agihcMrk .
+
+chon:HalfMove  chon:subEventOf  :gamihcMr .
+
+:opeihcMrk  a            chon:ChessOpening ;
+        chon:hasECOCode  "A70" .
+
+:agihcMrk  a          chon:Agent ;
+        chon:hasName  "Van Wely, Loek" , "Karpov, Anatoly" .
+
+:rolihcMrk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJhm7Ok .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agihcMrk .
+
+:touihcMr  a          chon:hessTournament ;
+        chon:atPlace  :plaihcMrk ;
+        chon:hasName  "Amber Rapidplay" .
+
+:rolhgJhm7Okuc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agihcMrk .
+
+:hmgamJhm7Oku  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJhm7Okuc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely, Loek" ;
+        chon:hasSANRecord      "Rc5" , "O-O" , "Kh6" , "Re1" , "c5" , "hxg3+" , "Qg5" , "d4" , "h4" , "d6" , "Qc3" , "Qb7" , "Rb1" , "Ra1" , "Rfe1" , "Rf1" , "Nc3" , "a4" , "a6" , "e4" , "e6" , "Nxe4" , "Qa6" , "Rxd6" , "Nxc8" , "N2c4" , "cxb2" , "Raxc8" , "Bxb5" , "Qe4" , "Kg5" , "Kg7" , "Bg7" , "Rxb2" , "Qb4" , "Rxg6" , "Rc4" , "Rc6" , "Qxb6" , "Re5" , "Ree6" , "Qd3" , "c3" , "h3" , "d5" , "Bf4" , "g3" , "cxd5" , "h5" , "Bf8" , "Nf6" , "Nb6" , "Qxd6" , "Qa1+" , "Qxa5" , "Rbc2" , "Qa5+" , "Rg3" , "Rfc1" , "Nxd6" , "Kh2" , "Qxb5" , "Nd7" , "Kh5" , "c4" , "Ree1" , "Rd2" , "exd5" , "g6" , "Rfd1" , "Nxb6" , "Qd4" , "Qd2" , "Qc2" , "R4c2" , "Nf3" , "Rg2" , "Bxd6" , "Qa2" , "Rcxd6" , "Rec1" , "Qd8" , "Rbc1" , "Rfd8" , "Nfd2" , "Qe2" , "Bd3" , "Qe5+" , "b5" , "a5" , "f5" , "Rc2" , "Rxg3" , "Qe7" ;
+        chon:nextHalfMove      :hmgamJhm7Oku .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resihcMrkE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

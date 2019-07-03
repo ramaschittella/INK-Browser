@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrR2UcjG  a   chon:ChessGameReport .
+
+:gamR2Ucj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolR2UcjG ;
+        chon:atPlace           :plaR2UcjG ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamR2UcjGv ;
+        chon:hasHalfMove       :hmgamR2UcjGv , :hmgamMXBl5DL ;
+        chon:hasLastHalfMove   :hmgamMXBl5DL ;
+        chon:hasOpening        :opeR2UcjG ;
+        chon:hasReport         :cgrR2UcjG ;
+        chon:hasResult         :resR2UcjGv ;
+        chon:subEventOf        :touR2Ucj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR2UcjG .
+
+:rolhgMXBl5DL1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR2UcjG .
+
+:hmgamMXBl5DL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMXBl5DL1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ermenkov, Evgenij" ;
+        chon:hasSANRecord      "Qe7" , "Rae7" , "Kg7" , "Bf5" , "Re1+" , "Bd4" , "exf5" , "g4" , "g5" , "Ra3" , "Bg2" , "bxc5" , "Qd3" , "Rxe5" , "Re5" , "fxe3" , "Nb6" , "Qf6+" , "Rb2" , "Qxc2" , "gxf5" , "Rf3" , "Bxc2" , "Nc2" , "f5" , "Qa4" , "Qxa4" , "Kf7" , "Qg6" , "Bf1" , "Qc2" , "Qh6" , "Qe8" , "gxf6+" , "Qxf6" , "Re2" , "Qd1" , "Qxf5" , "Nxa4" , "e4" , "Qf8" , "Bxe3+" , "e3" , "Qf5" , "Qf1" , "Rg5" , "Rf1" , "Qb1" , "Qg7" , "Bxh6" , "Kh1" , "Na4" ;
+        chon:nextHalfMove      :hmgamMXBl5DL .
+
+chon:HalfMove  chon:subEventOf  :gamR2Ucj .
+
+:hmgamR2UcjGv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgR2UcjGv4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ermenkov, Evgenij" ;
+        chon:hasSANRecord      "c6" , "Qe7" , "Ng4" , "Nc3" , "Nbd7" , "a6" , "d4" , "d6" , "Ra7" , "g3" , "Rd1" , "b4" , "Nf3" , "Rdb1" , "Re8" , "c5" , "Qc2" , "Bg2" , "b6" , "h3" , "Ne1" , "c4" , "e5" , "Nf6" , "g6" , "Be3" , "e4" , "Bg7" , "d5" , "Nh6" , "O-O" ;
+        chon:nextHalfMove      :hmgamMXBl5DL , :hmgamR2UcjGv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR2UcjG .
+
+:plaR2UcjG  a         chon:Place ;
+        chon:hasName  "La Valetta" .
+
+:touR2Ucj  a          chon:hessTournament ;
+        chon:atPlace  :plaR2UcjG ;
+        chon:hasName  "Malta ol (Men)" .
+
+:agR2UcjG  a          chon:Agent ;
+        chon:hasName  "Ermenkov, Evgenij" , "Karpov, Anatoly" .
+
+:rolR2UcjG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agR2UcjG .
+
+:resR2UcjGv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeR2UcjG  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgR2UcjGv4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR2UcjG .

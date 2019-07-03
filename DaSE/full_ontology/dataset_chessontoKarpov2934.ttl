@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaoY9goM  a         chon:Place ;
+        chon:hasName  "Valjevo SRB" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoY9goM .
+
+:rolhgoY9goMEi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoY9goM .
+
+:cgroY9goM  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamoY9go .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoY9goM .
+
+:agoY9goM  a          chon:Agent ;
+        chon:hasName  "Damljanovic,B" , "Karpov,Ana" .
+
+:roloY9goM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoY9goM .
+
+:hmgamoY9goME  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgoY9goMEi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Damljanovic,B" ;
+        chon:hasSANRecord      "b3" , "Rb1" , "Qb3" , "Nd4" , "c6" , "g6" , "Nf3" , "e5" , "Nd2" , "d6" , "Qd8" , "Nb6" , "Nc3" , "dxc5" , "b5" , "f5" , "Nc6" , "Bg2" , "c5" , "e4" , "Nfd7" , "g3" , "Rf2" , "Qb6" , "f4" , "O-O" , "Bg4" , "Be3" , "h3" , "bxc4" , "Bg7" , "Nf6" , "Be6" , "Nd5" , "d4" , "Qd1" , "c4" , "b6" ;
+        chon:nextHalfMove      :hmgamoY9goME .
+
+:gamoY9go  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloY9goM ;
+        chon:atPlace           :plaoY9goM ;
+        chon:atTime            "2007.06.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoY9goME ;
+        chon:hasHalfMove       :hmgamoY9goME ;
+        chon:hasLastHalfMove   :hmgamoY9goME ;
+        chon:hasOpening        :opeoY9goM ;
+        chon:hasReport         :cgroY9goM ;
+        chon:hasResult         :resoY9goME ;
+        chon:subEventOf        :touoY9go .
+
+:touoY9go  a          chon:hessTournament ;
+        chon:atPlace  :plaoY9goM ;
+        chon:hasName  "Gorenje GM" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resoY9goME  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeoY9goM  a            chon:ChessOpening ;
+        chon:hasECOCode  "E62" .

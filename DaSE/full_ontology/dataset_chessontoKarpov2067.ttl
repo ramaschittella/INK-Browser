@@ -1,0 +1,84 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agwliJWL  a          chon:Agent ;
+        chon:hasName  "Lautier, Joel" , "Karpov, Anatoly" .
+
+:cgrwliJWL  a   chon:ChessGameReport .
+
+:plarGA38W  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwliJWL .
+
+:rolhg6j9qzLur  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwliJWL .
+
+:rolhg0lphPLet  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwliJWL .
+
+:reswliJWLk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgwliJWLkR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwliJWL .
+
+chon:HalfMove  chon:subEventOf  :gamrGA38 .
+
+:hmgamXnu4iLb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXnu4iLbg , chon:AgentRole , :rolhg0lphPLet ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lautier, Joel" ;
+        chon:hasSANRecord      "e5" , "Nc6" , "c4" , "dxc4" , "Be3" , "Na5" , "Nc3" , "e4" , "d5" , "Nf6" ;
+        chon:nextHalfMove      :hmgamXnu4iLb , :hmgam6j9qzLu .
+
+:opewliJWL  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:hmgamwliJWLk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwliJWLkR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lautier, Joel" ;
+        chon:hasSANRecord      "d5" , "d4" ;
+        chon:nextHalfMove      :hmgamXnu4iLb , :hmgamwliJWLk .
+
+:hmgam6j9qzLu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6j9qzLur , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lautier, Joel" ;
+        chon:hasSANRecord      "gxf6" , "h3" , "g3" , "Bd4" , "Nh4" , "Qc6+" , "Bxa6" , "Kg7" , "Kf7" , "Rb1" , "Bxf5" , "Kg6" , "Rc1" , "Qb6" , "Qd2" , "Qc2" , "Kh7" , "Qe1+" , "bxa5" , "Nd4" , "Qxc1" , "Nf3" , "Ne3" , "Nd5" , "Rf5" , "Rh1" , "Ng4" , "Bg4" , "c6" , "b6" , "Qxa5" , "Rf8" , "Kh2" , "Bc4" , "Kg2" , "Rxc1" , "Bxd5" , "Bxg4" , "Bxf4" , "Bxh3" , "Rxa5" , "Kh6" , "Rxf4" , "Rxa6" , "Rf6+" , "Rf5+" , "Rf4" , "Ng2" , "Kg1" , "Nf6" , "Qe8" , "a6" , "f5" , "cxd5" , "Re8" , "a5" , "Bf3" , "Bxc4" , "Be3" , "Qxa6" , "h5" , "Bd6" , "exf5" , "Bxf6" , "Be5" , "Bd7" , "Kh8" , "Kg8" , "Rxe4" , "Qa4+" , "fxg4" , "Qxb2" , "Nf4" , "e4" , "Qe6" , "O-O" , "Ne6" , "a4" , "Qg6" , "Bd2" , "Rg5+" , "Rc8" , "Bf1" , "Rf7" , "Rfe1" ;
+        chon:nextHalfMove      :hmgam6j9qzLu .
+
+:rolwliJWL  a             chon:AuthorRole ;
+        chon:performedBy  :agwliJWL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolkllvmM  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamrGA38  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkllvmM ;
+        chon:atPlace           :plarGA38W ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwliJWLk ;
+        chon:hasHalfMove       :hmgamwliJWLk , :hmgam6j9qzLu , :hmgamXnu4iLb ;
+        chon:hasLastHalfMove   :hmgam6j9qzLu ;
+        chon:hasOpening        :opewliJWL ;
+        chon:hasReport         :cgrwliJWL ;
+        chon:hasResult         :reswliJWLk ;
+        chon:subEventOf        :toukllvm .
+
+:toukllvm  a          chon:hessTournament ;
+        chon:atPlace  :plarGA38W ;
+        chon:hasName  "Amber-rapid 5th" .
+
+:rolhgXnu4iLbg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwliJWL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwliJWL .

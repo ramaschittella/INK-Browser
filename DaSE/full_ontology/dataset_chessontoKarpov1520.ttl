@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrAITM7H  a   chon:ChessGameReport .
+
+:rolhgAITM7Hjg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAITM7H .
+
+:rolFKcDlJ  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:agAITM7H  a          chon:Agent ;
+        chon:hasName  "Bareev, Evgeny" , "Karpov, Anatoly" .
+
+:rolAITM7H  a             chon:AuthorRole ;
+        chon:performedBy  :agAITM7H .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAITM7H .
+
+:hmgamAITM7Hj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAITM7Hjg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bareev, Evgeny" ;
+        chon:hasSANRecord      "Bg7" , "Bh6" , "Kxg2" , "Nd2" , "Rb1" , "Ngf6" , "Bb2" , "Ne6" , "Qc2" , "Bf8" , "Nc5" , "c4" , "Rc4" , "Qa5+" , "Qc7" , "dxe3" , "Be6" , "Bc1" , "Nf2" , "fxe6" , "g6" , "Qxe3" , "b4" , "Ne4" , "f3" , "Qb2" , "Re8" , "Nxg2" , "Nfxe4" , "d5" , "e5" , "Bg2" , "Qxc6" , "h3" , "Qxb4" , "Rd3" , "Qe7" , "c6" , "Rc8" , "Qc5" , "Rde1" , "Qc3" , "b3" , "Rb3" , "Qxc4+" , "e3" , "Nf4" , "Rxe3" , "Rae8" , "Bxe3" , "Rf8" , "Nc3" , "a5" , "Qd2" , "O-O" , "Nxe4" , "Be7" , "dxe5" , "Kh8" , "Nde4" , "Qxb7" , "g3" , "g4" , "Bxc4" , "Qf7" , "Ng5" , "Nd7" , "Qf4" , "a3" , "axb4" , "Nf3" , "d4" , "Rad1" , "e6" ;
+        chon:nextHalfMove      :hmgamAITM7Hj , :hmgamMGQ1DIm .
+
+chon:HalfMove  chon:subEventOf  :gamFKcDl .
+
+:gamFKcDl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFKcDlJ ;
+        chon:atPlace           :plaFKcDlJ ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAITM7Hj ;
+        chon:hasHalfMove       :hmgamAITM7Hj , :hmgamMGQ1DIm ;
+        chon:hasLastHalfMove   :hmgamMGQ1DIm ;
+        chon:hasOpening        :opeAITM7H ;
+        chon:hasReport         :cgrAITM7H ;
+        chon:hasResult         :resAITM7Hj ;
+        chon:subEventOf        :touFKcDl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAITM7H .
+
+:touFKcDl  a          chon:hessTournament ;
+        chon:atPlace  :plaFKcDlJ ;
+        chon:hasName  "Linares" .
+
+:rolhgMGQ1DImt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAITM7H .
+
+:opeAITM7H  a            chon:ChessOpening ;
+        chon:hasECOCode  "D10" .
+
+:hmgamMGQ1DIm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMGQ1DImt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bareev, Evgeny" ;
+        chon:hasSANRecord      "Rxe2" , "hxg5" , "Kh3" , "Qxh4" , "Re3" , "Kg7" , "Qe1" , "Rfc8" , "Ne4" , "h4" , "Qc1" , "Qf1+" , "exf4" , "Kxg5" , "Qxe2" , "Qf2" , "Qg2" , "h5" , "Qe2" , "Kg6" , "Nf2" , "g5" , "Re2" , "Qg3" , "Rxf2" , "Rc2" , "Rd2" , "Qf3" , "Rc2+" , "f4+" ;
+        chon:nextHalfMove      :hmgamMGQ1DIm .
+
+:resAITM7Hj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaFKcDlJ  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

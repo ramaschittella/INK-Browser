@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamkZME1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkZME18 ;
+        chon:atPlace           :plakZME18 ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkZME187 ;
+        chon:hasHalfMove       :hmgamkZME187 , :hmgamwZJUy7b ;
+        chon:hasLastHalfMove   :hmgamwZJUy7b ;
+        chon:hasOpening        :opekZME18 ;
+        chon:hasReport         :cgrkZME18 ;
+        chon:hasResult         :reskZME187 ;
+        chon:subEventOf        :toukZME1 .
+
+:toukZME1  a          chon:hessTournament ;
+        chon:atPlace  :plakZME18 ;
+        chon:hasName  "Leningrad Interzonal" .
+
+:rolhgwZJUy7bG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkZME18 .
+
+:rolhgkZME187t  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkZME18 .
+
+:plakZME18  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:hmgamwZJUy7b  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwZJUy7bG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Rc8" , "Bf4" , "Bxc6" , "Qe7" , "Nc6" , "Qe2" , "Rd2" , "e5" , "Nb4" , "dxc6" , "Na6" , "Re1" , "Bg5" , "h3" , "Bd7" , "Bb5" , "h5" , "d5" , "a5" , "Rad1" , "Bh2" , "c6" , "h6" , "a4" , "Nb8" ;
+        chon:nextHalfMove      :hmgamwZJUy7b .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkZME18 .
+
+:cgrkZME18  a   chon:ChessGameReport .
+
+:hmgamkZME187  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkZME187t ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Nc3" , "e4" , "Be2" , "d6" , "O-O" , "Nf6" , "Bg7" , "d4" , "Nf3" , "g6" ;
+        chon:nextHalfMove      :hmgamkZME187 , :hmgamwZJUy7b .
+
+chon:HalfMove  chon:subEventOf  :gamkZME1 .
+
+:agkZME18  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkZME18 .
+
+:rolkZME18  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkZME18 .
+
+:opekZME18  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+:reskZME187  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

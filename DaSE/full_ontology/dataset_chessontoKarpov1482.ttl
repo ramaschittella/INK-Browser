@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag5UxbhR  a          chon:Agent ;
+        chon:hasName  "Knaak, Rainer" , "Karpov, Anatoly" .
+
+:rol5UxbhR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5UxbhR .
+
+:ope5UxbhR  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+:rolhgfStpQQSN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5UxbhR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5UxbhR .
+
+chon:HalfMove  chon:subEventOf  :gam5Uxbh .
+
+:tou5Uxbh  a          chon:hessTournament ;
+        chon:atPlace  :pla5UxbhR ;
+        chon:hasName  "Baden-Baden" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5UxbhR .
+
+:cgr5UxbhR  a   chon:ChessGameReport .
+
+:rolhg5UxbhRyA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5UxbhR .
+
+:hmgam5UxbhRy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5UxbhRyA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Knaak, Rainer" ;
+        chon:hasSANRecord      "c6" , "O-O" , "Nbd7" , "d4" , "e5" , "d5" , "Rb1" , "Nc3" , "e4" , "Bd6" , "Re8" , "Ng4" , "Nc4" , "Nd2" , "Nf6" , "c4" , "e6" , "c5" , "dxc4" , "Be2" , "h3" , "Bc7" , "Nf3" , "Nf8" , "Qc2" , "b3" , "Qe7" , "Rd1" , "bxc4" , "e3" ;
+        chon:nextHalfMove      :hmgamfStpQQS , :hmgam5UxbhRy .
+
+:pla5UxbhR  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+:hmgamfStpQQS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfStpQQSN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Knaak, Rainer" ;
+        chon:hasSANRecord      "Rxc5" , "h4" , "Re4+" , "cxd6" , "Kf1" , "g4" , "Qg5" , "Rb6" , "Rb4" , "f5" , "Rxc6" , "Rb5+" , "Ka3" , "Rd7" , "Bc5" , "Rd5" , "Rxa7+" , "Nxe4" , "Rxe1" , "Kg6" , "f4" , "Nxe1" , "Nd6" , "Rb2" , "a5" , "h5" , "Ke4" , "Ke5" , "Rc5+" , "Bc4" , "Rb4+" , "Kd2" , "d7" , "Re8" , "Nxg5" , "g5" , "Bxe6" , "b6" , "Rb8+" , "f3" , "a3" , "a4" , "Re1+" , "Re2" , "Kb3" , "Ke7" , "Ra6" , "Ba3" , "Nd5" , "dxc5" , "Kf6" , "Rxd7" , "Nxe3" , "g3" , "Rxe6" , "Kf5" , "a6" , "Rc4+" , "Ka4" , "Ka5" , "Ka2" , "Ra8" , "Rd6" , "Kxe1" , "Rc7+" , "Kf8" , "Rc4" , "Ra5" , "Ra3" , "Rd2" , "Kd5" , "Rc3" , "Ne6" , "Kc2" , "Rd8" , "Nxe6" , "Rc6" , "Kf4" , "Kb6" , "Bxd6" , "bxc5" , "Nxc2" ;
+        chon:nextHalfMove      :hmgamfStpQQS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res5UxbhRy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gam5Uxbh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5UxbhR ;
+        chon:atPlace           :pla5UxbhR ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5UxbhRy ;
+        chon:hasHalfMove       :hmgamfStpQQS , :hmgam5UxbhRy ;
+        chon:hasLastHalfMove   :hmgamfStpQQS ;
+        chon:hasOpening        :ope5UxbhR ;
+        chon:hasReport         :cgr5UxbhR ;
+        chon:hasResult         :res5UxbhRy ;
+        chon:subEventOf        :tou5Uxbh .

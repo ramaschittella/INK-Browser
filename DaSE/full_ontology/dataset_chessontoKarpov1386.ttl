@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgumnfS9Wz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agios2l8 .
+
+:plaios2l8  a         chon:Place ;
+        chon:hasName  "Lyon/New York" .
+
+:hmgamumnfS9W  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgumnfS9Wz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Be5" , "Rbc1" , "Bc7" , "Na5" , "d5" , "Bd6" , "Bd3" , "Bd2" , "Bc4" , "O-O" , "Rfd1" , "Qd4" , "Rc1" , "Rc6" , "Bxd3" , "g5" , "Rb7" , "f6" , "Qd7" , "Qxd3" , "Qc5" , "b5" , "Rb1" , "a6" , "a3" , "Bc3" , "Bb8" , "Rf8" , "h5" , "Rc8" , "g3" , "Nc4" , "Bxd2" , "Qxc8" , "Bd7" , "Bf4" , "Be6" , "Rxc8" , "Kg7" , "d6" , "Ba5" , "Ba1" , "Re8" , "Nf3" , "Qc3" , "Rc7" , "Nd2" , "Bg5" , "d7" , "Qb7" , "Nxd2" , "Qd8" ;
+        chon:nextHalfMove      :hmgamumnfS9W .
+
+:hmgamios2l8T  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgios2l8Tl , chon:AgentRole , :rolhgumnfS9Wz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "c4" , "Bg4" , "g6" , "Nc3" , "cxd4" , "Nxd5" , "e4" , "Bg7" , "Qd2" , "cxd5" , "d4" , "bxc3" , "d5" , "c5" , "O-O" , "Nxc3" , "Nf6" , "Ng5" , "h3" , "Nc6" , "Be3" , "Nf3" ;
+        chon:nextHalfMove      :hmgamumnfS9W , :hmgamios2l8T .
+
+:gamios2l  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolios2l8 ;
+        chon:atPlace           :plaios2l8 ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamios2l8T ;
+        chon:hasHalfMove       :hmgamios2l8T , :hmgamumnfS9W ;
+        chon:hasLastHalfMove   :hmgamumnfS9W ;
+        chon:hasOpening        :opeios2l8 ;
+        chon:hasReport         :cgrios2l8 ;
+        chon:hasResult         :resios2l8T ;
+        chon:subEventOf        :touios2l .
+
+:agios2l8  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:touios2l  a          chon:hessTournament ;
+        chon:atPlace  :plaios2l8 ;
+        chon:hasName  "World Championship 35th-KK5" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agios2l8 .
+
+:rolios2l8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agios2l8 .
+
+:opeios2l8  a            chon:ChessOpening ;
+        chon:hasECOCode  "D85" .
+
+chon:HalfMove  chon:subEventOf  :gamios2l .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agios2l8 .
+
+:resios2l8T  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrios2l8  a   chon:ChessGameReport .
+
+:rolhgios2l8Tl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agios2l8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

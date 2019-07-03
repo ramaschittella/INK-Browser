@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgwKJOvUkB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkKMAXV .
+
+:hmgamwKJOvUk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwKJOvUkB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rxc5" , "Rc2" , "Qxc5" , "Bg5" , "dxc5" , "Nxd5" , "d5" , "cxd5" , "Bxe7" , "h6" , "Kf1" , "Rb8" , "Bh4" , "Nd7" , "f3" , "Bb7" , "Be2" , "b6" , "Qa4" , "c5" , "c4" , "Bc6" , "O-O" , "Qxe7" , "d4" , "Rc1" , "Nf6" , "Qf8" , "Ne2" , "Nf4" , "Be7" , "Rfc8" , "e3" , "exd5" , "e6" , "bxc5" , "Qa3" , "Nc3" ;
+        chon:nextHalfMove      :hmgamwKJOvUk .
+
+:agkKMAXV  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Petrosian, Tigran V" .
+
+:rolkKMAXV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwKJOvU .
+
+:opekKMAXV  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkKMAXV .
+
+chon:HalfMove  chon:subEventOf  :gamkKMAX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkKMAXV .
+
+:cgrkKMAXV  a   chon:ChessGameReport .
+
+:gamkKMAX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkKMAXV ;
+        chon:atPlace           :plakKMAXV ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwKJOvUk ;
+        chon:hasHalfMove       :hmgamwKJOvUk ;
+        chon:hasLastHalfMove   :hmgamwKJOvUk ;
+        chon:hasOpening        :opekKMAXV ;
+        chon:hasReport         :cgrkKMAXV ;
+        chon:hasResult         :reskKMAXVf ;
+        chon:subEventOf        :toukKMAX .
+
+:reskKMAXVf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:toukKMAX  a          chon:hessTournament ;
+        chon:atPlace  :plakKMAXV ;
+        chon:hasName  "Candidats Tournament" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plakKMAXV  a         chon:Place ;
+        chon:hasName  "Curacao" .

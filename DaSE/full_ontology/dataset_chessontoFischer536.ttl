@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla2YXJX1  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:ag2YXJX1  a          chon:Agent ;
+        chon:hasName  "Zuckerman, Bernard" , "Fischer, Robert James" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2YXJX1 .
+
+:gam2YXJX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2YXJX1 ;
+        chon:atPlace           :pla2YXJX1 ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXWESH14 ;
+        chon:hasHalfMove       :hmgamXWESH14 ;
+        chon:hasLastHalfMove   :hmgamXWESH14 ;
+        chon:hasOpening        :ope2YXJX1 ;
+        chon:hasReport         :cgrXWESH1 ;
+        chon:hasResult         :res2YXJX1N ;
+        chon:subEventOf        :tou2YXJX .
+
+:rol2YXJX1  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:HalfMove  chon:subEventOf  :gam2YXJX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2YXJX1 .
+
+:res2YXJX1N  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamXWESH14  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXWESH14Q , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zuckerman, Bernard" ;
+        chon:hasSANRecord      "Qxc7" , "Re7" , "Ne5" , "dxe5" , "Nb4" , "Nxd4" , "Bb3" , "Kb1" , "Qc8" , "a4" , "Bxc7" , "g6" , "Rb5" , "Nb5" , "Rxd5" , "Nc2" , "a5" , "Rxc4" , "Rc6" , "Na5" , "Nf6" , "Bc4" , "Bxe5" , "d6" , "Bf6" , "cxd4" , "Qb6" , "Nc6" , "f3" , "c3" , "g4" , "Re2" , "Qxh2" , "O-O" , "Bd4" , "Be3" , "Rc7" , "c5" , "Qd6" , "Nd4" , "e4" , "Nf3" , "Qd2" , "Be6" , "Nb3" , "Rd2" , "Nc4" , "Bxc4" , "Nc3" , "Qxd5" , "O-O-O" , "axb3" , "b6" , "Rc8" , "Nd5" , "Rhe1" , "Bg7" , "d4" , "Qc7" , "e5" , "Nab3" , "Rxe7" , "Bd7" , "Ree1" ;
+        chon:nextHalfMove      :hmgamXWESH14 .
+
+:cgrXWESH1  a   chon:ChessGameReport .
+
+:tou2YXJX  a          chon:hessTournament ;
+        chon:atPlace  :pla2YXJX1 ;
+        chon:hasName  "USA-ch" .
+
+:ope2YXJX1  a            chon:ChessOpening ;
+        chon:hasECOCode  "B75" .
+
+:rolhgXWESH14Q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2YXJX1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolXWESH1  a             chon:AuthorRole ;
+        chon:performedBy  :agXWESH1 .

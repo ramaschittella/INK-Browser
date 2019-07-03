@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agPYELiG  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Ostojic, Predrag" .
+
+:rolPYELiG  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgg1Q4DJjd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPYELiG .
+
+:opePYELiG  a            chon:ChessOpening ;
+        chon:hasECOCode  "B93" .
+
+:resg1Q4DJj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolg1Q4DJ  a             chon:AuthorRole ;
+        chon:performedBy  :agg1Q4DJ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPYELiG .
+
+:hmgamg1Q4DJj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgg1Q4DJjd ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bxh6" , "Kh1" , "e5" , "Nxd4" , "O-O" , "Qxg4" , "Bd2" , "Nf6" , "Ne2" , "f5" , "Nxe4" , "Bg7" , "Bd3" , "Nxf3" , "d6" , "Qh4" , "f4" , "Rxg4" , "Rae1" , "a4" , "Ne5" , "exf4" , "fxg4" , "Qe1" , "Nbd7" , "e4" , "Nfg4" , "Bxf4" , "cxd4" , "d5" , "Qg3" , "Rac8" , "Rxf3" , "Bxe4" , "Bh6" , "dxe4" , "b6" , "Rf4" , "Rxe4" , "Qxh6" , "c5" , "Nf3" , "d4" , "Nc3" , "Bb7" , "Qc7" , "g6" , "a6" ;
+        chon:nextHalfMove      :hmgamg1Q4DJj .
+
+chon:HalfMove  chon:subEventOf  :gamPYELi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPYELiG .
+
+:plaPYELiG  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamPYELi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPYELiG ;
+        chon:atPlace           :plaPYELiG ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamg1Q4DJj ;
+        chon:hasHalfMove       :hmgamg1Q4DJj ;
+        chon:hasLastHalfMove   :hmgamg1Q4DJj ;
+        chon:hasOpening        :opePYELiG ;
+        chon:hasReport         :cgrg1Q4DJ ;
+        chon:hasResult         :resg1Q4DJj ;
+        chon:subEventOf        :touPYELi .
+
+:touPYELi  a          chon:hessTournament ;
+        chon:atPlace  :plaPYELiG ;
+        chon:hasName  "Herceg Novi blitz" .
+
+:cgrg1Q4DJ  a   chon:ChessGameReport .

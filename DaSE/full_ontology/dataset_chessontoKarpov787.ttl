@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plavlIPgO  a         chon:Place ;
+        chon:hasName  "Hannover" .
+
+:gamvlIPg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvlIPgO ;
+        chon:atPlace           :plavlIPgO ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvlIPgOt ;
+        chon:hasHalfMove       :hmgamvlIPgOt ;
+        chon:hasLastHalfMove   :hmgamvlIPgOt ;
+        chon:hasOpening        :opevlIPgO ;
+        chon:hasReport         :cgrvlIPgO ;
+        chon:hasResult         :resvlIPgOt ;
+        chon:subEventOf        :touvlIPg .
+
+:touvlIPg  a          chon:hessTournament ;
+        chon:atPlace  :plavlIPgO ;
+        chon:hasName  "Hannover" .
+
+:agvlIPgO  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kavalek, Lubomir" .
+
+:rolvlIPgO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvlIPgO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvlIPgO .
+
+:opevlIPgO  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:hmgamvlIPgOt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvlIPgOtm , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc3" , "Re1" , "Nxd5" , "c4" , "e5" , "Nf3" , "e4" , "h3" , "cxd5" , "Na4" , "Bf6" , "Bg4" , "Nc6" , "Be7" , "d6" , "Nf6" , "Be6" , "d5" , "Bd3" , "Nxe5" , "a3" , "Nxe4" , "O-O" , "d4" ;
+        chon:nextHalfMove      :hmgamvlIPgOt .
+
+chon:HalfMove  chon:subEventOf  :gamvlIPg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvlIPgO .
+
+:rolhgvlIPgOtm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvlIPgO .
+
+:resvlIPgOt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrvlIPgO  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

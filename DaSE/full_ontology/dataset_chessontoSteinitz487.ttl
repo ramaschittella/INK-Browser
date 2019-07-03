@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolibo8TL  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:opeubklsK  a            chon:ChessOpening ;
+        chon:hasECOCode  "C71" .
+
+:rolhgubklsK2D  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agubklsK .
+
+:plaibo8TL  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agubklsK .
+
+:resubklsK2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamibo8T .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agubklsK .
+
+:gamibo8T  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolibo8TL ;
+        chon:atPlace           :plaibo8TL ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamubklsK2 ;
+        chon:hasHalfMove       :hmgamubklsK2 ;
+        chon:hasLastHalfMove   :hmgamubklsK2 ;
+        chon:hasOpening        :opeubklsK ;
+        chon:hasReport         :cgrubklsK ;
+        chon:hasResult         :resubklsK2 ;
+        chon:subEventOf        :touibo8T .
+
+:cgrubklsK  a   chon:ChessGameReport .
+
+:touibo8T  a          chon:hessTournament ;
+        chon:atPlace  :plaibo8TL ;
+        chon:hasName  "World Championship 6th" .
+
+:hmgamubklsK2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgubklsK2D ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qg3" , "f3" , "Re8" , "Nf6+" , "Qxc2" , "e4" , "Qg4" , "bxc4" , "Kh1" , "bxc3" , "Rad1" , "Nf3" , "Rf4" , "Kh8" , "Be6" , "Bd7" , "Rxf7" , "Bxc5" , "fxe5" , "Ne5" , "Ra8" , "Nb1" , "Nxb3" , "Ba4" , "a4" , "Qxc4" , "Qa2" , "f4" , "Na5" , "Be3" , "Nf6" , "Nfe2" , "a6" , "Qa5" , "Be7" , "Nxe4" , "d6" , "Qf2" , "Nf4" , "Bb2" , "d4" , "e5" , "Rxe4" , "Bb5" , "b5" , "Nxd7" , "Qd2" , "Nxc3" , "Nxd4" , "b4" , "Nde2" , "Ba3" , "Bb3" , "Nc6" , "axb3" , "Qxb2" , "a5" , "Rxa4" , "Rd7" , "Bf8" , "Nxe5" , "O-O" , "dxc5" , "Qf3" , "c4" , "c5" , "Ne2" , "Nc3" , "Qc5" , "Rc8" , "h3" , "c6" , "Nbc3" , "Nd7" , "Nd4" , "exd4" , "Bb4" ;
+        chon:nextHalfMove      :hmgamubklsK2 .
+
+:agubklsK  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Lasker, Emanuel" .
+
+:rolubklsK  a             chon:AuthorRole ;
+        chon:performedBy  :agubklsK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

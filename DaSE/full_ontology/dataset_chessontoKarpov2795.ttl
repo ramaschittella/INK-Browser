@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agyoKga3  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Istratescu,A" .
+
+:resyoKga3g  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeyoKga3  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyoKga3 .
+
+:hmgamyoKga3g  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyoKga3g3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qg5" , "Bf5" , "Ne7" , "Nh4" , "b4" , "Nxe5" , "Rd1" , "Ke2" , "O-O" , "Qe7" , "e6" , "Nf3" , "Bg4" , "Nc4" , "Nxg6" , "Rxb7" , "c2" , "Bxf8" , "e4" , "Rb8" , "c4" , "Qd2" , "Rac1" , "Bxf3" , "Nd7" , "Rc7" , "a5" , "Rxb8" , "Rxc2" , "h5" , "Qg3" , "Ng6" , "g3" , "Bh5" , "e5" , "Qf3" , "Kh7" , "Qxe6" , "Qxe5" , "Qa7" , "Ndf8" , "Qe3" , "Be2" , "c6" , "d5" , "c3" , "Qxf7+" , "Bxg6+" , "Nd6" , "h4" , "Rd8" , "Rb4" , "axb4" , "hxg3" , "dxc4" , "h6" , "Nb5" , "Rc8" , "cxd5" , "Rb1" , "Rc1" , "Nxf8" , "b3" , "Kf1" , "Rxb4" , "d4" , "Nc3" , "a3" , "Ba3" , "Nxc4" , "Qxd4" ;
+        chon:nextHalfMove      :hmgamyoKga3g .
+
+chon:HalfMove  chon:subEventOf  :gammoN1D .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyoKga3 .
+
+:gammoN1D  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyoKga3 ;
+        chon:atPlace           :plamoN1D4 ;
+        chon:atTime            "2004.12.11"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyoKga3g ;
+        chon:hasHalfMove       :hmgamyoKga3g ;
+        chon:hasLastHalfMove   :hmgamyoKga3g ;
+        chon:hasOpening        :opeyoKga3 ;
+        chon:hasReport         :cgryoKga3 ;
+        chon:hasResult         :resyoKga3g ;
+        chon:subEventOf        :touyoKga .
+
+:cgryoKga3  a   chon:ChessGameReport .
+
+:touyoKga  a          chon:hessTournament ;
+        chon:atPlace  :plamoN1D4 ;
+        chon:hasName  "GP" .
+
+:rolyoKga3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyoKga3 .
+
+:plamoN1D4  a         chon:Place ;
+        chon:hasName  "Aix-En-Provence FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgyoKga3g3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyoKga3 .

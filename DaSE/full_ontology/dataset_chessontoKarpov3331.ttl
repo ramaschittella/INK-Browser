@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr5O0gXR  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5O0gXR .
+
+:hmgam5O0gXRP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfO6uwQUs , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamfO6uwQU .
+
+chon:HalfMove  chon:subEventOf  :gam5O0gX .
+
+:pla5O0gXR  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5O0gXR .
+
+:hmgamfO6uwQU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfO6uwQUs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kapp,Viljar" ;
+        chon:hasSANRecord      "Bb2" , "Nc6" , "Nf6" , "Nh5" , "Nxe5" , "Kb1" , "b6" , "Nf3" , "Kh8" , "Rd8" , "e3" , "f3" , "b3" , "h6" , "Bd3" , "h3" , "Bxa6" , "Ba6" , "Ngf6" , "e6" , "Rxc8" , "Qxc5" , "Qxc8" , "Nb4" , "e4" , "Be7" , "Bb7" , "dxc4" , "Nxc8" , "Bd4" , "O-O-O" , "Nbd7" , "g4" , "h4" , "c4" , "Qc7" , "g5" , "c5" , "hxg5" , "Nc4" , "Ng4" , "Qc2" , "Nc5" , "Rhe1" , "Nd4" , "Nbd2" , "Raxc8" , "d5" , "dxc5" , "Rc7" , "Be5" , "Bxe5" , "e5" , "O-O" , "Qc8" , "Nxe7+" , "Bxc4" , "Nxa6" , "c6" ;
+        chon:nextHalfMove      :hmgamfO6uwQU .
+
+:rolhgfO6uwQUs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5O0gXR .
+
+:res5O0gXRP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag5O0gXR  a          chon:Agent ;
+        chon:hasName  "Kapp,Viljar" , "Karpov,Ana" .
+
+:rol5O0gXR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5O0gXR .
+
+:ope5O0gXR  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam5O0gX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5O0gXR ;
+        chon:atPlace           :pla5O0gXR ;
+        chon:atTime            "2013.12.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5O0gXRP ;
+        chon:hasHalfMove       :hmgamfO6uwQU , :hmgam5O0gXRP ;
+        chon:hasLastHalfMove   :hmgamfO6uwQU ;
+        chon:hasOpening        :ope5O0gXR ;
+        chon:hasReport         :cgr5O0gXR ;
+        chon:hasResult         :res5O0gXRP ;
+        chon:subEventOf        :tou5O0gX .
+
+:tou5O0gX  a          chon:hessTournament ;
+        chon:atPlace  :pla5O0gXR ;
+        chon:hasName  "14th Puhajarve Rapid" .

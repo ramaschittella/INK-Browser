@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamDgANXN1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDgANXN1z ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b5" , "c6" , "Nxd2" , "dxe5" , "Nf3" , "Re1" , "e4" , "e5" , "Be7" , "Nc6" , "Bxd2" , "Bb3" , "Nf6" , "Bb5" , "Bc5" , "Qd2" , "c3" , "Nxe4" , "a6" , "Be3" , "a4" , "Nxe5" , "Nd2" , "O-O" , "Ba4" , "Qd7" , "d5" , "Bf5" , "d4" ;
+        chon:nextHalfMove      :hmgamDgANXN1 .
+
+:gamDgANX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDgANXN ;
+        chon:atPlace           :plaDgANXN ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDgANXN1 ;
+        chon:hasHalfMove       :hmgamDgANXN1 ;
+        chon:hasLastHalfMove   :hmgamDgANXN1 ;
+        chon:hasOpening        :opeDgANXN ;
+        chon:hasReport         :cgrDgANXN ;
+        chon:hasResult         :resDgANXN1 ;
+        chon:subEventOf        :touDgANX .
+
+:touDgANX  a          chon:hessTournament ;
+        chon:atPlace  :plaDgANXN ;
+        chon:hasName  "Bugojno" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDgANXN .
+
+:cgrDgANXN  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamDgANX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDgANXN .
+
+:rolDgANXN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDgANXN .
+
+:resDgANXN1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaDgANXN  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+:rolhgDgANXN1z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDgANXN .
+
+:agDgANXN  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hort, Vlastimil" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeDgANXN  a            chon:ChessOpening ;
+        chon:hasECOCode  "C80" .

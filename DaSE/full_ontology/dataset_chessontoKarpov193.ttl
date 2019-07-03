@@ -1,0 +1,83 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agfqWk5O  a          chon:Agent ;
+        chon:hasName  "Uddenfeldt, Dan" , "Karpov, Anatoly" .
+
+:opefqWk5O  a            chon:ChessOpening ;
+        chon:hasECOCode  "B82" .
+
+:cgrfqWk5O  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfqWk5O .
+
+:toufqWk5  a          chon:hessTournament ;
+        chon:atPlace  :plakseblQ ;
+        chon:hasName  "Skopje ol (Men) fin-A" .
+
+:plakseblQ  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:hmgamrqSyENA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrqSyENAa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uddenfeldt, Dan" ;
+        chon:hasSANRecord      "Rf8" , "f5" , "Nfd7" , "b5" , "Qxg5" , "Qxh7" , "e6" , "Be3" , "Be7" , "Bd3" , "d5" , "cxd3" , "Nf3" , "Qg3" , "Ke7" , "Nc5" , "Ng5" , "Qh5" , "Qb7" , "O-O" , "Rc7" , "Rac1" , "Qe1" , "Qg7" , "Bb7" , "Nh5" , "e5" , "Bd4" , "Nbd7" , "Ne2" , "Nxd3" , "g6" , "Qg5" , "Nf4" , "Ke8" , "gxf5" , "Qd8" , "Bxg5" , "Qc7" , "Qb8" , "Rb8" ;
+        chon:nextHalfMove      :hmgamrqSyENA , :hmgam5q27xOu .
+
+:resfqWk5Ox  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamksebl .
+
+:rolhgrqSyENAa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfqWk5O .
+
+:hmgamfqWk5Ox  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfqWk5OxZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uddenfeldt, Dan" ;
+        chon:hasSANRecord      "Nxd4" , "Nf3" , "f4" , "Nc3" , "d6" , "c5" , "e4" , "Nf6" , "d4" , "a6" , "cxd4" ;
+        chon:nextHalfMove      :hmgamfqWk5Ox , :hmgamrqSyENA .
+
+:gamksebl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfqWk5O ;
+        chon:atPlace           :plakseblQ ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfqWk5Ox ;
+        chon:hasHalfMove       :hmgamfqWk5Ox , :hmgamrqSyENA , :hmgamX6MzPEt , :hmgam5q27xOu ;
+        chon:hasLastHalfMove   :hmgamX6MzPEt ;
+        chon:hasOpening        :opefqWk5O ;
+        chon:hasReport         :cgrfqWk5O ;
+        chon:hasResult         :resfqWk5Ox ;
+        chon:subEventOf        :toufqWk5 .
+
+:hmgamX6MzPEt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgX6MzPEt1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uddenfeldt, Dan" ;
+        chon:hasSANRecord      "Ke7" .
+
+:rolfqWk5O  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfqWk5O .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam5q27xOu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgX6MzPEt1 , chon:AgentRole ;
+        chon:hasSANRecord      "Ng7+" ;
+        chon:nextHalfMove      :hmgamX6MzPEt .
+
+:rolhgfqWk5OxZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfqWk5O .
+
+:rolhgX6MzPEt1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfqWk5O .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfqWk5O .

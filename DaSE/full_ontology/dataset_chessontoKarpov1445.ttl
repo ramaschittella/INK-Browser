@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamGn9exSS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGn9exSSH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nd7" , "dxc4" , "Nh4" , "dxc5" , "Bb7" , "c4" , "Qe7" , "Nf6" , "b6" , "Bg2" , "Qxc4" , "Bxe4" , "Nxe4" , "d4" , "Be7" , "e6" , "Rfd1" , "c5" , "O-O" , "Be3" , "g3" , "Nf3" , "Ne4" , "d5" , "Bxc5" , "Qa4" , "Nc3" , "Nxg2" , "Bxg2" ;
+        chon:nextHalfMove      :hmgamGn9exSS .
+
+:rolhgGn9exSSH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGn9exS .
+
+:agGn9exS  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Portisch, Lajos" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGn9exS .
+
+:resGn9exSS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeGn9exS  a            chon:ChessOpening ;
+        chon:hasECOCode  "E18" .
+
+chon:HalfMove  chon:subEventOf  :gamGn9ex .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGn9exS .
+
+:plaGn9exS  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:cgrGn9exS  a   chon:ChessGameReport .
+
+:gamGn9ex  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGn9exS ;
+        chon:atPlace           :plaGn9exS ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGn9exSS ;
+        chon:hasHalfMove       :hmgamGn9exSS ;
+        chon:hasLastHalfMove   :hmgamGn9exSS ;
+        chon:hasOpening        :opeGn9exS ;
+        chon:hasReport         :cgrGn9exS ;
+        chon:hasResult         :resGn9exSS ;
+        chon:subEventOf        :touGn9ex .
+
+:touGn9ex  a          chon:hessTournament ;
+        chon:atPlace  :plaGn9exS ;
+        chon:hasName  "World Cup" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolGn9exS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGn9exS .

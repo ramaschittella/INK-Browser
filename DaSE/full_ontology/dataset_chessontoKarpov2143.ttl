@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSKtvFayW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSKtvFa .
+
+:cgrSKtvFa  a   chon:ChessGameReport .
+
+:agSKtvFa  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ivanchuk, Vassily" .
+
+:gamHMyh9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSKtvFa ;
+        chon:atPlace           :plaSKtvFa ;
+        chon:atTime            "1997.07.12"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSKtvFay ;
+        chon:hasHalfMove       :hmgamSKtvFay ;
+        chon:hasLastHalfMove   :hmgamSKtvFay ;
+        chon:hasOpening        :opeSKtvFa ;
+        chon:hasReport         :cgrSKtvFa ;
+        chon:hasResult         :resSKtvFay ;
+        chon:subEventOf        :touSKtvF .
+
+:rolSKtvFa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSKtvFa .
+
+:resSKtvFay  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSKtvFa .
+
+chon:HalfMove  chon:subEventOf  :gamHMyh9 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSKtvFa .
+
+:opeSKtvFa  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:touSKtvF  a          chon:hessTournament ;
+        chon:atPlace  :plaSKtvFa ;
+        chon:hasName  "Dortmund" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaSKtvFa  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:hmgamSKtvFay  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSKtvFayW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b3" , "Bd7" , "Ne4" , "Nd2" , "Qe2" , "Kxe7" , "Nd7" , "Qh4" , "Qc2" , "d5" , "Ne5" , "Kg6" , "Nxe4" , "Qd5" , "bxc6" , "Bg5" , "Qa3+" , "Qxe5" , "e6" , "b4" , "Rb8" , "Qc3+" , "Bd3" , "Qxc5" , "N1f3" , "Qh3" , "Kf6" , "Qd3" , "Bxe7" , "Bd6" , "Ngf6" , "c5" , "Qf3+" , "Nf6" , "Bxc6+" , "Qe4" , "Bxe4" , "Qc7" , "Rc7" , "Be7" , "Rxd1" , "Rad1" , "e4" , "Ng5" , "d4" , "h4" , "O-O" , "Bc6" , "dxc5" , "h6" , "Rb7" , "c6" , "Re1" , "Rd8" , "dxe4" , "c4" , "Qxe4" , "f5" ;
+        chon:nextHalfMove      :hmgamSKtvFay .

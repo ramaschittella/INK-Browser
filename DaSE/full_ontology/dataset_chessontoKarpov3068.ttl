@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamDOuHeUi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDOuHeUiT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bxf6" , "c5" , "axb3" , "cxd5" , "Nf3" , "c4" , "Qf3" , "Qc8" , "Kf8" , "Bb7" , "Rf8" , "Nc3" , "Ba4" , "O-O" , "b5" , "Ne2" , "h4" , "Rc7" , "Re1" , "h5" , "Nf4" , "Rc8" , "Na5" , "exd4" , "Nc6" , "e3" , "Be7" , "Bg5" , "Bb3" , "g3" , "cxd4" , "b6" , "d4" , "e6" , "Rae1" , "d5" , "exd5" , "Re3" , "Nf6" , "Bd3" , "Nxb3" , "a6" , "Kg7" , "g6" , "Ne5" , "Bb5+" ;
+        chon:nextHalfMove      :hmgamDOuHeUi .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDOuHeU .
+
+:touDOuHe  a          chon:hessTournament ;
+        chon:atPlace  :plaK0HeW6 ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+:cgrDOuHeU  a   chon:ChessGameReport .
+
+:gamK0HeW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDOuHeU ;
+        chon:atPlace           :plaK0HeW6 ;
+        chon:atTime            "2008.08.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDOuHeUi ;
+        chon:hasHalfMove       :hmgamDOuHeUi ;
+        chon:hasLastHalfMove   :hmgamDOuHeUi ;
+        chon:hasOpening        :opeDOuHeU ;
+        chon:hasReport         :cgrDOuHeU ;
+        chon:hasResult         :resDOuHeUi ;
+        chon:subEventOf        :touDOuHe .
+
+:rolhgDOuHeUiT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDOuHeU .
+
+chon:HalfMove  chon:subEventOf  :gamK0HeW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDOuHeU .
+
+:resDOuHeUi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaK0HeW6  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:agDOuHeU  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Kramnik,V" .
+
+:rolDOuHeU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDOuHeU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeDOuHeU  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .

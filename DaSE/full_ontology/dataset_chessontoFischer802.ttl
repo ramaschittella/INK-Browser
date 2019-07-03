@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:aga9SPnL  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Fischer, Robert James" .
+
+:rola9SPnL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aga9SPnL .
+
+:opea9SPnL  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+:gamYaVBQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rola9SPnL ;
+        chon:atPlace           :plaa9SPnL ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgama9SPnL4 ;
+        chon:hasHalfMove       :hmgama9SPnL4 ;
+        chon:hasLastHalfMove   :hmgama9SPnL4 ;
+        chon:hasOpening        :opea9SPnL ;
+        chon:hasReport         :cgra9SPnL ;
+        chon:hasResult         :resa9SPnL4 ;
+        chon:subEventOf        :toua9SPn .
+
+:hmgama9SPnL4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhga9SPnL4X ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Qxb7" , "Nc6" , "Bg5" , "e5" , "f4" , "Bb5" , "Qg7" , "Nf3" , "Qe6" , "Nf6" , "a6" , "Qxd7" , "h3" , "Nxd5" , "g5" , "Bd2" , "Rxg5+" , "Rb1" , "h6" , "Rg7" , "Rf1" , "Ng3" , "b5" , "g4" , "Rh5" , "Bc3" , "cxd4" , "Be7" , "a3" , "Nf1" , "Kh2" , "Qf3" , "Nfd7" , "Rf8" , "fxe4" , "c3" , "Qxa1+" , "Nb6" , "Nxc2" , "e4" , "Rc1" , "d6" , "Bf8" , "Rxe4" , "Nb4" , "Qg4" , "b4" , "Qxg7" , "exd4" , "Ne6" , "a1=Q" , "Bc2" , "a2" , "hxg5" , "Nbd2" , "g3" , "d4" , "Nh4" , "Re1" , "Nb8" , "Bb7" , "Bb3" , "Ba5" , "c5" , "Ba4" , "Nxg5" , "Nf4" , "O-O" , "f5" , "Bxg7" , "Re8" , "d5" , "Ra7" , "Rg4" , "Nbd7" , "g6" , "bxa3" , "b3" , "Bg7" , "Qe7" , "Qf6" , "Qe5+" , "Qg2" , "Ne2" , "Rxa1" , "Rxf4" ;
+        chon:nextHalfMove      :hmgama9SPnL4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga9SPnL .
+
+chon:HalfMove  chon:subEventOf  :gamYaVBQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga9SPnL .
+
+:resa9SPnL4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:toua9SPn  a          chon:hessTournament ;
+        chon:atPlace  :plaa9SPnL ;
+        chon:hasName  "St Stefan/Belgrade m" .
+
+:cgra9SPnL  a   chon:ChessGameReport .
+
+:rolhga9SPnL4X  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aga9SPnL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaa9SPnL  a         chon:Place ;
+        chon:hasName  "Belgrade" .

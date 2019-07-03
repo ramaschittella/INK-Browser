@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgY8PcPKsa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agm6JDWI .
+
+:resm6JDWIy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plam6JDWI  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:toum6JDW  a          chon:hessTournament ;
+        chon:atPlace  :plam6JDWI ;
+        chon:hasName  "New York sim" .
+
+:hmgamY8PcPKs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgY8PcPKsa , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Rhijn, Arnoldus" ;
+        chon:hasSANRecord      "Qe2" , "Qxd5" , "exd5" , "Re8" , "Ng4" , "Nc3" , "Kd6" , "Rxe1" , "b4" , "Rxe8+" , "Kf2" , "Rae1" , "O-O" , "Qe3+" , "Qxe5+" , "Nf3" , "e4" , "Bc6" , "c6" , "Qc5" , "Nc6" , "d5" , "d3" , "Bd3" , "Ke3" , "Kd7" , "Ne4" , "Nxe5" , "Qxe5" , "c5+" , "e5" , "Bxe4" , "Nf6" , "a4" , "c4" , "Kf8" , "Ncxe5" , "Nxe8" , "f4" , "Nc7" , "b6" , "Bb4" , "d4" , "Bd2" , "Nexd2" , "b3" , "Bxd2+" , "Kd3" , "Bf3" , "Bd7" , "fxe5" , "Ke7" , "Rae8" ;
+        chon:nextHalfMove      :hmgamY8PcPKs , :hmgamXlt24Q1 .
+
+:cgrm6JDWI  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agm6JDWI .
+
+chon:HalfMove  chon:subEventOf  :gamm6JDW .
+
+:agm6JDWI  a          chon:Agent ;
+        chon:hasName  "Van Rhijn, Arnoldus" , "Steinitz, William" .
+
+:rolm6JDWI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agm6JDWI .
+
+:opem6JDWI  a            chon:ChessOpening ;
+        chon:hasECOCode  "C29" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agm6JDWI .
+
+:gamm6JDW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolm6JDWI ;
+        chon:atPlace           :plam6JDWI ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamY8PcPKs ;
+        chon:hasHalfMove       :hmgamXlt24Q1 , :hmgamY8PcPKs ;
+        chon:hasLastHalfMove   :hmgamXlt24Q1 ;
+        chon:hasOpening        :opem6JDWI ;
+        chon:hasReport         :cgrm6JDWI ;
+        chon:hasResult         :resm6JDWIy ;
+        chon:subEventOf        :toum6JDW .
+
+:hmgamXlt24Q1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXlt24Q1U , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Rhijn, Arnoldus" ;
+        chon:hasSANRecord      "Kd6" , "Kc4" , "axb6" , "cxb6" ;
+        chon:nextHalfMove      :hmgamXlt24Q1 .
+
+:rolhgXlt24Q1U  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agm6JDWI .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

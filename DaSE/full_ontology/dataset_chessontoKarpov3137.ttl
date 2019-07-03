@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touSuMSb  a          chon:hessTournament ;
+        chon:atPlace  :plaSuMSbK ;
+        chon:hasName  "City of Culture GM" .
+
+:plaSuMSbK  a         chon:Place ;
+        chon:hasName  "Donostia ESP" .
+
+:rolhgSuMSbKdc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSuMSbK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSuMSbK .
+
+:cgrSuMSbK  a   chon:ChessGameReport .
+
+:hmgamSuMSbKd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSuMSbKdc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "Rxd4" , "dxc4" , "Qd3" , "Rc1" , "d5" , "Rc6" , "Nd4" , "Bxg2" , "Rfd8" , "gxf6" , "Qxd4+" , "Qa8" , "Qb3" , "c5" , "Qc8" , "e3" , "O-O" , "h6" , "d4" , "Bd4" , "f5" , "h3" , "Bxf6" , "dxc5" , "c4" , "Kxd3" , "Bxc4" , "Bxg3" , "b4" , "Qb1" , "Rc7" , "Nc3" , "Ke2" , "Nd2" , "Be7" , "Bb7" , "Qd8" , "Bxf2+" , "a6" , "c6" , "a3" , "Na4" , "Bxc5" , "b5" , "Rc8" , "Bb2" , "Nf6" , "exd4" , "e6" , "Nf3" , "Qxd3+" , "Kxf2" , "Qb8" , "Rxd8+" , "Nb6" , "Rxd8" , "Rd7" , "Rd1" , "g3" , "Qc7" , "Be2" , "Bg2" , "Ba1" , "Bd6" , "Nbd7" , "Ne2" , "Rac1" , "Bd3" , "Bxh3" , "Bf1" , "Rac8" ;
+        chon:nextHalfMove      :hmgamNuHQILg , :hmgamSuMSbKd .
+
+chon:HalfMove  chon:subEventOf  :gamSuMSb .
+
+:agSuMSbK  a          chon:Agent ;
+        chon:hasName  "Kasimdzhanov,R" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSuMSbK .
+
+:rolSuMSbK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSuMSbK .
+
+:rolhgNuHQILgn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSuMSbK .
+
+:resSuMSbKd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamNuHQILg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNuHQILgn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasimdzhanov,R" ;
+        chon:hasSANRecord      "Ra6" , "h4" , "Ke7" , "Rg7" , "Rb6" , "f4" , "Kg5" , "Bg2" , "Kf3" , "Bxf3" , "Rxb5" , "a4" , "Kxf3" , "Ne7" , "Ra7" , "h5" , "e5" , "Rf8+" , "Rg8" , "f5" , "f3+" , "Ra1" , "Ne5" , "Kxh3" , "Rxa6" , "Kg7" , "f4+" , "Kg3" , "Nxb4" , "Nd5" , "h3" , "Ke2" , "Nxa4" , "Ng6" , "Ra5" , "Ke3" , "Kf6" , "Kf2" , "Nf3" , "e4+" , "Nc3" ;
+        chon:nextHalfMove      :hmgamNuHQILg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeSuMSbK  a            chon:ChessOpening ;
+        chon:hasECOCode  "D47" .
+
+:gamSuMSb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSuMSbK ;
+        chon:atPlace           :plaSuMSbK ;
+        chon:atTime            "2009.07.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSuMSbKd ;
+        chon:hasHalfMove       :hmgamNuHQILg , :hmgamSuMSbKd ;
+        chon:hasLastHalfMove   :hmgamNuHQILg ;
+        chon:hasOpening        :opeSuMSbK ;
+        chon:hasReport         :cgrSuMSbK ;
+        chon:hasResult         :resSuMSbKd ;
+        chon:subEventOf        :touSuMSb .

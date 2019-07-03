@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agIJjBt4  a          chon:Agent ;
+        chon:hasName  "Geller, Uzi" , "Fischer, Robert James" .
+
+:rolIJjBt4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIJjBt4 .
+
+:opeIJjBt4  a            chon:ChessOpening ;
+        chon:hasECOCode  "A08" .
+
+:rolhgUJgR35Y0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIJjBt4 .
+
+:resIJjBt4V  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIJjBt4 .
+
+:hmgamUJgR35Y  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUJgR35Y0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Uzi" ;
+        chon:hasSANRecord      "Qg4" , "f4" , "f5" , "Qd7" , "Rac1" , "Qd8" , "Qxe6" , "Qxg6+" , "g6" , "Ra6" , "Kxf2" , "hxg6" , "Qh6" , "Qxd7" , "Re1" , "Bxe5" , "exd7" , "Qh5" , "Rg5" , "Re6" , "gxf2+" , "e6" , "Bf6" , "Rc6" , "fxg3" , "Rxe6" , "Ba6" , "Nf3" , "Nh2" , "exd5" , "Rxe5" , "Be5" , "h5" , "Qg7" , "Bxd5" ;
+        chon:nextHalfMove      :hmgamUJgR35Y .
+
+chon:HalfMove  chon:subEventOf  :gamIJjBt .
+
+:rolhgIJjBt4VW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIJjBt4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIJjBt4 .
+
+:gamIJjBt  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIJjBt4 ;
+        chon:atPlace           :plaIJjBt4 ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIJjBt4V ;
+        chon:hasHalfMove       :hmgamIJjBt4V , :hmgamUJgR35Y ;
+        chon:hasLastHalfMove   :hmgamUJgR35Y ;
+        chon:hasOpening        :opeIJjBt4 ;
+        chon:hasReport         :cgrIJjBt4 ;
+        chon:hasResult         :resIJjBt4V ;
+        chon:subEventOf        :touIJjBt .
+
+:touIJjBt  a          chon:hessTournament ;
+        chon:atPlace  :plaIJjBt4 ;
+        chon:hasName  "Netanya-A" .
+
+:plaIJjBt4  a         chon:Place ;
+        chon:hasName  "Netanya" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrIJjBt4  a   chon:ChessGameReport .
+
+:hmgamIJjBt4V  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIJjBt4VW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Uzi" ;
+        chon:hasSANRecord      "Nc6" , "Nd4" , "a5" , "g3" , "Bf4" , "d5" , "Nd2" , "e6" , "b5" , "Nxd4" , "Qc7" , "e5" , "h4" , "Nf6" , "O-O" , "Nd7" , "c5" , "Ngf3" , "Be7" , "e4" , "d3" , "Qe2" , "cxd4" , "Bg2" , "Nf1" , "Re1" ;
+        chon:nextHalfMove      :hmgamIJjBt4V , :hmgamUJgR35Y .

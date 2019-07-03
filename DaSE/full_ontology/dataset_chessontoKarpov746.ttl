@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamBn334  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4pclpk ;
+        chon:atPlace           :plaBn334k ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4pclpkT ;
+        chon:hasHalfMove       :hmgam4pclpkT ;
+        chon:hasLastHalfMove   :hmgam4pclpkT ;
+        chon:hasOpening        :ope4pclpk ;
+        chon:hasReport         :cgr4pclpk ;
+        chon:hasResult         :res4pclpkT ;
+        chon:subEventOf        :tou4pclp .
+
+:rolhg4pclpkTO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4pclpk .
+
+:res4pclpkT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4pclpk .
+
+chon:HalfMove  chon:subEventOf  :gamBn334 .
+
+:plaBn334k  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4pclpk .
+
+:cgr4pclpk  a   chon:ChessGameReport .
+
+:ag4pclpk  a          chon:Agent ;
+        chon:hasName  "Quinteros, Miguel A" , "Karpov, Anatoly" .
+
+:rol4pclpk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4pclpk .
+
+:tou4pclp  a          chon:hessTournament ;
+        chon:atPlace  :plaBn334k ;
+        chon:hasName  "Mar del Plata" .
+
+:ope4pclpk  a            chon:ChessOpening ;
+        chon:hasECOCode  "B20" .
+
+:hmgam4pclpkT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4pclpkTO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Quinteros, Miguel A" ;
+        chon:hasSANRecord      "Bxc3" , "Qf3" , "Rd8" , "Nc4" , "Kg6" , "Na3" , "d5" , "exd5" , "Qe4" , "axb6" , "Bxc3+" , "Bg7" , "Ne2" , "a5" , "Kf1" , "Nxd5" , "Bxe2" , "Bf2" , "Ke2" , "Ng6" , "Nc8" , "e4" , "Bxb2" , "Bg4" , "c3" , "Be3" , "f6" , "Rxd1" , "Kc2" , "Nbc3" , "Qe5+" , "c4" , "h4" , "Rfd7" , "f3" , "Bf6" , "Ke6" , "g5" , "dxe4" , "Qc7" , "Qc4+" , "Kh7" , "Nc6" , "Kf6" , "a4" , "Kxd1" , "Be1" , "f4" , "Rh1" , "b6" , "Rxd5" , "Qd5" , "d3" , "g6" , "e5" , "Qxd5" , "Nc3" , "Re1" , "Nxe2" , "Bg5" , "Rf7" , "Nf6" , "hxg5" , "c5" , "Be5" , "O-O" , "Kd3" , "Ne7" , "Rad1" , "Nb5" , "Rd5" , "g4" , "Kf7" , "R5d7" , "Qd7" , "h6" , "Be2" , "f5" ;
+        chon:nextHalfMove      :hmgam4pclpkT .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

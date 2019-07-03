@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla2rETx8  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:rolhgstObU8qV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2rETx8 .
+
+:ag2rETx8  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Xie Jun" .
+
+:ope2rETx8  a            chon:ChessOpening ;
+        chon:hasECOCode  "C43" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2rETx8 .
+
+:gam2rETx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2rETx8 ;
+        chon:atPlace           :pla2rETx8 ;
+        chon:atTime            "2001.09.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2rETx8A ;
+        chon:hasHalfMove       :hmgam2rETx8A , :hmgamstObU8q ;
+        chon:hasLastHalfMove   :hmgamstObU8q ;
+        chon:hasOpening        :ope2rETx8 ;
+        chon:hasReport         :cgr2rETx8 ;
+        chon:hasResult         :res2rETx8A ;
+        chon:subEventOf        :tou2rETx .
+
+:hmgamstObU8q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgstObU8qV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Rxe8+" , "Bc3" , "Qxb5" , "Be6" , "Bd3" , "Rxe4" , "Be1" , "Qe4" , "Kf7" , "Qb3" , "Nf3" , "Bf5" , "Nd7" , "h5" , "Re8" , "Qf4" , "Qh4" , "Qd3+" , "Nd2" , "Kg1" , "Nxd7" , "Qxe8" , "dxe4" , "Qh3" , "a5" , "c6" , "Bd6" , "Bd2" , "Kg8" , "Nxe5" , "Kf2" , "b5" , "d5" , "Nf6" , "g3" , "Qe2" , "Qe3" , "O-O" , "Qe6" , "Re1" , "f3" , "Bxe4" , "Kh7" , "Bd5" , "cxb5" , "Qd1" , "Be3" , "Bg4" , "Qg6" , "Nxe4" , "a4" , "c4" , "Bb4" , "d4" , "Bxd7" , "Qe5" , "f6" , "Qc1" , "Qf5" , "Qh5" , "Bxd2" ;
+        chon:nextHalfMove      :hmgamstObU8q .
+
+:tou2rETx  a          chon:hessTournament ;
+        chon:atPlace  :pla2rETx8 ;
+        chon:hasName  "Najdorf Memorial" .
+
+chon:HalfMove  chon:subEventOf  :gam2rETx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2rETx8 .
+
+:rolhg2rETx8Ax  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2rETx8 .
+
+:hmgam2rETx8A  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2rETx8Ax , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "e5" , "e4" ;
+        chon:nextHalfMove      :hmgamstObU8q , :hmgam2rETx8A .
+
+:cgr2rETx8  a   chon:ChessGameReport .
+
+:rol2rETx8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2rETx8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res2rETx8A  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

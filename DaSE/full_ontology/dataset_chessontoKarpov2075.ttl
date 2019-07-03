@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touZ7Re6  a          chon:hessTournament ;
+        chon:atPlace  :plaZ7Re6F ;
+        chon:hasName  "Amber-rapid 5th" .
+
+:hmgamq04zrGs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgq04zrGsW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxb3" , "a4" , "Qb7" , "axb3" , "c4" , "Nd7" , "dxc4" , "Qa6" , "Ne7" , "Nb6" , "Qxb7" , "Ra8" , "b3" , "a5" , "Rb8" , "Nc3" , "Bd2" ;
+        chon:nextHalfMove      :hmgamq04zrGs .
+
+:hmgamZ7Re6FD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZ7Re6FDy , :rolhgq04zrGsW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "Nf3" , "h6" , "e6" , "Bf5" , "Be2" , "c6" , "d4" , "e4" , "e5" , "O-O" ;
+        chon:nextHalfMove      :hmgamq04zrGs , :hmgamZ7Re6FD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ7Re6F .
+
+chon:HalfMove  chon:subEventOf  :gamZ7Re6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ7Re6F .
+
+:plaZ7Re6F  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:gamZ7Re6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZ7Re6F ;
+        chon:atPlace           :plaZ7Re6F ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZ7Re6FD ;
+        chon:hasHalfMove       :hmgamZ7Re6FD , :hmgamq04zrGs ;
+        chon:hasLastHalfMove   :hmgamq04zrGs ;
+        chon:hasOpening        :opeZ7Re6F ;
+        chon:hasReport         :cgrZ7Re6F ;
+        chon:hasResult         :resZ7Re6FD ;
+        chon:subEventOf        :touZ7Re6 .
+
+:resZ7Re6FD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrZ7Re6F  a   chon:ChessGameReport .
+
+:rolhgZ7Re6FDy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ7Re6F .
+
+:agZ7Re6F  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ljubojevic, Ljubomir" .
+
+:rolZ7Re6F  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZ7Re6F .
+
+:opeZ7Re6F  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgq04zrGsW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ7Re6F .

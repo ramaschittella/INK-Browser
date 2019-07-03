@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgambwg4XwH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbwg4XwHY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Nb4" , "Na6" , "Rd1" , "Qb3" , "d4" , "O-O" , "Qd5" , "Rxe6" , "h4" , "Qxc4" , "Rad1" , "h6" , "Bg7" , "Nb6" , "Bxe6" , "Qd7" , "d6" , "Nd3" , "Rxd3" , "Nd7" , "c4" , "e4" , "Bg3" , "Bf5" , "dxc4" , "exd5" , "a3" , "e6" , "Bc4" , "Re8" , "Qc2" , "Rd2" , "Nf6" , "d5" , "f5" , "cxd3" , "Rc8" , "Be6" , "Nc3" , "Nc4" , "g6" , "Bf4" , "Qd3" , "Qxd3" , "Be2" , "Nf3" , "c5" ;
+        chon:nextHalfMove      :hmgambwg4XwH .
+
+:gamYx8eZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYx8eZx ;
+        chon:atPlace           :plaYx8eZx ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambwg4XwH ;
+        chon:hasHalfMove       :hmgambwg4XwH ;
+        chon:hasLastHalfMove   :hmgambwg4XwH ;
+        chon:hasOpening        :opeYx8eZx ;
+        chon:hasReport         :cgrYx8eZx ;
+        chon:hasResult         :resYx8eZxp ;
+        chon:subEventOf        :touYx8eZ .
+
+:touYx8eZ  a          chon:hessTournament ;
+        chon:atPlace  :plaYx8eZx ;
+        chon:hasName  "World Championship 34th-KK4" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYx8eZx .
+
+:rolhgbwg4XwHY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYx8eZx .
+
+chon:HalfMove  chon:subEventOf  :gamYx8eZ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYx8eZx .
+
+:plaYx8eZx  a         chon:Place ;
+        chon:hasName  "Sevilla" .
+
+:cgrYx8eZx  a   chon:ChessGameReport .
+
+:agYx8eZx  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolYx8eZx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYx8eZx .
+
+:resYx8eZxp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeYx8eZx  a            chon:ChessOpening ;
+        chon:hasECOCode  "D97" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

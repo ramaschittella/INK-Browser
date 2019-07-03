@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgampuUBwBf  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpuUBwBfg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kloster, Josef" ;
+        chon:hasSANRecord      "d3" , "h3" , "dxe4" , "Nc3" , "e5" , "e4" , "Ne4" , "Bxf5" , "Nbd7" , "Nxe4" , "Bd6" , "d5" , "Bf5" , "Bb3" , "Nd2" , "Bh7" , "Nf6" , "f5" , "Nf3" , "Nc4" , "exd5" , "Nc5" , "exf5" , "Re1" , "h6" , "Qe7" , "O-O" , "Bc4" ;
+        chon:nextHalfMove      :hmgampuUBwBf .
+
+:agXuIhaz  a          chon:Agent ;
+        chon:hasName  "Kloster, Josef" , "Karpov, Anatoly" .
+
+:opeXuIhaz  a            chon:ChessOpening ;
+        chon:hasECOCode  "C40" .
+
+:rolhgpuUBwBfg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXuIhaz .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXuIhaz .
+
+:gamXuIha  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXuIhaz ;
+        chon:atPlace           :plaXuIhaz ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampuUBwBf ;
+        chon:hasHalfMove       :hmgampuUBwBf ;
+        chon:hasLastHalfMove   :hmgampuUBwBf ;
+        chon:hasOpening        :opeXuIhaz ;
+        chon:hasReport         :cgrXuIhaz ;
+        chon:hasResult         :resXuIhazq ;
+        chon:subEventOf        :touXuIha .
+
+chon:HalfMove  chon:subEventOf  :gamXuIha .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXuIhaz .
+
+:resXuIhazq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaXuIhaz  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:cgrXuIhaz  a   chon:ChessGameReport .
+
+:rolXuIhaz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXuIhaz .
+
+:touXuIha  a          chon:hessTournament ;
+        chon:atPlace  :plaXuIhaz ;
+        chon:hasName  "Dortmund simul" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

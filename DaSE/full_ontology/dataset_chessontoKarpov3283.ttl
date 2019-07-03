@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolt2FRLs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agt2FRLs .
+
+:hmgamt2FRLsm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgt2FRLsmp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Eljanov,P" ;
+        chon:hasSANRecord      "Be4" , "a4" , "e3" , "cxd5" , "gxf5" , "Ra7" , "Nf6" , "d4" , "Nc6" , "Rcc2" , "hxg4+" , "Nbxd2" , "Rb6" , "Bf5" , "Rfe1" , "b5" , "Rac1" , "e6" , "f5" , "Ra2" , "Rc6" , "Qxd2+" , "f4" , "exd4" , "g3" , "h3" , "Kxg2" , "c5" , "Nf3" , "a5" , "g4" , "g5" , "Qd2" , "g6" , "Nf1" , "Ne3" , "Rg2" , "O-O" , "Re2" , "c4" , "Ne4" , "b6" , "Raa8" , "Re8" , "axb3" , "Rc7" , "cxd4" , "h5" , "Nxd4" , "Bg7" , "Qa5+" , "Nxf5" , "exd5" , "hxg4" , "Bxg2" , "Kf3" , "Bh6" , "d5" , "Rfc8" , "Bg2" , "b3" , "Rd8" , "Bb2" ;
+        chon:nextHalfMove      :hmgamt2FRLsm , :hmgamE2B6krp .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agt2FRLs .
+
+chon:HalfMove  chon:subEventOf  :gamt2FRL .
+
+:agt2FRLs  a          chon:Agent ;
+        chon:hasName  "Eljanov,P" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agt2FRLs .
+
+:rest2FRLsm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opet2FRLs  a            chon:ChessOpening ;
+        chon:hasECOCode  "E60" .
+
+:rolhgE2B6krpB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agt2FRLs .
+
+:hmgamE2B6krp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgE2B6krpB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Eljanov,P" ;
+        chon:hasSANRecord      "Rxd5" , "b5" , "Rxg6" , "b4" , "Rf7" , "Ke4" , "Rc7" , "Kxf8" , "fxg6" , "Kd3" , "Ne4" , "Nd7" , "Kf3" , "Bf6" , "Rxb5" , "Bc7" , "Ba3" , "Re1" , "Nc3" , "Be7" , "Nf8" , "Nh6" , "Re7+" , "Rb8" , "Rd7" , "Bd8" , "Bxf8" , "Kf4" , "Rd5" , "Nf6" , "Bb4" , "Re5" ;
+        chon:nextHalfMove      :hmgamE2B6krp .
+
+:gamt2FRL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolt2FRLs ;
+        chon:atPlace           :plat2FRLs ;
+        chon:atTime            "2013.06.06"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamt2FRLsm ;
+        chon:hasHalfMove       :hmgamt2FRLsm , :hmgamE2B6krp ;
+        chon:hasLastHalfMove   :hmgamE2B6krp ;
+        chon:hasOpening        :opet2FRLs ;
+        chon:hasReport         :cgrt2FRLs ;
+        chon:hasResult         :rest2FRLsm ;
+        chon:subEventOf        :tout2FRL .
+
+:tout2FRL  a          chon:hessTournament ;
+        chon:atPlace  :plat2FRLs ;
+        chon:hasName  "Sberbank GM Rapid" .
+
+:plat2FRLs  a         chon:Place ;
+        chon:hasName  "Kiev UKR" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgt2FRLsmp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agt2FRLs .
+
+:cgrt2FRLs  a   chon:ChessGameReport .

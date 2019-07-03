@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgv1fjDFSH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agv1fjDF .
+
+:resv1fjDFS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agv1fjDF  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+:hmgamW3pE1Gs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgW3pE1Gs8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "bxc3" , "d5" , "fxe5" , "Qg4+" , "Qc7" , "Nc3" , "Bxc4" , "d4" , "Nf3" , "O-O" , "Kh8" , "exd5" , "gxf6" , "Qf6+" , "dxc4" , "b6" , "Qh4" , "Bxf6" , "Bd3" , "c4" , "Ne5" , "e6" , "Bb7" , "Bb4" , "Kg8" , "Nf6" , "Bxc3" , "Qg5+" , "Bg5" , "cxd5" ;
+        chon:nextHalfMove      :hmgamW3pE1Gs .
+
+:opev1fjDF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E54" .
+
+:touv1fjD  a          chon:hessTournament ;
+        chon:atPlace  :plav1fjDF ;
+        chon:hasName  "Malta ol (Men)" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agv1fjDF .
+
+chon:HalfMove  chon:subEventOf  :gamv1fjD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agv1fjDF .
+
+:plav1fjDF  a         chon:Place ;
+        chon:hasName  "La Valetta" .
+
+:cgrv1fjDF  a   chon:ChessGameReport .
+
+:rolv1fjDF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agv1fjDF .
+
+:hmgamv1fjDFS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgv1fjDFSH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c6" , "e4" ;
+        chon:nextHalfMove      :hmgamW3pE1Gs , :hmgamv1fjDFS .
+
+:gamv1fjD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolv1fjDF ;
+        chon:atPlace           :plav1fjDF ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamv1fjDFS ;
+        chon:hasHalfMove       :hmgamv1fjDFS , :hmgamW3pE1Gs ;
+        chon:hasLastHalfMove   :hmgamW3pE1Gs ;
+        chon:hasOpening        :opev1fjDF ;
+        chon:hasReport         :cgrv1fjDF ;
+        chon:hasResult         :resv1fjDFS ;
+        chon:subEventOf        :touv1fjD .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgW3pE1Gs8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agv1fjDF .

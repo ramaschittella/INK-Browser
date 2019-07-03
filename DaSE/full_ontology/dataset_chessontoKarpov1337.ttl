@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolk9Pc82  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agk9Pc82 .
+
+:resk9Pc82l  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gam9aSYA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolk9Pc82 ;
+        chon:atPlace           :pla9aSYA1 ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamk9Pc82l ;
+        chon:hasHalfMove       :hmgamk9Pc82l ;
+        chon:hasLastHalfMove   :hmgamk9Pc82l ;
+        chon:hasOpening        :opek9Pc82 ;
+        chon:hasReport         :cgrk9Pc82 ;
+        chon:hasResult         :resk9Pc82l ;
+        chon:subEventOf        :touk9Pc8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agk9Pc82 .
+
+:hmgamk9Pc82l  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgk9Pc82lD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ne5" , "Re1" , "Bxc4" , "exf6" , "Be6" , "e4" , "Qa4" , "dxc4" , "b3" , "bxc4" , "Rb8" , "e6" , "Nc3" , "d5" , "Nxf6" , "exd5" , "Qxb5" , "Nd3" , "Qc2" , "c5" , "b5" , "Nf6" , "c4" , "Be7" , "Qa4+" , "e5" , "Qxc3" , "O-O" , "Bd6" , "Nbd7" , "d4" , "dxc3" , "Rb4" , "Rb6" , "Nf3" ;
+        chon:nextHalfMove      :hmgamk9Pc82l .
+
+chon:HalfMove  chon:subEventOf  :gam9aSYA .
+
+:agk9Pc82  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Miles, Anthony J" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agk9Pc82 .
+
+:pla9aSYA1  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:opek9Pc82  a            chon:ChessOpening ;
+        chon:hasECOCode  "D23" .
+
+:touk9Pc8  a          chon:hessTournament ;
+        chon:atPlace  :pla9aSYA1 ;
+        chon:hasName  "Biel" .
+
+:rolhgk9Pc82lD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agk9Pc82 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrk9Pc82  a   chon:ChessGameReport .

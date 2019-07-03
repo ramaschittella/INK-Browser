@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgGT5iPAsu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGT5iPA .
+
+:cgrGT5iPA  a   chon:ChessGameReport .
+
+:agGT5iPA  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tkachiev, Vladislav" .
+
+:rolGT5iPA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGT5iPA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGT5iPA .
+
+:hmgamzARN6qr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzARN6qrI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nd7" , "d4" , "gxh5" , "Rg8" , "a3" , "b5" , "Rad8" , "Qg3" , "Be2" , "Qc7" , "Nh1" , "Qh5" , "d5" , "Bf4" , "Qxh5" , "h5" , "O-O" , "Na6" , "Bg3" , "Rge8" , "Rc8" , "Ng3" , "Bxf3" , "Kg6" , "Kh7" , "c3" , "Rb1" , "Bg7" , "Qb6" , "c4" , "c5" , "Re2" , "Qh3" , "h3" , "Rf1" , "Na4" , "Qe5" , "Rfe8" , "Bg4" , "Nf3" , "Nf6" , "Nb6" , "Nxf3+" , "Bh6" , "d3" , "Rfe1" , "Rbd1" , "a5" , "g6" , "e5" , "h4" , "Qxf3" , "Ne2" , "hxg6" , "Nc5" , "e6" , "Bh4" , "Bf3" , "Ne5" , "Bg5" ;
+        chon:nextHalfMove      :hmgamzARN6qr .
+
+chon:HalfMove  chon:subEventOf  :gamGT5iP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGT5iPA .
+
+:hmgamGT5iPAs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzARN6qrI , :rolhgGT5iPAsu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e4" , "c6" , "Nc3" ;
+        chon:nextHalfMove      :hmgamzARN6qr , :hmgamGT5iPAs .
+
+:opeGT5iPA  a            chon:ChessOpening ;
+        chon:hasECOCode  "B11" .
+
+:rolhgzARN6qrI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGT5iPA .
+
+:gamGT5iP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGT5iPA ;
+        chon:atPlace           :plaGT5iPA ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGT5iPAs ;
+        chon:hasHalfMove       :hmgamGT5iPAs , :hmgamzARN6qr ;
+        chon:hasLastHalfMove   :hmgamzARN6qr ;
+        chon:hasOpening        :opeGT5iPA ;
+        chon:hasReport         :cgrGT5iPA ;
+        chon:hasResult         :resGT5iPAs ;
+        chon:subEventOf        :touGT5iP .
+
+:resGT5iPAs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touGT5iP  a          chon:hessTournament ;
+        chon:atPlace  :plaGT5iPA ;
+        chon:hasName  "Alma-Ata m2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaGT5iPA  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .

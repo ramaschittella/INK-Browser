@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resMQrNW3f  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMQrNW3 .
+
+:opeMQrNW3  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+chon:HalfMove  chon:subEventOf  :gamMQrNW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMQrNW3 .
+
+:hmgameSB7j47  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeSB7j47w ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Qb4" , "Qb3" , "O-O" , "Bb7" , "Bb5" , "Bb3" , "Bd3" , "b6" , "Bf3" , "h3" , "Ne5" , "e6" , "Nxc3" , "a3" , "e3" , "Qxc3" , "Qc7" , "Kf8" , "cxd5" , "Rxd1" , "Qh7+" , "Qd6" , "Qd3" , "Nd6" , "Nf6" , "Nxd5" , "Be3" , "dxe6" , "d4" , "Nc3" , "Rad1" , "Rfe1" , "c4" , "exd4" , "cxd4" , "Qxe3" , "Ng6+" , "Be7" , "Bd7" , "Qe4" , "Bf6" , "h6" , "Ba6" , "Bc2" , "Be4" , "Nf5" , "Rac8" , "Nxe3" , "a5" , "Nf3" , "c5" , "Rfd8" , "Nce7" , "d5" , "Nc6" ;
+        chon:nextHalfMove      :hmgameSB7j47 .
+
+:rolhgeSB7j47w  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMQrNW3 .
+
+:plaMQrNW3  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrMQrNW3  a   chon:ChessGameReport .
+
+:gamMQrNW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMQrNW3 ;
+        chon:atPlace           :plaMQrNW3 ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameSB7j47 ;
+        chon:hasHalfMove       :hmgameSB7j47 ;
+        chon:hasLastHalfMove   :hmgameSB7j47 ;
+        chon:hasOpening        :opeMQrNW3 ;
+        chon:hasReport         :cgrMQrNW3 ;
+        chon:hasResult         :resMQrNW3f ;
+        chon:subEventOf        :touMQrNW .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touMQrNW  a          chon:hessTournament ;
+        chon:atPlace  :plaMQrNW3 ;
+        chon:hasName  "Moscow" .
+
+:agMQrNW3  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+:rolMQrNW3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageSB7j4 .

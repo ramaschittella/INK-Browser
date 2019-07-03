@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agGlro5T  a          chon:Agent ;
+        chon:hasName  "Gelfand, Boris" , "Karpov, Anatoly" .
+
+:rolGlro5T  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGlro5T .
+
+:hmgamSloSSVz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSloSSVzj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelfand, Boris" ;
+        chon:hasSANRecord      "Rb6" , "Ra2" , "Bxe6" , "exf5" , "Kd8" , "Nc5" , "Rd3" , "b2" , "f5" , "Kg3" , "b5" , "f4" , "e5" , "e6" , "Rc2+" , "b4" , "Rd6" , "a5" , "Rb7+" , "h5" , "fxe6" , "h4" , "Nxc5" , "e4" , "a3" , "a4" , "cxb5" , "Kf2" , "f3" , "Rxa4" , "b3" , "Ra1" , "Ke7" , "Rd4" , "Rxc5" ;
+        chon:nextHalfMove      :hmgamSloSSVz .
+
+:rolhgSloSSVzj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGlro5T .
+
+:rolhgGlro5Tw9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGlro5T .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGlro5T .
+
+:gamGlro5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGlro5T ;
+        chon:atPlace           :plaGlro5T ;
+        chon:atTime            "1998.10.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGlro5Tw ;
+        chon:hasHalfMove       :hmgamSloSSVz , :hmgamGlro5Tw ;
+        chon:hasLastHalfMove   :hmgamSloSSVz ;
+        chon:hasOpening        :opeGlro5T ;
+        chon:hasReport         :cgrGlro5T ;
+        chon:hasResult         :resGlro5Tw ;
+        chon:subEventOf        :touGlro5 .
+
+:hmgamGlro5Tw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSloSSVzj , :rolhgGlro5Tw9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelfand, Boris" ;
+        chon:hasSANRecord      "b3" , "Rxe5" , "dxe5" , "e5" , "Be6" , "Bb3" , "Ra5" , "Rxd1+" , "c4" , "Be2" , "Nf3" , "Nf6" , "c6" , "Rd1" , "e6" , "Bxe5" , "Kf8" , "Qxd8+" , "e3" , "Re8" , "d4" , "Na4" , "Nbd7" , "Rfd1" , "Bf5" , "Bxd1" , "bxc4" , "Nd7" , "Nc3" , "dxc4" , "Bb2" , "O-O" , "d5" , "Bd3" , "Bd6" , "Rxd8" , "Nxe5" ;
+        chon:nextHalfMove      :hmgamSloSSVz , :hmgamGlro5Tw .
+
+:touGlro5  a          chon:hessTournament ;
+        chon:atPlace  :plaGlro5T ;
+        chon:hasName  "Cap d'Agde KO" .
+
+chon:HalfMove  chon:subEventOf  :gamGlro5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGlro5T .
+
+:opeGlro5T  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:resGlro5Tw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaGlro5T  a         chon:Place ;
+        chon:hasName  "Cap d'Agde" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrGlro5T  a   chon:ChessGameReport .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgw4sWpqMp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agw4sWpq .
+
+:gamw4sWp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolw4sWpq ;
+        chon:atPlace           :plaw4sWpq ;
+        chon:atTime            "2001.03.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamw4sWpqM ;
+        chon:hasHalfMove       :hmgamw4sWpqM ;
+        chon:hasLastHalfMove   :hmgamw4sWpqM ;
+        chon:hasOpening        :opew4sWpq ;
+        chon:hasReport         :cgrw4sWpq ;
+        chon:hasResult         :resw4sWpqM ;
+        chon:subEventOf        :touw4sWp .
+
+:agw4sWpq  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Piket,Je" .
+
+:rolw4sWpq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agw4sWpq .
+
+:opew4sWpq  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agw4sWpq .
+
+chon:HalfMove  chon:subEventOf  :gamw4sWp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agw4sWpq .
+
+:touw4sWp  a          chon:hessTournament ;
+        chon:atPlace  :plaw4sWpq ;
+        chon:hasName  "Amber Blindfold" .
+
+:cgrw4sWpq  a   chon:ChessGameReport .
+
+:resw4sWpqM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaw4sWpq  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:hmgamw4sWpqM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgw4sWpqMp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "e5" , "Bd5" , "Kf2" , "Rc2+" , "Nf6" , "exd4" , "Bxd5" , "Nxc1" , "Nxc3" , "Bc5" , "a3" , "a6" , "e6" , "Bxc3+" , "Rc8" , "Rxc1" , "Qxc3" , "Ba4" , "Nd3" , "Rc1" , "Bd6" , "Nc4" , "Nc3" , "Qc2" , "Bxd8" , "Rd6" , "Nxd5" , "Nxd4" , "Bh4" , "b5" , "Rd3" , "Ne2" , "Bb3" , "Rxd4" , "Bb5" , "Bb7" , "f3" , "Nb6" , "cxd5" , "Bg5" , "Nxe3" , "e3" , "c4" , "Nd5" , "Nbd7" , "d4" , "h6" , "b6" , "Bxc7" , "Rxa6" , "Rc6" , "Bb4" , "Nxb2" , "Nc2" , "d5" , "Rfc8" , "O-O" , "Bxd4" , "Rd1" ;
+        chon:nextHalfMove      :hmgamw4sWpqM .

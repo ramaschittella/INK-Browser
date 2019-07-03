@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaWWXW3L  a         chon:Place ;
+        chon:hasName  "Valjevo SRB" .
+
+:cgrWWXW3L  a   chon:ChessGameReport .
+
+:hmgamSSE6LL6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSSE6LL6S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Stojanovic,Mih" ;
+        chon:hasSANRecord      "Bc6" , "Nxc6" , "Nb8" , "Rxb7" , "Bxf6" , "Re1" , "Ngf6" , "Qg4" , "h6" , "Bf8" , "f5" , "Re8" , "Bd7" , "Bg5" , "Ne5" , "c4" , "Nf3" , "Kh8" , "Ba6" , "Qc8" , "Bxb7" , "Nc6" , "Nd7" , "Nh5" , "Rb8" , "Nxf6" , "b6" , "Qe2" , "Bb7" , "Bd3" , "Qxh6+" , "O-O" , "gxh6" , "Nf6" , "Re3" , "Rg3" , "Qh4" , "Ng3" , "Be7" , "Nxe4" , "Rg8#" ;
+        chon:nextHalfMove      :hmgamSSE6LL6 .
+
+:rolhgSSE6LL6S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWWXW3L .
+
+:agWWXW3L  a          chon:Agent ;
+        chon:hasName  "Stojanovic,Mih" , "Karpov,Ana" .
+
+:rolWWXW3L  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWWXW3L .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWWXW3L .
+
+:hmgamWWXW3LP  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSSE6LL6S , :rolhgWWXW3LPS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Stojanovic,Mih" ;
+        chon:hasSANRecord      "Nc3" , "d4" , "dxe4" , "e4" , "d5" , "e6" ;
+        chon:nextHalfMove      :hmgamSSE6LL6 , :hmgamWWXW3LP .
+
+:opeWWXW3L  a            chon:ChessOpening ;
+        chon:hasECOCode  "C10" .
+
+:gamWWXW3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWWXW3L ;
+        chon:atPlace           :plaWWXW3L ;
+        chon:atTime            "2007.06.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWWXW3LP ;
+        chon:hasHalfMove       :hmgamSSE6LL6 , :hmgamWWXW3LP ;
+        chon:hasLastHalfMove   :hmgamSSE6LL6 ;
+        chon:hasOpening        :opeWWXW3L ;
+        chon:hasReport         :cgrWWXW3L ;
+        chon:hasResult         :resWWXW3LP ;
+        chon:subEventOf        :touWWXW3 .
+
+chon:HalfMove  chon:subEventOf  :gamWWXW3 .
+
+:touWWXW3  a          chon:hessTournament ;
+        chon:atPlace  :plaWWXW3L ;
+        chon:hasName  "Gorenje GM" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWWXW3L .
+
+:resWWXW3LP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgWWXW3LPS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWWXW3L .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgPZ3zfoaL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPZ3zfo .
+
+:rolhgg2dSSpZc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPZ3zfo .
+
+:resPZ3zfoa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPZ3zfo .
+
+:hmgamg2dSSpZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgg2dSSpZc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Piket,Je" ;
+        chon:hasSANRecord      "Ne2" , "Nf1" , "h6" , "Qf6" , "f5" ;
+        chon:nextHalfMove      :hmgamg2dSSpZ .
+
+:cgrPZ3zfo  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamPZ3zf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPZ3zfo .
+
+:gamPZ3zf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPZ3zfo ;
+        chon:atPlace           :plaPZ3zfo ;
+        chon:atTime            "2001.03.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPZ3zfoa ;
+        chon:hasHalfMove       :hmgamg2dSSpZ , :hmgamPZ3zfoa ;
+        chon:hasLastHalfMove   :hmgamg2dSSpZ ;
+        chon:hasOpening        :opePZ3zfo ;
+        chon:hasReport         :cgrPZ3zfo ;
+        chon:hasResult         :resPZ3zfoa ;
+        chon:subEventOf        :touPZ3zf .
+
+:rolPZ3zfo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPZ3zfo .
+
+:touPZ3zf  a          chon:hessTournament ;
+        chon:atPlace  :plaPZ3zfo ;
+        chon:hasName  "Amber Rapidplay" .
+
+:plaPZ3zfo  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agPZ3zfo  a          chon:Agent ;
+        chon:hasName  "Piket,Je" , "Karpov,An" .
+
+:hmgamPZ3zfoa  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgPZ3zfoaL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Piket,Je" ;
+        chon:hasSANRecord      "d5" , "Re8" , "Bxd6" , "Be6" , "Bd6" , "axb5" , "Nf3" , "Qxd6" , "c4" , "b4" , "O-O" , "Rfc1" , "b5" , "Nbd7" , "cxd5" , "Bh2" , "Bxe4" , "Nd2" , "exd5" , "Bg5" , "bxc6" , "d4" , "Ne4" , "a4" , "e3" , "dxe4" , "e6" , "Bd7" , "Re7" , "a6" , "Nf8" , "Qc2" , "Rae8" , "Bf4" , "Bd3" , "h3" , "Nc3" , "Be7" , "c6" , "Ng6" , "Rab1" , "Nf6" ;
+        chon:nextHalfMove      :hmgamPZ3zfoa , :hmgamg2dSSpZ .
+
+:opePZ3zfo  a            chon:ChessOpening ;
+        chon:hasECOCode  "D36" .

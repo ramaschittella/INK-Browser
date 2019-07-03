@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeJVd4Jb  a            chon:ChessOpening ;
+        chon:hasECOCode  "B03" .
+
+:rolhgJVd4JbW7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJVd4Jb .
+
+:gamyVjPa  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJVd4Jb ;
+        chon:atPlace           :playVjPac ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJVd4JbW ;
+        chon:hasHalfMove       :hmgamJVd4JbW ;
+        chon:hasLastHalfMove   :hmgamJVd4JbW ;
+        chon:hasOpening        :opeJVd4Jb ;
+        chon:hasReport         :cgrJVd4Jb ;
+        chon:hasResult         :resJVd4JbW ;
+        chon:subEventOf        :touJVd4J .
+
+:playVjPac  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:resJVd4JbW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJVd4Jb .
+
+chon:HalfMove  chon:subEventOf  :gamyVjPa .
+
+:touJVd4J  a          chon:hessTournament ;
+        chon:atPlace  :playVjPac ;
+        chon:hasName  "Zuerich sim" .
+
+:cgrJVd4Jb  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJVd4Jb .
+
+:rolJVd4Jb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJVd4Jb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agJVd4Jb  a          chon:Agent ;
+        chon:hasName  "Von Allmen, Alain" , "Karpov, Anatoly" .
+
+:hmgamJVd4JbW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJVd4JbW7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Von Allmen, Alain" ;
+        chon:hasSANRecord      "Qxf5" , "Qf3" , "e5" , "Rxh2" , "Bg4" , "f4" , "Bb2" , "Ng6" , "Ndb4" , "Qe7+" , "Nab8" , "Qh5" , "Kf8" , "Ra2" , "Bg7" , "d5" , "exf5" , "Kf2" , "Nf3" , "b4" , "gxf6" , "Qe5" , "Nd5" , "hxg6" , "f5" , "Ne7" , "Nxg6" , "d4" , "c4" , "e6" , "a3" , "exf6" , "d6" , "Qxg4" , "Qxg7+" , "Nh4" , "Qxg6+" , "e4" , "Nf6" , "f6" , "Na6" , "Nc6" ;
+        chon:nextHalfMove      :hmgamJVd4JbW .

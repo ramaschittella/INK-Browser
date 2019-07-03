@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamWAsqp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0zBcnD ;
+        chon:atPlace           :plaWAsqpD ;
+        chon:atTime            "2005.08.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0zBcnDe ;
+        chon:hasHalfMove       :hmgam0zBcnDe ;
+        chon:hasLastHalfMove   :hmgam0zBcnDe ;
+        chon:hasOpening        :ope0zBcnD ;
+        chon:hasReport         :cgr0zBcnD ;
+        chon:hasResult         :res0zBcnDe ;
+        chon:subEventOf        :tou0zBcn .
+
+:plaWAsqpD  a         chon:Place ;
+        chon:hasName  "Mainz GER" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0zBcnD .
+
+chon:HalfMove  chon:subEventOf  :gamWAsqp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0zBcnD .
+
+:tou0zBcn  a          chon:hessTournament ;
+        chon:atPlace  :plaWAsqpD ;
+        chon:hasName  "Unzicker 80" .
+
+:res0zBcnDe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgr0zBcnD  a   chon:ChessGameReport .
+
+:hmgam0zBcnDe  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0zBcnDes ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Unzicker,W" ;
+        chon:hasSANRecord      "Bb4" , "Nf3" , "Kxd2" , "Kxg5" , "c4" , "O-O" , "Bb7" , "b4" , "d6" , "Ne4" , "d4" , "Ne2" , "a5" , "dxc5" , "Qxd2+" , "Rb4" , "Rh8" , "Kf8" , "Qa5" , "f5+" , "Nc3" , "Nf6" , "Rxb8" , "Qc2" , "Ba6" , "a3" , "Nc6" , "Rxc4" , "Kf4" , "Kxd6" , "e3" , "Ra3" , "Ke7" , "axb4" , "exd4" , "Nxd6" , "gxf5" , "Nd6" , "Bd3" , "Rxb6" , "Rxb4" , "Rcb8" , "Rhc1" , "exf5+" , "Bxc4" , "hxg4" , "Nb5" , "a4" , "Ke3" , "h5" , "Kxf5" , "h3" , "b6" , "g5+" , "Rxf3+" , "Rfc8" , "Rb5+" , "Qd2" , "Rhc8" , "d5" , "Kxd4" , "dxc4" , "Qxg5" , "Nxd4" , "Kd7" , "f3" , "Rab1" , "Bxc5" , "Nd4" , "Kd5" , "Rd3" , "Rb3+" , "Ne8" , "e6" , "g4" , "Bxd4" , "Bg5" , "c5" , "Ke4" ;
+        chon:nextHalfMove      :hmgam0zBcnDe .
+
+:rolhg0zBcnDes  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0zBcnD .
+
+:ag0zBcnD  a          chon:Agent ;
+        chon:hasName  "Unzicker,W" , "Karpov,Ana" .
+
+:rol0zBcnD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0zBcnD .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope0zBcnD  a            chon:ChessOpening ;
+        chon:hasECOCode  "E39" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamhStJGsi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghStJGsip , :rolhgJSF53u8P , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lautier, Joel" ;
+        chon:hasSANRecord      "e5" , "Bg6" , "Bxg6" , "Ba3" , "Nf3" , "e3" , "c6" , "cxd5" , "Bd3" , "Bf5" , "Qc2" , "exd4" , "Nf6" , "Bd6" , "Nxd5" , "e6" , "Nc3" , "Bb2" , "Bxd4" , "d4" , "b3" , "Qa5" , "hxg6" , "exd5" , "e4" , "Rad1" , "O-O" , "c4" , "Nbd7" , "Qb2" , "d5" , "Qa1" ;
+        chon:nextHalfMove      :hmgamJSF53u8 , :hmgamhStJGsi .
+
+:plahStJGs  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghStJGs .
+
+:cgrhStJGs  a   chon:ChessGameReport .
+
+:hmgamJSF53u8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJSF53u8P ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lautier, Joel" ;
+        chon:hasSANRecord      "Nf4" , "Rxd4" , "Rc8" , "Bxe3" , "Rxf5" , "Kxf7" , "Qxf5" , "h4" , "Kh1" , "Nd4" , "Ra2" , "Rb2" , "gxf5" , "f6" , "a3" , "Qf5" , "Qb1" , "Nxd4" , "e4" , "Rf7" , "Rc2" , "Rf3" , "Re8" , "Re2" , "Rd7" , "Bc5" , "fxe3" , "Ne2+" , "Rxf7" , "Be3" , "a4" ;
+        chon:nextHalfMove      :hmgamJSF53u8 .
+
+chon:HalfMove  chon:subEventOf  :gamhStJG .
+
+:aghStJGs  a          chon:Agent ;
+        chon:hasName  "Lautier, Joel" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghStJGs .
+
+:rolhStJGs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghStJGs .
+
+:opehStJGs  a            chon:ChessOpening ;
+        chon:hasECOCode  "D12" .
+
+:gamhStJG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhStJGs ;
+        chon:atPlace           :plahStJGs ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhStJGsi ;
+        chon:hasHalfMove       :hmgamJSF53u8 , :hmgamhStJGsi ;
+        chon:hasLastHalfMove   :hmgamJSF53u8 ;
+        chon:hasOpening        :opehStJGs ;
+        chon:hasReport         :cgrhStJGs ;
+        chon:hasResult         :reshStJGsi ;
+        chon:subEventOf        :touhStJG .
+
+:touhStJG  a          chon:hessTournament ;
+        chon:atPlace  :plahStJGs ;
+        chon:hasName  "Amber-blind 4th" .
+
+:rolhgJSF53u8P  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghStJGs .
+
+:rolhghStJGsip  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghStJGs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reshStJGsi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

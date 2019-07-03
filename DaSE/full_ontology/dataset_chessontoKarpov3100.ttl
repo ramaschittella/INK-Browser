@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaeYlFpu  a         chon:Place ;
+        chon:hasName  "Marianske Lazne CZE" .
+
+:cgreYlFpu  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageYlFpu .
+
+:rolhgeYlFpuij  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageYlFpu .
+
+:reseYlFpui  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gameYlFp .
+
+:ageYlFpu  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Ushenina,A" .
+
+:roleYlFpu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageYlFpu .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageYlFpu .
+
+:hmgameYlFpui  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeYlFpuij ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qxb4" , "Rc8" , "Nf6" , "e6" , "Ra5" , "Nf3" , "c7" , "h3" , "Ba6" , "a4" , "b4" , "Rb3" , "Bxa6" , "Nc3" , "Nd3" , "Nbd7" , "Kf7" , "cxb5" , "axb4" , "Nxc3" , "Ne4" , "c4" , "d4" , "h4" , "Ne1" , "Be7" , "b5" , "c5" , "bxc3" , "Rc1" , "Qc2" , "Ra1" , "Rb1" , "Qb2" , "a5" , "d5" , "Rbc1" , "Nb5" , "Qb7" , "Bf4" , "Nd2" , "b6" , "c6" , "g6" , "f6" , "Rxa6" , "Ne8" , "Qc8" , "a3" , "e3" , "O-O" , "Rxc3" ;
+        chon:nextHalfMove      :hmgameYlFpui .
+
+:gameYlFp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleYlFpu ;
+        chon:atPlace           :plaeYlFpu ;
+        chon:atTime            "2008.12.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameYlFpui ;
+        chon:hasHalfMove       :hmgameYlFpui ;
+        chon:hasLastHalfMove   :hmgameYlFpui ;
+        chon:hasOpening        :opeeYlFpu ;
+        chon:hasReport         :cgreYlFpu ;
+        chon:hasResult         :reseYlFpui ;
+        chon:subEventOf        :toueYlFp .
+
+:toueYlFp  a          chon:hessTournament ;
+        chon:atPlace  :plaeYlFpu ;
+        chon:hasName  "Snowdrops vs Old-hands" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeeYlFpu  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .

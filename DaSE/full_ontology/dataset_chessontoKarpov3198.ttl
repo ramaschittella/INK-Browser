@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgiZlmstXl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiZlmst .
+
+:resiZlmstX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiZlmst .
+
+chon:HalfMove  chon:subEventOf  :gam8Zp7U .
+
+:cgriZlmst  a   chon:ChessGameReport .
+
+:hmgamiZlmstX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiZlmstXl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Carlsen,M" ;
+        chon:hasSANRecord      "Nxd5" , "e6" , "d5" , "Qf6" , "Nc5" , "a4" , "Nec3" , "Rd1" , "b6" , "O-O" , "Qa3" , "axb6" , "cxd5" , "Nb6" , "Be3" , "d3" , "Nc8" , "a5" , "N1a3" , "c5" , "Bb5" , "c4" , "Nb4" , "Kg7" , "e4" , "Rxa8" , "Bxd4" , "b4" , "Qa4" , "Nxd3" , "Nb7" , "d4" , "Qc2" , "Na6" , "Bd4" , "Rfc1" , "Ne2" , "Bg7" , "e5" , "Rb8" , "Qb3" , "Rxa8+" , "g3" , "Qc7" , "Nb5" , "Nd6" , "Bg2" , "Nf6" , "Bd7" , "Nb2" , "Nxb5" , "Nc4" , "cxd4" , "Ra8" , "g6" , "Qe7" , "Qxa8" ;
+        chon:nextHalfMove      :hmgamiZlmstX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiZlmst .
+
+:agiZlmst  a          chon:Agent ;
+        chon:hasName  "Carlsen,M" , "Karpov,Ana" .
+
+:roliZlmst  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiZlmst .
+
+:opeiZlmst  a            chon:ChessOpening ;
+        chon:hasECOCode  "D72" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam8Zp7U  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliZlmst ;
+        chon:atPlace           :pla8Zp7Us ;
+        chon:atTime            "2009.11.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiZlmstX ;
+        chon:hasHalfMove       :hmgamiZlmstX ;
+        chon:hasLastHalfMove   :hmgamiZlmstX ;
+        chon:hasOpening        :opeiZlmst ;
+        chon:hasReport         :cgriZlmst ;
+        chon:hasResult         :resiZlmstX ;
+        chon:subEventOf        :touiZlms .
+
+:touiZlms  a          chon:hessTournament ;
+        chon:atPlace  :pla8Zp7Us ;
+        chon:hasName  "World Blitz" .
+
+:pla8Zp7Us  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .

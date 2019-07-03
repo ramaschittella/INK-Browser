@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agYjsBxc  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Fischer, Robert James" .
+
+:gamYjsBx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYjsBxc ;
+        chon:atPlace           :plaYjsBxc ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampjDURcO ;
+        chon:hasHalfMove       :hmgampjDURcO ;
+        chon:hasLastHalfMove   :hmgampjDURcO ;
+        chon:hasOpening        :opeYjsBxc ;
+        chon:hasReport         :cgrYjsBxc ;
+        chon:hasResult         :resYjsBxcZ ;
+        chon:subEventOf        :touYjsBx .
+
+:opeYjsBxc  a            chon:ChessOpening ;
+        chon:hasECOCode  "B09" .
+
+:hmgampjDURcO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpjDURcOT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Bxg4" , "Nxg4" , "Rg3" , "Kh8" , "f5" , "Bxe7" , "Nf3" , "a5" , "Nf6" , "Qa5" , "Bg5" , "dxc5" , "Qc1+" , "Qxg3" , "Nc6" , "gxf5" , "g4" , "h3" , "Qc6" , "Nb3" , "O-O" , "Rf2" , "e4" , "Be2" , "Bg7" , "Rg1" , "Rg4" , "Qf1" , "Nb5" , "Nc7" , "Nxa1" , "Rxf8" , "Ne7+" , "Be5" , "Qc4" , "Qxb2" , "a3" , "Nxc2" , "Qxg4" , "Nb4" , "f4" , "g6" , "Qxa4" , "Qh6" , "Qxc5+" , "d4" , "Nxf5" , "Qxa1" , "Nc3" , "a4" , "Nd5" , "Bxf8" , "Qb3" , "Qe6" , "Qb6" , "Kh1" , "Qf3" , "c5" , "Nd2" , "Rae8" , "d6" , "Rf1" ;
+        chon:nextHalfMove      :hmgampjDURcO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYjsBxc .
+
+:resYjsBxcZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gamYjsBx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYjsBxc .
+
+:touYjsBx  a          chon:hessTournament ;
+        chon:atPlace  :plaYjsBxc ;
+        chon:hasName  "Candidats Tournament" .
+
+:cgrYjsBxc  a   chon:ChessGameReport .
+
+:rolhgpjDURcOT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYjsBxc .
+
+:rolYjsBxc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYjsBxc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaYjsBxc  a         chon:Place ;
+        chon:hasName  "Curacao" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamJD2Jh80  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJD2Jh80q , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "axb4" , "a3" , "Bd3" , "Kg7" , "Bb7" , "a4" , "g3" , "Be2" , "Bxd5" , "Qa5" , "Rd6" , "Be7" , "Bc4" , "a5" , "Nf3" , "c4" , "Rxe7" , "O-O" , "b4" , "Ra7" , "Re7" , "b5" , "d4" , "h6" , "Nxb4" , "c5" , "Qb3" , "c6" , "d5" , "exd5" , "e4" , "Rd1" , "Nf6" , "Nc3" , "dxc4" , "b6" , "Rxa4" , "Nxa4" , "Na6" , "Rfd1" , "Qc2" , "Bg5" , "Rd7" , "Bh4" , "Bxf6" , "e6" , "b3" , "Qxa4" , "g6" , "Re8" , "Bxc4" ;
+        chon:nextHalfMove      :hmgamJD2Jh80 .
+
+:touJD2Jh  a          chon:hessTournament ;
+        chon:atPlace  :plahBRpV7 ;
+        chon:hasName  "SWIFT" .
+
+:cgrJD2Jh8  a   chon:ChessGameReport .
+
+:agJD2Jh8  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Torre, Eugenio" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJD2Jh8 .
+
+:gamhBRpV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJD2Jh8 ;
+        chon:atPlace           :plahBRpV7 ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJD2Jh80 ;
+        chon:hasHalfMove       :hmgamJD2Jh80 ;
+        chon:hasLastHalfMove   :hmgamJD2Jh80 ;
+        chon:hasOpening        :opeJD2Jh8 ;
+        chon:hasReport         :cgrJD2Jh8 ;
+        chon:hasResult         :resJD2Jh80 ;
+        chon:subEventOf        :touJD2Jh .
+
+:rolJD2Jh8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJD2Jh8 .
+
+:rolhgJD2Jh80q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJD2Jh8 .
+
+chon:HalfMove  chon:subEventOf  :gamhBRpV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJD2Jh8 .
+
+:resJD2Jh80  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeJD2Jh8  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+:plahBRpV7  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

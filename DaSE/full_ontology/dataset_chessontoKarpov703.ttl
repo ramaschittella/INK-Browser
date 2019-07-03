@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:aghmnuUO  a          chon:Agent ;
+        chon:hasName  "Balashov, Yuri S" , "Karpov, Anatoly" .
+
+:rolhmnuUO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghmnuUO .
+
+:opehmnuUO  a            chon:ChessOpening ;
+        chon:hasECOCode  "E69" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghmnuUO .
+
+chon:HalfMove  chon:subEventOf  :gamhmnuU .
+
+:reshmnuUOY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghmnuUO .
+
+:rolhghmnuUOY5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghmnuUO .
+
+:cgrhmnuUO  a   chon:ChessGameReport .
+
+:hmgamhmnuUOY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghmnuUOY5 , chon:AgentRole , :rolhgtmjIrN4h ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Balashov, Yuri S" ;
+        chon:hasSANRecord      "Nf3" , "e5" , "Nc3" , "d6" , "O-O" , "Qb6" , "c6" , "Nbd7" , "e4" , "Nf6" , "g6" , "d4" , "h3" , "Bg7" , "Bg2" , "c4" , "g3" ;
+        chon:nextHalfMove      :hmgamtmjIrN4 , :hmgamhmnuUOY .
+
+:hmgamtmjIrN4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtmjIrN4h ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Balashov, Yuri S" ;
+        chon:hasSANRecord      "Rde3" , "Kg7" , "Qd8" , "Kg3" , "h5" , "Qa5" , "Rxe3" , "Kh2" , "b3" , "Qe4+" , "Qxc3" , "Qxb7" , "Bxd3" , "Ne6" , "f5" , "exd4" , "Na4" , "Kxe8" , "Kf7" , "h4" , "Nf7" , "Qb6" , "Rxe8+" , "Re1" , "Bf4" , "Bxe4" , "Qf2" , "Qc2" , "Nc5" , "Rxd3" , "fxe4" , "a3" , "Ne5" , "f4" , "Bxc3" , "Nd3" , "Qxe4" , "Bf5" , "Nb2" , "Bc3" , "Nfd7" , "g5" , "Bg2" , "a5" , "g4" , "Bd7" , "Rad1" , "Ng8" , "Kf8" , "Bd2" , "Re8" , "Bxe6" , "Nxe6" , "Qd4" , "c5" , "Nxd4" , "Ne7" , "Nh6" ;
+        chon:nextHalfMove      :hmgamtmjIrN4 .
+
+:rolhgtmjIrN4h  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghmnuUO .
+
+:gamhmnuU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhmnuUO ;
+        chon:atPlace           :plahmnuUO ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhmnuUOY ;
+        chon:hasHalfMove       :hmgamhmnuUOY , :hmgamtmjIrN4 ;
+        chon:hasLastHalfMove   :hmgamtmjIrN4 ;
+        chon:hasOpening        :opehmnuUO ;
+        chon:hasReport         :cgrhmnuUO ;
+        chon:hasResult         :reshmnuUOY ;
+        chon:subEventOf        :touhmnuU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touhmnuU  a          chon:hessTournament ;
+        chon:atPlace  :plahmnuUO ;
+        chon:hasName  "Moscow" .
+
+:plahmnuUO  a         chon:Place ;
+        chon:hasName  "Moscow" .

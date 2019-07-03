@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agn0nsjq  a          chon:Agent ;
+        chon:hasName  "Bareev,E" , "Karpov,An" .
+
+:open0nsjq  a            chon:ChessOpening ;
+        chon:hasECOCode  "D10" .
+
+:hmgamn0nsjq3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgn0nsjq30 , :rolhgy0kGQq5k ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bareev,E" ;
+        chon:hasSANRecord      "d5" , "c4" , "d4" ;
+        chon:nextHalfMove      :hmgamy0kGQq5 , :hmgamn0nsjq3 .
+
+:cgrn0nsjq  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agn0nsjq .
+
+:rolhgy0kGQq5k  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agn0nsjq .
+
+:hmgamy0kGQq5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgy0kGQq5k , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bareev,E" ;
+        chon:hasSANRecord      "Nf6" , "Nbd7" , "b3" , "Qc2" , "Nc3" , "e3" , "Nge2" , "h3" , "b5" , "Bg4" , "Nxg6" , "a6" , "Nf4" , "Bh5" , "c6" , "Bg6" ;
+        chon:nextHalfMove      :hmgamy0kGQq5 , :hmgam10wYdsU .
+
+:toun0nsj  a          chon:hessTournament ;
+        chon:atPlace  :plan0nsjq ;
+        chon:hasName  "SF" .
+
+chon:HalfMove  chon:subEventOf  :gamn0nsj .
+
+:roln0nsjq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agn0nsjq .
+
+:hmgam10wYdsU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg10wYdsUL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bareev,E" ;
+        chon:hasSANRecord      "Rxg4" , "Ra7" , "Qa8" , "Nd7" , "Qb7" , "Nxc4" , "Bd4" , "Nxe5" , "Rh4" , "h5" , "Qf1" , "e5" , "Qc7" , "Bxg7" , "dxe5" , "Qxf1+" , "Rfd1" , "Rh5" , "Rc8" , "Be2" , "Qb2" , "Bxc4" , "Nc3" , "Rxa6" , "g4" , "Ne2" , "h6" , "h4" , "bxc4" , "Rb5" , "Qxc4" , "Rab1" , "O-O" , "Bb2" , "Rxb1" , "Rb8" , "dxc4" , "a4" , "hxg6" , "Qc1+" , "f6" , "Rb6" , "Rb4" , "Be7" , "Kxf1" ;
+        chon:nextHalfMove      :hmgam10wYdsU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg10wYdsUL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agn0nsjq .
+
+:rolhgn0nsjq30  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agn0nsjq .
+
+:plan0nsjq  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:resn0nsjq3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamn0nsj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roln0nsjq ;
+        chon:atPlace           :plan0nsjq ;
+        chon:atTime            "2002.10.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamn0nsjq3 ;
+        chon:hasHalfMove       :hmgamn0nsjq3 , :hmgam10wYdsU , :hmgamy0kGQq5 ;
+        chon:hasLastHalfMove   :hmgam10wYdsU ;
+        chon:hasOpening        :open0nsjq ;
+        chon:hasReport         :cgrn0nsjq ;
+        chon:hasResult         :resn0nsjq3 ;
+        chon:subEventOf        :toun0nsj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agn0nsjq .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamPpZLQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2pW2nq ;
+        chon:atPlace           :plaPpZLQr ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2pW2nqJ ;
+        chon:hasHalfMove       :hmgamsr7kKqy , :hmgam2pW2nqJ ;
+        chon:hasLastHalfMove   :hmgamsr7kKqy ;
+        chon:hasOpening        :ope2pW2nq ;
+        chon:hasReport         :cgr2pW2nq ;
+        chon:hasResult         :res2pW2nqJ ;
+        chon:subEventOf        :tou2pW2n .
+
+:cgr2pW2nq  a   chon:ChessGameReport .
+
+:hmgamsr7kKqy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsr7kKqyh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Andersson, Ulf" ;
+        chon:hasSANRecord      "Ke6" , "Rd7" , "Rb7+" , "Bg5" , "Rg1+" , "Kf5" , "Qxb5" , "Rf1+" , "Rf4" , "a5" , "Rxb5" , "g5" , "Re8+" , "Bd4" , "Rb4" , "h4" , "Kg4" , "Kd7" , "axb5" , "Rg6" , "Re5+" , "Rxe4" , "Kg7" , "Rf7" , "Ra3+" , "Bxg5" , "Ra2+" , "Re7" , "hxg5" , "Ra8" , "Bf6" , "Ra7" , "Re1" , "cxb5" , "Rxh7" , "Kc6" , "Rd5" , "Rb6" , "Kf3" , "a4" , "Be3" , "Rh6" , "Rh7+" , "g4" , "Rd2" , "Rxa5" , "Re6" , "Ra1" , "Kf6" , "Ke4" , "Bd8" , "Bb2" , "Rg4" , "Be5" , "Ra6" , "Kg2" , "g6" , "Rf2" , "Bf4" , "Rxf7" , "Rd4" , "Rb5" , "Re1+" ;
+        chon:nextHalfMove      :hmgamsr7kKqy .
+
+:ag2pW2nq  a          chon:Agent ;
+        chon:hasName  "Andersson, Ulf" , "Karpov, Anatoly" .
+
+:rol2pW2nq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2pW2nq .
+
+:plaPpZLQr  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:ope2pW2nq  a            chon:ChessOpening ;
+        chon:hasECOCode  "B85" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2pW2nq .
+
+:hmgam2pW2nqJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2pW2nqJR , :rolhgsr7kKqyh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Andersson, Ulf" ;
+        chon:hasSANRecord      "Qd3" , "Qc7" , "Qd7" , "Be3" , "a6" , "e4" , "Nf3" , "Qe3" , "Bg4" , "Qxb7" , "Kh1" , "Be7" , "Qxf4" , "Qg3" , "Nc3" , "Nf6" , "Re5" , "Qc6" , "Bxc8" , "d4" , "Bxd4" , "Nxf4" , "dxc3" , "Bd3" , "Nh5" , "e5" , "c5" , "O-O" , "cxd4" , "Rb4" , "Bg5" , "Bxb7" , "Rc8" , "g6" , "b5" , "e6" , "Be2" , "cxb2" , "Rab1" , "Bb7" , "Re8" , "f4" , "Qe1" , "c4" , "Rxb2" , "Nc6" , "d6" , "exd4" , "a3" , "Nxd4" ;
+        chon:nextHalfMove      :hmgam2pW2nqJ , :hmgamsr7kKqy .
+
+chon:HalfMove  chon:subEventOf  :gamPpZLQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2pW2nq .
+
+:rolhgsr7kKqyh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2pW2nq .
+
+:rolhg2pW2nqJR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2pW2nq .
+
+:res2pW2nqJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:tou2pW2n  a          chon:hessTournament ;
+        chon:atPlace  :plaPpZLQr ;
+        chon:hasName  "Tilburg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

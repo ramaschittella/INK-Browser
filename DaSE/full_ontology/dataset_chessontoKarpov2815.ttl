@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolXKqLDI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXKqLDI .
+
+:rolhgXKqLDI76  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXKqLDI .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXKqLDI .
+
+chon:HalfMove  chon:subEventOf  :gamXKqLD .
+
+:resXKqLDI7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agXKqLDI  a          chon:Agent ;
+        chon:hasName  "Sebag,M" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXKqLDI .
+
+:gamXKqLD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXKqLDI ;
+        chon:atPlace           :plaXKqLDI ;
+        chon:atTime            "2005.04.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXKqLDI7 ;
+        chon:hasHalfMove       :hmgamVZ3yPPE , :hmgamXKqLDI7 ;
+        chon:hasLastHalfMove   :hmgamVZ3yPPE ;
+        chon:hasOpening        :opeXKqLDI ;
+        chon:hasReport         :cgrXKqLDI ;
+        chon:hasResult         :resXKqLDI7 ;
+        chon:subEventOf        :touXKqLD .
+
+:opeXKqLDI  a            chon:ChessOpening ;
+        chon:hasECOCode  "D15" .
+
+:touXKqLD  a          chon:hessTournament ;
+        chon:atPlace  :plaXKqLDI ;
+        chon:hasName  "Grand Prix" .
+
+:rolhgVZ3yPPEP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXKqLDI .
+
+:hmgamVZ3yPPE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgVZ3yPPEP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sebag,M" ;
+        chon:hasSANRecord      "Kf3" , "gxf5" , "Rh2" , "Re1" , "Qxf4" , "Ke8" , "Ng2" , "Rxe6" , "Ne3" , "Rb1" , "Rhg8" , "Bf5" , "Nb2" , "Rg2" , "a3" , "Bh6" , "Ng3" , "Reg7" , "Rg6" , "Rag8" , "h3" , "a4" , "Rc2" , "Kd7" , "Nd3" , "Rh8" , "Qxf5" , "Rb2" , "Re8" , "Ne6" , "Rbe8" , "Re7" , "f4" , "Nf8" , "e6" , "Qe5" , "Bc2" , "Kf7" , "Nh4" , "Bxf5" , "Ra8" , "a5" , "Kf2" , "Bxf4" , "Kc7" , "Rg8" , "h5" , "Nc1" , "Bxe6" , "Rh1" , "Rg7" , "Kb8" , "h4" , "Rc3" , "Qe2" , "b3" , "gxf4" , "f6" , "Rc1" , "Kg2" , "Ne2" ;
+        chon:nextHalfMove      :hmgamVZ3yPPE .
+
+:hmgamXKqLDI7  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXKqLDI76 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sebag,M" ;
+        chon:hasSANRecord      "Bg7" , "Nbd7" , "Qc7" , "Bd3" , "Nf6" , "g3" , "Na4" , "d5" , "e3" , "Be2" , "d4" , "Rb8" , "Nh5" , "Nc3" , "O-O" , "a6" , "Nf3" , "c5" , "c6" , "exf4" , "c4" , "Bf4" , "g6" , "Re8" , "Nxf4" ;
+        chon:nextHalfMove      :hmgamXKqLDI7 , :hmgamVZ3yPPE .
+
+:plaXKqLDI  a         chon:Place ;
+        chon:hasName  "Bordeaux FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrXKqLDI  a   chon:ChessGameReport .

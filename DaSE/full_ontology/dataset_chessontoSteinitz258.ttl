@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam5S2HYmW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5S2HYmWd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Re3" , "Qg3" , "Rxa3" , "Qa6" , "Bg5" , "Rg1" , "f3" , "Qxe4" , "Rxf3" , "Qe6" , "Be4" , "Qh4" , "hxg5" , "Rg2" , "h4" , "Re5" ;
+        chon:nextHalfMove      :hmgam5S2HYmW .
+
+:hmgamXUokGpD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXUokGpD3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "c3" , "Nf3" , "Nc6" , "e4" , "Bxb4" , "e5" , "b4" , "Bc4" , "Bc5" ;
+        chon:nextHalfMove      :hmgamXUokGpD , :hmgam0UkydoF .
+
+:rolhg5S2HYmWd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXUokGp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXUokGp .
+
+:rolXUokGp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXUokGp .
+
+chon:HalfMove  chon:subEventOf  :gamXUokG .
+
+:plaXUokGp  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:gamXUokG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXUokGp ;
+        chon:atPlace           :plaXUokGp ;
+        chon:atTime            "1882.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXUokGpD ;
+        chon:hasHalfMove       :hmgamXUokGpD , :hmgam5S2HYmW , :hmgam0UkydoF ;
+        chon:hasLastHalfMove   :hmgam5S2HYmW ;
+        chon:hasOpening        :opeXUokGp ;
+        chon:hasReport         :cgrXUokGp ;
+        chon:hasResult         :resXUokGpD ;
+        chon:subEventOf        :touXUokG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg0UkydoFf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXUokGp .
+
+:agXUokGp  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Bird, Henry Edward" .
+
+:opeXUokGp  a            chon:ChessOpening ;
+        chon:hasECOCode  "C51" .
+
+:hmgam0UkydoF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0UkydoFf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "e5" , "cxd4" , "Be7" , "Rae8" , "Bxf4" , "cxb7" , "Bf6" , "Nh6" , "d4" , "Kh1" , "f4" , "Bxb7" , "Qf6" , "Bd3" , "Kh8" , "gxf3" , "Bxf3" , "Bxa1" , "Qc6+" , "Bxe5" , "gxh6" , "d5" , "Bxh6" , "Na3" , "Rg8" , "dxc6" , "Qh3" , "O-O" , "Qf3" , "exd4" ;
+        chon:nextHalfMove      :hmgam5S2HYmW , :hmgam0UkydoF .
+
+:cgrXUokGp  a   chon:ChessGameReport .
+
+:rolhgXUokGpD3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXUokGp .
+
+:resXUokGpD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touXUokG  a          chon:hessTournament ;
+        chon:atPlace  :plaXUokGp ;
+        chon:hasName  "Vienna" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXUokGp .

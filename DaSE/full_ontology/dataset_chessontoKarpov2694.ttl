@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaDhwU3Z  a         chon:Place ;
+        chon:hasName  "Benidorm ESP" .
+
+:resDhwU3Zg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrDhwU3Z  a   chon:ChessGameReport .
+
+:rolhgKd0giYSr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDhwU3Z .
+
+:agDhwU3Z  a          chon:Agent ;
+        chon:hasName  "Psakhis,L" , "Karpov,An" .
+
+:rolDhwU3Z  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDhwU3Z .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDhwU3Z .
+
+chon:HalfMove  chon:subEventOf  :gamDhwU3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDhwU3Z .
+
+:rolhgOfq8zZjt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDhwU3Z .
+
+:opeDhwU3Z  a            chon:ChessOpening ;
+        chon:hasECOCode  "E54" .
+
+:gamDhwU3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDhwU3Z ;
+        chon:atPlace           :plaDhwU3Z ;
+        chon:atTime            "2002.12.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDhwU3Zg ;
+        chon:hasHalfMove       :hmgamDhwU3Zg , :hmgamKd0giYS ;
+        chon:hasLastHalfMove   :hmgamKd0giYS ;
+        chon:hasOpening        :opeDhwU3Z ;
+        chon:hasReport         :cgrDhwU3Z ;
+        chon:hasResult         :resDhwU3Zg ;
+        chon:subEventOf        :touDhwU3 .
+
+:hmgamDhwU3Zg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOfq8zZjt , chon:AgentRole ;
+        chon:hasSANRecord      "Nf3" ;
+        chon:nextHalfMove      :hmgamKd0giYS .
+
+:touDhwU3  a          chon:hessTournament ;
+        chon:atPlace  :plaDhwU3Z ;
+        chon:hasName  "Superstars Hotel Bali" .
+
+:hmgamKd0giYS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKd0giYSr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Psakhis,L" ;
+        chon:hasSANRecord      "Nf6" , "Ra7+" , "O-O" , "bxc3" , "Qb7" , "Rd7" , "h5" , "a5" , "Nxe5" , "Rxe2" , "Qxe2" , "exd6" , "cxd4" , "Ng4" , "Rxc5" , "Rfe1" , "Nc3" , "Bxc3" , "Rb6" , "Bxe4" , "Ke2" , "Rxa5" , "Rec2" , "b6" , "Ra6" , "Rd8" , "Rfe8" , "Qe2" , "Ke3" , "h6" , "Bb4" , "c4" , "exd4" , "g3" , "e5" , "Bb7" , "Nxd6" , "Kf3" , "d4" , "Ne7" , "dxc4" , "Rac1" , "e6" , "Bxc4" , "dxe5" , "Rxd6" , "Bd2" , "Nf5" , "Ra4" , "Be4" , "d5" , "h4" , "Kf7" , "Ngf6" , "bxc5" , "f6" , "a4" , "Bd3" , "Rac8" , "Nbd7" , "e3" , "c5" , "Rc6" , "Bd6" , "Rb2+" , "Kf1" , "Qxe4" , "Ne5" , "Kg6" , "Qa6" , "Bg5" , "Qc7" , "Ra2" , "Nd5" ;
+        chon:nextHalfMove      :hmgamKd0giYS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

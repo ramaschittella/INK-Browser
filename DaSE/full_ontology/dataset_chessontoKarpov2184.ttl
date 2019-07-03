@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agUTEpkd  a          chon:Agent ;
+        chon:hasName  "Oliwa, Patryk" , "Karpov, Anatoly" .
+
+:rolUTEpkd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUTEpkd .
+
+:resUTEpkdU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeUTEpkd  a            chon:ChessOpening ;
+        chon:hasECOCode  "D16" .
+
+:gamUTEpk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUTEpkd ;
+        chon:atPlace           :plaUTEpkd ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUTEpkdU ;
+        chon:hasHalfMove       :hmgamUTEpkdU , :hmgammVQKEgL ;
+        chon:hasLastHalfMove   :hmgammVQKEgL ;
+        chon:hasOpening        :opeUTEpkd ;
+        chon:hasReport         :cgrUTEpkd ;
+        chon:hasResult         :resUTEpkdU ;
+        chon:subEventOf        :touUTEpk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUTEpkd .
+
+chon:HalfMove  chon:subEventOf  :gamUTEpk .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUTEpkd .
+
+:hmgammVQKEgL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmVQKEgLi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Oliwa, Patryk" ;
+        chon:hasSANRecord      "Qc5" , "e7" , "Na6" , "Bg8" , "Qxa5" , "Kf1" , "Qa8+" , "Rxd1" , "Qc4" , "Nc2" , "Ne2" , "Bh7" , "Bf2" , "Qxd1" , "e6" , "Nb4" , "Qb4" , "h4" , "Bf5" , "Qd2" , "Bf8" ;
+        chon:nextHalfMove      :hmgammVQKEgL .
+
+:rolhgmVQKEgLi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUTEpkd .
+
+:rolhgUTEpkdUS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUTEpkd .
+
+:touUTEpk  a          chon:hessTournament ;
+        chon:atPlace  :plaUTEpkd ;
+        chon:hasName  "Koszalin sim1" .
+
+:hmgamUTEpkdU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUTEpkdUS , :rolhgmVQKEgLi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Oliwa, Patryk" ;
+        chon:hasSANRecord      "Bf4" , "fxe6" , "Rd8" , "Nb4" , "Qe2" , "Bxe6+" , "Rad8" , "h3" , "f5" , "O-O" , "Kg2" , "a5" , "Bxc4" , "Be7" , "c4" , "Bg6" , "Rad1" , "Kh8" , "Ne5" , "Rxd1" , "f4" , "d4" , "Na6" , "Nf6" , "a4" , "Bg4" , "Nd7" , "d5" , "Bh7" , "Nxe5" , "e6" , "dxc4" , "dxe5" , "Bh5" , "Nf3" , "h6" , "Bg3" , "g4" , "Be3" , "e4" , "c6" , "Nc3" , "Qb6" ;
+        chon:nextHalfMove      :hmgammVQKEgL , :hmgamUTEpkdU .
+
+:plaUTEpkd  a         chon:Place ;
+        chon:hasName  "Koszalin" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrUTEpkd  a   chon:ChessGameReport .

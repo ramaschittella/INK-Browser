@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaOAJ6N7  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+:hmgamOAJ6N7X  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMQmUYfvO , :rolhgOAJ6N7X7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leitao,R" ;
+        chon:hasSANRecord      "Nbd7" , "Nf3" , "O-O" , "Bg2" , "d5" , "b5" , "g3" , "Qa4+" , "Nc3" , "d4" , "Qd3" , "Be7" , "Bb7" , "e6" , "Qxc4" , "c6" , "c4" , "dxc4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamMQmUYfv , :hmgamOAJ6N7X .
+
+:cgrOAJ6N7  a   chon:ChessGameReport .
+
+:rolhgOAJ6N7X7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOAJ6N7 .
+
+:agOAJ6N7  a          chon:Agent ;
+        chon:hasName  "Leitao,R" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOAJ6N7 .
+
+:rolOAJ6N7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOAJ6N7 .
+
+:rolhgMQmUYfvO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOAJ6N7 .
+
+:opeOAJ6N7  a            chon:ChessOpening ;
+        chon:hasECOCode  "D43" .
+
+chon:HalfMove  chon:subEventOf  :gamOAJ6N .
+
+:resOAJ6N7X  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamOAJ6N  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOAJ6N7 ;
+        chon:atPlace           :plaOAJ6N7 ;
+        chon:atTime            "2004.08.23"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOAJ6N7X ;
+        chon:hasHalfMove       :hmgamMQmUYfv , :hmgamOAJ6N7X ;
+        chon:hasLastHalfMove   :hmgamMQmUYfv ;
+        chon:hasOpening        :opeOAJ6N7 ;
+        chon:hasReport         :cgrOAJ6N7 ;
+        chon:hasResult         :resOAJ6N7X ;
+        chon:subEventOf        :touOAJ6N .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOAJ6N7 .
+
+:touOAJ6N  a          chon:hessTournament ;
+        chon:atPlace  :plaOAJ6N7 ;
+        chon:hasName  "Rapid" .
+
+:hmgamMQmUYfv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMQmUYfvO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leitao,R" ;
+        chon:hasSANRecord      "f4" , "c5" , "Bb4" , "Nc4" , "Kb5" , "Bc3" , "Rg1" , "Be5" , "Rac1" , "Rb1" , "Rd8" , "Kb6" , "Kc2" , "O-O" , "Kf6" , "Ra1" , "Rxh6" , "Kb3" , "Nxc5" , "g6" , "Kf3" , "Bf4" , "h6" , "Rd5+" , "Qc8" , "Qxc3" , "Rc4" , "Ne4" , "Rg2+" , "Kc7" , "Ba5" , "b3" , "Bxc3" , "Rg8" , "Kc6" , "Na4" , "Kf8" , "Bd5" , "a3" , "Kd4" , "Ke8" , "Bxe7+" , "Kxe7" , "Kxe6" , "Kxf7" , "Rxc2" , "Rc6" , "Rd5" , "Nxc2" , "Kc4" , "Kd3" , "Rd1" , "h3" , "Kxg2" , "Rh8" , "Ra1+" , "dxc5" , "b2" , "Rd7+" , "Nc2" , "Nd6" , "Rc5" , "a6" , "a5" , "b4" , "g4" , "Nxa3" , "Ra8" , "bxa5+" , "e3" , "Rxc3" , "Rc7" , "Nxc3" , "Kd6" , "Ke5" , "Rd2" , "Ke4" , "Rac8" , "Bxg2" , "Rc8" , "Rc8+" , "Kxa5" , "Ne1" , "Qc2" ;
+        chon:nextHalfMove      :hmgamMQmUYfv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

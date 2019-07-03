@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgYr9iFG4x  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYr9iFG .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYr9iFG .
+
+:gamYr9iF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYr9iFG ;
+        chon:atPlace           :plaYr9iFG ;
+        chon:atTime            "2009.11.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYr9iFG4 ;
+        chon:hasHalfMove       :hmgamYr9iFG4 ;
+        chon:hasLastHalfMove   :hmgamYr9iFG4 ;
+        chon:hasOpening        :opeYr9iFG ;
+        chon:hasReport         :cgrYr9iFG ;
+        chon:hasResult         :resYr9iFG4 ;
+        chon:subEventOf        :touYr9iF .
+
+chon:HalfMove  chon:subEventOf  :gamYr9iF .
+
+:touYr9iF  a          chon:hessTournament ;
+        chon:atPlace  :plaYr9iFG ;
+        chon:hasName  "World Blitz" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYr9iFG .
+
+:resYr9iFG4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaYr9iFG  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:cgrYr9iFG  a   chon:ChessGameReport .
+
+:hmgamYr9iFG4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYr9iFG4x ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qa5" , "Rb1" , "Rxc4" , "d6" , "Qe1" , "Rbc1" , "dxc5" , "h4" , "Rbd7" , "Bd2" , "Qa3" , "Kf2" , "Bxd4" , "c5" , "b6" , "h6" , "Qc6" , "Rd8" , "Rfd1" , "O-O" , "d4" , "Na4" , "Rfc8" , "Bxc3" , "Nf6" , "a5" , "Qc8" , "Qxd6" , "Rd1" , "Be3" , "Rb7" , "Ne6" , "g3" , "Nh7" , "Qa8" , "e5" , "Rxd6" , "Nf3" , "Bg2" , "Rc7" , "Qb5" , "bxc5" , "e6" , "Qc7" , "f4" , "f5" , "Nc6" , "Rcd3" , "Bxg2" , "Rdc1" , "c4" , "Nd4" , "Nxc5" , "Bb7" , "a4" , "Nd2" , "Rc6" , "bxc3" , "Rb8" , "Qb4" , "Ng5" , "Bb4" , "Ne4" , "f3" , "e4" , "Rc3" , "Kxg2" , "Nc3" , "Nxc3" , "Qc3" ;
+        chon:nextHalfMove      :hmgamYr9iFG4 .
+
+:agYr9iFG  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Bareev,E" .
+
+:rolYr9iFG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYr9iFG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeYr9iFG  a            chon:ChessOpening ;
+        chon:hasECOCode  "E20" .

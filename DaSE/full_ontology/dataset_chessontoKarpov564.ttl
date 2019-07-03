@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resquHaVq8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrquHaVq  a   chon:ChessGameReport .
+
+:hmgamquHaVq8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBsSqurao , :rolhgquHaVq8b ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nd4" , "g3" , "d5" , "O-O" , "Nc3" , "Qc2" , "Kh1" , "Bxb7" , "bxc5" , "Bxd4" , "Qc4" , "Be3" , "Na4" , "Bxf6" , "Nd3" , "c4" , "Nb2" , "Nc7" , "Ne6" , "Na6" , "e6" , "Rb1" , "Qa5" , "Bb7" , "Nf3" , "Rc1" , "b6" , "d4" , "Bxb2" , "Nf6" , "Bb4" , "Be7" , "Bg5" , "Re1" , "exd5" , "Bg2" , "dxc5" , "cxd5" , "c5" , "Nxe2+" , "Rf1" , "Ba3" , "Nxd4" , "Rb8" ;
+        chon:nextHalfMove      :hmgamquHaVq8 , :hmgamBsSqura .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agquHaVq .
+
+:rolquHaVq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agquHaVq .
+
+chon:HalfMove  chon:subEventOf  :gamquHaV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agquHaVq .
+
+:plaquHaVq  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:hmgamBsSqura  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBsSqurao ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nxc5" , "Bd5" , "Rb3" , "Bxc4" , "Nc3" , "Qc3" , "Bb4" , "Qxc4" ;
+        chon:nextHalfMove      :hmgamBsSqura .
+
+:rolhgBsSqurao  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agquHaVq .
+
+:agquHaVq  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Portisch, Lajos" .
+
+:opequHaVq  a            chon:ChessOpening ;
+        chon:hasECOCode  "E17" .
+
+:rolhgquHaVq8b  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agquHaVq .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamquHaV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolquHaVq ;
+        chon:atPlace           :plaquHaVq ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamquHaVq8 ;
+        chon:hasHalfMove       :hmgamquHaVq8 , :hmgamBsSqura ;
+        chon:hasLastHalfMove   :hmgamBsSqura ;
+        chon:hasOpening        :opequHaVq ;
+        chon:hasReport         :cgrquHaVq ;
+        chon:hasResult         :resquHaVq8 ;
+        chon:subEventOf        :touquHaV .
+
+:touquHaV  a          chon:hessTournament ;
+        chon:atPlace  :plaquHaVq ;
+        chon:hasName  "Tilburg" .

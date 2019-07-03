@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resZFTRMxs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamZFTRM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZFTRMx ;
+        chon:atPlace           :plaZFTRMx ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZFTRMxs ;
+        chon:hasHalfMove       :hmgamZFTRMxs ;
+        chon:hasLastHalfMove   :hmgamZFTRMxs ;
+        chon:hasOpening        :opeZFTRMx ;
+        chon:hasReport         :cgrZFTRMx ;
+        chon:hasResult         :resZFTRMxs ;
+        chon:subEventOf        :touZFTRM .
+
+:rolhgZFTRMxsi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZFTRMx .
+
+:touZFTRM  a          chon:hessTournament ;
+        chon:atPlace  :plaZFTRMx ;
+        chon:hasName  "World Championship 28th" .
+
+:agZFTRMx  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Fischer, Robert James" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZFTRMx .
+
+:hmgamZFTRMxs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZFTRMxsi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Nc6" , "cxd4" , "Qb5" , "Rfd8" , "dxc4" , "h6" , "Nc3" , "Rf1" , "a4" , "Rd2" , "Qxf3+" , "gxf5+" , "Nxd4" , "Bxf6" , "Bh4" , "Qc2" , "Kh7" , "Qf3" , "Rc8" , "Bxc4" , "Nb3" , "Nc5" , "Qb8" , "Bh4+" , "Bd3" , "Bxe1" , "a5" , "Kg6" , "h3" , "Bb4" , "Be7" , "a6" , "d5" , "O-O" , "f5" , "Qa6" , "Kxf2" , "exf5" , "Nxa4" , "b3" , "Re1" , "Qa7" , "Qa8+" , "Rc1" , "bxa4" , "Kg2" , "gxf6" , "Na4" , "Bg3" , "Bf3" , "Bc7" , "Qd2" , "Ra1" , "Bb7" , "d4" , "Bxc5" , "Qd8" , "Nf6" , "c5" , "Ba3" , "c6" , "e3" , "e6" , "c4" , "Ke2" , "Qb4" , "Nd2" , "Bg5" , "Rd7" , "Qe4" , "Qc6" , "Nxc5" , "Kxf3" , "Qa5+" , "Rc6" , "b5" , "Be2" , "Bxc6" , "Nf3" , "Rac8" , "Nbd7" , "Rxf2+" , "Ba6" , "Rd8" , "Be5" , "Rxc6" , "Bc4" , "Be4" , "g4" ;
+        chon:nextHalfMove      :hmgamZFTRMxs .
+
+:opeZFTRMx  a            chon:ChessOpening ;
+        chon:hasECOCode  "D66" .
+
+chon:HalfMove  chon:subEventOf  :gamZFTRM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZFTRMx .
+
+:plaZFTRMx  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:cgrZFTRMx  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolZFTRMx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZFTRMx .

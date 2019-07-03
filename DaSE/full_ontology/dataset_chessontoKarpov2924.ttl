@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:respJiTMFT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgpJiTMFTw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpJiTMF .
+
+:rolhgkH23wD0u  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpJiTMF .
+
+:plapJiTMF  a         chon:Place ;
+        chon:hasName  "Canada de Calatrava ESP" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpJiTMF .
+
+:cgrpJiTMF  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gampJiTM .
+
+:agpJiTMF  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Ubilava,E" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpJiTMF .
+
+:rolpJiTMF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpJiTMF .
+
+:opepJiTMF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:hmgampJiTMFT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpJiTMFTw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qc2" , "O-O" , "Nf3" , "Bb7" , "Bd2" , "d4" , "d5" , "Nf6" , "a6" , "e6" , "g3" , "Be7" , "Qxc4" , "Bg2" , "Qa4" , "b5" , "c4" , "dxc4" ;
+        chon:nextHalfMove      :hmgamkH23wD0 , :hmgampJiTMFT .
+
+:hmgamkH23wD0  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkH23wD0u ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ng5" , "Bf4" , "Rd7" , "Be4" , "Qxd8+" , "Qc1" , "Rc6" , "Nxf4" , "Nd5" , "Rfc8" , "Rad1" , "Rd3" , "Nd7" , "Nxe4" , "Qb6" , "a3" , "Qg5" , "Qxb7" , "Ne4" , "dxc5" , "Qxd8" , "Nf6" , "Rfe8" , "h3" , "Qe5" , "Rd2" , "Qxg5" , "Rc2" , "Qxe4" , "Bxc5" , "Rd4" , "e3" , "Rfd1" , "Rxd8" , "Qxf4" , "Rac8" , "c5" , "Rf8" , "Bxg5" , "Be7" , "Qf5" , "Rxd8+" , "Rd8+" , "Kg2" , "Qd4" , "Qc5" , "Nc3" , "Bxb7" , "h6" , "Bb7" , "e4" ;
+        chon:nextHalfMove      :hmgamkH23wD0 .
+
+:gampJiTM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpJiTMF ;
+        chon:atPlace           :plapJiTMF ;
+        chon:atTime            "2007.04.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampJiTMFT ;
+        chon:hasHalfMove       :hmgampJiTMFT , :hmgamkH23wD0 ;
+        chon:hasLastHalfMove   :hmgamkH23wD0 ;
+        chon:hasOpening        :opepJiTMF ;
+        chon:hasReport         :cgrpJiTMF ;
+        chon:hasResult         :respJiTMFT ;
+        chon:subEventOf        :toupJiTM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toupJiTM  a          chon:hessTournament ;
+        chon:atPlace  :plapJiTMF ;
+        chon:hasName  "II Rapid" .

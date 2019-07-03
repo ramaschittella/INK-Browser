@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolY0YdUo  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgra0Srrn  a   chon:ChessGameReport .
+
+:rolhga0SrrnUP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aga0Srrn .
+
+:rola0Srrn  a             chon:AuthorRole ;
+        chon:performedBy  :aga0Srrn .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga0Srrn .
+
+chon:HalfMove  chon:subEventOf  :gamY0YdU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga0Srrn .
+
+:gamY0YdU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolY0YdUo ;
+        chon:atPlace           :plaY0YdUo ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgama0SrrnU ;
+        chon:hasHalfMove       :hmgama0SrrnU , :hmgam76BAanc ;
+        chon:hasLastHalfMove   :hmgam76BAanc ;
+        chon:hasOpening        :opea0Srrn ;
+        chon:hasReport         :cgra0Srrn ;
+        chon:hasResult         :resa0SrrnU ;
+        chon:subEventOf        :touY0YdU .
+
+:touY0YdU  a          chon:hessTournament ;
+        chon:atPlace  :plaY0YdUo ;
+        chon:hasName  "EU-ch U18 sf 6768" .
+
+:aga0Srrn  a          chon:Agent ;
+        chon:hasName  "Hostalet, Pedro Enrique" , "Karpov, Anatoly" .
+
+:resa0SrrnU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opea0Srrn  a            chon:ChessOpening ;
+        chon:hasECOCode  "D03" .
+
+:rolhg76BAancP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aga0Srrn .
+
+:hmgam76BAanc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg76BAancP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hostalet, Pedro Enrique" ;
+        chon:hasSANRecord      "Qc7" , "c5" , "O-O" , "cxd4" , "b5" , "Nf1" , "Bd3" , "c3" , "a6" , "exd4" , "Re1" ;
+        chon:nextHalfMove      :hmgam76BAanc .
+
+:plaY0YdUo  a         chon:Place ;
+        chon:hasName  "Groningen" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgama0SrrnU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhga0SrrnUP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hostalet, Pedro Enrique" ;
+        chon:hasSANRecord      "d4" , "Nf3" , "d5" , "e6" , "Nbd7" , "Nf6" , "Bg5" , "Nbd2" , "Be7" , "e3" ;
+        chon:nextHalfMove      :hmgama0SrrnU , :hmgam76BAanc .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope8Rj6ec  a            chon:ChessOpening ;
+        chon:hasECOCode  "A18" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8Rj6ec .
+
+:rolhg8Rj6echw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8Rj6ec .
+
+chon:HalfMove  chon:subEventOf  :gam8Rj6e .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8Rj6ec .
+
+:gam8Rj6e  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8Rj6ec ;
+        chon:atPlace           :pla8Rj6ec ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8Rj6ech ;
+        chon:hasHalfMove       :hmgam8Rj6ech ;
+        chon:hasLastHalfMove   :hmgam8Rj6ech ;
+        chon:hasOpening        :ope8Rj6ec ;
+        chon:hasReport         :cgr8Rj6ec ;
+        chon:hasResult         :res8Rj6ech ;
+        chon:subEventOf        :tou8Rj6e .
+
+:pla8Rj6ec  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:tou8Rj6e  a          chon:hessTournament ;
+        chon:atPlace  :pla8Rj6ec ;
+        chon:hasName  "Zuerich sim" .
+
+:cgr8Rj6ec  a   chon:ChessGameReport .
+
+:hmgam8Rj6ech  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8Rj6echw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rottmann, D." ;
+        chon:hasSANRecord      "dxe5" , "g4" , "Bd3" , "axb4" , "h6" , "Kg8" , "a3" , "e6" , "O-O" , "f4" , "Be4" , "Nh8" , "Nh5" , "Qe2" , "e5" , "Nf3" , "Nxg5+" , "Qf4" , "Nb6" , "cxb4" , "Nf5" , "Nc3" , "g6" , "Ng7" , "Ne2" , "d4" , "Kh7" , "Kh8" , "Ne4" , "Qh4" , "Bc7" , "Neg5+" , "b6" , "Nef6" , "Qe3" , "Ne8" , "Bb4" , "Nf4" , "Ne7" , "Ba5" , "Nf6+" , "Nf6" , "Nxf7" , "c4" , "Nxg6" , "c5" , "Ng8" , "Kg7" , "d6" , "Nbd7" , "Ra3" , "Rxa7" , "Nd7" , "b4" , "Bb2" , "e4" , "Rb8" , "fxe5" , "Be7" , "Qe4" , "hxg5" ;
+        chon:nextHalfMove      :hmgam8Rj6ech .
+
+:ag8Rj6ec  a          chon:Agent ;
+        chon:hasName  "Rottmann, D." , "Karpov, Anatoly" .
+
+:rol8Rj6ec  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8Rj6ec .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res8Rj6ech  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgQXtXT1YW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agI2PAA2 .
+
+:cgrU2KO03  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agI2PAA2 .
+
+:rolhgU2KO03HW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agI2PAA2 .
+
+chon:HalfMove  chon:subEventOf  :gamI2PAA .
+
+:rolU2KO03  a             chon:AuthorRole ;
+        chon:performedBy  :agU2KO03 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agI2PAA2 .
+
+:plaI2PAA2  a         chon:Place ;
+        chon:hasName  "London" .
+
+:hmgamU2KO03H  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgU2KO03HW , chon:AgentRole , :rolhgQXtXT1YW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Bg5" , "exd4" , "Nxd4" , "e4" , "d6" , "Bb5" , "g6" , "c6" , "O-O" , "Qxf6" , "Kf8" , "Be7" , "Qe2" , "Nf3" , "Nd2" , "exf6" , "Nf6" , "d4" , "e5" , "Nc6" , "Re1+" , "Bxf6" , "cxb5" ;
+        chon:nextHalfMove      :hmgamU2KO03H , :hmgamQXtXT1Y .
+
+:gamI2PAA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolI2PAA2 ;
+        chon:atPlace           :plaI2PAA2 ;
+        chon:atTime            "1866.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamU2KO03H ;
+        chon:hasHalfMove       :hmgamQXtXT1Y , :hmgamU2KO03H ;
+        chon:hasLastHalfMove   :hmgamQXtXT1Y ;
+        chon:hasOpening        :opeI2PAA2 ;
+        chon:hasReport         :cgrU2KO03 ;
+        chon:hasResult         :resI2PAA2E ;
+        chon:subEventOf        :touI2PAA .
+
+:resI2PAA2E  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touI2PAA  a          chon:hessTournament ;
+        chon:atPlace  :plaI2PAA2 ;
+        chon:hasName  "London m2" .
+
+:agI2PAA2  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Bird, Henry Edward" .
+
+:rolI2PAA2  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamQXtXT1Y  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQXtXT1YW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rxc2" , "Rxe4" , "Rac8" , "Rf4" , "Qxb5" , "Rf8" , "Qe6" , "Rd1" , "Bf5" , "Qxb7" , "Qxa2" , "g3" , "Bxe4" , "Ne4" , "a6" , "Kg7" , "b3" , "Qd5" ;
+        chon:nextHalfMove      :hmgamQXtXT1Y .
+
+:opeI2PAA2  a            chon:ChessOpening ;
+        chon:hasECOCode  "C65" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgpUdXSWFx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpUdXSW .
+
+:opepUdXSW  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+:respUdXSWF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpUdXSW .
+
+:gampUdXS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpUdXSW ;
+        chon:atPlace           :plapUdXSW ;
+        chon:atTime            "2008.08.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampUdXSWF ;
+        chon:hasHalfMove       :hmgampUdXSWF ;
+        chon:hasLastHalfMove   :hmgampUdXSWF ;
+        chon:hasOpening        :opepUdXSW ;
+        chon:hasReport         :cgrpUdXSW ;
+        chon:hasResult         :respUdXSWF ;
+        chon:subEventOf        :toupUdXS .
+
+chon:HalfMove  chon:subEventOf  :gampUdXS .
+
+:toupUdXS  a          chon:hessTournament ;
+        chon:atPlace  :plapUdXSW ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpUdXSW .
+
+:plapUdXSW  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:cgrpUdXSW  a   chon:ChessGameReport .
+
+:agpUdXSW  a          chon:Agent ;
+        chon:hasName  "Karjakin,Sergey" , "Karpov,Ana" .
+
+:rolpUdXSW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpUdXSW .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgampUdXSWF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpUdXSWFx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karjakin,Sergey" ;
+        chon:hasSANRecord      "Nd5" , "c5" , "c6" , "Bd4" , "b3" , "Kg2" , "Rad8" , "h5" , "e6" , "Rfd8" , "d5" , "Rd7" , "Nbd7" , "Qb2" , "Bxd4" , "Ne5" , "Rg1" , "e3" , "Ng6" , "Bc5" , "gxf3" , "Bd3" , "Rd1" , "Rxd5" , "a6" , "cxd5" , "Kh1" , "Qh5" , "b6" , "a3" , "Bxf3" , "Qa5" , "Bb2" , "Bg4" , "Nbd2" , "N5f6" , "R8d7" , "Nf6" , "Nxd5" , "Bxb6" , "cxd4" , "Be7" , "Ne4" , "Ng3" , "e5" , "b4" , "Qh4" , "O-O" , "d4" , "Bc3" , "Rc1" , "Be2" , "Bf6" , "Qb1" , "c4" , "Nf3" ;
+        chon:nextHalfMove      :hmgampUdXSWF .

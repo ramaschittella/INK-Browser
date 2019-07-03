@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam6p5nT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6p5nTB ;
+        chon:atPlace           :pla6p5nTB ;
+        chon:atTime            "2002.04.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6p5nTBS ;
+        chon:hasHalfMove       :hmgam6p5nTBS ;
+        chon:hasLastHalfMove   :hmgam6p5nTBS ;
+        chon:hasOpening        :ope6p5nTB ;
+        chon:hasReport         :cgr6p5nTB ;
+        chon:hasResult         :res6p5nTBS ;
+        chon:subEventOf        :tou6p5nT .
+
+:rolhg6p5nTBSE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6p5nTB .
+
+:res6p5nTBS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6p5nTB .
+
+chon:HalfMove  chon:subEventOf  :gam6p5nT .
+
+:ope6p5nTB  a            chon:ChessOpening ;
+        chon:hasECOCode  "B07" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6p5nTB .
+
+:hmgam6p5nTBS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6p5nTBSE , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Azmaiparashvili,Z" ;
+        chon:hasSANRecord      "Bd4" , "Re2" , "Kg8" , "Kh8" , "d6" , "c3" , "Nxe5" , "cxb6" , "Qxb6" , "Nc2" , "g6" , "Bxf3" , "Rxb7" , "Qxa5" , "Qb4" , "Qa4" , "Qe8" , "Qb6" , "Qxd5" , "e5" , "Qxd3" , "Bg7" , "cxd4" , "Rxa2" , "Ra1+" , "Bd3" , "Rd1" , "Nb4" , "Re1" , "Rae8" , "Nf6" , "Rc1" , "Qe2" , "O-O" , "Rad1" , "Nd5" , "Bg4" , "Bxd4" , "Nc6" , "Qxf3" , "Qc6" , "h3" , "dxe5" , "Be3" , "Na3" , "Nf3" , "Nd7" , "Nxd3" , "a5" , "e4" , "d4" , "Rc7" , "Ne7" , "Kh2" , "Nxd5" , "Ra8" ;
+        chon:nextHalfMove      :hmgam6p5nTBS .
+
+:tou6p5nT  a          chon:hessTournament ;
+        chon:atPlace  :pla6p5nTB ;
+        chon:hasName  "FIDE GP" .
+
+:pla6p5nTB  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .
+
+:cgr6p5nTB  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag6p5nTB  a          chon:Agent ;
+        chon:hasName  "Azmaiparashvili,Z" , "Karpov,An" .
+
+:rol6p5nTB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6p5nTB .

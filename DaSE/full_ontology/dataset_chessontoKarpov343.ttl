@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaQ6R3jB  a         chon:Place ;
+        chon:hasName  "Ljubljana" .
+
+:rolh82lFE  a             chon:AuthorRole ;
+        chon:performedBy  :agh82lFE .
+
+:resh82lFEV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamQ6R3j  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQ6R3jB ;
+        chon:atPlace           :plaQ6R3jB ;
+        chon:atTime            "1975.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamh82lFEV ;
+        chon:hasHalfMove       :hmgamh82lFEV ;
+        chon:hasLastHalfMove   :hmgamh82lFEV ;
+        chon:hasOpening        :opeQ6R3jB ;
+        chon:hasReport         :cgrh82lFE ;
+        chon:hasResult         :resh82lFEV ;
+        chon:subEventOf        :touQ6R3j .
+
+:touQ6R3j  a          chon:hessTournament ;
+        chon:atPlace  :plaQ6R3jB ;
+        chon:hasName  "Portoroz/Ljubljana" .
+
+:agQ6R3jB  a          chon:Agent ;
+        chon:hasName  "Mariotti, Sergio" , "Karpov, Anatoly" .
+
+:rolQ6R3jB  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ6R3jB .
+
+:opeQ6R3jB  a            chon:ChessOpening ;
+        chon:hasECOCode  "C64" .
+
+:hmgamh82lFEV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgh82lFEVh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mariotti, Sergio" ;
+        chon:hasSANRecord      "c6" , "Rg8" , "Bc5" , "Bxg7" , "e5" , "f5" , "g3" , "Nge7" , "Qg7" , "Bg4" , "Qh4" , "d4" , "dxe5" , "Bd8" , "Bb5" , "O-O" , "Na5" , "g5" , "Nf3" , "Qh5" , "Nc6" , "Qxc3" , "Bb6" , "Qxe5" , "b4" , "Nxe5" , "d6" , "g4" , "Bd3" , "Bh6" , "e4" , "Bxh4" , "Qf6" , "Nc4" , "Qxg4" , "Na3" , "Rb1" , "c3" , "Nc8" , "Bxe5" ;
+        chon:nextHalfMove      :hmgamh82lFEV .
+
+chon:HalfMove  chon:subEventOf  :gamQ6R3j .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ6R3jB .
+
+:cgrh82lFE  a   chon:ChessGameReport .
+
+:rolhgh82lFEVh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQ6R3jB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

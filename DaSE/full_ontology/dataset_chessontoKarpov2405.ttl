@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gammG5N8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmG5N8y ;
+        chon:atPlace           :plamG5N8y ;
+        chon:atTime            "1999.03.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammG5N8y7 ;
+        chon:hasHalfMove       :hmgammG5N8y7 ;
+        chon:hasLastHalfMove   :hmgammG5N8y7 ;
+        chon:hasOpening        :opemG5N8y ;
+        chon:hasReport         :cgrmG5N8y ;
+        chon:hasResult         :resmG5N8y7 ;
+        chon:subEventOf        :toumG5N8 .
+
+:resmG5N8y7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plamG5N8y  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:rolhgmG5N8y7p  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmG5N8y .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmG5N8y .
+
+:agmG5N8y  a          chon:Agent ;
+        chon:hasName  "Nikolic, Predrag" , "Karpov, Anatoly" .
+
+:hmgammG5N8y7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmG5N8y7p , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nikolic, Predrag" ;
+        chon:hasSANRecord      "Qf4" , "Nc3" , "Nh4" , "Be3" , "Bf3" , "Kh2" , "Rfc1" , "Bxg5" , "Rc4" , "Qd7" , "Qxg4" , "Qxa4" , "d5" , "Qxb4" , "Bxc4" , "Qf5+" , "cxd5" , "Kh7" , "e4" , "O-O" , "g4" , "Bf5" , "d4" , "Rxc8+" , "N4d5" , "Qc3" , "Nb4" , "Qxc8" , "dxc4" , "Bxd5" , "e6" , "Qc8+" , "Nxd5" , "Nxf5" , "Kg8" , "c6" , "e5" , "hxg4" , "h3" , "Rfd8" , "a3" , "b3" , "fxg4" , "Nb6" , "Nc6" , "Nd5" , "Be6" , "Nf3" , "Bg5" , "Bb5" , "Bd3" , "Rac8" , "Rc8" , "Qg3" , "hxg5" , "Be2" , "Rxc1" , "Rxc1+" , "h6" , "Be7" , "a4" , "b4" , "c4" , "Qb3" , "exf5" , "Nf6" ;
+        chon:nextHalfMove      :hmgammG5N8y7 .
+
+chon:HalfMove  chon:subEventOf  :gammG5N8 .
+
+:opemG5N8y  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmG5N8y .
+
+:toumG5N8  a          chon:hessTournament ;
+        chon:atPlace  :plamG5N8y ;
+        chon:hasName  "Amber Blindfold" .
+
+:cgrmG5N8y  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolmG5N8y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmG5N8y .

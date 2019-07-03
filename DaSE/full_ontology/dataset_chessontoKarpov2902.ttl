@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolmmvQpZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmmvQpZ .
+
+:resmmvQpZ0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plammvQpZ  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmmvQpZ .
+
+:hmgamNoH9M1Y  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNoH9M1Yh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Knoetgen,Andreas" ;
+        chon:hasSANRecord      "Bd7" , "Bb3" , "Bd5" , "Qe8" , "Qe4" , "b6" , "Rxd1" , "Rd8" , "Qg6" , "f6" , "a6" , "Be7" , "a4" , "Bd8" , "Rb8" , "Bf7" , "a5" , "Qc8" , "e5" , "Bf6" , "Ba3" , "Bc7" , "Rxd1+" , "b5" , "Qd8" , "f5" ;
+        chon:nextHalfMove      :hmgamNoH9M1Y .
+
+:gammmvQp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmmvQpZ ;
+        chon:atPlace           :plammvQpZ ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammmvQpZ0 ;
+        chon:hasHalfMove       :hmgammmvQpZ0 , :hmgamNoH9M1Y ;
+        chon:hasLastHalfMove   :hmgamNoH9M1Y ;
+        chon:hasOpening        :opemmvQpZ ;
+        chon:hasReport         :cgrmmvQpZ ;
+        chon:hasResult         :resmmvQpZ0 ;
+        chon:subEventOf        :toummvQp .
+
+chon:HalfMove  chon:subEventOf  :gammmvQp .
+
+:agmmvQpZ  a          chon:Agent ;
+        chon:hasName  "Knoetgen,Andreas" , "Karpov,Ana" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmmvQpZ .
+
+:rolhgNoH9M1Yh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmmvQpZ .
+
+:opemmvQpZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "E38" .
+
+:hmgammmvQpZ0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNoH9M1Yh , chon:AgentRole , :rolhgmmvQpZ0R ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Knoetgen,Andreas" ;
+        chon:hasSANRecord      "h6" , "d5" , "Qe7" , "Bxf3" , "O-O" , "Ne5" , "a3" , "Bd3" , "Qd6" , "c4" , "Bb6" , "d4" , "Bb4" , "Kh8" , "Bh7+" , "Nxf3+" , "Qc2" , "Bxc5" , "Nc3" , "Qxd5" , "Nf3" , "dxc5" , "Nc6" , "c5" , "e3" , "Nxd5" , "cxd5" , "Nf6" , "Rfd1" , "e6" , "b4" , "Be4" , "Bb2" ;
+        chon:nextHalfMove      :hmgamNoH9M1Y , :hmgammmvQpZ0 .
+
+:toummvQp  a          chon:hessTournament ;
+        chon:atPlace  :plammvQpZ ;
+        chon:hasName  "Simul" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrmmvQpZ  a   chon:ChessGameReport .
+
+:rolhgmmvQpZ0R  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmmvQpZ .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamWaSdSHk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWaSdSHkY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c4" , "Nxh4" , "exd4" , "f3" , "Be3" , "d4" , "Ra1" , "Rc5" , "Ne3" , "Ke5" , "cxd4" , "Kh8" , "dxc5" , "Kg2" , "Rde1" , "Rae8" , "Nd5" , "Rec7" , "f5" , "f4" , "Qxh4" , "Bxc4" , "a4" , "b3" , "Kf6" , "g3" , "Rfe1" , "Bb3" , "Rxc4" , "Qxg4" , "bxc4" , "Rc2" , "g6" , "Bxd5" , "Ng6" , "Rc8" , "Re7" , "Nxd5" , "Rd1" , "b5" , "Bd5" , "Rxc5" , "Kf1" , "Rad1" , "Kg7" , "axb5" , "Ra5" , "c6" , "c5" , "Ne7" , "Re2" ;
+        chon:nextHalfMove      :hmgamWaSdSHk .
+
+:hmgamLaVX4Ih  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLaVX4IhK , :rolhgWaSdSHkY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a6" , "Qxf6" , "Nbd2" , "Bb3" , "Bg5" , "Nf6" , "Ne7" , "Bxf6" , "Bg4" , "Ba7" , "Bc5" , "Bc4" , "e5" , "Nf3" , "Nh4" , "Ng6" , "e4" , "c3" , "d6" , "O-O" , "Nc6" , "Nc4" , "d3" ;
+        chon:nextHalfMove      :hmgamLaVX4Ih , :hmgamWaSdSHk .
+
+:agLaVX4I  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Nunn, John DM" .
+
+:opeLaVX4I  a            chon:ChessOpening ;
+        chon:hasECOCode  "C54" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLaVX4I .
+
+chon:HalfMove  chon:subEventOf  :gamLaVX4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLaVX4I .
+
+:rolhgLaVX4IhK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLaVX4I .
+
+:plaLaVX4I  a         chon:Place ;
+        chon:hasName  "Hamburg" .
+
+:cgrLaVX4I  a   chon:ChessGameReport .
+
+:gamLaVX4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLaVX4I ;
+        chon:atPlace           :plaLaVX4I ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLaVX4Ih ;
+        chon:hasHalfMove       :hmgamLaVX4Ih , :hmgamWaSdSHk ;
+        chon:hasLastHalfMove   :hmgamWaSdSHk ;
+        chon:hasOpening        :opeLaVX4I ;
+        chon:hasReport         :cgrLaVX4I ;
+        chon:hasResult         :resLaVX4Ih ;
+        chon:subEventOf        :touLaVX4 .
+
+:rolLaVX4I  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLaVX4I .
+
+:touLaVX4  a          chon:hessTournament ;
+        chon:atPlace  :plaLaVX4I ;
+        chon:hasName  "Hamburg TV-A" .
+
+:resLaVX4Ih  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgWaSdSHkY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLaVX4I .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaFFdlD4  a         chon:Place ;
+        chon:hasName  "Solingen" .
+
+:rolhg7HpDZ5gn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFFdlD4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFFdlD4 .
+
+:agFFdlD4  a          chon:Agent ;
+        chon:hasName  "Christoph, Manfred" , "Fischer, Robert James" .
+
+:touFFdlD  a          chon:hessTournament ;
+        chon:atPlace  :plaFFdlD4 ;
+        chon:hasName  "Solingen sim" .
+
+chon:HalfMove  chon:subEventOf  :gamFFdlD .
+
+:opeFFdlD4  a            chon:ChessOpening ;
+        chon:hasECOCode  "A11" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFFdlD4 .
+
+:hmgamFFdlD4p  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7HpDZ5gn , :rolhgFFdlD4pY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Christoph, Manfred" ;
+        chon:hasSANRecord      "Qc3" , "Qf6" , "Nxb4" , "Qb8" , "d3" , "Bg7" , "Nxd5" , "a4" , "cxd5" , "Qb7" , "Rc2" , "Rc8" , "Qe6" , "a3" , "Nc7" , "Nxg7" , "c4" , "Ne8" , "e3" , "Bxb3" , "b2" , "Nf5" , "b3" , "Qb2" , "Nc5" , "g3" , "Kg7" , "Qb6" , "Bxg7" , "Qb5" , "Rb4" , "Bc4" , "Ne5" , "Nbd2" , "Nec6" , "Qd6" , "Rb8" , "Nb7" , "Be5" , "Bb5" , "Qc5" , "Rfe1" , "Rxd1" , "Qe5" , "Ne4" , "Qd3" , "Nb4" , "Bh3" , "Rb2" , "Kg2" , "d6" , "c6" , "Ra3" , "Nd4" , "Qxc5" , "Nf3" , "g6" , "Bb2" , "axb3" , "Rab1" , "g5" , "O-O" , "Qb3" , "d4" , "Qa5" , "Bc2" , "Nb5" , "Rbc4" , "Bg2" , "Ra1" , "Bb3" , "Rxa4" , "Rd2" , "Rbd1" , "Na6" , "Rxb4" , "Rf1" , "bxc4" , "b5" , "Nc3" , "Qd2" , "Nb3" , "Rc1" , "Raa1" , "Nf6" , "Bd7" , "Bxf5" , "Rd8" , "d5" , "Qa3" , "a5" , "Be8" ;
+        chon:nextHalfMove      :hmgamFFdlD4p , :hmgam7HpDZ5g .
+
+:hmgam7HpDZ5g  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7HpDZ5gn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Christoph, Manfred" ;
+        chon:hasSANRecord      "Qc3" , "Qd3" , "Qd4+" , "Qxe3" , "Rc2" , "f6" , "Rf1" , "Kg1" , "Qb4" , "Qd5+" , "exd6" , "d6" , "Re2" , "Qxd6" , "Qb3" , "Qe1" , "h3" , "Rc1" , "Re1" , "Qe5" ;
+        chon:nextHalfMove      :hmgam7HpDZ5g .
+
+:resFFdlD4p  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrFFdlD4  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamFFdlD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFFdlD4 ;
+        chon:atPlace           :plaFFdlD4 ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFFdlD4p ;
+        chon:hasHalfMove       :hmgamFFdlD4p , :hmgam7HpDZ5g ;
+        chon:hasLastHalfMove   :hmgam7HpDZ5g ;
+        chon:hasOpening        :opeFFdlD4 ;
+        chon:hasReport         :cgrFFdlD4 ;
+        chon:hasResult         :resFFdlD4p ;
+        chon:subEventOf        :touFFdlD .
+
+:rolhgFFdlD4pY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFFdlD4 .
+
+:rolFFdlD4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFFdlD4 .

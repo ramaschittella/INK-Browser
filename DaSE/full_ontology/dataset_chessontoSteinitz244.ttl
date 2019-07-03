@@ -1,0 +1,82 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaiL5U8k  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:agiL5U8k  a          chon:Agent ;
+        chon:hasName  "Winawer, Szymon" , "Steinitz, William" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiL5U8k .
+
+:rolhg7LaEAjik  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiL5U8k .
+
+:cgriL5U8k  a   chon:ChessGameReport .
+
+:hmgam63LtMrQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg63LtMrQ3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Winawer, Szymon" ;
+        chon:hasSANRecord      "Rf8" , "Nd5" , "Qg5" , "Qe6" , "Ne4" , "Nc7" , "g3" , "Qh6+" , "Qe7" ;
+        chon:nextHalfMove      :hmgam63LtMrQ .
+
+:rolhg63LtMrQ3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiL5U8k .
+
+chon:HalfMove  chon:subEventOf  :gamiL5U8 .
+
+:rolhgtL29GjqI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiL5U8k .
+
+:opeiL5U8k  a            chon:ChessOpening ;
+        chon:hasECOCode  "C00" .
+
+:gamiL5U8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliL5U8k ;
+        chon:atPlace           :plaiL5U8k ;
+        chon:atTime            "1882.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtL29Gjq ;
+        chon:hasHalfMove       :hmgamVNdq2jf , :hmgamtL29Gjq , :hmgam63LtMrQ ;
+        chon:hasLastHalfMove   :hmgam63LtMrQ ;
+        chon:hasOpening        :opeiL5U8k ;
+        chon:hasReport         :cgriL5U8k ;
+        chon:hasResult         :resiL5U8kl ;
+        chon:subEventOf        :touiL5U8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgVNdq2jf8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiL5U8k .
+
+:roliL5U8k  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiL5U8k .
+
+:resiL5U8kl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamVNdq2jf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7LaEAjik , chon:AgentRole , :rolhgVNdq2jf8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Winawer, Szymon" ;
+        chon:hasSANRecord      "Bh6+" , "Qxf6" , "Qxh2" , "Kg7" , "Qc5" , "Qd4" , "Qc3+" , "bxa6" , "Nxf4" , "Bf4" , "Ne2" , "Ne7" , "e5" , "Kg8" , "Qa5" , "Qd8+" , "gxf6" , "Qh5" , "exf6" , "Qxh1" , "Nd5" ;
+        chon:nextHalfMove      :hmgamVNdq2jf , :hmgam63LtMrQ .
+
+:hmgamtL29Gjq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtL29GjqI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Winawer, Szymon" ;
+        chon:hasSANRecord      "Qd2" , "Qxa1" , "d4" , "e6" , "Qxb2" , "e5" , "Nb5" , "Qb6" , "Bxf2+" , "Nd6+" , "Bf4" , "Bxa6" , "Kf8" , "Kd2" , "Bxc5" , "c5" , "Na6" , "e4" , "Nc3" , "Qxf2" , "f6" , "Qc7" , "dxc5" ;
+        chon:nextHalfMove      :hmgamVNdq2jf , :hmgamtL29Gjq .
+
+:touiL5U8  a          chon:hessTournament ;
+        chon:atPlace  :plaiL5U8k ;
+        chon:hasName  "Vienna playoff" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiL5U8k .

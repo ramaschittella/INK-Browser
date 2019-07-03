@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamEWq3sXr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEWq3sXrM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Kf3" , "Rc8" , "f4" , "Rh5" , "h4" , "h5" , "Rxc2" , "Rf1" , "Ke2" , "Nxc5" , "Nf3" , "Rxd1" , "Be2" , "gxf4" , "Bc2" , "Bxb3" , "Kd7" , "Ne7" , "Rxe5" , "dxc4" , "Rxc1" , "d4" , "d5" , "Rf5" , "Kf1" , "Nd2" , "g3" , "a3" , "e4" , "O-O" , "Bc5" , "Nb3" , "Bxc2" , "Nd7" , "Bf5" , "Kg4" , "Rf3" , "c4" , "Qxd1" , "Nxb3" , "f6" , "Rac1" , "Nd4" , "Nd5" , "Be3" , "e5" , "g5" , "e6" , "a6" , "c5" , "c6" , "Bxc4" , "Bxd4" , "hxg3" , "dxc5" ;
+        chon:nextHalfMove      :hmgamEWq3sXr .
+
+:plaGIPdeR  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:HalfMove  chon:subEventOf  :gamGIPde .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEWq3sX .
+
+:agEWq3sX  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Alekseev,Evgeny" .
+
+:touEWq3s  a          chon:hessTournament ;
+        chon:atPlace  :plaGIPdeR ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+:gamGIPde  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEWq3sX ;
+        chon:atPlace           :plaGIPdeR ;
+        chon:atTime            "2008.08.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEWq3sXr ;
+        chon:hasHalfMove       :hmgamEWq3sXr ;
+        chon:hasLastHalfMove   :hmgamEWq3sXr ;
+        chon:hasOpening        :opeEWq3sX ;
+        chon:hasReport         :cgrEWq3sX ;
+        chon:hasResult         :resEWq3sXr ;
+        chon:subEventOf        :touEWq3s .
+
+:resEWq3sXr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeEWq3sX  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEWq3sX .
+
+:cgrEWq3sX  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgEWq3sXrM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEWq3sX .
+
+:rolEWq3sX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEWq3sX .

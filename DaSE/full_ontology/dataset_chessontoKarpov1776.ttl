@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:respWVPNDw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plapWVPND  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:cgrpWVPND  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpWVPND .
+
+:gampWVPN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpWVPND ;
+        chon:atPlace           :plapWVPND ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampWVPNDw ;
+        chon:hasHalfMove       :hmgampWVPNDw ;
+        chon:hasLastHalfMove   :hmgampWVPNDw ;
+        chon:hasOpening        :opepWVPND ;
+        chon:hasReport         :cgrpWVPND ;
+        chon:hasResult         :respWVPNDw ;
+        chon:subEventOf        :toupWVPN .
+
+:hmgampWVPNDw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpWVPNDwd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf8" , "e3" , "Qxc3" , "Bxe4" , "Bxf6" , "Bc2" , "Rhd1" , "Bb7" , "Nc3" , "d6" , "Bb4" , "Rdd8" , "Qxf6" , "Rd2" , "c5" , "g3" , "Qc2" , "h6" , "Red1" , "f5" , "h3" , "O-O-O" , "Kf8" , "Ba6" , "O-O" , "Bg5" , "Bxc3+" , "Rb8" , "dxc5" , "Ka2" , "e4" , "a3" , "bxc5" , "Rad8" , "Ke7" , "Re1" , "Nf6" , "b6" , "h5" , "Rd7" , "gxf6" , "Rfd8" , "f4" , "b3" , "Ng6" , "Ne5" , "c4" , "Nbd7" , "fxe4" , "Ne2" , "Bh4" , "Bd3" , "Kb2" , "d4" , "e6" , "Nxe4" ;
+        chon:nextHalfMove      :hmgampWVPNDw .
+
+chon:HalfMove  chon:subEventOf  :gampWVPN .
+
+:agpWVPND  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Lautier, Joel" .
+
+:rolpWVPND  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpWVPND .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpWVPND .
+
+:opepWVPND  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:toupWVPN  a          chon:hessTournament ;
+        chon:atPlace  :plapWVPND ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgpWVPNDwd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpWVPND .

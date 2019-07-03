@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeWbnwlo  a            chon:ChessOpening ;
+        chon:hasECOCode  "B81" .
+
+:plaKbriOn  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:gamKbriO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKbriOn ;
+        chon:atPlace           :plaKbriOn ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWbnwloY ;
+        chon:hasHalfMove       :hmgamWbnwloY ;
+        chon:hasLastHalfMove   :hmgamWbnwloY ;
+        chon:hasOpening        :opeWbnwlo ;
+        chon:hasReport         :cgrWbnwlo ;
+        chon:hasResult         :resWbnwloY ;
+        chon:subEventOf        :touKbriO .
+
+:agKbriOn  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:rolKbriOn  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKbriOn .
+
+chon:HalfMove  chon:subEventOf  :gamKbriO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWbnwlo .
+
+:rolhgWbnwloYz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWbnwlo , :agKbriOn .
+
+:hmgamWbnwloY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWbnwloYz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jussupow, Artur" ;
+        chon:hasSANRecord      "e4" , "O-O-O" , "g5" , "Nc4" , "f4" , "Ne5" , "Qc7" , "Qd2" , "Rc8" , "Nb3" , "Nc3" , "cxd4" , "Nc6" , "e6" , "Nf3" , "Nxd4" , "d4" , "hxg5" , "c5" , "g4" , "a3" , "Qb6" , "Nf6" , "h4" , "Qd4" , "a6" , "Be2" , "Bxg5" , "d6" , "h6" , "b5" , "Bd7" , "h5" ;
+        chon:nextHalfMove      :hmgamWbnwloY .
+
+:touKbriO  a          chon:hessTournament ;
+        chon:atPlace  :plaKbriOn ;
+        chon:hasName  "Vienna Millenium" .
+
+:cgrWbnwlo  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resWbnwloY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agWbnwlo  a          chon:Agent ;
+        chon:hasName  "Jussupow, Artur" .
+
+:rolWbnwlo  a             chon:AuthorRole ;
+        chon:performedBy  :agWbnwlo .

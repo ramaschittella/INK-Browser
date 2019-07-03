@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamOaddJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOaddJI ;
+        chon:atPlace           :plaOaddJI ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOaddJIS ;
+        chon:hasHalfMove       :hmgamfcnw6Iu , :hmgamOaddJIS ;
+        chon:hasLastHalfMove   :hmgamfcnw6Iu ;
+        chon:hasOpening        :opeOaddJI ;
+        chon:hasReport         :cgrOaddJI ;
+        chon:hasResult         :resOaddJIS ;
+        chon:subEventOf        :touOaddJ .
+
+:cgrOaddJI  a   chon:ChessGameReport .
+
+:touOaddJ  a          chon:hessTournament ;
+        chon:atPlace  :plaOaddJI ;
+        chon:hasName  "EU-ch Rapid-30'" .
+
+:hmgamfcnw6Iu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfcnw6IuJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely, Loek" ;
+        chon:hasSANRecord      "Bf6" , "Bc4+" , "Nd2" , "c5" , "Bg6+" , "Nf3" , "Rf2" , "Rxf2" , "Qxb6" , "Bxe8" , "Nxf8" , "d4" , "Ne5" , "Ke7" , "d5" , "Ne6" , "Nb5" , "e3" , "Nc7" , "h6" , "Qb6" , "Bg5" , "Bb1" , "Nxf4" , "Bxf2" , "exd4" , "Bg6" , "Kh1" , "b5" , "Nxa8" , "c3" , "Rf8" , "Nf4+" , "O-O" , "Kd6" , "Rxf4" , "Nd5" , "Rff1" , "axb6" , "Na3" , "Rxb5" , "Bd7" , "d6" , "Nc4" , "dxc3" , "Ng4" , "Kh7" , "Be2" , "Be6" , "g5" , "Rxa8" , "Rc1" , "cxb2" , "Bh4" , "g6" , "e6" , "Nf2+" , "exd5" , "a4" , "Nxb6" , "Bg7" , "Bd3" , "Rf1" , "Ne3" , "cxd4" , "Bxf5" , "Kxf8" , "Kf7" , "Nf6" , "gxh4" , "Rxb2" , "Qb3" , "Kg6" , "Nc6" , "f4" , "Bd4+" , "Rae1+" , "f5" , "Be8" ;
+        chon:nextHalfMove      :hmgamfcnw6Iu .
+
+:rolOaddJI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOaddJI .
+
+:hmgamOaddJIS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfcnw6IuJ , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamfcnw6Iu .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOaddJI .
+
+:plaOaddJI  a         chon:Place ;
+        chon:hasName  "Cap d`Agde" .
+
+chon:HalfMove  chon:subEventOf  :gamOaddJ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOaddJI .
+
+:rolhgfcnw6IuJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOaddJI .
+
+:resOaddJIS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agOaddJI  a          chon:Agent ;
+        chon:hasName  "Van Wely, Loek" , "Karpov, Anatoly" .
+
+:opeOaddJI  a            chon:ChessOpening ;
+        chon:hasECOCode  "A48" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

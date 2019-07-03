@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resExEOmEX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgExEOmEX3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agExEOmE .
+
+:rolhg6zO8IEMs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agExEOmE .
+
+:gamExEOm  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolExEOmE ;
+        chon:atPlace           :plaExEOmE ;
+        chon:atTime            "2001.03.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamExEOmEX ;
+        chon:hasHalfMove       :hmgam6zO8IEM , :hmgamExEOmEX ;
+        chon:hasLastHalfMove   :hmgam6zO8IEM ;
+        chon:hasOpening        :opeExEOmE ;
+        chon:hasReport         :cgrExEOmE ;
+        chon:hasResult         :resExEOmEX ;
+        chon:subEventOf        :touExEOm .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agExEOmE .
+
+:touExEOm  a          chon:hessTournament ;
+        chon:atPlace  :plaExEOmE ;
+        chon:hasName  "Amber Blindfold" .
+
+chon:HalfMove  chon:subEventOf  :gamExEOm .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agExEOmE .
+
+:plaExEOmE  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:hmgam6zO8IEM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6zO8IEMs ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko,P" ;
+        chon:hasSANRecord      "h5" , "Kg5" , "Rd2" , "e5" , "Re2+" , "Na5" , "Bb7" , "Rxe8" , "Bf1" , "Rb2" , "Ne3" , "Bxh3" , "Bd7" , "Ba7" , "Kh4" , "Kd3" , "Nxb5" , "Rxf2+" , "Nxd4" , "Nf4" , "Nb3" , "h4" , "Rd8+" , "Nxf5" , "Kxg4" , "Nd5" , "Rg4" , "Re8" , "Kg7" , "Ke4" , "Bf5" , "Rxd4" , "Re1+" , "Be6" , "Bxa2" , "Bc3" , "Nh2" , "Bh3" , "Re4" , "Kf2" , "Ng4" , "Nh4" , "Kxd4" , "Nc3" , "Kg2" , "Bc8" , "Kf5" , "Nb4" , "a6" , "Bf1+" , "Rd1" , "Nxa6" , "Bxg4" , "Bd4" , "Rbb1" , "cxd4" , "g5" , "Rfd8" , "Rb1" , "Ng4+" , "Rxb5" , "Ne3+" , "Bc4" , "Rb4" , "b5" , "Kd2" , "Ng2" , "Bxd4" , "Ne4" , "Ne2+" , "Nc5" , "Rac8" , "Nxf1" , "Qxb5" , "Kf3" , "Nf3" , "Kg3" , "h3" , "Kxg3" , "f5" , "Kf6" , "Nd4" , "Ke3" , "exd4" ;
+        chon:nextHalfMove      :hmgam6zO8IEM .
+
+:cgrExEOmE  a   chon:ChessGameReport .
+
+:hmgamExEOmEX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgExEOmEX3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Leko,P" ;
+        chon:hasSANRecord      "dxc4" , "d5" , "Qb5" , "Bg2" , "Bb2" , "Rac1" , "Nf3" , "c5" , "Nf6" , "Qxb2" , "Qe2" , "Qb6" , "c4" , "Nxb2" , "g3" , "Na3" , "e3" , "Na4" , "Nc6" , "Bg7" , "O-O" , "c3" , "d4" , "Rfd1" , "Nb6" , "bxc3" , "g6" , "Nd5" ;
+        chon:nextHalfMove      :hmgamExEOmEX , :hmgam6zO8IEM .
+
+:agExEOmE  a          chon:Agent ;
+        chon:hasName  "Leko,P" , "Karpov,An" .
+
+:rolExEOmE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agExEOmE .
+
+:opeExEOmE  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamfWpWMhD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfWpWMhD0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tkachiev,V" ;
+        chon:hasSANRecord      "Qe8" , "Qxb7" , "Nf3" , "Qc8" , "Bd2" , "c4" , "Bb6" , "Bxh1" , "e5" , "c6" , "e6" , "b4" , "Nxd4" , "d5" , "d4" , "Bb5+" , "Nxc5" , "Bb8" , "Bxf3" , "Qa6" , "Bc5" , "Qb3" , "Bf3" , "Bxg2" , "cxd5" , "Qxa8" , "Nf6" , "Nc3" , "O-O" , "Nbd7" , "Rc1" , "Ne2" , "Ba5" , "Rxc5" , "Bd6" , "h6" , "Bg4" , "exd4" , "e3" , "h4" , "Qxa7" ;
+        chon:nextHalfMove      :hmgamfWpWMhD .
+
+:agfWpWMh  a          chon:Agent ;
+        chon:hasName  "Tkachiev,V" , "Karpov,Ana" .
+
+:opefWpWMh  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfWpWMh .
+
+chon:HalfMove  chon:subEventOf  :gamfWpWM .
+
+:gamfWpWM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfWpWMh ;
+        chon:atPlace           :plafWpWMh ;
+        chon:atTime            "2007.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfWpWMhD ;
+        chon:hasHalfMove       :hmgamfWpWMhD ;
+        chon:hasLastHalfMove   :hmgamfWpWMhD ;
+        chon:hasOpening        :opefWpWMh ;
+        chon:hasReport         :cgrfWpWMh ;
+        chon:hasResult         :resfWpWMhD ;
+        chon:subEventOf        :toufWpWM .
+
+:resfWpWMhD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfWpWMh .
+
+:rolhgfWpWMhD0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfWpWMh .
+
+:cgrfWpWMh  a   chon:ChessGameReport .
+
+:rolfWpWMh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfWpWMh .
+
+:toufWpWM  a          chon:hessTournament ;
+        chon:atPlace  :plafWpWMh ;
+        chon:hasName  "ch-Euro Blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plafWpWMh  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .

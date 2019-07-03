@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolUJRDNa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUJRDNa .
+
+:plaUJRDNa  a         chon:Place ;
+        chon:hasName  "Riga" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUJRDNa .
+
+:gamUJRDN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUJRDNa ;
+        chon:atPlace           :plaUJRDNa ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUJRDNae ;
+        chon:hasHalfMove       :hmgam2Fu170x , :hmgam6JNRkbh , :hmgamUJRDNae ;
+        chon:hasLastHalfMove   :hmgam2Fu170x ;
+        chon:hasOpening        :opeUJRDNa ;
+        chon:hasReport         :cgrUJRDNa ;
+        chon:hasResult         :resUJRDNae ;
+        chon:subEventOf        :touUJRDN .
+
+:agUJRDNa  a          chon:Agent ;
+        chon:hasName  "Tukmakov, Vladimir B" , "Karpov, Anatoly" .
+
+:rolhg2Fu170x9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUJRDNa .
+
+:rolhg6JNRkbha  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUJRDNa .
+
+chon:HalfMove  chon:subEventOf  :gamUJRDN .
+
+:resUJRDNae  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamUJRDNae  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6JNRkbha , :rolhgUJRDNaeY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tukmakov, Vladimir B" ;
+        chon:hasSANRecord      "e4" , "e5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamUJRDNae , :hmgam6JNRkbh .
+
+:touUJRDN  a          chon:hessTournament ;
+        chon:atPlace  :plaUJRDNa ;
+        chon:hasName  "URS-ch38 Riga" .
+
+:opeUJRDNa  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam2Fu170x  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2Fu170x9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tukmakov, Vladimir B" ;
+        chon:hasSANRecord      "axb5" , "Nxe5" , "gxf3" , "fxe4" , "f5" , "Qxd8" , "Be3" , "Bxe4" , "Rxe4" , "f3" , "Nxf3+" , "Re8" , "Ra5" , "Raxd8" ;
+        chon:nextHalfMove      :hmgam2Fu170x .
+
+:cgrUJRDNa  a   chon:ChessGameReport .
+
+:rolhgUJRDNaeY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUJRDNa .
+
+:hmgam6JNRkbh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6JNRkbha , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tukmakov, Vladimir B" ;
+        chon:hasSANRecord      "Ba4" , "d5" , "Bb3" , "a6" , "Nc6" , "c5" , "Re8" , "b5" , "Bf8" , "Nxe4" , "Bb5" , "d4" , "Nf1" , "h3" , "O-O" , "Bb7" , "g6" , "Nb8" , "Ng3" , "dxe5" , "Be7" , "Nf6" , "dxe4" , "c3" , "Bc2" , "Re1" , "Nbd2" , "b4" , "d6" , "Nbd7" , "a4" , "cxd4" ;
+        chon:nextHalfMove      :hmgam2Fu170x , :hmgam6JNRkbh .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUJRDNa .

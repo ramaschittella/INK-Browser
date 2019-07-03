@@ -1,0 +1,66 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res4aXLStJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamfaTZasM  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfaTZasMu , chon:AgentRole ;
+        chon:hasSANRecord      "Qd4" .
+
+:rolhg4aXLStJh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4aXLSt .
+
+:pla4aXLSt  a         chon:Place ;
+        chon:hasName  "St Martin" .
+
+:hmgam4aXLStJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4aXLStJh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Dyson, Peter B" ;
+        chon:hasSANRecord      "Bxb5" , "Qxd6" , "Ba6" , "b3" , "f6" , "Na4" , "g6" , "c4" , "Ne5" , "Nbd7" , "Qa3" , "Qxc5" , "cxb5" , "b6" , "Nf3" , "Rc1" , "Kxf8" , "dxc5" , "Rd8" , "e6" , "Rd6" , "Rxd6" , "Rxc5" , "c5" , "Nc3" , "Nxc5" , "Rxe6" , "Qd2" , "Bxf8" , "Kg7" , "h4" , "exd5" , "Re1" , "Qf8" , "Rc8" , "b5" , "e4" , "Bg2" , "b4" , "Ba3" , "Bb7" , "g3" , "d4" , "Nxd7" , "O-O" , "Qe7" , "d5" , "Nf6" ;
+        chon:nextHalfMove      :hmgam4aXLStJ , :hmgamfaTZasM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4aXLSt .
+
+:gam4aXLS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4aXLSt ;
+        chon:atPlace           :pla4aXLSt ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4aXLStJ ;
+        chon:hasHalfMove       :hmgam4aXLStJ , :hmgamfaTZasM ;
+        chon:hasLastHalfMove   :hmgamfaTZasM ;
+        chon:hasOpening        :ope4aXLSt ;
+        chon:hasReport         :cgr4aXLSt ;
+        chon:hasResult         :res4aXLStJ ;
+        chon:subEventOf        :tou4aXLS .
+
+:cgr4aXLSt  a   chon:ChessGameReport .
+
+:tou4aXLS  a          chon:hessTournament ;
+        chon:atPlace  :pla4aXLSt ;
+        chon:hasName  "St Martin simul" .
+
+chon:HalfMove  chon:subEventOf  :gam4aXLS .
+
+:ag4aXLSt  a          chon:Agent ;
+        chon:hasName  "Dyson, Peter B" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4aXLSt .
+
+:rol4aXLSt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4aXLSt .
+
+:ope4aXLSt  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgfaTZasMu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4aXLSt .

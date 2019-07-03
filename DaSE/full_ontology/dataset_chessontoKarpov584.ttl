@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opePkoorj  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+:rolhgPkoorjxG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPkoorj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPkoorj .
+
+:rolhg2kkSYjAT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPkoorj .
+
+:hmgamPkoorjx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2kkSYjAT , :rolhgPkoorjxG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "d5" , "Bg6" , "Bf4" , "c6" , "Ng3" , "Nxe4" , "Bxf6" , "Bf6" , "Be7" , "h5" , "O-O-O" , "d4" , "Bh7" , "Bd3" , "Kb1" , "Bxe5" , "h4" , "Nxe5" , "gxf6" , "h6" , "a4" , "Qxd3" , "Qa5" , "Ne4" , "Nd2" , "a5" , "c5" , "c4" , "Ne5" , "Bxd3" , "Bf5" , "Nf3" , "dxe4" , "e6" , "Qxe4" , "Ngf6" , "Nd7" , "e4" ;
+        chon:nextHalfMove      :hmgam2kkSYjA , :hmgamPkoorjx .
+
+chon:HalfMove  chon:subEventOf  :gamPkoor .
+
+:cgrPkoorj  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPkoorj .
+
+:gamPkoor  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPkoorj ;
+        chon:atPlace           :plaPkoorj ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPkoorjx ;
+        chon:hasHalfMove       :hmgamPkoorjx , :hmgam2kkSYjA ;
+        chon:hasLastHalfMove   :hmgam2kkSYjA ;
+        chon:hasOpening        :opePkoorj ;
+        chon:hasReport         :cgrPkoorj ;
+        chon:hasResult         :resPkoorjx ;
+        chon:subEventOf        :touPkoor .
+
+:touPkoor  a          chon:hessTournament ;
+        chon:atPlace  :plaPkoorj ;
+        chon:hasName  "IBM" .
+
+:resPkoorjx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaPkoorj  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:hmgam2kkSYjA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2kkSYjAT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "Rxh5" , "Rh2" , "f4" , "Qc7" , "Rd5" , "Qb8" , "Rb4" , "f3" , "Rg8" , "Kxc6" , "Rh1+" , "Qd3" , "Kc2" , "Rdg5" , "Qb5+" , "Rxa4" , "Qd2" , "Kd7" , "Qf4" , "Re2" , "Rhd1" , "Rg1" , "Re1" , "f5" , "d5" , "Rd3" , "cxd5" , "c6+" , "Ra3" , "h5" ;
+        chon:nextHalfMove      :hmgam2kkSYjA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agPkoorj  a          chon:Agent ;
+        chon:hasName  "Larsen, Bent" , "Karpov, Anatoly" .
+
+:rolPkoorj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPkoorj .

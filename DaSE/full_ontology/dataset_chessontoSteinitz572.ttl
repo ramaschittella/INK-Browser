@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rol8Wtk4l  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhg7b50fsDm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8Wtk4l .
+
+:gam8Wtk4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8Wtk4l ;
+        chon:atPlace           :pla8Wtk4l ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7b50fsD ;
+        chon:hasHalfMove       :hmgamhb2mOrG , :hmgam7b50fsD ;
+        chon:hasLastHalfMove   :hmgamhb2mOrG ;
+        chon:hasOpening        :ope8Wtk4l ;
+        chon:hasReport         :cgr7b50fs ;
+        chon:hasResult         :res7b50fsD ;
+        chon:subEventOf        :tou8Wtk4 .
+
+:hmgam7b50fsD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghb2mOrGz , :rolhg7b50fsDm , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Maroczy, Geza" ;
+        chon:hasSANRecord      "Nxd5" , "Ne6" , "Qxg6+" , "Rg6" , "Qxd6" , "Ra5" , "Bc8" , "c4" , "Qd2" , "e6" , "Nd4" , "Rf7" , "Rxh4+" , "Bd5" , "Ra3" , "Ke7" , "Rh4" , "Bxe6" , "Kg4" , "e5" , "cxd6" , "Kg7" , "Bb7" , "Ng6" , "hxg5" , "Ke5" , "Rxd6" , "c5" , "Kxe6" , "O-O" , "Rf3" , "d5" , "Bb4" , "Rf3+" , "Kg1" , "Nc6" , "Qf8" , "Rxg2+" , "Rg8" , "Kh1" , "h6" , "Rxe3" , "g5" , "Rg1+" , "Ne3" , "b6" , "h4" , "Re1" , "Rh6" , "Rh3" , "Kh8" , "Kf6" , "Kh7" , "Rf5+" , "fxe4" , "Bxd6" , "Nf6" , "exd5" , "d4" , "f3" , "Qxg5" , "cxd5" , "Bb3" , "Kg3" , "e4" , "Rc8" , "Ne7" , "Rg4" , "h5" , "Rxb5" , "b5" , "Rg7" , "Re3" , "Rg8+" , "bxc3" , "Bd3" , "Ne2" , "Rxh4" , "Bc4" , "Rhg3" , "Nc3" , "Nxg5" , "Rh8" , "f5" , "Kh4" , "Kf2" , "Bxc3+" , "Kd6" , "e3" , "Rh3+" , "Ba3" , "Qe7" , "d6" ;
+        chon:nextHalfMove      :hmgam7b50fsD , :hmgamhb2mOrG .
+
+:tou8Wtk4  a          chon:hessTournament ;
+        chon:atPlace  :pla8Wtk4l ;
+        chon:hasName  "London" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8Wtk4l .
+
+:hmgamhb2mOrG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghb2mOrGz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Maroczy, Geza" ;
+        chon:hasSANRecord      "Rc6" , "Kb5" , "Kd6" , "Re3+" , "Kc3" , "Rh5+" , "Re7" , "Kc4" , "Kg7" , "Ra5" , "a4" , "Ke6" , "a5" , "Rf4" , "Ke3" , "Kd3" , "Rg5+" , "Ra6" , "Kg5" , "Rf3+" , "Kg4" , "Re5" , "Kf5" , "Kd4" , "Rh4" , "Ra5+" , "Rc7" , "Re3" , "Ra3" , "Ka6" , "Re4" , "Kf4" , "Kh6" , "Kxh5" ;
+        chon:nextHalfMove      :hmgamhb2mOrG .
+
+:rolhghb2mOrGz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8Wtk4l .
+
+chon:HalfMove  chon:subEventOf  :gam8Wtk4 .
+
+:ag8Wtk4l  a          chon:Agent ;
+        chon:hasName  "Maroczy, Geza" , "Steinitz, William" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8Wtk4l .
+
+:ope8Wtk4l  a            chon:ChessOpening ;
+        chon:hasECOCode  "A85" .
+
+:cgr7b50fs  a   chon:ChessGameReport .
+
+:pla8Wtk4l  a         chon:Place ;
+        chon:hasName  "London" .
+
+:rol7b50fs  a             chon:AuthorRole ;
+        chon:performedBy  :ag7b50fs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res7b50fsD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

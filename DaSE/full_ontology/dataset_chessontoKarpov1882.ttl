@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resEdyuWgu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaEdyuWg  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEdyuWg .
+
+:cgrEdyuWg  a   chon:ChessGameReport .
+
+:rolhgEdyuWgu9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEdyuWg .
+
+chon:HalfMove  chon:subEventOf  :gamEdyuW .
+
+:agEdyuWg  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Salov, Valery" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEdyuWg .
+
+:rolEdyuWg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEdyuWg .
+
+:opeEdyuWg  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .
+
+:hmgamEdyuWgu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEdyuWgu9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf6" , "Re3" , "Nf4" , "a4" , "d4" , "Qh2+" , "Rxf4" , "Bh4" , "Bg5" , "Qxh4" , "Qa2" , "Kh7" , "Qd7" , "h6" , "h4" , "Qc6" , "Rxf2+" , "c3" , "Nbd2" , "Kf1" , "Ng4" , "Rae1" , "Qh1+" , "Rd2" , "Nf3" , "e6" , "Bxa6" , "g3" , "Re1" , "b6" , "Nxe4" , "Raa5" , "Be7" , "d6" , "c5" , "Ke1" , "Red3" , "cxd4" , "Qb7" , "Nxa6" , "Ne4" , "Ne1" , "Nd5" , "Qh3" , "Qg4" , "Nc7" , "axb5" , "Rxe4" , "Rf5" , "e3" , "Rg3" , "Qa4" , "Ng2" , "Ba6" , "b5" , "Qxe7" , "Qc4" , "Qc8+" , "Qb3" , "R4e2" , "Bxe7" , "a5" , "Rxb5" , "exd4" , "O-O" , "gxf4" , "Qxd6" , "Rfb8" , "Qe4" ;
+        chon:nextHalfMove      :hmgamEdyuWgu .
+
+:gamEdyuW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEdyuWg ;
+        chon:atPlace           :plaEdyuWg ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEdyuWgu ;
+        chon:hasHalfMove       :hmgamEdyuWgu ;
+        chon:hasLastHalfMove   :hmgamEdyuWgu ;
+        chon:hasOpening        :opeEdyuWg ;
+        chon:hasReport         :cgrEdyuWg ;
+        chon:hasResult         :resEdyuWgu ;
+        chon:subEventOf        :touEdyuW .
+
+:touEdyuW  a          chon:hessTournament ;
+        chon:atPlace  :plaEdyuWg ;
+        chon:hasName  "Alma-Ata m1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

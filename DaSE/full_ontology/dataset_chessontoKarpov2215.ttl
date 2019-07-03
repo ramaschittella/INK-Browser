@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resYTrxWcm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeYTrxWc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYTrxWc .
+
+chon:HalfMove  chon:subEventOf  :gamYTrxW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYTrxWc .
+
+:plaYTrxWc  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:rolhgYTrxWcmR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYTrxWc .
+
+:cgrYTrxWc  a   chon:ChessGameReport .
+
+:hmgamYTrxWcm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYTrxWcmR , :rolhgRye1e2k6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a3" , "Be7" , "Nf3" , "Nf6" , "b6" , "c4" , "d4" , "Qc2" , "e6" , "Bf4" , "e3" , "Be5" , "Nh5" , "O-O" , "Nc3" , "d5" , "Bb7" ;
+        chon:nextHalfMove      :hmgamYTrxWcm , :hmgamRye1e2k .
+
+:agYTrxWc  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Van Wely, Loek" .
+
+:rolYTrxWc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYTrxWc .
+
+:rolhgRye1e2k6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYTrxWc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamYTrxW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYTrxWc ;
+        chon:atPlace           :plaYTrxWc ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYTrxWcm ;
+        chon:hasHalfMove       :hmgamYTrxWcm , :hmgamRye1e2k ;
+        chon:hasLastHalfMove   :hmgamRye1e2k ;
+        chon:hasOpening        :opeYTrxWc ;
+        chon:hasReport         :cgrYTrxWc ;
+        chon:hasResult         :resYTrxWcm ;
+        chon:subEventOf        :touYTrxW .
+
+:hmgamRye1e2k  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRye1e2k6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxb4" , "Bxc4" , "Nxe5" , "Bd3" , "Qc4" , "e5" , "Nd7" , "Rd1" , "Bxd5" , "d5" , "Qxb6" , "Qf5" , "dxc4" , "Nf6" , "Qxe4" , "Rxd5" , "Nc6" , "Qc8" , "g6" , "a5" , "Kg8" , "Kh8" , "Qd7" , "b4" , "Qc2" , "Nxe4" , "Qxc7" , "Ne7+" , "Bb5" , "Bd6" , "Qc3" , "Ne4" , "Qe8" , "Bxe7" , "axb4" , "O-O" ;
+        chon:nextHalfMove      :hmgamRye1e2k .
+
+:touYTrxW  a          chon:hessTournament ;
+        chon:atPlace  :plaYTrxWc ;
+        chon:hasName  "Amber-rapid 6th" .

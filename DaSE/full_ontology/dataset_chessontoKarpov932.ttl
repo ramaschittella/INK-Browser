@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope7Rwk7I  a            chon:ChessOpening ;
+        chon:hasECOCode  "E20" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7Rwk7I .
+
+chon:HalfMove  chon:subEventOf  :gamFOm3L .
+
+:res7Rwk7ID  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgr7Rwk7I  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7Rwk7I .
+
+:gamFOm3L  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7Rwk7I ;
+        chon:atPlace           :plaFOm3LH ;
+        chon:atTime            "1985.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7Rwk7ID ;
+        chon:hasHalfMove       :hmgam7Rwk7ID ;
+        chon:hasLastHalfMove   :hmgam7Rwk7ID ;
+        chon:hasOpening        :ope7Rwk7I ;
+        chon:hasReport         :cgr7Rwk7I ;
+        chon:hasResult         :res7Rwk7ID ;
+        chon:subEventOf        :tou7Rwk7 .
+
+:plaFOm3LH  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:rol7Rwk7I  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7Rwk7I .
+
+:hmgam7Rwk7ID  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7Rwk7IDz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d4" , "Rbd7" , "Rxd6" , "dxc5" , "Qd3" , "Rb1" , "Bxc3+" , "Bd2" , "Bxb7" , "Kc4" , "Ba6" , "Ne4" , "Rd5" , "hxg5" , "h5" , "Nf6" , "Ke7" , "Rhb1" , "Bxd2+" , "Ne8" , "Kd3" , "Kb5" , "Rbc8" , "d5" , "f5" , "Nd6" , "Bg2" , "gxh5" , "Nxd2" , "Rb7" , "Nxe8" , "cxb5" , "h4" , "b5" , "Rd8" , "g4" , "Qb6" , "h6" , "c4" , "Rb8" , "Bb4" , "Rc1" , "Ra8" , "f3" , "Ke3" , "Qc3" , "exd3" , "Qa5" , "g5" , "a4" , "cxd6" , "Rxg5" , "Rbc4" , "b6" , "Kxe8" , "c5" , "Qxe4" , "g3" , "Rab4" , "Na6" , "Nf3" , "Rc5" , "Rh8" , "Qxb2" , "Rxb7" , "a5" , "Bb7" , "axb6" , "Ke2" , "e6" , "Nc3" , "Rb4" , "Nc7" , "Ra4" , "Qxd3" , "Rxh5" ;
+        chon:nextHalfMove      :hmgam7Rwk7ID .
+
+:rolhg7Rwk7IDz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7Rwk7I .
+
+:tou7Rwk7  a          chon:hessTournament ;
+        chon:atPlace  :plaFOm3LH ;
+        chon:hasName  "World Championship 32th-KK2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag7Rwk7I  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .

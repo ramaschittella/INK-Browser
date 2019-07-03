@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agNhnTbc  a          chon:Agent ;
+        chon:hasName  "Schmidt, Wlodzimierz" , "Karpov, Anatoly" .
+
+:hmgamZTKXjZj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZTKXjZjd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schmidt, Wlodzimierz" ;
+        chon:hasSANRecord      "g4" , "Bg2" , "Bxa8" , "Rxc1+" , "Ra8" , "Qh4+" , "Qxe7" , "Rc8" , "Kh7" , "h4" , "Qc5" , "Qxg4" , "Kg8" , "g5" , "Rxa8" , "Bxh3" , "fxg4" , "f3" , "Bf1" , "h5" , "Qd8+" , "Qxc1" , "h3" , "Qf5" ;
+        chon:nextHalfMove      :hmgamZTKXjZj .
+
+:touNhnTb  a          chon:hessTournament ;
+        chon:atPlace  :plaNhnTbc ;
+        chon:hasName  "Nice olm prel" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNhnTbc .
+
+:opeNhnTbc  a            chon:ChessOpening ;
+        chon:hasECOCode  "A34" .
+
+chon:HalfMove  chon:subEventOf  :gamNhnTb .
+
+:cgrNhnTbc  a   chon:ChessGameReport .
+
+:resNhnTbcY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgZhk8Kb2O  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNhnTbc .
+
+:hmgam7dYu2ak  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7dYu2akZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schmidt, Wlodzimierz" ;
+        chon:hasSANRecord      "d5" , "Bg2" , "Ra5" , "Rc1" , "d4" , "Qa1" , "Bxe4" , "Rfd8" ;
+        chon:nextHalfMove      :hmgamZTKXjZj , :hmgam7dYu2ak .
+
+:gamNhnTb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNhnTbc ;
+        chon:atPlace           :plaNhnTbc ;
+        chon:atTime            "1974.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZhk8Kb2 ;
+        chon:hasHalfMove       :hmgam7dYu2ak , :hmgamZhk8Kb2 , :hmgamZTKXjZj ;
+        chon:hasLastHalfMove   :hmgamZTKXjZj ;
+        chon:hasOpening        :opeNhnTbc ;
+        chon:hasReport         :cgrNhnTbc ;
+        chon:hasResult         :resNhnTbcY ;
+        chon:subEventOf        :touNhnTb .
+
+:rolhg7dYu2akZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNhnTbc .
+
+:rolNhnTbc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNhnTbc .
+
+:plaNhnTbc  a         chon:Place ;
+        chon:hasName  "Nice" .
+
+:rolhgZTKXjZjd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNhnTbc .
+
+:hmgamZhk8Kb2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZhk8Kb2O , chon:AgentRole , :rolhg7dYu2akZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schmidt, Wlodzimierz" ;
+        chon:hasSANRecord      "axb5" , "Ne1" , "Bg7" , "c5" , "Bd7" , "Ra8" , "d3" , "Nc3" , "Rc8" , "axb4" , "Bg2" , "a6" , "b5" , "Ng4" , "a3" , "Qb1" , "cxb5" , "Nxb4" , "Nc2" , "Bb2" , "d6" , "O-O" , "Bd2" , "c4" , "Be3" , "Nc6" , "Qd7" , "b4" , "Rb8" , "Nge5" , "Bc6" , "g6" , "Nf6" , "Bc3" , "cxb4" , "g3" , "Ne4" , "Nf3" ;
+        chon:nextHalfMove      :hmgam7dYu2ak , :hmgamZhk8Kb2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNhnTbc .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamrhzGs1d  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrhzGs1d5 , chon:AgentRole , :rolhgTjJYP24v ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qb7" , "Bb2" , "Rb8" , "b3" , "Be7" , "Nc5" , "Nc3" , "Rxf3" , "Ng3" , "cxd4" , "Rc8" , "Rg3" , "c5" , "axb5" , "h3" , "Nf3" , "Bb7" , "c4" , "Rc1" , "Bf3" , "Nxe4" , "d6" , "f4" , "d4" , "Bxf3" , "Nf2+" , "cxb5" , "Ng4" , "Nbd7" , "Qc7" , "Qxf2" , "Rxc1+" , "Nxf2" , "Kh2" , "Qc2" , "O-O" , "Bxc1" , "h6" , "Nf6" , "Be2" , "e3" , "b5" , "f5" , "Nxe3" , "Qb1" , "Nge4" , "Qa7+" , "Rh3" , "Kg1" , "Bf8" , "Nde2" , "Kh1" , "a6" , "e6" , "Rfc8" , "Nxd4" , "b6" ;
+        chon:nextHalfMove      :hmgamrhzGs1d , :hmgamTjJYP24 .
+
+:agrhzGs1  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Amura,C" .
+
+:rolrhzGs1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrhzGs1 .
+
+:rolhgTjJYP24v  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrhzGs1 .
+
+:operhzGs1  a            chon:ChessOpening ;
+        chon:hasECOCode  "A32" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrhzGs1 .
+
+chon:HalfMove  chon:subEventOf  :gamrhzGs .
+
+:hmgamTjJYP24  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTjJYP24v , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qd8+" , "Qxg7" , "Qxe6+" , "Rxg7+" , "Qf6" , "Be3" , "Qd2" , "Qe2" , "Re4" , "Kg7" , "bxa4" , "Qxd6" , "Qg6" , "Bxg7" , "Qa1" , "Qg5+" , "Rxa4" , "Rc4" , "Bd4" , "Bc3" , "Qxh6" , "Qc7" , "Qa5" , "a4" , "Rc7" , "Qf7" ;
+        chon:nextHalfMove      :hmgamTjJYP24 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrhzGs1 .
+
+:rolhgrhzGs1d5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrhzGs1 .
+
+:cgrrhzGs1  a   chon:ChessGameReport .
+
+:resrhzGs1d  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamrhzGs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrhzGs1 ;
+        chon:atPlace           :plarhzGs1 ;
+        chon:atTime            "2002.12.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrhzGs1d ;
+        chon:hasHalfMove       :hmgamrhzGs1d , :hmgamTjJYP24 ;
+        chon:hasLastHalfMove   :hmgamTjJYP24 ;
+        chon:hasOpening        :operhzGs1 ;
+        chon:hasReport         :cgrrhzGs1 ;
+        chon:hasResult         :resrhzGs1d ;
+        chon:subEventOf        :tourhzGs .
+
+:plarhzGs1  a         chon:Place ;
+        chon:hasName  "Benidorm ESP" .
+
+:tourhzGs  a          chon:hessTournament ;
+        chon:atPlace  :plarhzGs1 ;
+        chon:hasName  "Superstars Hotel Bali" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

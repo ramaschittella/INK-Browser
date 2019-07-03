@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touyvYwF  a          chon:hessTournament ;
+        chon:atPlace  :playvYwFS ;
+        chon:hasName  "Vienna" .
+
+:opeyvYwFS  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:rolhgyvYwFSzu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyvYwFS .
+
+:hmgam1x9R2Do  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg1x9R2DoV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Marco, Georg" ;
+        chon:hasSANRecord      "Qxf7" , "Qe7" , "Rg6" , "Rg7" , "Re2" , "Rf2" , "Kh3" , "Rf3" , "Qd5" , "Rg8" , "Rf4" , "Rxg8+" , "Kg2" , "Qd4+" , "Qd3" , "exf6" , "Qa3" , "Qf6+" , "Qc3" , "a5" , "Qd6" , "Rd8" , "fxe5" , "Re8+" , "Rxg8" , "Qe2+" , "Qxf6" , "Qe3" , "Qe4" ;
+        chon:nextHalfMove      :hmgam1x9R2Do .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyvYwFS .
+
+:rolhg1x9R2DoV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyvYwFS .
+
+:resyvYwFSz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamyvYwF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyvYwFS .
+
+:hmgamyvYwFSz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyvYwFSzu , :rolhg1x9R2DoV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Marco, Georg" ;
+        chon:hasSANRecord      "g3" , "Nf4" , "Rh5" , "Nbd7" , "dxc5" , "dxe4" , "Kh8" , "d4" , "Bg5" , "Qd7" , "e6" , "Bxe4" , "Nd4" , "Nf3" , "e4" , "b6" , "Nc3" , "b3" , "d5" , "Rg8" , "Be7" , "f4" , "Rad8" , "Rae1" , "Ne2" , "R1e3" , "Nxe7" , "Nxe4" , "Bxc5" , "c6" , "Qd2" , "O-O" , "Bd6" , "gxf6" , "Bd3" , "Qc7" , "e3" , "c4" , "Rd5" , "Rh6" , "Qxe7" , "Bxf6" , "Qc3" , "Re1" , "Nd5" , "Rxe4" , "a6" , "c5" , "Nf6" , "Bb7" , "Be4" , "Bc2" , "e5" ;
+        chon:nextHalfMove      :hmgamyvYwFSz , :hmgam1x9R2Do .
+
+:playvYwFS  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:cgryvYwFS  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agyvYwFS  a          chon:Agent ;
+        chon:hasName  "Marco, Georg" , "Steinitz, William" .
+
+:gamyvYwF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyvYwFS ;
+        chon:atPlace           :playvYwFS ;
+        chon:atTime            "1898.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyvYwFSz ;
+        chon:hasHalfMove       :hmgam1x9R2Do , :hmgamyvYwFSz ;
+        chon:hasLastHalfMove   :hmgam1x9R2Do ;
+        chon:hasOpening        :opeyvYwFS ;
+        chon:hasReport         :cgryvYwFS ;
+        chon:hasResult         :resyvYwFSz ;
+        chon:subEventOf        :touyvYwF .
+
+:rolyvYwFS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyvYwFS .

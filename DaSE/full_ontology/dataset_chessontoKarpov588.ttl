@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resDmraSks  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeDmraSk  a            chon:ChessOpening ;
+        chon:hasECOCode  "A38" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDmraSk .
+
+:plaDmraSk  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+chon:HalfMove  chon:subEventOf  :gamDmraS .
+
+:cgrDmraSk  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDmraSk .
+
+:rolhg6mDtflkT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDmraSk .
+
+:rolDmraSk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDmraSk .
+
+:hmgam6mDtflk  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6mDtflkT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ribli, Zoltan" ;
+        chon:hasSANRecord      "d6" , "Kc8" , "Bc5" , "Qa1" , "Rc1" , "Re7" , "b6" , "Rfb8" , "Bxc6" , "Kd7" , "a5" , "Bb8" , "Rd7" , "Kf8" , "b3" , "Be5" , "Rd8" , "e6" , "Re2" , "e4" , "Ra6" , "Ra2" , "Rb4" , "Rb5" , "d5" , "Kg2" , "Qxa1" , "exd5" , "b4" , "Nxc6" , "Rxc5" , "b5" , "Qe6" , "Rc2" , "Rxa1" , "Qxa2" , "d4" , "Rba4" , "Ke8" , "Qxc6" , "Rb7" ;
+        chon:nextHalfMove      :hmgam6mDtflk .
+
+:hmgamDmraSks  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDmraSksv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ribli, Zoltan" ;
+        chon:hasSANRecord      "g6" , "Qd6" , "d5" , "Nc3" , "O-O" , "Nd4" , "Nf3" , "Be3" , "Bg7" , "g3" , "Bd7" , "Qxd5" , "Nc6" , "d3" , "c4" , "c5" , "Bg2" , "Nxd5" , "Nf6" , "cxd5" ;
+        chon:nextHalfMove      :hmgam6mDtflk , :hmgamDmraSks .
+
+:gamDmraS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDmraSk ;
+        chon:atPlace           :plaDmraSk ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDmraSks ;
+        chon:hasHalfMove       :hmgam6mDtflk , :hmgamDmraSks ;
+        chon:hasLastHalfMove   :hmgam6mDtflk ;
+        chon:hasOpening        :opeDmraSk ;
+        chon:hasReport         :cgrDmraSk ;
+        chon:hasResult         :resDmraSks ;
+        chon:subEventOf        :touDmraS .
+
+:touDmraS  a          chon:hessTournament ;
+        chon:atPlace  :plaDmraSk ;
+        chon:hasName  "IBM" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agDmraSk  a          chon:Agent ;
+        chon:hasName  "Ribli, Zoltan" , "Karpov, Anatoly" .
+
+:rolhgDmraSksv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDmraSk .

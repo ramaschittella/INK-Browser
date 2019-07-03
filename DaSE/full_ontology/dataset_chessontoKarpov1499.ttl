@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaTyBZ29  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+:cgrTyBZ29  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTyBZ29 .
+
+:rolhgkANkma38  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTyBZ29 .
+
+chon:HalfMove  chon:subEventOf  :gamTyBZ2 .
+
+:agTyBZ29  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Seirawan, Yasser" .
+
+:rolTyBZ29  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTyBZ29 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTyBZ29 .
+
+:opeTyBZ29  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:hmgamTyBZ29d  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTyBZ29dJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a5" , "Rc8" , "e3" , "Nc3" , "Rd1" , "d5" , "Be7" , "Bxe7" , "b6" , "Bg5" , "d4" , "Nd7" , "cxd5" , "Nf3" , "Bb5" , "c4" , "c6" , "Nxc3" , "Nxd5" , "e6" , "Nf6" , "Qd5" , "c5" , "Rc1" , "Qxc3" , "Be2" , "a3" , "Rfd1" , "Bb7" , "O-O" , "Kxe7" , "Qc2" ;
+        chon:nextHalfMove      :hmgamkANkma3 , :hmgamTyBZ29d .
+
+:rolhgTyBZ29dJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTyBZ29 .
+
+:hmgamkANkma3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkANkma38 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc8" , "Bxb5" , "Nxd4" , "Bxc8" , "Qxd4" , "Rxc1" , "Rxc8" , "Ke1" , "Bd7" , "h4" , "Bc4" , "Kf2" , "e5" , "f3" , "cxd4" , "f6" , "Nd5" , "Bxd5" , "h6" , "Nb5" ;
+        chon:nextHalfMove      :hmgamkANkma3 .
+
+:resTyBZ29d  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamTyBZ2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTyBZ29 ;
+        chon:atPlace           :plaTyBZ29 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTyBZ29d ;
+        chon:hasHalfMove       :hmgamkANkma3 , :hmgamTyBZ29d ;
+        chon:hasLastHalfMove   :hmgamkANkma3 ;
+        chon:hasOpening        :opeTyBZ29 ;
+        chon:hasReport         :cgrTyBZ29 ;
+        chon:hasResult         :resTyBZ29d ;
+        chon:subEventOf        :touTyBZ2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touTyBZ2  a          chon:hessTournament ;
+        chon:atPlace  :plaTyBZ29 ;
+        chon:hasName  "Brussels SWIFT rapid" .

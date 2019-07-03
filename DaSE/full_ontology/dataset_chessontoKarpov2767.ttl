@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaUjyKXv  a         chon:Place ;
+        chon:hasName  "Reykjavik ISL" .
+
+:resUjyKXvG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrUjyKXv  a   chon:ChessGameReport .
+
+:agUjyKXv  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Stefansson,H" .
+
+:rolUjyKXv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUjyKXv .
+
+:opeUjyKXv  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUjyKXv .
+
+chon:HalfMove  chon:subEventOf  :gamUjyKX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUjyKXv .
+
+:rolhgUjyKXvGt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUjyKXv .
+
+:rolhgNZjfekFH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUjyKXv .
+
+:hmgamNZjfekF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNZjfekFH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bc2" , "Rc4" , "Bf5" , "g6" , "Nb6" , "Bxb6" , "Bb4" , "Rxd1+" , "b5" , "Be3" , "bxa4" , "Bd8" , "Rb7" , "c4" , "Bc5" , "Rc8" , "Bb3" , "Kb7" , "Rc7" , "Be7" , "c5" , "Nxd5" , "Rb8+" , "Rcc1" , "d5" , "Rhd8" , "Kxb6" , "Rxd1" , "Bf6" , "Kb6" , "Rd8" , "a5" , "a6" , "Ka7" , "Be4" , "Ba4" , "Bg5" , "Red1" , "Rc1" , "Rad1" , "Bd4" , "a4" , "Rd7" , "a3" , "cxd5" , "exd5" ;
+        chon:nextHalfMove      :hmgamNZjfekF .
+
+:hmgamUjyKXvG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNZjfekFH , chon:AgentRole , :rolhgUjyKXvGt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ne4" , "Ndf6" , "Bc2" , "Qxd5" , "Bxf3" , "Qxf3" , "c6" , "Bg4" , "Qd5" , "h4" , "O-O" , "Nxd5" , "Bxe4" , "Bc7" , "e4" , "Nf6" , "e6" , "g3" , "d4" , "h6" , "Nd2" , "h3" , "Nd7" , "dxe4" , "Nxe4" , "Bd6" , "c3" , "N1f3" , "O-O-O" , "Bd3" , "Ng5" , "Bh5" , "Re1" , "h5" , "d5" ;
+        chon:nextHalfMove      :hmgamUjyKXvG , :hmgamNZjfekF .
+
+:gamUjyKX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUjyKXv ;
+        chon:atPlace           :plaUjyKXv ;
+        chon:atTime            "2004.03.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUjyKXvG ;
+        chon:hasHalfMove       :hmgamUjyKXvG , :hmgamNZjfekF ;
+        chon:hasLastHalfMove   :hmgamNZjfekF ;
+        chon:hasOpening        :opeUjyKXv ;
+        chon:hasReport         :cgrUjyKXv ;
+        chon:hasResult         :resUjyKXvG ;
+        chon:subEventOf        :touUjyKX .
+
+:touUjyKX  a          chon:hessTournament ;
+        chon:atPlace  :plaUjyKXv ;
+        chon:hasName  "Blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

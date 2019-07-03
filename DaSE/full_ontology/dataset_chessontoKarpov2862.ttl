@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgNFNJAaO2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRH7zQc .
+
+:opeRH7zQc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRH7zQc .
+
+chon:HalfMove  chon:subEventOf  :gamRH7zQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRH7zQc .
+
+:plaRH7zQc  a         chon:Place ;
+        chon:hasName  "Porto Vecchio FRA" .
+
+:hmgamRH7zQcx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRH7zQcx4 , :rolhgNFNJAaO2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky,B" ;
+        chon:hasSANRecord      "a5" , "Rd8" , "Nf6" , "Bh5" , "Qc2" , "e3" , "Bd2" , "e6" , "Bxd2+" , "exd5" , "Be2" , "Qe7" , "Qb3" , "Nc3" , "Bg6" , "d4" , "c4" , "Bd3" , "Rc1" , "Nf3" , "d5" , "Ne5" , "Qxd2" , "Bb4+" , "cxd5" , "Bg4" , "c6" , "a3" , "O-O" , "Bf5" , "Na6" ;
+        chon:nextHalfMove      :hmgamNFNJAaO , :hmgamRH7zQcx .
+
+:cgrRH7zQc  a   chon:ChessGameReport .
+
+:rolhgRH7zQcx4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRH7zQc .
+
+:gamRH7zQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRH7zQc ;
+        chon:atPlace           :plaRH7zQc ;
+        chon:atTime            "2006.05.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRH7zQcx ;
+        chon:hasHalfMove       :hmgamRH7zQcx , :hmgamNFNJAaO ;
+        chon:hasLastHalfMove   :hmgamNFNJAaO ;
+        chon:hasOpening        :opeRH7zQc ;
+        chon:hasReport         :cgrRH7zQc ;
+        chon:hasResult         :resRH7zQcx ;
+        chon:subEventOf        :touRH7zQ .
+
+:agRH7zQc  a          chon:Agent ;
+        chon:hasName  "Spassky,B" , "Karpov,Ana" .
+
+:touRH7zQ  a          chon:hessTournament ;
+        chon:atPlace  :plaRH7zQc ;
+        chon:hasName  "Match des Legendes" .
+
+:rolRH7zQc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRH7zQc .
+
+:resRH7zQcx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamNFNJAaO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNFNJAaO2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky,B" ;
+        chon:hasSANRecord      "Rcd1" , "d7" , "d6" , "Nb5" , "Nxb6" , "g5" , "h5" , "Bxd7" , "Ke5" , "Kg7" , "Bxe6" , "Ne6+" , "exf6+" , "Qc7" , "a4" , "Kf3" , "Rfc1" , "f6" , "Nxc7" , "Rc8" , "Rc7" , "Bf7" , "Nca4" , "Rd1" , "Nb6" , "Kd6" , "Rc2" , "Nd3" , "Rh8" , "Na8" , "dxe4" , "Re7" , "R5c2" , "Kxf6" , "Ke7" , "b5" , "Ra7" , "Rd8" , "Rb6" , "Kxd7" , "Rd2" , "Re2" , "Qxc7" , "Kg3" , "Nc8" , "Nc7" , "e4" , "f3" , "Rc4" , "R8xd7" , "Rc3" , "c5" , "d5" , "Nc5" , "Ne8" , "g4" , "b6" , "h3" , "Na4" , "Rc1" , "fxe4" , "Ke3" , "Qb6" , "Rxd4" , "Bf1" , "Kf2" , "e5" , "hxg4" , "Rc6" , "Rd5" , "cxd4" , "Nd4+" , "Ncb5" , "Rc5" , "Be6" , "Bf5" , "Nd6" , "Ne6" , "Bd3" ;
+        chon:nextHalfMove      :hmgamNFNJAaO .

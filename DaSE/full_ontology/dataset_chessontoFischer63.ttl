@@ -1,0 +1,84 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolGtlNZ2  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGtlNZ2 .
+
+:rolhgjtslT4Xk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGtlNZ2 .
+
+:rolhghJ6a50v5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGtlNZ2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGtlNZ2 .
+
+:hmgamhJ6a50v  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghJ6a50v5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Re4" , "Bxd5" , "exf4" , "Rae1" , "a6" , "Rd8" , "Nf6" , "Ne6" , "Nd4" , "Rexf4" , "Rxf4" , "Nxf4" , "cxd5" , "Nxd5" ;
+        chon:nextHalfMove      :hmgamhJ6a50v .
+
+:hmgamjtslT4X  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghJ6a50v5 , :rolhgjtslT4Xk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rf7" , "b6" , "b3" , "Qxd5" , "Ndb5" , "Be6" , "f4" , "Qxd5+" , "Bc4" , "Ne8" , "O-O" , "Nxd5" , "Nc6" , "fxe5" , "Bc5" , "bxc4" , "Bb4" , "Nxc4" , "f6" , "Na5" ;
+        chon:nextHalfMove      :hmgamhJ6a50v , :hmgamjtslT4X .
+
+:rolhg8vv8k5U0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGtlNZ2 .
+
+chon:HalfMove  chon:subEventOf  :gamGtlNZ .
+
+:plaGtlNZ2  a         chon:Place ;
+        chon:hasName  "Milwaukee" .
+
+:resGtlNZ26  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agGtlNZ2  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Buerger, E." .
+
+:opeGtlNZ2  a            chon:ChessOpening ;
+        chon:hasECOCode  "E86" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam8vv8k5U  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8vv8k5U0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nc3" , "Nxd4" , "Nf6" , "Bg7" , "e4" , "e5" , "Nge2" , "Qd2" , "d5" , "O-O" , "d6" , "Be3" , "c4" , "f3" , "c6" , "exd4" , "g6" , "cxd5" ;
+        chon:nextHalfMove      :hmgam8vv8k5U , :hmgamjtslT4X .
+
+:gamGtlNZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGtlNZ2 ;
+        chon:atPlace           :plaGtlNZ2 ;
+        chon:atTime            "1957.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGtlNZ26 ;
+        chon:hasHalfMove       :hmgamjtslT4X , :hmgamGtlNZ26 , :hmgamhJ6a50v , :hmgam8vv8k5U ;
+        chon:hasLastHalfMove   :hmgamhJ6a50v ;
+        chon:hasOpening        :opeGtlNZ2 ;
+        chon:hasReport         :cgrGtlNZ2 ;
+        chon:hasResult         :resGtlNZ26 ;
+        chon:subEventOf        :touGtlNZ .
+
+:cgrGtlNZ2  a   chon:ChessGameReport .
+
+:hmgamGtlNZ26  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8vv8k5U0 , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgam8vv8k5U .
+
+:touGtlNZ  a          chon:hessTournament ;
+        chon:atPlace  :plaGtlNZ2 ;
+        chon:hasName  "Milwaukee" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGtlNZ2 .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrLJgLY5  a   chon:ChessGameReport .
+
+:agLJgLY5  a          chon:Agent ;
+        chon:hasName  "Ye Jiangchuan" , "Karpov,An" .
+
+:rolLJgLY5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLJgLY5 .
+
+:rolhgLJgLY55N  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLJgLY5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLJgLY5 .
+
+chon:HalfMove  chon:subEventOf  :gamLJgLY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLJgLY5 .
+
+:resLJgLY55  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeLJgLY5  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+:hmgamcLq5k5W  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcLq5k5Wd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ye Jiangchuan" ;
+        chon:hasSANRecord      "Bd8" , "Bd6" , "Re5" , "Nxa5" , "d5" , "Rxa5" , "Bb4" , "Bf6" , "Re1" , "Rg6" , "Nxc4" , "axb3" , "Nc6" , "a4" , "Bxf8" , "Rxf8+" , "Qxc4" , "Kf3" , "cxd5" , "Rxg5+" , "Ne5" , "Ra6" , "Qxb5" , "Nf3" , "Qc4" , "Qe6" , "Ra5" , "Kh7" , "Qxd5+" , "Bg7" , "Re8" , "Qf7" ;
+        chon:nextHalfMove      :hmgamcLq5k5W .
+
+:gamLJgLY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLJgLY5 ;
+        chon:atPlace           :plaLJgLY5 ;
+        chon:atTime            "2000.04.19"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLJgLY55 ;
+        chon:hasHalfMove       :hmgamLJgLY55 , :hmgamcLq5k5W ;
+        chon:hasLastHalfMove   :hmgamcLq5k5W ;
+        chon:hasOpening        :opeLJgLY5 ;
+        chon:hasReport         :cgrLJgLY5 ;
+        chon:hasResult         :resLJgLY55 ;
+        chon:subEventOf        :touLJgLY .
+
+:rolhgcLq5k5Wd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLJgLY5 .
+
+:touLJgLY  a          chon:hessTournament ;
+        chon:atPlace  :plaLJgLY5 ;
+        chon:hasName  "Match g/25" .
+
+:hmgamLJgLY55  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcLq5k5Wd , :rolhgLJgLY55N , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ye Jiangchuan" ;
+        chon:hasSANRecord      "Ne7" , "c4" , "c6" , "Bb6" , "Bg2" , "g4" , "Nxe4" , "Rh6" , "Rf7" , "Qc2" , "b5" , "Rc4" , "h6" , "Nf6" , "Rb8" , "Qf6" , "Kg2" , "Kh7" , "Nbd2" , "Nf3" , "Kg8" , "fxg5" , "Rg6" , "Bg7" , "e4" , "Nxg2" , "Rfc1" , "O-O" , "Bxe4" , "Bxd5" , "Bxg2" , "Be6" , "Nc6" , "Qc4+" , "Bxe7" , "Bf8" , "Re2" , "b3" , "Rc2" , "hxg5" , "Rf1" , "g5" , "Rg7" , "e6" , "Bb2" , "Ba3" , "f4" , "d5" , "g3" , "Qe4" , "Rf8" , "exf5" , "Rac1" , "cxd5" , "a5" , "Bd6" , "g6" , "Bc7" , "e3" , "Qe2" , "d4" , "Re5" , "Qxe7" , "Ne4" , "f5" , "Qc5" , "Ne1" ;
+        chon:nextHalfMove      :hmgamLJgLY55 , :hmgamcLq5k5W .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaLJgLY5  a         chon:Place ;
+        chon:hasName  "Shenyang CHN" .

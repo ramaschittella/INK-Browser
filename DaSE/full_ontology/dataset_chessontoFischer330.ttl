@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ageQEZh1  a          chon:Agent ;
+        chon:hasName  "Reshevsky, Samuel Herman" , "Fischer, Robert James" .
+
+:opeeQEZh1  a            chon:ChessOpening ;
+        chon:hasECOCode  "B36" .
+
+:hmgamKvx1uR7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKvx1uR75 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Reshevsky, Samuel Herman" ;
+        chon:hasSANRecord      "Rc7" , "Ke5" , "Bb5" , "Rg5+" , "Ke6" , "Kg7" , "Bxf1" , "Rxe7" , "Bxc3" , "bxc3" , "d5" , "Rxa3" , "Rxh7" , "Kxd5" , "Rb3" , "Rxa4" , "fxe4" , "Rxb4" , "Rxf1+" , "Na4" , "Kf2" , "Rg7" , "Bxa4" , "Rc3" , "b4" , "Kxe4" , "b5" , "Kg1" , "Rxg6" , "Kf6" , "f5" , "a3" , "Rxc3" ;
+        chon:nextHalfMove      :hmgamKvx1uR7 .
+
+:toueQEZh  a          chon:hessTournament ;
+        chon:atPlace  :plaeQEZh1 ;
+        chon:hasName  "New York/Los Angeles m" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageQEZh1 .
+
+:rolRQMvc1  a             chon:AuthorRole ;
+        chon:performedBy  :agRQMvc1 .
+
+chon:HalfMove  chon:subEventOf  :gameQEZh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageQEZh1 .
+
+:hmgamRQMvc18  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKvx1uR75 , chon:AgentRole , :rolhgRQMvc18Q ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Reshevsky, Samuel Herman" ;
+        chon:hasSANRecord      "d4" , "e4" , "Qxb4" , "Nc6" , "Nf6" , "Qb4" , "Nf3" , "Qxd4" , "Nd7" , "b3" , "Bxd5" , "Bd7" , "Ra8" , "c4" , "Nd5" , "f3" , "cxd5" , "Bc3" , "Nxd4" , "Be3" , "Qb6" , "O-O" , "Rac1" , "g6" , "Bc6" , "a5" , "Bd2" , "axb4" , "Qd2" , "cxd4" , "Rc2" , "d6" , "c5" , "Rc8" , "Bg7" , "Nc3" , "Be2" , "Kh1" , "Qd1" , "Nc5" ;
+        chon:nextHalfMove      :hmgamRQMvc18 , :hmgamKvx1uR7 .
+
+:roleQEZh1  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:reseQEZh1d  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gameQEZh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleQEZh1 ;
+        chon:atPlace           :plaeQEZh1 ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRQMvc18 ;
+        chon:hasHalfMove       :hmgamKvx1uR7 , :hmgamRQMvc18 ;
+        chon:hasLastHalfMove   :hmgamKvx1uR7 ;
+        chon:hasOpening        :opeeQEZh1 ;
+        chon:hasReport         :cgrRQMvc1 ;
+        chon:hasResult         :reseQEZh1d ;
+        chon:subEventOf        :toueQEZh .
+
+:cgrRQMvc1  a   chon:ChessGameReport .
+
+:plaeQEZh1  a         chon:Place ;
+        chon:hasName  "Los Angeles" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgKvx1uR75  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageQEZh1 .
+
+:rolhgRQMvc18Q  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageQEZh1 .

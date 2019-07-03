@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamkB9DB7H  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkB9DB7HA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lehmann,A" ;
+        chon:hasSANRecord      "Nc3" , "dxe5" , "Nxc4" , "bxa3" , "Rd3" , "Bg7" , "b5" , "f4" , "Qh4+" , "e6" , "Rc6" , "cxd4" , "Qg5" , "Bxc4" , "Nc6" , "Rc4" , "Rf8" , "exf6" , "Nxg3" , "Na5" , "a6" , "Qb6" , "Kf2" , "Bd7" , "Nd1" , "Kf7" , "c5" , "h6" , "Be3" , "Rxc4" , "Be7" , "f6" , "h4" , "Bb4" , "Qg7" , "b4" , "f3" , "Rc8" , "Qxe5" , "Qg3" , "Rd2" , "Bxf6" , "c3" , "Nge2" , "Qe3" , "g6" , "Nc4" , "g3" , "Rg1" , "N1e2" , "Ne3" , "Bh6" , "a3" , "Qd2" , "Rg8" , "Qe5" , "Qxf6" , "Nd4" , "Rcc8" , "Qd8" , "Rd1" , "Rb3" ;
+        chon:nextHalfMove      :hmgamkB9DB7H .
+
+:resTzWkg6P  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agTzWkg6  a          chon:Agent ;
+        chon:hasName  "Lehmann,A" , "Karpov,Ana" .
+
+:rolTzWkg6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTzWkg6 .
+
+:rolhgkB9DB7HA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTzWkg6 .
+
+:opeTzWkg6  a            chon:ChessOpening ;
+        chon:hasECOCode  "B02" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTzWkg6 .
+
+chon:HalfMove  chon:subEventOf  :gamTzWkg .
+
+:rolhgTzWkg6Pa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTzWkg6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTzWkg6 .
+
+:cgrTzWkg6  a   chon:ChessGameReport .
+
+:hmgamTzWkg6P  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTzWkg6Pa , :rolhgkB9DB7HA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lehmann,A" ;
+        chon:hasSANRecord      "Nc3" , "d5" , "e5" , "Nf6" , "d4" , "Nce2" , "e4" , "Ne4" , "d6" ;
+        chon:nextHalfMove      :hmgamTzWkg6P , :hmgamkB9DB7H .
+
+:plaTzWkg6  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamTzWkg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTzWkg6 ;
+        chon:atPlace           :plaTzWkg6 ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTzWkg6P ;
+        chon:hasHalfMove       :hmgamTzWkg6P , :hmgamkB9DB7H ;
+        chon:hasLastHalfMove   :hmgamkB9DB7H ;
+        chon:hasOpening        :opeTzWkg6 ;
+        chon:hasReport         :cgrTzWkg6 ;
+        chon:hasResult         :resTzWkg6P ;
+        chon:subEventOf        :touTzWkg .
+
+:touTzWkg  a          chon:hessTournament ;
+        chon:atPlace  :plaTzWkg6 ;
+        chon:hasName  "Simul" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeDKtcYM  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:touDKtcY  a          chon:hessTournament ;
+        chon:atPlace  :plaDKtcYM ;
+        chon:hasName  "FIDE GP" .
+
+:hmgamPKoqxLL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPKoqxLL2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Rxc7" , "dxc5" , "Qxc7" , "Ne6" , "Qb3" , "Qxd5" , "g6" , "Kg2" , "h4" , "Nb7" , "Rc7" , "Nc5" , "c5" , "Nxc5" , "Nd4" , "Rc1" , "Rhd1" , "Qd5" , "Rd8" , "exf5" , "b5" , "Kg7" , "Rxd1" , "Nf5" , "Qa4" , "Qd4" , "a6" , "Nd6" ;
+        chon:nextHalfMove      :hmgamPKoqxLL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDKtcYM .
+
+chon:HalfMove  chon:subEventOf  :gamDKtcY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDKtcYM .
+
+:hmgamDKtcYMI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDKtcYMIO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Ne4" , "Bf4" , "Bg5" , "g3" , "Nxd5" , "c6" , "c4" , "e5" , "Bxe7" , "d4" , "O-O" , "Bxf1" , "Be7" , "e6" , "Qxe7" , "e4" , "d5" , "Ba6" , "Qb3" , "b6" , "Rc1" , "Nbd2" , "Nf3" , "Nf6" , "Nd7" , "Kxf1" , "Nd5" , "Rc8" , "cxd5" ;
+        chon:nextHalfMove      :hmgamDKtcYMI , :hmgamPKoqxLL .
+
+:rolhgDKtcYMIO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDKtcYM .
+
+:rolhgPKoqxLL2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDKtcYM .
+
+:plaDKtcYM  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .
+
+:cgrDKtcYM  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resDKtcYMI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agDKtcYM  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Topalov,V" .
+
+:rolDKtcYM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDKtcYM .
+
+:gamDKtcY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDKtcYM ;
+        chon:atPlace           :plaDKtcYM ;
+        chon:atTime            "2002.04.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDKtcYMI ;
+        chon:hasHalfMove       :hmgamDKtcYMI , :hmgamPKoqxLL ;
+        chon:hasLastHalfMove   :hmgamPKoqxLL ;
+        chon:hasOpening        :opeDKtcYM ;
+        chon:hasReport         :cgrDKtcYM ;
+        chon:hasResult         :resDKtcYMI ;
+        chon:subEventOf        :touDKtcY .

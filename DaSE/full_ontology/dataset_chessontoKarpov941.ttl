@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam6yPf5zz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6yPf5zzR , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Rb8" , "cxd4" , "Qxh5" , "a6" , "c5" , "Re8" , "Na5" , "Bc6" , "Qd2" , "Bf3" , "Qb4" , "e5" , "Nxa5" , "Nc6" , "Bg5" , "Qc6" , "Rxb4" , "O-O" , "Nc3" , "Be7" , "Rxa7" , "Qc7" , "Rxe7" , "b4" , "Ra8" , "Nf2+" , "Rxc4" , "Kh1" , "Bg1" , "Be2" , "axb5" , "Nh3+" , "Qd3" , "f4" , "b5" , "c4" , "Bxe7" , "Ra3" , "Na7" , "h5" , "f5" , "d6" , "Ba7" , "Nxb5" , "Nxd4" , "Nf6" , "Qxa5" , "Qa8" , "Nb3" , "e6" , "d4" , "Qf3" , "Bxe4" , "a4" , "Kg1" , "Rab8" , "e4" , "Be3" , "Rb3" , "Bd7" , "Nf3" , "Be6" , "Nxe4" , "Qa5" ;
+        chon:nextHalfMove      :hmgam6yPf5zz .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6yPf5z .
+
+:plaDwSVIz  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:HalfMove  chon:subEventOf  :gamDwSVI .
+
+:cgr6yPf5z  a   chon:ChessGameReport .
+
+:tou6yPf5  a          chon:hessTournament ;
+        chon:atPlace  :plaDwSVIz ;
+        chon:hasName  "World Championship 32th-KK2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6yPf5z .
+
+:ag6yPf5z  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rol6yPf5z  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6yPf5z .
+
+:res6yPf5zz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ope6yPf5z  a            chon:ChessOpening ;
+        chon:hasECOCode  "B85" .
+
+:rolhg6yPf5zzR  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6yPf5z .
+
+:gamDwSVI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6yPf5z ;
+        chon:atPlace           :plaDwSVIz ;
+        chon:atTime            "1985.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6yPf5zz ;
+        chon:hasHalfMove       :hmgam6yPf5zz ;
+        chon:hasLastHalfMove   :hmgam6yPf5zz ;
+        chon:hasOpening        :ope6yPf5z ;
+        chon:hasReport         :cgr6yPf5z ;
+        chon:hasResult         :res6yPf5zz ;
+        chon:subEventOf        :tou6yPf5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

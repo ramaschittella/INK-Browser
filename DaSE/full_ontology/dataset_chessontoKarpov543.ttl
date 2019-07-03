@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agImaPrS  a          chon:Agent ;
+        chon:hasName  "Hort, Vlastimil" , "Karpov, Anatoly" .
+
+:rolImaPrS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agImaPrS .
+
+:opeImaPrS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B67" .
+
+:rolhgDjRYbQ5z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agImaPrS .
+
+:hmgamDjRYbQ5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDjRYbQ5z , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hort, Vlastimil" ;
+        chon:hasSANRecord      "Bf2" , "Qd7" , "d4" , "Ne2" , "Qa5" , "b4" , "Be6" , "Bd3" , "Nc1" , "Qc6" ;
+        chon:nextHalfMove      :hmgamDjRYbQ5 .
+
+:touImaPr  a          chon:hessTournament ;
+        chon:atPlace  :plaImaPrS ;
+        chon:hasName  "Montreal" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agImaPrS .
+
+chon:HalfMove  chon:subEventOf  :gamImaPr .
+
+:hmgamImaPrSO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgImaPrSOz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hort, Vlastimil" ;
+        chon:hasSANRecord      "a6" , "Bxd4" , "f3" , "g6" , "g5" , "Nc6" , "Kb1" , "Be7" , "Rb8" , "Nf3" , "cxd4" , "c5" , "Ng3" , "d6" , "Be3" , "f4" , "e6" , "fxg6" , "Nc3" , "d4" , "Nc7" , "Rc8" , "Ne2" , "f5" , "Nxd4" , "Bd7" , "h4" , "b5" , "Kh8" , "Re8" , "Bg5" , "O-O-O" , "gxh7+" , "e4" , "Bf8" , "Qd2" , "Nf6" , "g4" , "e5" , "Ne8" , "O-O" , "d5" ;
+        chon:nextHalfMove      :hmgamImaPrSO , :hmgamDjRYbQ5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agImaPrS .
+
+:rolhgImaPrSOz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agImaPrS .
+
+:resImaPrSO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaImaPrS  a         chon:Place ;
+        chon:hasName  "Montreal" .
+
+:gamImaPr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolImaPrS ;
+        chon:atPlace           :plaImaPrS ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamImaPrSO ;
+        chon:hasHalfMove       :hmgamImaPrSO , :hmgamDjRYbQ5 ;
+        chon:hasLastHalfMove   :hmgamDjRYbQ5 ;
+        chon:hasOpening        :opeImaPrS ;
+        chon:hasReport         :cgrImaPrS ;
+        chon:hasResult         :resImaPrSO ;
+        chon:subEventOf        :touImaPr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrImaPrS  a   chon:ChessGameReport .

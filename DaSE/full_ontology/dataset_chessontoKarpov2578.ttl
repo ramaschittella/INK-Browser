@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr3JmYBf  a   chon:ChessGameReport .
+
+:rolhguLwiXfuD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3JmYBf .
+
+:rol3JmYBf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3JmYBf .
+
+:tou3JmYB  a          chon:hessTournament ;
+        chon:atPlace  :pla3JmYBf ;
+        chon:hasName  "Rapid Exhibition g/10" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3JmYBf .
+
+:pla3JmYBf  a         chon:Place ;
+        chon:hasName  "Manises ESP" .
+
+:hmgamuLwiXfu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhguLwiXfuD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Arizmendi Martinez,J" ;
+        chon:hasSANRecord      "Kh2" , "Nf3+" , "Kg2" , "Nh5+" , "Nxh4+" , "Nh4+" , "Bxh3" , "Kg3" ;
+        chon:nextHalfMove      :hmgamuLwiXfu .
+
+chon:HalfMove  chon:subEventOf  :gam3JmYB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3JmYBf .
+
+:res3JmYBfF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhg3JmYBfFf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3JmYBf .
+
+:ag3JmYBf  a          chon:Agent ;
+        chon:hasName  "Arizmendi Martinez,J" , "Karpov,An" .
+
+:ope3JmYBf  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .
+
+:gam3JmYB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3JmYBf ;
+        chon:atPlace           :pla3JmYBf ;
+        chon:atTime            "2001.06.14"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3JmYBfF ;
+        chon:hasHalfMove       :hmgamuLwiXfu , :hmgam3JmYBfF ;
+        chon:hasLastHalfMove   :hmgamuLwiXfu ;
+        chon:hasOpening        :ope3JmYBf ;
+        chon:hasReport         :cgr3JmYBf ;
+        chon:hasResult         :res3JmYBfF ;
+        chon:subEventOf        :tou3JmYB .
+
+:hmgam3JmYBfF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3JmYBfFf , :rolhguLwiXfuD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Arizmendi Martinez,J" ;
+        chon:hasSANRecord      "Nf6" , "Nbd7" , "Qc8" , "h4" , "e4" , "Re1" , "Re8" , "Bg2" , "Nde2" , "Bd7" , "c5" , "Ne5" , "h3" , "g3" , "Bg7" , "gxh4" , "g6" , "Kh2" , "Bxh3" , "O-O" , "c4" , "a4" , "Nc3" , "exd4" , "Ra2" , "h5" , "e5" , "Nxd4" , "d4" , "Rb8" , "Be3" , "b3" , "Nf3" , "d6" , "a6" ;
+        chon:nextHalfMove      :hmgamuLwiXfu , :hmgam3JmYBfF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhggzg7TJ8G  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkkEjGB .
+
+:pla7kI40S  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:agkkEjGB  a          chon:Agent ;
+        chon:hasName  "Nepomniachtchi,I" , "Karpov,Ana" .
+
+:reskkEjGBz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opekkEjGB  a            chon:ChessOpening ;
+        chon:hasECOCode  "D80" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkkEjGB .
+
+chon:HalfMove  chon:subEventOf  :gam7kI40 .
+
+:hmgamkkEjGBz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggzg7TJ8G , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamgzg7TJ8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkkEjGB .
+
+:gam7kI40  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkkEjGB ;
+        chon:atPlace           :pla7kI40S ;
+        chon:atTime            "2013.02.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkkEjGBz ;
+        chon:hasHalfMove       :hmgamkkEjGBz , :hmgamgzg7TJ8 ;
+        chon:hasLastHalfMove   :hmgamgzg7TJ8 ;
+        chon:hasOpening        :opekkEjGB ;
+        chon:hasReport         :cgrkkEjGB ;
+        chon:hasResult         :reskkEjGBz ;
+        chon:subEventOf        :toukkEjG .
+
+:cgrkkEjGB  a   chon:ChessGameReport .
+
+:rolkkEjGB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkkEjGB .
+
+:hmgamgzg7TJ8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhggzg7TJ8G ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nepomniachtchi,I" ;
+        chon:hasSANRecord      "Qd2" , "Nf6" , "dxe6" , "Qc6" , "Be2" , "g5" , "d5" , "Kf3" , "Kg2" , "a5" , "Qb4" , "e4" , "Bc6" , "Ke1" , "Nb6" , "Bxa3" , "Qxc4" , "O-O" , "Kh3" , "b6" , "c5" , "Nd5" , "Rd2" , "a4" , "Re7" , "Rad1" , "Kg5" , "Qxa4" , "Nc3" , "Nxd2" , "h4" , "Bd4" , "Nd7" , "Qa5" , "Bxb2" , "Qc2" , "Qxd6" , "Qd6" , "cxd5" , "e6" , "Bf3" , "Kg7" , "Bg7" , "gxf4+" , "f5" , "Rb1" , "Bd2" , "Bd7" , "Rxd6" , "Qa4" , "Rd8" , "Ke3" , "Qb3" , "e3" , "Qxd5" , "Bc5" , "Qf6" , "Bg4" , "Qxg2+" , "hxg5" , "Qf1+" , "b5" , "h6" , "Rd1" , "Bxd5" , "Rd7" , "a3" , "g4+" , "h3" , "Rd3" , "exd5" , "Nxd5" , "Rxd2" , "Bb2" , "Bxe6" , "Rb3" , "Qxd2" , "d6" , "g6" , "Kg6" , "Ne2" , "f4" , "c4" , "Kf1" , "Kxg2" , "Bb5" , "Kxf4" , "Re8" , "Nc4" , "Qh4" , "Qe4" , "Qxf2+" , "Qg2" , "g3" ;
+        chon:nextHalfMove      :hmgamgzg7TJ8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toukkEjG  a          chon:hessTournament ;
+        chon:atPlace  :pla7kI40S ;
+        chon:hasName  "Aeroflot Open Rapid Final" .

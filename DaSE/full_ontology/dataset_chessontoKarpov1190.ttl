@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrPIV8M6  a   chon:ChessGameReport .
+
+:resPIV8M68  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamLESgv6n  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLESgv6nm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ne5" , "dxc5" , "Bg2" , "b5" , "Bb7" , "Qc1" , "c4" , "Qxc4" , "Ne4" , "c5" , "d4" , "g3" , "Nxf4" , "Bxg2" , "Bd2" , "f6" , "Nc3" , "Rxd1" , "Rd8" , "e6" , "Be4" , "Kxg2" , "dxc4" , "Qd6" , "Bf4" , "Nf6" , "Rac1" , "Nf3" , "Bxc5" , "Qb6" , "Rxc5" , "e5" , "Be7" , "Nc5" , "Qc2" , "Qxf4" , "Qe6" , "Qxc5" , "Ra7" , "a6" , "Qd2" , "d5" , "O-O" , "Qxd1" , "Rfd1" , "Nd5" ;
+        chon:nextHalfMove      :hmgamLESgv6n .
+
+:rolhgLESgv6nm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPIV8M6 .
+
+:rolPIV8M6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPIV8M6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPIV8M6 .
+
+chon:HalfMove  chon:subEventOf  :gamPIV8M .
+
+:touPIV8M  a          chon:hessTournament ;
+        chon:atPlace  :plaPIV8M6 ;
+        chon:hasName  "URS-ch55" .
+
+:plaPIV8M6  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPIV8M6 .
+
+:agPIV8M6  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Khalifman, Alexander" .
+
+:opePIV8M6  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamPIV8M  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPIV8M6 ;
+        chon:atPlace           :plaPIV8M6 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLESgv6n ;
+        chon:hasHalfMove       :hmgamLESgv6n ;
+        chon:hasLastHalfMove   :hmgamLESgv6n ;
+        chon:hasOpening        :opePIV8M6 ;
+        chon:hasReport         :cgrPIV8M6 ;
+        chon:hasResult         :resPIV8M68 ;
+        chon:subEventOf        :touPIV8M .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamzjcnj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzjcnjT ;
+        chon:atPlace           :plazjcnjT ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzjcnjTB ;
+        chon:hasHalfMove       :hmgamzjcnjTB ;
+        chon:hasLastHalfMove   :hmgamzjcnjTB ;
+        chon:hasOpening        :opezjcnjT ;
+        chon:hasReport         :cgrzjcnjT ;
+        chon:hasResult         :reszjcnjTB ;
+        chon:subEventOf        :touzjcnj .
+
+:reszjcnjTB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzjcnjT .
+
+:cgrzjcnjT  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamzjcnj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzjcnjT .
+
+:touzjcnj  a          chon:hessTournament ;
+        chon:atPlace  :plazjcnjT ;
+        chon:hasName  "Manhattan blitz" .
+
+:plazjcnjT  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:agzjcnjT  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Mednis, Edmar John" .
+
+:rolzjcnjT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzjcnjT .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opezjcnjT  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+:hmgamzjcnjTB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzjcnjTBf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Be2" , "Ne4" , "e4" , "Nxe6" , "Nf6" , "Nbd7" , "Kh8" , "Nf7" , "a4" , "Bd4" , "Qc7" , "Rxa5" , "cxd4" , "Rxd6" , "Rf5" , "Be7" , "Kh1" , "Red8" , "O-O" , "Nf3" , "Nxd4" , "Be3" , "Ne5" , "g3" , "e5" , "Ke7" , "g6" , "Qd4" , "Qxd6" , "Bh6" , "c5" , "a5" , "Bxf4" , "Bc4" , "Ba4" , "a6" , "Qe7" , "Bb6" , "d6" , "Bxg7+" , "Nxd1" , "Rf8" , "fxe6" , "Nd7" , "Kg1" , "Rxf8" , "Bg7" , "Qg3" , "Nf2+" , "Nf2" , "Nxe4" , "d4" , "Nd4" , "f4" , "Kf6" , "exf4" , "Bg5" , "Bb3" , "Ng8" , "Qe1" , "Rac8" , "Kxg7" , "Be6" , "Rad1" , "Qd3" , "Bf6" , "Rfe8" , "Nb3" , "Rd1" , "Nc3" ;
+        chon:nextHalfMove      :hmgamzjcnjTB .
+
+:rolhgzjcnjTBf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzjcnjT .

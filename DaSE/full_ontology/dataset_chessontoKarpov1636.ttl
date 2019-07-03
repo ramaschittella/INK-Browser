@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resKFwvTar  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamKFwvT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKFwvTa ;
+        chon:atPlace           :plaKFwvTa ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKFwvTar ;
+        chon:hasHalfMove       :hmgamKFwvTar ;
+        chon:hasLastHalfMove   :hmgamKFwvTar ;
+        chon:hasOpening        :opeKFwvTa ;
+        chon:hasReport         :cgrKFwvTa ;
+        chon:hasResult         :resKFwvTar ;
+        chon:subEventOf        :touKFwvT .
+
+:plaKFwvTa  a         chon:Place ;
+        chon:hasName  "Leon" .
+
+:touKFwvT  a          chon:hessTournament ;
+        chon:atPlace  :plaKFwvTa ;
+        chon:hasName  "Leon" .
+
+:cgrKFwvTa  a   chon:ChessGameReport .
+
+:agKFwvTa  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Vyzmanavin, Alexey" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKFwvTa .
+
+:rolKFwvTa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKFwvTa .
+
+:opeKFwvTa  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:HalfMove  chon:subEventOf  :gamKFwvT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKFwvTa .
+
+:hmgamKFwvTar  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKFwvTart ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e6" , "Nxd7" , "Nfd7" , "exd5" , "Nd2" , "b6" , "O-O" , "Rc8" , "c4" , "c5" , "Nf3" , "Bc3" , "cxd5" , "Be7" , "b3" , "g3" , "d4" , "Bg2" , "Ba6" , "Bd2" , "Re1" , "Bb4+" , "Nf6" , "Ne5" , "a3" , "c6" , "d5" ;
+        chon:nextHalfMove      :hmgamKFwvTar .
+
+:rolhgKFwvTart  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKFwvTa .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrjZ4YAb  a   chon:ChessGameReport .
+
+:resjZ4YAbn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agjZ4YAb  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Cuellar Gacharna, Miguel" .
+
+:roljZ4YAb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjZ4YAb .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjZ4YAb .
+
+:hmgamjZ4YAbn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjZ4YAbnh , :rolhgfVL8kbDf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bg5" , "Qxa4" , "Bxa4" , "Ne5" , "Nf6" , "exd5" , "c4" , "Nf1" , "Bf4" , "Bg7" , "h6" , "d4" , "cxd5" , "g5" , "g6" , "O-O" , "Bc1" , "d6" , "Ng3" , "Bxb5" , "Rb8" , "c5" , "Nd3" , "Nf3" , "Nbd7" , "Qa5" , "Be2" , "Nc3" , "b5" , "d5" , "Nd2" , "e4" , "e6" , "Qa4" ;
+        chon:nextHalfMove      :hmgamfVL8kbD , :hmgamjZ4YAbn .
+
+:hmgamfVL8kbD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfVL8kbDf ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rc2" , "cxb3" , "Kf5" , "Bb5" , "Ne5" , "fxg2" , "Nf5" , "Rfb8" , "Kxg2" , "Kg4" , "Ke4" , "Rb4+" , "Nd4+" , "Be5" , "Rc4" , "f4" , "Kf7" , "Ba4" , "Ne2" , "a6" , "Re1" , "Rxc4" , "Raxc1" , "Nge2" , "Kh3" , "Ng4" , "exf5" , "Nxc1" , "f6" , "f3" , "Bxc3" , "Kg3" , "Nd3" , "Nf4+" , "b3" , "Bg4" , "Bxf5" , "bxc4" , "Ng3" , "h5+" , "f5" , "Kf3" , "Kxf6" , "axb3" ;
+        chon:nextHalfMove      :hmgamfVL8kbD .
+
+chon:HalfMove  chon:subEventOf  :gamjZ4YA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjZ4YAb .
+
+:opejZ4YAb  a            chon:ChessOpening ;
+        chon:hasECOCode  "A71" .
+
+:gamjZ4YA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljZ4YAb ;
+        chon:atPlace           :plajZ4YAb ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjZ4YAbn ;
+        chon:hasHalfMove       :hmgamjZ4YAbn , :hmgamfVL8kbD ;
+        chon:hasLastHalfMove   :hmgamfVL8kbD ;
+        chon:hasOpening        :opejZ4YAb ;
+        chon:hasReport         :cgrjZ4YAb ;
+        chon:hasResult         :resjZ4YAbn ;
+        chon:subEventOf        :toujZ4YA .
+
+:rolhgfVL8kbDf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjZ4YAb .
+
+:toujZ4YA  a          chon:hessTournament ;
+        chon:atPlace  :plajZ4YAb ;
+        chon:hasName  "Sousse Interzonal+" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plajZ4YAb  a         chon:Place ;
+        chon:hasName  "Sousse" .
+
+:rolhgjZ4YAbnh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjZ4YAb .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrjLODPg  a   chon:ChessGameReport .
+
+:pla9LRqih  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:agjLODPg  a          chon:Agent ;
+        chon:hasName  "Andres,M" , "Karpov,An" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjLODPg .
+
+:roljLODPg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjLODPg .
+
+:opejLODPg  a            chon:ChessOpening ;
+        chon:hasECOCode  "A70" .
+
+chon:HalfMove  chon:subEventOf  :gam9LRqi .
+
+:rolhgjLODPgEu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjLODPg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjLODPg .
+
+:hmgamjLODPgE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjLODPgEu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Andres,M" ;
+        chon:hasSANRecord      "c4" , "Bxc5" , "Ba6" , "Re1" , "Qa5" , "Nxe4" , "e4" , "Bxb2" , "Rb8" , "b5" , "Be2" , "d5" , "b4" , "Bc4" , "Qxe1" , "Nc3" , "Nb1" , "c5" , "Bxc4" , "Rc1" , "Nxc4" , "Bg7" , "Rxc4" , "e6" , "Qxb4" , "Nf3" , "cxd5" , "exd5" , "Re8" , "g6" , "Qxc5" , "Bd4" , "Nd7" , "Nxd5" , "Qc5" , "Ra4" , "Nbd2" , "Be3" , "d4" , "Nf6" , "O-O" , "h3" , "Rxe1+" , "dxc5" , "Rc2" , "a3" , "Rc8" , "N7b6" , "Bd3" , "d6" ;
+        chon:nextHalfMove      :hmgamjLODPgE .
+
+:gam9LRqi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljLODPg ;
+        chon:atPlace           :pla9LRqih ;
+        chon:atTime            "2001.08.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjLODPgE ;
+        chon:hasHalfMove       :hmgamjLODPgE ;
+        chon:hasLastHalfMove   :hmgamjLODPgE ;
+        chon:hasOpening        :opejLODPg ;
+        chon:hasReport         :cgrjLODPg ;
+        chon:hasResult         :resjLODPgE ;
+        chon:subEventOf        :toujLODP .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resjLODPgE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:toujLODP  a          chon:hessTournament ;
+        chon:atPlace  :pla9LRqih ;
+        chon:hasName  "Karpov-Boca Simul" .

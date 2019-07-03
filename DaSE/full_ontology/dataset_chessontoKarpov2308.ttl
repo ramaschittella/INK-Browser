@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeKW60Ac  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:hmgamWW3n8bV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWW3n8bVN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nikolic, Predrag" ;
+        chon:hasSANRecord      "h5+" , "Nxc6+" , "Nxf4" , "Kf6" , "Nb6" , "Ke4" , "a5" , "Nf4" , "Ne2" , "Kd7" , "Kc5" , "Nd8+" , "Nd5" , "d5" , "Nb4" , "Nxb7" , "Nxa5" , "Kc6" , "Kg4" , "Kg5" , "Nc3" , "Kxf4" , "Nc5" , "Kf7" , "Nb7" , "Nb4+" , "Kd3" , "Nxa4" , "Ke7" , "e6" , "c6" , "exd5" , "Kf3" , "Nd6" , "Kg6" , "Kc4" ;
+        chon:nextHalfMove      :hmgamWW3n8bV .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKW60Ac .
+
+:rolhgWW3n8bVN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKW60Ac .
+
+:hmgamKW60AcS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKW60AcSz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nikolic, Predrag" ;
+        chon:hasSANRecord      "Nc4" , "Be3" , "Be7" , "f3" , "Rxc3+" , "Bxe4" , "Bxc4" , "Ng1" , "Nc5" , "Nxb4" , "e4" , "O-O" , "Kh1" , "h4" , "dxc4" , "Nbc3" , "exf6" , "e6" , "Qe7" , "d5" , "Rxd3" , "Ne4" , "Rd1" , "Bxf6" , "Kf3" , "Kf7" , "Ne2" , "Nd5" , "Nd8" , "Bd3" , "Qc2" , "Bg5" , "a3" , "b3" , "e5" , "Qg6" , "Qxd3" , "Rc2+" , "fxe4" , "a4" , "Qd7" , "Rf1+" , "Bc1" , "Qxg5" , "Rc1" , "Rc3" , "d4" , "a6" , "Rf8" , "Ke4" , "Be4" , "f6" , "Nb6" , "Nc6" , "Nf6" , "Nxc3" , "Be6" , "Bd5" , "g3" , "Nb4" , "Bxg5" , "Ke7" , "Qd3" , "b4" , "Kg2" , "c4" , "Rxf6" ;
+        chon:nextHalfMove      :hmgamWW3n8bV , :hmgamKW60AcS .
+
+chon:HalfMove  chon:subEventOf  :gamKW60A .
+
+:plaKW60Ac  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKW60Ac .
+
+:rolhgKW60AcSz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKW60Ac .
+
+:cgrKW60Ac  a   chon:ChessGameReport .
+
+:agKW60Ac  a          chon:Agent ;
+        chon:hasName  "Nikolic, Predrag" , "Karpov, Anatoly" .
+
+:rolKW60Ac  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKW60Ac .
+
+:resKW60AcS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamKW60A  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKW60Ac ;
+        chon:atPlace           :plaKW60Ac ;
+        chon:atTime            "1998.03.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKW60AcS ;
+        chon:hasHalfMove       :hmgamKW60AcS , :hmgamWW3n8bV ;
+        chon:hasLastHalfMove   :hmgamWW3n8bV ;
+        chon:hasOpening        :opeKW60Ac ;
+        chon:hasReport         :cgrKW60Ac ;
+        chon:hasResult         :resKW60AcS ;
+        chon:subEventOf        :touKW60A .
+
+:touKW60A  a          chon:hessTournament ;
+        chon:atPlace  :plaKW60Ac ;
+        chon:hasName  "Amber-rapid 7th" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

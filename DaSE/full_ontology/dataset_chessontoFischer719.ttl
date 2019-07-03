@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgpDZeP3SL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpDZeP3 .
+
+:pladD41g4  a         chon:Place ;
+        chon:hasName  "?" .
+
+:gamdD41g  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpDZeP3 ;
+        chon:atPlace           :pladD41g4 ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampDZeP3S ;
+        chon:hasHalfMove       :hmgampDZeP3S ;
+        chon:hasLastHalfMove   :hmgampDZeP3S ;
+        chon:hasOpening        :opepDZeP3 ;
+        chon:hasReport         :cgrpDZeP3 ;
+        chon:hasResult         :respDZeP3S ;
+        chon:subEventOf        :toupDZeP .
+
+:cgrpDZeP3  a   chon:ChessGameReport .
+
+:agpDZeP3  a          chon:Agent ;
+        chon:hasName  "NN" , "Fischer, Robert James" .
+
+:rolpDZeP3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpDZeP3 .
+
+:opepDZeP3  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpDZeP3 .
+
+:hmgampDZeP3S  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpDZeP3SL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "NN" ;
+        chon:hasSANRecord      "f4" , "Qc7" , "b4" , "O-O" , "Re7" , "d3" , "Nxc5" , "h3" , "Ne8" , "Qf6" , "Bc1" , "c5" , "e5" , "a5" , "Rb1" , "Rad8" , "Ncxa6" , "Bd5" , "Qe7" , "Nf6" , "Bc3" , "Be3" , "Ba3" , "f6" , "Qa4" , "b6" , "b3" , "Qd2" , "e4" , "a4" , "g3" , "Ne4" , "a6" , "Nb6" , "Nc3" , "Qd1" , "Rb5" , "Bxc5" , "f5" , "Bxf3" , "e3" , "Rfe8" , "Nf3" , "Rxc5" , "Bg2" , "dxe5" , "Re1" , "g4" , "Nxa6" , "d4" , "Bg5" , "Nbd7" , "Bxa6" , "Nd7" , "g6" , "c6" , "Nc7" , "Nd2" , "exd4" , "Qf7" , "d6" , "Ra5" , "bxc5" , "Bg7" , "Ne6" , "Kh8" , "c4" , "Bb7" , "Bg4" , "Nb8" ;
+        chon:nextHalfMove      :hmgampDZeP3S .
+
+chon:HalfMove  chon:subEventOf  :gamdD41g .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpDZeP3 .
+
+:respDZeP3S  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:toupDZeP  a          chon:hessTournament ;
+        chon:atPlace  :pladD41g4 ;
+        chon:hasName  "USA sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

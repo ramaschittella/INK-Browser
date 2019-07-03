@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamEoJeJtK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgEoJeJtK7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bc4" , "Bxe5" , "Rac8" , "Rb1" , "O-O" , "b6" , "c6" , "e4" , "d5" , "Qc2" , "Rbc1" , "cxb5" , "e6" , "Nf6" , "Bg2" , "Nb3" , "Nd2" , "d4" , "e5" , "g3" , "a3" , "b3" , "Bd6" , "Qe7" , "Nc3" , "Bxb5" , "Rfe8" , "Bb2" , "Nf3" , "Rd1" , "b5" , "b4" , "Nbd7" , "c4" , "dxe5" , "Ba6" ;
+        chon:nextHalfMove      :hmgamEoJeJtK , :hmgamQoGsiuN .
+
+:hmgamQoGsiuN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQoGsiuNh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd3+" , "Rxd1+" , "Ng5+" , "Nd4" , "Nc6" , "Nb6" , "Qb3" , "Qd4" , "Qe5" , "Rd8" , "Qxa7" , "h6" , "dxc4" , "cxd5" , "Bf1" , "Nxa4" , "Kh6" , "Nxc4" , "Qb8+" , "Rxe1" , "Bxa1" , "exd5" , "Ba1" , "Qb7" , "Nb5" , "Na5" , "Kg7" , "Qxc4" , "Rxe1+" , "Qh5" , "Qxd1" , "Qf8" , "Qc2" , "h5" , "Qf7" , "Qc7" , "Ne8" , "Bd4" , "Re1" , "Qa6" , "Rxa1" , "a4" , "g6" , "Nbd5" , "Nxf7" , "Ne6" , "Ne5" , "Qe7" , "Qd6" , "Kh7" , "Bc4" , "Ba6" , "Rd1" , "Qd1+" ;
+        chon:nextHalfMove      :hmgamQoGsiuN .
+
+:plaEoJeJt  a         chon:Place ;
+        chon:hasName  "Frankfurt" .
+
+:rolhgQoGsiuNh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEoJeJt .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEoJeJt .
+
+:cgrEoJeJt  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamEoJeJ .
+
+:resEoJeJtK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agEoJeJt  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Anand, Viswanathan" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEoJeJt .
+
+:rolEoJeJt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEoJeJt .
+
+:opeEoJeJt  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:gamEoJeJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEoJeJt ;
+        chon:atPlace           :plaEoJeJt ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEoJeJtK ;
+        chon:hasHalfMove       :hmgamQoGsiuN , :hmgamEoJeJtK ;
+        chon:hasLastHalfMove   :hmgamQoGsiuN ;
+        chon:hasOpening        :opeEoJeJt ;
+        chon:hasReport         :cgrEoJeJt ;
+        chon:hasResult         :resEoJeJtK ;
+        chon:subEventOf        :touEoJeJ .
+
+:rolhgEoJeJtK7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEoJeJt .
+
+:touEoJeJ  a          chon:hessTournament ;
+        chon:atPlace  :plaEoJeJt ;
+        chon:hasName  "Chess Classics f" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

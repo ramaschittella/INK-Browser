@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrW5zSup  a   chon:ChessGameReport .
+
+:agW5zSup  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:plau3njap  a         chon:Place ;
+        chon:hasName  "Lyon/New York" .
+
+:rolW5zSup  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agW5zSup .
+
+:rolhgW5zSupth  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agW5zSup .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agW5zSup .
+
+:gamu3nja  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolW5zSup ;
+        chon:atPlace           :plau3njap ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamW5zSupt ;
+        chon:hasHalfMove       :hmgamW5zSupt , :hmgam83uQ4qw ;
+        chon:hasLastHalfMove   :hmgam83uQ4qw ;
+        chon:hasOpening        :opeW5zSup ;
+        chon:hasReport         :cgrW5zSup ;
+        chon:hasResult         :resW5zSupt ;
+        chon:subEventOf        :touW5zSu .
+
+chon:HalfMove  chon:subEventOf  :gamu3nja .
+
+:rolhg83uQ4qwv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agW5zSup .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agW5zSup .
+
+:hmgam83uQ4qw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg83uQ4qwv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Qh4" , "Qd4" , "Kc3" , "Kb4" , "Qf4" , "Ke6" , "Qb4+" , "Kb5" , "Qc1" , "Kb6" , "Qg7" , "Qd4+" , "Qh1" , "Kg7" , "Kg8" , "Qd5+" , "Qh7+" , "Qd3+" , "Kf6" , "Ne3" , "Kc6" , "Qa4+" , "Kf7" ;
+        chon:nextHalfMove      :hmgam83uQ4qw .
+
+:touW5zSu  a          chon:hessTournament ;
+        chon:atPlace  :plau3njap ;
+        chon:hasName  "World Championship 35th-KK5" .
+
+:opeW5zSup  a            chon:ChessOpening ;
+        chon:hasECOCode  "E87" .
+
+:resW5zSupt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamW5zSupt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgW5zSupth , :rolhg83uQ4qwv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "b7" , "Kh6" , "h2" , "Re8" , "Bd3" , "Rxg7" , "Bxd4" , "axb4" , "b8=Q" , "h5" , "Kxg7" , "f5" , "e5" , "Bb6" , "Na1+" , "Rxd3+" , "dxe5" , "Be6" , "a3" , "Bg1" , "Ne3" , "Nb3" , "Nc3" , "Qh4" , "Na3" , "Kb2" , "Kc2" , "Ka2" , "Qd7" , "Rg1" , "Rf1" , "Re1" , "Rxh3" , "d6" , "b6" , "a6" , "Nxd5" , "Nf6" , "Rf4" , "Kxd3" , "Bc2" , "Qa4+" , "Ra8+" , "Rhe1" , "Rxf8+" , "Kh8" , "Qd5" , "Qe5" , "d4" , "h4" , "Nxb6" , "Nxc6" , "e4" , "exd4" , "Rxg2+" , "fxe4" , "Ncd5" , "Qxe4" , "Nd7" , "Qe8" , "Ne2" , "Rac8" , "Kb1" , "Qc7+" , "Qxd4+" , "h1=Q" , "Qc1+" , "b5" , "d5" , "c5" , "O-O" , "Be3" , "Nd5" , "Nc5" , "Nh5" , "Rg3" , "Na4+" , "Qxe5+" , "Qd1+" , "Kg7" , "cxb5" , "h3" , "Rcd8" , "f3" , "O-O-O" , "Rxf8" , "Bxd5" , "axb5" , "Nb6" , "Qf7" , "Ra1+" , "g6" , "Qf2" , "Qe2" , "Qd2" , "Bg7" , "dxc6" , "c4" , "b4" , "Qf4+" , "Rf7" , "Qf1+" , "Nd4" , "Nc4" , "Qg5" , "Kc3" , "Kb3" , "Qd8" ;
+        chon:nextHalfMove      :hmgam83uQ4qw , :hmgamW5zSupt .

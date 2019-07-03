@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeIKqyie  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:hmgamIKqyie5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIKqyie5m , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "dxc5" , "h6" , "e3" , "Bg5" , "Nh3" , "Nc6" , "b6" , "c4" , "Nc3" , "bxc5" , "O-O" , "Bb4" , "a3" , "d4" , "Qxc3" , "c5" , "Nf6" , "Qc2" , "Bxc3+" , "e6" ;
+        chon:nextHalfMove      :hmgamTIkLPd8 , :hmgamIKqyie5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIKqyie .
+
+:plaIKqyie  a         chon:Place ;
+        chon:hasName  "NLD/INA" .
+
+chon:HalfMove  chon:subEventOf  :gamIKqyi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIKqyie .
+
+:cgrIKqyie  a   chon:ChessGameReport .
+
+:rolhgTIkLPd8x  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIKqyie .
+
+:resIKqyie5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamTIkLPd8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTIkLPd8x , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "Ke1" , "Ba6" , "Bxd3" , "Bh4" , "Rh8" , "f3" , "Rc7" , "Nd3" , "g5" , "e5" , "Re6" , "cxd3+" , "c4" , "Bb5" , "Bg3" , "Rf6" , "Nf2" , "Rh5" , "f5" , "f4" , "Qxb6" , "hxg3" , "cxd3" , "Ne7" , "Ke2" , "Rc1" , "Qa5+" , "Qb6" , "Qc2" , "Qxb3" , "hxg5" , "Rb8" , "fxg5" , "g4" , "Nxg3+" , "Ne4" , "b3" , "Rc3" , "Qb2" , "Kf2" , "axb6" , "Kg7" , "Kg6" , "Qa2" , "Rxb3" , "dxc4" ;
+        chon:nextHalfMove      :hmgamTIkLPd8 .
+
+:agIKqyie  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+:rolIKqyie  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIKqyie .
+
+:gamIKqyi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIKqyie ;
+        chon:atPlace           :plaIKqyie ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIKqyie5 ;
+        chon:hasHalfMove       :hmgamTIkLPd8 , :hmgamIKqyie5 ;
+        chon:hasLastHalfMove   :hmgamTIkLPd8 ;
+        chon:hasOpening        :opeIKqyie ;
+        chon:hasReport         :cgrIKqyie ;
+        chon:hasResult         :resIKqyie5 ;
+        chon:subEventOf        :touIKqyi .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touIKqyi  a          chon:hessTournament ;
+        chon:atPlace  :plaIKqyie ;
+        chon:hasName  "FIDE-Wch" .
+
+:rolhgIKqyie5m  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIKqyie .

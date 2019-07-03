@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgdEprRR2o  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdEprRR .
+
+:hmgamdEprRR2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdEprRR2o ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fuller, John A" ;
+        chon:hasSANRecord      "Nf6+" , "Nc6" , "Nf3" , "Nf5" , "Bb5" , "Qf4" , "Qe4" , "Be6" , "e5" , "Bg5" , "h4" , "h6" , "Qxd5" , "Qxe7" , "dxc6" , "Ne4" , "Nd4" , "dxe5" , "Qxf6" , "Bd5" , "d4" , "e4" , "Nxe4" , "Nxd4" , "Qxd4" , "Bxc6" , "Rxd4" , "Nc3" , "Bxe7" , "Nf6" , "Nd6" , "Qd2" , "O-O" , "Be7" , "Rd8" ;
+        chon:nextHalfMove      :hmgamdEprRR2 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdEprRR .
+
+:pladEprRR  a         chon:Place ;
+        chon:hasName  "Bay City" .
+
+chon:HalfMove  chon:subEventOf  :gamdEprR .
+
+:cgrdEprRR  a   chon:ChessGameReport .
+
+:resdEprRR2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdEprRR .
+
+:agdEprRR  a          chon:Agent ;
+        chon:hasName  "Fuller, John A" , "Fischer, Robert James" .
+
+:gamdEprR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldEprRR ;
+        chon:atPlace           :pladEprRR ;
+        chon:atTime            "1963.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdEprRR2 ;
+        chon:hasHalfMove       :hmgamdEprRR2 ;
+        chon:hasLastHalfMove   :hmgamdEprRR2 ;
+        chon:hasOpening        :opedEprRR ;
+        chon:hasReport         :cgrdEprRR ;
+        chon:hasResult         :resdEprRR2 ;
+        chon:subEventOf        :toudEprR .
+
+:roldEprRR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdEprRR .
+
+:toudEprR  a          chon:hessTournament ;
+        chon:atPlace  :pladEprRR ;
+        chon:hasName  "Bay City" .
+
+:opedEprRR  a            chon:ChessOpening ;
+        chon:hasECOCode  "C67" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

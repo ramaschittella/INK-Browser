@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res4r8BkNs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaRtbnLO  a         chon:Place ;
+        chon:hasName  "Copenhagen" .
+
+:tou4r8Bk  a          chon:hessTournament ;
+        chon:atPlace  :plaRtbnLO ;
+        chon:hasName  "Copenhagen" .
+
+:gamRtbnL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4r8BkN ;
+        chon:atPlace           :plaRtbnLO ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4r8BkNs ;
+        chon:hasHalfMove       :hmgam4r8BkNs , :hmgamZpPK5NJ ;
+        chon:hasLastHalfMove   :hmgamZpPK5NJ ;
+        chon:hasOpening        :ope4r8BkN ;
+        chon:hasReport         :cgr4r8BkN ;
+        chon:hasResult         :res4r8BkNs ;
+        chon:subEventOf        :tou4r8Bk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4r8BkN .
+
+chon:HalfMove  chon:subEventOf  :gamRtbnL .
+
+:rolhg4r8BkNst  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4r8BkN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4r8BkN .
+
+:cgr4r8BkN  a   chon:ChessGameReport .
+
+:hmgam4r8BkNs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4r8BkNst , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bh6" , "c3" , "Rg7" , "Rb8" , "Rg8" , "Kh1" , "f4" , "f5" , "Nd5" , "Qb5+" , "d5" , "Qa4+" , "Qxc6+" , "Nxe5" , "fxe4" , "dxc3" , "d4" , "Bg7" , "g6" , "Nbd2" , "Bf5" , "Ne5" , "O-O" , "Bxe5" , "Nc6" , "bxc3" , "bxc4" , "Bf4" , "Kf8" , "Nxe4" , "Bc4" , "Qxc4" , "b5" , "d3" , "Nf2" , "Nf6" , "exf6" , "Bxf6" , "Ne4" , "Nd7" , "Be3+" , "c6" , "Nd6" , "e4" , "Qb3" , "Nf3" , "Nb6" , "fxe5" ;
+        chon:nextHalfMove      :hmgamZpPK5NJ , :hmgam4r8BkNs .
+
+:ag4r8BkN  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Larsen, Bent" .
+
+:rol4r8BkN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4r8BkN .
+
+:ope4r8BkN  a            chon:ChessOpening ;
+        chon:hasECOCode  "A03" .
+
+:rolhgZpPK5NJr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4r8BkN .
+
+:hmgamZpPK5NJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZpPK5NJr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qb6" , "Kg2" , "Rg6" , "Bxf6" , "Bxd8" , "Kg7" , "Rae1" , "g5" , "Qxd6" , "gxf5" , "Rxc5" , "Rxd8" , "Qd5" , "Qd8" , "Be7" , "Bxg5" , "f6" , "Rc8" , "Rxf6" , "Rg8" , "h4" , "d6" , "c4" , "Bf6" , "Qe5" , "Rc2+" , "Rxa2" , "Bf4" , "Rc1+" , "d8=Q" , "Re8+" , "Bxd6" , "Kg3" , "hxg5" , "d5" , "d7" , "c5" , "Qc5" , "g4" , "Bg5" ;
+        chon:nextHalfMove      :hmgamZpPK5NJ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

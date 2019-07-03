@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plabs9VqK  a         chon:Place ;
+        chon:hasName  "Davis" .
+
+:cgrbs9VqK  a   chon:ChessGameReport .
+
+:resbs9VqKN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgbs9VqKNx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbs9VqK .
+
+:agbs9VqK  a          chon:Agent ;
+        chon:hasName  "Osbun, E." , "Fischer, Robert James" .
+
+:gambs9Vq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbs9VqK ;
+        chon:atPlace           :plabs9VqK ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambs9VqKN ;
+        chon:hasHalfMove       :hmgambs9VqKN , :hmgam68VpHAL ;
+        chon:hasLastHalfMove   :hmgam68VpHAL ;
+        chon:hasOpening        :opebs9VqK ;
+        chon:hasReport         :cgrbs9VqK ;
+        chon:hasResult         :resbs9VqKN ;
+        chon:subEventOf        :toubs9Vq .
+
+:toubs9Vq  a          chon:hessTournament ;
+        chon:atPlace  :plabs9VqK ;
+        chon:hasName  "Davis sim" .
+
+:rolbs9VqK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbs9VqK .
+
+:opebs9VqK  a            chon:ChessOpening ;
+        chon:hasECOCode  "C52" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbs9VqK .
+
+:hmgambs9VqKN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg68VpHALL , :rolhgbs9VqKNx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Osbun, E." ;
+        chon:hasSANRecord      "Nf3" , "Nc6" , "Ba5" , "d4" , "Na5" , "O-O" , "e4" , "c3" , "d5" , "Bc4" , "e5" , "dxc6" , "d6" , "Qb3" , "exd4" , "Qa4" , "Bc5" , "b4" , "cxd4" , "Bxb4" , "Bb5" , "Qd7" , "c6" , "Bb6" , "Kf8" ;
+        chon:nextHalfMove      :hmgam68VpHAL , :hmgambs9VqKN .
+
+chon:HalfMove  chon:subEventOf  :gambs9Vq .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbs9VqK .
+
+:hmgam68VpHAL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg68VpHALL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Osbun, E." ;
+        chon:hasSANRecord      "Bxd6" , "Kxe6" , "Bc4" , "Nxd6" , "Kh3" , "Rxg4" , "Rhg8" , "Kf7" , "Qf7+" , "Qh7+" , "e5" , "Re7" , "Qc4+" , "Kg5" , "bxc6" , "f6" , "Nf4" , "Bxe6+" , "hxg4" , "Bd5" , "Kg8" , "exd6" , "Ba3" , "Nc4" , "R1e6" , "Rg4" , "Nc3" , "Bxe6" , "Bf1" , "Rxf6+" , "Qc2" , "g3" , "Qf5+" , "Be6" , "Ne7" , "Kg4" , "gxf6" , "Ng6" , "Kh6" , "Qc8" , "Re4+" , "Rae1" , "h5" , "Nxe6" , "Bd3" , "Kg6" , "Re1+" , "Qd3" , "Bxc5" , "h4+" , "Rd8" , "Nc5" , "Rfd1" , "Nb7" , "Ne6" , "Nce4" , "Ne5" , "d7" , "Rdf8" , "Qc7" ;
+        chon:nextHalfMove      :hmgam68VpHAL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg68VpHALL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbs9VqK .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla3tV3TP  a         chon:Place ;
+        chon:hasName  "Leipzig" .
+
+:agYqSbDN  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Uhlmann, Wolfgang" .
+
+:gam3tV3T  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYqSbDN ;
+        chon:atPlace           :pla3tV3TP ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYqSbDNv ;
+        chon:hasHalfMove       :hmgamYqSbDNv ;
+        chon:hasLastHalfMove   :hmgamYqSbDNv ;
+        chon:hasOpening        :opeYqSbDN ;
+        chon:hasReport         :cgrYqSbDN ;
+        chon:hasResult         :resYqSbDNv ;
+        chon:subEventOf        :tou3tV3T .
+
+:rolYqSbDN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYqSbDN .
+
+:tou3tV3T  a          chon:hessTournament ;
+        chon:atPlace  :pla3tV3TP ;
+        chon:hasName  "Leipzig olm fin-A" .
+
+:opeYqSbDN  a            chon:ChessOpening ;
+        chon:hasECOCode  "E79" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYqSbDN .
+
+chon:HalfMove  chon:subEventOf  :gam3tV3T .
+
+:resYqSbDNv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYqSbDN .
+
+:rolhgYqSbDNvo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYqSbDN .
+
+:cgrYqSbDN  a   chon:ChessGameReport .
+
+:hmgamYqSbDNv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYqSbDNvo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "c5" , "Kc6" , "Rfd8" , "Be2" , "Be6" , "Kh4" , "Kd4" , "Bxd7" , "Kxc5" , "Nd5" , "h5" , "Bxg4" , "g6" , "Ke3" , "b4" , "a5" , "Bxa4" , "Nc3" , "bxc5" , "Nxe4" , "Nf6" , "Ng4" , "f5" , "Kg3" , "Kd2" , "Qd2" , "dxe5" , "Rcd1" , "Be3" , "Ne3" , "d4" , "Kg5" , "c4" , "fxg4" , "gxf5" , "g4" , "d6" , "Kd7" , "h6" , "Kxf2" , "fxe5" , "Rxd7+" , "Nc6" , "Bxd4" , "e4" , "Rd7" , "Rhd1" , "Nxg4" , "Qh4+" , "Rac1" , "exf5" , "Qxf2+" , "Qxd4" , "a4" , "Nf3" , "Kf4" , "Ke5" , "b6" , "Rad8" , "Bb3" , "Qf2" , "Rxd7" , "Kf7" , "O-O" , "Nf1" , "Nxd4" , "cxd4" , "Ke7" , "Bg7" , "Ng3" , "f4" , "Rd2" , "e5" ;
+        chon:nextHalfMove      :hmgamYqSbDNv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

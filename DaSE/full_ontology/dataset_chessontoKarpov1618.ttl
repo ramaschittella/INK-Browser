@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resKmPIpud  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKmPIpu .
+
+:cgrKmPIpu  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamPo9zD .
+
+:agKmPIpu  a          chon:Agent ;
+        chon:hasName  "Fernandez Garcia, Jose L" , "Karpov, Anatoly" .
+
+:touKmPIp  a          chon:hessTournament ;
+        chon:atPlace  :plaPo9zDx ;
+        chon:hasName  "Dos Hermanas" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKmPIpu .
+
+:rolKmPIpu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKmPIpu .
+
+:opeKmPIpu  a            chon:ChessOpening ;
+        chon:hasECOCode  "D85" .
+
+:rolhgKmPIpudL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKmPIpu .
+
+:plaPo9zDx  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:hmgamKmPIpud  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKmPIpudL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fernandez Garcia, Jose L" ;
+        chon:hasSANRecord      "Qh3" , "e6" , "Ba4" , "Bg4" , "d4" , "d5" , "Bf4" , "Bd3" , "Qb6" , "Nc5" , "Nf6" , "Nxd5" , "exd5" , "g6" , "Na6" , "Nc3" , "Qxd3" , "Nd3" , "cxd3" , "c5" , "d6" , "Ng5" , "Qd2" , "O-O" , "Nxc3" , "Be2" , "bxc3" , "Kh7" , "h3" , "Rc1" , "Bg7" , "b5" , "h5" , "cxd5" , "Qc6" , "Ne4" , "Bxd3" , "Bd7" , "Bb1" , "c4" , "Nf3" , "e4" , "h4" , "Rfe1" , "Qa5" , "Be3" , "Rad8" , "b6" , "h6" ;
+        chon:nextHalfMove      :hmgamKmPIpud .
+
+:gamPo9zD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKmPIpu ;
+        chon:atPlace           :plaPo9zDx ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKmPIpud ;
+        chon:hasHalfMove       :hmgamKmPIpud ;
+        chon:hasLastHalfMove   :hmgamKmPIpud ;
+        chon:hasOpening        :opeKmPIpu ;
+        chon:hasReport         :cgrKmPIpu ;
+        chon:hasResult         :resKmPIpud ;
+        chon:subEventOf        :touKmPIp .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

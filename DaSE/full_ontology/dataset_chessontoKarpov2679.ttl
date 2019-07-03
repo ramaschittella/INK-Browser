@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opedUPpzj  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:rolhgdUPpzjre  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdUPpzj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdUPpzj .
+
+:pladUPpzj  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+chon:HalfMove  chon:subEventOf  :gamdUPpz .
+
+:cgrdUPpzj  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdUPpzj .
+
+:roldUPpzj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdUPpzj .
+
+:resdUPpzjr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamdUPpzjr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdUPpzjre , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "a5" , "e4" , "Bf6" , "d6" , "Nd6" , "c3" , "Qc2" , "Bh2" , "b5" , "Qb4" , "Nc5" , "Re2" , "Qxb3" , "Nec8" , "Nf6" , "Nxc6" , "a6" , "Nc2" , "Nge5" , "O-O" , "Nxe5" , "d5" , "g6" , "axb3" , "Ng4" , "a4" , "Qb3" , "e5" , "Re1" , "Rae1" , "Be7" , "Nf3" , "Ne3" , "h6" , "Ra7" , "Nxe4" , "Re8" , "Bc8" , "g5" , "Nc4" , "Bg7" , "Nc6" , "Bd3" , "b3" , "Ne7" , "Bf4" , "Nb3" , "d4" , "Na3" , "Be6" , "c6" , "h3" , "Nd2" , "Ra6" ;
+        chon:nextHalfMove      :hmgamdUPpzjr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamdUPpz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldUPpzj ;
+        chon:atPlace           :pladUPpzj ;
+        chon:atTime            "2002.11.04"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdUPpzjr ;
+        chon:hasHalfMove       :hmgamdUPpzjr ;
+        chon:hasLastHalfMove   :hmgamdUPpzjr ;
+        chon:hasOpening        :opedUPpzj ;
+        chon:hasReport         :cgrdUPpzj ;
+        chon:hasResult         :resdUPpzjr ;
+        chon:subEventOf        :toudUPpz .
+
+:agdUPpzj  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Anand,V" .
+
+:toudUPpz  a          chon:hessTournament ;
+        chon:atPlace  :pladUPpzj ;
+        chon:hasName  "6th Corsica Masters" .

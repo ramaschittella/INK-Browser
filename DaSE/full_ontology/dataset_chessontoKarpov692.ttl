@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamc7fVv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolc7fVvb ;
+        chon:atPlace           :plac7fVvb ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam95W5e0V ;
+        chon:hasHalfMove       :hmgam95W5e0V ;
+        chon:hasLastHalfMove   :hmgam95W5e0V ;
+        chon:hasOpening        :ope95W5e0 ;
+        chon:hasReport         :cgr95W5e0 ;
+        chon:hasResult         :res95W5e0V ;
+        chon:subEventOf        :touc7fVv .
+
+:rolc7fVvb  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:touc7fVv  a          chon:hessTournament ;
+        chon:atPlace  :plac7fVvb ;
+        chon:hasName  "World Championship 30th" .
+
+:rolhg95W5e0Vd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag95W5e0 .
+
+:rol95W5e0  a             chon:AuthorRole ;
+        chon:performedBy  :ag95W5e0 .
+
+:ag95W5e0  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kortschnoj, Viktor" .
+
+:res95W5e0V  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ope95W5e0  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag95W5e0 .
+
+chon:HalfMove  chon:subEventOf  :gamc7fVv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag95W5e0 .
+
+:hmgam95W5e0V  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg95W5e0Vd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxc6" , "Bxc4" , "Rc1" , "Nd5" , "Nf6" , "h6" , "Rxc2+" , "Rac8" , "cxd4" , "Bd7" , "Nxd4" , "c4" , "Nc6" , "Nxc6" , "Be7" , "Bxe7" , "Ke2" , "e6" , "Bf3" , "Bh4" , "Rc2" , "Rxc2" , "Ke8" , "Bc6" , "Nb3" , "Ne7" , "Nf3" , "Kf8" , "c5" , "Nc3" , "d4" , "Be2" , "e3" , "Qxd8" , "Rfxd8" , "Rhc1" , "Qd4" , "Nxd5" , "dxc4" , "d5" , "Bg5" , "Ncxe7" , "O-O" , "a3" ;
+        chon:nextHalfMove      :hmgam95W5e0V .
+
+:cgr95W5e0  a   chon:ChessGameReport .
+
+:plac7fVvb  a         chon:Place ;
+        chon:hasName  "Merano" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

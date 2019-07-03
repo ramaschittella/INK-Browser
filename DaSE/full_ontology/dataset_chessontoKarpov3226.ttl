@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr6a0yd4  a   chon:ChessGameReport .
+
+:res6a0yd4Y  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgwcmQy4Pn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6a0yd4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6a0yd4 .
+
+:pla6a0yd4  a         chon:Place ;
+        chon:hasName  "Nis SRB" .
+
+chon:HalfMove  chon:subEventOf  :gam6a0yd .
+
+:gam6a0yd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6a0yd4 ;
+        chon:atPlace           :pla6a0yd4 ;
+        chon:atTime            "2010.12.04"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwcmQy4P ;
+        chon:hasHalfMove       :hmgamwcmQy4P ;
+        chon:hasLastHalfMove   :hmgamwcmQy4P ;
+        chon:hasOpening        :ope6a0yd4 ;
+        chon:hasReport         :cgr6a0yd4 ;
+        chon:hasResult         :res6a0yd4Y ;
+        chon:subEventOf        :tou6a0yd .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6a0yd4 .
+
+:tou6a0yd  a          chon:hessTournament ;
+        chon:atPlace  :pla6a0yd4 ;
+        chon:hasName  "Rapid Match" .
+
+:ag6a0yd4  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Miljkovic,Mir1" .
+
+:rol6a0yd4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwcmQy4 .
+
+:ope6a0yd4  a            chon:ChessOpening ;
+        chon:hasECOCode  "E16" .
+
+:hmgamwcmQy4P  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwcmQy4Pn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qf4" , "a5" , "Re7" , "Qxd2" , "Nbd7" , "exd4" , "Qd6" , "Kg2" , "Nf5" , "f4" , "Nf3" , "Nxb7" , "c4" , "Qb6" , "Qe5" , "a3" , "g6" , "Ng5" , "Ne6" , "dxc5" , "Nh4" , "Bb7" , "Qf6+" , "Nf8" , "Rd2" , "Bxd2+" , "Rac1" , "exd5" , "Bh3" , "bxc5" , "Rxb7" , "Nb1" , "Kf1" , "gxh4" , "e3" , "Nc3" , "Qg4" , "Qd4" , "h6" , "Rd8" , "Nf6" , "d4" , "Kg7" , "a4" , "Bd2" , "Rxh4" , "Rxd4" , "b6" , "Qxg6" , "Qg4+" , "Rc2" , "Bg2" , "Qg5+" , "e6" , "Qh4" , "Qd8" , "a6" , "c5" , "Be4" , "cxd5" , "Rbd7" , "Rfe1" , "Ng4" , "Re2" , "g3" , "Bd5" , "Rfe8" , "Nd6" , "Qe7" , "Qxh4" , "fxg5" , "O-O" , "Ne5" , "d5" , "Bb4+" , "Rf2" , "Rd1" , "c6" , "Qb8" ;
+        chon:nextHalfMove      :hmgamwcmQy4P .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaAQQ1YT  a         chon:Place ;
+        chon:hasName  "Corsica FRA" .
+
+:hmgamAQQ1YTE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAQQ1YTEK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand,V" ;
+        chon:hasSANRecord      "Qxf3+" , "Qxc4" , "Qc6+" , "Qf6" , "Nc6" , "Nd6" , "Rf4" , "Nf6" , "f4" , "h4" , "f5" , "cxd5" , "d4" , "d5" , "Bb4" , "Bg6" , "a3" , "Qxc3" , "Na5" , "Qc5" , "dxc4" , "Nb5" , "Bf4" , "Bf5" , "f3" , "O-O-O" , "e3" , "O-O" , "g3" , "c4" , "gxf4" , "fxg3" , "Nc3" , "Nc4" , "Rd2" , "Ne4" , "Kd1" , "Nxg3" , "Qc2" , "Qc3" , "exf4" , "Qb3" , "Qb4" , "exd5" , "Bg3" , "a6" , "Bxc3+" , "Ne7" , "Qa2" , "Bf2" , "Ne2" , "Qd7" , "Kc1" , "Bxc4" , "e6" , "g5" ;
+        chon:nextHalfMove      :hmgamAQQ1YTE , :hmgamMQNexTG .
+
+:gamAQQ1Y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAQQ1YT ;
+        chon:atPlace           :plaAQQ1YT ;
+        chon:atTime            "2009.11.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAQQ1YTE ;
+        chon:hasHalfMove       :hmgamMQNexTG , :hmgamAQQ1YTE ;
+        chon:hasLastHalfMove   :hmgamMQNexTG ;
+        chon:hasOpening        :opeAQQ1YT ;
+        chon:hasReport         :cgrAQQ1YT ;
+        chon:hasResult         :resAQQ1YTE ;
+        chon:subEventOf        :touAQQ1Y .
+
+:rolhgMQNexTGX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAQQ1YT .
+
+:agAQQ1YT  a          chon:Agent ;
+        chon:hasName  "Anand,V" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAQQ1YT .
+
+:opeAQQ1YT  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:HalfMove  chon:subEventOf  :gamAQQ1Y .
+
+:resAQQ1YTE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAQQ1YT .
+
+:hmgamMQNexTG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMQNexTGX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand,V" ;
+        chon:hasSANRecord      "Rxf2" , "Kd1" , "Qc3+" , "b3" ;
+        chon:nextHalfMove      :hmgamMQNexTG .
+
+:touAQQ1Y  a          chon:hessTournament ;
+        chon:atPlace  :plaAQQ1YT ;
+        chon:hasName  "Rapid Match" .
+
+:rolhgAQQ1YTEK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAQQ1YT .
+
+:cgrAQQ1YT  a   chon:ChessGameReport .
+
+:rolAQQ1YT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAQQ1YT .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

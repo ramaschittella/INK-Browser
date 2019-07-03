@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plavupI96  a         chon:Place ;
+        chon:hasName  "Tallinn EST" .
+
+:resvupI96E  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrvupI96  a   chon:ChessGameReport .
+
+:hmgamGumYH5H  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgGumYH5H5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Balashov,Y" ;
+        chon:hasSANRecord      "Nfe5" , "Ndb2" , "Bb1" , "Qxd1" , "Bg6" , "g4" , "h4" , "f4" , "e4" , "Qc2" , "Kd4" , "Nd5" , "Na4" , "Ne8" , "Nd8" , "Rxd1+" , "Nc4" , "Ke7" , "Bb7" , "Kd7" , "b5" , "Nb7" , "Na7" , "Be2" , "Qxc4" , "Qe2" , "h3" , "f3" , "Qe5" , "Bd3" , "Bb3" , "Ke3" , "Kc7" , "Kc3" , "Ne4" , "Nd4" , "Qc4" , "h6" , "f6" , "Nc3" , "Na3" , "axb5" , "Rfd1" , "Bc6" , "Nf7" , "Ne7" , "b4" , "a4" , "Bxe4" , "Bxc4" , "Rd8" , "Nxe4" , "Be8" , "fxe5" , "Qd8" , "Kf2" , "Ba2" , "Nf3" , "Nd3" , "Qe4" , "h5" , "Qc7" , "e5" , "Rxd1" , "Bd1" , "Bd5" , "Nd6" , "Bxd3" , "Nc5" , "Kxd3" , "Ned6" , "Kf8" , "Rac8" , "b6" , "a6" , "Nc8" , "fxe5+" ;
+        chon:nextHalfMove      :hmgamGumYH5H .
+
+:agvupI96  a          chon:Agent ;
+        chon:hasName  "Balashov,Y" , "Karpov,Ana" .
+
+:rolvupI96  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvupI96 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvupI96 .
+
+:opevupI96  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+chon:HalfMove  chon:subEventOf  :gamvupI9 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvupI96 .
+
+:gamvupI9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvupI96 ;
+        chon:atPlace           :plavupI96 ;
+        chon:atTime            "2005.01.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvupI96E ;
+        chon:hasHalfMove       :hmgamGumYH5H , :hmgamvupI96E ;
+        chon:hasLastHalfMove   :hmgamGumYH5H ;
+        chon:hasOpening        :opevupI96 ;
+        chon:hasReport         :cgrvupI96 ;
+        chon:hasResult         :resvupI96E ;
+        chon:subEventOf        :touvupI9 .
+
+:touvupI9  a          chon:hessTournament ;
+        chon:atPlace  :plavupI96 ;
+        chon:hasName  "Keres Mem Rapid" .
+
+:rolhgvupI96ET  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvupI96 .
+
+:hmgamvupI96E  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvupI96ET ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Balashov,Y" ;
+        chon:hasSANRecord      "Bxc4" , "Nxd4" , "cxd4" , "c4" , "Nc6" , "Bd2" , "Rc1" , "Qe7" , "d5" , "e3" , "Nf6" , "d4" , "Bd7" , "Rd8" , "O-O" , "Bxd2+" , "Qxd2" , "Bb4+" , "Nf3" , "e6" , "c5" , "a3" , "dxc4" , "Qc2" , "Nc3" ;
+        chon:nextHalfMove      :hmgamGumYH5H , :hmgamvupI96E .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgGumYH5H5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvupI96 .

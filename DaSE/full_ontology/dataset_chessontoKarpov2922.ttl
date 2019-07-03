@@ -1,0 +1,68 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamtLBJ3FS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtLBJ3FSy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand,V" ;
+        chon:hasSANRecord      "Qxd4" .
+
+:gam3LqpG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3LqpGF ;
+        chon:atPlace           :pla3LqpGF ;
+        chon:atTime            "2007.04.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3LqpGFL ;
+        chon:hasHalfMove       :hmgamtLBJ3FS , :hmgam3LqpGFL ;
+        chon:hasLastHalfMove   :hmgamtLBJ3FS ;
+        chon:hasOpening        :ope3LqpGF ;
+        chon:hasReport         :cgr3LqpGF ;
+        chon:hasResult         :res3LqpGFL ;
+        chon:subEventOf        :tou3LqpG .
+
+:rolhgtLBJ3FSy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3LqpGF .
+
+:res3LqpGFL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3LqpGF .
+
+:ope3LqpGF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:rolhg3LqpGFL8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3LqpGF .
+
+chon:HalfMove  chon:subEventOf  :gam3LqpG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3LqpGF .
+
+:hmgam3LqpGFL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3LqpGFL8 , chon:AgentRole , :rolhgtLBJ3FSy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand,V" ;
+        chon:hasSANRecord      "Rb1" , "Bxf6" , "O-O" , "c4" , "bxc4" , "Nd2" , "Nf3" , "g6" , "Be7" , "Bg2" , "c6" , "Nf6" , "Nxe4" , "Re1" , "Qb2" , "Qc4" , "Bxg2" , "Bb4+" , "Rc1" , "Qxd4" , "Kg7" , "Red1" , "Qa4" , "b5" , "g3" , "Ne5" , "Ba6" , "dxe4" , "Bc3" , "Bb4" , "Kxg2" , "Bd5" , "Bd2" , "Rxd4" , "Rd8" , "Qxa2" , "Kg1" , "Bxf8" , "Nfd7" , "Qd5+" , "e4" , "d5" , "b3" , "Qxc6" , "Bxc4" , "b6" , "Nxf6+" , "d4" , "Nxd7" , "Kxf8" , "e6" ;
+        chon:nextHalfMove      :hmgam3LqpGFL , :hmgamtLBJ3FS .
+
+:tou3LqpG  a          chon:hessTournament ;
+        chon:atPlace  :pla3LqpGF ;
+        chon:hasName  "II Rapid" .
+
+:pla3LqpGF  a         chon:Place ;
+        chon:hasName  "Canada de Calatrava ESP" .
+
+:cgr3LqpGF  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag3LqpGF  a          chon:Agent ;
+        chon:hasName  "Anand,V" , "Karpov,Ana" .
+
+:rol3LqpGF  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3LqpGF .

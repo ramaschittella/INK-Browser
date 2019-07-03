@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgSb0JKMJU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSb0JKM .
+
+:agSb0JKM  a          chon:Agent ;
+        chon:hasName  "Bukic, Enver" , "Karpov, Anatoly" .
+
+:opeSb0JKM  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSb0JKM .
+
+chon:HalfMove  chon:subEventOf  :gamSb0JK .
+
+:hmgamSb0JKMJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSb0JKMJU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bukic, Enver" ;
+        chon:hasSANRecord      "Rxc5" , "Nxd5" , "Qg2" , "Rad1" , "Qh5" , "Rc8" , "Bc6" , "Ne8" , "Be7" , "e5" , "N1e2" , "exd5" , "Kf8" , "Nf3" , "Nb4" , "Be2" , "g3" , "Nf6" , "O-O" , "d4" , "Qg1" , "Nd5" , "h6" , "Rd2" , "Bg3" , "f5" , "Nd7" , "Qf3" , "Qf8" , "Nc1" , "Be6" , "Nxd4" , "c5" , "Nc6" , "Bxc5" , "Be4" , "Qb7" , "Bf2" , "d6" , "Rfd1" , "Qc4" , "Kh2" , "cxd4" , "Kg8" , "Bg5" , "Bb7" , "a4" , "Rcc8" , "Bg2" , "Nb3" , "f4" , "e4" , "Qc7" , "Rc1" , "Rc6" , "Qf2" , "a6" , "Qe2" , "Qe7" , "Kh1" , "Nc3" , "Bf6" , "Bd7" , "b3" , "h4" , "g4" , "b6" , "Kh7" , "Bh4" , "Rf1" , "Nc5" , "Qe1" , "Rfd8" , "Bf3" , "Be3" ;
+        chon:nextHalfMove      :hmgamSb0JKMJ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSb0JKM .
+
+:plaSb0JKM  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+:gamSb0JK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSb0JKM ;
+        chon:atPlace           :plaSb0JKM ;
+        chon:atTime            "1978.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSb0JKMJ ;
+        chon:hasHalfMove       :hmgamSb0JKMJ ;
+        chon:hasLastHalfMove   :hmgamSb0JKMJ ;
+        chon:hasOpening        :opeSb0JKM ;
+        chon:hasReport         :cgrSb0JKM ;
+        chon:hasResult         :resSb0JKMJ ;
+        chon:subEventOf        :touSb0JK .
+
+:cgrSb0JKM  a   chon:ChessGameReport .
+
+:touSb0JK  a          chon:hessTournament ;
+        chon:atPlace  :plaSb0JKM ;
+        chon:hasName  "Bugojno" .
+
+:resSb0JKMJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolSb0JKM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSb0JKM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

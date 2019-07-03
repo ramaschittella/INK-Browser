@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opexIVpVV  a            chon:ChessOpening ;
+        chon:hasECOCode  "B25" .
+
+:gamxIVpV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxIVpVV ;
+        chon:atPlace           :plaxIVpVV ;
+        chon:atTime            "1963.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxIVpVVx ;
+        chon:hasHalfMove       :hmgamxIVpVVx ;
+        chon:hasLastHalfMove   :hmgamxIVpVVx ;
+        chon:hasOpening        :opexIVpVV ;
+        chon:hasReport         :cgrxIVpVV ;
+        chon:hasResult         :resxIVpVVx ;
+        chon:subEventOf        :touxIVpV .
+
+:touxIVpV  a          chon:hessTournament ;
+        chon:atPlace  :plaxIVpVV ;
+        chon:hasName  "Bay City" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxIVpVV .
+
+chon:HalfMove  chon:subEventOf  :gamxIVpV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxIVpVV .
+
+:plaxIVpVV  a         chon:Place ;
+        chon:hasName  "Bay City" .
+
+:hmgamxIVpVVx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxIVpVVxD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nc6" , "a3" , "Bg5" , "Nf6" , "Ba6" , "Qe3" , "Nxe4" , "Re1" , "e4" , "Bd4" , "dxe5" , "O-O" , "h3" , "Rxf2" , "exd4" , "Be3" , "Bg2" , "Nd4" , "Rdc8" , "Bg7" , "axb4" , "Qc1" , "e5" , "Nc3" , "d6" , "c5" , "Qb6" , "Bxc5" , "Kh2" , "Qg4" , "Nxd4" , "b5" , "b4" , "Qa5" , "Rb8" , "Rxc2" , "Nf3" , "g6" , "d3" , "d2" , "Qf3" , "Rfd8" , "Ne4" , "g3" , "dxe4" ;
+        chon:nextHalfMove      :hmgamxIVpVVx .
+
+:cgrxIVpVV  a   chon:ChessGameReport .
+
+:agxIVpVV  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Reinhard, A." .
+
+:rolxIVpVV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxIVpVV .
+
+:rolhgxIVpVVxD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxIVpVV .
+
+:resxIVpVVx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

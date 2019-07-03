@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamReJtBTt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgReJtBTtq , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Valgardsson, Gudjon Heidar" ;
+        chon:hasSANRecord      "Rxb4" , "Nge7" , "Nc3" , "Nxb4" , "g6" , "Rb1" , "Be8" , "Nb5" , "h6" , "Ra1" , "Bg2" , "Bd7" , "Qa5" , "d6" , "a3" , "Bxb5" , "Bg7" , "Nc6" , "cxb4" , "Nf3" , "e4" , "b4" , "Bxb4" , "Rbb1" , "d3" , "c4" , "e6" , "Qxd2" , "axb4" , "O-O" , "cxb5" , "Qd2" , "Bd2" , "a5" , "g3" , "c5" ;
+        chon:nextHalfMove      :hmgamReJtBTt .
+
+:agVj3kRV  a          chon:Agent ;
+        chon:hasName  "Valgardsson, Gudjon Heidar" , "Karpov, Anatoly" .
+
+:rolhgReJtBTtq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVj3kRV .
+
+:opeVj3kRV  a            chon:ChessOpening ;
+        chon:hasECOCode  "A37" .
+
+:resVj3kRVd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "*" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVj3kRV .
+
+chon:HalfMove  chon:subEventOf  :gamVj3kR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVj3kRV .
+
+:cgrReJtBT  a   chon:ChessGameReport .
+
+:rolVj3kRV  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamVj3kR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVj3kRV ;
+        chon:atPlace           :plaVj3kRV ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamReJtBTt ;
+        chon:hasHalfMove       :hmgamReJtBTt ;
+        chon:hasLastHalfMove   :hmgamReJtBTt ;
+        chon:hasOpening        :opeVj3kRV ;
+        chon:hasReport         :cgrReJtBT ;
+        chon:hasResult         :resVj3kRVd ;
+        chon:subEventOf        :touVj3kR .
+
+:touVj3kR  a          chon:hessTournament ;
+        chon:atPlace  :plaVj3kRV ;
+        chon:hasName  "EE Internet sim" .
+
+:rolReJtBT  a             chon:AuthorRole ;
+        chon:performedBy  :agReJtBT .
+
+:plaVj3kRV  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

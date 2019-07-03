@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamns50XJQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgns50XJQI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Wilkerson, Max" ;
+        chon:hasSANRecord      "Qd4" , "Nxc6" , "f5" , "Re1+" , "Qxd7" , "cxd4" , "d4" , "Nc3" , "Nxd4" , "d5" , "e4" , "Ne6" , "Bb5+" , "bxc6" , "exd6" , "Qxh8" , "Nc5" , "c5" , "Bd7" , "Bc4" , "Nf3" , "Nf6" , "Qf6" , "Nd7" , "Nc6" , "cxd5" , "g6" , "Nxd5" , "O-O" , "e5" , "Bxd7+" , "d6" ;
+        chon:nextHalfMove      :hmgamns50XJQ .
+
+:rolns50XJ  a             chon:AuthorRole ;
+        chon:performedBy  :agns50XJ .
+
+:tourun1d  a          chon:hessTournament ;
+        chon:atPlace  :plarun1dM ;
+        chon:hasName  "Davis sim" .
+
+:plarun1dM  a         chon:Place ;
+        chon:hasName  "Davis" .
+
+:resrun1dMz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgns50XJQI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrun1dM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrun1dM .
+
+:cgrrun1dM  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamrun1d .
+
+:agrun1dM  a          chon:Agent ;
+        chon:hasName  "Wilkerson, Max" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrun1dM .
+
+:rolrun1dM  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:operun1dM  a            chon:ChessOpening ;
+        chon:hasECOCode  "B57" .
+
+:gamrun1d  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrun1dM ;
+        chon:atPlace           :plarun1dM ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamns50XJQ ;
+        chon:hasHalfMove       :hmgamns50XJQ ;
+        chon:hasLastHalfMove   :hmgamns50XJQ ;
+        chon:hasOpening        :operun1dM ;
+        chon:hasReport         :cgrrun1dM ;
+        chon:hasResult         :resrun1dMz ;
+        chon:subEventOf        :tourun1d .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

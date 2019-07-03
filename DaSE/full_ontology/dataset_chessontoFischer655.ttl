@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touaca2A  a          chon:hessTournament ;
+        chon:atPlace  :plaaca2AP ;
+        chon:hasName  "Buenos Aires" .
+
+:resaca2AP9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgraca2AP  a   chon:ChessGameReport .
+
+:rolaca2AP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaca2AP .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaca2AP .
+
+chon:HalfMove  chon:subEventOf  :gamaca2A .
+
+:plaaca2AP  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:hmgamlc6f8Od  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhglc6f8Od9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rubinetti, Jorge A" ;
+        chon:hasSANRecord      "Rxf4" , "f4" , "Rh4" , "Bd6" , "Nd2" , "Ke2" , "a3" , "Ne7" , "O-O-O" , "Na5" , "Rxd1" , "Ke8" , "Rxd3" , "Nb3" , "Rxh2" , "Bxf4" , "Kd8" , "Nc6+" , "Rxg7" , "fxe5" , "Rd3" , "Nf4+" , "e5" , "exf4" , "Nc4" , "Bb4" , "Ng6" , "c5" , "Rxc7" , "Kf1" , "b5" , "gxf3" , "Bf8" , "cxd3" , "Bxf3" , "Rg1" , "Be3" , "d4" , "Rf8" ;
+        chon:nextHalfMove      :hmgamlc6f8Od .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaca2AP .
+
+:agaca2AP  a          chon:Agent ;
+        chon:hasName  "Rubinetti, Jorge A" , "Fischer, Robert James" .
+
+:rolhgaca2AP9V  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaca2AP .
+
+:opeaca2AP  a            chon:ChessOpening ;
+        chon:hasECOCode  "C69" .
+
+:hmgamaca2AP9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgaca2AP9V , :rolhglc6f8Od9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rubinetti, Jorge A" ;
+        chon:hasSANRecord      "f6" , "Nf3" , "Bxc6" , "e5" , "Bb5" , "d4" , "dxe5" , "Qxd1" , "Nc6" , "e4" , "O-O" , "dxc6" , "a6" , "Bg4" ;
+        chon:nextHalfMove      :hmgamlc6f8Od , :hmgamaca2AP9 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamaca2A  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaca2AP ;
+        chon:atPlace           :plaaca2AP ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamaca2AP9 ;
+        chon:hasHalfMove       :hmgamlc6f8Od , :hmgamaca2AP9 ;
+        chon:hasLastHalfMove   :hmgamlc6f8Od ;
+        chon:hasOpening        :opeaca2AP ;
+        chon:hasReport         :cgraca2AP ;
+        chon:hasResult         :resaca2AP9 ;
+        chon:subEventOf        :touaca2A .
+
+:rolhglc6f8Od9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaca2AP .

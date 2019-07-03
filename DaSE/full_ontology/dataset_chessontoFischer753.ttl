@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgri92XiM  a   chon:ChessGameReport .
+
+:resi92XiMG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agi92XiM  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Larsen, Bent" .
+
+:roli92XiM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agi92XiM .
+
+:opei92XiM  a            chon:ChessOpening ;
+        chon:hasECOCode  "B21" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi92XiM .
+
+:gami92Xi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roli92XiM ;
+        chon:atPlace           :plai92XiM ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgami92XiMG ;
+        chon:hasHalfMove       :hmgami92XiMG ;
+        chon:hasLastHalfMove   :hmgami92XiMG ;
+        chon:hasOpening        :opei92XiM ;
+        chon:hasReport         :cgri92XiM ;
+        chon:hasResult         :resi92XiMG ;
+        chon:subEventOf        :toui92Xi .
+
+:toui92Xi  a          chon:hessTournament ;
+        chon:atPlace  :plai92XiM ;
+        chon:hasName  "Candidats sf1" .
+
+chon:HalfMove  chon:subEventOf  :gami92Xi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi92XiM .
+
+:rolhgi92XiMG9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi92XiM .
+
+:hmgami92XiMG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgi92XiMG9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bf8" , "Nd4" , "Rb8" , "g6" , "Na3" , "Na5" , "fxe5" , "d4" , "d6" , "Rd8" , "Bd7" , "Nf3" , "Rad1" , "f4" , "Qf4" , "Qf6" , "hxg4" , "f5" , "Nc6" , "h5" , "Nge7" , "Bg5" , "Bg7" , "c3" , "c5" , "dxe5" , "Bxf6" , "Be2" , "e4" , "e6" , "Nxe5" , "Bf6" , "b4" , "Qxc3" , "b5" , "Nxc6" , "Rb7" , "Qd2" , "h4" , "gxh5" , "Qh6" , "d3" , "Kh1" , "Bxg4" , "Rd5" , "O-O" , "Rf4" , "cxd4" , "Nc2" , "Qc7" , "Rf7" , "Bc8" , "Ng4" , "Nxd4" , "Be3" , "e5" , "Rff1" , "a3" , "Qxf6" , "a6" ;
+        chon:nextHalfMove      :hmgami92XiMG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plai92XiM  a         chon:Place ;
+        chon:hasName  "Denver" .

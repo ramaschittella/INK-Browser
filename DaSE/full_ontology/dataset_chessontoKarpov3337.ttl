@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgZeiW4ygL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4hBNhA .
+
+:pla4hBNhA  a         chon:Place ;
+        chon:hasName  "Groningen NED" .
+
+:rol4hBNhA  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4hBNhA .
+
+:gam4hBNh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4hBNhA ;
+        chon:atPlace           :pla4hBNhA ;
+        chon:atTime            "2013.12.27"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZeiW4yg ;
+        chon:hasHalfMove       :hmgamZeiW4yg ;
+        chon:hasLastHalfMove   :hmgamZeiW4yg ;
+        chon:hasOpening        :ope4hBNhA ;
+        chon:hasReport         :cgrZeiW4y ;
+        chon:hasResult         :res4hBNhAZ ;
+        chon:subEventOf        :tou4hBNh .
+
+:tou4hBNh  a          chon:hessTournament ;
+        chon:atPlace  :pla4hBNhA ;
+        chon:hasName  "Karpov-Timman Match 2013" .
+
+chon:HalfMove  chon:subEventOf  :gam4hBNh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4hBNhA .
+
+:cgrZeiW4y  a   chon:ChessGameReport .
+
+:rolZeiW4y  a             chon:AuthorRole ;
+        chon:performedBy  :agZeiW4y .
+
+:hmgamZeiW4yg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZeiW4ygL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman,J" ;
+        chon:hasSANRecord      "Nc3" , "a6" , "Qxe6" , "Na4" , "Rd8" , "Qg4+" , "Ng5" , "Qf4" , "Nf3" , "Qxc5" , "c4" , "Bxe4" , "Bxd2+" , "b5" , "Rfd1" , "axb5" , "Nd7" , "g3" , "Nc7" , "b4" , "Qg6+" , "Nb5" , "exd5" , "Rd4" , "dxc5" , "Bxf3" , "Rxe6" , "Qg4" , "Rcd1" , "Rac1" , "Qh5+" , "Qe7" , "c6" , "Re4" , "d4" , "Bb4+" , "Rb1" , "Qd1" , "Rad8" , "e6" , "Re8" , "Re6" , "Qxh4" , "Kg2" , "Nc5" , "O-O" , "d5" , "Bg4" , "h6" , "Qh3+" , "Rxe4" , "h4" , "e3" , "Na7" , "Kf1" , "Nc6" , "cxd5" , "Qe6+" , "Qh6" , "Kh7" , "Qxf3" , "Ke2" , "Rfe8" , "Kg8" , "Nxc5" , "Rb8+" , "Rde8" , "Qe5" , "Ne6" , "Qf5" , "f5" , "Nf6" , "f4" , "Qb2" , "Qe2" , "h5" , "Qf6" , "h3" , "Qxe4" , "a4" , "bxc6" , "Bg2" , "Rd6" , "Qc2" , "Bd2" , "Qxd2" , "Qg6" , "Ne4" , "gxf4" ;
+        chon:nextHalfMove      :hmgamZeiW4yg .
+
+:ag4hBNhA  a          chon:Agent ;
+        chon:hasName  "Timman,J" , "Karpov,Ana" .
+
+:res4hBNhAZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ope4hBNhA  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res0uNJqSv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ope0uNJqS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B85" .
+
+:plaYwTvRT  a         chon:Place ;
+        chon:hasName  "Hannover" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYwTvRT .
+
+chon:HalfMove  chon:subEventOf  :gamYwTvR .
+
+:agYwTvRT  a          chon:Agent ;
+        chon:hasName  "Quinteros, Miguel A" , "Karpov, Anatoly" .
+
+:rolYwTvRT  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYwTvRT .
+
+:cgr0uNJqS  a   chon:ChessGameReport .
+
+:rolhg0uNJqSvQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYwTvRT .
+
+:hmgam0uNJqSv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0uNJqSvQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Quinteros, Miguel A" ;
+        chon:hasSANRecord      "Qxc4" , "a4" , "Be7" , "d4" , "Be3" , "c5" , "O-O" , "f4" , "Nb3" , "Nf3" , "Nf6" , "Kh8" , "d5" , "Ne6" , "a5" , "Bg1" , "e4" , "Nc3" , "Kg8" , "Qd5" , "Kh1" , "Qd1" , "Bxf6" , "Ne3" , "cxd4" , "Bb5" , "e5" , "Nb4" , "Qc7" , "Bc6" , "d6" , "e6" , "a6" , "Qd2" , "Nxc4" , "f5" , "Nxd4" , "Be2" , "Re8" , "Nxe4" , "Ne4" , "Bb6" , "Bxd4" , "Qf6" , "Qe2" , "Bd7" , "Nc6" , "Bxf1" , "Ng5+" , "dxe4" , "Bd4" , "exf6" , "Qf7" , "Nf7+" , "Bc4" , "Nd5" ;
+        chon:nextHalfMove      :hmgam0uNJqSv .
+
+:rol0uNJqS  a             chon:AuthorRole ;
+        chon:performedBy  :ag0uNJqS .
+
+:gamYwTvR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYwTvRT ;
+        chon:atPlace           :plaYwTvRT ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0uNJqSv ;
+        chon:hasHalfMove       :hmgam0uNJqSv ;
+        chon:hasLastHalfMove   :hmgam0uNJqSv ;
+        chon:hasOpening        :ope0uNJqS ;
+        chon:hasReport         :cgr0uNJqS ;
+        chon:hasResult         :res0uNJqSv ;
+        chon:subEventOf        :touYwTvR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touYwTvR  a          chon:hessTournament ;
+        chon:atPlace  :plaYwTvRT ;
+        chon:hasName  "Hannover" .

@@ -1,0 +1,62 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgAZNemgxo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXXHFsh .
+
+:plaXXHFsh  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrXXHFsh  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXXHFsh .
+
+:resXXHFshF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamXXHFs .
+
+:agXXHFsh  a          chon:Agent ;
+        chon:hasName  "Gheorghiu, Florin" , "Karpov, Anatoly" .
+
+:rolXXHFsh  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXXHFsh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXXHFsh .
+
+:hmgamoZT1Phu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoZT1Phub , chon:AgentRole , :rolhgAZNemgxo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gheorghiu, Florin" ;
+        chon:hasSANRecord      "d6" , "Nxd4" , "a5" , "h6" , "e5" , "Rf2" , "Nbd7" , "Bxf6" , "Rd2" , "Nf6" , "a6" , "Nf3" , "Nxf6" , "Bg5" , "Rfc8" , "Be6" , "a4" , "Qc7" , "Nc3" , "Be2" , "O-O" , "e4" , "f4" , "Bxc4" , "Ra4" , "Nb3" , "Qxc4" , "Be7" , "b5" , "c5" , "d4" , "f5" , "Bc4" , "cxd4" ;
+        chon:nextHalfMove      :hmgamoZT1Phu .
+
+:rolhgoZT1Phub  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXXHFsh .
+
+:gamXXHFs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXXHFsh ;
+        chon:atPlace           :plaXXHFsh ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoZT1Phu ;
+        chon:hasHalfMove       :hmgamoZT1Phu ;
+        chon:hasLastHalfMove   :hmgamoZT1Phu ;
+        chon:hasOpening        :opeXXHFsh ;
+        chon:hasReport         :cgrXXHFsh ;
+        chon:hasResult         :resXXHFshF ;
+        chon:subEventOf        :touXXHFs .
+
+:opeXXHFsh  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+:touXXHFs  a          chon:hessTournament ;
+        chon:atPlace  :plaXXHFsh ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgj0bFIRNr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag90ep0Q .
+
+:pla90ep0Q  a         chon:Place ;
+        chon:hasName  "Sevilla" .
+
+:cgr90ep0Q  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag90ep0Q .
+
+:hmgamj0bFIRN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgj0bFIRNr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rfb1" , "Ba3" , "Nc3" , "Qa4" , "c6" , "f5" , "Qa5" , "bxc6" , "Bxa5" , "Qc7" , "Nf3" , "Nd8" , "Rb3" , "Qa6" , "Ne6" , "Be6" , "O-O" , "Nd2" , "e3" , "Kf7" , "Bb4" , "Ne7" , "Bc8" , "Na4" , "Rxb3" , "Bc3" , "axb3" , "Rc8" , "Nf7" , "Qxa5" , "Rb8" , "Nd5" , "Rfb8" , "h6" ;
+        chon:nextHalfMove      :hmgamj0bFIRN .
+
+chon:HalfMove  chon:subEventOf  :gam90ep0 .
+
+:ag90ep0Q  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rol90ep0Q  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag90ep0Q .
+
+:ope90ep0Q  a            chon:ChessOpening ;
+        chon:hasECOCode  "A25" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag90ep0Q .
+
+:gam90ep0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol90ep0Q ;
+        chon:atPlace           :pla90ep0Q ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam90ep0QI ;
+        chon:hasHalfMove       :hmgam90ep0QI , :hmgamj0bFIRN ;
+        chon:hasLastHalfMove   :hmgamj0bFIRN ;
+        chon:hasOpening        :ope90ep0Q ;
+        chon:hasReport         :cgr90ep0Q ;
+        chon:hasResult         :res90ep0QI ;
+        chon:subEventOf        :tou90ep0 .
+
+:hmgam90ep0QI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg90ep0QIg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qd7" , "g6" , "g3" , "d6" , "Rb1" , "b5" , "e5" , "Bg2" , "b4" , "Nc6" , "d3" , "Bf5" , "c4" , "Nd8" , "Nc3" , "Bg7" ;
+        chon:nextHalfMove      :hmgam90ep0QI , :hmgamj0bFIRN .
+
+:tou90ep0  a          chon:hessTournament ;
+        chon:atPlace  :pla90ep0Q ;
+        chon:hasName  "World Championship 34th-KK4" .
+
+:rolhg90ep0QIg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag90ep0Q .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res90ep0QI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgLaURJNso  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQedIZP .
+
+:cgrQedIZP  a   chon:ChessGameReport .
+
+:agQedIZP  a          chon:Agent ;
+        chon:hasName  "Sadler, Matthew" , "Karpov, Anatoly" .
+
+:rolQedIZP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQedIZP .
+
+:resQedIZPc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQedIZP .
+
+:gamQedIZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQedIZP ;
+        chon:atPlace           :plaQedIZP ;
+        chon:atTime            "1998.03.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLaURJNs ;
+        chon:hasHalfMove       :hmgamLaURJNs ;
+        chon:hasLastHalfMove   :hmgamLaURJNs ;
+        chon:hasOpening        :opeQedIZP ;
+        chon:hasReport         :cgrQedIZP ;
+        chon:hasResult         :resQedIZPc ;
+        chon:subEventOf        :touQedIZ .
+
+chon:HalfMove  chon:subEventOf  :gamQedIZ .
+
+:touQedIZ  a          chon:hessTournament ;
+        chon:atPlace  :plaQedIZP ;
+        chon:hasName  "Amber-blind 7th" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQedIZP .
+
+:hmgamLaURJNs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLaURJNso ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sadler, Matthew" ;
+        chon:hasSANRecord      "Kb8" , "e5" , "O-O" , "d4" , "Bf5" , "Qd3" , "g5" , "Nf3" , "Bg2" , "d5" , "Be4" , "f3" , "e4" , "O-O-O" , "Bg6" , "g3" , "f4" , "Nc6" , "Nxg6" , "exd3" , "fxg5" , "c3" , "Nh4" , "Qd6" , "hxg6" , "Rxf7" ;
+        chon:nextHalfMove      :hmgamLaURJNs .
+
+:opeQedIZP  a            chon:ChessOpening ;
+        chon:hasECOCode  "D02" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaQedIZP  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .

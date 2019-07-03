@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamNPIq3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNPIq3D ;
+        chon:atPlace           :plaNPIq3D ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfRSIpEb ;
+        chon:hasHalfMove       :hmgamfRSIpEb ;
+        chon:hasLastHalfMove   :hmgamfRSIpEb ;
+        chon:hasOpening        :opefRSIpE ;
+        chon:hasReport         :cgrfRSIpE ;
+        chon:hasResult         :resfRSIpEb ;
+        chon:subEventOf        :touNPIq3 .
+
+:hmgamfRSIpEb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfRSIpEbm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bxc4+" , "Bxh3" , "Rdh8" , "Ne6" , "Ne5" , "Rad8" , "Bg2" , "Rh8" , "Bf4" , "f5" , "f4" , "g3" , "Rxh3+" , "Kf2" , "Nxa4" , "Nxe6" , "exd4" , "Qxh6" , "Bf1" , "Nf3" , "Qxh3+" , "e4" , "c6" , "c5" , "f6" , "a5" , "Qh2+" , "O-O" , "Kg3" , "Kg2" , "Kg7" , "Nc3" , "Nxe1+" , "c4" , "Kf3" , "Nxd4" , "Qd4" , "Nf6" , "Nf3+" , "d6" , "Qe7" , "Qd2" , "h3" , "Ke2" , "Re1" , "Nc5" , "Rh4" , "d4" , "exf5" , "g4" , "Bxe6" , "Bg7" , "Nfd7" , "Bxh6" , "Rxe1" , "h6" , "Re8" , "Qh4+" , "Qf6" , "Bg5" , "g6" , "Rd1" , "e5" , "Qd3" , "a4" , "Nbd7" , "a3" ;
+        chon:nextHalfMove      :hmgamfRSIpEb .
+
+:rolhgfRSIpEbm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfRSIpE , :agNPIq3D .
+
+:plaNPIq3D  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNPIq3D .
+
+chon:HalfMove  chon:subEventOf  :gamNPIq3 .
+
+:cgrfRSIpE  a   chon:ChessGameReport .
+
+:resfRSIpEb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agNPIq3D  a          chon:Agent ;
+        chon:hasName  "Ivkov, Borislav" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfRSIpE .
+
+:rolNPIq3D  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolfRSIpE  a             chon:AuthorRole ;
+        chon:performedBy  :agfRSIpE .
+
+:touNPIq3  a          chon:hessTournament ;
+        chon:atPlace  :plaNPIq3D ;
+        chon:hasName  "Herceg Novi blitz" .
+
+:agfRSIpE  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opefRSIpE  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .

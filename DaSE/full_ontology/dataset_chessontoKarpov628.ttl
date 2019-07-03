@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gami25wF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roli25wFG ;
+        chon:atPlace           :plai25wFG ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgami25wFGm ;
+        chon:hasHalfMove       :hmgami25wFGm ;
+        chon:hasLastHalfMove   :hmgami25wFGm ;
+        chon:hasOpening        :opei25wFG ;
+        chon:hasReport         :cgri25wFG ;
+        chon:hasResult         :resi25wFGm ;
+        chon:subEventOf        :toui25wF .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi25wFG .
+
+:hmgami25wFGm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgi25wFGmt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a3" , "Nxd5" , "Qxe2" , "Qb1+" , "e5" , "cxd5" , "Be3" , "Nc3" , "Qa2" , "Qxc3" , "Qd2" , "h6" , "Bd2" , "c4" , "Ne6" , "Re2" , "a5" , "Qxd4" , "Rc3" , "Nd4" , "Rxg2+" , "Nxd4" , "Qxf7" , "O-O" , "Qf1" , "Bb4" , "f3" , "Rc1" , "Rxc4" , "d4" , "e4" , "Kh7" , "Be2" , "c5" , "Qe7" , "Bf5" , "Bd1" , "d5" , "Rg6" , "Qc2" , "Bxc3" , "Re1" , "Qb2" , "bxc4" , "Rc2" , "Rxc8" , "Nc7" , "b3" , "Qd5" , "Qa6" , "Rac8" , "Bxe2" , "e3" , "Nf6" , "Nf3" , "Nb3" , "Kf1" , "Bd3" , "Qa8+" , "Rfd8" , "Nd5" , "b5" , "Nc6" , "exd4" , "Qxa3" ;
+        chon:nextHalfMove      :hmgami25wFGm .
+
+:opei25wFG  a            chon:ChessOpening ;
+        chon:hasECOCode  "A28" .
+
+chon:HalfMove  chon:subEventOf  :gami25wF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi25wFG .
+
+:toui25wF  a          chon:hessTournament ;
+        chon:atPlace  :plai25wFG ;
+        chon:hasName  "Malta ol (Men)" .
+
+:resi25wFGm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plai25wFG  a         chon:Place ;
+        chon:hasName  "La Valetta" .
+
+:cgri25wFG  a   chon:ChessGameReport .
+
+:rolhgi25wFGmt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi25wFG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agi25wFG  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Olafsson, Fridrik" .
+
+:roli25wFG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agi25wFG .

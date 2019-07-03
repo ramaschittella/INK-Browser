@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agzGF3Y5  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Smyslov, Vassily" .
+
+:rolzGF3Y5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzGF3Y5 .
+
+:opezGF3Y5  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:rolhgzGF3Y5la  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzGF3Y5 .
+
+:rolhgvSmbI4B9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzGF3Y5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzGF3Y5 .
+
+:hmgamzGF3Y5l  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzGF3Y5la , :rolhgvSmbI4B9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a6" , "Nc6" , "Ba4" , "Bb5" , "e4" , "Nf6" , "Nf3" , "e5" ;
+        chon:nextHalfMove      :hmgamzGF3Y5l , :hmgamvSmbI4B .
+
+:hmgamvSmbI4B  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvSmbI4B9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "h3" , "c3" , "d4" , "Re8" , "Bb7" , "Ng5" , "Be7" , "b5" , "O-O" , "Re1" , "Nf3" , "Bb3" , "Rf8" , "d6" ;
+        chon:nextHalfMove      :hmgamvSmbI4B .
+
+chon:HalfMove  chon:subEventOf  :gamzGF3Y .
+
+:gamzGF3Y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzGF3Y5 ;
+        chon:atPlace           :plazGF3Y5 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzGF3Y5l ;
+        chon:hasHalfMove       :hmgamzGF3Y5l , :hmgamvSmbI4B ;
+        chon:hasLastHalfMove   :hmgamvSmbI4B ;
+        chon:hasOpening        :opezGF3Y5 ;
+        chon:hasReport         :cgrzGF3Y5 ;
+        chon:hasResult         :reszGF3Y5l ;
+        chon:subEventOf        :touzGF3Y .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzGF3Y5 .
+
+:reszGF3Y5l  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plazGF3Y5  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:touzGF3Y  a          chon:hessTournament ;
+        chon:atPlace  :plazGF3Y5 ;
+        chon:hasName  "URS-ch55" .
+
+:cgrzGF3Y5  a   chon:ChessGameReport .

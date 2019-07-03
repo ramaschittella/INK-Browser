@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrAYAmUK  a   chon:ChessGameReport .
+
+:resAYAmUKM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgAYAmUKMU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAYAmUK .
+
+:rolAYAmUK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAYAmUK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAYAmUK .
+
+:hmgamAYAmUKM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAYAmUKMU , :rolhgLWxArJQ7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mednis, Edmar John" ;
+        chon:hasSANRecord      "e5" , "Qb7" , "Na7" , "Ra8" , "a3" , "h4" , "Qb1" , "Ra2" , "Rc1" , "Qxb5" , "d5" , "exf6" , "Rfc8" , "Bb5+" , "Ne2" , "Bb4" , "Nxf6" , "Qa6" , "Ra6" , "Qxa7" , "e6" , "axb5" , "a4" , "Qc1" , "Ndb8" , "Qb2" , "c5" , "Kg2" , "b6" , "Nd7" , "Qd3" , "Nf8" , "c4" , "Qb5" , "Na5" , "Kh7" , "Qc7" , "Nc6" , "Ne3" , "Nf1" , "O-O" , "Rb2" , "Ng3" , "Ra7" , "Nc3" , "h3" , "g4" , "Bxc3+" , "h6" , "Ne7" , "Qa4" , "Na3" , "Rxa7" , "Bd2" , "Qf1" , "d4" , "Ra4" , "Rca1" , "f3" , "e4" , "Nb5" , "Qd7" , "f6" , "Bxb5" , "Nf3" , "Qa5" , "Ng1" , "Bd7" , "bxc3" , "Kh2" ;
+        chon:nextHalfMove      :hmgamAYAmUKM , :hmgamLWxArJQ .
+
+chon:HalfMove  chon:subEventOf  :gamAYAmU .
+
+:rolhgLWxArJQ7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAYAmUK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAYAmUK .
+
+:agAYAmUK  a          chon:Agent ;
+        chon:hasName  "Mednis, Edmar John" , "Karpov, Anatoly" .
+
+:hmgamLWxArJQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLWxArJQ7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mednis, Edmar John" ;
+        chon:hasSANRecord      "Nf6" , "Nf4" , "Kd2" , "Nxc2+" , "Bf4" , "Kf8" , "Nd6" , "Be1" , "Kf2" , "Nd1" , "hxg5" , "g5" , "Qa4" , "Qxg5" , "Nxe6+" , "Kd1" , "Qg6+" , "Nb5" , "Kf7" , "Qb2" , "Nxg7" , "Ke2" , "Ne2" , "Na3" , "Nf8" , "Bg3" , "Qc1" , "Ne3" , "Ng2" , "Nd7" , "Ke7" , "Kg8" , "h5" , "Ke1" , "Qa5" , "Bh4" ;
+        chon:nextHalfMove      :hmgamLWxArJQ .
+
+:opeAYAmUK  a            chon:ChessOpening ;
+        chon:hasECOCode  "C19" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamAYAmU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAYAmUK ;
+        chon:atPlace           :plaAYAmUK ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAYAmUKM ;
+        chon:hasHalfMove       :hmgamLWxArJQ , :hmgamAYAmUKM ;
+        chon:hasLastHalfMove   :hmgamLWxArJQ ;
+        chon:hasOpening        :opeAYAmUK ;
+        chon:hasReport         :cgrAYAmUK ;
+        chon:hasResult         :resAYAmUKM ;
+        chon:subEventOf        :touAYAmU .
+
+:plaAYAmUK  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:touAYAmU  a          chon:hessTournament ;
+        chon:atPlace  :plaAYAmUK ;
+        chon:hasName  "Vienna op" .

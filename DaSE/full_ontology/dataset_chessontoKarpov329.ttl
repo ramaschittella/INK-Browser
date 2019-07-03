@@ -1,0 +1,77 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg1w0PTODS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1w0PTO .
+
+:hmgamaKJSEVe  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgaKJSEVex ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Westerinen, Heikki MJ" ;
+        chon:hasSANRecord      "Qxd7" , "Qa1" , "c5" , "b5" , "Qa4" , "Nb7" , "Rxa7" , "Bc8" , "Bc2" , "Nf5" , "Qc7" , "Nc4" , "cxb4" , "Qa6" , "bxa7" , "Nd7" , "b4" , "a4" , "Bf8" , "Bxa4" , "bxa4" , "h3" , "Nb6" , "d5" , "Nh7" , "Ra8" , "b3" , "axb4" , "Be7" , "b6" , "Na5" , "Qc2" , "Bc6" , "Ne3" , "Reb8" , "Nf6" , "Nd8" , "Ra7" , "Qd8" , "a5" , "Bxd7" ;
+        chon:nextHalfMove      :hmgamaKJSEVe .
+
+:ope1w0PTO  a            chon:ChessOpening ;
+        chon:hasECOCode  "C87" .
+
+:cgr1w0PTO  a   chon:ChessGameReport .
+
+:gamOweBk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1w0PTO ;
+        chon:atPlace           :plaOweBkP ;
+        chon:atTime            "1974.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1w0PTOD ;
+        chon:hasHalfMove       :hmgam1w0PTOD , :hmgamaKJSEVe , :hmgamYKME6Wb ;
+        chon:hasLastHalfMove   :hmgamaKJSEVe ;
+        chon:hasOpening        :ope1w0PTO ;
+        chon:hasReport         :cgr1w0PTO ;
+        chon:hasResult         :res1w0PTOD ;
+        chon:subEventOf        :tou1w0PT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1w0PTO .
+
+:res1w0PTOD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgYKME6Wbk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1w0PTO .
+
+chon:HalfMove  chon:subEventOf  :gamOweBk .
+
+:tou1w0PT  a          chon:hessTournament ;
+        chon:atPlace  :plaOweBkP ;
+        chon:hasName  "Nice olm fin-A" .
+
+:hmgamYKME6Wb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgaKJSEVex , chon:AgentRole ;
+        chon:hasSANRecord      "Bd2" ;
+        chon:nextHalfMove      :hmgamaKJSEVe .
+
+:rolhgaKJSEVex  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1w0PTO .
+
+:rol1w0PTO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1w0PTO .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam1w0PTOD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1w0PTODS , :rolhgYKME6Wbk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Westerinen, Heikki MJ" ;
+        chon:hasSANRecord      "e5" , "O-O" , "Bf8" , "Be7" , "Nc6" , "Bb5" , "Nbd2" , "Ng3" , "e4" , "a6" , "d6" , "Bd7" , "c3" , "d4" , "Nf1" , "Ba4" , "Nf3" , "Nf6" , "h6" , "Re8" , "Re1" ;
+        chon:nextHalfMove      :hmgamYKME6Wb , :hmgam1w0PTOD .
+
+:ag1w0PTO  a          chon:Agent ;
+        chon:hasName  "Westerinen, Heikki MJ" , "Karpov, Anatoly" .
+
+:plaOweBkP  a         chon:Place ;
+        chon:hasName  "Nice" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1w0PTO .

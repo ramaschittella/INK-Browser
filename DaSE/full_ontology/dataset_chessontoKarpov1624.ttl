@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaiaH5Or  a         chon:Place ;
+        chon:hasName  "FRA" .
+
+:gamiaH5O  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliaH5Or ;
+        chon:atPlace           :plaiaH5Or ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgame8odypu ;
+        chon:hasHalfMove       :hmgamp8lr6ox , :hmgame8odypu ;
+        chon:hasLastHalfMove   :hmgamp8lr6ox ;
+        chon:hasOpening        :opeiaH5Or ;
+        chon:hasReport         :cgriaH5Or ;
+        chon:hasResult         :resiaH5Ore ;
+        chon:subEventOf        :touiaH5O .
+
+:hmgame8odypu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhge8odypus , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamp8lr6ox .
+
+:touiaH5O  a          chon:hessTournament ;
+        chon:atPlace  :plaiaH5Or ;
+        chon:hasName  "FRA" .
+
+:rolhgp8lr6oxD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiaH5Or .
+
+:hmgamp8lr6ox  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgp8lr6oxD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lautier, Joel" ;
+        chon:hasSANRecord      "Bb4" , "Kg2" , "Qd4" , "Bg4" , "Rxg4" , "Rd1" , "Ndxe4" , "Bxd1" , "Be7" , "Kd2" , "Nxc5" , "exd5" , "g4" , "Bb5" , "Ra4" , "bxc3" , "f5" , "Rg1" , "c5" , "Ke2" , "Rxb6" , "Ra2" , "e3" , "Nf6" , "hxg4" , "Qxc3" , "cxd5" , "Bxe8" , "Kf1" , "Rxe8" , "b6" , "h5" , "Rxa7" , "Kc2" , "Rg5" , "Rc8" , "Ne4" , "g6" , "dxe4" , "Ra6" , "h3" , "Rd7" , "Nbd7" , "Rg2" , "Nc3" , "Kh6" , "dxc5" , "Rc2+" , "Bg5" , "Qxc3+" , "Kg7" , "c4" , "Re8" , "Kg3" , "e6" , "Nf3" , "Kxd1" , "Bxc5" , "Bxc3+" , "a3" , "O-O" , "Nc5" , "Nd2" , "d5" , "Nb3" , "Rc1" , "Qa5" , "Rxc5" ;
+        chon:nextHalfMove      :hmgamp8lr6ox .
+
+:agiaH5Or  a          chon:Agent ;
+        chon:hasName  "Lautier, Joel" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiaH5Or .
+
+:roliaH5Or  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiaH5Or .
+
+:opeiaH5Or  a            chon:ChessOpening ;
+        chon:hasECOCode  "D38" .
+
+chon:HalfMove  chon:subEventOf  :gamiaH5O .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiaH5Or .
+
+:cgriaH5Or  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resiaH5Ore  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhge8odypus  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiaH5Or .

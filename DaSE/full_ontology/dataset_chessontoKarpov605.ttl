@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resBTNKB8g  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamBTNKB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBTNKB8 ;
+        chon:atPlace           :plaBTNKB8 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3VX4X86 ;
+        chon:hasHalfMove       :hmgam3VX4X86 ;
+        chon:hasLastHalfMove   :hmgam3VX4X86 ;
+        chon:hasOpening        :opeBTNKB8 ;
+        chon:hasReport         :cgrBTNKB8 ;
+        chon:hasResult         :resBTNKB8g ;
+        chon:subEventOf        :touBTNKB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBTNKB8 .
+
+:touBTNKB  a          chon:hessTournament ;
+        chon:atPlace  :plaBTNKB8 ;
+        chon:hasName  "Buenos Aires" .
+
+chon:HalfMove  chon:subEventOf  :gamBTNKB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBTNKB8 .
+
+:rolhg3VX4X86k  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBTNKB8 .
+
+:plaBTNKB8  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:cgrBTNKB8  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agBTNKB8  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ljubojevic, Ljubomir" .
+
+:rolBTNKB8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBTNKB8 .
+
+:hmgam3VX4X86  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3VX4X86k ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Re8" , "h6" , "c3" , "exd4" , "g3" , "Kxf1" , "Qxe3" , "d5" , "Rxc6" , "f6" , "dxe4" , "Qxc3" , "e4" , "Be3" , "b5" , "Qd4" , "Qc2" , "bxa4" , "Bf1" , "O-O" , "Rec1" , "Qe6" , "Qxd4" , "Nbd7" , "c6" , "Reb8" , "Nfd7" , "Qe2" , "Bg2" , "Ne5" , "Nb6" , "Bf8" , "Nd3" , "Bxf1" , "a5" , "Ba6" , "Rb3" , "b3" , "Nb2" , "Nxc4" , "Nxe3+" , "Ngf3" , "d3" , "h3" , "Nd2" , "Rd1" , "e5" , "Rxd3" , "Rxa4" , "Nf6" , "Qc7" , "Nxc6" , "Qb3" , "Nc4" , "Nac4" , "Bd6" , "Nxa5" , "Rc3" , "Na3" , "Re1" , "Kg2" , "Qd6" , "a4" ;
+        chon:nextHalfMove      :hmgam3VX4X86 .
+
+:opeBTNKB8  a            chon:ChessOpening ;
+        chon:hasECOCode  "B10" .

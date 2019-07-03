@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou3DPRz  a          chon:hessTournament ;
+        chon:atPlace  :plahF4WnW ;
+        chon:hasName  "Las Palmas" .
+
+:roldBK67W  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdBK67W .
+
+:rolhglyospTht  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdBK67W .
+
+:hmgamlyospTh  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhglyospTht ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "dxc5" , "Bd3" , "Nd7" , "Ne5" , "Bxc5" , "Qc7" , "Ngf6" , "c5" , "Bg5" , "O-O" , "Nxe4" , "b6" , "Nxf6+" , "Nxf6" , "Nf3" , "Qe2" ;
+        chon:nextHalfMove      :hmgamMzAMKT8 , :hmgamlyospTh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdBK67W .
+
+:resdBK67WW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamhF4Wn .
+
+:hmgamMzAMKT8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMzAMKT8T , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxh7+" , "Bxf6" , "Bb7" , "Kxh7" , "Qh5+" , "gxf6" ;
+        chon:nextHalfMove      :hmgamMzAMKT8 .
+
+:rolhgdBK67WWi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdBK67W .
+
+:rolhgMzAMKT8T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdBK67W .
+
+:agdBK67W  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ivanchuk, Vassily" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrdBK67W  a   chon:ChessGameReport .
+
+:hmgamdBK67WW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdBK67WWi , chon:AgentRole , :rolhglyospTht ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e6" , "Nc3" , "d5" , "dxe4" , "e4" , "d4" ;
+        chon:nextHalfMove      :hmgamlyospTh , :hmgamdBK67WW .
+
+:plahF4WnW  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+:opedBK67W  a            chon:ChessOpening ;
+        chon:hasECOCode  "C10" .
+
+:gamhF4Wn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldBK67W ;
+        chon:atPlace           :plahF4WnW ;
+        chon:atTime            "1996.12.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdBK67WW ;
+        chon:hasHalfMove       :hmgamlyospTh , :hmgamMzAMKT8 , :hmgamdBK67WW ;
+        chon:hasLastHalfMove   :hmgamMzAMKT8 ;
+        chon:hasOpening        :opedBK67W ;
+        chon:hasReport         :cgrdBK67W ;
+        chon:hasResult         :resdBK67WW ;
+        chon:subEventOf        :tou3DPRz .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdBK67W .

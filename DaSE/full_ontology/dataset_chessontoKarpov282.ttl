@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touipXEB  a          chon:hessTournament ;
+        chon:atPlace  :plaipXEBi ;
+        chon:hasName  "Candidats sf1" .
+
+:rolipXEBi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agipXEBi .
+
+:rolhgJr8ZXidp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agipXEBi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agipXEBi .
+
+:resipXEBio  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgUr4dvigB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agipXEBi .
+
+chon:HalfMove  chon:subEventOf  :gamipXEB .
+
+:plaipXEBi  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:rolhgQpKmehwB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agipXEBi .
+
+:hmgamQpKmehw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3nHANhBM , :rolhgQpKmehwB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e5" , "Rxh6" , "Rad8" , "Bxf4" , "Kb1" , "Qf4" , "Nb4" , "cxb5+" , "Ng5" , "Nf5" , "Rh1" , "b5" , "gxh6" , "fxe6" , "Nxg5" , "h6" , "Qc7" , "f3" , "d5" , "Kg7" , "cxb5" , "Nf6" , "Nc2" , "Ne3" , "a6" , "Qxf4" , "a3" , "dxe6" , "Bf4" , "Kf7" , "hxg5" , "e4" , "g4" , "O-O-O" , "Ne4" , "Rhg1" , "Rhh1" , "O-O" ;
+        chon:nextHalfMove      :hmgamQpKmehw , :hmgam3nHANhB .
+
+:agipXEBi  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Spassky, Boris V" .
+
+:hmgam3nHANhB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3nHANhBM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxe4+" , "Re8" , "Rxd1+" , "Rxe4" , "fxe4" , "Rf4" , "Nc7" , "Nxa6" , "Rf1" , "Qxe4" , "b4" , "Rxb4" , "Rxd1" , "axb4" ;
+        chon:nextHalfMove      :hmgam3nHANhB .
+
+:cgripXEBi  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamipXEB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolipXEBi ;
+        chon:atPlace           :plaipXEBi ;
+        chon:atTime            "1974.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJr8ZXid ;
+        chon:hasHalfMove       :hmgamJr8ZXid , :hmgamQpKmehw , :hmgamUr4dvig , :hmgam3nHANhB ;
+        chon:hasLastHalfMove   :hmgam3nHANhB ;
+        chon:hasOpening        :opeipXEBi ;
+        chon:hasReport         :cgripXEBi ;
+        chon:hasResult         :resipXEBio ;
+        chon:subEventOf        :touipXEB .
+
+:hmgamUr4dvig  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUr4dvigB , :rolhgQpKmehwB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc7" , "Nf3" , "Ngf6" , "Nd7" , "Bh7" , "h6" , "h4" , "c4" , "Bd3" , "Bxd3" , "e6" , "Qe2" , "h5" , "Qxd3" , "Bd2" , "Bd6" ;
+        chon:nextHalfMove      :hmgamUr4dvig , :hmgamQpKmehw .
+
+:rolhg3nHANhBM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agipXEBi .
+
+:opeipXEBi  a            chon:ChessOpening ;
+        chon:hasECOCode  "B19" .
+
+:hmgamJr8ZXid  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUr4dvigB , chon:AgentRole , :rolhgJr8ZXidp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "dxe4" , "c6" , "Ng3" , "Nc3" , "Nxe4" , "d4" , "Bg6" , "d5" , "Bf5" , "e4" ;
+        chon:nextHalfMove      :hmgamUr4dvig , :hmgamJr8ZXid .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agipXEBi .

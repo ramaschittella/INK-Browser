@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamupSMOoE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgupSMOoEN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Bxe6" , "Rxe6" , "Ne7" , "h5" , "h4" , "Qg5" , "Qg7" , "exf4" , "Bxc3" , "bxc3" , "Bf7" , "Qf6" , "Qd3" , "Nxf4" , "Rae1" , "f4" , "Ne6" ;
+        chon:nextHalfMove      :hmgamupSMOoE .
+
+:res3pItroM  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:pla3pItro  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3pItro .
+
+:gam3pItr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3pItro ;
+        chon:atPlace           :pla3pItro ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3pItroM ;
+        chon:hasHalfMove       :hmgam3pItroM , :hmgamupSMOoE ;
+        chon:hasLastHalfMove   :hmgamupSMOoE ;
+        chon:hasOpening        :ope3pItro ;
+        chon:hasReport         :cgr3pItro ;
+        chon:hasResult         :res3pItroM ;
+        chon:subEventOf        :tou3pItr .
+
+:cgr3pItro  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam3pItr .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3pItro .
+
+:ag3pItro  a          chon:Agent ;
+        chon:hasName  "Polgar, Judit" , "Karpov, Anatoly" .
+
+:rol3pItro  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3pItro .
+
+:ope3pItro  a            chon:ChessOpening ;
+        chon:hasECOCode  "E62" .
+
+:hmgam3pItroM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgupSMOoEN , :rolhg3pItroMp ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar, Judit" ;
+        chon:hasSANRecord      "Nd7" , "g3" , "Bg2" , "e5" , "d5" , "Ne1" , "f5" , "Nc6" , "Nc3" , "Bd7" , "Bg7" , "Bg5" , "Ne7" , "Nd3" , "Re1" , "c4" , "e4" , "Nf6" , "Be8" , "Kh7" , "Bd2" , "Bxf6" , "Bc3" , "h6" , "b6" , "O-O" , "Nxf6+" , "c6" , "d6" , "Nxe4" , "d4" , "fxe4" , "c5" , "Nf5" , "Nf3" , "g6" ;
+        chon:nextHalfMove      :hmgamupSMOoE , :hmgam3pItroM .
+
+:tou3pItr  a          chon:hessTournament ;
+        chon:atPlace  :pla3pItro ;
+        chon:hasName  "Las Palmas" .
+
+:rolhg3pItroMp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3pItro .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgupSMOoEN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3pItro .

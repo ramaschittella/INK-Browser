@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agJIyrV1  a          chon:Agent ;
+        chon:hasName  "Lautier, Joel" , "Karpov, Anatoly" .
+
+:rolJIyrV1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJIyrV1 .
+
+:opeJIyrV1  a            chon:ChessOpening ;
+        chon:hasECOCode  "D45" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJIyrV1 .
+
+:hmgamJIyrV1z  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJIyrV1zI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lautier, Joel" ;
+        chon:hasSANRecord      "Bd3" , "Nf8" , "O-O" , "f6" , "a6" , "Nh4" , "Rd6" , "bxc6" , "Nb5" , "Qxc3" , "Nxe5" , "Rad8" , "Nc3" , "Bxd4" , "d5" , "Nf6" , "Be2" , "Nce2" , "h3" , "Na4" , "Bd6" , "Nd7" , "Re8" , "Ng6" , "e6" , "Qxe5" , "d4" , "Nd6" , "Bf7" , "f4" , "Rc8" , "c4" , "Qe7" , "c6" , "Bxc4" , "Rac1" , "e5" , "Qc3" , "c5" , "axb5" , "Ne5" , "Nf5" , "Rxd1+" , "Bxd1" , "Nf3" , "Bd5" , "Nxd4" , "b5" , "Bg4" , "Bd4" , "Qc2" , "e4" , "b4" , "Ra3" , "Rxc3" , "Bc7" , "Be6" , "e3" , "Ne2" , "Nb6" , "Bd2" , "Qg5" , "Ra8" , "Nd4" , "Bb6" , "Nbd7" , "h6" , "Qe5" , "a4" , "dxc4" , "Rd1" , "Bc3" , "Qf4" , "a3" , "Ng3" , "Bxe5" , "dxe5" ;
+        chon:nextHalfMove      :hmgamJIyrV1z .
+
+:rolhgJIyrV1zI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJIyrV1 .
+
+chon:HalfMove  chon:subEventOf  :gamJIyrV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJIyrV1 .
+
+:cgrJIyrV1  a   chon:ChessGameReport .
+
+:resJIyrV1z  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaJIyrV1  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:gamJIyrV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJIyrV1 ;
+        chon:atPlace           :plaJIyrV1 ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJIyrV1z ;
+        chon:hasHalfMove       :hmgamJIyrV1z ;
+        chon:hasLastHalfMove   :hmgamJIyrV1z ;
+        chon:hasOpening        :opeJIyrV1 ;
+        chon:hasReport         :cgrJIyrV1 ;
+        chon:hasResult         :resJIyrV1z ;
+        chon:subEventOf        :touJIyrV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touJIyrV  a          chon:hessTournament ;
+        chon:atPlace  :plaJIyrV1 ;
+        chon:hasName  "Dortmund" .

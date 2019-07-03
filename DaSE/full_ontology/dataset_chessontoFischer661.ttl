@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg7Lg1SBIi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7Lg1SB .
+
+:cgr7Lg1SB  a   chon:ChessGameReport .
+
+:rolhgiLcerALv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7Lg1SB .
+
+:res7Lg1SBI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7Lg1SB .
+
+:rol7Lg1SB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7Lg1SB .
+
+chon:HalfMove  chon:subEventOf  :gam7Lg1S .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7Lg1SB .
+
+:pla7Lg1SB  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+:hmgam7Lg1SBI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7Lg1SBIi , :rolhgiLcerALv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "c5" , "Rxd8" , "O-O" , "g3" , "dxc5" , "g6" , "c3" , "d4" , "Na6" , "Bg2" , "Bg7" , "Nf6" , "Be3" , "Nf3" , "Qxd8" , "d6" ;
+        chon:nextHalfMove      :hmgam7Lg1SBI , :hmgamiLcerAL .
+
+:ag7Lg1SB  a          chon:Agent ;
+        chon:hasName  "Tal, Mihail" , "Fischer, Robert James" .
+
+:gam7Lg1S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7Lg1SB ;
+        chon:atPlace           :pla7Lg1SB ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7Lg1SBI ;
+        chon:hasHalfMove       :hmgamiLcerAL , :hmgam7Lg1SBI ;
+        chon:hasLastHalfMove   :hmgamiLcerAL ;
+        chon:hasOpening        :ope7Lg1SB ;
+        chon:hasReport         :cgr7Lg1SB ;
+        chon:hasResult         :res7Lg1SBI ;
+        chon:subEventOf        :tou7Lg1S .
+
+:tou7Lg1S  a          chon:hessTournament ;
+        chon:atPlace  :pla7Lg1SB ;
+        chon:hasName  "Herceg Novi blitz" .
+
+:ope7Lg1SB  a            chon:ChessOpening ;
+        chon:hasECOCode  "A49" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamiLcerAL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiLcerALv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Bg2" , "Kg2" , "Kh7" , "Rc8" , "Re8" , "Bf1" , "Bc2" , "Rc7" , "Re7" , "Rxc3" , "axb5" , "Rxb6" , "Rc6+" , "Rd6" , "Rd1" , "Rb7" , "Nxb5" , "Nb5" , "Rdb2" , "Nd5" , "Be6" , "b6" , "Ndc7" , "Bxe7" , "Bd5" , "Nd4" , "axb4" , "Ra5" , "gxf5" , "Nxa3" , "h3" , "a5" , "Rxb4" , "Rfd1" , "Rxf7" , "Be3" , "Bg4" , "Rb5" , "Kg6" , "Kg7" , "Nxf5" , "Nc7" , "Ba3" , "Bc4" , "Bf8" , "b4" , "Rxa3" , "Bxc5" , "Bd2" , "Re5" , "Bb3" , "Bd3" , "Bf5" , "Ra4" , "e3" , "h6" , "Na3" , "Rd2" , "Rad8" , "Rdc1" , "Be7" , "a4" ;
+        chon:nextHalfMove      :hmgamiLcerAL .

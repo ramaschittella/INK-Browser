@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrdIVEfv  a   chon:ChessGameReport .
+
+:hmgampISSMwy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpISSMwyo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "f3" , "fxg3+" , "f4" , "Kf2" , "a4" , "a5" , "g3" , "Rg1" , "f5" , "g5" , "Kh7" , "Nxg3" , "Nd5" , "Kg6" , "Re7" , "Kf7" , "Nge2" , "Bd3" , "Ne3" , "Rc1" ;
+        chon:nextHalfMove      :hmgampISSMwy .
+
+:roldIVEfv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdIVEfv .
+
+:rolhgpISSMwyo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdIVEfv .
+
+:resdIVEfvt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdIVEfv .
+
+:rolhgdIVEfvtd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdIVEfv .
+
+:gamdIVEf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldIVEfv ;
+        chon:atPlace           :pladIVEfv ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdIVEfvt ;
+        chon:hasHalfMove       :hmgampISSMwy , :hmgamdIVEfvt ;
+        chon:hasLastHalfMove   :hmgampISSMwy ;
+        chon:hasOpening        :opedIVEfv ;
+        chon:hasReport         :cgrdIVEfv ;
+        chon:hasResult         :resdIVEfvt ;
+        chon:subEventOf        :toudIVEf .
+
+chon:HalfMove  chon:subEventOf  :gamdIVEf .
+
+:toudIVEf  a          chon:hessTournament ;
+        chon:atPlace  :pladIVEfv ;
+        chon:hasName  "Alma-Ata m1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdIVEfv .
+
+:hmgamdIVEfvt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdIVEfvtd , :rolhgpISSMwyo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "O-O" , "a3" , "c3" , "Nxe5" , "c6" , "Re1" , "Rdd8" , "Rxe8" , "d5" , "Qc2" , "Nxf4" , "Nbd4" , "Nb3" , "dxc4" , "b4" , "Nd2" , "Qf4" , "d4" , "Bxd6" , "e4" , "Qxf4" , "Bc2" , "Qc1" , "Qb6" , "Bb3" , "a6" , "Bg4" , "dxe5" , "Rd1" , "Rxd6" , "h6" , "Bxc4" , "Qd6" , "Nc4" , "exd5" , "Nf6" , "Bd3" , "Rfe8" , "Qd2" , "Ng3" , "Qc7" , "cxd5" , "Rxe8+" , "Bd6" , "Bh5" , "Nd5" , "Rad8" , "Bg3" , "Ne2" , "h3" , "Bg6" , "Bf4" , "e5" , "Nc6" ;
+        chon:nextHalfMove      :hmgamdIVEfvt , :hmgampISSMwy .
+
+:agdIVEfv  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Salov, Valery" .
+
+:opedIVEfv  a            chon:ChessOpening ;
+        chon:hasECOCode  "B13" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pladIVEfv  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .

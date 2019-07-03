@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:aggzlFj3  a          chon:Agent ;
+        chon:hasName  "Comp Leonardo Maestro" , "Karpov, Anatoly" .
+
+:rolgzlFj3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggzlFj3 .
+
+:opegzlFj3  a            chon:ChessOpening ;
+        chon:hasECOCode  "D34" .
+
+:gamgzlFj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgzlFj3 ;
+        chon:atPlace           :plagzlFj3 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgzlFj33 ;
+        chon:hasHalfMove       :hmgamgzlFj33 ;
+        chon:hasLastHalfMove   :hmgamgzlFj33 ;
+        chon:hasOpening        :opegzlFj3 ;
+        chon:hasReport         :cgrgzlFj3 ;
+        chon:hasResult         :resgzlFj33 ;
+        chon:subEventOf        :tougzlFj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggzlFj3 .
+
+:tougzlFj  a          chon:hessTournament ;
+        chon:atPlace  :plagzlFj3 ;
+        chon:hasName  "Zuerich sim" .
+
+:hmgamgzlFj33  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggzlFj33Y , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Comp Leonardo Maestro" ;
+        chon:hasSANRecord      "Qg5" , "Qg6+" , "Re8+" , "Qxf6+" , "Be6" , "Nf6" , "Kg8" , "Rf5" , "Rf4" , "cxd4" , "Kh3" , "f5" , "Nxc5" , "d4" , "Qb6" , "Rab8" , "Qb5" , "Rxe4" , "Qxh6+" , "Qe7+" , "Bc5" , "Bg5" , "a5" , "e6" , "d5" , "Qxe8" , "Qa6" , "dxe4" , "Qc1" , "Rbe8" , "Re6" , "c5" , "Qc6" , "Rxb4" , "Nf3" , "Rc2" , "Rd6" , "Rc1" , "Bg2" , "cxd5" , "f6" , "Qxe4" , "Ne4" , "Bd7" , "Be7" , "Na4" , "Bxc5" , "Red1" , "Rf6" , "Re1" , "bxc6" , "Qb7" , "h6" , "Rxc5" , "Rd2" , "Nc3" , "Kh6" , "Qc3" , "Bxg2" , "exd5" , "Be4" , "Be3" , "Re8" , "b3" , "Qc8+" , "Qc4+" , "O-O" , "Rxa2" , "Nxd4" , "Qxe8+" , "Qe8+" , "e3" , "Re4" , "gxf6" , "gxf5" , "Ra4" , "Kh7" , "c4" , "Qa5" , "g4" , "g3" , "Kxg2" , "Qe6+" , "Nxc6" , "Bf5" , "Rd4" , "Nc6" , "Nc5" , "Kh8" , "b4" , "Rg4" ;
+        chon:nextHalfMove      :hmgamgzlFj33 .
+
+chon:HalfMove  chon:subEventOf  :gamgzlFj .
+
+:rolhggzlFj33Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggzlFj3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggzlFj3 .
+
+:resgzlFj33  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plagzlFj3  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrgzlFj3  a   chon:ChessGameReport .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgammsxxnKr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmsxxnKrY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "a6" , "Nf3" , "dxc4" , "Be7" , "Nxc5" , "e3" , "c4" , "Rfd1" , "Be2" , "Nf6" , "c5" , "Bxc4" , "Nxe4" , "O-O" , "Qe2" , "a4" , "Qc2" , "d4" , "Bf4" , "Nd4" , "Qe8" , "dxc5" , "e6" , "Nbd7" , "Nfe4" , "b6" , "Nc3" , "d5" , "Bb7" ;
+        chon:nextHalfMove      :hmgammsxxnKr .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmsxxnK .
+
+chon:HalfMove  chon:subEventOf  :gammsxxn .
+
+:resmsxxnKr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmsxxnK .
+
+:plamsxxnK  a         chon:Place ;
+        chon:hasName  "Donostia ESP" .
+
+:cgrmsxxnK  a   chon:ChessGameReport .
+
+:agmsxxnK  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "San Segundo Carrillo,P" .
+
+:rolmsxxnK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmsxxnK .
+
+:rolhgmsxxnKrY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmsxxnK .
+
+:opemsxxnK  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gammsxxn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmsxxnK ;
+        chon:atPlace           :plamsxxnK ;
+        chon:atTime            "2009.07.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammsxxnKr ;
+        chon:hasHalfMove       :hmgammsxxnKr ;
+        chon:hasLastHalfMove   :hmgammsxxnKr ;
+        chon:hasOpening        :opemsxxnK ;
+        chon:hasReport         :cgrmsxxnK ;
+        chon:hasResult         :resmsxxnKr ;
+        chon:subEventOf        :toumsxxn .
+
+:toumsxxn  a          chon:hessTournament ;
+        chon:atPlace  :plamsxxnK ;
+        chon:hasName  "City of Culture GM" .

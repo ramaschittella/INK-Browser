@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeIgBr3L  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+:hmgamIgBr3LF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIgBr3LFB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nunn, John DM" ;
+        chon:hasSANRecord      "a4" , "Bxg7" , "Qf4" , "h4" , "e5" , "Be2" , "Qd7" , "Qf4+" , "Qc5" , "d5" , "Rxf8+" , "Qxf3" , "exf4" , "f3" , "Qa3+" , "Bxf4" , "Rxf3" , "e4" , "Nc6" , "Kg4" , "Rf8" , "Rf1" , "d4" , "Kg8" , "Qb6+" , "Kh2" , "Nd6" , "Bg4" , "f5" , "Kf3" , "Bxf3" , "Rad1" , "Ng4" , "Nc8" , "Qd2" , "Qxg7" , "Nf6" , "Nf3" , "Re8+" , "Ne4" , "O-O" , "Ne1" , "Be3" , "Kg3" , "dxe5" , "Ne7" , "Re5" , "Qe7" , "a5" , "Qxe4" , "Kxf8" , "fxe4" , "Bg7" , "d6" , "Nc3" , "Qg3" , "g6" , "Bxe5" , "c4" , "Bxg4" , "Nxe4" , "Rde1" , "f4" , "b6" , "Qxb2" , "c3" , "Bd7" ;
+        chon:nextHalfMove      :hmgamIgBr3LF .
+
+:agwgEetK  a          chon:Agent ;
+        chon:hasName  "Nunn, John DM" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwgEetK .
+
+:rolhgIgBr3LFB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwgEetK .
+
+chon:HalfMove  chon:subEventOf  :gamwgEet .
+
+:resIgBr3LF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwgEetK .
+
+:gamwgEet  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwgEetK ;
+        chon:atPlace           :plawgEetK ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIgBr3LF ;
+        chon:hasHalfMove       :hmgamIgBr3LF ;
+        chon:hasLastHalfMove   :hmgamIgBr3LF ;
+        chon:hasOpening        :opeIgBr3L ;
+        chon:hasReport         :cgrIgBr3L ;
+        chon:hasResult         :resIgBr3LF ;
+        chon:subEventOf        :touwgEet .
+
+:touwgEet  a          chon:hessTournament ;
+        chon:atPlace  :plawgEetK ;
+        chon:hasName  "Hamburg TV-A" .
+
+:rolwgEetK  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrIgBr3L  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plawgEetK  a         chon:Place ;
+        chon:hasName  "Hamburg" .
+
+:rolIgBr3L  a             chon:AuthorRole ;
+        chon:performedBy  :agIgBr3L .

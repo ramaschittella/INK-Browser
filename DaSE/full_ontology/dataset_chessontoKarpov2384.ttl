@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agHO9uPD  a          chon:Agent ;
+        chon:hasName  "McCarthy, Brian" , "Karpov, Anatoly" .
+
+:opeHO9uPD  a            chon:ChessOpening ;
+        chon:hasECOCode  "B14" .
+
+:rolhg9PiMaFJ8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHO9uPD .
+
+:hmgam9PiMaFJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9PiMaFJ8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "McCarthy, Brian" ;
+        chon:hasSANRecord      "Qb3" , "e4" , "Kg4" , "d5" , "Nxf8" , "h4" , "Qb6" , "d4" , "exd5" , "Bd5" , "Kf6" , "f4" , "f5" , "Bg5" , "Kh5" , "Bh6+" , "hxg6" , "Kh7" , "Be7" , "Bc4+" , "a6" , "Rg8+" , "h5" , "Nf6" , "g6" , "Nd7" , "e6" , "Rh8" , "bxc3" , "cxd5" , "Qxb3" , "Kh6" , "Nf3" , "e5" , "Kg7" , "Bb5" , "c4" , "g3" , "Nxc3" , "Kf2" , "Nxd5" , "Bh4" , "O-O" , "Ke2" , "Nd2" , "c6" , "Ne5+" , "axb3" , "Bd6" , "Bc4" , "Bxf8" , "Nc3" , "Nc4" ;
+        chon:nextHalfMove      :hmgam9PiMaFJ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHO9uPD .
+
+chon:HalfMove  chon:subEventOf  :gamHO9uP .
+
+:cgr9PiMaF  a   chon:ChessGameReport .
+
+:plaHO9uPD  a         chon:Place ;
+        chon:hasName  "Parsippany" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHO9uPD .
+
+:rol9PiMaF  a             chon:AuthorRole ;
+        chon:performedBy  :ag9PiMaF .
+
+:rolHO9uPD  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamHO9uP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHO9uPD ;
+        chon:atPlace           :plaHO9uPD ;
+        chon:atTime            "1998.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9PiMaFJ ;
+        chon:hasHalfMove       :hmgam9PiMaFJ ;
+        chon:hasLastHalfMove   :hmgam9PiMaFJ ;
+        chon:hasOpening        :opeHO9uPD ;
+        chon:hasReport         :cgr9PiMaF ;
+        chon:hasResult         :res9PiMaFJ ;
+        chon:subEventOf        :touHO9uP .
+
+:touHO9uP  a          chon:hessTournament ;
+        chon:atPlace  :plaHO9uPD ;
+        chon:hasName  "US-chT Amateur East" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res9PiMaFJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

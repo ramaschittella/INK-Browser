@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plar3eweO  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:resr3eweOa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrr3eweO  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agr3eweO .
+
+:rolhgnXVG1Mrg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agr3eweO .
+
+chon:HalfMove  chon:subEventOf  :gamr3ewe .
+
+:agr3eweO  a          chon:Agent ;
+        chon:hasName  "Claus,Ulrich" , "Karpov,Ana" .
+
+:rolr3eweO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agr3eweO .
+
+:oper3eweO  a            chon:ChessOpening ;
+        chon:hasECOCode  "E90" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agr3eweO .
+
+:hmgamnXVG1Mr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnXVG1Mrg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Claus,Ulrich" ;
+        chon:hasSANRecord      "f3" , "d6" , "Kd3" , "Rd8" , "c5" , "Nd3" , "Nd2" , "dxc5" , "Raa8" , "Qg1" , "Rba8" , "Ne5" , "Rc1" , "R6a7" , "N1c3" , "g6" , "Qc8" , "g5" , "b5" , "Ke7" , "b4" , "Ra6" , "Be3" , "Qe8" , "Kc2" , "f5" , "f4" , "Kxc4" , "h3" , "Nb5" , "Ng4" , "Bf1" , "Bg7" , "Rf8" , "Nf3" , "Kd8" , "Bxd7" , "Qxd7" , "Kb2" , "Rdd8" , "Rc2" , "Bc3" , "Rg1" , "a4" , "a3" , "Nb1" , "Bd7" , "Bd6" , "Rxd7" , "b6" , "d4" , "Ke8" , "Kd1" , "Nc4" , "Nc3" , "Ne2" , "Rcb8" , "Nxe5" , "Rdc8" , "e4" , "Bf8" , "h4" , "Ra2" , "Kd7" , "Re8" , "Nb7" , "Bf2" , "Ne8" , "Qg4" , "Nh5" , "Rg4" , "d5" , "Kd2" , "Ng7" , "a5" , "Nb3" , "Nb2" , "Na5" , "Nd1" , "Nc5" , "Be7" , "O-O" , "e5" , "Rf7" , "g4" , "b3" , "Nbd7" , "Rfd8" , "Qb1" , "Nxc4" , "Be2" , "Be1" , "Rag1" , "Kf7" , "Bh3" , "c4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamnXVG1Mr .
+
+:gamr3ewe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolr3eweO ;
+        chon:atPlace           :plar3eweO ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnXVG1Mr ;
+        chon:hasHalfMove       :hmgamnXVG1Mr ;
+        chon:hasLastHalfMove   :hmgamnXVG1Mr ;
+        chon:hasOpening        :oper3eweO ;
+        chon:hasReport         :cgrr3eweO ;
+        chon:hasResult         :resr3eweOa ;
+        chon:subEventOf        :tour3ewe .
+
+:tour3ewe  a          chon:hessTournament ;
+        chon:atPlace  :plar3eweO ;
+        chon:hasName  "Simul" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

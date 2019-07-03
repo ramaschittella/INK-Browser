@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope4kn2co  a            chon:ChessOpening ;
+        chon:hasECOCode  "A35" .
+
+:rolhg4kn2cohF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4kn2co .
+
+:hmgamekkfJnj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgekkfJnjS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nxf6" , "Rac8" , "Kg7" , "a5" , "b5" , "Rf2" , "Nf6+" , "Rxb4" , "Rxc4" , "Kf8" , "Kg8" , "Kf6" , "Rd2" , "Re2" , "g3" , "Bxf6" , "Rfxd6" , "Nh7+" , "Rfd8" , "Kg5" , "Ra4" , "Ke3" , "Kh3" , "f5" , "Bxc4" , "Rf3" , "Kc5" , "Kd3" , "Kf7" , "Kb5" , "Rxf6" , "Kg6" , "b4" , "Kg4" , "Kf2" , "Rxd6" , "Ra3+" , "Kc4" , "Kd4" ;
+        chon:nextHalfMove      :hmgamekkfJnj .
+
+:res4kn2coh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgekkfJnjS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4kn2co .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4kn2co .
+
+chon:HalfMove  chon:subEventOf  :gam4kn2c .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4kn2co .
+
+:pla4kn2co  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .
+
+:hmgam4kn2coh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgekkfJnjS , chon:AgentRole , :rolhg4kn2cohF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bd7" , "Bg5" , "cxd4" , "Nc6" , "exf5" , "Bxh6" , "b4" , "Qc5" , "Qh4" , "Qxh4" , "Qe6" , "f5" , "h6" , "Be6" , "O-O" , "Nc3" , "Bg7" , "Nf6" , "Nf3" , "c4" , "Rb1" , "Qf5" , "e4" , "gxf5" , "d4" , "f4" , "Qe5" , "Nxd4" , "Bxh4" , "Bxf6" , "Nd5" , "exf6" , "Qb6" , "Rb3" , "Qxd4" , "e3" , "d6" , "Rd1" , "Qxf5" , "c5" , "Be2" , "Qh7" , "g6" ;
+        chon:nextHalfMove      :hmgamekkfJnj , :hmgam4kn2coh .
+
+:cgr4kn2co  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam4kn2c  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4kn2co ;
+        chon:atPlace           :pla4kn2co ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4kn2coh ;
+        chon:hasHalfMove       :hmgam4kn2coh , :hmgamekkfJnj ;
+        chon:hasLastHalfMove   :hmgamekkfJnj ;
+        chon:hasOpening        :ope4kn2co ;
+        chon:hasReport         :cgr4kn2co ;
+        chon:hasResult         :res4kn2coh ;
+        chon:subEventOf        :tou4kn2c .
+
+:ag4kn2co  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Naranja, Renato" .
+
+:tou4kn2c  a          chon:hessTournament ;
+        chon:atPlace  :pla4kn2co ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+:rol4kn2co  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4kn2co .

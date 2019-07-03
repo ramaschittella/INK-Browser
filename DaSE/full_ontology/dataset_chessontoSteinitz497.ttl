@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope9OSMVB  a            chon:ChessOpening ;
+        chon:hasECOCode  "C49" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9OSMVB .
+
+:hmgam9OSMVBd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjMMZuAgP , :rolhg9OSMVBdB , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Ng3" , "Nc3" , "h6" , "Bg5" , "O-O" , "Ne7" , "d5" , "Ng6" , "e5" , "c3" , "Nxd5" , "exd5" , "e4" , "Nc6" , "Ne6" , "Ba5" , "b4" , "Nf6" , "Nf4" , "Be3" , "Qd2" , "c6" , "Kh1" , "Bb4" , "Ba4" , "Ne2" , "Nb6" , "Bc7" , "d6" , "Nf3" , "c4" , "d3" , "Bb5" , "Bb3" ;
+        chon:nextHalfMove      :hmgamjMMZuAg , :hmgam9OSMVBd .
+
+chon:HalfMove  chon:subEventOf  :gam9OSMV .
+
+:cgr9OSMVB  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9OSMVB .
+
+:rol9OSMVB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9OSMVB .
+
+:gam9OSMV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9OSMVB ;
+        chon:atPlace           :pla9OSMVB ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9OSMVBd ;
+        chon:hasHalfMove       :hmgam9OSMVBd , :hmgamjMMZuAg ;
+        chon:hasLastHalfMove   :hmgamjMMZuAg ;
+        chon:hasOpening        :ope9OSMVB ;
+        chon:hasReport         :cgr9OSMVB ;
+        chon:hasResult         :res9OSMVBd ;
+        chon:subEventOf        :tou9OSMV .
+
+:tou9OSMV  a          chon:hessTournament ;
+        chon:atPlace  :pla9OSMVB ;
+        chon:hasName  "Nuremberg" .
+
+:pla9OSMVB  a         chon:Place ;
+        chon:hasName  "Nuremberg" .
+
+:res9OSMVBd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgjMMZuAgP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9OSMVB .
+
+:hmgamjMMZuAg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjMMZuAgP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rh1" , "Bxb6" , "Ne4" , "Qe7" , "Rcd1" , "b5" , "Kg7" , "Bg6" , "g5" , "Be7" , "c5" , "Kh8" , "Kg2" , "g4" , "axb6" , "Bf5" , "Qb2" , "Qd8" , "Qc2" , "Kh7" , "f3" , "Nxd4" , "h3" , "Qc7" , "Qf2" , "Qxd4" , "Nd4" , "Qc3" , "Rac1" , "Qd2" , "Bd8" , "f4" , "f5" , "Rhe1" ;
+        chon:nextHalfMove      :hmgamjMMZuAg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag9OSMVB  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Schiffers, Emanuel Stepanovich" .
+
+:rolhg9OSMVBdB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9OSMVB .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg20Li1rTk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQ0R3rq .
+
+:plaQ0R3rq  a         chon:Place ;
+        chon:hasName  "London" .
+
+:resQ0R3rqQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ0R3rq .
+
+:agQ0R3rq  a          chon:Agent ;
+        chon:hasName  "Lee, Francis" , "Steinitz, William" .
+
+:hmgam20Li1rT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg20Li1rTk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lee, Francis" ;
+        chon:hasSANRecord      "Kg3" , "Qxa8+" , "Ra8" , "Nd7" , "axb5" , "Qc8" , "Qxb6" , "Rxa1" , "Bd8" , "Bxf5" , "fxe3" , "Nxd8" , "a6" , "Qf5+" , "Qa2" , "Kh4" , "Nb6" , "Kf3" , "Qxd4+" , "g4" , "Na4" , "Rxa8" , "b6" , "Kxf2" , "Qc7" , "a4" , "Nc5" , "Bf5" , "Qe5+" , "Bd7" , "Nxb7" , "Qd3+" , "Nxb6" , "Qf6+" , "Kg4" , "exf2+" , "Qa7" , "Be7" , "Nc3" , "Kf1" , "b5" , "Qxf5" , "f5" , "f4" , "Qd2+" ;
+        chon:nextHalfMove      :hmgam20Li1rT .
+
+chon:HalfMove  chon:subEventOf  :gamQ0R3r .
+
+:opeQ0R3rq  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQ0R3rq .
+
+:rolhgQ0R3rqQ0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQ0R3rq .
+
+:gamQ0R3r  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQ0R3rq ;
+        chon:atPlace           :plaQ0R3rq ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQ0R3rqQ ;
+        chon:hasHalfMove       :hmgam20Li1rT , :hmgamQ0R3rqQ ;
+        chon:hasLastHalfMove   :hmgam20Li1rT ;
+        chon:hasOpening        :opeQ0R3rq ;
+        chon:hasReport         :cgrQ0R3rq ;
+        chon:hasResult         :resQ0R3rqQ ;
+        chon:subEventOf        :touQ0R3r .
+
+:touQ0R3r  a          chon:hessTournament ;
+        chon:atPlace  :plaQ0R3rq ;
+        chon:hasName  "London" .
+
+:cgrQ0R3rq  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamQ0R3rqQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg20Li1rTk , :rolhgQ0R3rqQ0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lee, Francis" ;
+        chon:hasSANRecord      "Bxf6" , "Qb3" , "Bd3" , "g6" , "d4" , "e3" , "Nf8" , "c6" , "Qc2" , "Nge2" , "Nf6" , "Bg5" , "exd5" , "Nc3" , "b4" , "Be7" , "Nd7" , "c4" , "e6" , "cxd5" , "d5" , "O-O" , "Re8" ;
+        chon:nextHalfMove      :hmgamQ0R3rqQ , :hmgam20Li1rT .
+
+:rolQ0R3rq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQ0R3rq .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamFPlTpO2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8RveMPQa , :rolhgFPlTpO2M ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Nxd5" , "Be2" , "Bb7" , "e6" , "Qe1" , "a3" , "Nxd4" , "Nbd7" , "b6" , "Nf6" , "f3" , "Rc8" , "Be7" , "b5" , "Bf2" , "Qc2" , "d4" , "O-O" , "Nc3" , "Bg5" , "c4" , "Nf3" , "c5" , "Qd1" , "d5" , "e4" , "cxd5" , "Bxd5" , "a6" , "Be3" , "cxd4" , "Qa4+" ;
+        chon:nextHalfMove      :hmgamFPlTpO2 , :hmgam8RveMPQ .
+
+:plaFPlTpO  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:cgrFPlTpO  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFPlTpO .
+
+chon:HalfMove  chon:subEventOf  :gamFPlTp .
+
+:resFPlTpO2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agFPlTpO  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Dreev,A" .
+
+:rolFPlTpO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFPlTpO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFPlTpO .
+
+:opeFPlTpO  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:rolhg8RveMPQa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFPlTpO .
+
+:gamFPlTp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFPlTpO ;
+        chon:atPlace           :plaFPlTpO ;
+        chon:atTime            "2000.11.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFPlTpO2 ;
+        chon:hasHalfMove       :hmgam8RveMPQ , :hmgamFPlTpO2 ;
+        chon:hasLastHalfMove   :hmgam8RveMPQ ;
+        chon:hasOpening        :opeFPlTpO ;
+        chon:hasReport         :cgrFPlTpO ;
+        chon:hasResult         :resFPlTpO2 ;
+        chon:subEventOf        :touFPlTp .
+
+:touFPlTp  a          chon:hessTournament ;
+        chon:atPlace  :plaFPlTpO ;
+        chon:hasName  "KO" .
+
+:hmgam8RveMPQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8RveMPQa ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qxh7" , "Rd1" , "Rd1+" , "Kc7" , "Qe7" , "Rd3" , "Kxh7" , "Re3" , "Qc3" , "Qxc4" , "Kd7" , "Kd5" , "Kb5" , "Qe2" , "Bf2" , "e6" , "Qc4+" , "Re8" , "Be5" , "Bd6" , "Kb6" , "Kf2" , "Rh3" , "Qa8+" , "Qf6+" , "Rde1" , "Qd7" , "e5" , "exf5" , "g5" , "Rxe1+" , "Rd5" , "Qc7" , "fxe6" , "Ng5" , "b4" , "Bxc4" , "Bd4+" , "Nxe6" , "f4" , "bxc4" , "Rxh7" , "Kg6" , "Kc6" , "Be4" , "Kf7" , "Qf7+" , "Rfd8" , "Bf6" , "g6" , "g4" , "Qb6" , "Qe8+" , "Qxg5" , "Qh5+" , "f5" , "Bxe1" , "Nxh7" , "Rfe1" , "Ke6" , "Nc4" , "Ne5" , "Qg8+" , "Be7" , "Bc3" , "Bg3" ;
+        chon:nextHalfMove      :hmgam8RveMPQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgFPlTpO2M  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFPlTpO .

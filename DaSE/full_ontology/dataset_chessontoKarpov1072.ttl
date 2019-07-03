@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrrM7hua  a   chon:ChessGameReport .
+
+:rolhgrM7huaQX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrM7hua .
+
+:hmgamrM7huaQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrM7huaQX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e5" , "g6" , "Qxh5" , "Bc4" , "Nc6" , "exd5" , "Bg5" , "Kg8" , "Nxc3" , "Nxd5" , "Qe5" , "Rxe6" , "Qc7" , "Re1" , "Nf3" , "bxc3" , "h5" , "Qe2" , "Nd2" , "Bxh6" , "c4" , "cxd5" , "h4" , "Bh6+" , "e4" , "exd4" , "Rc8" , "Re8" , "Bc2" , "d4" , "O-O" , "Nf6" , "c6" , "Qxe1+" , "Ne4" , "fxe6" , "Kf7" , "d5" , "Qh7+" , "Bb3" , "Bd3" , "gxh5" , "Qd6" , "Nd8" , "Rf8" , "Kh8" , "Kh2" , "Nc3" , "Qg6+" , "Rxf2" , "Bg7" , "Be6" , "h6" , "Ng3" , "Bxg7" ;
+        chon:nextHalfMove      :hmgamrM7huaQ .
+
+:tourM7hu  a          chon:hessTournament ;
+        chon:atPlace  :pla1MWW8a ;
+        chon:hasName  "Brussels blitz" .
+
+:agrM7hua  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tal, Mihail" .
+
+:rolrM7hua  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrM7hua .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrM7hua .
+
+chon:HalfMove  chon:subEventOf  :gam1MWW8 .
+
+:resrM7huaQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrM7hua .
+
+:operM7hua  a            chon:ChessOpening ;
+        chon:hasECOCode  "B10" .
+
+:pla1MWW8a  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+:gam1MWW8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrM7hua ;
+        chon:atPlace           :pla1MWW8a ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrM7huaQ ;
+        chon:hasHalfMove       :hmgamrM7huaQ ;
+        chon:hasLastHalfMove   :hmgamrM7huaQ ;
+        chon:hasOpening        :operM7hua ;
+        chon:hasReport         :cgrrM7hua ;
+        chon:hasResult         :resrM7huaQ ;
+        chon:subEventOf        :tourM7hu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

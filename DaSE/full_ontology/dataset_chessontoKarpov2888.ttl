@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plauN7tFJ  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:rolhg4LWaiJ3a  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqLNSoJ .
+
+:touqLNSo  a          chon:hessTournament ;
+        chon:atPlace  :plauN7tFJ ;
+        chon:hasName  "GpB" .
+
+:hmgam4LWaiJ3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4LWaiJ3a ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Vachier Lagrave,M" ;
+        chon:hasSANRecord      "c4" , "Rh7+" , "Rf6+" , "Ke6" , "Rc2" , "Ke8" , "Rb2" , "Kg4" , "c5" , "Rh6" , "c3" , "Rbh1" , "Rh1" , "Ke7" , "Kf5" , "Rb1" , "Nb4" , "Kh3" , "c2" ;
+        chon:nextHalfMove      :hmgam4LWaiJ3 .
+
+:cgrqLNSoJ  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqLNSoJ .
+
+:hmgamqLNSoJa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4LWaiJ3a , :rolhgqLNSoJay , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Vachier Lagrave,M" ;
+        chon:hasSANRecord      "Rxf3" , "Bd4" , "Rf8" , "h3" , "Ra3" , "Bf6" , "Be5" , "e4" , "Kf7" , "Qd7" , "Nd7" , "Qc4" , "hxg5" , "exf5" , "Qa4+" , "Rd1" , "a5" , "Bc3+" , "Kg2" , "Kh6" , "Ra1" , "Qxe6" , "Rb3" , "Nxd5" , "c6" , "Rf5" , "h6" , "Ree1" , "h4" , "g5" , "Qh4" , "Nf3" , "Bh4" , "Bg5" , "b5" , "Re4" , "Rae1" , "O-O" , "bxa4" , "Qe6" , "d4" , "Qf5" , "Be2" , "cxd5" , "Rh1" , "e5" , "Nd5" , "Qxd5" , "Qc2" , "Bg3" , "d5" , "Kh8" , "Nc3" , "Rxe6" , "gxf3" , "Rh4" , "Bxf3" , "Rc5" , "g6" , "Nf6" , "a4" , "Bd2" , "Bc1" , "Rxf5" , "Be3" , "f5" , "b3" , "Nb6" , "Qb3+" , "Qd8" , "Bg7" , "c4" , "Kg7" , "Qe4" , "Rh5" , "Bg4" , "Bxd4" ;
+        chon:nextHalfMove      :hmgamqLNSoJa , :hmgam4LWaiJ3 .
+
+chon:HalfMove  chon:subEventOf  :gamuN7tF .
+
+:rolqLNSoJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqLNSoJ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqLNSoJ .
+
+:gamuN7tF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqLNSoJ ;
+        chon:atPlace           :plauN7tFJ ;
+        chon:atTime            "2006.10.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqLNSoJa ;
+        chon:hasHalfMove       :hmgam4LWaiJ3 , :hmgamqLNSoJa ;
+        chon:hasLastHalfMove   :hmgam4LWaiJ3 ;
+        chon:hasOpening        :opeqLNSoJ ;
+        chon:hasReport         :cgrqLNSoJ ;
+        chon:hasResult         :resqLNSoJa ;
+        chon:subEventOf        :touqLNSo .
+
+:rolhgqLNSoJay  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqLNSoJ .
+
+:resqLNSoJa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agqLNSoJ  a          chon:Agent ;
+        chon:hasName  "Vachier Lagrave,M" , "Karpov,Ana" .
+
+:opeqLNSoJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A16" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

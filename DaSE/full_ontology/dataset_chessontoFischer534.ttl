@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamt185i4E  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgE15iR3Ht , :rolhgt185i4Eg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Robert E" ;
+        chon:hasSANRecord      "Qxg7" , "d4" , "Ne5" , "Rad8" , "Nf6" , "a3" , "Ke7" , "Ng3" , "e4" , "Qxc5" , "Nbd7" , "Qc6" , "Be2" , "Nxe3" , "a6" , "Nxc5" , "Nc3" , "fxe4" , "Nd5" , "f5" , "Bxc3+" , "c5" , "a5" , "dxc5" , "d5" , "Bc6" , "e6" , "Qh6" , "fxe3" , "Qg4" , "Rg8" , "a4" , "Qc7" , "Bb4" , "Nxe4" , "Be3" , "Ncd7" , "Bd7" , "dxe4" , "Qe3" , "bxc3" , "Ne2" , "O-O" ;
+        chon:nextHalfMove      :hmgamE15iR3H , :hmgamt185i4E .
+
+:hmgamE15iR3H  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgE15iR3Ht ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Byrne, Robert E" ;
+        chon:hasSANRecord      "Ra1" , "Kf2" , "h6" , "Ne3" , "Re1" , "Kg1" , "Bf3" , "Ng4" , "Rxd1" , "Rad1" , "Rg5" , "Ng4+" ;
+        chon:nextHalfMove      :hmgamE15iR3H .
+
+:rolhgt185i4Eg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agt185i4 .
+
+:plat185i4  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:cgrt185i4  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agt185i4 .
+
+:gamt185i  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolt185i4 ;
+        chon:atPlace           :plat185i4 ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamt185i4E ;
+        chon:hasHalfMove       :hmgamt185i4E , :hmgamE15iR3H ;
+        chon:hasLastHalfMove   :hmgamE15iR3H ;
+        chon:hasOpening        :opet185i4 ;
+        chon:hasReport         :cgrt185i4 ;
+        chon:hasResult         :rest185i4E ;
+        chon:subEventOf        :tout185i .
+
+:rest185i4E  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:tout185i  a          chon:hessTournament ;
+        chon:atPlace  :plat185i4 ;
+        chon:hasName  "USA-ch" .
+
+chon:HalfMove  chon:subEventOf  :gamt185i .
+
+:agt185i4  a          chon:Agent ;
+        chon:hasName  "Byrne, Robert E" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agt185i4 .
+
+:rolt185i4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agt185i4 .
+
+:opet185i4  a            chon:ChessOpening ;
+        chon:hasECOCode  "C15" .
+
+:rolhgE15iR3Ht  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agt185i4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

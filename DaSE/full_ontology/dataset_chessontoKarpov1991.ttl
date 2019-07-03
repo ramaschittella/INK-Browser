@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plarTDZ94  a         chon:Place ;
+        chon:hasName  "Las Palmas" .
+
+:agrTDZ94  a          chon:Agent ;
+        chon:hasName  "Topalov, Veselin" .
+
+:rolrTDZ94  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrTDZ94 .
+
+:hmgamDRzcF3m  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDRzcF3ms , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bb3" , "Rd1" , "Qc8" , "Ne5" , "Nf3" , "Bxc4" , "Rd8" , "c4" , "e5" , "axb3" , "Qg4" , "c5" , "Rxd1+" , "Be8" , "Nc5" , "Na4" , "Nd5" , "hxg4" , "O-O" , "e4" , "d4" , "e3" , "Rc8" , "Qc7" , "Nc3" , "Nd7" , "Rac1" , "dxc4" , "Qe2" , "Bd7" , "Rdd1" , "Bb6" , "Be3" , "Rxd3" , "Qe6" , "Nd3" , "d3" , "f6" , "Qxd1" , "Nf6" , "e6" , "a6" , "cxd4" , "Kf7" , "Qxg4" , "Nc6" , "h3" , "Be7" , "d5" , "Nxb3" , "Nxe7" ;
+        chon:nextHalfMove      :hmgamDRzcF3m .
+
+chon:HalfMove  chon:subEventOf  :gamrTDZ9 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDRzcF3 .
+
+:gamrTDZ9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrTDZ94 ;
+        chon:atPlace           :plarTDZ94 ;
+        chon:atTime            "1996.12.11"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDRzcF3m ;
+        chon:hasHalfMove       :hmgamDRzcF3m ;
+        chon:hasLastHalfMove   :hmgamDRzcF3m ;
+        chon:hasOpening        :opeDRzcF3 ;
+        chon:hasReport         :cgrDRzcF3 ;
+        chon:hasResult         :resDRzcF3m ;
+        chon:subEventOf        :tourTDZ9 .
+
+:resDRzcF3m  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrDRzcF3  a   chon:ChessGameReport .
+
+:rolhgDRzcF3ms  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDRzcF3 , :agrTDZ94 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolDRzcF3  a             chon:AuthorRole ;
+        chon:performedBy  :agDRzcF3 .
+
+:agDRzcF3  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:opeDRzcF3  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+:tourTDZ9  a          chon:hessTournament ;
+        chon:atPlace  :plarTDZ94 ;
+        chon:hasName  "Las Palmas" .

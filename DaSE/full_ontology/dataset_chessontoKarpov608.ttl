@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgPN6ua4Ve  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPN6ua4 .
+
+:rolPN6ua4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPN6ua4 .
+
+:hmgamhPfOx4K  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghPfOx4KF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "g4" , "Ne8" , "Rd1" ;
+        chon:nextHalfMove      :hmgamhPfOx4K .
+
+:resPN6ua4V  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamPN6ua  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPN6ua4 ;
+        chon:atPlace           :plaPN6ua4 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPN6ua4V ;
+        chon:hasHalfMove       :hmgamhPfOx4K , :hmgamPN6ua4V ;
+        chon:hasLastHalfMove   :hmgamhPfOx4K ;
+        chon:hasOpening        :opePN6ua4 ;
+        chon:hasReport         :cgrPN6ua4 ;
+        chon:hasResult         :resPN6ua4V ;
+        chon:subEventOf        :touPN6ua .
+
+:touPN6ua  a          chon:hessTournament ;
+        chon:atPlace  :plaPN6ua4 ;
+        chon:hasName  "Buenos Aires" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPN6ua4 .
+
+chon:HalfMove  chon:subEventOf  :gamPN6ua .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPN6ua4 .
+
+:agPN6ua4  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hort, Vlastimil" .
+
+:rolhghPfOx4KF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPN6ua4 .
+
+:opePN6ua4  a            chon:ChessOpening ;
+        chon:hasECOCode  "E19" .
+
+:plaPN6ua4  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamPN6ua4V  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghPfOx4KF , :rolhgPN6ua4Ve , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kf8" , "Be7" , "Kxg2" , "Bb2" , "Nxc3" , "Nxd3" , "dxc5" , "Qxc3" , "Nf6" , "Qxc7" , "Bb7" , "c5" , "Rd8" , "gxf6" , "Ne1" , "d6" , "Rd3" , "Qf4" , "Bf6" , "Nc3" , "d4" , "Bxf6" , "Rd1" , "Rxd3" , "O-O" , "Bg2" , "Bxg2" , "c4" , "Qd2" , "Ne4" , "Ke7" , "b3" , "Nf3" , "Qc2" , "Nxc7" , "Qc7" , "b6" , "e6" , "Na6" , "g3" ;
+        chon:nextHalfMove      :hmgamPN6ua4V , :hmgamhPfOx4K .
+
+:cgrPN6ua4  a   chon:ChessGameReport .

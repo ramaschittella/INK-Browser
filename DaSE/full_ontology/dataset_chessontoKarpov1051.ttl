@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhglacZfjBt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpctQvl .
+
+:respctQvll  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpctQvl .
+
+chon:HalfMove  chon:subEventOf  :gampctQv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpctQvl .
+
+:plapctQvl  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+:hmgamlacZfjB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglacZfjBt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Torre, Eugenio" ;
+        chon:hasSANRecord      "Nc7" , "Na6" , "Bc4" , "Qe5+" , "Nd5" , "Bg7" , "Nxd4" , "Qxa6" , "O-O" , "dxe6" , "c4" , "h3" , "g3" , "e6" , "Bb7" , "Rac8" , "Bxd5" , "b6" , "dxc3" , "Rad1" , "Qd3" , "Nd4" , "d4" , "Rc5" , "Rfd8" , "cxd4" , "Qe6" , "Nf3" , "Qxb6" , "Qc7" , "a5" , "a7" , "Rxe5" , "Nxe6" , "Rxc8" , "Kh2" , "Qe1+" , "Be2" , "Qd5" , "a8=Q" , "Qxd5" , "Qf3" , "Qxf2+" , "Qg2" , "a6" , "e5" , "Nxd5" , "Rc1" , "c5" , "Bxc3" , "Rxc3" , "Qxe5" , "Qb8" , "a4" , "Qd7" , "Bd2" , "Re1" , "Kg7" , "d5" ;
+        chon:nextHalfMove      :hmgamlacZfjB .
+
+:gampctQv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpctQvl ;
+        chon:atPlace           :plapctQvl ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampctQvll ;
+        chon:hasHalfMove       :hmgampctQvll , :hmgamlacZfjB ;
+        chon:hasLastHalfMove   :hmgamlacZfjB ;
+        chon:hasOpening        :opepctQvl ;
+        chon:hasReport         :cgrpctQvl ;
+        chon:hasResult         :respctQvll ;
+        chon:subEventOf        :toupctQv .
+
+:cgrpctQvl  a   chon:ChessGameReport .
+
+:toupctQv  a          chon:hessTournament ;
+        chon:atPlace  :plapctQvl ;
+        chon:hasName  "Brussels blitz" .
+
+:agpctQvl  a          chon:Agent ;
+        chon:hasName  "Torre, Eugenio" , "Karpov, Anatoly" .
+
+:rolpctQvl  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpctQvl .
+
+:rolhgpctQvllw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpctQvl .
+
+:opepctQvl  a            chon:ChessOpening ;
+        chon:hasECOCode  "A43" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgampctQvll  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpctQvllw , chon:AgentRole , :rolhglacZfjBt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Torre, Eugenio" ;
+        chon:hasSANRecord      "Nf6" , "g6" , "e4" , "d6" , "Nc3" , "d4" ;
+        chon:nextHalfMove      :hmgamlacZfjB , :hmgampctQvll .

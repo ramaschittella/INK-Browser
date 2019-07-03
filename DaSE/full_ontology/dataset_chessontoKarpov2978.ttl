@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgvOUeMdvy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvOUeMd .
+
+:agvOUeMd  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Polgar,Ju" .
+
+:rolvOUeMd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvOUeMd .
+
+:gamvOUeM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvOUeMd ;
+        chon:atPlace           :plavOUeMd ;
+        chon:atTime            "2007.11.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvOUeMdv ;
+        chon:hasHalfMove       :hmgamvOUeMdv , :hmgamHOPukfy ;
+        chon:hasLastHalfMove   :hmgamHOPukfy ;
+        chon:hasOpening        :opevOUeMd ;
+        chon:hasReport         :cgrvOUeMd ;
+        chon:hasResult         :resvOUeMdv ;
+        chon:subEventOf        :touvOUeM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvOUeMd .
+
+:touvOUeM  a          chon:hessTournament ;
+        chon:atPlace  :plavOUeMd ;
+        chon:hasName  "Chess Champions League" .
+
+:resvOUeMdv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamvOUeM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvOUeMd .
+
+:opevOUeMd  a            chon:ChessOpening ;
+        chon:hasECOCode  "C83" .
+
+:hmgamvOUeMdv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvOUeMdvy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qe2" , "h4" , "Qg3" , "b5" , "Rf7" , "Qd7" , "Rxg3" , "a5" , "d4" , "Be7" , "Bc2" , "Ba4" , "Bc5" , "f4" , "Rg3" , "Qe8" , "fxe6" , "h5" , "Nxd2" , "e4" , "Rf3" , "O-O" , "Nxe6" , "c4" , "dxe5" , "a6" , "Rad8" , "Bb5" , "Nd4" , "Qxd2" , "Qd3" , "Kh1" , "Bxd2" , "f5" , "Na5" , "Nc6" , "d5" , "Nxe4" , "e5" , "Nc4" , "g6" , "Bb3" , "Rad1" , "Kh8" , "Be6" , "c5" , "gxh5" , "Nf3" , "c3" , "Qxg3+" , "Nf6" , "Qh3" , "Rg7" , "Nbd2" ;
+        chon:nextHalfMove      :hmgamHOPukfy , :hmgamvOUeMdv .
+
+:plavOUeMd  a         chon:Place ;
+        chon:hasName  "Vitoria Gasteiz ESP" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamHOPukfy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHOPukfyJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Kg7" , "f6" , "Rf1" , "Bxf8" , "Bf4" , "Qe7" , "Bxe5" , "a3" , "Be6" , "Qh3" , "d4" , "Kg6" , "Rxd3" , "Qg6" , "Bd6" , "Bxh5" , "bxa3" , "Rg8" , "Qh4" , "Bd1" , "cxd3" , "Bg4" , "Qf7" , "Qxd3" , "e5" , "Rf8" , "bxa4" , "Be3" , "Rg4+" , "f7" , "Rd4" , "Kh6" , "Qd3" , "Rd1" , "cxd4" , "a4" , "Rxf8" ;
+        chon:nextHalfMove      :hmgamHOPukfy .
+
+:cgrvOUeMd  a   chon:ChessGameReport .
+
+:rolhgHOPukfyJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvOUeMd .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toucJ4fl  a          chon:hessTournament ;
+        chon:atPlace  :placJ4flp ;
+        chon:hasName  "Skopje" .
+
+:hmgamcJ4flpg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnJ1vSqjs , :rolhgcJ4flpgh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Be6" , "Qxd5" , "Qa4" , "Nxf3+" , "Bd2" , "d4" , "Rac1" , "O-O" , "Bc3" , "Nc6" , "a5" , "g6" , "c5" , "Qd7" , "c4" , "Bg7" , "Qb3" , "Qb4" , "Bf3" , "Bxd5" , "b5" , "Nc3" , "Qxd4" , "Rxb2" , "Qxb5" , "Bxc3" , "Nd7" , "cxd4" , "Be2" , "e3" , "a6" , "Nf6" , "d6" , "Rb8" , "Qc2" , "Ne5" , "Rc8" , "gxf3" , "Qd2" , "Qxa5" , "Nd5" , "Nf3" , "Nxd4" ;
+        chon:nextHalfMove      :hmgamcJ4flpg , :hmgamnJ1vSqj .
+
+:hmgamnJ1vSqj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnJ1vSqjs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "fxe3" , "Rb2" , "Rxc3" , "f4" , "Re2" , "Qh4" , "Kf1" , "Qxe4" , "Qg4+" , "e4" , "Qh5" , "Rc5" , "Qa8+" , "Rf1" , "Kg7" , "Rxe3" , "Re5" , "Rxa2" , "Kg1" , "Rb7" , "Rfc1" , "Re3" , "Qf1" , "f5" , "Qg2" , "Qe2+" ;
+        chon:nextHalfMove      :hmgamnJ1vSqj .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcJ4flp .
+
+:rolhgcJ4flpgh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcJ4flp .
+
+chon:HalfMove  chon:subEventOf  :gamcJ4fl .
+
+:rescJ4flpg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcJ4flp .
+
+:gamcJ4fl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcJ4flp ;
+        chon:atPlace           :placJ4flp ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcJ4flpg ;
+        chon:hasHalfMove       :hmgamnJ1vSqj , :hmgamcJ4flpg ;
+        chon:hasLastHalfMove   :hmgamnJ1vSqj ;
+        chon:hasOpening        :opecJ4flp ;
+        chon:hasReport         :cgrcJ4flp ;
+        chon:hasResult         :rescJ4flpg ;
+        chon:subEventOf        :toucJ4fl .
+
+:placJ4flp  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:cgrcJ4flp  a   chon:ChessGameReport .
+
+:rolhgnJ1vSqjs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcJ4flp .
+
+:agcJ4flp  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Danov, Kiril" .
+
+:rolcJ4flp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcJ4flp .
+
+:opecJ4flp  a            chon:ChessOpening ;
+        chon:hasECOCode  "A35" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

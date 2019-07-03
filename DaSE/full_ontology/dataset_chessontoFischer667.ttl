@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrcYxcnH  a   chon:ChessGameReport .
+
+:agcYxcnH  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Kortschnoj, Viktor" .
+
+:rolcYxcnH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcYxcnH .
+
+:opecYxcnH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E97" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcYxcnH .
+
+chon:HalfMove  chon:subEventOf  :gamcYxcn .
+
+:toucYxcn  a          chon:hessTournament ;
+        chon:atPlace  :placYxcnH ;
+        chon:hasName  "Herceg Novi blitz" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcYxcnH .
+
+:hmgamcYxcnHA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcYxcnHAd ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "b6" , "Ng6" , "Nh8" , "Rg6" , "d6" , "h3" , "a3" , "f5" , "Nxg4" , "Nf6" , "Bf3" , "Bg7" , "Nc6" , "Rf6" , "Kf1" , "g6" , "e5" , "Rf3" , "gxh3" , "b4" , "Ng5" , "Nb3" , "Rd3" , "Bxg4" , "f3" , "a4" , "Ng4+" , "Kg1" , "c4" , "Bxh3+" , "c5" , "bxc5" , "Be1" , "Nf7" , "d4" , "Bd2" , "fxg4" , "Kf2" , "Nd2" , "Nc3" , "Rb1" , "f4" , "Nf3" , "Ne7" , "d5" , "e4" , "a5" , "Be2" , "Qe2" , "g4" , "g5" , "O-O" , "Ne8" , "Rh6" , "Nxh3" , "Kh1" ;
+        chon:nextHalfMove      :hmgamcYxcnHA .
+
+:rolhgcYxcnHAd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcYxcnH .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rescYxcnHA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:placYxcnH  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+:gamcYxcn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcYxcnH ;
+        chon:atPlace           :placYxcnH ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcYxcnHA ;
+        chon:hasHalfMove       :hmgamcYxcnHA ;
+        chon:hasLastHalfMove   :hmgamcYxcnHA ;
+        chon:hasOpening        :opecYxcnH ;
+        chon:hasReport         :cgrcYxcnH ;
+        chon:hasResult         :rescYxcnHA ;
+        chon:subEventOf        :toucYxcn .

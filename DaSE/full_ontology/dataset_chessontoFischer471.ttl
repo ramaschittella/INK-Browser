@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaL4otEw  a         chon:Place ;
+        chon:hasName  "Davis" .
+
+:touL4otE  a          chon:hessTournament ;
+        chon:atPlace  :plaL4otEw ;
+        chon:hasName  "Davis sim" .
+
+:agL4otEw  a          chon:Agent ;
+        chon:hasName  "Hoppe, R." , "Fischer, Robert James" .
+
+:hmgamc4yNYz8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgc4yNYz8W , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hoppe, R." ;
+        chon:hasSANRecord      "a3" , "exd5" , "Nb8" , "Re1" , "Bxc3+" , "Qg3" , "c4" , "Ne7" , "Nf4" , "Qf6+" , "Bg5" , "e4" , "Kh7" , "Kf8" , "Rcg8" , "Qxg7" , "Ne2" , "Nxf4" , "Nc3" , "Rg7" , "Kxe7" , "Rad1" , "d5" , "h4" , "Nc6" , "f5" , "Qxe7+" , "Qxe7" , "Bxf4" , "c5" , "Kh6" , "Kg7" , "Bb4" , "Ke8" , "Qe7" , "Nxa6" , "Qd6+" , "d4" , "e6" , "Qxf7" , "h5" , "b6" , "Qg4" , "Qd7" , "Ng6" , "Bxe7+" , "e5" , "Ba6" , "Re7" , "cxd4" , "Rde1+" , "Rc8" , "f4" , "exf7+" , "Bxa6" , "O-O" , "dxc4" , "bxc3" ;
+        chon:nextHalfMove      :hmgamc4yNYz8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agL4otEw .
+
+:opeL4otEw  a            chon:ChessOpening ;
+        chon:hasECOCode  "C16" .
+
+chon:HalfMove  chon:subEventOf  :gamL4otE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agL4otEw .
+
+:resc4yNYz8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamL4otE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolL4otEw ;
+        chon:atPlace           :plaL4otEw ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamc4yNYz8 ;
+        chon:hasHalfMove       :hmgamc4yNYz8 ;
+        chon:hasLastHalfMove   :hmgamc4yNYz8 ;
+        chon:hasOpening        :opeL4otEw ;
+        chon:hasReport         :cgrc4yNYz ;
+        chon:hasResult         :resc4yNYz8 ;
+        chon:subEventOf        :touL4otE .
+
+:rolhgc4yNYz8W  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agL4otEw .
+
+:cgrc4yNYz  a   chon:ChessGameReport .
+
+:rolL4otEw  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolc4yNYz  a             chon:AuthorRole ;
+        chon:performedBy  :agc4yNYz .

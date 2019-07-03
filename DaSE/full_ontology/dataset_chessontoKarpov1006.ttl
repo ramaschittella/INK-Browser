@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:placSgjbK  a         chon:Place ;
+        chon:hasName  "London/Leningrad" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcSgjbK .
+
+:hmgamcSgjbKQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcSgjbKQG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Nfd7" , "Qc5" , "Bg3" , "b3" , "Re4" , "Rfd8" , "d5" , "O-O" , "Bxc3" , "Bb2" , "Rxc6" , "Be3" , "dxc4" , "h3" , "Bg4" , "c4" , "Rfe1" , "Bh6" , "Nc6" , "Nxc3" , "Bxf3" , "Be5" , "a5" , "Bc1" , "e5" , "Bg7" , "bxc6" , "Rxc7" , "Bxe5" , "c6" , "Qxc4" , "g6" , "dxc5" , "Rd7" , "a3" , "Nc3" , "Nb5" , "Nf6" , "Rd1" , "Rb6" , "Qd6" , "Nf3" , "Bd4" , "Na4" , "d4" , "Qxc5" , "Na7" , "a4" , "Be2" , "e4" , "Rd5" , "Nb6" , "Bf4" , "Qb3" , "Nc8" , "Rb7" , "Bxc6" ;
+        chon:nextHalfMove      :hmgamcSgjbKQ .
+
+:cgrcSgjbK  a   chon:ChessGameReport .
+
+:gamcSgjb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcSgjbK ;
+        chon:atPlace           :placSgjbK ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcSgjbKQ ;
+        chon:hasHalfMove       :hmgamcSgjbKQ ;
+        chon:hasLastHalfMove   :hmgamcSgjbKQ ;
+        chon:hasOpening        :opecSgjbK ;
+        chon:hasReport         :cgrcSgjbK ;
+        chon:hasResult         :rescSgjbKQ ;
+        chon:subEventOf        :toucSgjb .
+
+chon:HalfMove  chon:subEventOf  :gamcSgjb .
+
+:toucSgjb  a          chon:hessTournament ;
+        chon:atPlace  :placSgjbK ;
+        chon:hasName  "World Championship 33th-KK3" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcSgjbK .
+
+:agcSgjbK  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolcSgjbK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcSgjbK .
+
+:rolhgcSgjbKQG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcSgjbK .
+
+:opecSgjbK  a            chon:ChessOpening ;
+        chon:hasECOCode  "D98" .
+
+:rescSgjbKQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

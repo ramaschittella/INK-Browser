@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamMw1A4rJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMw1A4rJY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kamsky, Gata" ;
+        chon:hasSANRecord      "Ke8" , "dxc4" , "Re1" , "Nxe6" , "e4" , "Bd4" , "Qf6+" , "Nxd4" , "Rh3" , "Qc6" , "h4" , "Ne5" , "Rxf7" , "Nxg6" , "Qb6" , "g4" , "b5" , "Qc2" , "bxc4" , "Kh2" , "Bc1" , "e7+" , "Qa7" , "Nbd7" , "Re7" , "Na4" , "O-O" , "d5" , "Bd5+" , "Ree8" , "Nf4" , "Kg3" , "h3" , "Qxa6" , "Qc7" , "h5" , "Rg7" , "Ne2" , "Qxg5" , "Qd3" , "c6" , "Kg8" , "Bxf7" , "b4" , "Bd2" , "Qxc6" , "hxg5" , "Qg5" , "Rad8" , "Qb8" , "Rf8" , "Kf8" , "e6" , "Kxe7" , "Rxe7" , "f4" , "fxg6" , "Be4" , "Re8" , "Nc3" , "Rxe7+" , "Rff7" , "Qd8" , "Ba3" , "Qd5+" , "Nf3" , "Ra7" , "Re2" , "e5" , "c5" , "Qh6" , "Bc3" , "Kg7" , "Bxf6" , "Nc6" , "b3" , "hxg4" , "Nd4" , "Rxe6" , "Re5" , "exd4" , "Qe7" , "Nc2" , "Rd3" , "Rad1" , "a6" , "Ke6" , "Kxg4" , "Be6" ;
+        chon:nextHalfMove      :hmgamMw1A4rJ .
+
+:rolhgAy4mvqEL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAy4mvq .
+
+:touAy4mv  a          chon:hessTournament ;
+        chon:atPlace  :plaAy4mvq ;
+        chon:hasName  "Amber-blind 4th" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAy4mvq .
+
+:plaAy4mvq  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:hmgamAy4mvqE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAy4mvqEL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kamsky, Gata" ;
+        chon:hasSANRecord      "Nf6" , "c4" , "d6" , "Nc3" , "g6" , "O-O" , "d4" , "Bg2" , "g3" , "Bg7" ;
+        chon:nextHalfMove      :hmgamMw1A4rJ , :hmgamAy4mvqE .
+
+chon:HalfMove  chon:subEventOf  :gamAy4mv .
+
+:cgrAy4mvq  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAy4mvq .
+
+:agAy4mvq  a          chon:Agent ;
+        chon:hasName  "Kamsky, Gata" , "Karpov, Anatoly" .
+
+:rolAy4mvq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAy4mvq .
+
+:opeAy4mvq  a            chon:ChessOpening ;
+        chon:hasECOCode  "E69" .
+
+:rolhgMw1A4rJY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAy4mvq .
+
+:resAy4mvqE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamAy4mv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAy4mvq ;
+        chon:atPlace           :plaAy4mvq ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAy4mvqE ;
+        chon:hasHalfMove       :hmgamAy4mvqE , :hmgamMw1A4rJ ;
+        chon:hasLastHalfMove   :hmgamMw1A4rJ ;
+        chon:hasOpening        :opeAy4mvq ;
+        chon:hasReport         :cgrAy4mvq ;
+        chon:hasResult         :resAy4mvqE ;
+        chon:subEventOf        :touAy4mv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

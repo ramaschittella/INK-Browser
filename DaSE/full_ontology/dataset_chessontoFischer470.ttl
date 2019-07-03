@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrD6K7lz  a   chon:ChessGameReport .
+
+:rolhgz4rf5xdk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agD6K7lz .
+
+:agD6K7lz  a          chon:Agent ;
+        chon:hasName  "Celle, O." , "Fischer, Robert James" .
+
+:rolD6K7lz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agD6K7lz .
+
+:opeD6K7lz  a            chon:ChessOpening ;
+        chon:hasECOCode  "C51" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agD6K7lz .
+
+chon:HalfMove  chon:subEventOf  :gamD6K7l .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agD6K7lz .
+
+:hmgamD6K7lzW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgD6K7lzWk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Celle, O." ;
+        chon:hasSANRecord      "f6+" , "g6" , "b4" , "exf5" , "Qg3" , "Rxd7+" , "d6" , "Ng4" , "gxf5" , "Qh5" , "Bd7" , "Nc6" , "Nd6+" , "c3" , "Nf6" , "Ke7" , "cxb5" , "Ba3" , "Rac8" , "Re1+" , "Bxb4" , "Rf8" , "Nf5+" , "Be7" , "Bb5+" , "Qxd7" , "O-O" , "e4" , "Nxa3" , "Qc7" , "Qe6" , "Qe7" , "Nxf6" , "Bc4" , "Qxe5" , "e5" , "Nc4" , "dxe5" , "Bc5" , "Nxe5" , "Nf3" , "d4" , "c6" , "Bxa3" , "Rad1" ;
+        chon:nextHalfMove      :hmgamz4rf5xd , :hmgamD6K7lzW .
+
+:hmgamz4rf5xd  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgz4rf5xdk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Celle, O." ;
+        chon:hasSANRecord      "Ne4" , "Rxe4+" , "Rfd8" , "Kf6" , "Qg4" , "Qxd7" ;
+        chon:nextHalfMove      :hmgamz4rf5xd .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamD6K7l  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolD6K7lz ;
+        chon:atPlace           :plaD6K7lz ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamD6K7lzW ;
+        chon:hasHalfMove       :hmgamD6K7lzW , :hmgamz4rf5xd ;
+        chon:hasLastHalfMove   :hmgamz4rf5xd ;
+        chon:hasOpening        :opeD6K7lz ;
+        chon:hasReport         :cgrD6K7lz ;
+        chon:hasResult         :resD6K7lzW ;
+        chon:subEventOf        :touD6K7l .
+
+:resD6K7lzW  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touD6K7l  a          chon:hessTournament ;
+        chon:atPlace  :plaD6K7lz ;
+        chon:hasName  "Davis sim" .
+
+:plaD6K7lz  a         chon:Place ;
+        chon:hasName  "Davis" .
+
+:rolhgD6K7lzWk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agD6K7lz .

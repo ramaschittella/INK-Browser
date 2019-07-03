@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agmQI7ac  a          chon:Agent ;
+        chon:hasName  "Savon, Vladimir A" , "Karpov, Anatoly" .
+
+:opemQI7ac  a            chon:ChessOpening ;
+        chon:hasECOCode  "C82" .
+
+:rolhgmQI7ac0g  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmQI7ac .
+
+:gammQI7a  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmQI7ac ;
+        chon:atPlace           :plamQI7ac ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammQI7ac0 ;
+        chon:hasHalfMove       :hmgammQI7ac0 , :hmgamyQDkJbc ;
+        chon:hasLastHalfMove   :hmgamyQDkJbc ;
+        chon:hasOpening        :opemQI7ac ;
+        chon:hasReport         :cgrmQI7ac ;
+        chon:hasResult         :resmQI7ac0 ;
+        chon:subEventOf        :toumQI7a .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmQI7ac .
+
+:toumQI7a  a          chon:hessTournament ;
+        chon:atPlace  :plamQI7ac ;
+        chon:hasName  "Moscow" .
+
+chon:HalfMove  chon:subEventOf  :gammQI7a .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmQI7ac .
+
+:hmgammQI7ac0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmQI7ac0g , :rolhgyQDkJbct , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Savon, Vladimir A" ;
+        chon:hasSANRecord      "b5" , "e5" , "Bc5" , "Nc6" , "Bb5" , "e4" , "O-O" , "a6" , "Nf6" , "Bb3" , "Nbd2" , "Nf3" , "d5" , "Be6" , "dxe5" , "Ba4" , "c3" , "d4" , "Nxe4" ;
+        chon:nextHalfMove      :hmgammQI7ac0 , :hmgamyQDkJbc .
+
+:cgrmQI7ac  a   chon:ChessGameReport .
+
+:hmgamyQDkJbc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyQDkJbct ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Savon, Vladimir A" ;
+        chon:hasSANRecord      "Bg6" , "a3" , "Ra6" , "cxd4" , "Be3" , "Nd2" , "Nb3" , "Nxe3" , "Nxf2" , "a4" , "Bb1" , "Nb4" , "Bxd4" , "Rc6" , "a5" , "bxa3" , "Bc2" , "Nfd4" , "Qd7" , "Rxc6" , "Rc1" , "Qc1" , "O-O" , "Nc2" , "Nf1" , "Bf5" , "Qb2" ;
+        chon:nextHalfMove      :hmgamyQDkJbc .
+
+:rolmQI7ac  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmQI7ac .
+
+:rolhgyQDkJbct  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmQI7ac .
+
+:resmQI7ac0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plamQI7ac  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

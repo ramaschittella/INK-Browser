@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tou1b1Q0  a          chon:hessTournament ;
+        chon:atPlace  :pla1b1Q0p ;
+        chon:hasName  "URS-ch50" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1b1Q0p .
+
+chon:HalfMove  chon:subEventOf  :gam1b1Q0 .
+
+:hmgamYpEFnvz  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYpEFnvzU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Azmaiparashvili, Zurab" ;
+        chon:hasSANRecord      "Kf6" , "Rxc3" , "Kxb4" , "g5" , "Rc1" , "Bc6" , "Nf5" , "Re1" , "d5" , "f4" , "Rc4+" , "Re7" , "Kxd5" , "g3" , "Bxd5" , "Kf3" , "Kc4" , "Ne3" , "Kf2" , "c6" , "h4" , "Ke5" , "exf4" , "Nxd5" , "Rxh7" , "Kxf4" , "gxf4" , "gxf4+" , "Kd4" ;
+        chon:nextHalfMove      :hmgamYpEFnvz .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag1b1Q0p .
+
+:rolhgYpEFnvzU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1b1Q0p .
+
+:pla1b1Q0p  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:hmgam1b1Q0p2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1b1Q0p2a , chon:AgentRole , :rolhgYpEFnvzU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Azmaiparashvili, Zurab" ;
+        chon:hasSANRecord      "Nc3" , "e5" , "Bxf3" , "O-O" , "Bxf6" , "Bg7" , "b5" , "a3" , "Qd2" , "c3" , "exf5" , "Bg4" , "Rxd2" , "Qa8" , "Qxd2" , "e4" , "b4" , "Ra1" , "d4" , "Bxg7" , "Bxb5" , "Nf3" , "Rxc3" , "Nf6" , "d6" , "Ra8" , "Kxg7" , "a5" , "Be3" , "Rad1" , "Rc2" , "f5" , "Rxa3" , "g6" , "Ra3" , "Ne7" , "Be2" , "Nc6" , "Qb2" , "axb4" , "Nxf5" , "d5" , "Qxa3" , "Bg5" , "Rd1" ;
+        chon:nextHalfMove      :hmgamYpEFnvz , :hmgam1b1Q0p2 .
+
+:cgr1b1Q0p  a   chon:ChessGameReport .
+
+:ag1b1Q0p  a          chon:Agent ;
+        chon:hasName  "Azmaiparashvili, Zurab" , "Karpov, Anatoly" .
+
+:rol1b1Q0p  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag1b1Q0p .
+
+:ope1b1Q0p  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+:res1b1Q0p2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg1b1Q0p2a  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag1b1Q0p .
+
+:gam1b1Q0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol1b1Q0p ;
+        chon:atPlace           :pla1b1Q0p ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam1b1Q0p2 ;
+        chon:hasHalfMove       :hmgam1b1Q0p2 , :hmgamYpEFnvz ;
+        chon:hasLastHalfMove   :hmgamYpEFnvz ;
+        chon:hasOpening        :ope1b1Q0p ;
+        chon:hasReport         :cgr1b1Q0p ;
+        chon:hasResult         :res1b1Q0p2 ;
+        chon:subEventOf        :tou1b1Q0 .

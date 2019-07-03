@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resLHTbFc1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrLHTbFc  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLHTbFc .
+
+:hmgamLHTbFc1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdJ6u2dQ3 , :rolhgLHTbFc1S ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hurttlen, N." ;
+        chon:hasSANRecord      "Nf3" , "e4" , "Nc6" , "Bb5" , "e5" ;
+        chon:nextHalfMove      :hmgamdJ6u2dQ , :hmgamLHTbFc1 .
+
+:touLHTbF  a          chon:hessTournament ;
+        chon:atPlace  :plaAHWX9b ;
+        chon:hasName  "Washington" .
+
+chon:HalfMove  chon:subEventOf  :gamAHWX9 .
+
+:agLHTbFc  a          chon:Agent ;
+        chon:hasName  "Hurttlen, N." , "Fischer, Robert James" .
+
+:rolLHTbFc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLHTbFc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLHTbFc .
+
+:opeLHTbFc  a            chon:ChessOpening ;
+        chon:hasECOCode  "C84" .
+
+:plaAHWX9b  a         chon:Place ;
+        chon:hasName  "Washington" .
+
+:rolhgLHTbFc1S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLHTbFc .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamdJ6u2dQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdJ6u2dQ3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hurttlen, N." ;
+        chon:hasSANRecord      "Bc5" , "Ba4" , "Nxe5" , "dxe5" , "Bxe5" , "Qxd1" , "d4" , "Be3" , "dxc6" , "Bxc6" , "Nxe4" , "Nf6" , "Rxd1" , "c3" , "O-O" , "Be7" , "Re8" , "Re1" , "a6" , "Bf5" , "Bd6" , "Bg5" ;
+        chon:nextHalfMove      :hmgamdJ6u2dQ .
+
+:rolhgdJ6u2dQ3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLHTbFc .
+
+:gamAHWX9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLHTbFc ;
+        chon:atPlace           :plaAHWX9b ;
+        chon:atTime            "1956.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLHTbFc1 ;
+        chon:hasHalfMove       :hmgamLHTbFc1 , :hmgamdJ6u2dQ ;
+        chon:hasLastHalfMove   :hmgamdJ6u2dQ ;
+        chon:hasOpening        :opeLHTbFc ;
+        chon:hasReport         :cgrLHTbFc ;
+        chon:hasResult         :resLHTbFc1 ;
+        chon:subEventOf        :touLHTbF .

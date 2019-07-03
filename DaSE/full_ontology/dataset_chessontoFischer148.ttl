@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamPk80SXK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgPk80SXK1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Szabo, Laszlo" ;
+        chon:hasSANRecord      "Ba4" , "Nc6" , "Be7" , "Nf3" , "a6" , "O-O" , "Bb5" , "Nf6" , "e4" , "e5" ;
+        chon:nextHalfMove      :hmgamPk80SXK , :hmgam2k2nrWN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPk80SX .
+
+:rolhgPk80SXK1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPk80SX .
+
+:rolhg2k2nrWNc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPk80SX .
+
+:opePk80SX  a            chon:ChessOpening ;
+        chon:hasECOCode  "C88" .
+
+:touPk80S  a          chon:hessTournament ;
+        chon:atPlace  :plaPk80SX ;
+        chon:hasName  "Portoroz Interzonal" .
+
+:cgrPk80SX  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamPk80S .
+
+:hmgam2k2nrWN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2k2nrWNc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Szabo, Laszlo" ;
+        chon:hasSANRecord      "Qd6" , "Rxd1" , "Ng3" , "Ndb4" , "exd5" , "Bxf8" , "c5" , "Bxd4" , "O-O" , "Rd6" , "Bb7" , "b5" , "Bc5" , "Nxd4" , "Nd3" , "Be3" , "Nxe1" , "d3" , "Bxc5" , "Rad8" , "Re1" , "Kh7" , "h5" , "c3" , "Rd1" , "cxd4" , "Nxd5" , "Bb3" , "Qb1" , "Bb4+" , "Rd8" , "d4" , "Raxd1" , "exd4" , "Ne4" , "h3" , "Nbd2" , "d5" , "Qg6" ;
+        chon:nextHalfMove      :hmgam2k2nrWN , :hmgamUZOQILM .
+
+:rolhgUZOQILMq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPk80SX .
+
+:hmgamUZOQILM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUZOQILMq ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Szabo, Laszlo" ;
+        chon:hasSANRecord      "Rd1" , "Qb1" , "Qf5" , "Rxg3" , "h4" , "Kg1" , "Re3" , "Kh2" , "hxg3" , "Rxe1" , "Qg6" , "Qb1+" ;
+        chon:nextHalfMove      :hmgamUZOQILM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resPk80SXK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolPk80SX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPk80SX .
+
+:plaPk80SX  a         chon:Place ;
+        chon:hasName  "Portoroz" .
+
+:gamPk80S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPk80SX ;
+        chon:atPlace           :plaPk80SX ;
+        chon:atTime            "1958.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPk80SXK ;
+        chon:hasHalfMove       :hmgamUZOQILM , :hmgamPk80SXK , :hmgam2k2nrWN ;
+        chon:hasLastHalfMove   :hmgamUZOQILM ;
+        chon:hasOpening        :opePk80SX ;
+        chon:hasReport         :cgrPk80SX ;
+        chon:hasResult         :resPk80SXK ;
+        chon:subEventOf        :touPk80S .
+
+:agPk80SX  a          chon:Agent ;
+        chon:hasName  "Szabo, Laszlo" , "Fischer, Robert James" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPk80SX .

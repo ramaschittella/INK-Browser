@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touLmL5D  a          chon:hessTournament ;
+        chon:atPlace  :plaLmL5Di ;
+        chon:hasName  "Varna rap m" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLmL5Di .
+
+:rolhgLmL5Div6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLmL5Di .
+
+chon:HalfMove  chon:subEventOf  :gamLmL5D .
+
+:plaLmL5Di  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLmL5Di .
+
+:cgrLmL5Di  a   chon:ChessGameReport .
+
+:resLmL5Div  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgWkFiahyi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLmL5Di .
+
+:gamLmL5D  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLmL5Di ;
+        chon:atPlace           :plaLmL5Di ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLmL5Div ;
+        chon:hasHalfMove       :hmgamLmL5Div , :hmgamWkFiahy ;
+        chon:hasLastHalfMove   :hmgamWkFiahy ;
+        chon:hasOpening        :opeLmL5Di ;
+        chon:hasReport         :cgrLmL5Di ;
+        chon:hasResult         :resLmL5Div ;
+        chon:subEventOf        :touLmL5D .
+
+:agLmL5Di  a          chon:Agent ;
+        chon:hasName  "Topalov, Veselin" , "Karpov, Anatoly" .
+
+:rolLmL5Di  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLmL5Di .
+
+:hmgamWkFiahy  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWkFiahyi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov, Veselin" ;
+        chon:hasSANRecord      "Kd2" , "Nd3+" , "Kxd1" , "Ra1+" , "Ra6" , "Rc8+" , "Bf2" , "Ng2" , "Kc1" , "Bxf7" , "Qxf2+" , "Ke3" , "Kg7" , "Qxf3+" , "Qxe7" , "Qh4+" , "Ke2" , "Rxd1+" , "Nd1" , "Ng2+" , "Nf3" , "Qg2" , "Qg5" , "Qd7" , "Nxh4+" , "Kxd3" , "h4" , "Kf3" , "Nf4+" ;
+        chon:nextHalfMove      :hmgamWkFiahy .
+
+:opeLmL5Di  a            chon:ChessOpening ;
+        chon:hasECOCode  "E89" .
+
+:hmgamLmL5Div  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWkFiahyi , :rolhgLmL5Div6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov, Veselin" ;
+        chon:hasSANRecord      "e4" , "Bd5" , "Qb7" , "Rc8" , "Nbd7" , "Be3" , "d6" , "d4" , "g4" , "c6" , "f3" , "Rf8" , "Nf3" , "Nxd5" , "O-O-O" , "Bd7" , "Nh3" , "Nc7" , "Qb6" , "Nge2" , "Bf8" , "Qa7" , "Ne6" , "cxd5" , "Qd2" , "Kc1" , "Kb2" , "b5" , "Rc1" , "gxf6" , "Bd2" , "Bc4" , "Qd7" , "Qa6" , "fxe4" , "Ra8" , "d5" , "Nd2" , "Nb1" , "b4" , "a5" , "f6" , "Nb6" , "Qxd5+" , "Be7" , "Be2" , "Nf2" , "g5" , "Kxc2" , "g6" , "Bg7" , "Bg5" , "Bf7" , "Ng5" , "Qf6" , "a4" , "Nh7" , "Qe7" , "Rd6" , "Rc2" , "Qh4" , "Rg1" , "c4" , "Kd1" , "Rxf6" , "b3" , "Qe6" , "axb3" , "dxe4" , "Rb8" , "O-O" , "Nc3" , "Rxc2+" , "Nc1" , "h5" , "a6" , "e5" , "Rd8" , "Na8" , "Be8" , "Qb5" , "Nf6" , "Nf4" , "Nd3" , "Ke1" , "Qd3" ;
+        chon:nextHalfMove      :hmgamWkFiahy , :hmgamLmL5Div .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

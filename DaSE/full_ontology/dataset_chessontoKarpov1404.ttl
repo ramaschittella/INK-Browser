@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgyx0FKayp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyx0FKa .
+
+:resyx0FKay  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyx0FKa .
+
+:opeyx0FKa  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:rolhguvQPu9Op  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyx0FKa .
+
+:hmgamyx0FKay  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhguvQPu9Op , :rolhgyx0FKayp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "e3" , "Nxg5" , "a6" , "a4" , "Qd1" , "Qxd6" , "Bb7" , "Bd5" , "Bf1" , "d4" , "O-O" , "Qxg5" , "Rd1" , "Ba5" , "Qe1" , "Bxc4" , "d5" , "Bd6" , "Rdc1" , "axb5" , "Qc2" , "Nc3" , "Nf3" , "Qe7" , "c5" , "Ng5" , "e6" , "f5" , "c6" , "h3" , "Ne4" , "Rfc8" , "Be2" , "Nbd7" , "b5" , "c4" , "Bd3" , "Bb4" , "Nf6" , "Bd2" , "dxc4" , "Nxd6" ;
+        chon:nextHalfMove      :hmgamyx0FKay , :hmgamuvQPu9O .
+
+chon:HalfMove  chon:subEventOf  :gamyx0FK .
+
+:rolyx0FKa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyx0FKa .
+
+:hmgamFvM320R  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFvM320RA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "Qf1" , "Qc2+" , "Qg4" , "Ke3" , "Qb8+" , "Kf2" , "Qg3" , "Bd5" , "Qc1+" , "Qe5" , "Qf5+" , "Kh7" , "Bc3" , "Qb1" , "h5" , "Qd3" , "Qh3+" , "Ke1" , "Qe4+" , "Qd1" ;
+        chon:nextHalfMove      :hmgamFvM320R .
+
+:gamyx0FK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyx0FKa ;
+        chon:atPlace           :playx0FKa ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyx0FKay ;
+        chon:hasHalfMove       :hmgamyx0FKay , :hmgamFvM320R , :hmgamuvQPu9O ;
+        chon:hasLastHalfMove   :hmgamFvM320R ;
+        chon:hasOpening        :opeyx0FKa ;
+        chon:hasReport         :cgryx0FKa ;
+        chon:hasResult         :resyx0FKay ;
+        chon:subEventOf        :touyx0FK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:playx0FKa  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+:rolhgFvM320RA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyx0FKa .
+
+:hmgamuvQPu9O  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhguvQPu9Op , :rolhgFvM320RA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "Qd7" , "b4" , "Bc3" , "Ba3" , "Bd6" , "Qf7" , "Qa8" , "gxf3" , "Ng5" , "Qb4" , "h6" , "Kh2" , "f3" , "Ra1" , "Bg2" , "Bh1" , "Kg8" , "h4" , "Qg3" , "Be7" , "Qg1" , "Bxf3" , "Qh3" , "Kg1" , "Qxa1" , "f4" , "Rxa8" , "Qd8" , "Qb7" , "Qe1" , "Rxa1" , "Qd5" , "Qf4" , "Ke3" , "Ba8" , "Qg6" , "Kf2" , "Kh8" , "b3" , "Qb1+" , "e4" , "Bf7" , "Qxe6" , "Qf5+" , "Bd5" , "Bb4" , "Qa7" , "Nxf3+" , "Bxe4" , "Kh7" ;
+        chon:nextHalfMove      :hmgamuvQPu9O , :hmgamFvM320R .
+
+:agyx0FKa  a          chon:Agent ;
+        chon:hasName  "Anand, Viswanathan" , "Karpov, Anatoly" .
+
+:cgryx0FKa  a   chon:ChessGameReport .
+
+:touyx0FK  a          chon:hessTournament ;
+        chon:atPlace  :playx0FKa ;
+        chon:hasName  "Candidats qf4" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyx0FKa .

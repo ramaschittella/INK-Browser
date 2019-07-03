@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rol4UkSSR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4UkSSR .
+
+:rolhg4UkSSRkx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4UkSSR .
+
+:hmgam4UkSSRk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4UkSSRkx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Salov, Valery" ;
+        chon:hasSANRecord      "a4" , "Nxe4" , "Bxc4" , "c5" , "Bb4" , "Nbc8" , "e4" , "Be4" , "d5" , "Ne7" , "h3" , "Qc2" , "Qd7" , "h5" , "g3" , "e5" , "Qb6" , "O-O" , "Bg5" , "Nf3" , "Rc1" , "Qh3+" , "Bf5" , "c6" , "Kf1" , "Ra2" , "gxf4" , "e6" , "h4" , "dxc4" , "b3" , "Qc7" , "Be2" , "Qg4+" , "Nb6" , "Kg1" , "Rad8" , "Ng6" , "Nf4" , "Rde8" , "f6" , "e3" , "Nf6" , "Nh4" , "Nc3" , "Qb3" , "Nbd7" , "c4" , "a6" , "Nd6" , "Rd1" , "Be3" , "d4" ;
+        chon:nextHalfMove      :hmgam4UkSSRk .
+
+:pla4UkSSR  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4UkSSR .
+
+chon:HalfMove  chon:subEventOf  :gam4UkSS .
+
+:gam4UkSS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4UkSSR ;
+        chon:atPlace           :pla4UkSSR ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4UkSSRk ;
+        chon:hasHalfMove       :hmgam4UkSSRk ;
+        chon:hasLastHalfMove   :hmgam4UkSSRk ;
+        chon:hasOpening        :ope4UkSSR ;
+        chon:hasReport         :cgr4UkSSR ;
+        chon:hasResult         :res4UkSSRk ;
+        chon:subEventOf        :tou4UkSS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4UkSSR .
+
+:tou4UkSS  a          chon:hessTournament ;
+        chon:atPlace  :pla4UkSSR ;
+        chon:hasName  "Linares" .
+
+:ag4UkSSR  a          chon:Agent ;
+        chon:hasName  "Salov, Valery" , "Karpov, Anatoly" .
+
+:res4UkSSRk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ope4UkSSR  a            chon:ChessOpening ;
+        chon:hasECOCode  "D18" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr4UkSSR  a   chon:ChessGameReport .

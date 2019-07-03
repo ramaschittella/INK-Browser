@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamHgjswlm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHgjswlmG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sosonko, Gennadi" ;
+        chon:hasSANRecord      "Rxh5" , "Rc5" , "Bc4" , "Bxc4" , "bxc3" , "Qa5" , "Rxc5" , "Rf6" , "h4" , "Rxe6" , "Nc4" , "e6" , "Rhe1" , "d5" , "Bc8" , "Bd7" , "Qd2" , "Kf8" , "Ne5" , "Qe4" , "Rxf7" , "Rxg6" , "h5" , "Bxc3" , "exf7+" , "b5" , "O-O-O" , "Bxe6" , "Rc8" , "Rxg6+" , "Rd5" , "bxc4" , "Qa6" , "Qe3" , "Bg7" , "O-O" , "Bxf6" , "Bg5" , "Bb3" , "Rxd5" , "Qxa2" , "e5" , "Ne6" , "f4" ;
+        chon:nextHalfMove      :hmgamHgjswlm .
+
+:gamwineZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwineZk ;
+        chon:atPlace           :plawineZk ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwineZkj ;
+        chon:hasHalfMove       :hmgamHgjswlm , :hmgamwineZkj ;
+        chon:hasLastHalfMove   :hmgamHgjswlm ;
+        chon:hasOpening        :opewineZk ;
+        chon:hasReport         :cgrwineZk ;
+        chon:hasResult         :reswineZkj ;
+        chon:subEventOf        :touwineZ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwineZk .
+
+:touwineZ  a          chon:hessTournament ;
+        chon:atPlace  :plawineZk ;
+        chon:hasName  "Tilburg" .
+
+:hmgamwineZkj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwineZkjt , :rolhgHgjswlmG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sosonko, Gennadi" ;
+        chon:hasSANRecord      "g6" , "cxd4" , "d4" , "d6" , "Nf3" , "Be3" , "Nxd4" , "e4" , "c5" , "Nc3" , "Nc6" , "f3" , "Bg7" , "Nf6" ;
+        chon:nextHalfMove      :hmgamHgjswlm , :hmgamwineZkj .
+
+chon:HalfMove  chon:subEventOf  :gamwineZ .
+
+:opewineZk  a            chon:ChessOpening ;
+        chon:hasECOCode  "B78" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwineZk .
+
+:reswineZkj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plawineZk  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:rolhgHgjswlmG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwineZk .
+
+:cgrwineZk  a   chon:ChessGameReport .
+
+:rolhgwineZkjt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwineZk .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agwineZk  a          chon:Agent ;
+        chon:hasName  "Sosonko, Gennadi" , "Karpov, Anatoly" .
+
+:rolwineZk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwineZk .

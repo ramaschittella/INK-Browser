@@ -1,0 +1,81 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrKplymj  a   chon:ChessGameReport .
+
+:plajp0f2i  a         chon:Place ;
+        chon:hasName  "Budapest" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKplymj .
+
+:resKplymjq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgVpiMVitF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKplymj .
+
+:hmgamVpiMVit  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVpiMVitF , :rolhgUETB8q4n , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hecht, Hans Joachim" ;
+        chon:hasSANRecord      "Nf3" , "e4" , "gxf5" , "Nh4" , "Bc3" , "f6" , "Nd5" , "Rd3" , "Ne7" , "Ng7" , "Rxd5" , "Rxd7" , "h3" , "Qxd5" , "Kxf7" , "Bxd6" , "h5" , "Rd7" , "Rf7" , "f4" , "a3" , "Nf6" , "exf5" , "Bd6" , "Rd8" , "Be7" , "g6" , "Kf7" , "Bc5" , "Kf3" , "Rad1" , "a6" , "e3" , "f5" , "Nc6" , "Rfd1" , "Ne6" , "Be5" , "Ne8" , "Rxf7" , "exd6" , "Kg6" , "Ng5+" ;
+        chon:nextHalfMove      :hmgamUETB8q4 , :hmgamVpiMVit .
+
+:gamjp0f2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljp0f2i ;
+        chon:atPlace           :plajp0f2i ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKplymjq ;
+        chon:hasHalfMove       :hmgamKplymjq , :hmgamUETB8q4 , :hmgamVpiMVit ;
+        chon:hasLastHalfMove   :hmgamUETB8q4 ;
+        chon:hasOpening        :opeKplymj ;
+        chon:hasReport         :cgrKplymj ;
+        chon:hasResult         :resKplymjq ;
+        chon:subEventOf        :toujp0f2 .
+
+chon:HalfMove  chon:subEventOf  :gamjp0f2 .
+
+:hmgamKplymjq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKplymjqs ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hecht, Hans Joachim" ;
+        chon:hasSANRecord      "Bd2" , "d3" , "Bg2" , "c4" , "g3" , "Bxg2" , "Bc5" , "d6" , "e5" , "Bh3" , "Nxd5" , "e4" , "Kxg2" , "Bc3" , "dxe4" , "Nf6" , "Qd5" , "Bxd5" , "O-O" , "Qd7" , "Nh4" , "Qe6" , "Nc3" , "Nf3" , "Rae8" , "cxd5" , "Be6" , "Nd5" , "Nc6" , "Bb4" ;
+        chon:nextHalfMove      :hmgamKplymjq , :hmgamVpiMVit .
+
+:rolhgKplymjqs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKplymj .
+
+:toujp0f2  a          chon:hessTournament ;
+        chon:atPlace  :plajp0f2i ;
+        chon:hasName  "Tungsram Budapest" .
+
+:rolKplymj  a             chon:AuthorRole ;
+        chon:performedBy  :agKplymj .
+
+:hmgamUETB8q4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUETB8q4n ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hecht, Hans Joachim" ;
+        chon:hasSANRecord      "Nc7" , "Nxc7" , "Ke2" , "Nxb4+" , "Bh6" , "Kxh4" , "h4+" , "h4" , "Bxf4" , "axb4" , "Nd5" , "Kd3" , "Kxh5" , "b4" , "gxh4" , "Nf6" , "Kg5" , "b5" , "Bf8" , "Nc6" , "Nxa6" , "h5+" ;
+        chon:nextHalfMove      :hmgamUETB8q4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agKplymj  a          chon:Agent ;
+        chon:hasName  "Hecht, Hans Joachim" , "Karpov, Anatoly" .
+
+:rolhgUETB8q4n  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKplymj .
+
+:roljp0f2i  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKplymj .
+
+:opeKplymj  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .

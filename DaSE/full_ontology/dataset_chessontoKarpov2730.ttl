@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag8uW5kB  a          chon:Agent ;
+        chon:hasName  "Illescas Cordoba,M" , "Karpov,Ana" .
+
+:ope8uW5kB  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+:hmgam8uW5kBa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8uW5kBaz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Illescas Cordoba,M" ;
+        chon:hasSANRecord      "Qa6" , "Nc4" , "Bd2" , "Rac1" , "e3" , "Nc6" , "Bxe4" , "dxc4" , "Qd1" , "h5" , "Nf3" , "Qe2" , "c3" , "Nxe5" , "g6" , "Na3" , "Qb5" , "dxe5" , "O-O" , "Nd2" , "Nd4" , "bxc3" , "Rxd8+" , "Qxh5" , "d4" , "c5" , "e5" , "Bg2" , "c4" , "Qb6" , "Rxd8" , "Rac8" , "Bxd4" , "g3" , "Rd1" , "g5" , "Bg7" , "Bd3" , "Bf5" , "Be1" , "Rfd8" , "d5" , "Nb3" , "Nf6" , "Bxe5" , "Ne4" , "Qd2" , "cxd4" ;
+        chon:nextHalfMove      :hmgamzu9oHD1 , :hmgam8uW5kBa .
+
+:rolhg8uW5kBaz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8uW5kB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8uW5kB .
+
+chon:HalfMove  chon:subEventOf  :gam8uW5k .
+
+:res8uW5kBa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8uW5kB .
+
+:cgr8uW5kB  a   chon:ChessGameReport .
+
+:hmgamzu9oHD1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzu9oHD11 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Illescas Cordoba,M" ;
+        chon:hasSANRecord      "f5" , "Bxe4" , "f6" , "Rb2" , "Bb2" , "Rd2" , "Qxg6+" , "Qg6" , "a4" , "a5" , "Rxc3" , "Qg4+" , "Bc3+" , "Kg7" , "Rc7" , "Kg2" , "Qxg5+" , "Bxc3" , "Kh7" , "a6" , "Qxe4" , "Qh4+" , "h3" , "Ra2" , "Kxg6" , "g4" ;
+        chon:nextHalfMove      :hmgamzu9oHD1 .
+
+:rol8uW5kB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8uW5kB .
+
+:rolhgzu9oHD11  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8uW5kB .
+
+:pla8uW5kB  a         chon:Place ;
+        chon:hasName  "Lanzarote ESP" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam8uW5k  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8uW5kB ;
+        chon:atPlace           :pla8uW5kB ;
+        chon:atTime            "2003.05.12"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8uW5kBa ;
+        chon:hasHalfMove       :hmgam8uW5kBa , :hmgamzu9oHD1 ;
+        chon:hasLastHalfMove   :hmgamzu9oHD1 ;
+        chon:hasOpening        :ope8uW5kB ;
+        chon:hasReport         :cgr8uW5kB ;
+        chon:hasResult         :res8uW5kBa ;
+        chon:subEventOf        :tou8uW5k .
+
+:tou8uW5k  a          chon:hessTournament ;
+        chon:atPlace  :pla8uW5kB ;
+        chon:hasName  "TCh-ESP" .

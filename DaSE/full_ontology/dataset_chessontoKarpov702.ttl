@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamJpzMg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJpzMgO ;
+        chon:atPlace           :plaJpzMgO ;
+        chon:atTime            "1981.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJpzMgOP ;
+        chon:hasHalfMove       :hmgamJpzMgOP ;
+        chon:hasLastHalfMove   :hmgamJpzMgOP ;
+        chon:hasOpening        :opeJpzMgO ;
+        chon:hasReport         :cgrJpzMgO ;
+        chon:hasResult         :resJpzMgOP ;
+        chon:subEventOf        :touJpzMg .
+
+:rolhgJpzMgOPu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJpzMgO .
+
+:resJpzMgOP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJpzMgO .
+
+:cgrJpzMgO  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamJpzMg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJpzMgO .
+
+:touJpzMg  a          chon:hessTournament ;
+        chon:atPlace  :plaJpzMgO ;
+        chon:hasName  "Moscow" .
+
+:plaJpzMgO  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:hmgamJpzMgOP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJpzMgOPu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Be7" , "Bd7" , "Nc3" , "Nf3" , "fxe6" , "Bxd6" , "Ne6" , "Re8" , "d5" , "Rxc7" , "c5" , "Nd4" , "Bxa5" , "Nxe6" , "Qa4" , "Rc7" , "dxc5" , "e6" , "Qxd6" , "Rdc1" , "Qf7" , "Bf4" , "Qxc7" , "Rc2" , "Be6" , "Be2" , "Bb6" , "Qe8+" , "Ne5" , "Rxc2" , "a4" , "Bc5" , "Rfd1" , "Nd3" , "Nc6" , "Nd6" , "h6" , "O-O" , "Qc6" , "Qb4" , "Qe7" , "e3" , "Nf4" , "Nf6" , "Qxb7" , "exd5" , "Re7" , "d4" , "cxd5" , "h3" , "c4" , "e5" , "Bg4" , "Ne4" , "Ned4" , "Rc8" , "Kh7" , "Nxe2+" , "a5" , "Bxc5" , "Nxe2" , "Rc1" ;
+        chon:nextHalfMove      :hmgamJpzMgOP .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agJpzMgO  a          chon:Agent ;
+        chon:hasName  "Beliavsky, Alexander G" , "Karpov, Anatoly" .
+
+:rolJpzMgO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJpzMgO .
+
+:opeJpzMgO  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .

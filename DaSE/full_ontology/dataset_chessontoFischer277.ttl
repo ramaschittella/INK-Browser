@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope5eidIH  a            chon:ChessOpening ;
+        chon:hasECOCode  "B54" .
+
+:rolhgfeerfGKS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5eidIH .
+
+:tou5eidI  a          chon:hessTournament ;
+        chon:atPlace  :plaSc8UlG ;
+        chon:hasName  "Mar del Plata" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5eidIH .
+
+:rolhgbaVAYG1S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5eidIH .
+
+:rol5eidIH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5eidIH .
+
+chon:HalfMove  chon:subEventOf  :gamSc8Ul .
+
+:hmgamfeerfGK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfeerfGKS , :rolhgbaVAYG1S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ra8" , "Nxf3" , "a4" , "Qxc7" , "Rxe5" , "a3" , "Rf1+" , "b7" , "b6" , "e5" , "Rd5" , "Bxb1" , "Ra6+" , "Rxb7" , "h3" , "Rd2" , "Qxc2" , "Ka1" , "Bxh3" , "Kf7" , "Rh8" , "Rb2" , "Nc4" , "Rc1" , "Nb6" , "Kd4" , "Rxc2" , "d7" , "g5" , "g2" , "Bh5" , "Nd2+" , "h5" , "h4" , "Qc7" , "Ke7" , "Ke6" , "Kc7" , "Kc3" , "Ra1+" , "Rxa7" , "Kd6" , "Rxb1" , "Kb4" , "Rc5" , "Ne5" , "Bg4" , "Qxa5" , "fxe5" , "Rd8" , "Kf2" , "g4" , "g3" , "Bg6" , "b5" , "b4" , "Ra7" , "Rf4" , "f6" , "Bf5" , "Ke3" , "Ka3" , "Rxc7" , "Rd1" , "Nxd7" , "Rb1" , "Kb2" , "Re3" , "Kb1" , "Kf3" , "d6" , "Rf8" ;
+        chon:nextHalfMove      :hmgambaVAYG1 , :hmgamfeerfGK .
+
+:plaSc8UlG  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:gamSc8Ul  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5eidIH ;
+        chon:atPlace           :plaSc8UlG ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5eidIHH ;
+        chon:hasHalfMove       :hmgamfeerfGK , :hmgam5eidIHH , :hmgambaVAYG1 ;
+        chon:hasLastHalfMove   :hmgambaVAYG1 ;
+        chon:hasOpening        :ope5eidIH ;
+        chon:hasReport         :cgr5eidIH ;
+        chon:hasResult         :res5eidIHH ;
+        chon:subEventOf        :tou5eidI .
+
+:hmgambaVAYG1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbaVAYG1S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "a6" , "Nh5" , "Kc7" , "Bc8" , "Rh5" , "Bxa6" , "a5" , "Kxb7" , "Kb8" , "Rg7+" , "Bg4" , "Kg1" , "Nf4" , "Rg8" , "Nf6" , "Kh2" , "Rg5" , "Kb6" ;
+        chon:nextHalfMove      :hmgambaVAYG1 .
+
+:rolhg5eidIHHG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5eidIH .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag5eidIH  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Foguelman, Alberto" .
+
+:cgr5eidIH  a   chon:ChessGameReport .
+
+:res5eidIHH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgam5eidIHH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5eidIHHG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Be2" , "e4" , "Qb3" , "exd5" , "Nc3" , "fxe4" , "cxd5" , "Nxe4" , "Ne3" , "f3" , "Bc3" , "Ne4" , "c5" , "Be7" , "Nf6" , "Bd2" , "Qe2" , "e6" , "Bb6" , "d4" , "Nc6" , "d5" , "O-O" , "Qc4" , "Bxa5" , "Nf3" , "O-O-O" , "Ne5" , "Bh3" , "Nc2" , "Bf3" , "Bc5" , "Ng6" , "Ba5" , "Rhe1" , "c4" , "d6" , "cxd4" , "Nxg2" , "Nxd4" , "Nh4" , "Re8" , "Rc8" ;
+        chon:nextHalfMove      :hmgamfeerfGK , :hmgam5eidIHH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5eidIH .

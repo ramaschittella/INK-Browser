@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agAJsu5t  a          chon:Agent ;
+        chon:hasName  "Tal, Mihail" , "Fischer, Robert James" .
+
+:rolAJsu5t  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agAJsu5t .
+
+:opeAJsu5t  a            chon:ChessOpening ;
+        chon:hasECOCode  "B47" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAJsu5t .
+
+:gamAJsu5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAJsu5t ;
+        chon:atPlace           :plaAJsu5t ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAJsu5tD ;
+        chon:hasHalfMove       :hmgamAJsu5tD , :hmgam2LSNqtt ;
+        chon:hasLastHalfMove   :hmgam2LSNqtt ;
+        chon:hasOpening        :opeAJsu5t ;
+        chon:hasReport         :cgrAJsu5t ;
+        chon:hasResult         :resAJsu5tD ;
+        chon:subEventOf        :touAJsu5 .
+
+:touAJsu5  a          chon:hessTournament ;
+        chon:atPlace  :plaAJsu5t ;
+        chon:hasName  "Bled" .
+
+chon:HalfMove  chon:subEventOf  :gamAJsu5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAJsu5t .
+
+:cgrAJsu5t  a   chon:ChessGameReport .
+
+:rolhgAJsu5tDF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAJsu5t .
+
+:hmgamAJsu5tD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2LSNqtt7 , chon:AgentRole , :rolhgAJsu5tDF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Bxd7" , "Bxb5" , "cxd4" , "f4" , "Be7" , "Bxg8" , "Qc7" , "Bxe5" , "Ra4" , "Bf4" , "Nf6+" , "fxe5" , "Nf6" , "Rdxd7+" , "Ne5" , "Rxf6" , "Qxg7" , "Nxd4" , "d4" , "Qxe5" , "Qd4" , "Be6" , "e4" , "Bd3" , "e6" , "Bxf6" , "Qc5" , "Bxf7+" , "g3" , "Qh6" , "Kd8" , "axb5" , "a6" , "O-O-O" , "Qxh2" , "Bxh7" , "c5" , "Rb6" , "Rg8" , "Ndb5" , "exf6" , "Ra6" , "Ke8" , "Qxf6" , "Qg5" , "Ne4" , "fxg7" , "Nc6" , "Nc3" , "Rf7" , "Be2" , "Rhf1" , "Rxa2" , "Kb1" , "Qb8" , "Nf3" , "Bc5" , "e5" ;
+        chon:nextHalfMove      :hmgam2LSNqtt , :hmgamAJsu5tD .
+
+:hmgam2LSNqtt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2LSNqtt7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Rc7+" , "Qc7" , "b5" , "Kf8" , "Rb6" , "Qc8" , "g4" , "Rde7+" , "g5" , "Rd7+" , "Kh7" , "Qh5" , "Rdd6" , "Rb7" , "Kc8" , "Rxb5" , "Qf3" , "Qg3" , "b3" , "Ke8" , "Rd1" , "Rfd7+" , "Ra6" , "Kd8" , "Kg7" , "Re1+" , "Qh3" ;
+        chon:nextHalfMove      :hmgam2LSNqtt .
+
+:plaAJsu5t  a         chon:Place ;
+        chon:hasName  "Bled" .
+
+:rolhg2LSNqtt7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAJsu5t .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resAJsu5tD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

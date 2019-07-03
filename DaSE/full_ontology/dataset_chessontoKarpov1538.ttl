@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamHXeUUkQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHXeUUkQ9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Krasenkow, Michal" ;
+        chon:hasSANRecord      "Kc5" , "Rd8" , "Rc1" , "Kc3" , "g5" , "Nxe5" , "Kxf7" , "Nc4+" , "Be8" , "Nd3" , "Rxf6" , "b5" , "Nd6" , "Nc1" , "Bxf6" , "Kb4" , "Rf7" , "Re7+" , "Kxe5" , "Re6+" , "Rc7" , "Rxf7" , "Kf6" ;
+        chon:nextHalfMove      :hmgamHXeUUkQ .
+
+:gamA2AxB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolA2AxBn ;
+        chon:atPlace           :plaA2AxBn ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvXjGllN ;
+        chon:hasHalfMove       :hmgamvXjGllN , :hmgamHXeUUkQ ;
+        chon:hasLastHalfMove   :hmgamHXeUUkQ ;
+        chon:hasOpening        :opevXjGll ;
+        chon:hasReport         :cgrvXjGll ;
+        chon:hasResult         :resvXjGllN ;
+        chon:subEventOf        :touA2AxB .
+
+:rolvXjGll  a             chon:AuthorRole ;
+        chon:performedBy  :agvXjGll .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvXjGll .
+
+:rolhgvXjGllNV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvXjGll , :agA2AxBn .
+
+:agvXjGll  a          chon:Agent ;
+        chon:hasName  "Krasenkow, Michal" .
+
+:rolA2AxBn  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:resvXjGllN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamA2AxB .
+
+:agA2AxBn  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:hmgamvXjGllN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvXjGllNV , chon:AgentRole , :rolhgHXeUUkQ9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Krasenkow, Michal" ;
+        chon:hasSANRecord      "f3" , "cxd5" , "Nxa5" , "g6" , "d5" , "Rb1" , "Rhc1" , "Rfc8" , "Bh4" , "e5" , "b6" , "Rf8" , "Bg7" , "d4" , "Nxd5" , "bxc3" , "Be3" , "cxd4" , "Ba6" , "f5" , "c4" , "Qd2" , "Nc3" , "Qa5" , "c5" , "Bb5+" , "Bf6" , "Ne2" , "Kd2" , "Bd3" , "Rd8" , "Nxc3" , "O-O" , "f4" , "e4" , "Bf2" , "Nc6" , "Bd7" , "Qxa5" , "Nf6" ;
+        chon:nextHalfMove      :hmgamHXeUUkQ , :hmgamvXjGllN .
+
+:touA2AxB  a          chon:hessTournament ;
+        chon:atPlace  :plaA2AxBn ;
+        chon:hasName  "Moscow rapid" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opevXjGll  a            chon:ChessOpening ;
+        chon:hasECOCode  "D85" .
+
+:rolhgHXeUUkQ9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agA2AxBn , :agvXjGll .
+
+:plaA2AxBn  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrvXjGll  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agA2AxBn .

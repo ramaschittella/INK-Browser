@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeSsdRvy  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:touSsdRv  a          chon:hessTournament ;
+        chon:atPlace  :plaSsdRvy ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+:hmgamZoQeLwM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZoQeLwMW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Nc3" , "Nb6" , "Kd3" , "Bc5" , "e2" , "gxh6" , "Nd6" , "Ne5" , "Bb4" , "Nb5" , "Ng1" , "Nf4+" , "Kf8" , "Nh2" , "Nf1" , "Nd5+" , "Nf5" , "g5" , "Ke2" , "Kf3" , "Nd4" , "f4" , "Ke7" , "Nb4" , "Bf5" , "Kf6" , "Ke6" , "Kg7" , "Bb3" , "Ba3" , "Ba7" , "Nf3" , "gxf4" , "Bc2" , "h4" , "Ng3" , "fxe3" , "Ne2" , "h5" , "Ke5" , "Nd3" , "Nc4" , "Bb6" ;
+        chon:nextHalfMove      :hmgamZoQeLwM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSsdRvy .
+
+:resSsdRvyt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolSsdRvy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSsdRvy .
+
+:rolhgZoQeLwMW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSsdRvy .
+
+chon:HalfMove  chon:subEventOf  :gamSsdRv .
+
+:hmgamSsdRvyt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5s063ywY , chon:AgentRole , :rolhgSsdRvytL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "c5" , "Re8" , "Rc1" , "dxc5" , "Bf6" , "Re1" , "Nxb3" , "Rd8" , "Nf3" , "Rd1" , "Qc1" , "Ba6" , "Bg2" , "a5" , "h6" , "Ra3" , "Rxb3" , "Rxb7" , "c4" , "b3" , "Nd7" , "b6" , "Rb1" , "Qb4" , "Qe7" , "Qd2" , "Bb7" , "Bd2" , "Nf6" , "Ne1" , "exd5" , "Rxd4" , "Nxd5" , "cxd5" , "Bf3" , "axb3" , "O-O" , "d5" , "Rd7" , "Bxd4" , "Rc2" , "Nxc5" , "Qxb6" , "Be3" , "Be7" , "a4" , "Bb4+" , "Nc3" , "Rc7" , "e6" , "d4" , "g3" ;
+        chon:nextHalfMove      :hmgamSsdRvyt , :hmgam5s063yw .
+
+:hmgam5s063yw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5s063ywY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "Kd7" , "Bxb7" , "Bc5" , "Qxb7" , "Kf8" , "Nf3" , "g4" , "Nf5" , "Nc5" , "Nc6+" , "Kf6" , "g5" , "Nd6" , "Bb6" , "Ke7" , "Kb3" , "Na4" , "Ba5" , "Bf3" , "Ka4" , "Ke2" , "Nd3" , "Bd5" , "Ne5" , "Na6" , "Kg7" , "Nb8" , "Ke8" , "Be1" , "Kd3" , "h3" , "Nc6" , "Bc3" , "Kb4" , "e3" , "Nd4" , "Ne5+" , "Kc3" , "Kf1" , "Bb3" ;
+        chon:nextHalfMove      :hmgam5s063yw , :hmgamZoQeLwM .
+
+:plaSsdRvy  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg5s063ywY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSsdRvy .
+
+:gamSsdRv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSsdRvy ;
+        chon:atPlace           :plaSsdRvy ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSsdRvyt ;
+        chon:hasHalfMove       :hmgamSsdRvyt , :hmgamZoQeLwM , :hmgam5s063yw ;
+        chon:hasLastHalfMove   :hmgamZoQeLwM ;
+        chon:hasOpening        :opeSsdRvy ;
+        chon:hasReport         :cgrSsdRvy ;
+        chon:hasResult         :resSsdRvyt ;
+        chon:subEventOf        :touSsdRv .
+
+:agSsdRvy  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:cgrSsdRvy  a   chon:ChessGameReport .
+
+:rolhgSsdRvytL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSsdRvy .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSsdRvy .

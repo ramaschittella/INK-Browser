@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamVzeEh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVzeEh1 ;
+        chon:atPlace           :plaVzeEh1 ;
+        chon:atTime            "1999.07.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVzeEh11 ;
+        chon:hasHalfMove       :hmgamVzeEh11 ;
+        chon:hasLastHalfMove   :hmgamVzeEh11 ;
+        chon:hasOpening        :opeVzeEh1 ;
+        chon:hasReport         :cgrVzeEh1 ;
+        chon:hasResult         :resVzeEh11 ;
+        chon:subEventOf        :touVzeEh .
+
+:touVzeEh  a          chon:hessTournament ;
+        chon:atPlace  :plaVzeEh1 ;
+        chon:hasName  "Dortmunder Schachtage" .
+
+:agVzeEh1  a          chon:Agent ;
+        chon:hasName  "Anand, Viswanathan" , "Karpov, Anatoly" .
+
+:opeVzeEh1  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVzeEh1 .
+
+chon:HalfMove  chon:subEventOf  :gamVzeEh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVzeEh1 .
+
+:hmgamVzeEh11  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVzeEh118 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "Rab1" , "Bf1" , "Ba6" , "Nf6" , "Bf8" , "Rc8" , "b6" , "Bxf3" , "e6" , "Kg7" , "Nxf3" , "c5" , "Nd7" , "Qc4" , "Ne5" , "Nxd4" , "g6" , "Rdc4" , "Ndf3" , "b4" , "Rd8" , "O-O" , "Rbe3" , "exd5" , "Bh3" , "R3e2" , "Rxd4" , "Bxe2" , "Bxf6" , "Nd4" , "d5" , "cxd4" , "d4" , "Ne6" , "Qxd4" , "Rc2" , "Nf3" , "h6" , "Qb5" , "Nc5" , "a3" , "Rb3" , "Rc7" , "Nbd2" , "Rfe1" , "Bd6" , "Bg2" , "c4" , "Qxf6" , "Rad8" , "Bg5" , "g3" , "cxd5" , "Qa6" , "Qxd5" ;
+        chon:nextHalfMove      :hmgamVzeEh11 .
+
+:plaVzeEh1  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:rolhgVzeEh118  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVzeEh1 .
+
+:cgrVzeEh1  a   chon:ChessGameReport .
+
+:resVzeEh11  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolVzeEh1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVzeEh1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

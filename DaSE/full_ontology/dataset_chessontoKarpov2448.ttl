@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolZDxvx3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZDxvx3 .
+
+:rolhgZDxvx3J0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZDxvx3 .
+
+:rolhgyBlcaZUJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZDxvx3 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZDxvx3 .
+
+:gamZDxvx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZDxvx3 ;
+        chon:atPlace           :plaZDxvx3 ;
+        chon:atTime            "1999.07.12"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZDxvx3J ;
+        chon:hasHalfMove       :hmgamyBlcaZU , :hmgamZDxvx3J , :hmgamrDHQU3y ;
+        chon:hasLastHalfMove   :hmgamyBlcaZU ;
+        chon:hasOpening        :opeZDxvx3 ;
+        chon:hasReport         :cgrZDxvx3 ;
+        chon:hasResult         :resZDxvx3J ;
+        chon:subEventOf        :touZDxvx .
+
+:hmgamZDxvx3J  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZDxvx3J0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov, Veselin" ;
+        chon:hasSANRecord      "d4" , "Re8" , "Re1" , "b5" , "g6" , "Bg2" , "c4" , "Nf6" , "Bg7" , "b4" , "g3" , "Nf3" , "d6" , "Bb7" , "e5" , "Bf4" , "d5" , "c5" , "Qa5" , "h6" , "e4" , "h4" , "Nc2" , "c3" , "O-O" , "Na3" , "Bd2" , "h3" , "a6" , "Nbd7" ;
+        chon:nextHalfMove      :hmgamZDxvx3J , :hmgamrDHQU3y .
+
+chon:HalfMove  chon:subEventOf  :gamZDxvx .
+
+:plaZDxvx3  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:hmgamyBlcaZU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyBlcaZUJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov, Veselin" ;
+        chon:hasSANRecord      "Rxc2" , "Rxb5" , "Bxc4" , "Rc7" , "Kf1" , "Rb2" , "dxc4" , "Ra2" , "Nxc2" , "Rc8+" , "Kg8" , "Kf7" , "Rd5" , "b5" , "Rb7+" , "Rd2" , "Reb8" , "Ra6" , "Rxc4" , "Nd4" , "Raa2" , "Rb6" , "Ndc2" ;
+        chon:nextHalfMove      :hmgamyBlcaZU .
+
+:rolhgrDHQU3yy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZDxvx3 .
+
+:agZDxvx3  a          chon:Agent ;
+        chon:hasName  "Topalov, Veselin" , "Karpov, Anatoly" .
+
+:cgrZDxvx3  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touZDxvx  a          chon:hessTournament ;
+        chon:atPlace  :plaZDxvx3 ;
+        chon:hasName  "Dortmunder Schachtage" .
+
+:opeZDxvx3  a            chon:ChessOpening ;
+        chon:hasECOCode  "A40" .
+
+:resZDxvx3J  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZDxvx3 .
+
+:hmgamrDHQU3y  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrDHQU3yy , chon:AgentRole , :rolhgyBlcaZUJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov, Veselin" ;
+        chon:hasSANRecord      "Bg2" , "Bxe4" , "Qc7" , "Bc1" , "Nfe3" , "Qxd5" , "Qxd5+" , "cxb4" , "cxb3" , "Nxe4" , "Bxb2" , "Nh2" , "Nf1" , "h5" , "a5" , "Bb2" , "Rb1" , "axb4" , "axb3" , "d5" , "Bc4" , "e4" , "Nc5" , "Bxd5" , "Ncxe4" , "Kg2" , "Bf1" , "Rxe4" , "Qf7" , "b4" , "Rxb2" , "f5" ;
+        chon:nextHalfMove      :hmgamyBlcaZU , :hmgamrDHQU3y .

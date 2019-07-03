@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgoVNW0R2R  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoVNW0R .
+
+:gamoVNW0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloVNW0R ;
+        chon:atPlace           :plaoVNW0R ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoVNW0R2 ;
+        chon:hasHalfMove       :hmgamoVNW0R2 , :hmgamzVJaGQ5 ;
+        chon:hasLastHalfMove   :hmgamzVJaGQ5 ;
+        chon:hasOpening        :opeoVNW0R ;
+        chon:hasReport         :cgroVNW0R ;
+        chon:hasResult         :resoVNW0R2 ;
+        chon:subEventOf        :touoVNW0 .
+
+:touoVNW0  a          chon:hessTournament ;
+        chon:atPlace  :plaoVNW0R ;
+        chon:hasName  "Roquebrune" .
+
+:hmgamoVNW0R2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgoVNW0R2R , :rolhgzVJaGQ53 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bd2" , "g3" , "e6" , "Bb4+" , "b6" , "Nf3" , "d4" , "Ba6" , "Nf6" , "c4" , "b3" ;
+        chon:nextHalfMove      :hmgamzVJaGQ5 , :hmgamoVNW0R2 .
+
+:plaoVNW0R  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoVNW0R .
+
+:cgroVNW0R  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamoVNW0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoVNW0R .
+
+:agoVNW0R  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Polgar, Zsuzsa" .
+
+:roloVNW0R  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoVNW0R .
+
+:resoVNW0R2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgzVJaGQ53  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoVNW0R .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamzVJaGQ5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzVJaGQ53 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc8" , "Nd2" , "a5" , "Rhxh6" , "Bd6" , "Nxd7" , "Bxg4" , "Bxe5" , "Bc3" , "Bf3" , "Qf7" , "Rg5" , "Qh7#" , "Nf6" , "Ba3" , "Qb3" , "Rc1" , "Nxh2" , "Rg6" , "Qc2" , "Ng4" , "Qg6" , "O-O" , "Bc7" , "Ng4+" , "Bc8" , "Kh8" , "Nfd7" , "b4" , "b5" , "e3" , "Qe8" , "Bg2" , "Rh1" , "fxg4" , "Rh4" , "Kf2" , "h6" , "dxe5" , "axb4" , "Ke2" , "d5" , "Be7" , "g4" , "Rb1" , "Nf3" , "c5" , "c6" , "f4" , "f5" , "Rxg4" , "Kh7" , "Rbh1" , "Kg8" , "Ne5" ;
+        chon:nextHalfMove      :hmgamzVJaGQ5 .
+
+:opeoVNW0R  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .

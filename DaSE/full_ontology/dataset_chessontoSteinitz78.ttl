@@ -1,0 +1,56 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamy2d9b  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roly2d9bm ;
+        chon:atPlace           :play2d9bm ;
+        chon:atTime            "1865.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamy2d9bmS ;
+        chon:hasHalfMove       :hmgamy2d9bmS ;
+        chon:hasLastHalfMove   :hmgamy2d9bmS ;
+        chon:hasOpening        :opey2d9bm ;
+        chon:hasReport         :cgry2d9bm ;
+        chon:hasResult         :resy2d9bmS ;
+        chon:subEventOf        :touy2d9b .
+
+:touy2d9b  a          chon:hessTournament ;
+        chon:atPlace  :play2d9bm ;
+        chon:hasName  "Dublin" .
+
+:roly2d9bm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agy2d9bm .
+
+:resy2d9bmS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agy2d9bm .
+
+chon:HalfMove  chon:subEventOf  :gamy2d9b .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agy2d9bm .
+
+:agy2d9bm  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Cronhelm, E." .
+
+:opey2d9bm  a            chon:ChessOpening ;
+        chon:hasECOCode  "A00" .
+
+:rolhgy2d9bmSq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agy2d9bm .
+
+:hmgamy2d9bmS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgy2d9bmSq , chon:AgentRole ;
+        chon:hasSANRecord      "d4" .
+
+:play2d9bm  a         chon:Place ;
+        chon:hasName  "Dublin" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgry2d9bm  a   chon:ChessGameReport .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agkyKDXN  a          chon:Agent ;
+        chon:hasName  "Mobley, H." , "Fischer, Robert James" .
+
+:opekyKDXN  a            chon:ChessOpening ;
+        chon:hasECOCode  "B18" .
+
+:gamkyKDX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkyKDXN ;
+        chon:atPlace           :plakyKDXN ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkyKDXNg ;
+        chon:hasHalfMove       :hmgamkyKDXNg , :hmgamLyWWhN6 ;
+        chon:hasLastHalfMove   :hmgamLyWWhN6 ;
+        chon:hasOpening        :opekyKDXN ;
+        chon:hasReport         :cgrkyKDXN ;
+        chon:hasResult         :reskyKDXNg ;
+        chon:subEventOf        :toukyKDX .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkyKDXN .
+
+:toukyKDX  a          chon:hessTournament ;
+        chon:atPlace  :plakyKDXN ;
+        chon:hasName  "Cleveland sim" .
+
+chon:HalfMove  chon:subEventOf  :gamkyKDX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkyKDXN .
+
+:plakyKDXN  a         chon:Place ;
+        chon:hasName  "Cleveland" .
+
+:cgrkyKDXN  a   chon:ChessGameReport .
+
+:reskyKDXNg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgLyWWhN6Z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkyKDXN .
+
+:rolkyKDXN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkyKDXN .
+
+:rolhgkyKDXNgz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkyKDXN .
+
+:hmgamLyWWhN6  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLyWWhN6Z ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mobley, H." ;
+        chon:hasSANRecord      "Rxe6" , "Rfxd4" , "Rxd8" , "bxa4" , "Rxd4" , "Rxf4" , "Qd8" , "Rc8" , "a4" , "Rd1+" , "Rxc6" , "Rxd8+" , "Kb2" ;
+        chon:nextHalfMove      :hmgamLyWWhN6 .
+
+:hmgamkyKDXNg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgkyKDXNgz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mobley, H." ;
+        chon:hasSANRecord      "a5" , "Bd3" , "b3" , "Rd5" , "Rb5" , "Nxf4" , "Nd3" , "Rxb8" , "d4" , "Rxd3" , "e4" , "Qd8" , "Qe2" , "Nxe4" , "Rhe1" , "Qxc2" , "Nb4" , "Bd6" , "Ng3" , "b6" , "Rf6" , "Kb1" , "Bf5" , "Qxd6" , "Bxd6" , "f5" , "Nxb8" , "Ne2" , "Rdd1" , "f4" , "Na6" , "Qf3" , "Nc5" , "Nc3" , "Nc1" , "O-O-O" , "h6" , "Bg6" , "Bf4" , "h4" , "e6" , "b5" , "Ne7" , "Qe5" , "Nd5" , "b4" , "Qa8" , "O-O" , "Bh7" , "c6" , "Qc4" , "Bxc2+" , "dxe4" , "d5" , "h5" , "Nxd3" ;
+        chon:nextHalfMove      :hmgamkyKDXNg , :hmgamLyWWhN6 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

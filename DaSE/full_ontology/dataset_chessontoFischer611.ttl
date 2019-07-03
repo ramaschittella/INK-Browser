@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plasH5wF3  a         chon:Place ;
+        chon:hasName  "Netanya" .
+
+:rolhgsH5wF39J  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsH5wF3 .
+
+:cgrsH5wF3  a   chon:ChessGameReport .
+
+:ressH5wF39  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agsH5wF3  a          chon:Agent ;
+        chon:hasName  "Hamann, Svend" , "Fischer, Robert James" .
+
+:rolsH5wF3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsH5wF3 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsH5wF3 .
+
+chon:HalfMove  chon:subEventOf  :gamsH5wF .
+
+:tousH5wF  a          chon:hessTournament ;
+        chon:atPlace  :plasH5wF3 ;
+        chon:hasName  "Netanya-A" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsH5wF3 .
+
+:opesH5wF3  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+:hmgamEH1Kc4b  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEH1Kc4bW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hamann, Svend" ;
+        chon:hasSANRecord      "Bxf6" , "c6" , "Qg3" , "a4" , "a5" , "Bb7" , "f6" , "Bc8" , "Red8" , "exd5" , "Rxa1" , "Nxg3" , "e4" , "d5" , "bxc3" , "Bxa1" , "b4" , "c4" , "Rd1" , "Kf2" , "Ra1" , "Qxg3+" , "b5" , "a2" , "Rfe8" , "c5" , "gxf6" , "Bb6" , "Ra4" , "a3" ;
+        chon:nextHalfMove      :hmgamEH1Kc4b .
+
+:rolhgEH1Kc4bW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsH5wF3 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamsH5wF39  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsH5wF39J , :rolhgEH1Kc4bW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hamann, Svend" ;
+        chon:hasSANRecord      "O-O" , "Nde2" , "Nf6" , "Nf3" , "c5" , "b4" , "Qf3" , "Bc4" , "Bb3" , "e6" , "g4" , "Qc7" , "Na5" , "b5" , "e4" , "Nc6" , "Be3" , "a6" , "g5" , "d6" , "Nc3" , "f4" , "Nxb3" , "e5" , "cxd4" , "Nxd4" , "d4" , "axb3" , "Be7" , "f5" ;
+        chon:nextHalfMove      :hmgamsH5wF39 , :hmgamEH1Kc4b .
+
+:gamsH5wF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsH5wF3 ;
+        chon:atPlace           :plasH5wF3 ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsH5wF39 ;
+        chon:hasHalfMove       :hmgamEH1Kc4b , :hmgamsH5wF39 ;
+        chon:hasLastHalfMove   :hmgamEH1Kc4b ;
+        chon:hasOpening        :opesH5wF3 ;
+        chon:hasReport         :cgrsH5wF3 ;
+        chon:hasResult         :ressH5wF39 ;
+        chon:subEventOf        :tousH5wF .

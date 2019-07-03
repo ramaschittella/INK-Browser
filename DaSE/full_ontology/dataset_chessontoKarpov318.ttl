@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamnAVGSkb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnAVGSkbU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pritchett, Craig William" ;
+        chon:hasSANRecord      "Kh1" , "Nd3" , "Nc4" , "Rc8" , "Rc1" , "h3" , "Rf2" , "Rd8+" , "bxc5" , "f6" , "Nb6" , "Rd5" , "Bc7" , "Ndf3+" , "Rxd8" , "Bg4" , "Kf7" , "b6" , "Bc8" , "Ne5" , "Bxd8" , "Rxc5" , "Nc5" ;
+        chon:nextHalfMove      :hmgamnAVGSkb .
+
+:hmgambAYslk9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbAYslk9J , :rolhgnAVGSkbU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pritchett, Craig William" ;
+        chon:hasSANRecord      "Ne5" , "Rxb2" , "Nc6" , "a3" , "e5" , "Be7" , "Bg2" , "d3" , "Nf6" , "Nf3" , "Nd7" , "Nd2" , "e6" , "e4" , "Qb6" , "Nc3" , "b4" , "Na4" , "Qxc4" , "Bg4" , "Bb4" , "exf4" , "Ra2" , "Rfe8" , "Qxb2" , "Be6" , "Qc7" , "Nxd4" , "Nxc5" , "Rad8" , "c4" , "Nac5" , "c5" , "Bc8" , "g3" , "Nd4" , "Re1" , "Qb2" , "a4" , "Bxf4" , "Bxc5" , "cxd4" , "Nxd3" , "Qc2" , "d4" , "Nb3" , "d5" , "O-O" , "f4" ;
+        chon:nextHalfMove      :hmgamnAVGSkb , :hmgambAYslk9 .
+
+:rolhgbAYslk9J  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbAYslk .
+
+:touKyM8Y  a          chon:hessTournament ;
+        chon:atPlace  :plaKyM8Yk ;
+        chon:hasName  "Nice olm prel" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbAYslk .
+
+chon:HalfMove  chon:subEventOf  :gamKyM8Y .
+
+:cgrbAYslk  a   chon:ChessGameReport .
+
+:resbAYslk9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbAYslk .
+
+:agbAYslk  a          chon:Agent ;
+        chon:hasName  "Pritchett, Craig William" , "Karpov, Anatoly" .
+
+:rolbAYslk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbAYslk .
+
+:opebAYslk  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .
+
+:rolhgnAVGSkbU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbAYslk .
+
+:plaKyM8Yk  a         chon:Place ;
+        chon:hasName  "Nice" .
+
+:gamKyM8Y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbAYslk ;
+        chon:atPlace           :plaKyM8Yk ;
+        chon:atTime            "1974.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambAYslk9 ;
+        chon:hasHalfMove       :hmgamnAVGSkb , :hmgambAYslk9 ;
+        chon:hasLastHalfMove   :hmgamnAVGSkb ;
+        chon:hasOpening        :opebAYslk ;
+        chon:hasReport         :cgrbAYslk ;
+        chon:hasResult         :resbAYslk9 ;
+        chon:subEventOf        :touKyM8Y .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:aghDgVdv  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Petrosian, Tigran V" .
+
+:rolhDgVdv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghDgVdv .
+
+:rolhgIDqeyys4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghDgVdv .
+
+:opehDgVdv  a            chon:ChessOpening ;
+        chon:hasECOCode  "E70" .
+
+:hmgamTDnr8xv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTDnr8xve ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qe1+" , "Kh6" , "Qe7+" , "Rxg2+" , "Bg2" , "Kg3" , "Kh2" , "g3" , "Qd5" , "Qf2" , "Qxg1+" , "Rb2+" , "Qe5+" , "Qxd7" , "Qe4" ;
+        chon:nextHalfMove      :hmgamTDnr8xv .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghDgVdv .
+
+:reshDgVdvD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamIDqeyys  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIDqeyys4 , :rolhgTDnr8xve ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bd3" , "Bxe5" , "Bd2" , "Bxa1" , "b5" , "Bf3" , "fxe5" , "Nf2+" , "Nge2" , "Bg5" , "Bf5" , "Kg7" , "e6" , "Nxa4" , "a6" , "Bg7" , "Bc2" , "Rxf2" , "Qxb4" , "e4" , "Nbd7" , "O-O" , "f6" , "exd5" , "Bxf8" , "b3" , "Qxf2" , "Bf4" , "c5" , "h3" , "d7" , "dxe5" , "e5" , "a5" , "Rb1" , "Nc5" , "Ng1" , "Bxd7" , "d5" , "Kxf8" , "Bxa4" , "Qc5" , "Kh1" , "f4" , "Nc3" , "Qxa1" , "b4" , "cxd5" , "g6" , "Ra7" , "Bd1" , "bxc4" , "Bxh6" , "d4" , "Qb6+" , "c4" , "h6" , "Na4" , "Rb7" , "d6" , "Qxa2" , "Qb1" , "Nf6" , "Bg4" , "Ng4" ;
+        chon:nextHalfMove      :hmgamTDnr8xv , :hmgamIDqeyys .
+
+chon:HalfMove  chon:subEventOf  :gamhDgVd .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghDgVdv .
+
+:gamhDgVd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhDgVdv ;
+        chon:atPlace           :plahDgVdv ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIDqeyys ;
+        chon:hasHalfMove       :hmgamTDnr8xv , :hmgamIDqeyys ;
+        chon:hasLastHalfMove   :hmgamTDnr8xv ;
+        chon:hasOpening        :opehDgVdv ;
+        chon:hasReport         :cgrhDgVdv ;
+        chon:hasResult         :reshDgVdvD ;
+        chon:subEventOf        :touhDgVd .
+
+:touhDgVd  a          chon:hessTournament ;
+        chon:atPlace  :plahDgVdv ;
+        chon:hasName  "Herceg Novi blitz" .
+
+:plahDgVdv  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrhDgVdv  a   chon:ChessGameReport .
+
+:rolhgTDnr8xve  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghDgVdv .

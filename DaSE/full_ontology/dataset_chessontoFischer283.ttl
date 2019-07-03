@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgHeqLBGzi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHeqLBG .
+
+:plaHeqLBG  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:rolhgSelZ0IEt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHeqLBG .
+
+:hmgamHeqLBGz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSelZ0IEt , :rolhgHeqLBGzi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qxd3" , "Bg7" , "d5" , "Nf6" , "dxe4" , "Qxc2" , "Rac1" , "b5" , "Qxe4" , "bxa4" , "dxc5" , "Na4" , "d4" , "Qf3" , "Ng3" , "Nc3" , "Bxd3" , "Rxc2" , "Qb2" , "c5" , "g4" , "Bf5" , "Rc8" , "Nge2" , "Nxa4" , "Nd7" , "e3" , "e4" , "Bxf6" , "O-O" , "e6" , "gxf6" , "Qd4" , "Nxc5" , "Bd3" , "b3" , "Bg5" ;
+        chon:nextHalfMove      :hmgamHeqLBGz , :hmgamSelZ0IE .
+
+:agHeqLBG  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Bronstein, David I" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHeqLBG .
+
+:rolHeqLBG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHeqLBG .
+
+:opeHeqLBG  a            chon:ChessOpening ;
+        chon:hasECOCode  "D01" .
+
+:touHeqLB  a          chon:hessTournament ;
+        chon:atPlace  :plaHeqLBG ;
+        chon:hasName  "Mar del Plata" .
+
+chon:HalfMove  chon:subEventOf  :gamLiHSS .
+
+:hmgamSelZ0IE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSelZ0IEt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kg2" , "Kf7" , "Qg8+" , "Qg6+" , "Kg3" , "Ne7+" , "Qd8+" , "Nxf5" , "Rd1" , "f6" , "Rd8" , "Kg6" , "Qd3" , "Qe1+" , "a5" , "Kg7" , "Kd3" , "Qh1+" , "Ke2" , "exf5" , "Qe5+" , "Kg4" , "Rxd1+" , "Kf4" , "Qb8" , "Qg4+" , "Qg6" , "Kh6" , "Qf3" , "Ke6" , "Qg1+" , "Bf8" , "f3" , "Ne3" , "Qg5+" , "Qd4" , "Kg1" , "Kf1" , "Bh6" , "Qh5+" , "Qe8+" , "Qe2+" , "Qxa7" , "Bc5" , "Bg7" , "Qd3+" , "Qb1+" , "Nf5+" , "Qh5" , "Qxd1" , "Kf5" , "Qe4+" , "Qxh3" , "gxf5" , "Qg1" , "Qc3" , "f5" , "f4" , "Qxa2+" , "h3" , "Qe6" , "Qh6" , "Kf3" , "Qa1" , "Kh8" , "Qd5+" , "Ke4" , "Qb3" , "Qd7" ;
+        chon:nextHalfMove      :hmgamSelZ0IE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHeqLBG .
+
+:resHeqLBGz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamLiHSS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHeqLBG ;
+        chon:atPlace           :plaHeqLBG ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHeqLBGz ;
+        chon:hasHalfMove       :hmgamHeqLBGz , :hmgamSelZ0IE ;
+        chon:hasLastHalfMove   :hmgamSelZ0IE ;
+        chon:hasOpening        :opeHeqLBG ;
+        chon:hasReport         :cgrHeqLBG ;
+        chon:hasResult         :resHeqLBGz ;
+        chon:subEventOf        :touHeqLB .
+
+:cgrHeqLBG  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

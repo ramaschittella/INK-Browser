@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resRztSGy6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrjBDa4A  a   chon:ChessGameReport .
+
+:agRztSGy  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolRztSGy  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamRztSG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRztSGy ;
+        chon:atPlace           :plaRztSGy ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjBDa4AV ;
+        chon:hasHalfMove       :hmgamjBDa4AV ;
+        chon:hasLastHalfMove   :hmgamjBDa4AV ;
+        chon:hasOpening        :opeRztSGy ;
+        chon:hasReport         :cgrjBDa4A ;
+        chon:hasResult         :resRztSGy6 ;
+        chon:subEventOf        :touRztSG .
+
+:roljBDa4A  a             chon:AuthorRole ;
+        chon:performedBy  :agjBDa4A .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRztSGy .
+
+chon:HalfMove  chon:subEventOf  :gamRztSG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRztSGy .
+
+:opeRztSGy  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .
+
+:rolhgjBDa4AV1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRztSGy .
+
+:touRztSG  a          chon:hessTournament ;
+        chon:atPlace  :plaRztSGy ;
+        chon:hasName  "World Championship 34th-KK4" .
+
+:plaRztSGy  a         chon:Place ;
+        chon:hasName  "Sevilla" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamjBDa4AV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgjBDa4AV1 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxa2" , "d4" , "Rxe2" , "Kf4" , "Qd3" , "Bxc6" , "h4" , "Ra1" , "Rxe5" , "Ne5" , "O-O" , "c4" , "b4" , "Bb7" , "Bh4" , "Qxb1" , "Qc5" , "Ne2" , "a4" , "e4" , "Be7" , "c5" , "g5" , "bxc5" , "exd5" , "Nf3" , "d5" , "a5" , "h5" , "Nf6" , "Rf1" , "dxc5" , "Bg5" , "Nc3" , "Qxc2" , "Qxc5" , "Rd1" , "Kg2" , "Bxe5" , "fxg6" , "Kg5" , "Rxb1" , "Bb5" , "g6" , "Qxc6" , "Nxe5" , "hxg6" , "h3" , "Be2" , "Rab8" , "Qf8" , "g4+" , "h6" , "Bc6" , "Ke3" , "e6" , "cxd5" , "Qc2" , "Re2" , "g3" , "Re7" , "Ra7" , "Rfc1" , "b6" , "Kf3" , "Kxh5" , "a3" , "Nd7" , "Rxc2" , "Qc7" , "e3" , "Rfc8" , "Bxf6" , "Rxd5" , "Rb1" , "Rxf2" ;
+        chon:nextHalfMove      :hmgamjBDa4AV .

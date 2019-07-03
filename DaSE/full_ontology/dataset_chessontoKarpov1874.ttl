@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resoAUxyro  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touoAUxy  a          chon:hessTournament ;
+        chon:atPlace  :plaoAUxyr ;
+        chon:hasName  "Alma-Ata m2" .
+
+:hmgamoAUxyro  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoAUxyrox , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "R4g5" , "h4" , "O-O-O" , "Bf6" , "Bd1" , "Kxa5" , "Qd7" , "Ne2" , "Bg7" , "Nf1" , "Kb5" , "Bxf6" , "Ng8" , "c3" , "Qa5" , "Nf3" , "Qb6" , "b5" , "Be2" , "h3" , "Kc6" , "Qxf3" , "g4" , "Nb6" , "Qf4" , "Bc2" , "Qe7" , "hxg4" , "Bg5" , "Bxf3" , "c4" , "Qxf6" , "g6" , "Nd7" , "Nc1" , "Rg4" , "Rh7" , "hxg6" , "Nd2" , "Qg3" , "Bxf5" , "c6" , "a6" , "bxa5" , "Rc1" , "Na4" , "cxb4" , "Rcg8" , "Qc7" , "Bf3" , "Nf5" , "Bg4" , "h5" , "d4" , "g3" , "Nh6" , "d5" , "b4" , "Rg8" , "Ne3" , "e5" , "Nc3" , "Bxg4" , "Qf3" , "Ngf6" , "Rc8" , "Kb1" , "c5" , "a5" , "Rxg6" , "Kd7" , "Nb3" , "d3" , "e6" , "exf5" , "e4" ;
+        chon:nextHalfMove      :hmgamoAUxyro .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoAUxyr .
+
+:opeoAUxyr  a            chon:ChessOpening ;
+        chon:hasECOCode  "B11" .
+
+chon:HalfMove  chon:subEventOf  :gamoAUxy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoAUxyr .
+
+:plaoAUxyr  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+:cgroAUxyr  a   chon:ChessGameReport .
+
+:gamoAUxy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloAUxyr ;
+        chon:atPlace           :plaoAUxyr ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoAUxyro ;
+        chon:hasHalfMove       :hmgamoAUxyro ;
+        chon:hasLastHalfMove   :hmgamoAUxyro ;
+        chon:hasOpening        :opeoAUxyr ;
+        chon:hasReport         :cgroAUxyr ;
+        chon:hasResult         :resoAUxyro ;
+        chon:subEventOf        :touoAUxy .
+
+:rolhgoAUxyrox  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoAUxyr .
+
+:agoAUxyr  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tkachiev, Vladislav" .
+
+:roloAUxyr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoAUxyr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

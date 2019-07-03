@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plahL5jMc  a         chon:Place ;
+        chon:hasName  "Sochi RUS" .
+
+:rolhghL5jMc0p  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghL5jMc .
+
+:aghL5jMc  a          chon:Agent ;
+        chon:hasName  "Gelfand,B" , "Karpov,Ana" .
+
+:rolhL5jMc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghL5jMc .
+
+:opehL5jMc  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghL5jMc .
+
+:gamhL5jM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhL5jMc ;
+        chon:atPlace           :plahL5jMc ;
+        chon:atTime            "2006.04.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhL5jMc0 ;
+        chon:hasHalfMove       :hmgamhL5jMc0 ;
+        chon:hasLastHalfMove   :hmgamhL5jMc0 ;
+        chon:hasOpening        :opehL5jMc ;
+        chon:hasReport         :cgrhL5jMc ;
+        chon:hasResult         :reshL5jMc0 ;
+        chon:subEventOf        :touhL5jM .
+
+chon:HalfMove  chon:subEventOf  :gamhL5jM .
+
+:touhL5jM  a          chon:hessTournament ;
+        chon:atPlace  :plahL5jMc ;
+        chon:hasName  "XIII TCh-RUS" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghL5jMc .
+
+:hmgamhL5jMc0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghL5jMc0p , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gelfand,B" ;
+        chon:hasSANRecord      "cxd5" , "e6" , "d4" , "Nf6" , "d5" , "Be7" , "cxd4" , "Bd3" , "O-O" , "Nxd4" , "Nbd2" , "Nf3" , "c4" , "e3" , "Qf3" , "c5" , "Qxd5" ;
+        chon:nextHalfMove      :hmgamhL5jMc0 .
+
+:cgrhL5jMc  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reshL5jMc0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgJXsIvW8O  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghUgo9V .
+
+:rolhghUgo9Vfo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghUgo9V .
+
+:aghUgo9V  a          chon:Agent ;
+        chon:hasName  "Kasparov,G" , "Karpov,Ana" .
+
+:gamhUgo9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhUgo9V ;
+        chon:atPlace           :plahUgo9V ;
+        chon:atTime            "2009.09.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhUgo9Vf ;
+        chon:hasHalfMove       :hmgamJXsIvW8 , :hmgamhUgo9Vf ;
+        chon:hasLastHalfMove   :hmgamJXsIvW8 ;
+        chon:hasOpening        :opehUgo9V ;
+        chon:hasReport         :cgrhUgo9V ;
+        chon:hasResult         :reshUgo9Vf ;
+        chon:subEventOf        :touhUgo9 .
+
+:rolhUgo9V  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghUgo9V .
+
+:touhUgo9  a          chon:hessTournament ;
+        chon:atPlace  :plahUgo9V ;
+        chon:hasName  "Blitz Match" .
+
+:opehUgo9V  a            chon:ChessOpening ;
+        chon:hasECOCode  "D72" .
+
+:reshUgo9Vf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghUgo9V .
+
+chon:HalfMove  chon:subEventOf  :gamhUgo9 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghUgo9V .
+
+:hmgamhUgo9Vf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghUgo9Vfo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov,G" ;
+        chon:hasSANRecord      "Na2" , "Qb3" , "Nd7" , "Nb4" , "a5" , "c4" , "Bxd4" , "Rxa2" , "fxe5" , "Rxf8+" , "e6" , "cxd5" , "Nd2" , "Nf3" , "Nf6" , "Be3" , "d4" , "Na6" , "Qd6" , "Bg7" , "e4" , "f6" , "Ne2" , "a4" , "Kxf8" , "Qa3" , "c5" , "Bg2" , "Nb6" , "Nxa2" , "Ke7" , "d5" , "Nxd5" , "Bd4" , "f4" , "Nec3" , "g3" , "g6" , "O-O" , "e5" , "cxd4" ;
+        chon:nextHalfMove      :hmgamJXsIvW8 , :hmgamhUgo9Vf .
+
+:cgrhUgo9V  a   chon:ChessGameReport .
+
+:hmgamJXsIvW8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJXsIvW8O , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov,G" ;
+        chon:hasSANRecord      "Rf7+" , "Bxa4" , "Nf6" , "Ne3" , "Bc2" , "g5" , "Bd7" , "Ra6" , "Rxb7" , "Rf1" , "Nf7+" , "Nxh6" , "Ng4" , "Qxa3" , "Ke7" , "Nh5" , "h3" , "Ke8" , "Ng5" , "bxa3" , "Ra1" , "Kd6" , "h6" , "d2" , "d3" , "Bf3" , "g4" ;
+        chon:nextHalfMove      :hmgamJXsIvW8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plahUgo9V  a         chon:Place ;
+        chon:hasName  "Valencia ESP" .

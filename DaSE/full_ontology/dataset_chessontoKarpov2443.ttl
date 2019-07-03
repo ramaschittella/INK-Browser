@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeeuOh8Y  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:rolhgFxZztYdU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageuOh8Y .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageuOh8Y .
+
+chon:HalfMove  chon:subEventOf  :gameuOh8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageuOh8Y .
+
+:gameuOh8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleuOh8Y ;
+        chon:atPlace           :plaeuOh8Y ;
+        chon:atTime            "1999.07.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFxZztYd ;
+        chon:hasHalfMove       :hmgamFxZztYd ;
+        chon:hasLastHalfMove   :hmgamFxZztYd ;
+        chon:hasOpening        :opeeuOh8Y ;
+        chon:hasReport         :cgreuOh8Y ;
+        chon:hasResult         :reseuOh8Yo ;
+        chon:subEventOf        :toueuOh8 .
+
+:plaeuOh8Y  a         chon:Place ;
+        chon:hasName  "Frankfurt" .
+
+:hmgamFxZztYd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFxZztYdU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c4" , "c5" , "f4" , "O-O" , "d6" , "Be5" , "Nf3" , "Bf6" , "Nc3" , "Nc5" , "Ng3" , "f5" , "Kf8" , "Nb7" , "Nxe5" , "Bb2" , "Qf4" , "Qh8+" , "Qd4" , "Rc1" , "Qg6" , "Bd3" , "Bg2" , "Qxg5" , "d4" , "Rcd8" , "Qxh5" , "Bf4" , "hxg5" , "Ne4" , "Nb4" , "e4" , "Nf6" , "Re8" , "Na5" , "f6" , "cxd5" , "Bg6" , "Be7" , "Nc6" , "h3" , "Nxc3" , "Rxe5" , "Qc3" , "Re1" , "Nh5" , "Qd6" , "a4" , "Bf1" , "a3" , "b6" , "bxc3" , "Re7" , "Rxa7" , "f3" , "Ne5" , "d5" , "g4" , "g5" , "e5" , "Qxd5" , "Bf7" , "Bf5" , "h4" , "h6" , "Bg8" , "Nxe4" , "Rce1" , "Qd3" , "Qd7" , "Rac8" , "Rfd8" , "Bxe5" , "Rxg7" , "Rxe7" , "Bd6" , "Rg3" , "Re3" ;
+        chon:nextHalfMove      :hmgamFxZztYd .
+
+:cgreuOh8Y  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reseuOh8Yo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ageuOh8Y  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Anand, Viswanathan" .
+
+:toueuOh8  a          chon:hessTournament ;
+        chon:atPlace  :plaeuOh8Y ;
+        chon:hasName  "Siemens Giants" .
+
+:roleuOh8Y  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageuOh8Y .

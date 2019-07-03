@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgeWuteAyr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi1NksS .
+
+:hmgameWuteAy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeWuteAyr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uhlmann, Wolfgang" ;
+        chon:hasSANRecord      "Rb7" , "f4" , "Kf2" , "g5" , "h6" , "Qxd4" , "Be8" , "Rg6" , "Bxh5" , "Kh7" , "Rd6" , "Red8" , "Ke2" , "Rxb2" , "Rfe7" , "Re7" , "cxd4" , "Ree7" , "Be4" , "Rae1" , "g4" , "Rac8" , "Kh8" , "Rxf7" , "gxh5" , "f3" , "b6" , "Rge7" , "Ke3" , "Nxd4" , "Ke1" , "Bg6" , "Rc2+" , "Bb5" , "h5" , "Rb3+" , "Rc1+" , "Rxg7+" , "Rb2+" ;
+        chon:nextHalfMove      :hmgameWuteAy .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi1NksS .
+
+chon:HalfMove  chon:subEventOf  :gam81Q7V .
+
+:tou81Q7V  a          chon:hessTournament ;
+        chon:atPlace  :pla81Q7VD ;
+        chon:hasName  "Madrid" .
+
+:cgri1NksS  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi1NksS .
+
+:hmgami1NksSi  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgi1NksSit , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Uhlmann, Wolfgang" ;
+        chon:hasSANRecord      "Nd2" , "e6" , "Bg3" , "Bh5" , "Nc6" , "d4" , "Be4" , "Bxg3" , "dxc5" , "Ne7" , "hxg3" , "d5" , "Bg4" , "c3" , "Nxd4" , "Bd6" , "Bxc5" , "e4" , "Bb5" , "a4" , "Nfd4" , "exd5" , "O-O" , "Bg5" , "Be2" , "Qb6" , "Ngf3" , "Re1" , "Bh4" , "Bg6" , "Rfe8" , "Nb3" , "a5" , "Bf1" , "c5" ;
+        chon:nextHalfMove      :hmgameWuteAy , :hmgami1NksSi .
+
+:agi1NksS  a          chon:Agent ;
+        chon:hasName  "Uhlmann, Wolfgang" , "Karpov, Anatoly" .
+
+:roli1NksS  a             chon:AuthorRole ;
+        chon:performedBy  :agi1NksS .
+
+:opei1NksS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C09" .
+
+:pla81Q7VD  a         chon:Place ;
+        chon:hasName  "Madrid" .
+
+:rolhgi1NksSit  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi1NksS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resi1NksSi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rol81Q7VD  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gam81Q7V  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol81Q7VD ;
+        chon:atPlace           :pla81Q7VD ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgami1NksSi ;
+        chon:hasHalfMove       :hmgameWuteAy , :hmgami1NksSi ;
+        chon:hasLastHalfMove   :hmgameWuteAy ;
+        chon:hasOpening        :opei1NksS ;
+        chon:hasReport         :cgri1NksS ;
+        chon:hasResult         :resi1NksSi ;
+        chon:subEventOf        :tou81Q7V .

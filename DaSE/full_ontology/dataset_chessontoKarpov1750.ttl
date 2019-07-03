@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgdQ6el7Z7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3Sa1O8 .
+
+:rolhg3Sa1O8WV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3Sa1O8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3Sa1O8 .
+
+:hmgamdQ6el7Z  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdQ6el7Z7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rxf4" , "h4" , "Kg1" , "Re1" , "Nh5" , "a4" , "Qa1+" , "g5" , "Rxe5" , "Ke1" , "Rc2" , "Kxh3" , "Rd1" , "Qc3+" , "Qd5" , "gxf4" , "Qd4" , "Rd2" , "Nf4+" , "h3+" , "Qf3" , "f3+" , "Qa3" , "Qh5+" , "Kg2" , "Kf1" , "h5" , "Nd3" , "Re4" ;
+        chon:nextHalfMove      :hmgamdQ6el7Z .
+
+chon:HalfMove  chon:subEventOf  :gam3Sa1O .
+
+:res3Sa1O8W  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3Sa1O8 .
+
+:pla3Sa1O8  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:gam3Sa1O  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3Sa1O8 ;
+        chon:atPlace           :pla3Sa1O8 ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3Sa1O8W ;
+        chon:hasHalfMove       :hmgamdQ6el7Z , :hmgam3Sa1O8W ;
+        chon:hasLastHalfMove   :hmgamdQ6el7Z ;
+        chon:hasOpening        :ope3Sa1O8 ;
+        chon:hasReport         :cgr3Sa1O8 ;
+        chon:hasResult         :res3Sa1O8W ;
+        chon:subEventOf        :tou3Sa1O .
+
+:tou3Sa1O  a          chon:hessTournament ;
+        chon:atPlace  :pla3Sa1O8 ;
+        chon:hasName  "Buenos Aires Sicilian" .
+
+:cgr3Sa1O8  a   chon:ChessGameReport .
+
+:hmgam3Sa1O8W  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3Sa1O8WV , :rolhgdQ6el7Z7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "bxc6" , "Qc7" , "d4" , "Rxd6" , "g3" , "d5" , "e4" , "Nxa6" , "Qe8" , "Rxa6" , "Nxb8" , "Bf3" , "O-O" , "Nxd4" , "Nc3" , "Na4" , "Bd7" , "Qb5" , "Qxb2" , "Nb6" , "cxd6" , "Re6" , "c4" , "Nxc6" , "Qxd7" , "Rd8" , "Rfd1" , "Qxa6" , "e5" , "Be2" , "Bc5" , "Bxc6" , "g6" , "e6" , "Nxe4" , "Qa4" , "Nf6" , "Rc1" , "Nb3" , "Na5" , "Nc6" , "Nc5" , "Be7" , "Nxd7" , "Rb8" , "Qxe7" , "c5" , "a6" , "Bb4" , "Nf3" , "Be3" , "Bxe7" , "Kg7" , "cxd4" ;
+        chon:nextHalfMove      :hmgamdQ6el7Z , :hmgam3Sa1O8W .
+
+:ag3Sa1O8  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kamsky, Gata" .
+
+:rol3Sa1O8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3Sa1O8 .
+
+:ope3Sa1O8  a            chon:ChessOpening ;
+        chon:hasECOCode  "B49" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

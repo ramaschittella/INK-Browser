@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgzBt0QnvP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzBt0Qn .
+
+:plazBt0Qn  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:hmgam1DGscol  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1DGscold , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rxb1" , "Bd2" , "Bxc3" , "Bd3" , "Qg1+" , "Re1+" , "Be2" , "bxc3" , "exf5" , "Nxe5" , "Kh2" , "gxf5" , "Nf2+" , "Kg3" , "Qd4+" , "O-O" , "Re2" , "Qxf2" , "Qxb1" , "f4" , "Rxf2" , "Ncxe5" , "Rb1" , "Bf5" , "c6" , "e4" , "Ng4" , "Kh1" , "h3" , "Bxb1" , "Rae8" , "Rfe8" ;
+        chon:nextHalfMove      :hmgam1DGscol .
+
+:cgrzBt0Qn  a   chon:ChessGameReport .
+
+:agzBt0Qn  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Gudmundsson, Arinbjorn" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzBt0Qn .
+
+:rolzBt0Qn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzBt0Qn .
+
+:opezBt0Qn  a            chon:ChessOpening ;
+        chon:hasECOCode  "D95" .
+
+chon:HalfMove  chon:subEventOf  :gamzBt0Q .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzBt0Qn .
+
+:hmgamzBt0Qnv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1DGscold , chon:AgentRole , :rolhgzBt0QnvP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bxc4" , "d4" , "Nc3" , "O-O" , "e6" , "Ng4" , "e5" , "g6" , "c4" , "Nf6" , "Nf3" , "Nc6" , "e3" , "dxc4" , "Be2" , "Bg7" , "dxe5" , "Qc2" , "d5" , "Qb3" ;
+        chon:nextHalfMove      :hmgamzBt0Qnv , :hmgam1DGscol .
+
+:gamzBt0Q  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzBt0Qn ;
+        chon:atPlace           :plazBt0Qn ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzBt0Qnv ;
+        chon:hasHalfMove       :hmgamzBt0Qnv , :hmgam1DGscol ;
+        chon:hasLastHalfMove   :hmgam1DGscol ;
+        chon:hasOpening        :opezBt0Qn ;
+        chon:hasReport         :cgrzBt0Qn ;
+        chon:hasResult         :reszBt0Qnv ;
+        chon:subEventOf        :touzBt0Q .
+
+:touzBt0Q  a          chon:hessTournament ;
+        chon:atPlace  :plazBt0Qn ;
+        chon:hasName  "Reykjavik" .
+
+:reszBt0Qnv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhg1DGscold  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzBt0Qn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

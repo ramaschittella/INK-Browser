@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamZQis5Io  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZQis5Io2 , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgambOfIBJr .
+
+:rolhgZQis5Io2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZQis5I .
+
+:hmgambOfIBJr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbOfIBJre ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rd2" , "b6" , "Nbd7" , "h5" , "Bf3" , "Qc2" , "Bb4+" , "Re1" , "Nf3" , "Re2" , "f4" , "h4" , "Qc5" , "a5" , "c5" , "c6" , "Bc3" , "Qxf3" , "d5" , "e4" , "g3" , "Bg2" , "Nf6" , "Kf8" , "dxe4" , "e6" , "Qc8" , "Be4" , "Ke2" , "Bxf3" , "Rc8" , "Bb7" , "Kf2" , "Rc7" , "c4" , "Rad1" , "Be7" , "cxd4" , "b3" , "Ke7" , "O-O" , "Qc7" , "Nbd2" , "Qe2" , "Rxd4" , "Ba6" , "Qd3" , "Bf6" , "Nxe4" , "Bd2" , "Rxe4" , "Rad8" , "Bxd4" , "g6" , "Qxd4" ;
+        chon:nextHalfMove      :hmgambOfIBJr .
+
+:plaZQis5I  a         chon:Place ;
+        chon:hasName  "Valjevo SRB" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZQis5I .
+
+:cgrZQis5I  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamZQis5 .
+
+:resZQis5Io  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agZQis5I  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Atalik,S" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZQis5I .
+
+:rolZQis5I  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZQis5I .
+
+:rolhgbOfIBJre  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZQis5I .
+
+:gamZQis5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZQis5I ;
+        chon:atPlace           :plaZQis5I ;
+        chon:atTime            "2007.06.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZQis5Io ;
+        chon:hasHalfMove       :hmgambOfIBJr , :hmgamZQis5Io ;
+        chon:hasLastHalfMove   :hmgambOfIBJr ;
+        chon:hasOpening        :opeZQis5I ;
+        chon:hasReport         :cgrZQis5I ;
+        chon:hasResult         :resZQis5Io ;
+        chon:subEventOf        :touZQis5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touZQis5  a          chon:hessTournament ;
+        chon:atPlace  :plaZQis5I ;
+        chon:hasName  "Gorenje GM" .
+
+:opeZQis5I  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .

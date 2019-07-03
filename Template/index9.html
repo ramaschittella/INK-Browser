@@ -1,0 +1,26 @@
+<html lang="en">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1 style="font-size:40px;">{{subject}}</h1>
+    <meta charset="UTF-8">
+    <table class="sparql"  border="1">
+        <tr>
+          <th>e</th>
+          <th>label</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            {% for e, value in result.items() %}
+            <td><form action="/predicate" method="POST">
+                <input type="submit" name="action" value={{value.value}} />
+            </form></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

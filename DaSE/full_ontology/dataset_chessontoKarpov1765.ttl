@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg2lDv9Q8r  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQlGiBR .
+
+:agQlGiBR  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Epishin, Vladimir" .
+
+:rolQlGiBR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQlGiBR .
+
+:resQlGiBR5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeQlGiBR  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQlGiBR .
+
+chon:HalfMove  chon:subEventOf  :gamQlGiB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQlGiBR .
+
+:gamQlGiB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQlGiBR ;
+        chon:atPlace           :plaQlGiBR ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQlGiBR5 ;
+        chon:hasHalfMove       :hmgam2lDv9Q8 , :hmgamQlGiBR5 ;
+        chon:hasLastHalfMove   :hmgam2lDv9Q8 ;
+        chon:hasOpening        :opeQlGiBR ;
+        chon:hasReport         :cgrQlGiBR ;
+        chon:hasResult         :resQlGiBR5 ;
+        chon:subEventOf        :touQlGiB .
+
+:touQlGiB  a          chon:hessTournament ;
+        chon:atPlace  :plaQlGiBR ;
+        chon:hasName  "Dortmund" .
+
+:cgrQlGiBR  a   chon:ChessGameReport .
+
+:hmgam2lDv9Q8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2lDv9Q8r , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bf4" , "Rb8" , "Bxd6" , "e6" , "Bf1" , "Bb4" , "axb4" , "Na8" , "b3" , "g3" , "Rfc1" , "Bxb5" , "cxb5" , "h5" , "b6" , "Rb3" , "Qe7" , "a5" , "d5" , "Qa7" , "Qc2" , "cxd6" , "O-O" , "Na6" , "Bb5" , "Nxb4" , "b4" , "Qb2" , "Rb1" , "Nc3" , "Nba2" , "Rfc8" , "c4" , "Nc7" , "Qa5" , "e3" , "Ba6" , "Bd6" , "Ne1" , "Be8" , "Nf3" , "a3" , "Bg2" , "Nf6" , "b5" , "Bd7" , "Rab1" , "Na4" , "Nd3" ;
+        chon:nextHalfMove      :hmgam2lDv9Q8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamQlGiBR5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2lDv9Q8r , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgam2lDv9Q8 .
+
+:plaQlGiBR  a         chon:Place ;
+        chon:hasName  "Dortmund" .

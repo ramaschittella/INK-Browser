@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolIaNSxx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agIaNSxx .
+
+:plaIaNSxx  a         chon:Place ;
+        chon:hasName  "Harvard" .
+
+:agIaNSxx  a          chon:Agent ;
+        chon:hasName  "Ofiesh, A." , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIaNSxx .
+
+:resIaNSxx9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamP9r2Qws  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgP9r2Qws0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ofiesh, A." ;
+        chon:hasSANRecord      "Ke6" , "Nxd5" , "Nd4" , "dxe3" , "Nc7+" , "Kxf7" , "Rxe6" , "Qxd5" , "Rfe1" , "Rxe3+" , "e4" , "Nxf7" , "Ne6" , "Qxd5+" , "Kxe6" , "Bxd5" , "Kf7" , "Nb6" ;
+        chon:nextHalfMove      :hmgamP9r2Qws .
+
+:touIaNSx  a          chon:hessTournament ;
+        chon:atPlace  :plaIaNSxx ;
+        chon:hasName  "Harvard sim" .
+
+:rolhgE9uLgvpX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIaNSxx .
+
+:rolhgP9r2Qws0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIaNSxx .
+
+chon:HalfMove  chon:subEventOf  :gamIaNSx .
+
+:opeIaNSxx  a            chon:ChessOpening ;
+        chon:hasECOCode  "D34" .
+
+:cgrIaNSxx  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamE9uLgvp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgE9uLgvpX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ofiesh, A." ;
+        chon:hasSANRecord      "Be4" , "d4" , "Ra7" , "dxc5" , "Re8" , "Ng5" , "Bf5" , "O-O" , "cxd5" , "d5" , "Qb3" , "a3" , "Rc1" , "Bd5" , "a5" , "Na4" , "Bf4" , "exd5" ;
+        chon:nextHalfMove      :hmgamP9r2Qws , :hmgamE9uLgvp .
+
+:hmgamIaNSxx9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgIaNSxx9X ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ofiesh, A." ;
+        chon:hasSANRecord      "Be7" , "Nf3" , "Bg2" , "c4" , "Nc6" , "c5" , "Nc3" , "e6" , "g3" , "Nf6" , "O-O" ;
+        chon:nextHalfMove      :hmgamE9uLgvp , :hmgamIaNSxx9 .
+
+:rolhgIaNSxx9X  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agIaNSxx .
+
+:gamIaNSx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolIaNSxx ;
+        chon:atPlace           :plaIaNSxx ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamIaNSxx9 ;
+        chon:hasHalfMove       :hmgamIaNSxx9 , :hmgamE9uLgvp , :hmgamP9r2Qws ;
+        chon:hasLastHalfMove   :hmgamP9r2Qws ;
+        chon:hasOpening        :opeIaNSxx ;
+        chon:hasReport         :cgrIaNSxx ;
+        chon:hasResult         :resIaNSxx9 ;
+        chon:subEventOf        :touIaNSx .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agIaNSxx .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touv2XdN  a          chon:hessTournament ;
+        chon:atPlace  :plav2XdNm ;
+        chon:hasName  "Keres Mem Rapid" .
+
+:rolhgv2XdNmun  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agv2XdNm .
+
+:plav2XdNm  a         chon:Place ;
+        chon:hasName  "Tallinn EST" .
+
+:hmgamW48wanl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgW48wanlN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "bxa4" , "Ra6" , "Nc4" , "Bxb7" , "Re7" , "Ra4" , "Rf4" , "Rxe6" , "Nd3" , "Ke3" , "h4" , "Bd2" , "a3" , "Nxe3" , "Ne5" , "Nd6" , "Nf6" , "g4" , "b5" , "h6" , "Nxc5" , "bxa3" , "Nxa3" , "Rc1" , "Rfc8" , "Kxd2" , "Nxb7" , "Rc7" , "Be3" , "a4" , "Kf2" , "Nc5" , "e4" , "Nd2" , "f6" , "Nxd5" , "Rxc8+" , "Rxc8" , "Re5" , "Qxd5" , "Qd5" , "fxe3" , "Ke1" , "Kf7" , "Rxc5" ;
+        chon:nextHalfMove      :hmgamW48wanl .
+
+:hmgamv2XdNmu  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgv2XdNmun ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "d5" , "Be7" , "Na6" , "Nf6" , "Ndc4" , "O-O" , "Nf3" , "g3" , "d4" , "Nd3" , "cxd5" , "Ba6" , "b6" , "Nxd5" , "Bg2" , "e6" , "c4" , "Bb7" , "Bxc5" , "Nbd2" , "Ne5" , "dxc5" , "c5" ;
+        chon:nextHalfMove      :hmgamv2XdNmu , :hmgamW48wanl .
+
+:cgrv2XdNm  a   chon:ChessGameReport .
+
+:rolhgW48wanlN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agv2XdNm .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agv2XdNm .
+
+:agv2XdNm  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Ivanchuk,V" .
+
+:rolv2XdNm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agv2XdNm .
+
+chon:HalfMove  chon:subEventOf  :gamv2XdN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agv2XdNm .
+
+:gamv2XdN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolv2XdNm ;
+        chon:atPlace           :plav2XdNm ;
+        chon:atTime            "2006.01.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamv2XdNmu ;
+        chon:hasHalfMove       :hmgamv2XdNmu , :hmgamW48wanl ;
+        chon:hasLastHalfMove   :hmgamW48wanl ;
+        chon:hasOpening        :opev2XdNm ;
+        chon:hasReport         :cgrv2XdNm ;
+        chon:hasResult         :resv2XdNmu ;
+        chon:subEventOf        :touv2XdN .
+
+:opev2XdNm  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resv2XdNmu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

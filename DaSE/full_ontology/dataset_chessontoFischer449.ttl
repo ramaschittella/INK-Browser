@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgYGOv5Ri4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNJShvS .
+
+:agNJShvS  a          chon:Agent ;
+        chon:hasName  "Sillars,K/Manter,L" , "Fischer, Robert James" .
+
+:rolNJShvS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNJShvS .
+
+:hmgamNJShvSf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYGOv5Ri4 , :rolhgNJShvSfS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sillars,K/Manter,L" ;
+        chon:hasSANRecord      "Kxd8" , "e4" , "g4" , "h3" , "cxd4" , "Nxd5" , "Ke7" , "a6" , "Ne4" , "Nxc3" , "Nxd4" , "exd5" , "Nf3" , "d4" , "Nc3" , "d5" , "Qxd8+" , "O-O-O+" , "Nde2" , "Ba5" , "Bc5+" , "Rhd8" , "a3" , "Bg2" , "Nf6" , "Be3" , "Nc6" , "Bb4" , "e5" , "Be6" , "c5" , "Ke8" , "d6" ;
+        chon:nextHalfMove      :hmgamYGOv5Ri , :hmgamNJShvSf .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNJShvS .
+
+chon:HalfMove  chon:subEventOf  :gamNJShv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNJShvS .
+
+:gamNJShv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNJShvS ;
+        chon:atPlace           :plaNJShvS ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNJShvSf ;
+        chon:hasHalfMove       :hmgamNJShvSf , :hmgamYGOv5Ri ;
+        chon:hasLastHalfMove   :hmgamYGOv5Ri ;
+        chon:hasOpening        :opeNJShvS ;
+        chon:hasReport         :cgrNJShvS ;
+        chon:hasResult         :resNJShvSf ;
+        chon:subEventOf        :touNJShv .
+
+:opeNJShvS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B90" .
+
+:touNJShv  a          chon:hessTournament ;
+        chon:atPlace  :plaNJShvS ;
+        chon:hasName  "Cicero sim" .
+
+:resNJShvSf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaNJShvS  a         chon:Place ;
+        chon:hasName  "Cicero" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrNJShvS  a   chon:ChessGameReport .
+
+:hmgamYGOv5Ri  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYGOv5Ri4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sillars,K/Manter,L" ;
+        chon:hasSANRecord      "Rxc6" , "Bc7" , "Rxd6" , "Nd6+" ;
+        chon:nextHalfMove      :hmgamYGOv5Ri .
+
+:rolhgNJShvSfS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNJShvS .

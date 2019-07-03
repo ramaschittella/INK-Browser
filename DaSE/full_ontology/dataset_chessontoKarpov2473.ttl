@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrcFzHqz  a   chon:ChessGameReport .
+
+:rescFzHqzu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agcFzHqz  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Anand,V" .
+
+:rolcFzHqz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcFzHqz .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcFzHqz .
+
+:opecFzHqz  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:HalfMove  chon:subEventOf  :gam1HqUs .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcFzHqz .
+
+:pla1HqUsx  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:rolhgcFzHqzui  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcFzHqz .
+
+:gam1HqUs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcFzHqz ;
+        chon:atPlace           :pla1HqUsx ;
+        chon:atTime            "2000.03.17"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcFzHqzu ;
+        chon:hasHalfMove       :hmgamcFzHqzu ;
+        chon:hasLastHalfMove   :hmgamcFzHqzu ;
+        chon:hasOpening        :opecFzHqz ;
+        chon:hasReport         :cgrcFzHqz ;
+        chon:hasResult         :rescFzHqzu ;
+        chon:subEventOf        :toucFzHq .
+
+:hmgamcFzHqzu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcFzHqzui , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Rxb5" , "Rd8" , "Bb6" , "Qf3" , "a4" , "d2" , "Rfe1" , "Nge7" , "b6" , "Kf8" , "Nf3" , "Bxg5" , "d3" , "Qf6" , "e4" , "Rd3" , "Rb7" , "Rb8" , "Qxf6" , "Rc7" , "Ne2" , "Qxc6" , "Qc5" , "cxb5" , "Rc2+" , "d5" , "Rc8" , "O-O" , "cxd4" , "e6" , "Bxd3" , "h4" , "exf6" , "Rh8" , "Ke6" , "Rxb6" , "Qxd3" , "b3" , "Bd3" , "h5" , "Kh2" , "a6" , "d4" , "Bc5" , "Ree3" , "Qxg5" , "Kd5" , "Rxf7" , "Bd8" , "Nc6" , "Nxd4" , "c4" , "c6" , "c5" , "e5" , "Bf5" , "Bg5" , "Rxd2" , "Nexd4" , "Rf3" , "Qc7" , "Ra1" , "g6" , "axb5" , "Ke8" , "Nc3" , "Re1" , "b5" , "Ra8" , "c3" , "Rb4" , "Kc6" , "Qg3" , "Kd7" , "Qe7" , "Rad1" , "Nxc6" , "Rf4" , "Rh7" ;
+        chon:nextHalfMove      :hmgamcFzHqzu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toucFzHq  a          chon:hessTournament ;
+        chon:atPlace  :pla1HqUsx ;
+        chon:hasName  "Amber Blindfold" .

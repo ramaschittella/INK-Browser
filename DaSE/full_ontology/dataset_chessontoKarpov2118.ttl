@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res7AFjVyw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla7AFjVy  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:cgr7AFjVy  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7AFjVy .
+
+:ag7AFjVy  a          chon:Agent ;
+        chon:hasName  "Maenpaa, Aimo" , "Karpov, Anatoly" .
+
+:rol7AFjVy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7AFjVy .
+
+:rolhg7AFjVywl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7AFjVy .
+
+chon:HalfMove  chon:subEventOf  :gam7AFjV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7AFjVy .
+
+:hmgam7AFjVyw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7AFjVywl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Maenpaa, Aimo" ;
+        chon:hasSANRecord      "Rc8" , "axb5" , "c6" , "Nbd2" , "b3" , "Qc8" , "Bxe4" , "Na7" , "c4" , "Be7" , "dxc6" , "Nc7" , "c3" , "Nf3" , "Rc6" , "Nxe4" , "g6" , "Nf1" , "O-O" , "Bc2" , "Re1" , "Ba4" , "d5" , "a6" , "d4" , "Bxc6" , "Bd8" , "a4" , "Ne6" , "Bb7" , "Nxb5" , "h3" , "Bb3" , "Nd7" , "Nf6" , "Bb5" , "Re2" , "Rea2" , "R5a3" , "d6" , "b5" , "e4" , "Nc6" , "Ra5" , "Be4" , "Ng3" , "Be3" , "Nc3" , "e5" ;
+        chon:nextHalfMove      :hmgam7AFjVyw .
+
+:ope7AFjVy  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:gam7AFjV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7AFjVy ;
+        chon:atPlace           :pla7AFjVy ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7AFjVyw ;
+        chon:hasHalfMove       :hmgam7AFjVyw ;
+        chon:hasLastHalfMove   :hmgam7AFjVyw ;
+        chon:hasOpening        :ope7AFjVy ;
+        chon:hasReport         :cgr7AFjVy ;
+        chon:hasResult         :res7AFjVyw ;
+        chon:subEventOf        :tou7AFjV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou7AFjV  a          chon:hessTournament ;
+        chon:atPlace  :pla7AFjVy ;
+        chon:hasName  "Valkeakoski sim" .

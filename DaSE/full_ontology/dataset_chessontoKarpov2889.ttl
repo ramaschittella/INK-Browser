@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamWXg9fPT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWXg9fPTS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qd1" , "Kg7" , "Qd2" , "Rf3" , "a4" , "Qf6" , "Qc1" , "Qb2" , "Rd3" , "Qb2+" , "Rf5" , "Qa2" , "Qe1" , "Kg6" , "Qc5" , "Rb1" , "Qd5" , "Qb1+" , "Kh7" , "Qc4" ;
+        chon:nextHalfMove      :hmgamWXg9fPT .
+
+:ag23xZwR  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Skripchenko,A" .
+
+:rol23xZwR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag23xZwR .
+
+:rolhg23xZwRBU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag23xZwR .
+
+:ope23xZwR  a            chon:ChessOpening ;
+        chon:hasECOCode  "B22" .
+
+:tou23xZw  a          chon:hessTournament ;
+        chon:atPlace  :pla23xZwR ;
+        chon:hasName  "GpB" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag23xZwR .
+
+:hmgam23xZwRB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg23xZwRBU , chon:AgentRole , :rolhgWXg9fPTS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bxf3" , "Qd3" , "Re3" , "Qd8" , "Rc7" , "Na4" , "Kg6" , "a5" , "Rec1" , "Bf4" , "Rfc8" , "Qc6" , "O-O" , "Nc3" , "Nxf3" , "d5" , "b6" , "Qb3" , "Be7" , "Qxe5" , "Rc3" , "Qd5" , "Rc8+" , "Qf5" , "d4" , "Bxf4" , "Kh6" , "Qxf4" , "a3" , "Qb8" , "Nxe5" , "Rd8" , "Bf6" , "Nd4" , "Nf3" , "Qe2" , "Qc1" , "bxc5" , "Bb7" , "Kg7" , "Re1" , "e4" , "Qb2" , "g4" , "Be2" , "Rad8" , "Rfe1" , "Rc4" , "Qxc5" , "exd5" , "b4" , "g5" , "Nxc5" , "Nf6" , "Qc3" , "Qa4" , "Nf4" , "Ne5" , "Qf3" , "Rd3" , "Qd2" , "Qb1+" , "Qb2+" , "Bxc5" , "Rae1" , "R7c3" , "c5" , "Nh5" , "Nbd7" , "h5" , "Be3" , "Bf3" , "g3" , "Qxd5" , "e6" , "Rc5" , "R5c2" , "c4" , "Rxd3" , "g6" , "dxc5" , "Rc1" , "c3" , "Bd4" , "Re4" ;
+        chon:nextHalfMove      :hmgamWXg9fPT , :hmgam23xZwRB .
+
+chon:HalfMove  chon:subEventOf  :gam23xZw .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag23xZwR .
+
+:cgr23xZwR  a   chon:ChessGameReport .
+
+:res23xZwRB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgWXg9fPTS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag23xZwR .
+
+:gam23xZw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol23xZwR ;
+        chon:atPlace           :pla23xZwR ;
+        chon:atTime            "2006.10.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam23xZwRB ;
+        chon:hasHalfMove       :hmgam23xZwRB , :hmgamWXg9fPT ;
+        chon:hasLastHalfMove   :hmgamWXg9fPT ;
+        chon:hasOpening        :ope23xZwR ;
+        chon:hasReport         :cgr23xZwR ;
+        chon:hasResult         :res23xZwRB ;
+        chon:subEventOf        :tou23xZw .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla23xZwR  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .

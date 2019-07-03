@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touApJAG  a          chon:hessTournament ;
+        chon:atPlace  :plaApJAGw ;
+        chon:hasName  "2nd ACP World Rapid Cup" .
+
+:cgrLnGOgw  a   chon:ChessGameReport .
+
+:plaApJAGw  a         chon:Place ;
+        chon:hasName  "Odessa UKR" .
+
+:resLnGOgw8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolLnGOgw  a             chon:AuthorRole ;
+        chon:performedBy  :agLnGOgw .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agApJAGw .
+
+:agApJAGw  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" .
+
+:rolApJAGw  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:HalfMove  chon:subEventOf  :gamApJAG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLnGOgw .
+
+:agLnGOgw  a          chon:Agent ;
+        chon:hasName  "Grischuk,A" .
+
+:opeLnGOgw  a            chon:ChessOpening ;
+        chon:hasECOCode  "B80" .
+
+:hmgamLnGOgw8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgLnGOgw8f , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Grischuk,A" ;
+        chon:hasSANRecord      "Nf6" , "Bxc5" , "exf3" , "d6" , "b4" , "Nxc5" , "Be3" , "h4" , "b5" , "Nf3" , "d4" , "c5" , "a6" , "Nbd7" , "dxe4" , "f3" , "e6" , "Nc3" , "Nc5" , "Qd2" , "h6" , "e4" , "Rg1" , "Na4" , "Nd5" , "O-O-O" , "Bd4" , "d5" , "b3" , "Bg2" , "Bb7" , "Nxd4" , "cxd4" , "Nxf3" , "Qa5" , "g4" ;
+        chon:nextHalfMove      :hmgamLnGOgw8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgLnGOgw8f  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLnGOgw , :agApJAGw .
+
+:gamApJAG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolApJAGw ;
+        chon:atPlace           :plaApJAGw ;
+        chon:atTime            "2008.01.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLnGOgw8 ;
+        chon:hasHalfMove       :hmgamLnGOgw8 ;
+        chon:hasLastHalfMove   :hmgamLnGOgw8 ;
+        chon:hasOpening        :opeLnGOgw ;
+        chon:hasReport         :cgrLnGOgw ;
+        chon:hasResult         :resLnGOgw8 ;
+        chon:subEventOf        :touApJAG .

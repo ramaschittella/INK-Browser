@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamUgfzJrS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUgfzJrSs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Grigorian, Meri" ;
+        chon:hasSANRecord      "Nd7" , "Rc8" , "cxb4" , "Qe7" , "c6" , "gxh6" , "Qc3" , "Nxe4" , "Qg5" , "Qg3" , "Nxh4" , "dxe4" , "Rg4+" , "O-O" , "Nxf6" , "Qc7" , "Bg5" , "Rad1" , "Nf4" , "h6" , "h4" , "Ne5" , "Re1" , "Qxh4" , "b6" , "Bd7" , "Ngf6" , "Rd8" , "Bh4" , "Bxe5" , "d5" , "Red1" , "dxe5" , "Qb4" , "e6" , "a5" , "c5" , "e4" , "Nd2" , "Qg4" , "hxg5" , "Ng6" , "Bc4" , "Bd6" , "Nxf6+" , "Bb3" , "Rd4" , "d4" , "Ra7" , "Nd5" , "Nf3" , "h3" ;
+        chon:nextHalfMove      :hmgamUgfzJrS .
+
+:gamsg4fn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUgfzJr ;
+        chon:atPlace           :plasg4fnr ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUgfzJrS ;
+        chon:hasHalfMove       :hmgamUgfzJrS ;
+        chon:hasLastHalfMove   :hmgamUgfzJrS ;
+        chon:hasOpening        :opeUgfzJr ;
+        chon:hasReport         :cgrUgfzJr ;
+        chon:hasResult         :resUgfzJrS ;
+        chon:subEventOf        :touUgfzJ .
+
+:touUgfzJ  a          chon:hessTournament ;
+        chon:atPlace  :plasg4fnr ;
+        chon:hasName  "Koszalin sim1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUgfzJr .
+
+chon:HalfMove  chon:subEventOf  :gamsg4fn .
+
+:resUgfzJrS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUgfzJr .
+
+:rolhgUgfzJrSs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUgfzJr .
+
+:cgrUgfzJr  a   chon:ChessGameReport .
+
+:agUgfzJr  a          chon:Agent ;
+        chon:hasName  "Grigorian, Meri" , "Karpov, Anatoly" .
+
+:plasg4fnr  a         chon:Place ;
+        chon:hasName  "Koszalin" .
+
+:rolUgfzJr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUgfzJr .
+
+:opeUgfzJr  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

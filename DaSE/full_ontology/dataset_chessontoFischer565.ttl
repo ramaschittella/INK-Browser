@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agO9LWHS  a          chon:Agent ;
+        chon:hasName  "Badilles, Glicerio" , "Fischer, Robert James" .
+
+:resO9LWHSQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeO9LWHS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B44" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agO9LWHS .
+
+chon:HalfMove  chon:subEventOf  :gamO9LWH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agO9LWHS .
+
+:gamO9LWH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolO9LWHS ;
+        chon:atPlace           :plaO9LWHS ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamO9LWHSQ ;
+        chon:hasHalfMove       :hmgamO9LWHSQ ;
+        chon:hasLastHalfMove   :hmgamO9LWHSQ ;
+        chon:hasOpening        :opeO9LWHS ;
+        chon:hasReport         :cgrO9LWHS ;
+        chon:hasResult         :resO9LWHSQ ;
+        chon:subEventOf        :touO9LWH .
+
+:touO9LWH  a          chon:hessTournament ;
+        chon:atPlace  :plaO9LWHS ;
+        chon:hasName  "Meralco" .
+
+:cgrO9LWHS  a   chon:ChessGameReport .
+
+:rolO9LWHS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agO9LWHS .
+
+:hmgamO9LWHSQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgO9LWHSQt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Badilles, Glicerio" ;
+        chon:hasSANRecord      "Rc4" , "Nb5" , "e4" , "Bxg5" , "Kh2" , "Nxd4" , "Qb8" , "Bf4" , "Rd7" , "Qa1+" , "Ra1" , "Rcb4" , "Nxb3" , "Qc7" , "Nc6" , "Qxb2" , "f5" , "Nf6" , "Bb3" , "Nd5" , "axb3" , "Nc3" , "a5" , "Rf8" , "Na5" , "Bxd5" , "Qxf2" , "Qxd5" , "Rf7" , "Rxe7" , "c3" , "Kg7" , "Be7" , "e5" , "Qa8" , "O-O" , "Rxb7" , "Nf3" , "a6" , "N5c3" , "Rb4" , "Rb6" , "c5" , "d4" , "exf5" , "d6" , "Bc4" , "Nxd5" , "Ra4" , "c4" , "Be6" , "Rad8" , "Qe6" , "e6" , "Kh8" , "cxd4" , "a4" , "Rxf5" , "h4" , "g5" , "Be3" , "R4b5" ;
+        chon:nextHalfMove      :hmgamO9LWHSQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgO9LWHSQt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agO9LWHS .
+
+:plaO9LWHS  a         chon:Place ;
+        chon:hasName  "Meralco" .

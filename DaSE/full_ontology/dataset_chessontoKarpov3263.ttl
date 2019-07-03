@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag9XDHjs  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Milliet,S" .
+
+:rol9XDHjs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9XDHjs .
+
+:ope9XDHjs  a            chon:ChessOpening ;
+        chon:hasECOCode  "C53" .
+
+:hmgam9XDHjs6  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9XDHjs6d ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "g5" , "Bd1" , "Kxg1" , "Nc1" , "Bd3" , "Nh3+" , "Nh5" , "Nc4" , "dxe4" , "Nf3" , "Qh6" , "cxd5" , "Rxa8" , "Nxg1" , "Rab8" , "Nbd2" , "Re1" , "c3" , "Bg4" , "h6" , "Bc5" , "Nf1" , "c6" , "Nxe4" , "d6" , "Rf2" , "e5" , "Be7" , "Kg7" , "Kg2" , "Bb3" , "Kg6" , "d4" , "Nd2" , "Qe3" , "Bh4" , "axb6" , "Bc4" , "Bb5" , "Qe2" , "Ne7" , "Qf6" , "f6" , "Bxe7" , "Nd5" , "h5" , "e4" , "Bxd5" , "a5" , "d5" , "Rf1" , "Ned2" , "Nec4" , "Nc8" , "Kh8" , "Qxe3" , "Ne3" , "Rxe3" , "Ra1" , "d3" , "b6" , "Nf4" , "Ra2" , "Be2" , "Ncd2" , "a4" , "Qg5" , "Ng1" , "Bd7" , "fxe3" , "Nf6" , "Nb3" , "Ra8" , "g3" , "Qxe7" , "Bg5" , "g6" , "O-O" , "Nc6" , "Ne2" ;
+        chon:nextHalfMove      :hmgam9XDHjs6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9XDHjs .
+
+chon:HalfMove  chon:subEventOf  :gamvXv9p .
+
+:gamvXv9p  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9XDHjs ;
+        chon:atPlace           :plavXv9ps ;
+        chon:atTime            "2012.10.31"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9XDHjs6 ;
+        chon:hasHalfMove       :hmgam9XDHjs6 ;
+        chon:hasLastHalfMove   :hmgam9XDHjs6 ;
+        chon:hasOpening        :ope9XDHjs ;
+        chon:hasReport         :cgr9XDHjs ;
+        chon:hasResult         :res9XDHjs6 ;
+        chon:subEventOf        :tou9XDHj .
+
+:plavXv9ps  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9XDHjs .
+
+:rolhg9XDHjs6d  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9XDHjs .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res9XDHjs6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgr9XDHjs  a   chon:ChessGameReport .
+
+:tou9XDHj  a          chon:hessTournament ;
+        chon:atPlace  :plavXv9ps ;
+        chon:hasName  "Trophee Karpov Preliminary 2012" .

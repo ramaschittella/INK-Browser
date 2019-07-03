@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamNLgic  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNLgicb ;
+        chon:atPlace           :plaNLgicb ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNLgicbE ;
+        chon:hasHalfMove       :hmgamNLgicbE , :hmgamJJXrVbW ;
+        chon:hasLastHalfMove   :hmgamJJXrVbW ;
+        chon:hasOpening        :opeNLgicb ;
+        chon:hasReport         :cgrNLgicb ;
+        chon:hasResult         :resNLgicbE ;
+        chon:subEventOf        :touNLgic .
+
+:rolhgNLgicbES  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNLgicb .
+
+:touNLgic  a          chon:hessTournament ;
+        chon:atPlace  :plaNLgicb ;
+        chon:hasName  "Simul" .
+
+:hmgamNLgicbE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNLgicbES ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rutz,M" ;
+        chon:hasSANRecord      "Bd7" , "Bxc5" , "dxc5" , "e6" , "Nh5" , "e5" , "Re8" , "Bf4" , "Bh6" , "Qc2" , "d5" , "Nc6" , "Bd3" , "a3" , "Be7" , "a6" , "c5" , "Bxc4" , "O-O" , "e3" , "c4" , "e4" , "g6" , "Nc3" , "Rc8" , "Be3" , "Nf3" , "d4" , "dxc4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamJJXrVbW , :hmgamNLgicbE .
+
+:plaNLgicb  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:rolhgJJXrVbWQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNLgicb .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNLgicb .
+
+chon:HalfMove  chon:subEventOf  :gamNLgic .
+
+:resNLgicbE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agNLgicb  a          chon:Agent ;
+        chon:hasName  "Rutz,M" , "Karpov,Ana" .
+
+:rolNLgicb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNLgicb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNLgicb .
+
+:opeNLgicb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrNLgicb  a   chon:ChessGameReport .
+
+:hmgamJJXrVbW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJJXrVbWQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rutz,M" ;
+        chon:hasSANRecord      "Rd7" , "Rd1+" , "Rxc1" , "a4" , "g5" , "Rxc6" , "g4" , "Qc7" , "Bb7" , "Ke7" , "Bg5" , "Bxe7" , "Be8" , "Bb1" , "Rxd5" , "Qe3" , "Qxe1" , "Red8" , "Bc6" , "Be4" , "Qb6" , "Rd4" , "Rf6" , "Ng7" , "Nxd5" , "Rd8+" , "h6" , "Ng5" , "Qe2" , "Qxc1" , "h4" , "Rxe1+" , "a5" , "Qb8" , "Ke8" , "Nd5" , "Rd1" , "Nf6" , "b5" , "Rcd8" , "Kg2" , "Qa7" , "Kf8" , "Rfe1" , "Re1" , "Bxc6" , "Nxe7" , "Ng8+" , "h3" , "Nh7" , "Qc1" , "Kd7" , "Ne8" , "Re4" , "Nxh6" , "Rc7" , "Ra8" , "Rc5" , "Rf4" ;
+        chon:nextHalfMove      :hmgamJJXrVbW .

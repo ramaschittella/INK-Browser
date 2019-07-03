@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resvvyFNtg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opevvyFNt  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .
+
+:gamvvyFN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvvyFNt ;
+        chon:atPlace           :plavvyFNt ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvvyFNtg ;
+        chon:hasHalfMove       :hmgamvvyFNtg ;
+        chon:hasLastHalfMove   :hmgamvvyFNtg ;
+        chon:hasOpening        :opevvyFNt ;
+        chon:hasReport         :cgrvvyFNt ;
+        chon:hasResult         :resvvyFNtg ;
+        chon:subEventOf        :touvvyFN .
+
+:touvvyFN  a          chon:hessTournament ;
+        chon:atPlace  :plavvyFNt ;
+        chon:hasName  "Herceg Novi blitz" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvvyFNt .
+
+chon:HalfMove  chon:subEventOf  :gamvvyFN .
+
+:plavvyFNt  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvvyFNt .
+
+:cgrvvyFNt  a   chon:ChessGameReport .
+
+:agvvyFNt  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Smyslov, Vassily" .
+
+:rolvvyFNt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvvyFNt .
+
+:rolhgvvyFNtgY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvvyFNt .
+
+:hmgamvvyFNtg  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvvyFNtgY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Be3" , "Bd2" , "Ra4+" , "c6" , "Ne4" , "a5" , "Bh6" , "Rc1" , "Nf3" , "Nf6" , "Na5" , "Nc4" , "e4" , "Rc2" , "f3" , "Ba6" , "Nc6" , "g4" , "Kf4" , "Kf7" , "Qxd5" , "Kd6" , "Kh6" , "O-O" , "Rb4" , "cxd5" , "Rc8" , "Rb7" , "Rxc4" , "Kxg7" , "Bg2" , "Ng4" , "Nxc3" , "Qb3" , "fxg4" , "b5" , "Kf3" , "Rc3" , "Ne5" , "Ke3" , "Qxe3" , "Kg5" , "Ra3" , "g6" , "Kd4" , "exd5" , "d4" , "Nxe3" , "h4" , "Rc6" , "Ke6" , "e6" , "Re3" , "a4" , "d5" , "b3" , "Ra3+" , "b6" , "axb3" , "Kg2" , "Ne3" , "Rac1" , "Qe2" , "Qd1" , "Nc3" , "Kd5" , "Rdc8" , "Rc7" , "Bxg7" , "f5" , "Rxd4" , "Bxd5" , "Bg7" , "g3" , "Ra4" , "Rxe6" , "Bb7" , "Re1" , "bxc3" , "c4" , "Qxe6" , "Rfd8" , "b4" ;
+        chon:nextHalfMove      :hmgamvvyFNtg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

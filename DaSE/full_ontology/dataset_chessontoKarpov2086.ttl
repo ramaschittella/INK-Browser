@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla0hyUVf  a         chon:Place ;
+        chon:hasName  "Oropesa del Mar" .
+
+:touAjIdh  a          chon:hessTournament ;
+        chon:atPlace  :pla0hyUVf ;
+        chon:hasName  "ESP-chT" .
+
+:rolAjIdhg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMhErOf .
+
+:gam0hyUV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolAjIdhg ;
+        chon:atPlace           :pla0hyUVf ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMhErOfE ;
+        chon:hasHalfMove       :hmgamMhErOfE ;
+        chon:hasLastHalfMove   :hmgamMhErOfE ;
+        chon:hasOpening        :opeAjIdhg ;
+        chon:hasReport         :cgrAjIdhg ;
+        chon:hasResult         :resAjIdhgB ;
+        chon:subEventOf        :touAjIdh .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAjIdhg .
+
+chon:HalfMove  chon:subEventOf  :gam0hyUV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agAjIdhg .
+
+:agAjIdhg  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Campora, Daniel H" .
+
+:rolhgMhErOfE0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agAjIdhg .
+
+:opeAjIdhg  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:resAjIdhgB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamMhErOfE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMhErOfE0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rfd8" , "Ra4" , "Bc6" , "Nxe3+" , "e6" , "Nxe4" , "Bxd6" , "Rd5" , "Nxf6+" , "dxe4" , "e5" , "fxe3" , "Ne8" , "Rd7" , "Bb3" , "Rc8" , "Bc2" , "Nxf6" , "d4" , "Be3" , "d5" , "Kf3" , "Ra5" , "Bc5" , "Bg4" , "Rb8" , "Rxa7+" , "Nd7" , "e3" , "Rc4" , "Nxd6" , "Kg2" , "Ngf6" , "f5" , "Rd1" , "Rfd1" , "Ba4" , "c4" , "Rac1" , "d6" , "h3" , "c3" , "Kf6" , "Nd2" , "Rb5" , "b4" , "Kf8" , "cxd5" , "Rc5" , "e4" , "Bxd6+" , "O-O" , "gxf6" , "c6" , "Be2" , "Qxf3" , "Nf3" , "Rxd6" , "Qd5" , "Be7" , "Bxf3" , "Bxb7" , "g4" , "Nf5" , "g5" , "Ke7" , "Rxb4" , "Rb4" , "Bd6" ;
+        chon:nextHalfMove      :hmgamMhErOfE .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrAjIdhg  a   chon:ChessGameReport .

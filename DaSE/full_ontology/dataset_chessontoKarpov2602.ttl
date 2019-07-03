@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resWenH42J  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWenH42 .
+
+chon:HalfMove  chon:subEventOf  :gamWenH4 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWenH42 .
+
+:plaWenH42  a         chon:Place ;
+        chon:hasName  "Cala Galdana ESP" .
+
+:cgrWenH42  a   chon:ChessGameReport .
+
+:rolhgWenH42JS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWenH42 .
+
+:agWenH42  a          chon:Agent ;
+        chon:hasName  "Giorgadze,G" , "Karpov,An" .
+
+:rolWenH42  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWenH42 .
+
+:hmgamWenH42J  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWenH42JS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Giorgadze,G" ;
+        chon:hasSANRecord      "Be5" , "Bd7" , "Nf3" , "Be4" , "g6" , "Nc3" , "dxc4" , "Kg7" , "h6" , "Bxc6" , "Qd3" , "h4" , "Bxc4" , "Rd1" , "Qe7" , "Qb3" , "O-O" , "e3" , "a6" , "Rc1" , "Nf6" , "d5" , "Bd6" , "Nxd4" , "Rfc8" , "g3" , "Rxc6" , "Bd3" , "b3" , "c5" , "Nxc6" , "Qb4" , "e6" , "Bxf6" , "c4" , "d4" , "Rac8" , "Nce2" , "Nc6" , "cxd4" , "h5" , "Bf3" , "Kg2" , "Nd4" , "Qb5" , "Bb4" , "Qxf6" , "Bg5" , "Rc7" ;
+        chon:nextHalfMove      :hmgamWenH42J .
+
+:opeWenH42  a            chon:ChessOpening ;
+        chon:hasECOCode  "D38" .
+
+:gamWenH4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWenH42 ;
+        chon:atPlace           :plaWenH42 ;
+        chon:atTime            "2001.10.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWenH42J ;
+        chon:hasHalfMove       :hmgamWenH42J ;
+        chon:hasLastHalfMove   :hmgamWenH42J ;
+        chon:hasOpening        :opeWenH42 ;
+        chon:hasReport         :cgrWenH42 ;
+        chon:hasResult         :resWenH42J ;
+        chon:subEventOf        :touWenH4 .
+
+:touWenH4  a          chon:hessTournament ;
+        chon:atPlace  :plaWenH42 ;
+        chon:hasName  "TCh-ESP" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

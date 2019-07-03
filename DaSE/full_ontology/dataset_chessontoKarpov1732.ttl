@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:aglXunr9  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Nunn, John DM" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglXunr9 .
+
+:opelXunr9  a            chon:ChessOpening ;
+        chon:hasECOCode  "C10" .
+
+:rolhglXunr9f7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglXunr9 .
+
+chon:HalfMove  chon:subEventOf  :gamlXunr .
+
+:hmgamlXunr9f  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglXunr9f7 , chon:AgentRole , :rolhghVbwd9w7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "axb5" , "Nf3" , "Bd7" , "b5" , "b4" , "Ba5" , "a6" , "Rfb1" , "bxc6" , "Nc3" , "Rxa8" , "Nf6" , "d5" , "Bc6" , "Be2" , "a4" , "O-O" , "Nd6" , "Bxf3" , "Nxe4" , "Bc4" , "Nbd7" , "c4" , "Bg5" , "e4" , "Rf8" , "Ne4" , "d4" , "Nd5" , "N7f6" , "Qd7" , "Bd6" , "e6" , "Bc7" , "Be3" , "Qxf3" , "c6" , "Re8" , "dxe4" , "c5" ;
+        chon:nextHalfMove      :hmgamhVbwd9w , :hmgamlXunr9f .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglXunr9 .
+
+:plalXunr9  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:hmgamhVbwd9w  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghVbwd9w7 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kg2" , "Qb2" , "Ba5" , "Nxf6" , "Rxe8" , "g3" , "Ne8" , "Bxf6" , "Nxe8" , "Kg7" , "Rxa8" , "g6" , "Rb7" , "Qc3" ;
+        chon:nextHalfMove      :hmgamhVbwd9w .
+
+:cgrlXunr9  a   chon:ChessGameReport .
+
+:gamlXunr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollXunr9 ;
+        chon:atPlace           :plalXunr9 ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlXunr9f ;
+        chon:hasHalfMove       :hmgamhVbwd9w , :hmgamlXunr9f ;
+        chon:hasLastHalfMove   :hmgamhVbwd9w ;
+        chon:hasOpening        :opelXunr9 ;
+        chon:hasReport         :cgrlXunr9 ;
+        chon:hasResult         :reslXunr9f ;
+        chon:subEventOf        :toulXunr .
+
+:reslXunr9f  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:toulXunr  a          chon:hessTournament ;
+        chon:atPlace  :plalXunr9 ;
+        chon:hasName  "Wijk m" .
+
+:rolhghVbwd9w7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglXunr9 .
+
+:rollXunr9  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglXunr9 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

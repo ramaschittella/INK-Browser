@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolLeqqEF  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrWenDbE  a   chon:ChessGameReport .
+
+:opeLeqqEF  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .
+
+:rolWenDbE  a             chon:AuthorRole ;
+        chon:performedBy  :agWenDbE .
+
+:hmgamWenDbEj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWenDbEjv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ne5+" , "Ra7" , "Kd3" , "Rc4+" , "Rc5+" , "Rc7" , "Bc4" , "Bd4" , "d6" , "Rc1+" , "Re8+" , "Bxe5" , "Bxe3" , "a5" , "Kf2" , "Rxc3" , "e5" , "Nc3" , "Nc6" , "fxe5" , "Kxf6" , "c3" , "Nxe6" , "Ke4" , "Qa3" , "e6" , "Qxe5+" , "Rh8" , "Ke2" , "Rc8" , "Nf3" , "Ng4+" , "Rb1" , "Bxe6" , "Bxb7" , "Qxb2" , "Qa5" , "Kc4" , "Bd4+" , "dxe5" , "Nd5" , "Ne5" , "Bg5" , "d4" , "Nxf6+" , "Bxa8" , "Qb6" , "Be5" , "Rxf6" , "a4" , "Kf5" , "gxf6" , "Kb5" , "Bd6" , "Nf6" , "Qxe3+" , "e4" , "f4" , "Nfd7" , "Ra8" , "Nxd4" , "cxd4" , "fxe6" , "Rc6" , "h5" , "Rd8+" , "Bxh2" , "Bxc8" , "Qe3" , "Rb7" , "Ke7" , "a6" , "Rxa8" , "Kd5" , "Rxa6" , "O-O" , "Rxg2" , "Rd7" , "Rd2" , "Rc2+" , "Qd2" , "Rd1+" , "c5" , "Kb6" ;
+        chon:nextHalfMove      :hmgamWenDbEj .
+
+:resLeqqEFe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLeqqEF .
+
+chon:HalfMove  chon:subEventOf  :gamLeqqE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLeqqEF .
+
+:gamLeqqE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLeqqEF ;
+        chon:atPlace           :plaLeqqEF ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWenDbEj ;
+        chon:hasHalfMove       :hmgamWenDbEj ;
+        chon:hasLastHalfMove   :hmgamWenDbEj ;
+        chon:hasOpening        :opeLeqqEF ;
+        chon:hasReport         :cgrWenDbE ;
+        chon:hasResult         :resLeqqEFe ;
+        chon:subEventOf        :touLeqqE .
+
+:touLeqqE  a          chon:hessTournament ;
+        chon:atPlace  :plaLeqqEF ;
+        chon:hasName  "Monte Carlo" .
+
+:plaLeqqEF  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgWenDbEjv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLeqqEF .
+
+:agLeqqEF  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Mazzoni, Guy" .

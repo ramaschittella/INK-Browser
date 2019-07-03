@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrnE64ih  a   chon:ChessGameReport .
+
+:gamcE9PJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnE64ih ;
+        chon:atPlace           :placE9PJi ;
+        chon:atTime            "2010.10.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnE64ihZ ;
+        chon:hasHalfMove       :hmgamnE64ihZ , :hmgam1EcBcjR , :hmgamPEfnFiO ;
+        chon:hasLastHalfMove   :hmgam1EcBcjR ;
+        chon:hasOpening        :openE64ih ;
+        chon:hasReport         :cgrnE64ih ;
+        chon:hasResult         :resnE64ihZ ;
+        chon:subEventOf        :tounE64i .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnE64ih .
+
+:rolhgPEfnFiOb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnE64ih .
+
+:rolnE64ih  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnE64ih .
+
+:rolhg1EcBcjRo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnE64ih .
+
+chon:HalfMove  chon:subEventOf  :gamcE9PJ .
+
+:rolhgnE64ihZL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnE64ih .
+
+:hmgamPEfnFiO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPEfnFiOb , chon:AgentRole , :rolhg1EcBcjRo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nakamura,Hi" ;
+        chon:hasSANRecord      "Rxe4" , "Rb4" , "Rb6" , "R3c4" , "Bg8" , "Rg6" , "Bh7+" , "Ra2" , "f6" , "Ra6" , "Ra8" , "Be4+" , "Bg4" , "Rxe7" , "Re8" , "Be6" , "Kh8" , "Rxd5" , "Ne4" , "Rxh5" , "Kg6" , "Bd4" , "Rxc7" , "Kf4" , "Rxg7+" , "a2" , "Rxa1+" , "Rc7" , "Rb5" , "Ke1" , "Rd5+" , "fxg5+" , "Rc1" , "exd4" , "Kd3" , "Rb3+" , "e3" , "Rd4+" , "d5" , "Rxd4" , "Ra2+" , "Rb2+" , "Rd3+" , "Bxc4" , "Rd6" , "Qxe7" , "Rd8" , "Nb6" , "h4" , "Nd2" , "h6" , "R7c5" , "O-O" , "g4" , "Bxe4" , "Bc6" , "Ke2" , "a4" , "Ke4" , "f4" , "Rxa1" , "Rhc5" , "Kd2" , "Rg7" , "Rf5" , "Nxc4" , "Rd5" , "Bf3" , "Rfc5" , "Ra3+" , "Kg3" , "Kxg5" , "Bxb5" , "Rc3" , "Kg5" , "h5" , "Qxe5" , "Kf1" , "b5" , "Rb1" , "Rd6+" , "Kf5" , "g5" , "a1=Q" , "a3" , "Ke3" , "Rxa4" ;
+        chon:nextHalfMove      :hmgam1EcBcjR , :hmgamPEfnFiO .
+
+:placE9PJi  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:hmgam1EcBcjR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg1EcBcjRo ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nakamura,Hi" ;
+        chon:hasSANRecord      "b3" , "b2" , "f6" , "f5" , "b4" ;
+        chon:nextHalfMove      :hmgam1EcBcjR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agnE64ih  a          chon:Agent ;
+        chon:hasName  "Nakamura,Hi" , "Karpov,Ana" .
+
+:tounE64i  a          chon:hessTournament ;
+        chon:atPlace  :placE9PJi ;
+        chon:hasName  "Trophee CCAS GpA" .
+
+:resnE64ihZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamnE64ihZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnE64ihZL , :rolhgPEfnFiOb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nakamura,Hi" ;
+        chon:hasSANRecord      "Bb4" , "Nc3" , "Qc2" , "b5" , "a5" , "d6" , "Re8" , "Bb2" , "Qxc3" , "Qe7" , "O-O" , "g3" , "b4" , "a3" , "e6" , "c4" , "Nf3" , "Nbd7" , "Nf6" , "e5" , "Bxc3+" , "d4" , "Bg2" , "dxe5" ;
+        chon:nextHalfMove      :hmgamnE64ihZ , :hmgamPEfnFiO .
+
+:openE64ih  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnE64ih .

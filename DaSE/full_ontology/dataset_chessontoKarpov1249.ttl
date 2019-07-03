@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agGP0NRb  a          chon:Agent ;
+        chon:hasName  "Marty, D." , "Karpov, Anatoly" .
+
+:rolGP0NRb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGP0NRb .
+
+:hmgamGP0NRbp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGP0NRbp9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Marty, D." ;
+        chon:hasSANRecord      "e3" , "d4" , "e6" , "exf6" , "Nf3" , "Qc7" , "h4" , "Bf6" , "hxg7" , "Qf7" , "f6" , "Nf6" , "Nbd7" , "g4" , "Nxf6" , "g5" , "Be7" , "d5" , "Ne5" , "O-O" , "Qc2" , "Bd3" , "Nxe5" , "Bxf6" , "b6" , "f4" , "Rg1" , "c6" , "c4" , "Bh7#" , "h6" , "O-O-O" , "Bg5" , "dxe5" , "Nc3" , "Rd8" , "gxh6" , "Nd7" ;
+        chon:nextHalfMove      :hmgamGP0NRbp .
+
+:opeGP0NRb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D61" .
+
+:gamGP0NR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGP0NRb ;
+        chon:atPlace           :plaGP0NRb ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGP0NRbp ;
+        chon:hasHalfMove       :hmgamGP0NRbp ;
+        chon:hasLastHalfMove   :hmgamGP0NRbp ;
+        chon:hasOpening        :opeGP0NRb ;
+        chon:hasReport         :cgrGP0NRb ;
+        chon:hasResult         :resGP0NRbp ;
+        chon:subEventOf        :touGP0NR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGP0NRb .
+
+chon:HalfMove  chon:subEventOf  :gamGP0NR .
+
+:resGP0NRbp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGP0NRb .
+
+:touGP0NR  a          chon:hessTournament ;
+        chon:atPlace  :plaGP0NRb ;
+        chon:hasName  "Zuerich sim" .
+
+:plaGP0NRb  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrGP0NRb  a   chon:ChessGameReport .
+
+:rolhgGP0NRbp9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGP0NRb .

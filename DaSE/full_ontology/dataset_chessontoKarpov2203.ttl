@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolj8WNgj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agj8WNgj .
+
+:gamj8WNg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolj8WNgj ;
+        chon:atPlace           :plaj8WNgj ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamj8WNgj2 ;
+        chon:hasHalfMove       :hmgamu8S2Nk5 , :hmgamj8WNgj2 ;
+        chon:hasLastHalfMove   :hmgamu8S2Nk5 ;
+        chon:hasOpening        :opej8WNgj ;
+        chon:hasReport         :cgrj8WNgj ;
+        chon:hasResult         :resj8WNgj2 ;
+        chon:subEventOf        :touj8WNg .
+
+:resj8WNgj2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaj8WNgj  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agj8WNgj .
+
+chon:HalfMove  chon:subEventOf  :gamj8WNg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agj8WNgj .
+
+:agj8WNgj  a          chon:Agent ;
+        chon:hasName  "Anand, Viswanathan" , "Karpov, Anatoly" .
+
+:opej8WNgj  a            chon:ChessOpening ;
+        chon:hasECOCode  "D26" .
+
+:touj8WNg  a          chon:hessTournament ;
+        chon:atPlace  :plaj8WNgj ;
+        chon:hasName  "Amber-rapid 6th" .
+
+:rolhgu8S2Nk5b  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agj8WNgj .
+
+:rolhgj8WNgj21  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agj8WNgj .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamu8S2Nk5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgu8S2Nk5b , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand, Viswanathan" ;
+        chon:hasSANRecord      "b5" , "e6" , "Nf2" , "Kf8" , "Bb4" , "Nd1" , "Rc8" , "Bb7" , "a6" , "Nc5" , "Qxd1" , "Nxd4" , "Nd7" , "e4" , "Bc6" , "Bb5+" , "f6" , "dxc5" , "f3" , "Bb5" , "Nc3" , "Bxc4" , "Ke7" , "Kd3" , "Rxc1" , "O-O" , "Rac1" , "h4" , "Nc6" , "c5" , "Kf1" , "Bxc5" , "d5" , "Nf6" , "e5" , "g3" , "Nf3" , "Bb3" , "Bxa4" , "Be7" , "Bc2" , "g6" , "Kf2" , "Bd2" , "Na4" , "e3" , "Ne2" , "axb4" , "Rfc8" , "bxa4" , "Ned4" , "Bxb4" , "c4" , "dxc4" , "Bd7" , "Rxc8+" , "Ke3" , "Rxd1" , "Bxc8" , "a3" , "Ke6" ;
+        chon:nextHalfMove      :hmgamu8S2Nk5 .
+
+:hmgamj8WNgj2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgj8WNgj21 , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamu8S2Nk5 .
+
+:cgrj8WNgj  a   chon:ChessGameReport .

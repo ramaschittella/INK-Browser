@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaGE7OQ3  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrGE7OQ3  a   chon:ChessGameReport .
+
+:agGE7OQ3  a          chon:Agent ;
+        chon:hasName  "Gavrikov, Viktor" , "Karpov, Anatoly" .
+
+:rolGE7OQ3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGE7OQ3 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGE7OQ3 .
+
+:opeGE7OQ3  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:HalfMove  chon:subEventOf  :gamGE7OQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGE7OQ3 .
+
+:resGE7OQ3q  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgGE7OQ3qj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGE7OQ3 .
+
+:gamGE7OQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGE7OQ3 ;
+        chon:atPlace           :plaGE7OQ3 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGE7OQ3q ;
+        chon:hasHalfMove       :hmgamGE7OQ3q ;
+        chon:hasLastHalfMove   :hmgamGE7OQ3q ;
+        chon:hasOpening        :opeGE7OQ3 ;
+        chon:hasReport         :cgrGE7OQ3 ;
+        chon:hasResult         :resGE7OQ3q ;
+        chon:subEventOf        :touGE7OQ .
+
+:hmgamGE7OQ3q  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGE7OQ3qj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gavrikov, Viktor" ;
+        chon:hasSANRecord      "Kg6" , "b6" , "Nf3" , "Bg2" , "Bb7" , "Nxd5" , "Qe6" , "Qe7" , "Qxb5" , "Rb5" , "bxc4" , "Qa5" , "Qxd5" , "Qg6" , "Nh4" , "O-O" , "Qxe7" , "Rxb5" , "Rab8" , "Rc1" , "Rfd1" , "b5" , "Bxd5" , "Rd6+" , "Kxh7" , "Qxa2" , "Qb5" , "Qd3" , "Qb6" , "Nf6" , "Qxf8" , "Bg5" , "c4" , "Be7" , "Qg4" , "e3" , "Bd5" , "Bh7+" , "c5" , "exd5" , "Qxf6" , "Rad1" , "Qd3+" , "Qb1+" , "Kh7" , "Nc3" , "h6" , "Qe4" , "Qc7" , "Qxc5" , "Nc6" , "Be4" , "g3" , "Qd1" , "Rb1" , "d5" , "Nf5" , "a6" , "f5" , "Rb6" , "Nb8" , "Qd5" , "Qd6" , "Bxf6" , "axb5" , "Qa6" , "Qxc4" , "Rd5" , "Nxe7+" , "Qxb2" , "d4" , "e6" , "Qc5" ;
+        chon:nextHalfMove      :hmgamGE7OQ3q .
+
+:touGE7OQ  a          chon:hessTournament ;
+        chon:atPlace  :plaGE7OQ3 ;
+        chon:hasName  "URS-ch55" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

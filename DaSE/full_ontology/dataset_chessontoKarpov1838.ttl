@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamd0OZSMf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgo0KdpLiZ , chon:AgentRole , :rolhgd0OZSMfO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ismailova, Parvana" ;
+        chon:hasSANRecord      "c4" , "f5" , "Nf6" , "Nc6" , "Ne8" , "Qd2" , "Nge2" , "e5" , "Bd7" , "Nc1" , "O-O-O" , "g6" , "e4" , "d5" , "Be3" , "a6" , "Nc3" , "Kb1" , "O-O" , "d4" , "Bg7" , "Ne7" , "f3" , "d6" ;
+        chon:nextHalfMove      :hmgamo0KdpLi , :hmgamd0OZSMf .
+
+:agd0OZSM  a          chon:Agent ;
+        chon:hasName  "Ismailova, Parvana" , "Karpov, Anatoly" .
+
+:rold0OZSM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agd0OZSM .
+
+:oped0OZSM  a            chon:ChessOpening ;
+        chon:hasECOCode  "E85" .
+
+:gamd0OZS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rold0OZSM ;
+        chon:atPlace           :plad0OZSM ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamd0OZSMf ;
+        chon:hasHalfMove       :hmgamd0OZSMf , :hmgamo0KdpLi ;
+        chon:hasLastHalfMove   :hmgamo0KdpLi ;
+        chon:hasOpening        :oped0OZSM ;
+        chon:hasReport         :cgrd0OZSM ;
+        chon:hasResult         :resd0OZSMf ;
+        chon:subEventOf        :toud0OZS .
+
+:toud0OZS  a          chon:hessTournament ;
+        chon:atPlace  :plad0OZSM ;
+        chon:hasName  "Disney rapid sim" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agd0OZSM .
+
+:rolhgd0OZSMfO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agd0OZSM .
+
+chon:HalfMove  chon:subEventOf  :gamd0OZS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agd0OZSM .
+
+:cgrd0OZSM  a   chon:ChessGameReport .
+
+:hmgamo0KdpLi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgo0KdpLiZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ismailova, Parvana" ;
+        chon:hasSANRecord      "Rd1" , "Bxb5" , "Nd6" , "Nc8" , "h5" , "Nxc5" , "Qb7" , "Rc1" , "Nb5" , "f4" , "Qxg6" , "Nf2" , "Rb8" , "Qe8" , "b4" , "d6" , "dxc5" , "Qxd6" , "hxg6" , "cxd6" , "Qc8" , "Qd8" , "Nb3" , "Rc2" , "Nd1" , "a5" , "b5" , "c5" , "Qxd7" , "Bg5" , "Nxd7" , "Be2" , "Rxb5" , "h4" , "Ng4" , "Rf7" ;
+        chon:nextHalfMove      :hmgamo0KdpLi .
+
+:rolhgo0KdpLiZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agd0OZSM .
+
+:resd0OZSMf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plad0OZSM  a         chon:Place ;
+        chon:hasName  "Paris" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

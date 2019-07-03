@@ -1,0 +1,82 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla1BpTbN  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+:agbBj8IM  a          chon:Agent ;
+        chon:hasName  "Hirschfeld, Philipp" , "Steinitz, William" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbBj8IM .
+
+:resbBj8IMX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamDEws6OM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnBgliN1O , :rolhgDEws6OM4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hirschfeld, Philipp" ;
+        chon:hasSANRecord      "Ke6" , "Qd7" , "Bf6" , "Bxf3" , "Bd2" , "Qf5" , "Qxf5" , "Qf7" , "Rf7+" , "Qb3" , "Rxf3" , "Bd3" , "Qg6+" , "Be7" , "cxd4" , "f5" , "Bxf5" , "Bxd4+" , "Ke7" , "Bxh7" , "fxe4" , "O-O" , "Bxe4" , "Bg6+" , "Nbc6" , "Na5" , "Qc2" ;
+        chon:nextHalfMove      :hmgamDEws6OM , :hmgamyzdBPM4 .
+
+:rolhgbBj8IMXD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbBj8IM .
+
+:rolhgyzdBPM42  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbBj8IM .
+
+chon:HalfMove  chon:subEventOf  :gam1BpTb .
+
+:toubBj8I  a          chon:hessTournament ;
+        chon:atPlace  :pla1BpTbN ;
+        chon:hasName  "GBR tour sim" .
+
+:hmgambBj8IMX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbBj8IMXD , :rolhgDEws6OM4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hirschfeld, Philipp" ;
+        chon:hasSANRecord      "Nf3" , "e5" , "Qe7" , "d5" , "Nc3" , "f4" , "Nxe4" , "c3" , "Nxe5" , "Nec6" , "Bg4" , "dxe4" , "Nf6" , "fxe5" , "d3" , "d4" , "Ng4" , "e4" ;
+        chon:nextHalfMove      :hmgamDEws6OM , :hmgambBj8IMX .
+
+:gam1BpTb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbBj8IM ;
+        chon:atPlace           :pla1BpTbN ;
+        chon:atTime            "1871.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambBj8IMX ;
+        chon:hasHalfMove       :hmgamyzdBPM4 , :hmgamDEws6OM , :hmgambBj8IMX ;
+        chon:hasLastHalfMove   :hmgamyzdBPM4 ;
+        chon:hasOpening        :opebBj8IM ;
+        chon:hasReport         :cgrbBj8IM ;
+        chon:hasResult         :resbBj8IMX ;
+        chon:subEventOf        :toubBj8I .
+
+:opebBj8IM  a            chon:ChessOpening ;
+        chon:hasECOCode  "C29" .
+
+:cgrbBj8IM  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgDEws6OM4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbBj8IM .
+
+:hmgamyzdBPM4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyzdBPM42 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hirschfeld, Philipp" ;
+        chon:hasSANRecord      "Rf7+" , "Bf5+" , "Bxc7#" , "Kd7" , "Kd6" , "Nc4" , "Kc8" , "Rf5+" , "Kd5" , "Kb8" , "Re1+" , "Bf4+" ;
+        chon:nextHalfMove      :hmgamyzdBPM4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbBj8IM .
+
+:rolhgnBgliN1O  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbBj8IM .
+
+:rolbBj8IM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbBj8IM .

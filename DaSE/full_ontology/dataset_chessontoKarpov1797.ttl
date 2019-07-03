@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrirWyhp  a   chon:ChessGameReport .
+
+:hmgamirWyhpz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgirWyhpzS , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "e4" , "Ne7" , "d4" , "Kf1" , "Bd2" , "Nd7" , "Rd2" , "Bxf3" , "h4" , "Bd6" , "c4" , "Nxf6" , "Rd6" , "Kxe7" , "dxe4" , "Rfd8" , "e6" , "a4" , "g6" , "Qd5" , "Ngf6" , "c3" , "Nf3" , "Nxf6+" , "cxd5" , "Bg4" , "Bc7" , "exd5" , "Bh3" , "Rd1" , "Bxe7+" , "h3" , "g3" , "Rd7" , "h5" , "Kf8" , "Nd5" , "Nc3" , "Qxf3" , "Rxd5" , "Bg2" , "c6" , "Rad1" , "Bf6" , "Nxe4" , "Bc3" , "Be2" , "O-O" , "a5" , "Rad8" ;
+        chon:nextHalfMove      :hmgamirWyhpz .
+
+:rolirWyhp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agirWyhp .
+
+:gam8rZkI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolirWyhp ;
+        chon:atPlace           :pla8rZkIo ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamirWyhpz ;
+        chon:hasHalfMove       :hmgamirWyhpz ;
+        chon:hasLastHalfMove   :hmgamirWyhpz ;
+        chon:hasOpening        :opeirWyhp ;
+        chon:hasReport         :cgrirWyhp ;
+        chon:hasResult         :resirWyhpz ;
+        chon:subEventOf        :tou8rZkI .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agirWyhp .
+
+:tou8rZkI  a          chon:hessTournament ;
+        chon:atPlace  :pla8rZkIo ;
+        chon:hasName  "Las Palmas" .
+
+:rolhgirWyhpzS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agirWyhp .
+
+chon:HalfMove  chon:subEventOf  :gam8rZkI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agirWyhp .
+
+:resirWyhpz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agirWyhp  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Illescas Cordoba, Miguel" .
+
+:opeirWyhp  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla8rZkIo  a         chon:Place ;
+        chon:hasName  "Las Palmas" .

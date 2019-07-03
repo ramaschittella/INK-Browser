@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla2pRAi1  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:ag2pRAi1  a          chon:Agent ;
+        chon:hasName  "Van der Wiel, John TH" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2pRAi1 .
+
+:hmgamAnFfXZL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAnFfXZLy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "Be3" , "Rd2" , "Qxf3" , "Rd5" , "Bxf3" , "gxf3" , "Qxf4" , "Qe4" , "Rf2" , "Qb7" , "Qe7" , "Kg8" , "d3" , "d4" , "Nxe2+" , "Bxe5" , "Qxb8" , "bxa6" , "Rxf7+" , "Rxe2" ;
+        chon:nextHalfMove      :hmgamAnFfXZL .
+
+:cgr2pRAi1  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam2pRAi .
+
+:gam2pRAi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2pRAi1 ;
+        chon:atPlace           :pla2pRAi1 ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2pRAi1B ;
+        chon:hasHalfMove       :hmgam2pRAi1B , :hmgamAnFfXZL , :hmgamtr3SF1s ;
+        chon:hasLastHalfMove   :hmgamAnFfXZL ;
+        chon:hasOpening        :ope2pRAi1 ;
+        chon:hasReport         :cgr2pRAi1 ;
+        chon:hasResult         :res2pRAi1B ;
+        chon:subEventOf        :tou2pRAi .
+
+:ope2pRAi1  a            chon:ChessOpening ;
+        chon:hasECOCode  "B44" .
+
+:rolhgtr3SF1sn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2pRAi1 .
+
+:rolhgAnFfXZLy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2pRAi1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol2pRAi1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2pRAi1 .
+
+:res2pRAi1B  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhg2pRAi1BY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2pRAi1 .
+
+:hmgamtr3SF1s  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtr3SF1sn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "Nc3" , "Qh4" , "exd5" , "Rg8" , "Nb8" , "Bxb6" , "d6" , "Be2" , "Nc6" , "Rc7" , "Kh8" , "c4" , "O-O" , "Qb8" , "b4" , "Rc8" , "Re8" , "b5" , "Nc2" , "Ne5" , "Nd7" , "Rc1" , "h6" , "Bd3" , "Kh7" , "Bg5" , "cxd5" , "Ncd7" , "N1c3" , "Qxc1" , "d5" , "Be7" , "a5" , "Nc5" , "Qd2" , "b3" , "Rec8" , "h3" , "Qe7" , "Bf2" , "Qb4" , "f4" , "Ne8" , "Rxc1" , "Ng3" , "Qc8" , "Qb3" , "Nf1" , "Nf6" , "Qe3" , "Bf8" , "Bg7" , "Ne4" , "Rfd1" , "Qe2" , "Nce2" , "a6" , "g6" , "Be3" , "e5" , "Bb7" , "b6" , "Ba8" , "Rd7" , "Bf1" , "Nf3" , "Qd8" , "f3" , "a4" , "Nd4" , "Qc2" , "Na3" ;
+        chon:nextHalfMove      :hmgamtr3SF1s , :hmgamAnFfXZL .
+
+:tou2pRAi  a          chon:hessTournament ;
+        chon:atPlace  :pla2pRAi1 ;
+        chon:hasName  "Tilburg" .
+
+:hmgam2pRAi1B  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2pRAi1BY , chon:AgentRole , :rolhgtr3SF1sn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van der Wiel, John TH" ;
+        chon:hasSANRecord      "Nc6" , "cxd4" , "c5" , "e6" , "Nf3" , "d4" , "e4" , "Nb5" , "Nxd4" ;
+        chon:nextHalfMove      :hmgamtr3SF1s , :hmgam2pRAi1B .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2pRAi1 .

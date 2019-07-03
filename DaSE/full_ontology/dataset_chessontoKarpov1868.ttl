@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamiMevv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJOpOQx ;
+        chon:atPlace           :plaiMevvx ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJOpOQx5 ;
+        chon:hasHalfMove       :hmgamJOpOQx5 ;
+        chon:hasLastHalfMove   :hmgamJOpOQx5 ;
+        chon:hasOpening        :opeJOpOQx ;
+        chon:hasReport         :cgrJOpOQx ;
+        chon:hasResult         :resJOpOQx5 ;
+        chon:subEventOf        :touJOpOQ .
+
+:hmgamJOpOQx5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJOpOQx5E ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Salov, Valery" ;
+        chon:hasSANRecord      "gxf3+" , "Nh4" , "Be5" , "Nd3" , "Qb2" , "a6" , "Kg4" , "Kf4" , "f3" , "Nd1" , "e3" , "Rfd1" , "e4" , "Ng4" , "b3" , "Kxg4" , "d6" , "hxg4" , "Bb8" , "Bh5" , "Bd4" , "Qxe2" , "Qe2" , "Nxg4" , "Rxd8+" , "Qc7" , "Qxb2" , "Rfe8" , "Bg7" , "Kxf3" , "h3" , "Rxd1" , "Bf8" , "Ne6" , "Nf6" , "h5" , "Nbd7" , "dxe5" , "Kf7" , "Bg4" , "Bf6" , "Bxc5" , "Ne3" , "Bxe5" , "f6" , "Bc3" , "Nxb2" , "Bxe2" , "Qa5" , "Kf1" , "Ke6" , "g5" , "e5" , "Nf3" , "Qxd8" , "Rxd1+" , "g6" , "Qa3" , "fxg5" , "c6" , "Kg5" , "Bb2" , "Rd8" , "Be7" , "Nf5" , "Be7+" , "g4" , "O-O" , "hxg4+" , "Ke2" , "c4" , "Nc5" , "Be2" , "Rad8" , "d4" , "Nc3" , "Qf3" , "Nxc5" ;
+        chon:nextHalfMove      :hmgamJOpOQx5 .
+
+:rolhgJOpOQx5E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJOpOQx .
+
+:cgrJOpOQx  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJOpOQx .
+
+chon:HalfMove  chon:subEventOf  :gamiMevv .
+
+:agJOpOQx  a          chon:Agent ;
+        chon:hasName  "Salov, Valery" , "Karpov, Anatoly" .
+
+:rolJOpOQx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJOpOQx .
+
+:resJOpOQx5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJOpOQx .
+
+:touJOpOQ  a          chon:hessTournament ;
+        chon:atPlace  :plaiMevvx ;
+        chon:hasName  "Alma-Ata m1" .
+
+:plaiMevvx  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+:opeJOpOQx  a            chon:ChessOpening ;
+        chon:hasECOCode  "A53" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

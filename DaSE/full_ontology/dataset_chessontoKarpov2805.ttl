@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam56Dfl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol56DflR ;
+        chon:atPlace           :pla56DflR ;
+        chon:atTime            "2005.03.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam56DflR8 ;
+        chon:hasHalfMove       :hmgamf4AvUSa , :hmgam56DflR8 ;
+        chon:hasLastHalfMove   :hmgamf4AvUSa ;
+        chon:hasOpening        :ope56DflR ;
+        chon:hasReport         :cgr56DflR ;
+        chon:hasResult         :res56DflR8 ;
+        chon:subEventOf        :tou56Dfl .
+
+:tou56Dfl  a          chon:hessTournament ;
+        chon:atPlace  :pla56DflR ;
+        chon:hasName  "Match" .
+
+:rolhg56DflR8R  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag56DflR .
+
+:ag56DflR  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Istratescu,A" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag56DflR .
+
+:ope56DflR  a            chon:ChessOpening ;
+        chon:hasECOCode  "D57" .
+
+chon:HalfMove  chon:subEventOf  :gam56Dfl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag56DflR .
+
+:hmgam56DflR8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgf4AvUSa6 , :rolhg56DflR8R ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "e3" , "Be7" , "d5" , "O-O" , "d4" , "Nf3" , "h6" , "e6" , "Bg5" , "Nf6" , "Bh4" , "c4" , "Nc3" ;
+        chon:nextHalfMove      :hmgam56DflR8 , :hmgamf4AvUSa .
+
+:pla56DflR  a         chon:Place ;
+        chon:hasName  "Bucharest ROM" .
+
+:cgr56DflR  a   chon:ChessGameReport .
+
+:res56DflR8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgf4AvUSa6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag56DflR .
+
+:hmgamf4AvUSa  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgf4AvUSa6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rxc5" , "Rd5" , "Qc5" , "Rc1+" , "b6" , "Nxc6" , "Nxc3" , "Rc7" , "Nc6" , "Bxc4" , "exd5" , "Kh7" , "Bb5" , "c4" , "Rxc6" , "O-O" , "Bf5" , "Qd4" , "Na5" , "Rfc1" , "Nd4" , "Rxc1" , "Rd2" , "Bxe7" , "dxc5" , "Bb7" , "Bc2" , "Rac8" , "Qd8+" , "c5" , "Qa3" , "Ne4" , "cxd5" , "Be4" , "Qc3" , "Qb3" , "Rd1" , "Qxc1+" , "a4" , "dxc4" , "Be2" , "Qb2" , "Qxe7" , "Rdxc5" , "bxc3" , "Rd8" , "h3" , "Kh2" , "Qb8" ;
+        chon:nextHalfMove      :hmgamf4AvUSa .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol56DflR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag56DflR .

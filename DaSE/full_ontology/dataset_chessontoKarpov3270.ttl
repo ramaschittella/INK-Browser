@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agYLDQiO  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Ivanchuk,V" .
+
+:rolYLDQiO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYLDQiO .
+
+:resYLDQiOS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaNNHAIP  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:rolhgYLDQiOSd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYLDQiO .
+
+:gamNNHAI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYLDQiO ;
+        chon:atPlace           :plaNNHAIP ;
+        chon:atTime            "2012.11.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYLDQiOS ;
+        chon:hasHalfMove       :hmgamYLDQiOS ;
+        chon:hasLastHalfMove   :hmgamYLDQiOS ;
+        chon:hasOpening        :opeYLDQiO ;
+        chon:hasReport         :cgrYLDQiO ;
+        chon:hasResult         :resYLDQiOS ;
+        chon:subEventOf        :touYLDQi .
+
+:touYLDQi  a          chon:hessTournament ;
+        chon:atPlace  :plaNNHAIP ;
+        chon:hasName  "Trophee Karpov KO 2012" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYLDQiO .
+
+chon:HalfMove  chon:subEventOf  :gamNNHAI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYLDQiO .
+
+:opeYLDQiO  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:hmgamYLDQiOS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYLDQiOSd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "b3" , "Be5" , "Rc2" , "Rd5" , "Rd7" , "Nb6" , "Nf3" , "Nf5" , "Bf3" , "Bf5" , "c6" , "Nxd5" , "c5" , "Rxd2" , "hxg4" , "Rad8" , "Rb7" , "O-O" , "Ne4" , "Ng5+" , "Re7" , "Bxc4" , "Ba2" , "Nd6" , "d5" , "b4" , "Rfe8" , "Nc4" , "Rc1" , "Nc3" , "b5" , "Nf6" , "Be4" , "Be7" , "Bxd8" , "Rc6" , "Bf4" , "Bf6" , "Rd6" , "Bd5" , "Rxe4" , "c4" , "d4" , "Qxd5" , "Bxe4+" , "Nbd7" , "h3" , "a3" , "h5" , "a6" , "Kf3" , "Qxd8" , "Rc5" , "Bxe5" , "Nc5" , "Bc6" , "Rfd1" , "Nxa3" , "Rd2" , "e3" , "e6" , "Rxe5" , "exd5" , "dxc4" , "Ra7" , "Nd4" , "Bb2" , "Na4" , "Kg2" , "g4" , "Bg6" , "Re8" , "Rxc5" , "Kh7" , "Rf8" ;
+        chon:nextHalfMove      :hmgamYLDQiOS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrYLDQiO  a   chon:ChessGameReport .

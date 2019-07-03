@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgbSPSkbR0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbSPSkb .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbSPSkb .
+
+chon:HalfMove  chon:subEventOf  :gamfU9Jz .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbSPSkb .
+
+:hmgambSPSkbR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbSPSkbR0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mellul, P." ;
+        chon:hasSANRecord      "Bxb2" , "Rc1" , "Qc8" , "Be3" , "Bd7" , "h3" , "f6" , "Red8" , "Nf6" , "Rab8" , "Nc3" , "Nc7" , "bxc6" , "Qxd2" , "Bf4" , "g3" , "Bg2" , "Nf3" , "Re8" , "d4" , "Nc6" , "c6" , "c4" , "Re1" , "Bxd2" , "Rxc6" , "dxe5" , "Qd2" , "Qd8" , "Bg7" , "Bg5" , "Bf5" , "Nxd5" , "Nh5" , "Nxc6" , "O-O" , "e5" , "g6" , "Bxe5" , "Ne5" , "d5" , "cxd5" ;
+        chon:nextHalfMove      :hmgambSPSkbR .
+
+:toubSPSk  a          chon:hessTournament ;
+        chon:atPlace  :plafU9Jzd ;
+        chon:hasName  "EE Internet sim" .
+
+:plafU9Jzd  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:gamfU9Jz  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbSPSkb ;
+        chon:atPlace           :plafU9Jzd ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambSPSkbR ;
+        chon:hasHalfMove       :hmgambSPSkbR ;
+        chon:hasLastHalfMove   :hmgambSPSkbR ;
+        chon:hasOpening        :opebSPSkb ;
+        chon:hasReport         :cgrbSPSkb ;
+        chon:hasResult         :resbSPSkbR ;
+        chon:subEventOf        :toubSPSk .
+
+:cgrbSPSkb  a   chon:ChessGameReport .
+
+:resbSPSkbR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "*" .
+
+:agbSPSkb  a          chon:Agent ;
+        chon:hasName  "Mellul, P." , "Karpov, Anatoly" .
+
+:rolbSPSkb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbSPSkb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opebSPSkb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .

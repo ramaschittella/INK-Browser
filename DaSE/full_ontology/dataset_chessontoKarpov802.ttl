@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgyf6niK4v  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyf6niK .
+
+:resyf6niK4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyf6niK .
+
+:touyf6ni  a          chon:hessTournament ;
+        chon:atPlace  :playf6niK ;
+        chon:hasName  "Linares" .
+
+chon:HalfMove  chon:subEventOf  :gamyf6ni .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyf6niK .
+
+:playf6niK  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:cgryf6niK  a   chon:ChessGameReport .
+
+:hmgamyf6niK4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyf6niK4v ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b4" , "g3" , "c4" , "O-O" , "Qxd4" , "g6" , "Bh6" , "Qxd5" , "b6" , "Bg7" , "Nf3" , "Rac8" , "Bg2" , "Nxd4" , "Nd4" , "c5" , "a3" , "Qd6" , "Nf6" , "Qd2" , "d5" , "Rxc5" , "Bd7" , "Bxg7" , "Nc6" , "Rad1" , "Nxd5" , "Be3" , "bxc5" , "Nc3" , "Kxg7" , "d3" , "cxd5" ;
+        chon:nextHalfMove      :hmgamyf6niK4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agyf6niK  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Geller, Efim P" .
+
+:rolyf6niK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyf6niK .
+
+:gamyf6ni  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyf6niK ;
+        chon:atPlace           :playf6niK ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyf6niK4 ;
+        chon:hasHalfMove       :hmgamyf6niK4 ;
+        chon:hasLastHalfMove   :hmgamyf6niK4 ;
+        chon:hasOpening        :opeyf6niK ;
+        chon:hasReport         :cgryf6niK ;
+        chon:hasResult         :resyf6niK4 ;
+        chon:subEventOf        :touyf6ni .
+
+:opeyf6niK  a            chon:ChessOpening ;
+        chon:hasECOCode  "A38" .

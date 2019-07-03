@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamdLWXg42  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgdLWXg42D ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "f4" , "Rd4" , "b3" , "bxc6" , "Rad1" , "Nf6" , "h3" , "Bxc5" , "Ba6" , "d6" , "a3" , "g3" , "e5" , "d4" , "Be6" , "Rb5" , "Bb4" , "Kh8" , "b4" , "Nc3" , "Nc5" , "O-O" , "Nf3" , "Rab8" , "Ne7" , "Bg2" , "Be2" , "Qc3" , "f6" , "Bb7" , "cxd5" , "c4" , "Bc5" , "c6" , "exd4" , "a5" , "axb4" , "Kh2" , "Nxd5" , "Ra1" , "Nxd4" , "Qf8" , "Qf7" , "Rfd1" , "Bd6" , "Qd7" , "Bb6" , "Nb3" , "Qe8" , "Nd5" , "Bg4" , "Na5" , "h6" , "e4" , "e3" , "d5" , "Rac1" , "Rfd8" , "Nc6" , "Bc8" , "Qc2" , "Bc7" , "Qxc5" , "Bb2" , "dxc6" , "d3" , "Rd2" ;
+        chon:nextHalfMove      :hmgamdLWXg42 .
+
+:pladLWXg4  a         chon:Place ;
+        chon:hasName  "Bad Kissingen" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdLWXg4 .
+
+:agdLWXg4  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Huebner, Robert" .
+
+chon:HalfMove  chon:subEventOf  :gamdLWXg .
+
+:opedLWXg4  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdLWXg4 .
+
+:gamdLWXg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldLWXg4 ;
+        chon:atPlace           :pladLWXg4 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdLWXg42 ;
+        chon:hasHalfMove       :hmgamdLWXg42 ;
+        chon:hasLastHalfMove   :hmgamdLWXg42 ;
+        chon:hasOpening        :opedLWXg4 ;
+        chon:hasReport         :cgrdLWXg4 ;
+        chon:hasResult         :resdLWXg42 ;
+        chon:subEventOf        :toudLWXg .
+
+:rolhgdLWXg42D  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdLWXg4 .
+
+:cgrdLWXg4  a   chon:ChessGameReport .
+
+:resdLWXg42  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toudLWXg  a          chon:hessTournament ;
+        chon:atPlace  :pladLWXg4 ;
+        chon:hasName  "Bad Kissingen" .
+
+:roldLWXg4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdLWXg4 .

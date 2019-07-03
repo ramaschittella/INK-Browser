@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamFRWcsbc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFRWcsbc5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hansen, Curt" ;
+        chon:hasSANRecord      "N8g6" , "Qxc3" , "Rb1" , "b5" , "Bb7" , "b4" , "Qe2" , "Ne4" , "Bxd5" , "Nc3" , "N7f6" , "Be4" , "Rc6" , "Ra4" , "Bg5" , "e3" , "d6" , "Nb8" , "h6" , "cxd5" , "Reb1" , "Nbd7" , "Red8" , "Bd3" , "O-O" , "Bxb5" , "Qa5" , "Bc6" , "Rc2" , "Ba6" , "Qd8" , "Qxa5" , "Rd5" , "b6" , "Bh4" , "Qe7" , "Bf4" , "Re8" , "Rc8" , "Rc7" , "Nfg6" , "Qf2" , "Rfe8" , "Qd2" , "f3" , "Bb5" , "Rxb5" , "Nc5" , "Bf1" , "Kh8" , "Qa7" , "Nf8" , "Ra1" , "Bg3" , "Nb6" , "Rfe1" , "exd4" , "bxa5" , "Qc1" , "Ne2" , "Bb1" , "Nh7" , "Rc1" , "c5" , "a6" , "Nf5" , "a5" , "Nf4" , "Nd5" , "d5" , "Qb2" , "h5" , "Qb6" , "Rb4" , "h4" , "Ne7" , "cxd4" , "Bf2" , "Ra8" , "Qa8" , "Rdd8" ;
+        chon:nextHalfMove      :hmgamFRWcsbc .
+
+:rolhgePKU7bnF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agePKU7b .
+
+:gamePKU7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolePKU7b ;
+        chon:atPlace           :plaePKU7b ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamePKU7bn ;
+        chon:hasHalfMove       :hmgamFRWcsbc , :hmgamePKU7bn ;
+        chon:hasLastHalfMove   :hmgamFRWcsbc ;
+        chon:hasOpening        :opeePKU7b ;
+        chon:hasReport         :cgrePKU7b ;
+        chon:hasResult         :resePKU7bn ;
+        chon:subEventOf        :touePKU7 .
+
+:touePKU7  a          chon:hessTournament ;
+        chon:atPlace  :plaePKU7b ;
+        chon:hasName  "Hoogovens" .
+
+:plaePKU7b  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agePKU7b .
+
+:hmgamePKU7bn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFRWcsbc5 , :rolhgePKU7bnF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hansen, Curt" ;
+        chon:hasSANRecord      "Nc3" , "Bb4" , "e6" , "a3" , "Bxc3+" , "d4" , "Nf6" , "Qc2" , "c4" , "O-O" ;
+        chon:nextHalfMove      :hmgamFRWcsbc , :hmgamePKU7bn .
+
+:cgrePKU7b  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamePKU7 .
+
+:agePKU7b  a          chon:Agent ;
+        chon:hasName  "Hansen, Curt" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agePKU7b .
+
+:rolePKU7b  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agePKU7b .
+
+:rolhgFRWcsbc5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agePKU7b .
+
+:resePKU7bn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeePKU7b  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .

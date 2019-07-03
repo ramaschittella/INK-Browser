@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgQc0hUp6v  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQc0hUp .
+
+:agQc0hUp  a          chon:Agent ;
+        chon:hasName  "Guliyev,N" , "Karpov,Ana" .
+
+:rolQc0hUp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQc0hUp .
+
+:touQc0hU  a          chon:hessTournament ;
+        chon:atPlace  :plaQc0hUp ;
+        chon:hasName  "ch-Euro Blitz" .
+
+:hmgamQc0hUp6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQc0hUp6v , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Guliyev,N" ;
+        chon:hasSANRecord      "Bxc4" , "Bd5" , "e4" , "Re1" , "Rxb7" , "Nf5" , "c4" , "O-O" , "d4" , "Nxf5" , "Qf4" , "Qg3" , "Nf3" , "Qd7" , "Rac1" , "exd4" , "Nxd2" , "Bb4+" , "Qxd2" , "Nbd2" , "d5" , "Rac8" , "dxc4" , "d3" , "Be6" , "g6" , "Re8" , "Nh4" , "e5" , "f4" , "Nc6" , "Rf1" , "Bd3" , "Bxd2" , "Rxc7" , "Ne7" , "h3" , "Nf6" , "Ne4" , "Qxf5" , "Rc2" , "Qe3" , "Bxf5" , "a3" ;
+        chon:nextHalfMove      :hmgamQc0hUp6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQc0hUp .
+
+chon:HalfMove  chon:subEventOf  :gamQc0hU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQc0hUp .
+
+:opeQc0hUp  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:resQc0hUp6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamQc0hU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQc0hUp ;
+        chon:atPlace           :plaQc0hUp ;
+        chon:atTime            "2007.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQc0hUp6 ;
+        chon:hasHalfMove       :hmgamQc0hUp6 ;
+        chon:hasLastHalfMove   :hmgamQc0hUp6 ;
+        chon:hasOpening        :opeQc0hUp ;
+        chon:hasReport         :cgrQc0hUp ;
+        chon:hasResult         :resQc0hUp6 ;
+        chon:subEventOf        :touQc0hU .
+
+:plaQc0hUp  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrQc0hUp  a   chon:ChessGameReport .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agl8AjO8  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Sliwa, Bogdan" .
+
+:opel8AjO8  a            chon:ChessOpening ;
+        chon:hasECOCode  "D36" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agl8AjO8 .
+
+:hmgaml8AjO8a  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgl8AjO8a4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Re4" , "Kb8" , "d4" , "cxd4" , "Bd3" , "e3" , "Nf6" , "Bxf5" , "Bg5" , "Bc8" , "Nc5" , "Rhe8" , "Bb7" , "gxf4" , "fxe3" , "Bxe7" , "Rc2" , "c5" , "Qxe7" , "Rc1" , "N1b3" , "cxd5" , "Rd1" , "Nc3" , "Kb1" , "Nc1" , "f4" , "h3" , "Ng7" , "Nxe6" , "Nc7" , "Na6" , "Qf6" , "Rxc2" , "g5" , "Qb3" , "c4" , "Qc3" , "Nd2" , "c6" , "Qc2" , "Qg6+" , "Na4" , "Rhe1" , "Re2" , "Nh5" , "Rc8" , "f5" , "b6" , "Nge2" , "Bxe6" , "Nge6" , "Qxd4" , "Nf3" , "O-O-O" , "e6" , "a3" , "Nxd4" , "exd5" , "Bd7" , "Qh4" , "g6" , "Be7" , "d5" ;
+        chon:nextHalfMove      :hmgaml8AjO8a .
+
+chon:HalfMove  chon:subEventOf  :gaml8AjO .
+
+:plal8AjO8  a         chon:Place ;
+        chon:hasName  "Warsaw" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agl8AjO8 .
+
+:cgrl8AjO8  a   chon:ChessGameReport .
+
+:rolhgl8AjO8a4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agl8AjO8 .
+
+:resl8AjO8a  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:roll8AjO8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agl8AjO8 .
+
+:gaml8AjO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roll8AjO8 ;
+        chon:atPlace           :plal8AjO8 ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgaml8AjO8a ;
+        chon:hasHalfMove       :hmgaml8AjO8a ;
+        chon:hasLastHalfMove   :hmgaml8AjO8a ;
+        chon:hasOpening        :opel8AjO8 ;
+        chon:hasReport         :cgrl8AjO8 ;
+        chon:hasResult         :resl8AjO8a ;
+        chon:subEventOf        :toul8AjO .
+
+:toul8AjO  a          chon:hessTournament ;
+        chon:atPlace  :plal8AjO8 ;
+        chon:hasName  "POL-USA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

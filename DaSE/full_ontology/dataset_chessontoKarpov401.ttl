@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plai5XJSA  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:rolhgi5XJSA5j  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi5XJSA .
+
+:cgri5XJSA  a   chon:ChessGameReport .
+
+:rolhgK782fBVK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agi5XJSA .
+
+:agi5XJSA  a          chon:Agent ;
+        chon:hasName  "Tal, Mihail" , "Karpov, Anatoly" .
+
+:roli5XJSA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agi5XJSA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi5XJSA .
+
+:gami5XJS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roli5XJSA ;
+        chon:atPlace           :plai5XJSA ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgami5XJSA5 ;
+        chon:hasHalfMove       :hmgamK782fBV , :hmgami5XJSA5 ;
+        chon:hasLastHalfMove   :hmgamK782fBV ;
+        chon:hasOpening        :opei5XJSA ;
+        chon:hasReport         :cgri5XJSA ;
+        chon:hasResult         :resi5XJSA5 ;
+        chon:subEventOf        :toui5XJS .
+
+:opei5XJSA  a            chon:ChessOpening ;
+        chon:hasECOCode  "B67" .
+
+:toui5XJS  a          chon:hessTournament ;
+        chon:atPlace  :plai5XJSA ;
+        chon:hasName  "URS-ch44" .
+
+chon:HalfMove  chon:subEventOf  :gami5XJS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agi5XJSA .
+
+:hmgami5XJSA5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgK782fBVK , :rolhgi5XJSA5j ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "h6" , "Nc6" , "h4" , "Bd7" , "g5" , "Bb4" , "d4" , "f4" , "cxd4" , "Bh4" , "Qf2" , "e5" , "Bd3" , "g3" , "Bxf6" , "Bg5" , "a6" , "Qc7" , "bxc3" , "fxe5" , "h5" , "e6" , "e4" , "Nc3" , "Nf6" , "Bg5+" , "O-O-O" , "Rhe1" , "Be7" , "g4" , "Nxd4" , "Qd2" , "O-O" , "Bxc3" , "c5" , "dxe5" , "b5" , "Nxc6" , "Nf3" , "Bxc6" , "d6" , "Kb1" ;
+        chon:nextHalfMove      :hmgami5XJSA5 , :hmgamK782fBV .
+
+:resi5XJSA5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamK782fBV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgK782fBVK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "c4" , "Qf2" , "Rac8" , "Qc5" , "Rxe6" , "Kb2" , "Qc3" , "Rc1" , "Rd6" , "Qb5" , "Qe3" , "Be2" , "Bd5" , "Rxa6" , "b4" , "Rxe5" , "Kb1" , "Rd5" , "Bxc4" , "Qxe2" , "Rfd8" , "fxg6" , "g6" , "Bxe2" , "Rxg6" , "Qe4" , "Red5" , "Rcd8" , "Qb7" ;
+        chon:nextHalfMove      :hmgamK782fBV .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeegS5xa  a            chon:ChessOpening ;
+        chon:hasECOCode  "C12" .
+
+:rolhgqgyi60ZY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agegS5xa .
+
+:resegS5xaU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaegS5xa  a         chon:Place ;
+        chon:hasName  "New York" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agegS5xa .
+
+chon:HalfMove  chon:subEventOf  :gamegS5x .
+
+:cgregS5xa  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agegS5xa .
+
+:rolegS5xa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agegS5xa .
+
+:hmgamqgyi60Z  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqgyi60ZY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rossolimo, Nicolas" ;
+        chon:hasSANRecord      "Bxf5" , "Rad1" , "Ne7" , "Ng4" , "g4" , "Bd3" , "exf5" , "hxg6+" , "Kf7" , "cxd4" , "Nxe5" , "Qh4" , "Qc4+" , "Kf8" , "Rac8" , "Bb5+" , "Nf4" , "Qc3+" , "gxf5" , "Rg3" , "Kf1" , "Nh3" , "Ke2" , "Rhg1" , "Kg7" , "Nxd4+" , "Kg1" , "Rhe8" , "Rxe6" , "Ng1" , "b6" , "Nc6" , "Be6" , "h5" , "Nxe6+" ;
+        chon:nextHalfMove      :hmgamqgyi60Z .
+
+:rolhgegS5xaUL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agegS5xa .
+
+:gamegS5x  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolegS5xa ;
+        chon:atPlace           :plaegS5xa ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamegS5xaU ;
+        chon:hasHalfMove       :hmgamegS5xaU , :hmgamqgyi60Z ;
+        chon:hasLastHalfMove   :hmgamqgyi60Z ;
+        chon:hasOpening        :opeegS5xa ;
+        chon:hasReport         :cgregS5xa ;
+        chon:hasResult         :resegS5xaU ;
+        chon:subEventOf        :touegS5x .
+
+:hmgamegS5xaU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqgyi60ZY , :rolhgegS5xaUL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rossolimo, Nicolas" ;
+        chon:hasSANRecord      "g6" , "Nc3" , "Nf3" , "e4" , "Nf6" , "Nxd2" , "Qc7" , "Qg4" , "h6" , "Bd2" , "Ne4" , "Bxc3" , "Bg5" , "d4" , "Kxd2" , "bxc3" , "Nc6" , "e5" , "Qf4" , "Bb4" , "d5" , "f5" , "h4" , "Bd3" , "c5" , "e6" ;
+        chon:nextHalfMove      :hmgamqgyi60Z , :hmgamegS5xaU .
+
+:touegS5x  a          chon:hessTournament ;
+        chon:atPlace  :plaegS5xa ;
+        chon:hasName  "USA-ch" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agegS5xa  a          chon:Agent ;
+        chon:hasName  "Rossolimo, Nicolas" , "Fischer, Robert James" .

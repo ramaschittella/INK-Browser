@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaOlbP2j  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:cgrOlbP2j  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOlbP2j .
+
+:agOlbP2j  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Portisch, Lajos" .
+
+:rolOlbP2j  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOlbP2j .
+
+chon:HalfMove  chon:subEventOf  :gamOlbP2 .
+
+:opeOlbP2j  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOlbP2j .
+
+:hmgamOlbP2jk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOlbP2jkD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qa4" , "d5" , "b5" , "e6" , "Nf6" , "gxf6" , "Bg5" , "Bf4" , "Qxc4" , "c5" , "Nf3" , "O-O" , "Qc8" , "Bxf6" , "Qc2" , "c4" , "dxc4" , "Bg2" , "g3" , "d4" , "Qc1" , "a6" , "Nc3" , "Rd1" , "Be7" , "Nb4" , "Nc6" , "Bb7" ;
+        chon:nextHalfMove      :hmgamOlbP2jk .
+
+:resOlbP2jk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgOlbP2jkD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOlbP2j .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamOlbP2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOlbP2j ;
+        chon:atPlace           :plaOlbP2j ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOlbP2jk ;
+        chon:hasHalfMove       :hmgamOlbP2jk ;
+        chon:hasLastHalfMove   :hmgamOlbP2jk ;
+        chon:hasOpening        :opeOlbP2j ;
+        chon:hasReport         :cgrOlbP2j ;
+        chon:hasResult         :resOlbP2jk ;
+        chon:subEventOf        :touOlbP2 .
+
+:touOlbP2  a          chon:hessTournament ;
+        chon:atPlace  :plaOlbP2j ;
+        chon:hasName  "Mar del Plata" .

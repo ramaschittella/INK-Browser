@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaHTgReB  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:rolhgDPZ1XAWx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHTgReB .
+
+:cgrHTgReB  a   chon:ChessGameReport .
+
+:agHTgReB  a          chon:Agent ;
+        chon:hasName  "Nunn, John DM" , "Karpov, Anatoly" .
+
+:touHTgRe  a          chon:hessTournament ;
+        chon:atPlace  :plaHTgReB ;
+        chon:hasName  "Amber-rapid 4th" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHTgReB .
+
+:rolHTgReB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agDPZ1XA .
+
+chon:HalfMove  chon:subEventOf  :gamHTgRe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHTgReB .
+
+:hmgamDPZ1XAW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDPZ1XAWx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nunn, John DM" ;
+        chon:hasSANRecord      "Rf3" , "c4" , "Rb1" , "Nbc7" , "Nb5" , "Kh1" , "Rc1" , "Bd7" , "e4" , "Nge4" , "Bg7" , "e6" , "Bxc3" , "Bd4" , "Ng5" , "Nc3" , "Rxa7" , "d4" , "Bg2" , "e5" , "f4" , "Bd2" , "Nfd5" , "Rxb7" , "O-O" , "a4" , "Qb6" , "Qb2" , "Nxb2" , "Bd4+" , "Qe1" , "Ba5" , "fxe6" , "d6" , "Nd6" , "Qxb2" , "dxe5" , "Nf3" , "Rc8" , "Rd3" , "Nc7" , "g6" , "Nbd7" , "Nxc4" , "h3" , "Ne8" , "Qc2" , "g3" , "Rae8" , "Bxb2" , "dxc5" , "Rfd8" , "c6" , "Nf6" , "c5" ;
+        chon:nextHalfMove      :hmgamDPZ1XAW .
+
+:opeHTgReB  a            chon:ChessOpening ;
+        chon:hasECOCode  "E69" .
+
+:gamHTgRe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHTgReB ;
+        chon:atPlace           :plaHTgReB ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDPZ1XAW ;
+        chon:hasHalfMove       :hmgamDPZ1XAW ;
+        chon:hasLastHalfMove   :hmgamDPZ1XAW ;
+        chon:hasOpening        :opeHTgReB ;
+        chon:hasReport         :cgrHTgReB ;
+        chon:hasResult         :resHTgReBF ;
+        chon:subEventOf        :touHTgRe .
+
+:resHTgReBF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

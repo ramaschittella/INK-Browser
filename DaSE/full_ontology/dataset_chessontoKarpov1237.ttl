@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resYNvPi0A  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeYNvPi0  a            chon:ChessOpening ;
+        chon:hasECOCode  "D78" .
+
+:gamYNvPi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYNvPi0 ;
+        chon:atPlace           :plaYNvPi0 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYNvPi0A ;
+        chon:hasHalfMove       :hmgampPH8Fap , :hmgamYNvPi0A ;
+        chon:hasLastHalfMove   :hmgampPH8Fap ;
+        chon:hasOpening        :opeYNvPi0 ;
+        chon:hasReport         :cgrYNvPi0 ;
+        chon:hasResult         :resYNvPi0A ;
+        chon:subEventOf        :touYNvPi .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYNvPi0 .
+
+:touYNvPi  a          chon:hessTournament ;
+        chon:atPlace  :plaYNvPi0 ;
+        chon:hasName  "Hoogovens" .
+
+:rolhgYNvPi0As  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYNvPi0 .
+
+:hmgampPH8Fap  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpPH8FapQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Georgiev, Kiril" ;
+        chon:hasSANRecord      "Nxc6" , "Rxg7" , "Qxg7" , "Kxg7" , "Bf2" , "Bxc6" , "Rxg6" , "Qe7" , "Rg3" , "c6" , "Bxe3" , "Bxf4" , "Qxg7+" , "Nd7" ;
+        chon:nextHalfMove      :hmgampPH8Fap .
+
+chon:HalfMove  chon:subEventOf  :gamYNvPi .
+
+:rolhgpPH8FapQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYNvPi0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYNvPi0 .
+
+:plaYNvPi0  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:cgrYNvPi0  a   chon:ChessGameReport .
+
+:agYNvPi0  a          chon:Agent ;
+        chon:hasName  "Georgiev, Kiril" , "Karpov, Anatoly" .
+
+:rolYNvPi0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYNvPi0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamYNvPi0A  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYNvPi0As , :rolhgpPH8FapQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Georgiev, Kiril" ;
+        chon:hasSANRecord      "Rcg7" , "Qh6" , "Nc3" , "Nbd7" , "Nc4" , "c5" , "g3" , "Be2" , "c6" , "Nb6" , "gxf4" , "Rc7" , "Bg2" , "g6" , "Kh1" , "Rg3" , "Rh3" , "d4" , "Qf1" , "Bxb5" , "Bd3" , "Rag1" , "Rg1" , "Qd8" , "Be8" , "Rfe1" , "Rbg8" , "b3" , "Nh5" , "Nf3" , "Qe7" , "Na4" , "O-O" , "e3" , "f3" , "Ne5" , "Bf6" , "c4" , "Bf4" , "Qc1" , "e6" , "Rg8" , "Kh8" , "Nxf4" , "Bd7" , "b5" , "Nf6" , "cxb5" , "Rg7" , "Bh4" , "b4" , "Rb8" , "Qb3" , "Bf1" , "Bg7" , "f5" , "d5" , "Na3" , "Nb5" , "Qh3" , "a5" , "Qc2" , "Qd2" ;
+        chon:nextHalfMove      :hmgampPH8Fap , :hmgamYNvPi0A .

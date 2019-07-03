@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrTcrDUk  a   chon:ChessGameReport .
+
+:agTcrDUk  a          chon:Agent ;
+        chon:hasName  "Xie Jun" , "Karpov,An" .
+
+:rolTcrDUk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTcrDUk .
+
+:touTcrDU  a          chon:hessTournament ;
+        chon:atPlace  :plaXeKuak ;
+        chon:hasName  "Female vs Male Match g/25" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTcrDUk .
+
+chon:HalfMove  chon:subEventOf  :gamXeKua .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTcrDUk .
+
+:rolhgTcrDUkgs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTcrDUk .
+
+:hmgamTcrDUkg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTcrDUkgs , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Xie Jun" ;
+        chon:hasSANRecord      "N6e7" , "cxd5" , "Rd8" , "g6" , "Be3" , "Bxc6+" , "bxc6" , "e5" , "d5" , "Nf3" , "Bd4" , "Nc6" , "Nb6" , "c6" , "Bxd7" , "Ba3" , "Nc4" , "g3" , "a5" , "Ra8" , "Ne4" , "dxe4" , "Kf8" , "Ke8" , "Nxd5" , "d3" , "Rfe8" , "Bg7" , "Rc1" , "c4" , "Qd4" , "Kd7" , "b5" , "Bxa7" , "Rd7" , "Nd6" , "Nxe5" , "Rxc4" , "Bxc4" , "Qc5" , "Nc3" , "Kd8" , "Nc8" , "Bg2" , "b4" , "a4" , "Bc5+" , "Qc2" , "Bc5" , "Qxd4" , "Nf6" , "Bb7" , "O-O" , "Qd7" , "Rfd1" , "Rxd7" , "Rb8" , "Rxa5" , "Bb6" , "Nxe4" , "Bxd4" , "h6" , "e3" , "Be6" ;
+        chon:nextHalfMove      :hmgamTcrDUkg .
+
+:opeTcrDUk  a            chon:ChessOpening ;
+        chon:hasECOCode  "A16" .
+
+:plaXeKuak  a         chon:Place ;
+        chon:hasName  "Guanzhou CHN" .
+
+:gamXeKua  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTcrDUk ;
+        chon:atPlace           :plaXeKuak ;
+        chon:atTime            "2000.04.14"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTcrDUkg ;
+        chon:hasHalfMove       :hmgamTcrDUkg ;
+        chon:hasLastHalfMove   :hmgamTcrDUkg ;
+        chon:hasOpening        :opeTcrDUk ;
+        chon:hasReport         :cgrTcrDUk ;
+        chon:hasResult         :resTcrDUkg ;
+        chon:subEventOf        :touTcrDU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resTcrDUkg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

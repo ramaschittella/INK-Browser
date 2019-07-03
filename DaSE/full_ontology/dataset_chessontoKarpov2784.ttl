@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaTM1hhe  a         chon:Place ;
+        chon:hasName  "Sao Paulo BRA" .
+
+:res6MVvQdT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6MVvQd .
+
+:gamTM1hh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6MVvQd ;
+        chon:atPlace           :plaTM1hhe ;
+        chon:atTime            "2004.08.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6MVvQdT ;
+        chon:hasHalfMove       :hmgam6MVvQdT ;
+        chon:hasLastHalfMove   :hmgam6MVvQdT ;
+        chon:hasOpening        :ope6MVvQd ;
+        chon:hasReport         :cgr6MVvQd ;
+        chon:hasResult         :res6MVvQdT ;
+        chon:subEventOf        :tou6MVvQ .
+
+chon:HalfMove  chon:subEventOf  :gamTM1hh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6MVvQd .
+
+:tou6MVvQ  a          chon:hessTournament ;
+        chon:atPlace  :plaTM1hhe ;
+        chon:hasName  "Rapid" .
+
+:cgr6MVvQd  a   chon:ChessGameReport .
+
+:hmgam6MVvQdT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg6MVvQdTc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Kxe7" , "Kxd7" , "Nf3" , "Qxe7+" , "e5" , "Nd7" , "Qxd4" , "Bb5+" , "Nxd4" , "Bb4" , "cxd5" , "e4" , "d4" , "f3" , "exd4" , "e3" , "a3" , "Qxc3" , "a6" , "Bxd5" , "Nc6" , "Be3" , "Bb3" , "d5" , "Be6" , "Qc2" , "Nc3" , "Nf6" , "Qh4" , "b6" , "Bxc3" , "c5" , "Bxd7" , "c4" , "Qe7" ;
+        chon:nextHalfMove      :hmgam6MVvQdT .
+
+:ag6MVvQd  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Morovic Fernandez,I" .
+
+:rol6MVvQd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6MVvQd .
+
+:rolhg6MVvQdTc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6MVvQd .
+
+:ope6MVvQd  a            chon:ChessOpening ;
+        chon:hasECOCode  "A28" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

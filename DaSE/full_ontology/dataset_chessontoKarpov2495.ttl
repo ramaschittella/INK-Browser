@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag9eGIJl  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Xie Jun" .
+
+:rol9eGIJl  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9eGIJl .
+
+:ope9eGIJl  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:res9eGIJl3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamkeBWhk6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkeBWhk6S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Bg5" , "Nxe2" , "Bb4" , "Qxe7" , "Ng6" , "Re1" , "Rc3" , "Be7" , "O-O" , "Nh4" , "Rac8" , "Nc3" , "Bxe2" , "Rc1" , "Bg4" , "Bxe7" , "Nb4" , "Nf3" , "Nbc6" ;
+        chon:nextHalfMove      :hmgamkeBWhk6 .
+
+:gam9eGIJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9eGIJl ;
+        chon:atPlace           :pla9eGIJl ;
+        chon:atTime            "2000.04.12"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9eGIJl3 ;
+        chon:hasHalfMove       :hmgam9eGIJl3 , :hmgamkeBWhk6 ;
+        chon:hasLastHalfMove   :hmgamkeBWhk6 ;
+        chon:hasOpening        :ope9eGIJl ;
+        chon:hasReport         :cgr9eGIJl ;
+        chon:hasResult         :res9eGIJl3 ;
+        chon:subEventOf        :tou9eGIJ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9eGIJl .
+
+:tou9eGIJ  a          chon:hessTournament ;
+        chon:atPlace  :pla9eGIJl ;
+        chon:hasName  "Female vs Male Match" .
+
+:rolhgkeBWhk6S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9eGIJl .
+
+chon:HalfMove  chon:subEventOf  :gam9eGIJ .
+
+:rolhg9eGIJl3F  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9eGIJl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9eGIJl .
+
+:hmgam9eGIJl3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9eGIJl3F ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "e5" , "Be2" , "Nf3" , "d5" , "e6" , "O-O" , "cxd4" , "c3" , "c5" , "c6" , "Bf5" , "Ne7" , "e4" , "d4" ;
+        chon:nextHalfMove      :hmgamkeBWhk6 , :hmgam9eGIJl3 .
+
+:pla9eGIJl  a         chon:Place ;
+        chon:hasName  "Guanzhou CHN" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr9eGIJl  a   chon:ChessGameReport .

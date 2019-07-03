@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolxYywDv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxYywDv .
+
+:touxYywD  a          chon:hessTournament ;
+        chon:atPlace  :plaxYywDv ;
+        chon:hasName  "Skopje" .
+
+:resxYywDvU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxYywDv .
+
+:rolhgxYywDvUn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxYywDv .
+
+chon:HalfMove  chon:subEventOf  :gamxYywD .
+
+:opexYywDv  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxYywDv .
+
+:hmgamxYywDvU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxYywDvUn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rc2" , "exf7+" , "h6" , "Ree5" , "Nb2" , "axb2" , "b3" , "a4" , "Bc3" , "e4" , "Na4" , "Bd5" , "Qxd4" , "g3" , "Nd7" , "Rxb2" , "Nxg7" , "Be6" , "c5" , "g5" , "Qd7" , "Bb2" , "Nb6" , "Ne6" , "Rxf7" , "Nf3" , "d4" , "Bg7" , "Rad8" , "Ng5" , "bxc4" , "Nh3" , "a5" , "Bxb2" , "Rxd4" , "e5" , "bxc6" , "Bxc4" , "Rbc1" , "Bxc6" , "Ba1" , "d5" , "dxc4" , "g6" , "Nc6" , "Kxg7" , "e6" , "Rf5" , "Nf4" , "a3" , "Bg2" , "Nxc4" , "Nf6" , "Rb1" , "Re4" , "O-O" , "c4" , "Na3" ;
+        chon:nextHalfMove      :hmgamxYywDvU .
+
+:plaxYywDv  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+:cgrxYywDv  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agxYywDv  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Ilievski, Borce" .
+
+:gamxYywD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxYywDv ;
+        chon:atPlace           :plaxYywDv ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxYywDvU ;
+        chon:hasHalfMove       :hmgamxYywDvU ;
+        chon:hasLastHalfMove   :hmgamxYywDvU ;
+        chon:hasOpening        :opexYywDv ;
+        chon:hasReport         :cgrxYywDv ;
+        chon:hasResult         :resxYywDvU ;
+        chon:subEventOf        :touxYywD .

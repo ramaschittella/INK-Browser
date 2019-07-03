@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touZ49QG  a          chon:hessTournament ;
+        chon:atPlace  :plaZ49QGR ;
+        chon:hasName  "World Blitz" .
+
+:rolhgZ49QGRaN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ49QGR .
+
+:resZ49QGRa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaZ49QGR  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ49QGR .
+
+chon:HalfMove  chon:subEventOf  :gamZ49QG .
+
+:cgrZ49QGR  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ49QGR .
+
+:rolZ49QGR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZ49QGR .
+
+:hmgamZ49QGRa  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZ49QGRaN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Savchenko,B" ;
+        chon:hasSANRecord      "Bg7" , "Bf8" , "a6" , "Qxa3" , "Bd7" , "g6" , "d4" , "Qb3" , "Qa4" , "Bb5+" , "Nxc3" , "Qa6" , "Ba3" , "cxd5" , "e6" , "Bxa3" , "Qc7" , "Bc4" , "Na5" , "d5" , "Nf3" , "Nc6" , "e3" , "Qb2" , "Nc3" , "Nxd5" , "c4" , "Rb3" , "Bb5" , "Be2" , "Nb8" , "exd4" , "Rd8" , "Nf6" , "Qa3" , "bxc3" , "O-O" , "cxd4" , "c5" , "b6" , "Rb1" ;
+        chon:nextHalfMove      :hmgamZ49QGRa .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agZ49QGR  a          chon:Agent ;
+        chon:hasName  "Savchenko,B" , "Karpov,Ana" .
+
+:gamZ49QG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZ49QGR ;
+        chon:atPlace           :plaZ49QGR ;
+        chon:atTime            "2007.11.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZ49QGRa ;
+        chon:hasHalfMove       :hmgamZ49QGRa ;
+        chon:hasLastHalfMove   :hmgamZ49QGRa ;
+        chon:hasOpening        :opeZ49QGR ;
+        chon:hasReport         :cgrZ49QGR ;
+        chon:hasResult         :resZ49QGRa ;
+        chon:subEventOf        :touZ49QG .
+
+:opeZ49QGR  a            chon:ChessOpening ;
+        chon:hasECOCode  "A35" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamOJlZslF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOJlZslF8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Golubev,M" ;
+        chon:hasSANRecord      "Qd6" , "Reg7" , "Qxd6" , "Bh6" , "cxd6" ;
+        chon:nextHalfMove      :hmgamOJlZslF .
+
+:agSJpLTm  a          chon:Agent ;
+        chon:hasName  "Golubev,M" , "Karpov,Ana" .
+
+:rolSJpLTm  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSJpLTm .
+
+:rolhgOJlZslF8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSJpLTm .
+
+:hmgamSJpLTmS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSJpLTmSV , chon:AgentRole , :rolhgOJlZslF8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Golubev,M" ;
+        chon:hasSANRecord      "a4" , "d6" , "Nxe4" , "Bxd3" , "Be4" , "Rd8" , "Rxd7" , "Ba1" , "Na6" , "h5" , "Rxf7" , "h3" , "Kg2" , "Bg7" , "g6" , "gxh5" , "Qxe4" , "Bd7" , "Qd1+" , "bxc3" , "Qa4" , "Bc4" , "Rf8" , "Nxc3" , "Nc3" , "g4" , "c6" , "Nf6" , "Kf1" , "Nb4" , "Bf6" , "c5" , "Qb3" , "Be3" , "O-O" , "Qxa4" , "e5" , "Qd7" , "Qc4" , "c4" , "Re7" , "Qe8" , "Qf4" , "e4" , "Rd1" , "Bc2" , "Nd3+" , "a5" , "Nf3" , "d4" , "h4" , "Bf5" , "Rg8" , "Rxh5" , "Bxc3+" , "dxe5" , "Kh8" ;
+        chon:nextHalfMove      :hmgamSJpLTmS , :hmgamOJlZslF .
+
+:gamSJpLT  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSJpLTm ;
+        chon:atPlace           :plaSJpLTm ;
+        chon:atTime            "2008.05.31"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSJpLTmS ;
+        chon:hasHalfMove       :hmgamOJlZslF , :hmgamSJpLTmS ;
+        chon:hasLastHalfMove   :hmgamOJlZslF ;
+        chon:hasOpening        :opeSJpLTm ;
+        chon:hasReport         :cgrSJpLTm ;
+        chon:hasResult         :resSJpLTmS ;
+        chon:subEventOf        :touSJpLT .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSJpLTm .
+
+chon:HalfMove  chon:subEventOf  :gamSJpLT .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSJpLTm .
+
+:resSJpLTmS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeSJpLTm  a            chon:ChessOpening ;
+        chon:hasECOCode  "E71" .
+
+:touSJpLT  a          chon:hessTournament ;
+        chon:atPlace  :plaSJpLTm ;
+        chon:hasName  "4th Pivdenny Bank Chess Cup" .
+
+:rolhgSJpLTmSV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSJpLTm .
+
+:plaSJpLTm  a         chon:Place ;
+        chon:hasName  "Odessa UKR" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrSJpLTm  a   chon:ChessGameReport .

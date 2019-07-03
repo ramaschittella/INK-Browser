@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plafwS3IS  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfwS3IS .
+
+:cgrfwS3IS  a   chon:ChessGameReport .
+
+:hmgamfwS3ISj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfwS3ISjo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Penttinen, Jarkko" ;
+        chon:hasSANRecord      "Nd4" , "Nc3" , "Qd1" , "Bxg7" , "b3" , "O-O" , "Bg2" , "g6" , "Qc8" , "Qxf3" , "Nc6" , "dxc5" , "Kxg7" , "Re8" , "g3" , "Bb2" , "d6" , "Bd7" , "Bg7" , "Nd5" , "Nh6" , "Qd2" , "Rb8" , "c5" , "Nf3" , "e3" , "Bc6" , "d4" , "Nxf3+" , "Rad1" , "c4" ;
+        chon:nextHalfMove      :hmgamfwS3ISj , :hmgamrwPghRn .
+
+chon:HalfMove  chon:subEventOf  :gamfwS3I .
+
+:agfwS3IS  a          chon:Agent ;
+        chon:hasName  "Penttinen, Jarkko" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfwS3IS .
+
+:rolfwS3IS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfwS3IS .
+
+:rolhgfwS3ISjo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfwS3IS .
+
+:opefwS3IS  a            chon:ChessOpening ;
+        chon:hasECOCode  "A35" .
+
+:rolhgrwPghRnS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfwS3IS .
+
+:hmgamrwPghRn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrwPghRnS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Penttinen, Jarkko" ;
+        chon:hasSANRecord      "Rfe1" , "hxg4" , "b6" , "bxc4" , "Qc6" , "Nf7" , "Qa5" , "Kg1" , "Bf1" , "Qb4" , "hxg6" , "Ng4" , "e5" , "a6" , "Nh6" , "Qd7" , "Qb6" , "Bg2" , "Rd8" , "Qc3" , "cxd5" , "Re7" , "d6" , "b5" , "c4" , "Rfd1" , "fxg6" , "Qg3" , "Bxd5" , "f6" , "Qc7" , "e4" , "Rf7" , "Rd5" , "Qh4" , "Re8" , "fxe5" , "h3" , "f4" , "gxf4" , "f5" , "d7" , "Rf1" , "Rh8" , "Qd3" , "Rbd8" , "Qf6" , "Kh1" , "exf4" ;
+        chon:nextHalfMove      :hmgamrwPghRn .
+
+:gamfwS3I  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfwS3IS ;
+        chon:atPlace           :plafwS3IS ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfwS3ISj ;
+        chon:hasHalfMove       :hmgamfwS3ISj , :hmgamrwPghRn ;
+        chon:hasLastHalfMove   :hmgamrwPghRn ;
+        chon:hasOpening        :opefwS3IS ;
+        chon:hasReport         :cgrfwS3IS ;
+        chon:hasResult         :resfwS3ISj ;
+        chon:subEventOf        :toufwS3I .
+
+:resfwS3ISj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:toufwS3I  a          chon:hessTournament ;
+        chon:atPlace  :plafwS3IS ;
+        chon:hasName  "Valkeakoski sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

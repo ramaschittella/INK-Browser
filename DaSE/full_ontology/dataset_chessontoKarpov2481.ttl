@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrsHMLdA  a   chon:ChessGameReport .
+
+:rolhgDHJ2MzjJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsHMLdA .
+
+:rolsHMLdA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsHMLdA .
+
+:ressHMLdAg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsHMLdA .
+
+:plasHMLdA  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:hmgamDHJ2Mzj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgDHJ2MzjJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Rxc3" , "f3" , "Bxc5" , "e3" , "Bxc6" , "bxc5" , "c6" , "f6" , "Be3" , "a5" , "Rxa3" , "Rfxd1" , "Nd4" , "Rc8" , "Qxd1" , "g6" , "Ba4" , "Rab8" , "Nc6" , "Ra7" , "Bxb6" , "Rh1" , "Ra2+" , "Bb5+" , "Bg7" , "Rb4" , "Rb6" , "c5" , "f5" , "gxh4" , "Rxh4" , "g5" , "dxc5" , "Bg5" , "Bxe4" , "Bxd4" , "Rab1" , "Bb6" , "Bd5" , "Kg6" , "bxc3" , "f4" , "e4" , "Bxa5" , "Kg1" , "Rxb6" , "Rxh7+" , "O-O" , "Kf2" , "Kf7" , "Nxc3" , "h4" ;
+        chon:nextHalfMove      :hmgamDHJ2Mzj .
+
+:gamsHMLd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsHMLdA ;
+        chon:atPlace           :plasHMLdA ;
+        chon:atTime            "2000.03.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsHMLdAg ;
+        chon:hasHalfMove       :hmgamDHJ2Mzj , :hmgamsHMLdAg ;
+        chon:hasLastHalfMove   :hmgamDHJ2Mzj ;
+        chon:hasOpening        :opesHMLdA ;
+        chon:hasReport         :cgrsHMLdA ;
+        chon:hasResult         :ressHMLdAg ;
+        chon:subEventOf        :tousHMLd .
+
+chon:HalfMove  chon:subEventOf  :gamsHMLd .
+
+:tousHMLd  a          chon:hessTournament ;
+        chon:atPlace  :plasHMLdA ;
+        chon:hasName  "Amber Rapidplay" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsHMLdA .
+
+:agsHMLdA  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Piket,Je" .
+
+:rolhgsHMLdAgv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsHMLdA .
+
+:opesHMLdA  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:hmgamsHMLdAg  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsHMLdAgv , chon:AgentRole , :rolhgDHJ2MzjJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Bb7" , "cxd5" , "d4" , "Nf3" , "b6" , "e6" , "a3" , "Nc3" , "Nxd5" , "d5" , "Nf6" , "c4" ;
+        chon:nextHalfMove      :hmgamDHJ2Mzj , :hmgamsHMLdAg .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resNR0F7J9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgeTjYtJXc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNR0F7J .
+
+:plaNR0F7J  a         chon:Place ;
+        chon:hasName  "Valjevo SRB" .
+
+:hmgameTjYtJX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeTjYtJXc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nikolic,Pr" ;
+        chon:hasSANRecord      "Bb6" , "h5" , "Bd2" , "Nd6+" , "cxb4" , "Kd3" , "Qb2" , "Kg8" , "Qe7" , "Ba5" , "Nd4" , "Bf8" , "Bc1" , "Kg3" , "Ne6" , "Kc2" , "Ne8" , "Bxe3" , "c6" , "Ba3" , "Nd2" , "Bc3" , "Bh6" , "Kf7" , "Kh7" , "h4" , "f3" , "Nxe8" , "Na5" , "Nf8" , "Kf2" , "Kh2" , "Qb3" , "f6" , "Qxc4" , "Ke6" , "Nf3" , "Qxd8" , "hxg6+" , "Be7" , "Qe8" , "Bc6" , "Nf5" , "Qc7" , "Nc6" , "Nb7" , "Nd7" , "Bd8" , "Ne7" , "Qd2" , "Bc4" , "Bxb4" , "g3" , "Rd8" , "Bb5" , "f4" , "Kf3" , "Nxc4" , "Rxd8" , "Bc5" , "Bb6+" , "Nh4" , "Qe6" , "Nb3" , "Ke2" , "Nc5" , "Kxg6" , "Bc7" , "Nd6" , "Rd1" , "g6" , "Nc7" , "Be3" , "c5" , "Nh2" , "Kc4" , "Nf1" , "Ng3" , "Bxc4" , "Qd5" , "Kxe3" , "Qxe8" ;
+        chon:nextHalfMove      :hmgameTjYtJX .
+
+:cgrNR0F7J  a   chon:ChessGameReport .
+
+:gamNR0F7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNR0F7J ;
+        chon:atPlace           :plaNR0F7J ;
+        chon:atTime            "2007.06.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNR0F7J9 ;
+        chon:hasHalfMove       :hmgamNR0F7J9 , :hmgameTjYtJX ;
+        chon:hasLastHalfMove   :hmgameTjYtJX ;
+        chon:hasOpening        :opeNR0F7J ;
+        chon:hasReport         :cgrNR0F7J ;
+        chon:hasResult         :resNR0F7J9 ;
+        chon:subEventOf        :touNR0F7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNR0F7J .
+
+chon:HalfMove  chon:subEventOf  :gamNR0F7 .
+
+:agNR0F7J  a          chon:Agent ;
+        chon:hasName  "Nikolic,Pr" , "Karpov,Ana" .
+
+:rolNR0F7J  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNR0F7J .
+
+:opeNR0F7J  a            chon:ChessOpening ;
+        chon:hasECOCode  "C88" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNR0F7J .
+
+:rolhgNR0F7J9N  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNR0F7J .
+
+:hmgamNR0F7J9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNR0F7J9N , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nikolic,Pr" ;
+        chon:hasSANRecord      "b5" , "Ba2" , "bxc4" , "Qd7" , "Ba4" , "dxe4" , "c4" , "Qb3" , "Bd2" , "Ne4" , "Nf1" , "Bxa8" , "Bb3" , "Bb5" , "Nd8" , "d3" , "h3" , "d5" , "Rxa8" , "Bd6" , "Nbd2" , "c3" , "Nf3" , "O-O" , "Bb7" , "Rd8" , "a6" , "Be7" , "Re8" , "Nc6" , "h6" , "a4" , "e4" , "Nf6" , "Nxd5" , "Re1" , "Ng3" , "Bf8" , "Nxe4" , "e5" , "exd5" , "axb5" , "b4" ;
+        chon:nextHalfMove      :hmgameTjYtJX , :hmgamNR0F7J9 .
+
+:touNR0F7  a          chon:hessTournament ;
+        chon:atPlace  :plaNR0F7J ;
+        chon:hasName  "Gorenje GM" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

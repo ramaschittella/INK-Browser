@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resm0sTpR9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgx0p8WQbd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agm0sTpR .
+
+:rolhgm0sTpR93  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agm0sTpR .
+
+:hmgamx0p8WQb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgx0p8WQbd ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jaatinen, Pertti" ;
+        chon:hasSANRecord      "Bb7" , "Bg7" , "g6" , "Bc2" , "Ra7" , "Qd2" , "e3" , "g3" , "Rc1" , "b4" , "Rb1" , "f6" , "a5" , "Na4" , "Bd3" , "Bh6" , "Nxf4" , "Bf4" , "exf4" , "Nbd7" , "Qc7" , "Qa5" , "O-O" , "h3" , "Nb6" , "Nh5" , "b6" , "bxc5" , "e5" ;
+        chon:nextHalfMove      :hmgamx0p8WQb .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agm0sTpR .
+
+chon:HalfMove  chon:subEventOf  :gamm0sTp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agm0sTpR .
+
+:plam0sTpR  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:hmgamm0sTpR9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgm0sTpR93 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jaatinen, Pertti" ;
+        chon:hasSANRecord      "a6" , "Nc3" , "c5" , "Nf3" , "c4" , "c6" , "d4" , "Nf6" , "d5" ;
+        chon:nextHalfMove      :hmgamm0sTpR9 , :hmgamx0p8WQb .
+
+:cgrm0sTpR  a   chon:ChessGameReport .
+
+:gamm0sTp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolm0sTpR ;
+        chon:atPlace           :plam0sTpR ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamm0sTpR9 ;
+        chon:hasHalfMove       :hmgamm0sTpR9 , :hmgamx0p8WQb ;
+        chon:hasLastHalfMove   :hmgamx0p8WQb ;
+        chon:hasOpening        :opem0sTpR ;
+        chon:hasReport         :cgrm0sTpR ;
+        chon:hasResult         :resm0sTpR9 ;
+        chon:subEventOf        :toum0sTp .
+
+:toum0sTp  a          chon:hessTournament ;
+        chon:atPlace  :plam0sTpR ;
+        chon:hasName  "Valkeakoski sim" .
+
+:agm0sTpR  a          chon:Agent ;
+        chon:hasName  "Jaatinen, Pertti" , "Karpov, Anatoly" .
+
+:rolm0sTpR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agm0sTpR .
+
+:opem0sTpR  a            chon:ChessOpening ;
+        chon:hasECOCode  "D15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

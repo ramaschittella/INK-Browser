@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:reshhlTiWt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhghhlTiWtl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghhlTiW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghhlTiW .
+
+:plahhlTiW  a         chon:Place ;
+        chon:hasName  "London" .
+
+chon:HalfMove  chon:subEventOf  :gamhhlTi .
+
+:cgrhhlTiW  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghhlTiW .
+
+:aghhlTiW  a          chon:Agent ;
+        chon:hasName  "Nunn, John DM" , "Karpov, Anatoly" .
+
+:rolhhlTiW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghhlTiW .
+
+:opehhlTiW  a            chon:ChessOpening ;
+        chon:hasECOCode  "C88" .
+
+:hmgamIjxdFYk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgIjxdFYkL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nunn, John DM" ;
+        chon:hasSANRecord      "Nd7" , "Bxe4" , "Re8" , "Bxf3" , "Kg2" , "gxf3" , "Qc8" , "b3" , "Ng3" , "Qc2" , "Nxb3" , "Qa2" , "Bxb3" , "Rb8" , "dxc4" , "Qxb3" ;
+        chon:nextHalfMove      :hmgamIjxdFYk .
+
+:rolhgIjxdFYkL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghhlTiW .
+
+:hmgamhhlTiWt  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghhlTiWtl , :rolhgIjxdFYkL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nunn, John DM" ;
+        chon:hasSANRecord      "O-O" , "c5" , "Nc3" , "Ba2" , "e4" , "Nc6" , "Ne2" , "Nf6" , "Be7" , "Nf3" , "c3" , "b5" , "Bb7" , "d6" , "a6" , "d3" , "Bb5" , "c4" , "Re1" , "a4" , "e5" , "Na5" , "b4" , "Bb3" , "Ba4" ;
+        chon:nextHalfMove      :hmgamhhlTiWt , :hmgamIjxdFYk .
+
+:gamhhlTi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhhlTiW ;
+        chon:atPlace           :plahhlTiW ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhhlTiWt ;
+        chon:hasHalfMove       :hmgamhhlTiWt , :hmgamIjxdFYk ;
+        chon:hasLastHalfMove   :hmgamIjxdFYk ;
+        chon:hasOpening        :opehhlTiW ;
+        chon:hasReport         :cgrhhlTiW ;
+        chon:hasResult         :reshhlTiWt ;
+        chon:subEventOf        :touhhlTi .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touhhlTi  a          chon:hessTournament ;
+        chon:atPlace  :plahhlTiW ;
+        chon:hasName  "London" .

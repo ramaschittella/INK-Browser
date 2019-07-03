@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr5YsIfi  a   chon:ChessGameReport .
+
+:tou5YsIf  a          chon:hessTournament ;
+        chon:atPlace  :plaSYxsGh ;
+        chon:hasName  "ch-Euro Blitz" .
+
+:ag5YsIfi  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Tkachiev,V" .
+
+:rol5YsIfi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5YsIfi .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5YsIfi .
+
+:hmgam5YsIfiA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5YsIfiAY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "cxd5" , "Nbc6" , "Qd7" , "Kh2" , "Bf8" , "Bb7" , "Be5" , "Qc2" , "Rxd5" , "Nf3" , "exd5" , "d5" , "f4" , "d4" , "Bd5" , "Nf5" , "Ne3" , "hxg6" , "e4" , "Bc1" , "b6" , "Kxf7" , "a3" , "Bb2" , "Nxg5" , "Rad8" , "e6" , "Rxd8" , "N4c6" , "Qc7" , "Kg8" , "Ne6" , "gxf7+" , "f5" , "Nb7" , "g3" , "Nxd4" , "Bd6" , "Rd8" , "b4" , "Nf6" , "Nc3" , "cxd4" , "Rd1" , "Qc7+" , "Ng5" , "Qb3" , "g6" , "fxg6" , "Qxd5+" , "h4" , "Be7" , "Qc8" , "d3" , "Ncd8" , "Ba6" , "c5" , "Bg2" , "Nb4" , "Nd4" , "Qxb5" , "O-O" , "hxg5" , "c4" , "Nxd5" , "Nxd8" , "b5" , "Na5" , "Bxd5" , "Kg2" ;
+        chon:nextHalfMove      :hmgam5YsIfiA .
+
+chon:HalfMove  chon:subEventOf  :gamSYxsG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5YsIfi .
+
+:res5YsIfiA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaSYxsGh  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .
+
+:ope5YsIfi  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:gamSYxsG  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5YsIfi ;
+        chon:atPlace           :plaSYxsGh ;
+        chon:atTime            "2007.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5YsIfiA ;
+        chon:hasHalfMove       :hmgam5YsIfiA ;
+        chon:hasLastHalfMove   :hmgam5YsIfiA ;
+        chon:hasOpening        :ope5YsIfi ;
+        chon:hasReport         :cgr5YsIfi ;
+        chon:hasResult         :res5YsIfiA ;
+        chon:subEventOf        :tou5YsIf .
+
+:rolhg5YsIfiAY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5YsIfi .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

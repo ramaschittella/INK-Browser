@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamBOxqn1j  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxMez8YBD , :rolhgBOxqn1jD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Reshevsky, Samuel Herman" ;
+        chon:hasSANRecord      "g6" , "Bb3" , "Nf6" , "Qa5" , "Qd3" , "bxc3" , "b6" , "Nxd4" , "d6" , "Qd2" , "Qd1" , "Nf3" , "Bf6" , "Qh4" , "Bxc3" , "Bc4" , "Be3" , "Ne5" , "Ng4" , "cxd4" , "Nc6" , "Nc3" , "Qxg4" , "Qg4" , "Rfd1" , "O-O" , "d4" , "Bg7" , "e4" , "c5" , "Ba6" ;
+        chon:nextHalfMove      :hmgamxMez8YB , :hmgamBOxqn1j .
+
+:plaBOxqn1  a         chon:Place ;
+        chon:hasName  "Los Angeles" .
+
+:cgrBOxqn1  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamBOxqn .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBOxqn1 .
+
+:agBOxqn1  a          chon:Agent ;
+        chon:hasName  "Reshevsky, Samuel Herman" , "Fischer, Robert James" .
+
+:rolBOxqn1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBOxqn1 .
+
+:resBOxqn1j  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeBOxqn1  a            chon:ChessOpening ;
+        chon:hasECOCode  "B35" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBOxqn1 .
+
+:gamBOxqn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBOxqn1 ;
+        chon:atPlace           :plaBOxqn1 ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBOxqn1j ;
+        chon:hasHalfMove       :hmgamBOxqn1j , :hmgamxMez8YB ;
+        chon:hasLastHalfMove   :hmgamxMez8YB ;
+        chon:hasOpening        :opeBOxqn1 ;
+        chon:hasReport         :cgrBOxqn1 ;
+        chon:hasResult         :resBOxqn1j ;
+        chon:subEventOf        :touBOxqn .
+
+:touBOxqn  a          chon:hessTournament ;
+        chon:atPlace  :plaBOxqn1 ;
+        chon:hasName  "New York/Los Angeles m" .
+
+:rolhgxMez8YBD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBOxqn1 .
+
+:hmgamxMez8YB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxMez8YBD , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Reshevsky, Samuel Herman" ;
+        chon:hasSANRecord      "Qh6" , "Rc6" , "e5" , "cxb3" , "cxd4" , "Bd4" , "Nxd4" , "Bxb3" , "Bc4" , "Re1" , "Rac8" , "Rad1" , "Nc6" , "Qxe5" , "dxe5" , "Qd2" ;
+        chon:nextHalfMove      :hmgamxMez8YB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgBOxqn1jD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBOxqn1 .

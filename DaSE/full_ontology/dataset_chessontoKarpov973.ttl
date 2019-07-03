@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agvkaQgX  a          chon:Agent ;
+        chon:hasName  "Miles, Anthony J" , "Karpov, Anatoly" .
+
+:rolvkaQgX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvkaQgX .
+
+:hmgamvkaQgXO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWmm9DZEU , :rolhgvkaQgXOt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "d5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamWmm9DZE , :hmgamvkaQgXO .
+
+:rolhgvkaQgXOt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvkaQgX .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvkaQgX .
+
+:rolhgWmm9DZEU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvkaQgX .
+
+chon:HalfMove  chon:subEventOf  :gamvkaQg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvkaQgX .
+
+:gamvkaQg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvkaQgX ;
+        chon:atPlace           :plavkaQgX ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvkaQgXO ;
+        chon:hasHalfMove       :hmgamvkaQgXO , :hmgamWmm9DZE ;
+        chon:hasLastHalfMove   :hmgamWmm9DZE ;
+        chon:hasOpening        :opevkaQgX ;
+        chon:hasReport         :cgrvkaQgX ;
+        chon:hasResult         :resvkaQgXO ;
+        chon:subEventOf        :touvkaQg .
+
+:opevkaQgX  a            chon:ChessOpening ;
+        chon:hasECOCode  "D07" .
+
+:touvkaQg  a          chon:hessTournament ;
+        chon:atPlace  :plavkaQgX ;
+        chon:hasName  "Bugojno" .
+
+:hmgamWmm9DZE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWmm9DZEU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "c4" , "Bd7" , "Kd2" , "Kb8" , "Nf6" , "Ng6" , "Nf2" , "Ne8" , "Nb3" , "Na4" , "h6" , "Nf4" , "O-O-O" , "Rh8" , "Ra1" , "Ne7" , "b6" , "axb6" , "Bd2" , "fxg5" , "Be4" , "gxf4" , "Ke3" , "gxf3" , "Bg2" , "Bxf5" , "e3" , "Kc8" , "Kd8" , "Kd4" , "Kd3" , "Rhg1" , "Ng4" , "Rc2" , "Bxf3" , "Rh2+" , "Nb4" , "Nc3" , "Na6" , "Bxd6" , "Bxe5" , "Ke7" , "Re7" , "d4" , "e6" , "dxe5" , "Kxc2" , "Kxd1" , "Qxd1+" , "Ke4" , "Rac1" , "Bg4" , "Nxe3+" , "Rxh3" , "Ba5" , "Bb5" , "Nd5" , "a4" , "Nc6" , "Be7" , "Nxf4" , "f5" , "e5" , "Rxc2" , "f4" , "Bxb2" , "Rexe3+" , "Nxd1+" , "cxd6" , "cxd5" , "Rd1" , "Nc5" , "Kg5" , "fxe3" , "Bc6" , "Kc1" , "Nf5" , "Rhg8" , "Qxd5" , "g6" , "g5" , "Bf6" , "Ned6" , "Kf6" , "Bd3" , "hxg5" , "Ke2" , "Ne5" , "Rd7" , "a5" , "h3" , "f6" , "Kxb2" , "Bb4" , "Qh5" ;
+        chon:nextHalfMove      :hmgamWmm9DZE .
+
+:plavkaQgX  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrvkaQgX  a   chon:ChessGameReport .
+
+:resvkaQgXO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

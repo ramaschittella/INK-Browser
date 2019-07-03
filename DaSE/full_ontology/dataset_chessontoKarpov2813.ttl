@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plapMA41J  a         chon:Place ;
+        chon:hasName  "Bucharest ROM" .
+
+:cgrpMA41J  a   chon:ChessGameReport .
+
+:agpMA41J  a          chon:Agent ;
+        chon:hasName  "Istratescu,A" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpMA41J .
+
+:rolpMA41J  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpMA41J .
+
+:opepMA41J  a            chon:ChessOpening ;
+        chon:hasECOCode  "E90" .
+
+chon:HalfMove  chon:subEventOf  :gampMA41 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpMA41J .
+
+:rolhgAKxhxI1H  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpMA41J .
+
+:hmgamAKxhxI1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgAKxhxI1H ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Istratescu,A" ;
+        chon:hasSANRecord      "Qc4" , "Qg7" , "h6" , "Ne6+" , "Nf2" , "Qa6" , "a6" , "Qxb7" , "Ra1+" , "Kg7" , "Rxa2" , "Ra2+" , "Nd3" , "Rxa6" , "Kxf8" , "Rgg6" , "Ke2" , "Kf7" , "Nxe5" , "Kf1" , "c5" , "Nxf8+" , "Nxf4" , "Rd6" , "Bf2" , "Qa7" , "Nxg6+" , "Reg6" , "Ra2" , "a5" , "Qc2" ;
+        chon:nextHalfMove      :hmgamAKxhxI1 .
+
+:respMA41JX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgpMA41JXw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpMA41J .
+
+:hmgampMA41JX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpMA41JXw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Istratescu,A" ;
+        chon:hasSANRecord      "Re6" , "b3" , "R6d3" , "Neg1" , "Qxa5" , "Bxd3+" , "Be3" , "Qg7" , "g4" , "Qc3" , "Bh4" , "Kh8" , "g5" , "c6" , "e4" , "Nf3" , "Qxg5" , "a5" , "dxe5" , "b7" , "Kf1" , "Qxd3" , "Qa4" , "f4" , "Ba6" , "hxg4" , "Qe8" , "Be2" , "Nc7" , "Nh3" , "Rd2" , "Bb5" , "Na6" , "Nb4" , "c4" , "c5" , "Rc1" , "Nc3" , "Rae8" , "Ne6" , "Nxg5" , "Bxg4" , "a4" , "Qh5" , "Rcd3" , "Ng5" , "Bc8" , "f3" , "Bf8" , "Rg8" , "cxb6" , "Nxe2+" , "Nxe2" , "d4" , "Nh5" , "Rc3" , "Nf6" , "Be1" , "Rd6" , "O-O" , "g6" , "Rd1" , "e5" , "Bg7" , "Nf4" , "Qf7" , "d6" , "a3" , "f5" , "h3" , "b6" , "Bd2" ;
+        chon:nextHalfMove      :hmgamAKxhxI1 , :hmgampMA41JX .
+
+:gampMA41  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpMA41J ;
+        chon:atPlace           :plapMA41J ;
+        chon:atTime            "2005.03.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampMA41JX ;
+        chon:hasHalfMove       :hmgamAKxhxI1 , :hmgampMA41JX ;
+        chon:hasLastHalfMove   :hmgamAKxhxI1 ;
+        chon:hasOpening        :opepMA41J ;
+        chon:hasReport         :cgrpMA41J ;
+        chon:hasResult         :respMA41JX ;
+        chon:subEventOf        :toupMA41 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toupMA41  a          chon:hessTournament ;
+        chon:atPlace  :plapMA41J ;
+        chon:hasName  "Match Rapid" .

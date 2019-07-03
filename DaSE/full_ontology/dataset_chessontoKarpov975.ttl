@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agOiKq7V  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Jussupow, Artur" .
+
+:rolOiKq7V  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOiKq7V .
+
+:opeOiKq7V  a            chon:ChessOpening ;
+        chon:hasECOCode  "D58" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOiKq7V .
+
+:gamOiKq7  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOiKq7V ;
+        chon:atPlace           :plaOiKq7V ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOiKq7Vd ;
+        chon:hasHalfMove       :hmgamOiKq7Vd ;
+        chon:hasLastHalfMove   :hmgamOiKq7Vd ;
+        chon:hasOpening        :opeOiKq7V ;
+        chon:hasReport         :cgrOiKq7V ;
+        chon:hasResult         :resOiKq7Vd ;
+        chon:subEventOf        :touOiKq7 .
+
+chon:HalfMove  chon:subEventOf  :gamOiKq7 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOiKq7V .
+
+:hmgamOiKq7Vd  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOiKq7VdQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e3" , "Qe8" , "b6" , "Nfe4" , "h6" , "Nbd7" , "Nf6" , "Nxf6" , "O-O" , "Bb7" , "Qe2" , "Rc1" , "Bg5" , "a4" , "Bf6" , "Qc7" , "dxc4" , "Be2" , "a6" , "Rfd1" , "Nc3" , "Be7" , "Qc2" , "e6" , "c4" , "Bxf6" , "c5" , "Nxe4" , "Rd6" , "Bg3" , "h3" , "Bxc4" , "Rd8" , "Nxd4" , "cxd4" , "Be5" , "Nc5" , "Nf3" , "Qb8" , "d4" , "Bh4" , "d5" ;
+        chon:nextHalfMove      :hmgamOiKq7Vd .
+
+:rolhgOiKq7VdQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOiKq7V .
+
+:touOiKq7  a          chon:hessTournament ;
+        chon:atPlace  :plaOiKq7V ;
+        chon:hasName  "Bugojno" .
+
+:resOiKq7Vd  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaOiKq7V  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrOiKq7V  a   chon:ChessGameReport .

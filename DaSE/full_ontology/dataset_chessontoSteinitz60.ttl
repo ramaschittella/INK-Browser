@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamufzqS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolufzqSW ;
+        chon:atPlace           :plaufzqSW ;
+        chon:atTime            "1863.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWhJIZXm ;
+        chon:hasHalfMove       :hmgam8fGWwWp , :hmgamWhJIZXm ;
+        chon:hasLastHalfMove   :hmgam8fGWwWp ;
+        chon:hasOpening        :opeufzqSW ;
+        chon:hasReport         :cgrufzqSW ;
+        chon:hasResult         :resufzqSWv ;
+        chon:subEventOf        :touufzqS .
+
+:touufzqS  a          chon:hessTournament ;
+        chon:atPlace  :plaufzqSW ;
+        chon:hasName  "London m-B6263" .
+
+:rolhg8fGWwWpL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agufzqSW .
+
+:rolhgWhJIZXmy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agufzqSW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agufzqSW .
+
+:hmgam8fGWwWp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8fGWwWpL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Deacon, Frederic" ;
+        chon:hasSANRecord      "Rac1" , "Nxf6+" , "Nxe1" , "Bxd6" , "Qxa3" , "Kf8" , "Nd5" , "Bxh2+" , "Nxc2" , "Qxb7" , "Rxe1+" , "gxf6" , "Kxh2" , "Qxc7" , "d6" , "d3" , "g3" , "Rfe1+" , "Nf6" , "Rd8" ;
+        chon:nextHalfMove      :hmgam8fGWwWp .
+
+chon:HalfMove  chon:subEventOf  :gamufzqS .
+
+:plaufzqSW  a         chon:Place ;
+        chon:hasName  "London" .
+
+:resufzqSWv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agufzqSW .
+
+:cgrufzqSW  a   chon:ChessGameReport .
+
+:hmgamWhJIZXm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWhJIZXmy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Deacon, Frederic" ;
+        chon:hasSANRecord      "Nc3" , "d5" , "exd5" , "O-O" , "Nf3" , "exd4" , "Qe7" , "Nc6" , "Ba3" , "Bc5" , "Qxf3" , "Bc4" , "e5" , "e4" , "d4" , "b4" , "Bg4" , "Nxb4" , "Bxf3" ;
+        chon:nextHalfMove      :hmgam8fGWwWp , :hmgamWhJIZXm .
+
+:agufzqSW  a          chon:Agent ;
+        chon:hasName  "Deacon, Frederic" , "Steinitz, William" .
+
+:rolufzqSW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agufzqSW .
+
+:opeufzqSW  a            chon:ChessOpening ;
+        chon:hasECOCode  "C51" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

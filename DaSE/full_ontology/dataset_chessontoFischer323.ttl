@@ -1,0 +1,62 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr3djTbc  a   chon:ChessGameReport .
+
+:tou3djTb  a          chon:hessTournament ;
+        chon:atPlace  :plaQfmFSd ;
+        chon:hasName  "New York/Los Angeles m" .
+
+:rol3djTbc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3djTbc .
+
+:hmgam3djTbcQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3djTbcQE , chon:AgentRole , :rolhgtftbwdH6 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "a3" , "g5" , "cxd4" , "Nxf6" , "Qf3" , "Rb2" , "Qh4" , "bxc3" , "d5" , "e5" , "Nf4" , "Ne7" , "Qxd3" , "Nc3" , "Bb4" , "O-O" , "Be3" , "Nh5" , "Rc8" , "f6" , "e3" , "f3" , "cxd5" , "Bg4" , "Kh8" , "Bg6" , "g4" , "Ne2" , "c5" , "Bxc3+" , "Nc6" , "exd5" , "d4" , "e4" , "f4" , "Bd3" , "Bh5" , "e6" , "Nf6" , "Ng6" , "gxf6" , "Ne8" , "Rb1" , "Bxd3" , "c4" , "b6" ;
+        chon:nextHalfMove      :hmgam3djTbcQ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3djTbc .
+
+chon:HalfMove  chon:subEventOf  :gamQfmFS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3djTbc .
+
+:rolhgtftbwdH6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3djTbc .
+
+:rolhg3djTbcQE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3djTbc .
+
+:res3djTbcQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamQfmFS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3djTbc ;
+        chon:atPlace           :plaQfmFSd ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3djTbcQ ;
+        chon:hasHalfMove       :hmgam3djTbcQ ;
+        chon:hasLastHalfMove   :hmgam3djTbcQ ;
+        chon:hasOpening        :ope3djTbc ;
+        chon:hasReport         :cgr3djTbc ;
+        chon:hasResult         :res3djTbcQ ;
+        chon:subEventOf        :tou3djTb .
+
+:ag3djTbc  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Reshevsky, Samuel Herman" .
+
+:ope3djTbc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E49" .
+
+:plaQfmFSd  a         chon:Place ;
+        chon:hasName  "Los Angeles" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

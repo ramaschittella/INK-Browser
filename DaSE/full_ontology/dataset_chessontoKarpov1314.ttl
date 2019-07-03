@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resmZ5MQqf  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plamZ5MQq  a         chon:Place ;
+        chon:hasName  "Seattle" .
+
+:hmgamxX21npi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxX21npi1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hjartarson, Johann" ;
+        chon:hasSANRecord      "Nxd4" , "Na2" , "b4" , "Kf8" , "Nb3" , "c5" , "Nxc1" , "Nc6" , "g3" , "Nfd5" , "Be5" , "Nc3" , "Kd7" , "exd4" , "Ncb3" , "Bb7" , "Nf5" , "Rc8" , "g5" , "Nce2" , "Ke2" , "Bxc5" , "a5" , "Be1" , "Bb5" , "Bd6" , "Bb3" , "h6" , "h4" , "f3" , "Bc3" , "Bc4" , "O-O" , "Nd2" , "b6" , "Ne7" , "Nd5" , "Rxd1" , "Qxd1" , "Rd8" , "Rfd8" , "Bc6" , "Bd2" , "Nd4" , "dxc5" , "Bxc4" , "Ke7" , "Nb4" , "Rac1" , "f6" , "Bxd4" , "h3" , "Be7" , "Rc1" , "Rxc1" , "Bc2" , "Kf1" ;
+        chon:nextHalfMove      :hmgamxX21npi .
+
+:gammZ5MQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolmZ5MQq ;
+        chon:atPlace           :plamZ5MQq ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammZ5MQqf ;
+        chon:hasHalfMove       :hmgamxX21npi , :hmgammZ5MQqf ;
+        chon:hasLastHalfMove   :hmgamxX21npi ;
+        chon:hasOpening        :opemZ5MQq ;
+        chon:hasReport         :cgrmZ5MQq ;
+        chon:hasResult         :resmZ5MQqf ;
+        chon:subEventOf        :toumZ5MQ .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmZ5MQq .
+
+chon:HalfMove  chon:subEventOf  :gammZ5MQ .
+
+:agmZ5MQq  a          chon:Agent ;
+        chon:hasName  "Hjartarson, Johann" , "Karpov, Anatoly" .
+
+:rolmZ5MQq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agmZ5MQq .
+
+:opemZ5MQq  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agmZ5MQq .
+
+:rolhgmZ5MQqfP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmZ5MQq .
+
+:hmgammZ5MQqf  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmZ5MQqfP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hjartarson, Johann" ;
+        chon:hasSANRecord      "e3" , "a6" , "c4" , "Nf3" , "Nf6" , "dxc4" , "d4" , "d5" , "Nc3" , "e6" , "a4" ;
+        chon:nextHalfMove      :hmgamxX21npi , :hmgammZ5MQqf .
+
+:toumZ5MQ  a          chon:hessTournament ;
+        chon:atPlace  :plamZ5MQq ;
+        chon:hasName  "Candidats qf1" .
+
+:rolhgxX21npi1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agmZ5MQq .
+
+:cgrmZ5MQq  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agTwzlAM  a          chon:Agent ;
+        chon:hasName  "Rubin, Sidney J" , "Fischer, Robert James" .
+
+:hmgam5wuz8Lt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5wuz8Ltm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rubin, Sidney J" ;
+        chon:hasSANRecord      "b5" , "Nxd7" , "Rxb5" , "Qxd7" , "Bb5" , "Nxe5" , "Bb7" , "Rec1" , "dxe5" , "Bxe5" , "d4" , "Qxb5" , "Nxb8" , "Rc3" , "Qd7" , "Kh7" , "Rfc8" , "Qa4" , "Bd4" , "Rab8" , "Nc6" , "Nxa4" , "Rb8" , "Rc7" , "Rxb8" , "Bc5" , "b4" , "Ba8" , "Qxa4" , "axb4" , "Ne5" , "Rc8+" , "Rac1" , "Rc8" ;
+        chon:nextHalfMove      :hmgam5wuz8Lt .
+
+:hmgamTwzlAMr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTwzlAMra , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rubin, Sidney J" ;
+        chon:hasSANRecord      "d5" , "Be3" , "Nf6" , "Nxb6" , "exd5" , "Nf3" , "h6" , "O-O" , "Na4" , "Re1" , "d4" , "Bf6" , "a3" , "cxb6" , "b6" , "Bd3" , "Nc3" , "e6" , "Qc7" , "Be7" , "a5" , "Nc6" , "cxd5" , "c6" , "c4" , "Nd7" , "e4" , "Qc2" , "c5" ;
+        chon:nextHalfMove      :hmgamTwzlAMr , :hmgam5wuz8Lt .
+
+:opeTwzlAM  a            chon:ChessOpening ;
+        chon:hasECOCode  "B14" .
+
+:rolhg5wuz8Ltm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTwzlAM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTwzlAM .
+
+:rolhgTwzlAMra  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTwzlAM .
+
+chon:HalfMove  chon:subEventOf  :gamTwzlA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTwzlAM .
+
+:resTwzlAMr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamTwzlA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTwzlAM ;
+        chon:atPlace           :plaTwzlAM ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTwzlAMr ;
+        chon:hasHalfMove       :hmgamTwzlAMr , :hmgam5wuz8Lt ;
+        chon:hasLastHalfMove   :hmgam5wuz8Lt ;
+        chon:hasOpening        :opeTwzlAM ;
+        chon:hasReport         :cgrTwzlAM ;
+        chon:hasResult         :resTwzlAMr ;
+        chon:subEventOf        :touTwzlA .
+
+:cgrTwzlAM  a   chon:ChessGameReport .
+
+:touTwzlA  a          chon:hessTournament ;
+        chon:atPlace  :plaTwzlAM ;
+        chon:hasName  "Davis sim" .
+
+:rolTwzlAM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTwzlAM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaTwzlAM  a         chon:Place ;
+        chon:hasName  "Davis" .

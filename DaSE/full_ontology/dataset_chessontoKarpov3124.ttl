@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrH6DW64  a   chon:ChessGameReport .
+
+:resH6DW64N  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamS4xaE3Q  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgS4xaE3QT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ghaem Maghami,E" ;
+        chon:hasSANRecord      "Bxd8" , "a4" , "e5" , "Kf2" , "Qf6" , "Bh4" , "Nc4" , "Nf4" , "Qd5" , "Qd6" , "Qc3" , "d3" , "Qd3" , "Be2" , "Rae8" , "b4" , "Qc5" , "Qe7" , "Rh4" , "Rh5" , "Qe4" , "Ng6" , "h6" , "Kh8" , "d2" , "Ne5" , "Rxd8" , "N4xe5" , "f6" , "Nd3" , "Rd8" , "b3" , "Kg1" , "h4" , "h5" , "dxe5" , "exf6" , "Bg3" , "Nb2" , "Rxg5" , "Qxf6" , "Nc6" , "d4" , "Kh2" , "g5" , "g6" ;
+        chon:nextHalfMove      :hmgamS4xaE3Q .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agH6DW64 .
+
+:plaH6DW64  a         chon:Place ;
+        chon:hasName  "Tehran IRI" .
+
+chon:HalfMove  chon:subEventOf  :gamH6DW6 .
+
+:gamH6DW6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolH6DW64 ;
+        chon:atPlace           :plaH6DW64 ;
+        chon:atTime            "2009.02.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamH6DW64N ;
+        chon:hasHalfMove       :hmgamS4xaE3Q , :hmgamH6DW64N ;
+        chon:hasLastHalfMove   :hmgamS4xaE3Q ;
+        chon:hasOpening        :opeH6DW64 ;
+        chon:hasReport         :cgrH6DW64 ;
+        chon:hasResult         :resH6DW64N ;
+        chon:subEventOf        :touH6DW6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agH6DW64 .
+
+:touH6DW6  a          chon:hessTournament ;
+        chon:atPlace  :plaH6DW64 ;
+        chon:hasName  "Mate of the King Blitz" .
+
+:rolhgH6DW64NF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agH6DW64 .
+
+:agH6DW64  a          chon:Agent ;
+        chon:hasName  "Ghaem Maghami,E" , "Karpov,Ana" .
+
+:rolH6DW64  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agH6DW64 .
+
+:opeH6DW64  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+:hmgamH6DW64N  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgS4xaE3QT , :rolhgH6DW64NF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ghaem Maghami,E" ;
+        chon:hasSANRecord      "e5" , "b5" , "c6" , "c4" , "Ne2" , "Nc3" , "Nb6" , "f3" , "e6" , "Qc2" , "Qd3" , "Bxc3+" , "Bb4" , "d5" , "d4" , "cxb5" , "Nd5" , "e4" , "a5" , "Bf4" , "Ba6" , "O-O" , "Qxc3" , "a3" , "Nf6" , "Qe3" ;
+        chon:nextHalfMove      :hmgamH6DW64N , :hmgamS4xaE3Q .
+
+:rolhgS4xaE3QT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agH6DW64 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

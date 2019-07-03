@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res9EtIB4v  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla9EtIB4  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgr9EtIB4  a   chon:ChessGameReport .
+
+:gam9EtIB  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9EtIB4 ;
+        chon:atPlace           :pla9EtIB4 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9EtIB4v ;
+        chon:hasHalfMove       :hmgam9EtIB4v ;
+        chon:hasLastHalfMove   :hmgam9EtIB4v ;
+        chon:hasOpening        :ope9EtIB4 ;
+        chon:hasReport         :cgr9EtIB4 ;
+        chon:hasResult         :res9EtIB4v ;
+        chon:subEventOf        :tou9EtIB .
+
+:tou9EtIB  a          chon:hessTournament ;
+        chon:atPlace  :pla9EtIB4 ;
+        chon:hasName  "URS-ch55" .
+
+:hmgam9EtIB4v  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9EtIB4vK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rhe1" , "O-O-O" , "Kc2" , "Bd2" , "Nc3" , "Be2" , "Ngf6" , "dxe4" , "Bg4" , "h3" , "Qxf3" , "Bxf3" , "g3" , "Qd5" , "d5" , "c6" , "Nxe4" , "Bc7" , "e6" , "Bd6" , "c3" , "e4" , "d4" , "Nxf6+" , "Nf3" , "Nd7" , "Nxf6" , "Rfd8" , "O-O" ;
+        chon:nextHalfMove      :hmgam9EtIB4v .
+
+:ag9EtIB4  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Sokolov, Andrei" .
+
+:rol9EtIB4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9EtIB4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9EtIB4 .
+
+chon:HalfMove  chon:subEventOf  :gam9EtIB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9EtIB4 .
+
+:rolhg9EtIB4vK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9EtIB4 .
+
+:ope9EtIB4  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

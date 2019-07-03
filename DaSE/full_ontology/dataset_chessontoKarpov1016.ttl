@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrGDPOmS  a   chon:ChessGameReport .
+
+:rolhg8FZ0HDWM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGDPOmS .
+
+:rolGDPOmS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGDPOmS .
+
+:hmgam8FZ0HDW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8FZ0HDWM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Bh6" , "Ne2" , "axb4" , "h5" , "b4" , "d6" , "h4" , "Rxa2" , "Nf6" , "Ba6" , "Qd3" , "Ra2" , "Bd2" , "Ra1" , "Kg2" , "g6" , "Ne8" , "a3" , "e5" , "Nb5" , "Bg7" , "Bc8" , "Ra8" , "Ng1" , "b3" , "d5" , "Ra7" , "Bd7" , "bxc5" , "Bb6" , "Bg4" , "Bxf6" , "Nd7" , "Qb8" , "Qd8" , "Rea1" , "Nc3" , "Qb7" , "Qd7" , "e4" , "h6" , "Qa6" , "Nh3" , "Rfe1" , "Bc5" , "Rad1" , "Ng7" , "Nf3" , "Nd2" , "c6" , "Rfb8" , "Kf1" , "Qxa7" , "Bxf3" , "c5" , "Bb4" , "Rxa7" ;
+        chon:nextHalfMove      :hmgam8FZ0HDW .
+
+:plaGDPOmS  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGDPOmS .
+
+:rolhgGDPOmS8m  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGDPOmS .
+
+chon:HalfMove  chon:subEventOf  :gamGDPOm .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGDPOmS .
+
+:agGDPOmS  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Karpov, Anatoly" .
+
+:gamGDPOm  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGDPOmS ;
+        chon:atPlace           :plaGDPOmS ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGDPOmS8 ;
+        chon:hasHalfMove       :hmgamGDPOmS8 , :hmgam8FZ0HDW ;
+        chon:hasLastHalfMove   :hmgam8FZ0HDW ;
+        chon:hasOpening        :opeGDPOmS ;
+        chon:hasReport         :cgrGDPOmS ;
+        chon:hasResult         :resGDPOmS8 ;
+        chon:subEventOf        :touGDPOm .
+
+:opeGDPOmS  a            chon:ChessOpening ;
+        chon:hasECOCode  "E16" .
+
+:touGDPOm  a          chon:hessTournament ;
+        chon:atPlace  :plaGDPOmS ;
+        chon:hasName  "Tilburg" .
+
+:resGDPOmS8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamGDPOmS8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg8FZ0HDWM , :rolhgGDPOmS8m , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "O-O" , "d4" , "b6" , "Nf3" , "Bb4+" , "Bg2" , "Bd2" , "Qc2" , "g3" , "Be7" , "Bg5" , "a5" , "e6" , "c4" , "Bb7" , "Nf6" ;
+        chon:nextHalfMove      :hmgam8FZ0HDW , :hmgamGDPOmS8 .

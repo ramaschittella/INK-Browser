@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamBqFvgqA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBqFvgqAt , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamMqBJPpD .
+
+:hmgamMqBJPpD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMqBJPpDE ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "g6" , "Kxf7" , "e5" , "g5" , "hxg6" , "Be8" , "h3" , "fxg6" , "d5" , "Rf8" , "Ng6" , "Nc6" , "Ne5" , "c6" , "Bd7" , "Nf3" , "Bxe5" , "Qb6" , "Nxe5" , "Bd2" , "Bc4" , "dxe4" , "g4" , "O-O" , "Bf4" , "Nfd7" , "Rf2" , "Nf6" , "d3" , "Nxf7" , "Rxf7" , "Qc7" , "Qe2" , "Nc3" , "Kh2" , "a4" , "bxc3" , "Bb5" , "Raf1" , "Bxc3" , "exd3" , "f5" , "Bb4" , "f4" , "h4" , "Kg8" , "Bf7" , "d6" , "Re8" , "Ne7" , "c4" , "Bxf7+" , "Qa5" ;
+        chon:nextHalfMove      :hmgamMqBJPpD .
+
+:gamBqFvg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBqFvgq ;
+        chon:atPlace           :plaBqFvgq ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBqFvgqA ;
+        chon:hasHalfMove       :hmgamBqFvgqA , :hmgamMqBJPpD ;
+        chon:hasLastHalfMove   :hmgamMqBJPpD ;
+        chon:hasOpening        :opeBqFvgq ;
+        chon:hasReport         :cgrBqFvgq ;
+        chon:hasResult         :resBqFvgqA ;
+        chon:subEventOf        :touBqFvg .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBqFvgq .
+
+:resBqFvgqA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touBqFvg  a          chon:hessTournament ;
+        chon:atPlace  :plaBqFvgq ;
+        chon:hasName  "Rostov on Don m" .
+
+chon:HalfMove  chon:subEventOf  :gamBqFvg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBqFvgq .
+
+:rolhgBqFvgqAt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBqFvgq .
+
+:plaBqFvgq  a         chon:Place ;
+        chon:hasName  "Rostov on Don" .
+
+:cgrBqFvgq  a   chon:ChessGameReport .
+
+:agBqFvgq  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Schiffers, Emanuel Stepanovich" .
+
+:rolBqFvgq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBqFvgq .
+
+:rolhgMqBJPpDE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBqFvgq .
+
+:opeBqFvgq  a            chon:ChessOpening ;
+        chon:hasECOCode  "C49" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

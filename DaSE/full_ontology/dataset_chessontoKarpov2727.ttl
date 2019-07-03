@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamQhKEj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQhKEjw ;
+        chon:atPlace           :plaQhKEjw ;
+        chon:atTime            "2003.05.08"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQhKEjwe ;
+        chon:hasHalfMove       :hmgamikUZFx4 , :hmgamQhKEjwe ;
+        chon:hasLastHalfMove   :hmgamikUZFx4 ;
+        chon:hasOpening        :opeQhKEjw ;
+        chon:hasReport         :cgrQhKEjw ;
+        chon:hasResult         :resQhKEjwe ;
+        chon:subEventOf        :touQhKEj .
+
+:touQhKEj  a          chon:hessTournament ;
+        chon:atPlace  :plaQhKEjw ;
+        chon:hasName  "TCh-ESP" .
+
+:resQhKEjwe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgikUZFx4T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQhKEjw .
+
+:hmgamikUZFx4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgikUZFx4T ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Korneev,O" ;
+        chon:hasSANRecord      "Ke5" , "Bxg2" , "Ne6" , "Bg4" , "Kh2" , "f6" , "Qd6" , "Bxe6" , "Ng5" , "Bf5" , "Ng3" , "gxh4" , "Qc1+" , "Qd7" , "Qc8" , "Qc7+" , "b6" , "Kxh4" , "d4" , "Nc3" , "f3" , "Ne2" , "Kd7" , "Kxe7" , "Kh3" , "Qc5" , "Kxf6" , "e4" , "Qe7" , "Bb7" , "Ke2" , "Qf5" , "Kg6" , "Qb6" , "Nxd4" , "Kf7" , "Kxh5" , "Kg7" , "Ba8" , "Kf2" , "Qa7" , "Qxe7+" , "Nd4" , "Kc6" , "Kc4" , "Qb8" , "Kxb6" , "Kc5" , "Kd3" , "Kf4" , "g5" , "Qxe6" , "Qe8" , "Nf5+" , "g6" , "h4" , "b5" , "Nf5" , "h5" ;
+        chon:nextHalfMove      :hmgamikUZFx4 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQhKEjw .
+
+chon:HalfMove  chon:subEventOf  :gamQhKEj .
+
+:hmgamQhKEjwe  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgikUZFx4T , :rolhgQhKEjwet ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Korneev,O" ;
+        chon:hasSANRecord      "Nc6" , "Nf6" , "Rb3" , "e6" , "Bc6" , "Be2" , "Ne4" , "Bxc5" , "Ne2" , "Rfc1" , "axb4" , "e3" , "c5" , "Qb1" , "Nxb1" , "Qc6" , "b3" , "Bxb2" , "Rab1" , "h6" , "Nxe5" , "dxc5" , "a5" , "Bd7" , "Nf3" , "Rc1" , "Rca8" , "Rxb1+" , "Rb1" , "Ba4" , "Qd6" , "Qe7" , "b6" , "Bg4" , "a3" , "Nc3" , "Bd3" , "Qe6" , "exd5" , "Ra3" , "h3" , "Nd4" , "Bb2" , "Rd1" , "Nbd2" , "O-O" , "c4" , "Qxb2" , "Qxb6" , "Rc5" , "Ra1" , "Rfc8" , "Be7" , "Bd6" , "Qd4" , "cxd5" , "b4" , "Ra4" , "Ne5" , "Rcc8" , "Ng3" , "Bxe5" , "d4" , "Rxa4" , "d5" ;
+        chon:nextHalfMove      :hmgamikUZFx4 , :hmgamQhKEjwe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQhKEjw .
+
+:plaQhKEjw  a         chon:Place ;
+        chon:hasName  "Lanzarote ESP" .
+
+:rolhgQhKEjwet  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQhKEjw .
+
+:cgrQhKEjw  a   chon:ChessGameReport .
+
+:agQhKEjw  a          chon:Agent ;
+        chon:hasName  "Korneev,O" , "Karpov,Ana" .
+
+:rolQhKEjw  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQhKEjw .
+
+:opeQhKEjw  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

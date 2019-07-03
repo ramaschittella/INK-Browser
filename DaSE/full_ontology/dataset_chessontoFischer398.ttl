@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamMGi5OoR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMGi5OoRV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qe2" , "Rc5" , "Qe3" , "Qe5" , "Rc8" , "cxd4" , "Nd4" , "Rxa2" , "Nf3" , "Nd5" , "Nd7" , "e4" , "Rc2" , "Ra4" , "Qc7" , "f6" , "Qxa7" , "O-O" , "Qxd5" , "Qd2" , "Rxc4" , "Qe4" , "Bb5" , "b3" , "c5" , "Qxg5" , "Nc3" , "Ne4" , "Nc6" , "Qb3" , "Nf6" , "Bxd4" , "Bg5" , "Kg7" , "Rc1" , "Bg7" , "Bxd5" , "Qxe7+" , "exd5" , "Qxc4" , "g6" , "Qe1" , "Rc4" , "bxc4" , "Qd3" , "Rf1" , "Rd1" , "Qc3+" , "Bd7" , "b5" , "Nc5" , "c4" , "Kh6" , "f4" , "d4" , "Bxc6" , "d6" , "h3" , "Qb7" , "Nxg5" , "Qxd4" ;
+        chon:nextHalfMove      :hmgameIupbpG , :hmgamMGi5OoR .
+
+:opeMGi5Oo  a            chon:ChessOpening ;
+        chon:hasECOCode  "B53" .
+
+:hmgameIupbpG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeIupbpGl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qxf6+" , "Qf8+" , "Kxh3" , "Qd8+" , "Kh5" , "Qc8+" , "Kxg4" , "Kh4" , "g4+" , "Qc3+" ;
+        chon:nextHalfMove      :hmgameIupbpG .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMGi5Oo .
+
+:resMGi5OoR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgMGi5OoRV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMGi5Oo .
+
+chon:HalfMove  chon:subEventOf  :gamBGlRh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMGi5Oo .
+
+:plaBGlRhp  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+:rolhgeIupbpGl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMGi5Oo .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrMGi5Oo  a   chon:ChessGameReport .
+
+:agMGi5Oo  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Blau, Max" .
+
+:gamBGlRh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBGlRhp ;
+        chon:atPlace           :plaBGlRhp ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMGi5OoR ;
+        chon:hasHalfMove       :hmgameIupbpG , :hmgamMGi5OoR ;
+        chon:hasLastHalfMove   :hmgameIupbpG ;
+        chon:hasOpening        :opeMGi5Oo ;
+        chon:hasReport         :cgrMGi5Oo ;
+        chon:hasResult         :resMGi5OoR ;
+        chon:subEventOf        :touBGlRh .
+
+:touBGlRh  a          chon:hessTournament ;
+        chon:atPlace  :plaBGlRhp ;
+        chon:hasName  "Varna olm" .
+
+:rolBGlRhp  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolMGi5Oo  a             chon:AuthorRole ;
+        chon:performedBy  :agMGi5Oo .

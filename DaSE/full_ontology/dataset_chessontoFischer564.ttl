@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgNazngSDr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNazngS .
+
+:gamBaS0J  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNazngS ;
+        chon:atPlace           :plaNazngS ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNazngSD ;
+        chon:hasHalfMove       :hmgamNazngSD , :hmgamecJHDSs ;
+        chon:hasLastHalfMove   :hmgamecJHDSs ;
+        chon:hasOpening        :opeNazngS ;
+        chon:hasReport         :cgrNazngS ;
+        chon:hasResult         :resNazngSD ;
+        chon:subEventOf        :touNazng .
+
+:agNazngS  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Bandal, R." .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNazngS .
+
+:opeNazngS  a            chon:ChessOpening ;
+        chon:hasECOCode  "A60" .
+
+chon:HalfMove  chon:subEventOf  :gamBaS0J .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNazngS .
+
+:hmgamNazngSD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNazngSDr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bf4" , "Kc7" , "Bxe7" , "c5" , "b5" , "Kb6" , "Rc2" , "Ke2" , "e3" , "Nc3" , "d6" , "a6" , "Bf6" , "Ne4" , "bxa3" , "Bf3" , "Nxd5" , "b4" , "Ng5" , "dxc4+" , "O-O-O" , "h6" , "d5" , "Rac1" , "Kd2" , "Nd1" , "Rd8+" , "Be2" , "Ke1" , "Nb4" , "a3" , "Nf6" , "Rhd1" , "exd5" , "Qe7" , "c4" , "Kxd1" , "Ne5" , "Qe4" , "Kc1" , "Qxe7+" , "Bxe5" , "Be6" , "Rxd1" , "e6" , "Nc6" , "d4" , "Qxd5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamNazngSD , :hmgamecJHDSs .
+
+:plaNazngS  a         chon:Place ;
+        chon:hasName  "Meralco" .
+
+:hmgamecJHDSs  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgecJHDSsP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "bxa3" , "a4" , "c2" , "f4" , "c4" , "Bg6" , "Kxa3" , "Bd5" , "Ka5" , "Bxf7" , "Ra2" , "Bxb2+" , "Rd3" , "Nb2" , "e5" , "Bb1" , "a3" , "a5" , "Ka4" , "Bb3" , "Bxd3" , "Be2" , "Bxa2" , "Be4" , "c3" , "Kb4" , "Rxb2+" , "a2" , "e4" , "Bxc2" , "c3+" , "Kb2" ;
+        chon:nextHalfMove      :hmgamecJHDSs .
+
+:cgrNazngS  a   chon:ChessGameReport .
+
+:touNazng  a          chon:hessTournament ;
+        chon:atPlace  :plaNazngS ;
+        chon:hasName  "Meralco" .
+
+:rolhgecJHDSsP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNazngS .
+
+:resNazngSD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolNazngS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNazngS .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaSlg0Pu  a         chon:Place ;
+        chon:hasName  "Groningen" .
+
+:cgrSlg0Pu  a   chon:ChessGameReport .
+
+:rolhgvlpHLwzX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSlg0Pu .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSlg0Pu .
+
+chon:HalfMove  chon:subEventOf  :gamSlg0P .
+
+:agSlg0Pu  a          chon:Agent ;
+        chon:hasName  "Adorjan, Andras" , "Karpov, Anatoly" .
+
+:rolSlg0Pu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSlg0Pu .
+
+:touSlg0P  a          chon:hessTournament ;
+        chon:atPlace  :plaSlg0Pu ;
+        chon:hasName  "EU-ch U18 f-A 6768" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSlg0Pu .
+
+:hmgamvlpHLwz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvlpHLwzX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Adorjan, Andras" ;
+        chon:hasSANRecord      "Rad8" , "f4" , "b6" , "f6" , "O-O" , "Rf2" , "Raf1" , "Qd7" ;
+        chon:nextHalfMove      :hmgamvlpHLwz .
+
+:rolhg5ldnotKx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSlg0Pu .
+
+:hmgam5ldnotK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvlpHLwzX , :rolhg5ldnotKx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Adorjan, Andras" ;
+        chon:hasSANRecord      "c5" , "g3" , "Bg2" , "e5" , "Bg5" , "Nc3" , "g6" , "Nxe7+" , "Bxg7" , "O-O" , "Nge2" , "Be6" , "Nd5" , "Kxg7" , "h6" , "Qd2" , "Bg7" , "Nge7" , "d6" , "Bf6" , "e4" , "Nc6" , "Nxe7" , "d3" ;
+        chon:nextHalfMove      :hmgamvlpHLwz , :hmgam5ldnotK .
+
+:resSlg0PuF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:opeSlg0Pu  a            chon:ChessOpening ;
+        chon:hasECOCode  "B25" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamSlg0P  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSlg0Pu ;
+        chon:atPlace           :plaSlg0Pu ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5ldnotK ;
+        chon:hasHalfMove       :hmgamvlpHLwz , :hmgam5ldnotK ;
+        chon:hasLastHalfMove   :hmgamvlpHLwz ;
+        chon:hasOpening        :opeSlg0Pu ;
+        chon:hasReport         :cgrSlg0Pu ;
+        chon:hasResult         :resSlg0PuF ;
+        chon:subEventOf        :touSlg0P .

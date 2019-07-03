@@ -1,0 +1,97 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaqIBl9t  a         chon:Place ;
+        chon:hasName  "Madrid" .
+
+:rolSIxzIs  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSIxzIs .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSIxzIs .
+
+:rolhgSIxzIsT4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSIxzIs .
+
+:rolhgfIE6BuNF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSIxzIs .
+
+chon:HalfMove  chon:subEventOf  :gamqIBl9 .
+
+:rolhg4JIR3tIt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSIxzIs .
+
+:hmgamdXiUNAl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoXc9mzoA , chon:AgentRole ;
+        chon:hasSANRecord      "Rc5" ;
+        chon:nextHalfMove      :hmgamoXc9mzo .
+
+:resSIxzIsT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamoXc9mzo  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgoXc9mzoA ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Browne, Walter S" ;
+        chon:hasSANRecord      "Kf5" , "Rb2" , "Ra4" , "Kg4" , "Re1" , "Rb3" , "Rd4" , "Rc6" , "Rb4+" , "Ra3" , "Rb3+" , "g5" , "Kg3" , "Ra1" , "Rb4" , "Ra4+" , "Rd6" , "f3" , "Kf4" , "f4" ;
+        chon:nextHalfMove      :hmgamoXc9mzo .
+
+:hmgamSIxzIsT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSIxzIsT4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Browne, Walter S" ;
+        chon:hasSANRecord      "Bg7" , "Nf3" , "Be2" , "Bf4" , "O-O" , "a4" , "Na6" , "d6" , "d4" , "Nc7" , "Nf6" , "e4" , "d5" , "c5" , "g6" , "Nc3" ;
+        chon:nextHalfMove      :hmgam4JIR3tI , :hmgamSIxzIsT .
+
+:agSIxzIs  a          chon:Agent ;
+        chon:hasName  "Browne, Walter S" , "Karpov, Anatoly" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touSIxzI  a          chon:hessTournament ;
+        chon:atPlace  :plaqIBl9t ;
+        chon:hasName  "Madrid" .
+
+:gamqIBl9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSIxzIs ;
+        chon:atPlace           :plaqIBl9t ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSIxzIsT ;
+        chon:hasHalfMove       :hmgam4JIR3tI , :hmgamoXc9mzo , :hmgamSIxzIsT , :hmgamfIE6BuN , :hmgamdXiUNAl ;
+        chon:hasLastHalfMove   :hmgamoXc9mzo ;
+        chon:hasOpening        :opeSIxzIs ;
+        chon:hasReport         :cgrSIxzIs ;
+        chon:hasResult         :resSIxzIsT ;
+        chon:subEventOf        :touSIxzI .
+
+:hmgamfIE6BuN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdXiUNAlo , chon:AgentRole , :rolhgfIE6BuNF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Browne, Walter S" ;
+        chon:hasSANRecord      "Nxd5" , "Rxb5" , "Rc5" , "Rxc2" , "c2" , "Rxb4" , "Kg3" , "Kg7" , "Rf5" , "Rxd5" , "Rb2" , "c3" ;
+        chon:nextHalfMove      :hmgamdXiUNAl , :hmgamfIE6BuN .
+
+:cgrSIxzIs  a   chon:ChessGameReport .
+
+:hmgam4JIR3tI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4JIR3tIt , :rolhgfIE6BuNF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Browne, Walter S" ;
+        chon:hasSANRecord      "Bg4" , "Nfxd5" , "Kxg7" , "c4" , "Qxb6" , "Nxb6" , "exd5" , "Kf8" , "Re5" , "b4" , "g4" , "e6" , "Ra7" , "Nd7" , "Qb6" , "Bg2" , "b5" , "Kh2" , "Na4" , "Nxd5" , "Be2" , "Qd4" , "Qd2" , "h3" , "Re2" , "Rfa1" , "Rxd6" , "h5" , "Rb8" , "Kg2" , "Rg5" , "hxg4" , "Rd7" , "Ne3" , "Nd1" , "Ra8" , "Bf3" , "Rxc2" , "Bxg7" , "Rxg6+" , "Qb8" , "Nf6" , "Re8" , "Re1+" , "a6" , "g3" , "Kg8" , "Rxa7" , "Nc3" , "axb5" , "Bd5" , "Bxf3" , "Bh6" ;
+        chon:nextHalfMove      :hmgamfIE6BuN , :hmgam4JIR3tI .
+
+:rolhgoXc9mzoA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSIxzIs .
+
+:opeSIxzIs  a            chon:ChessOpening ;
+        chon:hasECOCode  "A43" .
+
+:rolhgdXiUNAlo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSIxzIs .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSIxzIs .

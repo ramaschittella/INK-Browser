@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res828169M  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:pla828169  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:gam82816  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol828169 ;
+        chon:atPlace           :pla828169 ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam828169M ;
+        chon:hasHalfMove       :hmgam828169M , :hmgamj24dSaO ;
+        chon:hasLastHalfMove   :hmgamj24dSaO ;
+        chon:hasOpening        :ope828169 ;
+        chon:hasReport         :cgr828169 ;
+        chon:hasResult         :res828169M ;
+        chon:subEventOf        :tou82816 .
+
+:cgr828169  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag828169 .
+
+:rol828169  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag828169 .
+
+:hmgamj24dSaO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgj24dSaO2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxa4" , "Qd5" , "Qxb3" , "Nf5" , "Rb2" , "Qa3+" , "axb3" , "Qxd3" , "Qg6+" , "Kg3" , "Qe2+" , "Qe1+" , "Kg2" , "Kxg2" , "Rd7" , "Qc6+" , "Nxf5" , "Rb1" , "Qxd5+" , "Qxg3" , "Qd3" , "Kh2" , "Rd3" , "Rc3" , "Qxe7" , "Qg8" , "exf5" , "Kh8" , "Re7" , "a4" , "Kh7" , "Qf7" , "Kg1" , "Qb3+" , "Rxg2+" , "Rxb2" , "h6" , "Qb2+" , "Bxg3+" , "Qd2+" , "Be5" , "Qc7+" , "Kh1" , "Qd5+" ;
+        chon:nextHalfMove      :hmgamj24dSaO .
+
+chon:HalfMove  chon:subEventOf  :gam82816 .
+
+:rolhgj24dSaO2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag828169 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag828169 .
+
+:rolhg828169MO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag828169 .
+
+:tou82816  a          chon:hessTournament ;
+        chon:atPlace  :pla828169 ;
+        chon:hasName  "Reykjavik rapid" .
+
+:ag828169  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Petursson, Margeir" .
+
+:hmgam828169M  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg828169MO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ra6" , "f3" , "Qd2" , "Rfb8" , "Bc7" , "Nd2" , "d6" , "Bf7" , "Bf5" , "c6" , "Nxd5" , "c4" , "Nf6" , "O-O" , "cxd5" , "d4" , "f6" , "Bb4" , "a5" , "exd5" , "e4" , "Qa7" , "dxc6" , "Qb3" , "e3" , "b3" , "Qc2" , "Ra1" , "Rxc1" , "Qd7" , "d5" , "Bc5" , "Bg4" , "Nc4" , "h3" , "Nc3" , "Nh4" , "Qb8" , "fxe4" , "Ne7" , "d3" , "Qc3" , "Nd5" , "exd4" , "Bb2" , "Rxb3" , "a3" , "bxc6" , "Nc6" , "Rac1" , "Bd6" , "Bh5" , "Be6" , "Be4" , "g3" , "Bg2" , "Bb6" , "Kh2" , "Nf3" , "e5" , "Rc6" ;
+        chon:nextHalfMove      :hmgam828169M , :hmgamj24dSaO .
+
+:ope828169  a            chon:ChessOpening ;
+        chon:hasECOCode  "A29" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

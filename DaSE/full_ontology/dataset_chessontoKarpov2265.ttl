@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaX9hSyk  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:cgrX9hSyk  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agX9hSyk .
+
+:rolX9hSyk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agX9hSyk .
+
+chon:HalfMove  chon:subEventOf  :gamX9hSy .
+
+:gamX9hSy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolX9hSyk ;
+        chon:atPlace           :plaX9hSyk ;
+        chon:atTime            "1998.01.19"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam99e99kc ;
+        chon:hasHalfMove       :hmgam99e99kc ;
+        chon:hasLastHalfMove   :hmgam99e99kc ;
+        chon:hasOpening        :opeX9hSyk ;
+        chon:hasReport         :cgrX9hSyk ;
+        chon:hasResult         :resX9hSyk8 ;
+        chon:subEventOf        :touX9hSy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agX9hSyk .
+
+:touX9hSy  a          chon:hessTournament ;
+        chon:atPlace  :plaX9hSyk ;
+        chon:hasName  "Hoogovens Blitz" .
+
+:resX9hSyk8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgam99e99kc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg99e99kcP , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ng5" , "Ka1" , "c6" , "c5" , "Bf4+" , "Be5" , "Nxe4" , "Nxc5" , "h4" , "Qf5" , "Qc7" , "Kb1" , "Rc1+" , "b6" , "dxe4" , "Rhe1" , "Qc1+" , "Nd2" , "Rxd3" , "Bd2" , "Qc4+" , "Qc2+" , "g5" , "e5" , "Nc3" , "Nd7" , "Rc8" , "Qd6+" , "d4" , "N1f3" , "Qxf4" , "Bxf4" , "Rxc8+" , "Qd8" , "Qd7" , "Qc3+" , "Be6+" , "h6" , "Bd6" , "Qe2" , "e6" , "b3" , "dxc5" , "Rd8" , "Ne4" , "O-O-O" , "gxf4" , "Kb7" , "Ka2" , "Bb7" , "a3" , "Ngf6" , "cxd3" , "d5" , "Qh3" , "Qxh6" , "Qf1+" , "Bxc8" , "Bd3" , "Qh4" , "Nxd3+" , "Qxd3+" , "Kb8" , "Qxe4" , "e4" , "Bc3" , "Qg4" , "Qe4" ;
+        chon:nextHalfMove      :hmgam99e99kc .
+
+:agX9hSyk  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Shirov, Alexei" .
+
+:opeX9hSyk  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg99e99kcP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agX9hSyk .

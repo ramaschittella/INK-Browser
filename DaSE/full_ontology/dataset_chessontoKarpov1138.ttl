@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plalOHtAb  a         chon:Place ;
+        chon:hasName  "Belfort" .
+
+:hmgamwODH0aN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwODH0aN2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ehlvest, Jaan" ;
+        chon:hasSANRecord      "h6" , "Kxf7" , "g4" , "Rxb7" , "Rd7" , "Rxg4" , "Nfd7" , "Rd3" , "e6" , "Qd8" , "Rb5" , "Ka6" , "Rxf2" , "e4" , "Rfd8" , "Rad1" , "Kd8" , "Rg5+" , "Kg3" , "Nxd8" , "Kc6" , "c5" , "Kh2" , "Bg4" , "Re2" , "b3" , "Nc6" , "Nc3" , "R1xe5" , "Kc5" , "h5" , "Rc7" , "O-O" , "c4" , "Rxe6" , "Rxb6" , "Bxe6" , "Qxd8" , "Kf4" , "Rc3+" , "Rf3" , "Qxe7" , "Rd1+" , "Ne5" , "Re1" , "Rg2" , "d5" , "dxc4" , "Kc8" , "Ke5" , "Ka5" , "Nxe5" , "e5" , "Re7" , "g6" , "exd5" , "hxg4" , "a3" , "Nb6" , "Bxc4" , "Bg5" , "Rxc5" , "Rb6" , "Rxf7" , "Ke7" , "Rde1" , "Kd5" , "Rg6" , "Nxd5" , "Kb6" , "Kc7" , "Rf8" , "Nf3" , "Nxb6" , "Rb3" , "h3" , "fxe6" , "axb6" , "Bxe7" , "b4" , "Rdd2" , "Be7" , "Kb8" , "Nf6" , "Rf7" ;
+        chon:nextHalfMove      :hmgamwODH0aN .
+
+:reslOHtAbK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opelOHtAb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D24" .
+
+:aglOHtAb  a          chon:Agent ;
+        chon:hasName  "Ehlvest, Jaan" , "Karpov, Anatoly" .
+
+:gamlOHtA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollOHtAb ;
+        chon:atPlace           :plalOHtAb ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlOHtAbK ;
+        chon:hasHalfMove       :hmgamlOHtAbK , :hmgamwODH0aN ;
+        chon:hasLastHalfMove   :hmgamwODH0aN ;
+        chon:hasOpening        :opelOHtAb ;
+        chon:hasReport         :cgrlOHtAb ;
+        chon:hasResult         :reslOHtAbK ;
+        chon:subEventOf        :toulOHtA .
+
+:rollOHtAb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aglOHtAb .
+
+:toulOHtA  a          chon:hessTournament ;
+        chon:atPlace  :plalOHtAb ;
+        chon:hasName  "World Cup" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglOHtAb .
+
+chon:HalfMove  chon:subEventOf  :gamlOHtA .
+
+:rolhglOHtAbKO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglOHtAb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglOHtAb .
+
+:rolhgwODH0aN2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglOHtAb .
+
+:cgrlOHtAb  a   chon:ChessGameReport .
+
+:hmgamlOHtAbK  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhglOHtAbKO , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamwODH0aN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

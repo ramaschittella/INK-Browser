@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opekBpE8w  a            chon:ChessOpening ;
+        chon:hasECOCode  "E60" .
+
+:rolhgkBpE8w1w  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkBpE8w .
+
+:hmgamwzmSEx4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwzmSEx4J , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Markowski, Tomasz" ;
+        chon:hasSANRecord      "Nxb4" , "Nb4" , "Bb5" , "Nd3" , "Bd7" , "Qb6" , "cxb4" ;
+        chon:nextHalfMove      :hmgamwzmSEx4 .
+
+:reskBpE8w1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkBpE8w .
+
+:plakBpE8w  a         chon:Place ;
+        chon:hasName  "Polanica Zdroj" .
+
+chon:HalfMove  chon:subEventOf  :gamkBpE8 .
+
+:cgrkBpE8w  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkBpE8w .
+
+:hmgamkBpE8w1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwzmSEx4J , :rolhgkBpE8w1w ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Markowski, Tomasz" ;
+        chon:hasSANRecord      "Qd2" , "Kxg7" , "b4" , "Na3" , "a5" , "Bg2" , "Nc7" , "Nfd2" , "Nf3" , "Qc3+" , "Rxa5" , "c6" , "Nxb3" , "Bd2" , "d4" , "b5" , "Bxb5" , "Nb3" , "Nf6" , "d5" , "Bxg7" , "Na5" , "Qc2" , "Ne8" , "Bg7" , "Rea1" , "Nxd5" , "Bc3" , "Nc6" , "O-O" , "g3" , "Kg8" , "c5" , "g6" , "Rb8" , "Bd7" , "Nc2" , "cxb5" , "c4" , "axb3" , "d6" , "Rfe1" ;
+        chon:nextHalfMove      :hmgamwzmSEx4 , :hmgamkBpE8w1 .
+
+:agkBpE8w  a          chon:Agent ;
+        chon:hasName  "Markowski, Tomasz" , "Karpov, Anatoly" .
+
+:rolkBpE8w  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkBpE8w .
+
+:rolhgwzmSEx4J  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkBpE8w .
+
+:gamkBpE8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkBpE8w ;
+        chon:atPlace           :plakBpE8w ;
+        chon:atTime            "1998.08.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkBpE8w1 ;
+        chon:hasHalfMove       :hmgamkBpE8w1 , :hmgamwzmSEx4 ;
+        chon:hasLastHalfMove   :hmgamwzmSEx4 ;
+        chon:hasOpening        :opekBpE8w ;
+        chon:hasReport         :cgrkBpE8w ;
+        chon:hasResult         :reskBpE8w1 ;
+        chon:subEventOf        :toukBpE8 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toukBpE8  a          chon:hessTournament ;
+        chon:atPlace  :plakBpE8w ;
+        chon:hasName  "Rubinstein mem 35th" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrRHiLRn  a   chon:ChessGameReport .
+
+:agRHiLRn  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Saidy, Anthony Fred" .
+
+:rolRHiLRn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRHiLRn .
+
+:opeRHiLRn  a            chon:ChessOpening ;
+        chon:hasECOCode  "E45" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRHiLRn .
+
+chon:HalfMove  chon:subEventOf  :gamRHiLR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRHiLRn .
+
+:hmgamRHiLRnw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRHiLRnwZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Be4" , "cxd6" , "Bd2" , "f6" , "g5" , "Ra7" , "e4" , "f3" , "h6" , "Rxb6" , "Ne2" , "Nxe5" , "g4" , "Re1" , "Rxe8+" , "Rxh4" , "Ba6" , "O-O" , "Kd2" , "Ra3" , "Re2+" , "d5" , "Re7" , "axb6" , "f5" , "Bb4" , "e3" , "Nbd7" , "Nf6" , "Bxc4" , "Re3" , "h5" , "Rb7" , "Bb7" , "g3" , "e6" , "Nxd2" , "Kxd2" , "Rxf2" , "Kd1" , "d4" , "bxc3" , "Qxe8+" , "Nd5" , "exf5" , "a5" , "Nxc4+" , "Qf3" , "Nc3" , "Rb3" , "Rxh2" , "f4" , "Bxc3+" , "Qxd5" , "Nf5" , "b6" , "gxh4" , "Kf7" , "a4" , "h4" , "Rh7" , "Qxd8" , "d6" , "e5" , "dxc4" , "Re8" , "Bg5" , "Kc1" , "Ng3" , "c4" ;
+        chon:nextHalfMove      :hmgamRHiLRnw .
+
+:gamRHiLR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRHiLRn ;
+        chon:atPlace           :plaRHiLRn ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRHiLRnw ;
+        chon:hasHalfMove       :hmgamRHiLRnw ;
+        chon:hasLastHalfMove   :hmgamRHiLRnw ;
+        chon:hasOpening        :opeRHiLRn ;
+        chon:hasReport         :cgrRHiLRn ;
+        chon:hasResult         :resRHiLRnw ;
+        chon:subEventOf        :touRHiLR .
+
+:touRHiLR  a          chon:hessTournament ;
+        chon:atPlace  :plaRHiLRn ;
+        chon:hasName  "USA-ch" .
+
+:rolhgRHiLRnwZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRHiLRn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resRHiLRnw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaRHiLRn  a         chon:Place ;
+        chon:hasName  "New York" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag14LJSv  a          chon:Agent ;
+        chon:hasName  "Karjakin,Sergey" , "Karpov,Ana" .
+
+:ope14LJSv  a            chon:ChessOpening ;
+        chon:hasECOCode  "D11" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag14LJSv .
+
+:hmgam14LJSvz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg14LJSvzZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karjakin,Sergey" ;
+        chon:hasSANRecord      "Nc6" , "Be4" , "Ne3" , "Nxe3" , "e6" , "g3" , "Bb2" , "Kf8" , "Qb8" , "b4" , "Bd3" , "h5" , "Kd1" , "Qxc6" , "c6" , "Rxc6" , "Bd6" , "Nc3" , "Kb7" , "Nb8" , "e3" , "Rc8" , "Kd8" , "f5" , "Ne1+" , "a6" , "Bc5" , "d5" , "Be2" , "Nd2" , "Nbd7" , "Nf3" , "Ke7" , "Ne4" , "h3" , "g4" , "Nf6" , "b5" , "Bd4" , "Nc1" , "dxe5" , "Rc6" , "Nd3" , "f3" , "Ne5" , "g5" , "Qe2" , "c4" , "O-O" , "Nh4" , "Qc2" , "Bxd3" , "Bf5" , "Qb7" , "b3" , "a4" , "dxe3" , "h4" , "Bxe5" , "Ng6" , "Nc2" , "Qxd3" , "Ke2" , "Kd3" , "Qxc8" , "Nf1" , "f4" , "Kxc8" , "a5" , "Nd7" , "Bg4" , "Qc6" , "Rc1" , "cxd5" , "Na2" , "Nf8" , "Kc2" , "d4" , "Rxc8+" , "Kf1" ;
+        chon:nextHalfMove      :hmgam14LJSvz .
+
+chon:HalfMove  chon:subEventOf  :gam14LJS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag14LJSv .
+
+:gam14LJS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol14LJSv ;
+        chon:atPlace           :pla14LJSv ;
+        chon:atTime            "2009.11.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam14LJSvz ;
+        chon:hasHalfMove       :hmgam14LJSvz ;
+        chon:hasLastHalfMove   :hmgam14LJSvz ;
+        chon:hasOpening        :ope14LJSv ;
+        chon:hasReport         :cgr14LJSv ;
+        chon:hasResult         :res14LJSvz ;
+        chon:subEventOf        :tou14LJS .
+
+:cgr14LJSv  a   chon:ChessGameReport .
+
+:tou14LJS  a          chon:hessTournament ;
+        chon:atPlace  :pla14LJSv ;
+        chon:hasName  "World Blitz" .
+
+:rolhg14LJSvzZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag14LJSv .
+
+:res14LJSvz  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rol14LJSv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag14LJSv .
+
+:pla14LJSv  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

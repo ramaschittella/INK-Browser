@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgcIyT8ccl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcIyT8c .
+
+:hmgamcIyT8cc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcIyT8ccl , chon:AgentRole , :rolhgDKLcud3L ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "cxd5" , "e3" , "e6" , "d5" , "Be7" , "Nc3" , "O-O" , "exd5" , "Bd3" , "c4" , "Nf3" , "Bf4" , "Nf6" , "d4" , "Nbd7" ;
+        chon:nextHalfMove      :hmgamcIyT8cc , :hmgamDKLcud3 .
+
+:gamcIyT8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcIyT8c ;
+        chon:atPlace           :placIyT8c ;
+        chon:atTime            "2004.09.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcIyT8cc ;
+        chon:hasHalfMove       :hmgamcIyT8cc , :hmgamDKLcud3 ;
+        chon:hasLastHalfMove   :hmgamDKLcud3 ;
+        chon:hasOpening        :opecIyT8c ;
+        chon:hasReport         :cgrcIyT8c ;
+        chon:hasResult         :rescIyT8cc ;
+        chon:subEventOf        :toucIyT8 .
+
+:toucIyT8  a          chon:hessTournament ;
+        chon:atPlace  :placIyT8c ;
+        chon:hasName  "Clash of the Titans" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcIyT8c .
+
+:placIyT8c  a         chon:Place ;
+        chon:hasName  "Lindsborg USA" .
+
+:rolhgDKLcud3L  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcIyT8c .
+
+chon:HalfMove  chon:subEventOf  :gamcIyT8 .
+
+:cgrcIyT8c  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcIyT8c .
+
+:hmgamDKLcud3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDKLcud3L , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rxb6" , "b6" , "fxe6" , "Rcc8" , "d4" , "Qxf5" , "Qxd3" , "Bd4" , "g3" , "Nxe6" , "a5" , "O-O" , "c5" , "Rac8" , "Rf8" , "Re1" , "Nd4" , "Rc3" , "Rb3" , "Rbb1" , "b4" , "dxe3" , "Nc5" , "Rxf5" , "dxc5" , "e5" , "Rg5" , "Qa7" , "Be5" , "h3" , "Rxa2" , "Rc6" , "Rb1" , "f4" , "Rfc1" , "Rfd8" , "bxc5" , "Qb6" , "Bxb6" , "Bxc5" , "Ne4" , "Nxb6" , "Be6" , "Na4" , "Qg4" , "Rbc1" , "Rxe3" , "Qf7" , "a6" , "Rf1" , "Nd7" , "Nxd3" , "Qd4" , "Rc2" , "Nxc5" , "f5" ;
+        chon:nextHalfMove      :hmgamDKLcud3 .
+
+:agcIyT8c  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Polgar,Z" .
+
+:rolcIyT8c  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcIyT8c .
+
+:opecIyT8c  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:rescIyT8cc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

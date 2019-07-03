@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agUKLRH6  a          chon:Agent ;
+        chon:hasName  "Ivanchuk, Vassily" , "Karpov, Anatoly" .
+
+:platIBxl3  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:rolUKLRH6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUKLRH6 .
+
+:hmgamUKLRH6H  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUKLRH6HT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "f4" , "b3" , "Kd2" , "Rad8" , "e6" , "Nh4" , "f5" , "Qxd1" , "Nc2" , "Qe2" , "Ne1" , "Ne2" , "Nc6" , "hxg4" , "Bc7" , "Na7" , "Bb7" , "c5" , "Kxb4" , "Bf3" , "Ka3" , "O-O" , "c4" , "Bxc6" , "Nxc6" , "Kf7" , "Rfd1" , "Rd6" , "hxg4+" , "e3" , "cxb4" , "Nxd3" , "Qc7" , "e4" , "b4" , "h5" , "Kg2" , "f6" , "d4" , "Nc3" , "Rfd8" , "Bf8" , "Be7+" , "Bf6" , "Qxd3" , "Kc2" , "Nxd4" , "e5" , "Nc6+" , "Be2" , "Bc3" , "Rxd6" , "Ka4" , "Na4" , "Qd6" , "g3" , "Nd3" , "Rd1" , "g4" , "Kf3" , "Ne5" , "Nf6" , "Qd3" , "Nb2" , "Be7" , "Bb2" , "b6" , "Rxd1+" , "Qf3" , "Ke8" , "Bd2" , "Qb7" , "g5" , "Ke3" , "Bd8" , "Qb8" , "g6" , "cxd4" , "Be3" , "Kc7" , "Nd7" , "a6" , "dxc6" , "Kb4" , "Kb2" , "Nf3" , "Kd7" , "h3" , "Na5" , "Nd4" , "Nb8" ;
+        chon:nextHalfMove      :hmgamUKLRH6H , :hmgam7KI6f5M .
+
+:opeUKLRH6  a            chon:ChessOpening ;
+        chon:hasECOCode  "A32" .
+
+:rolhg7KI6f5M8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUKLRH6 .
+
+:gamtIBxl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUKLRH6 ;
+        chon:atPlace           :platIBxl3 ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUKLRH6H ;
+        chon:hasHalfMove       :hmgamUKLRH6H , :hmgam7KI6f5M ;
+        chon:hasLastHalfMove   :hmgam7KI6f5M ;
+        chon:hasOpening        :opeUKLRH6 ;
+        chon:hasReport         :cgrUKLRH6 ;
+        chon:hasResult         :resUKLRH6H ;
+        chon:subEventOf        :touUKLRH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUKLRH6 .
+
+:touUKLRH  a          chon:hessTournament ;
+        chon:atPlace  :platIBxl3 ;
+        chon:hasName  "Amber-blind 3rd" .
+
+chon:HalfMove  chon:subEventOf  :gamtIBxl .
+
+:resUKLRH6H  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUKLRH6 .
+
+:rolhgUKLRH6HT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUKLRH6 .
+
+:hmgam7KI6f5M  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7KI6f5M8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ivanchuk, Vassily" ;
+        chon:hasSANRecord      "Nb7" , "Kc3" , "Kd3" , "Kxd4" , "Ke7" , "Nd2" , "Bxd4" , "Nf3" , "Kd7" , "Bd4" , "Nc5" , "Bc5" ;
+        chon:nextHalfMove      :hmgam7KI6f5M .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrUKLRH6  a   chon:ChessGameReport .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:reskX8AlPZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgkX8AlPZg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkX8AlP .
+
+:cgrkX8AlP  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkX8AlP .
+
+:gamkX8Al  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkX8AlP ;
+        chon:atPlace           :plakX8AlP ;
+        chon:atTime            "2006.12.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkX8AlPZ ;
+        chon:hasHalfMove       :hmgamkX8AlPZ ;
+        chon:hasLastHalfMove   :hmgamkX8AlPZ ;
+        chon:hasOpening        :opekX8AlP ;
+        chon:hasReport         :cgrkX8AlP ;
+        chon:hasResult         :reskX8AlPZ ;
+        chon:subEventOf        :toukX8Al .
+
+:toukX8Al  a          chon:hessTournament ;
+        chon:atPlace  :plakX8AlP ;
+        chon:hasName  "Rapid Match" .
+
+:rolkX8AlP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkX8AlP .
+
+chon:HalfMove  chon:subEventOf  :gamkX8Al .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkX8AlP .
+
+:plakX8AlP  a         chon:Place ;
+        chon:hasName  "Guarulhos BRA" .
+
+:hmgamkX8AlPZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkX8AlPZg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Vescovi,G" ;
+        chon:hasSANRecord      "Bxc4" , "Qxb5" , "Ng3+" , "Bf5" , "a6" , "b5" , "e6" , "Rac1" , "Qh4" , "a3" , "Qh2+" , "hxg4" , "Qc8+" , "Qa4+" , "e5" , "f4" , "Qd3" , "Be2" , "Bf1" , "Rc6" , "Kf1" , "Qc8" , "Ne7" , "Bxg4" , "Nf6" , "Be7" , "Nf3" , "Nh5" , "Nc3" , "gxf3" , "Nxf3+" , "Rxb5" , "Bb4" , "Rfd1" , "a5" , "Kg7" , "b4" , "Rxf3" , "c4" , "g4" , "Bg5" , "h3" , "Qg5" , "Rxd6" , "Qc4" , "fxg3" , "g5" , "e4" , "Bd2" , "Ke2" , "Bd7" , "Rab8" , "O-O" , "dxc4" , "Nh4" , "Kh8" , "Nxb5" , "a4" , "d5" , "Na2" , "Qf5" , "Re1" , "Kd3" , "f5" , "Be3" , "d4" , "e3" , "Qc2" , "Qd8" , "Ng6" , "cxd6" , "Bxf3" , "Qd7+" , "Nc6" , "Bd6" ;
+        chon:nextHalfMove      :hmgamkX8AlPZ .
+
+:agkX8AlP  a          chon:Agent ;
+        chon:hasName  "Vescovi,G" , "Karpov,Ana" .
+
+:opekX8AlP  a            chon:ChessOpening ;
+        chon:hasECOCode  "D38" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agT9yeZM  a          chon:Agent ;
+        chon:hasName  "Peng Xiaomin" , "Karpov, Anatoly" .
+
+:opeT9yeZM  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .
+
+:resT9yeZMN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touT9yeZ  a          chon:hessTournament ;
+        chon:atPlace  :plaT9yeZM ;
+        chon:hasName  "Beijing m g/25" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agT9yeZM .
+
+:hmgam57vsyLQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg57vsyLQK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Peng Xiaomin" ;
+        chon:hasSANRecord      "Qxc8+" , "Nd7" , "Qxc2" , "Qe8" , "a6" , "Ne5" , "dxe5" , "Rc2" , "Nd3" , "Be2" , "Bf1" , "Ne2" , "Qc1" , "Qa3" , "Bc6" , "Bb4" , "Re8" , "Rxc8" , "Bxc8" , "Kh2" , "Qe7" , "Rxc2" , "Qb2" , "Nxe5" , "Ne4" , "Nf3" , "Be1" , "Bd7" , "Nb8" , "Bxe5" , "Qc8" , "Ng1" , "Rfc1" , "Nfe5" , "e3" , "Nc6" , "Rc8" ;
+        chon:nextHalfMove      :hmgam57vsyLQ .
+
+:rolhgT9yeZMNx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agT9yeZM .
+
+chon:HalfMove  chon:subEventOf  :gamT9yeZ .
+
+:hmgamT9yeZMN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg57vsyLQK , :rolhgT9yeZMNx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Peng Xiaomin" ;
+        chon:hasSANRecord      "f4" , "Be3" , "g6" , "Bg2" , "a4" , "Ne5" , "Qa1" , "Nf6" , "Nd3" , "Rc1" , "Bg7" , "cxd5" , "Rc2" , "Bc6" , "Nf5" , "Nf3" , "Nd6" , "e6" , "Nc6" , "h3" , "f6" , "Bf2" , "c4" , "c6" , "Nc3" , "Nfd7" , "Bd7" , "O-O" , "Rc8" , "Ne7" , "b3" , "d4" , "d5" , "f5" , "Nb6" , "g3" ;
+        chon:nextHalfMove      :hmgam57vsyLQ , :hmgamT9yeZMN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agT9yeZM .
+
+:cgrT9yeZM  a   chon:ChessGameReport .
+
+:rolhg57vsyLQK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agT9yeZM .
+
+:rolT9yeZM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agT9yeZM .
+
+:gamT9yeZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolT9yeZM ;
+        chon:atPlace           :plaT9yeZM ;
+        chon:atTime            "1998.05.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamT9yeZMN ;
+        chon:hasHalfMove       :hmgamT9yeZMN , :hmgam57vsyLQ ;
+        chon:hasLastHalfMove   :hmgam57vsyLQ ;
+        chon:hasOpening        :opeT9yeZM ;
+        chon:hasReport         :cgrT9yeZM ;
+        chon:hasResult         :resT9yeZMN ;
+        chon:subEventOf        :touT9yeZ .
+
+:plaT9yeZM  a         chon:Place ;
+        chon:hasName  "Beijing" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

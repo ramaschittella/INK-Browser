@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhggsRAZj9S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUfmjFa .
+
+:plaUfmjFa  a         chon:Place ;
+        chon:hasName  "Varna" .
+
+:resUfmjFas  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgUfmjFasv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUfmjFa .
+
+:agUfmjFa  a          chon:Agent ;
+        chon:hasName  "Ciocaltea, Victor" , "Fischer, Robert James" .
+
+:touUfmjF  a          chon:hessTournament ;
+        chon:atPlace  :plaUfmjFa ;
+        chon:hasName  "Varna olm" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUfmjFa .
+
+:opeUfmjFa  a            chon:ChessOpening ;
+        chon:hasECOCode  "C75" .
+
+:hmgamUfmjFas  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUfmjFasv , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ciocaltea, Victor" ;
+        chon:hasSANRecord      "d4" , "d6" , "e5" , "Nc6" , "Ba4" , "a6" , "e4" , "c3" , "Bd7" , "Bb5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamgsRAZj9 , :hmgamUfmjFas .
+
+chon:HalfMove  chon:subEventOf  :gamUfmjF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUfmjFa .
+
+:cgrUfmjFa  a   chon:ChessGameReport .
+
+:hmgamgsRAZj9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhggsRAZj9S ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ciocaltea, Victor" ;
+        chon:hasSANRecord      "Bg5" , "d5" , "c6" , "Nxc6" , "Qxg5" , "Nge7" , "Qf6" , "Qe2" , "Qc4" , "Be6" , "b4" , "dxc6" , "b5" , "Nb6" , "bxc3" , "Bxg4" , "Na3" , "Bb3" , "Qxg4" , "Ng6" , "h4" , "h6" , "Bg4" , "Be7" , "Nxg5" , "Bh6" , "Rd1" , "Qh5" , "Na5" , "O-O" , "Nd4" , "Bxg5" , "Rfc8" , "Bd1" , "hxg5" , "Nc4" , "g3" ;
+        chon:nextHalfMove      :hmgamgsRAZj9 .
+
+:gamUfmjF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUfmjFa ;
+        chon:atPlace           :plaUfmjFa ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUfmjFas ;
+        chon:hasHalfMove       :hmgamUfmjFas , :hmgamgsRAZj9 ;
+        chon:hasLastHalfMove   :hmgamgsRAZj9 ;
+        chon:hasOpening        :opeUfmjFa ;
+        chon:hasReport         :cgrUfmjFa ;
+        chon:hasResult         :resUfmjFas ;
+        chon:subEventOf        :touUfmjF .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolUfmjFa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUfmjFa .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla5ZlUqc  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ZlUqc .
+
+:ag5ZlUqc  a          chon:Agent ;
+        chon:hasName  "Beliavsky, Alexander G" , "Karpov, Anatoly" .
+
+:hmgam5ZlUqck  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5ZlUqckP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Qc4" , "Nxd5" , "Nxd4" , "Qc2" , "dxc4" , "a4" , "Be7" , "Rfd8" , "Nf6" , "Bc6" , "Qb3" , "Qb6" , "Qxc4" , "Qd3" , "Qxd5" , "Bg5" , "c4" , "Rfd1" , "Qd6" , "b4" , "O-O" , "g3" , "Bd7" , "Nc3" , "Nbd7" , "c5" , "d5" , "h4" , "Bd5" , "e6" , "Nc5" , "Bg2" , "cxd4" , "Nxa4" , "Nf3" , "e3" , "d4" , "a6" ;
+        chon:nextHalfMove      :hmgam5ZlUqck .
+
+chon:HalfMove  chon:subEventOf  :gam5ZlUq .
+
+:ope5ZlUqc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5ZlUqc .
+
+:rolhg5ZlUqckP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5ZlUqc .
+
+:gam5ZlUq  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5ZlUqc ;
+        chon:atPlace           :pla5ZlUqc ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5ZlUqck ;
+        chon:hasHalfMove       :hmgam5ZlUqck ;
+        chon:hasLastHalfMove   :hmgam5ZlUqck ;
+        chon:hasOpening        :ope5ZlUqc ;
+        chon:hasReport         :cgr5ZlUqc ;
+        chon:hasResult         :res5ZlUqck ;
+        chon:subEventOf        :tou5ZlUq .
+
+:tou5ZlUq  a          chon:hessTournament ;
+        chon:atPlace  :pla5ZlUqc ;
+        chon:hasName  "Linares" .
+
+:res5ZlUqck  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgr5ZlUqc  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol5ZlUqc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5ZlUqc .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touWEcV0  a          chon:hessTournament ;
+        chon:atPlace  :plaWEcV0l ;
+        chon:hasName  "Snowdrops vs Old-hands" .
+
+:plaWEcV0l  a         chon:Place ;
+        chon:hasName  "Marianske Lazne CZE" .
+
+:cgrWEcV0l  a   chon:ChessGameReport .
+
+:rolhgWEcV0lck  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWEcV0l .
+
+:resWEcV0lc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agWEcV0l  a          chon:Agent ;
+        chon:hasName  "Nemcova,Kat" , "Karpov,Ana" .
+
+:rolWEcV0l  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWEcV0l .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWEcV0l .
+
+:opeWEcV0l  a            chon:ChessOpening ;
+        chon:hasECOCode  "D30" .
+
+chon:HalfMove  chon:subEventOf  :gamWEcV0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWEcV0l .
+
+:hmgamWEcV0lc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWEcV0lck ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nemcova,Kat" ;
+        chon:hasSANRecord      "O-O" , "d5" , "Nd5" , "Nb3" , "e3" , "Bxc5" , "e4" , "cxd5" , "Nd7" , "Qc2" , "a5" , "exf6" , "c4" , "Qe4" , "Qc4" , "h6" , "dxc5" , "Nf3" , "b6" , "Nf6" , "a3" , "c5" , "Nbd2" , "Nxd5" , "e6" , "c6" , "Be7" , "d4" , "Bd3" , "e5" , "f5" , "N7xf6" ;
+        chon:nextHalfMove      :hmgamWEcV0lc , :hmgamnGmful4 .
+
+:rolhgnGmful4L  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWEcV0l .
+
+:hmgamnGmful4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnGmful4L , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Nemcova,Kat" ;
+        chon:hasSANRecord      "Ba4" , "Bc5" , "Red8" , "Ndf3" , "Bh7" , "Rc4" , "Qg6" , "Kg2" , "Ra7" , "Bd7" , "Bf1" , "Raa8" , "Bg6" , "Rxe6" , "Bxd6" , "Qxg6" , "Nbd4" , "Ree1" , "Rc1" , "Nf4" , "Nh7" , "Bf5" , "h4" , "Bd6" , "Nhf6" , "Bxf4" , "Nxf4" , "Nd3" , "Nxg6" , "Ne5" , "Rfe8" , "Bd2" , "Kg1" , "Be4" , "g3" , "Be8" , "Rd7" , "Qe8" , "Re2" , "Nfe5" , "Nc6" , "Re1" ;
+        chon:nextHalfMove      :hmgamnGmful4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamWEcV0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWEcV0l ;
+        chon:atPlace           :plaWEcV0l ;
+        chon:atTime            "2008.12.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWEcV0lc ;
+        chon:hasHalfMove       :hmgamWEcV0lc , :hmgamnGmful4 ;
+        chon:hasLastHalfMove   :hmgamnGmful4 ;
+        chon:hasOpening        :opeWEcV0l ;
+        chon:hasReport         :cgrWEcV0l ;
+        chon:hasResult         :resWEcV0lc ;
+        chon:subEventOf        :touWEcV0 .

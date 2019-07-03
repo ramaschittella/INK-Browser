@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resgvwB03T  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plagvwB03  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:cgrgvwB03  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggvwB03 .
+
+:gamgvwB0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgvwB03 ;
+        chon:atPlace           :plagvwB03 ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgvwB03T ;
+        chon:hasHalfMove       :hmgamgvwB03T ;
+        chon:hasLastHalfMove   :hmgamgvwB03T ;
+        chon:hasOpening        :opegvwB03 ;
+        chon:hasReport         :cgrgvwB03 ;
+        chon:hasResult         :resgvwB03T ;
+        chon:subEventOf        :tougvwB0 .
+
+chon:HalfMove  chon:subEventOf  :gamgvwB0 .
+
+:tougvwB0  a          chon:hessTournament ;
+        chon:atPlace  :plagvwB03 ;
+        chon:hasName  "EE Internet sim" .
+
+:aggvwB03  a          chon:Agent ;
+        chon:hasName  "Berlandier, Laurent" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggvwB03 .
+
+:rolgvwB03  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggvwB03 .
+
+:opegvwB03  a            chon:ChessOpening ;
+        chon:hasECOCode  "A40" .
+
+:rolhggvwB03Ty  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggvwB03 .
+
+:hmgamgvwB03T  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggvwB03Ty , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Berlandier, Laurent" ;
+        chon:hasSANRecord      "Nf3" , "e6" , "Bd3" , "e5" , "Ne4" , "a5" , "g3" , "Kxd8" , "f4" , "Bd2" , "Nf6" , "dxe6" , "Ne5" , "Bd7" , "Bc5" , "b4" , "Ba5" , "Ke7" , "c3" , "d4" , "Bb6" , "Bb4+" , "Ng6" , "Qxd8+" , "Nc6" , "e4" , "axb3" , "Nd5" , "a4" , "Nbd2" , "Ke2" , "d5" ;
+        chon:nextHalfMove      :hmgamgvwB03T .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

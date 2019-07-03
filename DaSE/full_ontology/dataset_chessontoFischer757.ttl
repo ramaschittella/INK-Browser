@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agY3s2eL  a          chon:Agent ;
+        chon:hasName  "Feuerstein, Arthur William" , "Fischer, Robert James" .
+
+:rolY3s2eL  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agY3s2eL .
+
+:gamY3s2e  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolY3s2eL ;
+        chon:atPlace           :plaY3s2eL ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWh6QpRI ;
+        chon:hasHalfMove       :hmgamWh6QpRI ;
+        chon:hasLastHalfMove   :hmgamWh6QpRI ;
+        chon:hasOpening        :opeY3s2eL ;
+        chon:hasReport         :cgrWh6QpR ;
+        chon:hasResult         :resY3s2eLa ;
+        chon:subEventOf        :touY3s2e .
+
+chon:HalfMove  chon:subEventOf  :gamY3s2e .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agY3s2eL .
+
+:rolhgWh6QpRID  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agY3s2eL .
+
+:opeY3s2eL  a            chon:ChessOpening ;
+        chon:hasECOCode  "A07" .
+
+:hmgamWh6QpRI  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgWh6QpRID ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Feuerstein, Arthur William" ;
+        chon:hasSANRecord      "cxb4" , "e5" , "axb4" , "Bb2" , "Kxh7" , "Bh3" , "Nc4" , "Qxe5" , "Nxe5" , "Rc8" , "O-O" , "Qe7" , "dxe4" , "Ba6" , "Nxb7" , "Bxg7" , "Nf6" , "Bg2" , "g6" , "gxh7+" , "Re1" , "b3" , "Nd2" , "d5" , "Bxe5" , "Ne6" , "Nxc2" , "f5" , "Ncxe5" , "Ba3" , "Re8" , "exf5" , "Bxc2" , "c5" , "Kg7" , "c6" , "d3" , "g3" , "Bf5+" , "Bg7" , "Nd4" , "b5" , "Rd7" , "Ngf3" , "Rxb7" , "Qb2" , "b4" , "Ra2" , "e4" , "Nbd7" , "Nxg7" , "Rfd8" , "Qc1" , "Nh5" , "fxg6" , "Qe5" , "Rxc2" , "Bb7" , "a3" , "Na5" , "Rd2" ;
+        chon:nextHalfMove      :hmgamWh6QpRI .
+
+:cgrWh6QpR  a   chon:ChessGameReport .
+
+:touY3s2e  a          chon:hessTournament ;
+        chon:atPlace  :plaY3s2eL ;
+        chon:hasName  "Manhattan blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolWh6QpR  a             chon:AuthorRole ;
+        chon:performedBy  :agWh6QpR .
+
+:plaY3s2eL  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:resY3s2eLa  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

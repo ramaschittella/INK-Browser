@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgRE8n9zN2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRE8n9z .
+
+:plaRE8n9z  a         chon:Place ;
+        chon:hasName  "Parsippany" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRE8n9z .
+
+:cgrRE8n9z  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamRE8n9 .
+
+:agRE8n9z  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Slepian, Randy" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRE8n9z .
+
+:touRE8n9  a          chon:hessTournament ;
+        chon:atPlace  :plaRE8n9z ;
+        chon:hasName  "US-chT Amateur East" .
+
+:rolRE8n9z  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRE8n9z .
+
+:hmgamRE8n9zN  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRE8n9zN2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxc5+" , "Qc2" , "cxd3" , "Bg2" , "a5" , "Ne4" , "Nd7" , "Bd2" , "e5" , "Rxa3" , "Nc3" , "Kf8" , "Nb6" , "bxa3" , "c6" , "Nf3" , "e6" , "Nbd7" , "Qxd3" , "Rd8" , "a3" , "Nxb4" , "Ne5" , "Qd4" , "c4" , "Ra1" , "Nfd5" , "Na4" , "Nec5" , "d4" , "Nxd3" , "Qc4" , "Rac1" , "f4" , "Nf6" , "a4" , "e4" , "d5" , "O-O" , "g3" , "Bb4" , "dxc4" , "Be7" , "axb4" , "Qa4+" , "Qc5" , "Rfd1" ;
+        chon:nextHalfMove      :hmgamRE8n9zN .
+
+:resRE8n9zN  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeRE8n9z  a            chon:ChessOpening ;
+        chon:hasECOCode  "A13" .
+
+:gamRE8n9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRE8n9z ;
+        chon:atPlace           :plaRE8n9z ;
+        chon:atTime            "1998.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRE8n9zN ;
+        chon:hasHalfMove       :hmgamRE8n9zN ;
+        chon:hasLastHalfMove   :hmgamRE8n9zN ;
+        chon:hasOpening        :opeRE8n9z ;
+        chon:hasReport         :cgrRE8n9z ;
+        chon:hasResult         :resRE8n9zN ;
+        chon:subEventOf        :touRE8n9 .

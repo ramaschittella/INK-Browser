@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgRzF1ebFd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVDWRud .
+
+:resVDWRudp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaVDWRud  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:hmgamRzF1ebF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgRzF1ebFd ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ricardi,P" ;
+        chon:hasSANRecord      "Qh6" , "Bf3" , "Bb8" , "f5" , "Qh5" , "Rd6" , "Rxc6" , "Qb6" , "Bg2" , "Nb3" , "Na5" , "Re6" , "Nf8" , "Ra7" , "Qxb4" , "h3" , "Rc7" , "Qa6" , "h4" , "Qh3" , "Nd7" , "Rc8" ;
+        chon:nextHalfMove      :hmgamRzF1ebF .
+
+:cgrVDWRud  a   chon:ChessGameReport .
+
+:hmgamVDWRudp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVDWRudpf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ricardi,P" ;
+        chon:hasSANRecord      "Bd6" , "Kf3" , "b5" , "Qb6" , "c4" , "e6" , "Rce7" , "exd5" , "Bf5" , "b4" , "Bb6" , "Nc5" , "Nc3" , "Qd3" , "c6" , "Bc7" , "Re4" , "gxf6" , "Kxf3" , "Bxf6" , "d5" , "Kf2" , "Bg5" , "R4e7" , "a5" , "a6" , "d4" , "e3" , "Nbd7" , "Nf8" , "Bf3" , "Qd7" , "Qd8" , "Re8" , "Ng6" , "Nf3" , "O-O" , "Bxf3" , "Ne5" , "Kg7" , "Re2" , "Na4" , "Rcd1" , "Rac8" , "Bd3" , "Bg4" , "Rc7" , "Qf5" , "a3" , "Ba7" , "f4" , "Rac1" , "Rc1" , "Qd6" , "Nf6" , "axb4" , "Qc2" , "cxd5" , "g3" , "Rhe1" ;
+        chon:nextHalfMove      :hmgamVDWRudp , :hmgamRzF1ebF .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVDWRud .
+
+:agVDWRud  a          chon:Agent ;
+        chon:hasName  "Ricardi,P" , "Karpov,An" .
+
+:rolVDWRud  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVDWRud .
+
+chon:HalfMove  chon:subEventOf  :gamVDWRu .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVDWRud .
+
+:rolhgVDWRudpf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVDWRud .
+
+:opeVDWRud  a            chon:ChessOpening ;
+        chon:hasECOCode  "D35" .
+
+:gamVDWRu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVDWRud ;
+        chon:atPlace           :plaVDWRud ;
+        chon:atTime            "2001.09.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVDWRudp ;
+        chon:hasHalfMove       :hmgamRzF1ebF , :hmgamVDWRudp ;
+        chon:hasLastHalfMove   :hmgamRzF1ebF ;
+        chon:hasOpening        :opeVDWRud ;
+        chon:hasReport         :cgrVDWRud ;
+        chon:hasResult         :resVDWRudp ;
+        chon:subEventOf        :touVDWRu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touVDWRu  a          chon:hessTournament ;
+        chon:atPlace  :plaVDWRud ;
+        chon:hasName  "Najdorf Memorial" .

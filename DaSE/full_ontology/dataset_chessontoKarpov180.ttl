@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:roldwufVx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agdwufVx .
+
+:opedwufVx  a            chon:ChessOpening ;
+        chon:hasECOCode  "B04" .
+
+:gamdwufV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldwufVx ;
+        chon:atPlace           :pladwufVx ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamdwufVxh ;
+        chon:hasHalfMove       :hmgamdwufVxh ;
+        chon:hasLastHalfMove   :hmgamdwufVxh ;
+        chon:hasOpening        :opedwufVx ;
+        chon:hasReport         :cgrdwufVx ;
+        chon:hasResult         :resdwufVxh ;
+        chon:subEventOf        :toudwufV .
+
+:hmgamdwufVxh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgdwufVxhu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Campos Lopez, Mario" ;
+        chon:hasSANRecord      "Bg7" , "Re1" , "Bd5" , "Rxe4" , "Nd7" , "c6" , "Bxd8" , "Nbd2" , "b5" , "Bxe4" , "d4" , "Bc4" , "Nf6" , "Nf3" , "Re8" , "O-O" , "Rxd8" , "h3" , "Rxa7" , "c4" , "Nc6" , "Bg5" , "g6" , "Bf5" , "Na5" , "c5" , "Qxd6" , "exd6" , "a4" , "Nd5" , "cxb5" , "Rc7" , "Bb3" , "e5" , "Rad8" , "Qf6" , "Qe2" , "Nb4" , "Ne4" , "Qf5" , "d6" , "e4" , "axb5" ;
+        chon:nextHalfMove      :hmgamdwufVxh .
+
+:toudwufV  a          chon:hessTournament ;
+        chon:atPlace  :pladwufVx ;
+        chon:hasName  "San Antonio" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdwufVx .
+
+chon:HalfMove  chon:subEventOf  :gamdwufV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdwufVx .
+
+:resdwufVxh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgdwufVxhu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdwufVx .
+
+:pladwufVx  a         chon:Place ;
+        chon:hasName  "San Antonio" .
+
+:cgrdwufVx  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agdwufVx  a          chon:Agent ;
+        chon:hasName  "Campos Lopez, Mario" , "Karpov, Anatoly" .

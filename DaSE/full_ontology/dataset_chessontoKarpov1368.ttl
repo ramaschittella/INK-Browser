@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touqRERh  a          chon:hessTournament ;
+        chon:atPlace  :plaqRERhn ;
+        chon:hasName  "Candidats final" .
+
+:rolqRERhn  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgmNl12llY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqRERhn .
+
+:opemNl12l  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqRERhn .
+
+chon:HalfMove  chon:subEventOf  :gamqRERh .
+
+:resmNl12ll  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqRERhn .
+
+:cgrmNl12l  a   chon:ChessGameReport .
+
+:hmgammNl12ll  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmNl12llY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Rhe1" , "Nfd7" , "dxc4" , "Qb6" , "Bxd6" , "Be7" , "b5" , "Rh8+" , "N3g4" , "Kd7" , "Qxf7+" , "Kf8" , "Kxh3" , "Ra8" , "a5" , "Nf3" , "d6" , "c6" , "Rca7" , "cxb5" , "Bb4+" , "h5" , "Ng4" , "Rxe5" , "Ke8" , "Bxf3+" , "Bg2" , "Nbd2" , "g3" , "e5" , "Qe4" , "Bb2" , "Qh7+" , "Ne3" , "d4" , "b6" , "Ne5" , "Rd1" , "Rxa2" , "Nxe5" , "Rc7" , "Rh5" , "Rac8" , "h3+" , "Ba6" , "Nf6" , "h4" , "Bf3" , "O-O" , "Qb1" , "c4" , "exf3" , "Qxg7+" , "b3" , "axb5" , "Qc2" , "Qxf2" , "bxa4" , "Nxg4" , "e6" , "Kg2" , "Bb7" , "a4" , "d5" , "Nxc4" , "Bc5" , "Kf1" , "Nd7" ;
+        chon:nextHalfMove      :hmgammNl12ll .
+
+:rolmNl12l  a             chon:AuthorRole ;
+        chon:performedBy  :agmNl12l .
+
+:plaqRERhn  a         chon:Place ;
+        chon:hasName  "Kuala Lumpur" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamqRERh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqRERhn ;
+        chon:atPlace           :plaqRERhn ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammNl12ll ;
+        chon:hasHalfMove       :hmgammNl12ll ;
+        chon:hasLastHalfMove   :hmgammNl12ll ;
+        chon:hasOpening        :opemNl12l ;
+        chon:hasReport         :cgrmNl12l ;
+        chon:hasResult         :resmNl12ll ;
+        chon:subEventOf        :touqRERh .
+
+:agqRERhn  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamgvUho  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgvUhoE ;
+        chon:atPlace           :plagvUhoE ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgvUhoEU ;
+        chon:hasHalfMove       :hmgamgvUhoEU ;
+        chon:hasLastHalfMove   :hmgamgvUhoEU ;
+        chon:hasOpening        :opegvUhoE ;
+        chon:hasReport         :cgrgvUhoE ;
+        chon:hasResult         :resgvUhoEU ;
+        chon:subEventOf        :tougvUho .
+
+:tougvUho  a          chon:hessTournament ;
+        chon:atPlace  :plagvUhoE ;
+        chon:hasName  "World Cup" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggvUhoE .
+
+:hmgamgvUhoEU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhggvUhoEUc ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Khalifman, Alexander" ;
+        chon:hasSANRecord      "g3" , "Rc7" , "d4" , "Ba6" , "Nf6" , "exd5" , "Nbd7" , "Be7" , "e4" , "Qc2" , "Bb4" , "Ncd7" , "a6" , "Bc1" , "cxd4" , "fxe6" , "Bb4+" , "Qxc2" , "Nc5" , "Ndxc2" , "Qc5" , "Bd2" , "d5" , "b3" , "O-O" , "Bxc5" , "Rxd7" , "Bf4" , "e5" , "Nd5" , "Re1" , "c6" , "c5" , "Nf3" , "Rad1" , "Nbd2" , "bxc5" , "c4" , "Qc7" , "Rac8" , "Rxc2" , "Ra3" , "Be3" , "e6" , "Bg2" , "Bc3" , "dxc4" , "Rdd7" , "Rxd5" , "Bb7" , "Nxd5" , "Nxd4" , "Qd3" , "Bxd5" , "Red1" , "b6" , "Ne3" , "Rxa2" , "Nxc4" , "Bc5" ;
+        chon:nextHalfMove      :hmgamgvUhoEU .
+
+:plagvUhoE  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+:rolhggvUhoEUc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggvUhoE .
+
+chon:HalfMove  chon:subEventOf  :gamgvUho .
+
+:cgrgvUhoE  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggvUhoE .
+
+:aggvUhoE  a          chon:Agent ;
+        chon:hasName  "Khalifman, Alexander" , "Karpov, Anatoly" .
+
+:rolgvUhoE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggvUhoE .
+
+:resgvUhoEU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opegvUhoE  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgreo5H2w  a   chon:ChessGameReport .
+
+:hmgameo5H2wc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhglmI5ivvT , :rolhgeo5H2wcI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bxd4" , "Nbc3" , "d4" , "gxf6" , "Nb5" , "exf6" , "Ng3" , "Nxa7+" , "dxc4" , "Qxd1" , "Nf6" , "e5" , "Bc5" , "O-O" , "Qxd4" , "d5" , "O-O-O" , "Raxd1" , "Nxf5" , "Qd7" , "Nd5" , "Ne2" , "e4" , "exf5" , "Nxd4" , "c4" , "Be3" , "Nb6" , "e6" , "Bb3" , "Bf5" , "a3" , "Nc6" , "Kb8" , "f6" , "Bxc4" ;
+        chon:nextHalfMove      :hmgameo5H2wc , :hmgamlmI5ivv .
+
+:rolhgeo5H2wcI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageo5H2w .
+
+:roleo5H2w  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageo5H2w .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageo5H2w .
+
+:reseo5H2wc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gameo5H2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageo5H2w .
+
+:rolhglmI5ivvT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageo5H2w .
+
+:ageo5H2w  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Onischuk,Al" .
+
+:opeeo5H2w  a            chon:ChessOpening ;
+        chon:hasECOCode  "D20" .
+
+:hmgamlmI5ivv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhglmI5ivvT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rfe1" , "Bd4" , "Kf1" , "Rxd8+" , "f4" , "Re8" , "Rxd8" , "Nc3" , "Be5" , "Rd1" , "c6" ;
+        chon:nextHalfMove      :hmgamlmI5ivv .
+
+:gameo5H2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleo5H2w ;
+        chon:atPlace           :plaeo5H2w ;
+        chon:atTime            "2003.12.14"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameo5H2wc ;
+        chon:hasHalfMove       :hmgameo5H2wc , :hmgamlmI5ivv ;
+        chon:hasLastHalfMove   :hmgamlmI5ivv ;
+        chon:hasOpening        :opeeo5H2w ;
+        chon:hasReport         :cgreo5H2w ;
+        chon:hasResult         :reseo5H2wc ;
+        chon:subEventOf        :toueo5H2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toueo5H2  a          chon:hessTournament ;
+        chon:atPlace  :plaeo5H2w ;
+        chon:hasName  "Lindsborg Inv Rapid" .
+
+:plaeo5H2w  a         chon:Place ;
+        chon:hasName  "Kansas USA" .

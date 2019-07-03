@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgJgR79kLq  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJgR79k .
+
+:gamJgR79  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJgR79k ;
+        chon:atPlace           :plaJgR79k ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJgR79kL ;
+        chon:hasHalfMove       :hmgamai2ovlS , :hmgamJgR79kL ;
+        chon:hasLastHalfMove   :hmgamai2ovlS ;
+        chon:hasOpening        :opeJgR79k ;
+        chon:hasReport         :cgrJgR79k ;
+        chon:hasResult         :resJgR79kL ;
+        chon:subEventOf        :touJgR79 .
+
+:opeJgR79k  a            chon:ChessOpening ;
+        chon:hasECOCode  "C19" .
+
+:touJgR79  a          chon:hessTournament ;
+        chon:atPlace  :plaJgR79k ;
+        chon:hasName  "Herceg Novi blitz" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJgR79k .
+
+:hmgamai2ovlS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgai2ovlSQ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "Rd8" , "Bd6+" , "Nd6+" , "Rxd1" , "Nf6" , "Nd7" , "Qh7" , "Nb5" , "Qd4" , "Qf7" , "Qg3" , "Nf3+" , "Rxf3" , "Rxd1+" , "Kb7" , "Kb8" , "Kc8" , "Rb3" , "Qxe6" , "Qh4" , "Qa6" , "Qc4" , "Qf6" , "Nxc3" , "Nde5" , "f5" , "h3" , "Kd7" , "Rd3" , "Ng4" , "Rb1" , "Qb7" , "Qd5" , "Qg7" , "Qc5" ;
+        chon:nextHalfMove      :hmgamai2ovlS .
+
+:rolhgai2ovlSQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJgR79k .
+
+chon:HalfMove  chon:subEventOf  :gamJgR79 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJgR79k .
+
+:plaJgR79k  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+:hmgamJgR79kL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJgR79kLq , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Petrosian, Tigran V" ;
+        chon:hasSANRecord      "dxc3" , "Re1" , "a4" , "bxc5" , "N7xc6" , "d5" , "a3" , "O-O-O" , "e5" , "Nxe5" , "Bc6" , "Be4" , "Qxh6" , "e4" , "Qxg7" , "Qc7" , "Bxc3+" , "e6" , "Nd7" , "b6" , "Ne4" , "bxc3" , "Bb4" , "Bd3" , "c5" , "Nf3" , "dxc5" , "O-O" , "Bxa4" , "Nd2" , "h6" , "Ba3" , "Bxc6+" , "Nc3" , "d4" , "Ne7" , "Red1" , "Bxc5" , "Bd7" , "Rg8" , "Qg4" ;
+        chon:nextHalfMove      :hmgamJgR79kL , :hmgamai2ovlS .
+
+:cgrJgR79k  a   chon:ChessGameReport .
+
+:agJgR79k  a          chon:Agent ;
+        chon:hasName  "Petrosian, Tigran V" , "Fischer, Robert James" .
+
+:rolJgR79k  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJgR79k .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resJgR79kL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

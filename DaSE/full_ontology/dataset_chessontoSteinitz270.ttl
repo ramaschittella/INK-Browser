@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla4P9i6G  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4P9i6G .
+
+:rolhgbNMFoFWL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4P9i6G .
+
+:ope4P9i6G  a            chon:ChessOpening ;
+        chon:hasECOCode  "C70" .
+
+:cgr4P9i6G  a   chon:ChessGameReport .
+
+:rolhgZNPrPETx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4P9i6G .
+
+:hmgamZNPrPET  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZNPrPETx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qd1" , "Be7" , "Qxd4" , "Bb3" , "Bb5" , "b4" , "Re1" , "Re8" , "Nxd4" , "b5" , "Nge7" , "Ng3" , "O-O" , "d6" , "Bf6" , "c5" , "Nf1" , "Nf5" , "c4" , "Bd4" , "Bc2" , "exd5" , "Nd2" , "f3" , "c3" , "Be3" , "Ng6" , "a5" , "d5" , "Qxd5" , "d4" , "exd4" , "Ba4" , "Nc6" , "Bb7" , "a6" ;
+        chon:nextHalfMove      :hmgambNMFoFW , :hmgamZNPrPET .
+
+chon:HalfMove  chon:subEventOf  :gam4P9i6 .
+
+:hmgamSPYXIFL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSPYXIFL0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "f5" , "Re2" , "Nd3" , "Kh2" , "Qc7" , "Qg6" ;
+        chon:nextHalfMove      :hmgamSPYXIFL .
+
+:rolhgSPYXIFL0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4P9i6G .
+
+:gam4P9i6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4P9i6G ;
+        chon:atPlace           :pla4P9i6G ;
+        chon:atTime            "1882.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4P9i6GS ;
+        chon:hasHalfMove       :hmgam4P9i6GS , :hmgamSPYXIFL , :hmgambNMFoFW , :hmgamZNPrPET ;
+        chon:hasLastHalfMove   :hmgamSPYXIFL ;
+        chon:hasOpening        :ope4P9i6G ;
+        chon:hasReport         :cgr4P9i6G ;
+        chon:hasResult         :res4P9i6GS ;
+        chon:subEventOf        :tou4P9i6 .
+
+:res4P9i6GS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:tou4P9i6  a          chon:hessTournament ;
+        chon:atPlace  :pla4P9i6G ;
+        chon:hasName  "Vienna" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgam4P9i6GS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4P9i6GSz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nf3" , "e5" , "e4" ;
+        chon:nextHalfMove      :hmgamZNPrPET , :hmgam4P9i6GS .
+
+:rol4P9i6G  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4P9i6G .
+
+:hmgambNMFoFW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbNMFoFWL , :rolhgSPYXIFL0 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qf6" , "Bxe4" , "Bf5" , "Bxd4+" , "g4" , "Kh8" , "h4" , "Kh1" , "Rd1" , "Bc2" , "Re1" , "Rxe1+" , "Be4" , "g5" , "Rd8" , "h5" , "Rxe4" , "Qg5" , "Nxd4" , "Qxe1" , "Qg3" , "Nf4" ;
+        chon:nextHalfMove      :hmgambNMFoFW , :hmgamSPYXIFL .
+
+:ag4P9i6G  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Weiss, Miksa" .
+
+:rolhg4P9i6GSz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4P9i6G .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4P9i6G .

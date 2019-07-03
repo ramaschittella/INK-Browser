@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touernSe  a          chon:hessTournament ;
+        chon:atPlace  :plaernSeA ;
+        chon:hasName  "Basque Country vs. World Rapid" .
+
+:plaernSeA  a         chon:Place ;
+        chon:hasName  "Santurtzi ESP" .
+
+:agernSeA  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Izeta,F" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agernSeA .
+
+:opeernSeA  a            chon:ChessOpening ;
+        chon:hasECOCode  "A46" .
+
+chon:HalfMove  chon:subEventOf  :gamernSe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agernSeA .
+
+:rolhg0n52YAxG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agernSeA .
+
+:resernSeAg  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgrernSeA  a   chon:ChessGameReport .
+
+:hmgam0n52YAx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0n52YAxG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "c3" , "Rxa4" , "Nh5" , "O-O" , "c5" , "Bg5" , "Be7" , "Ne4" , "Nf4" , "Rxe3" , "cxd4" , "Ba6" , "Nbd2" , "Nc6" , "bxc5" , "Qxa4" , "a5" , "Qd1" , "Qc7" , "Nc4" , "Kg1" , "c4" , "d4" , "Rc1" , "b6" , "Qa4" , "Re1" , "Ra1" , "Nf5" , "b3" , "Rxe4" , "Rxa8" , "Bb7" , "exd4" , "dxc4" , "Nd2" , "axb6" , "Nxe3" , "Ncxe7" , "h6" , "Nd5" , "Bxe4" , "d5" , "Bb5" , "Bf1" , "Re2" , "Rc2" , "Nf6" , "Bxe7" , "a4" , "Qd2" , "Nc8" , "dxc5" , "Ne3" , "Nf3" , "Kf2" , "Bd3" , "e3" , "f3" , "bxc4" , "Ra2" , "Nd6" , "d6" , "e6" , "Qc6" ;
+        chon:nextHalfMove      :hmgam0n52YAx .
+
+:rolernSeA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agernSeA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamernSe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolernSeA ;
+        chon:atPlace           :plaernSeA ;
+        chon:atTime            "2003.05.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0n52YAx ;
+        chon:hasHalfMove       :hmgam0n52YAx ;
+        chon:hasLastHalfMove   :hmgam0n52YAx ;
+        chon:hasOpening        :opeernSeA ;
+        chon:hasReport         :cgrernSeA ;
+        chon:hasResult         :resernSeAg ;
+        chon:subEventOf        :touernSe .

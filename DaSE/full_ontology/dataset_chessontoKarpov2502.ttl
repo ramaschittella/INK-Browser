@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agvH1Ga3  a          chon:Agent ;
+        chon:hasName  "Gunawan,Ru" , "Karpov,An" .
+
+:opevH1Ga3  a            chon:ChessOpening ;
+        chon:hasECOCode  "D41" .
+
+:resvH1Ga3i  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvH1Ga3 .
+
+chon:HalfMove  chon:subEventOf  :gamvH1Ga .
+
+:plavH1Ga3  a         chon:Place ;
+        chon:hasName  "Bali INA" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvH1Ga3 .
+
+:rolhgvH1Ga3iA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvH1Ga3 .
+
+:cgrvH1Ga3  a   chon:ChessGameReport .
+
+:hmgamvH1Ga3i  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvH1Ga3iA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gunawan,Ru" ;
+        chon:hasSANRecord      "axb5" , "Kg2" , "Kh2" , "Qxe5" , "Kf2" , "Ke2" , "Nf3" , "Bd8" , "Bc8" , "Ne5" , "cxd5" , "cxb5" , "exf5" , "Ndb4" , "Qc7" , "c5" , "b5" , "Be3" , "Bxg4" , "c4" , "O-O" , "Rxc8+" , "Rxa5" , "g3" , "h5" , "g5" , "f5" , "e5" , "Nxe5" , "Nxd5" , "bxc3" , "axb4" , "Nc6" , "Qa4" , "Bg2" , "Bd7" , "Bd2" , "Be2" , "Be4" , "a6" , "cxd4" , "Bxc8" , "Kf8" , "Ke8" , "Rc4" , "Rb4" , "Ra8" , "Bxf5" , "Bg5" , "g4" , "f4" , "e4" , "d4" , "e6" , "Rg4" , "Bd4" , "dxc3" , "Bb4" , "Bc6" , "Kd8" , "Nc3" , "Nf6" , "Qa5" , "a3" , "Be7" , "Rc1" , "b6" , "Ra1+" , "Qxa5" , "Rd8" , "Rc8" , "Rb8" , "d5" , "h4" , "g6" , "h6" , "Rfb1" , "Rxa8" , "Bd3" ;
+        chon:nextHalfMove      :hmgamvH1Ga3i .
+
+:rolvH1Ga3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvH1Ga3 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamvH1Ga  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvH1Ga3 ;
+        chon:atPlace           :plavH1Ga3 ;
+        chon:atTime            "2000.04.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvH1Ga3i ;
+        chon:hasHalfMove       :hmgamvH1Ga3i ;
+        chon:hasLastHalfMove   :hmgamvH1Ga3i ;
+        chon:hasOpening        :opevH1Ga3 ;
+        chon:hasReport         :cgrvH1Ga3 ;
+        chon:hasResult         :resvH1Ga3i ;
+        chon:subEventOf        :touvH1Ga .
+
+:touvH1Ga  a          chon:hessTournament ;
+        chon:atPlace  :plavH1Ga3 ;
+        chon:hasName  "Japfa Classic" .

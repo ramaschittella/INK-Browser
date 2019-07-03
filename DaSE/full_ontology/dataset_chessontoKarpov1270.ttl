@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamBgirX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBgirXS ;
+        chon:atPlace           :plaBgirXS ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBgirXSQ ;
+        chon:hasHalfMove       :hmgamNgfHuRV , :hmgamBgirXSQ ;
+        chon:hasLastHalfMove   :hmgamNgfHuRV ;
+        chon:hasOpening        :opeBgirXS ;
+        chon:hasReport         :cgrBgirXS ;
+        chon:hasResult         :resBgirXSQ ;
+        chon:subEventOf        :touBgirX .
+
+:cgrBgirXS  a   chon:ChessGameReport .
+
+:rolhgNgfHuRVN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBgirXS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBgirXS .
+
+:hmgamBgirXSQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBgirXSQS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "h3" , "e5" , "d4" , "Qxd8" , "Nbd2" , "Nd7" , "Bf8" , "e4" , "Nf6" , "dxe5" , "d6" , "c6" , "c3" , "c5" , "Bb2" , "Bxe5" , "O-O" , "Be7" , "Bc2" , "Bb5" , "Bb3" , "b5" , "Nf3" , "Rb1" , "b4" , "Re8" , "Nb8" , "h6" , "g6" , "Ba4" , "Rxc5" , "a3" , "Nbd7" , "c4" , "Bb7" , "Rexd8" , "Nxc5" , "Nb3" , "bxc5" , "Nc6" , "Rc8" , "a6" , "Re1" ;
+        chon:nextHalfMove      :hmgamNgfHuRV , :hmgamBgirXSQ .
+
+chon:HalfMove  chon:subEventOf  :gamBgirX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBgirXS .
+
+:plaBgirXS  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:touBgirX  a          chon:hessTournament ;
+        chon:atPlace  :plaBgirXS ;
+        chon:hasName  "Linares" .
+
+:hmgamNgfHuRV  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNgfHuRVN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "exf6" , "Bb3" , "Rc3" , "Be5" , "Rb2" , "Nh4" , "b4" , "Rcc8" , "Bb1" , "Nf3" , "Rd6" , "Bc6" , "Bd4" , "a4" , "Nc5" , "Ba2" , "e5" , "Rxc4" , "Rc7" , "Rb6" , "Rd1" , "Nd7" , "Rd3" , "Bc2" , "Nxf6" , "Rd2" , "Bf6" , "Rxf6" ;
+        chon:nextHalfMove      :hmgamNgfHuRV .
+
+:rolhgBgirXSQS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBgirXS .
+
+:agBgirXS  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hjartarson, Johann" .
+
+:rolBgirXS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBgirXS .
+
+:resBgirXSQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeBgirXS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C93" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

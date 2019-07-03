@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tousERgh  a          chon:hessTournament ;
+        chon:atPlace  :plasERgh0 ;
+        chon:hasName  "World Championship 31th-KK1" .
+
+:ressERgh0d  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgsERgh0d0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsERgh0 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsERgh0 .
+
+:hmgamsERgh0d  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsERgh0d0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rfd1" , "h5" , "O-O" , "e5" , "cxd4" , "d4" , "Qa4" , "Nxd5" , "c5" , "Nb3" , "Qb6" , "Nc5" , "Bg2" , "Bxc6" , "Be7" , "Kh2" , "Rxd1" , "e6" , "bxc3" , "Rxd1+" , "cxd5" , "h3" , "d5" , "Nc3" , "Rd8" , "bxc6" , "Qa8" , "Nc6" , "f6" , "Qa5" , "c4" , "Qxd8" , "Nf6" , "Rxd8+" , "Nf3" , "Bxa7" , "Nxd4" , "Nxc3" , "Be3" , "Qc7" , "g3" , "Bxc5" , "Be6" ;
+        chon:nextHalfMove      :hmgamsERgh0d .
+
+:cgrsERgh0  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamsERgh .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsERgh0 .
+
+:gamsERgh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsERgh0 ;
+        chon:atPlace           :plasERgh0 ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsERgh0d ;
+        chon:hasHalfMove       :hmgamsERgh0d ;
+        chon:hasLastHalfMove   :hmgamsERgh0d ;
+        chon:hasOpening        :opesERgh0 ;
+        chon:hasReport         :cgrsERgh0 ;
+        chon:hasResult         :ressERgh0d ;
+        chon:subEventOf        :tousERgh .
+
+:plasERgh0  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agsERgh0  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolsERgh0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsERgh0 .
+
+:opesERgh0  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .

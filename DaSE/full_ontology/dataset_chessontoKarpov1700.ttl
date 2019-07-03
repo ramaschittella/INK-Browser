@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resXMDS6fR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agXMDS6f  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+:opeXMDS6f  a            chon:ChessOpening ;
+        chon:hasECOCode  "D39" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXMDS6f .
+
+chon:HalfMove  chon:subEventOf  :gamXMDS6 .
+
+:rolhg0KAQEeUL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXMDS6f .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXMDS6f .
+
+:plaXMDS6f  a         chon:Place ;
+        chon:hasName  "NLD/INA" .
+
+:cgrXMDS6f  a   chon:ChessGameReport .
+
+:hmgam0KAQEeU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg0KAQEeUL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Bb5" , "Rxa5" , "Be4" , "Kd8" , "Rd2" , "a6" , "h6" , "Qxc7" , "a4" , "Nxc3" , "Nc7" , "h4" , "a3" , "Nxc7" , "Rg2" , "Raa4" , "f3" , "Rc8" , "Kf2" , "exf4" , "Ra4" , "Be6" , "Rc7" , "Rab4" , "Ndf6" , "Rc5" , "Ra1" , "Rg5+" , "Ke8" , "Rd5" , "Rh5" , "Bxe4" , "Rb1" , "Rxf3" , "h5" , "h3" , "Kf8" , "Rxf4" , "O-O" , "f6" , "Nxa8" , "gxh3" , "Qd6" , "Bxh3" , "Rc4" , "Rb6" , "Rxc7" , "Bd5" , "Rb4" , "Nd7" , "Rc3" , "Bf4" , "Nb5" , "e5" , "g5" , "a5" , "Rh3" , "Nxe4" , "Rfc1" , "Rxb7" , "Ra7" , "Bc6" , "Ra5" , "Nd5" , "Bc4" , "gxh4" , "Rh1+" ;
+        chon:nextHalfMove      :hmgam0KAQEeU .
+
+:rolXMDS6f  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXMDS6f .
+
+:rolhgXMDS6fRz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXMDS6f .
+
+:hmgamXMDS6fR  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXMDS6fRz , :rolhg0KAQEeUL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "bxc3" , "Bg5" , "e4" , "Bxc3+" , "Nf6" , "dxc4" , "Bxc4" , "d5" , "Qa5" , "cxd4" , "d4" , "Nxd4" , "Nc3" , "Bb4" , "Nf3" , "c4" , "e6" , "c5" ;
+        chon:nextHalfMove      :hmgam0KAQEeU , :hmgamXMDS6fR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamXMDS6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXMDS6f ;
+        chon:atPlace           :plaXMDS6f ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXMDS6fR ;
+        chon:hasHalfMove       :hmgam0KAQEeU , :hmgamXMDS6fR ;
+        chon:hasLastHalfMove   :hmgam0KAQEeU ;
+        chon:hasOpening        :opeXMDS6f ;
+        chon:hasReport         :cgrXMDS6f ;
+        chon:hasResult         :resXMDS6fR ;
+        chon:subEventOf        :touXMDS6 .
+
+:touXMDS6  a          chon:hessTournament ;
+        chon:atPlace  :plaXMDS6f ;
+        chon:hasName  "FIDE-Wch" .

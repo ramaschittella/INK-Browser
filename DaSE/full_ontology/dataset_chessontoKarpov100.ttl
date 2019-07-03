@@ -1,0 +1,99 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaXDb0P8  a         chon:Place ;
+        chon:hasName  "Riga" .
+
+:rolhgADkIJ9IJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXDb0P8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXDb0P8 .
+
+:resXDb0P8O  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agXDb0P8  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kholmov, Ratmir D" .
+
+:hmgamHBY5162  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHBY5162U , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "a4" , "gxf5" , "Ke3" , "Rxa4" , "Kg7" , "b4" , "Rh1" , "Rh3+" , "Rxa6" , "h5" , "Rc8" , "Ke7" , "Rxd6" , "g4" , "g6" , "Rd1" , "Rh8+" , "Kf7" , "h4" , "bxa4" , "Rd7+" , "Kd2" , "Kh6" , "Rc7+" , "Rc4" , "Rxh4" , "Rb6" , "Re6+" ;
+        chon:nextHalfMove      :hmgamHBY5162 , :hmgam9D9nm9Q .
+
+:hmgamXDb0P8O  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoFoua8Dw , :rolhgXDb0P8O9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "e4" ;
+        chon:nextHalfMove      :hmgamoFoua8D , :hmgamXDb0P8O .
+
+chon:HalfMove  chon:subEventOf  :gamXDb0P .
+
+:rolhgoFoua8Dw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXDb0P8 .
+
+:hmgamADkIJ9I  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgADkIJ9IJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxf7" , "Rc6" , "Rxd7" , "b5" , "Bd5" , "h4" , "Nf7" , "Ra7" , "Kxf7" , "Rc3" , "Be6" , "Nh8" , "Rxd6" , "Nxd7" , "Rcxd6" , "Re2" , "Bc4" , "Rb7" , "Re3" , "b6" , "Bd7" , "Bf1" , "Ng5" , "Rdd8" ;
+        chon:nextHalfMove      :hmgamHBY5162 , :hmgamADkIJ9I .
+
+:hmgam9D9nm9Q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9D9nm9Qj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Kd3" , "Kg5" , "Rh2+" , "c4" , "Rh3+" ;
+        chon:nextHalfMove      :hmgam9D9nm9Q .
+
+:rolhgXDb0P8O9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXDb0P8 .
+
+:rolhgHBY5162U  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXDb0P8 .
+
+:opeXDb0P8  a            chon:ChessOpening ;
+        chon:hasECOCode  "B46" .
+
+:gamXDb0P  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXDb0P8 ;
+        chon:atPlace           :plaXDb0P8 ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXDb0P8O ;
+        chon:hasHalfMove       :hmgam9D9nm9Q , :hmgamoFoua8D , :hmgamADkIJ9I , :hmgamHBY5162 , :hmgamXDb0P8O ;
+        chon:hasLastHalfMove   :hmgam9D9nm9Q ;
+        chon:hasOpening        :opeXDb0P8 ;
+        chon:hasReport         :cgrXDb0P8 ;
+        chon:hasResult         :resXDb0P8O ;
+        chon:subEventOf        :touXDb0P .
+
+:cgrXDb0P8  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg9D9nm9Qj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXDb0P8 .
+
+:rolXDb0P8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXDb0P8 .
+
+:hmgamoFoua8D  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgoFoua8Dw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Na4" , "Ng6" , "Qb6" , "Qe7" , "e5" , "Bd6" , "Bg2" , "f5" , "Qxb6" , "Rb8" , "Nf3" , "g3" , "Nxb6" , "Bf4" , "d4" , "Ne7" , "Qxd6" , "Rd8" , "Nxd4" , "Nc6" , "Qd8" , "d6" , "f4" , "Nc3" , "Ke7" , "e6" , "Rhd1" , "a6" , "Qxd4" , "cxd4" , "Bxd6" , "Rd2" , "f6" , "O-O-O" ;
+        chon:nextHalfMove      :hmgamoFoua8D , :hmgamADkIJ9I .
+
+:touXDb0P  a          chon:hessTournament ;
+        chon:atPlace  :plaXDb0P8 ;
+        chon:hasName  "URS-ch38 Riga" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXDb0P8 .

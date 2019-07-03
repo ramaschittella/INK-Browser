@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrjHwzX7  a   chon:ChessGameReport .
+
+:roljHwzX7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agjHwzX7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjHwzX7 .
+
+:plajHwzX7  a         chon:Place ;
+        chon:hasName  "Brussels" .
+
+chon:HalfMove  chon:subEventOf  :gamjHwzX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agjHwzX7 .
+
+:gamjHwzX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roljHwzX7 ;
+        chon:atPlace           :plajHwzX7 ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamjHwzX7p ;
+        chon:hasHalfMove       :hmgamjHwzX7p ;
+        chon:hasLastHalfMove   :hmgamjHwzX7p ;
+        chon:hasOpening        :opejHwzX7 ;
+        chon:hasReport         :cgrjHwzX7 ;
+        chon:hasResult         :resjHwzX7p ;
+        chon:subEventOf        :toujHwzX .
+
+:rolhgjHwzX7pT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agjHwzX7 .
+
+:hmgamjHwzX7p  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjHwzX7pT ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "f6" , "Nxa3" , "Nc4+" , "Qxd1+" , "Bc6" , "Bxe5" , "Rc7" , "Bxd5" , "Bxc5" , "Nxb4+" , "Nf4+" , "e6" , "Nbd2" , "Rc1" , "dxc5" , "Ke3" , "Nxe5" , "Nxd5" , "Kxe5" , "d5" , "c5" , "b5" , "a5" , "Nbd7" , "Be4" , "Kxd4" , "g5" , "e5" , "Rxc7" , "e5+" , "Nc3" , "Nb3" , "Bd3" , "Bxc4" , "d4" , "Rhc8" , "Rac8" , "Bd6" , "Nd4+" , "Rac1" , "dxc4" , "Nb6" , "c4" , "b4" , "a4" , "Nef3" , "a6" , "Nh5" , "Kxd1" , "Kf3" , "Nxg5" , "Kf5" , "e4" , "Ke7" , "Nc2" , "Bc2" , "Nf4" , "Nxg2+" , "Bb2" , "Bxc1" , "Nf6" , "Be8" , "Bxh7" , "Nc5" , "Nbd5+" , "Bb7" , "Rhd1" , "b3" , "a3" , "Nbd5" , "fxe5" , "Rxc1" , "Ke2" , "Ke4" , "Kd4" , "e3" , "Kd6" , "Kxf6" , "b6" , "Nb1" , "Nf3" , "h4" , "Nge4" , "g6" ;
+        chon:nextHalfMove      :hmgamjHwzX7p .
+
+:agjHwzX7  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kortschnoj, Viktor" .
+
+:opejHwzX7  a            chon:ChessOpening ;
+        chon:hasECOCode  "D26" .
+
+:resjHwzX7p  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toujHwzX  a          chon:hessTournament ;
+        chon:atPlace  :plajHwzX7 ;
+        chon:hasName  "Brussels" .

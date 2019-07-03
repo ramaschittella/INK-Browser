@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamrQ2xn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrQ2xnD ;
+        chon:atPlace           :plarQ2xnD ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnMIG7DI ;
+        chon:hasHalfMove       :hmgamnMIG7DI ;
+        chon:hasLastHalfMove   :hmgamnMIG7DI ;
+        chon:hasOpening        :operQ2xnD ;
+        chon:hasReport         :cgrrQ2xnD ;
+        chon:hasResult         :resrQ2xnDr ;
+        chon:subEventOf        :tourQ2xn .
+
+:rolhgnMIG7DIA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrQ2xnD .
+
+:cgrrQ2xnD  a   chon:ChessGameReport .
+
+:hmgamnMIG7DI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnMIG7DIA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Be6+" , "c5" , "Nb8" , "d4" , "Nc7" , "Nf4" , "O-O" , "Bb6" , "Qxc6" , "g5" , "h4" , "bxa4+" , "a4" , "Kh6" , "Be7" , "Qe3" , "Ne2" , "e4" , "f3" , "Qxe6" , "Rc7" , "Rd6" , "Nxb8" , "d6" , "Rxc2+" , "Nf6" , "Ka2" , "Bxd5" , "Kb1" , "Bg7" , "Nc6" , "Nf3" , "Rc1" , "Nc3" , "Bg4" , "dxc6" , "Bh3" , "Qxb6" , "Re3" , "a6" , "g4" , "h3" , "b5" , "Rd1" , "Nd5" , "Qxc2" , "a3" , "Na5" , "Be6" , "Qe4+" , "Nxe6" , "Nbd7" , "Qxf6" , "f5" , "Rf7" , "Be3" , "Nxd4" , "Qxf3" , "Nh5" , "e3" , "gxf6" , "Qb6" , "Rxe2" , "Qxd6" , "Rc6" , "Kb3" , "Rd5" , "Rhg1" , "exd5" , "Qb3" , "cxd4" , "Qd5" , "O-O-O" , "Qxb8" , "g6" , "h5" , "Nb3" , "Bg3" , "Rxc6" , "Qd2" , "Rd3" , "Ne6" , "a5" , "Qe7" , "Qf5+" , "Kh7" , "Qf6" , "Bxh4" , "Kxa4" , "e5" , "Bxf6" , "Rc8" , "Rd7" , "e2" ;
+        chon:nextHalfMove      :hmgamnMIG7DI .
+
+:agrQ2xnD  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Byrne, Robert E" .
+
+:rolrQ2xnD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrQ2xnD .
+
+:resrQ2xnDr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:operQ2xnD  a            chon:ChessOpening ;
+        chon:hasECOCode  "B90" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrQ2xnD .
+
+chon:HalfMove  chon:subEventOf  :gamrQ2xn .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrQ2xnD .
+
+:tourQ2xn  a          chon:hessTournament ;
+        chon:atPlace  :plarQ2xnD ;
+        chon:hasName  "Manhattan blitz" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plarQ2xnD  a         chon:Place ;
+        chon:hasName  "New York" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resUK4XvoP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agUK4Xvo  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tal, Mihail" .
+
+:rolUK4Xvo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUK4Xvo .
+
+:gamUK4Xv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUK4Xvo ;
+        chon:atPlace           :plaUK4Xvo ;
+        chon:atTime            "1975.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUK4XvoP ;
+        chon:hasHalfMove       :hmgamUK4XvoP , :hmgam6I1d6nS ;
+        chon:hasLastHalfMove   :hmgam6I1d6nS ;
+        chon:hasOpening        :opeUK4Xvo ;
+        chon:hasReport         :cgrUK4Xvo ;
+        chon:hasResult         :resUK4XvoP ;
+        chon:subEventOf        :touUK4Xv .
+
+:opeUK4Xvo  a            chon:ChessOpening ;
+        chon:hasECOCode  "C43" .
+
+:touUK4Xv  a          chon:hessTournament ;
+        chon:atPlace  :plaUK4Xvo ;
+        chon:hasName  "Milan" .
+
+:rolhg6I1d6nSr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUK4Xvo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUK4Xvo .
+
+chon:HalfMove  chon:subEventOf  :gamUK4Xv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUK4Xvo .
+
+:cgrUK4Xvo  a   chon:ChessGameReport .
+
+:rolhgUK4XvoPf  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUK4Xvo .
+
+:hmgamUK4XvoP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6I1d6nSr , :rolhgUK4XvoPf , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxe4" , "cxd5" , "Nf6" , "Nb4" , "Nc6" , "Nxe4" , "c4" , "Nxc2" , "dxe5" , "Bxe5" , "Qxd5" , "Qc2" , "d5" , "Bf5" , "O-O" , "Nxe5" , "d4" , "e4" , "Bxd5" , "Bd3" , "Bd6" , "Nf3" , "e5" ;
+        chon:nextHalfMove      :hmgam6I1d6nS , :hmgamUK4XvoP .
+
+:plaUK4Xvo  a         chon:Place ;
+        chon:hasName  "Milan" .
+
+:hmgam6I1d6nS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6I1d6nSr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "g4" , "Be4" , "exf6" , "Rxe4" , "Nc3" , "Be6" , "Rae8" , "Nd4" , "Rc1" , "Nxe4" , "f5" , "Bh3" , "a5" , "Bxg4" , "Kxg7" , "Rf7" , "Nd2" , "Bd2" , "f3" , "b6" , "Re1" , "Nxd2" , "Kh1" , "a3" , "Kxf7" , "Bxd2" , "Nc2" , "Nf3+" , "Be3" , "Kg1" , "Rxc7" , "Nxa1" , "Rxf7" , "fxg7" , "a4" ;
+        chon:nextHalfMove      :hmgam6I1d6nS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

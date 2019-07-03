@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolpJXMKj  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpJXMKj .
+
+:toupJXMK  a          chon:hessTournament ;
+        chon:atPlace  :plapJXMKj ;
+        chon:hasName  "2nd Karpov Trophy KO" .
+
+:opepJXMKj  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpJXMKj .
+
+:hmgamBHT1hik  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBHT1hikT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rc3" , "Ne4" , "Ra5" , "bxc3" , "Raa8" , "Kd7" , "Ng5" , "Ra3+" , "Ke8" , "Rxc4" , "Rh3" , "Rg1" , "Rh8" , "Ra1" , "Nxf6" , "Ra7+" , "Kd3" , "b4" , "Nd5" , "Rh5" , "Rf3" , "Ke4" , "Reh1" , "Ra8+" , "Re1+" , "Nf3" , "Ke6" , "Rxf6" , "Rf8" , "Ne7" , "Re8" , "Nxf7" , "c4" ;
+        chon:nextHalfMove      :hmgamBHT1hik .
+
+:rolhgpJXMKjhI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpJXMKj .
+
+chon:HalfMove  chon:subEventOf  :gampJXMK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpJXMKj .
+
+:rolhgBHT1hikT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpJXMKj .
+
+:respJXMKjh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plapJXMKj  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrpJXMKj  a   chon:ChessGameReport .
+
+:hmgampJXMKjh  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpJXMKjhI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "g5" , "Ne6" , "Nc7" , "Be7" , "Bf4" , "Qe6" , "e5" , "d4" , "Nxe4" , "h4" , "bxa4" , "Bg4" , "Rxa4" , "Bg3" , "axb3" , "O-O-O" , "d6" , "Nd5" , "Ng4" , "Bg6" , "Nb6" , "Nc3" , "g4" , "Be3" , "Ng3" , "c3" , "Ndf4" , "Bxf6" , "Ne4" , "Rde1" , "c6" , "e4" , "h3" , "gxf6" , "Rf8" , "Na6" , "Nf3" , "Bf5" , "Qxb3" , "Nxh7" , "a5" , "Qb3" , "Rh8" , "Kd7" , "b5" , "Nfd7" , "Nd2" , "Bxf5" , "Kc2" , "Nxe5" , "Bxf4" , "Nf6" , "Bd3" , "Nxf5" , "Nh6" , "Nxf4" , "Bh5" , "g6" , "Ng5" , "Ngf6+" , "a4" , "Qd7" ;
+        chon:nextHalfMove      :hmgamBHT1hik , :hmgampJXMKjh .
+
+:agpJXMKj  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Muzychuk,M" .
+
+:gampJXMK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpJXMKj ;
+        chon:atPlace           :plapJXMKj ;
+        chon:atTime            "2013.11.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampJXMKjh ;
+        chon:hasHalfMove       :hmgampJXMKjh , :hmgamBHT1hik ;
+        chon:hasLastHalfMove   :hmgamBHT1hik ;
+        chon:hasOpening        :opepJXMKj ;
+        chon:hasReport         :cgrpJXMKj ;
+        chon:hasResult         :respJXMKjh ;
+        chon:subEventOf        :toupJXMK .

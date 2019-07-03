@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeSFZqGz  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+:hmgamSFZqGzn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSFZqGznU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "Kxf7" , "Rd7" , "Qxf6" , "Be5" , "Qc7" , "Bd6+" , "Bb2" , "d4" , "Rd5" , "Bf8" , "g4" , "Red8" , "dxe5" , "Nxe5" , "Kf7" , "Rb7" , "f6" , "Qxa5" , "Bxe4" , "Kf3" , "Bxf6" , "Rexb4" , "Kg2" , "Nf3" , "Rb6+" , "Qf4" , "c3" , "Bc2" , "Be7" , "hxg4" , "Kh2" , "axb5" , "c4" , "e5" , "a5" , "g6" , "Ke2" , "dxc5" , "Rb6" , "Kf6" , "f5" , "Qxf7+" , "b5" , "Nbd7" , "Nb6" , "Rxe4" , "Bb5" , "Kd5" , "Qc3" , "Rd8" , "Re7" , "Qb8" , "Nbd2" , "Nc6" , "Bb3" , "Bd4" , "Qxe5" , "Nxf7" , "Rd6" , "Bxf7+" , "Rb1" , "Rd7+" , "Qxf7" , "g5" , "c5" , "a6" , "d6" , "Rxf7" , "cxb5" , "Rb8" , "Ke5" , "g3" , "bxc5" , "e4" , "a4" , "h5" , "Re8" , "Rd1" , "Nb8" , "Nf6" , "Ra1+" , "Bb7" , "Rg6" , "Ba4" , "Kd4" , "Rb5" , "f4" , "h3" , "b4" , "R4b7" , "Ne5" , "Re1" , "O-O" , "Rxg5" , "Qc1" , "Rbd1" ;
+        chon:nextHalfMove      :hmgamSFZqGzn .
+
+:plaGIihWB  a         chon:Place ;
+        chon:hasName  "Reykjavik" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSFZqGz .
+
+chon:HalfMove  chon:subEventOf  :gamGIihW .
+
+:cgrSFZqGz  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSFZqGz .
+
+:rolhgSFZqGznU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSFZqGz .
+
+:agSFZqGz  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Fischer, Robert James" .
+
+:rolSFZqGz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSFZqGz .
+
+:resSFZqGzn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touSFZqG  a          chon:hessTournament ;
+        chon:atPlace  :plaGIihWB ;
+        chon:hasName  "World Championship 28th" .
+
+:gamGIihW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSFZqGz ;
+        chon:atPlace           :plaGIihWB ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSFZqGzn ;
+        chon:hasHalfMove       :hmgamSFZqGzn ;
+        chon:hasLastHalfMove   :hmgamSFZqGzn ;
+        chon:hasOpening        :opeSFZqGz ;
+        chon:hasReport         :cgrSFZqGz ;
+        chon:hasResult         :resSFZqGzn ;
+        chon:subEventOf        :touSFZqG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

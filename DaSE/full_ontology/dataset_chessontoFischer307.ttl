@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plapnV76g  a         chon:Place ;
+        chon:hasName  "Bled" .
+
+:cgrpnV76g  a   chon:ChessGameReport .
+
+:gampnV76  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpnV76g ;
+        chon:atPlace           :plapnV76g ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgampnV76gS ;
+        chon:hasHalfMove       :hmgampnV76gS ;
+        chon:hasLastHalfMove   :hmgampnV76gS ;
+        chon:hasOpening        :opepnV76g ;
+        chon:hasReport         :cgrpnV76g ;
+        chon:hasResult         :respnV76gS ;
+        chon:subEventOf        :toupnV76 .
+
+:toupnV76  a          chon:hessTournament ;
+        chon:atPlace  :plapnV76g ;
+        chon:hasName  "Bled" .
+
+:agpnV76g  a          chon:Agent ;
+        chon:hasName  "Geller, Efim P" , "Fischer, Robert James" .
+
+:rolpnV76g  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpnV76g .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpnV76g .
+
+:opepnV76g  a            chon:ChessOpening ;
+        chon:hasECOCode  "C72" .
+
+chon:HalfMove  chon:subEventOf  :gampnV76 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpnV76g .
+
+:hmgampnV76gS  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpnV76gST ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "Nxd6" , "h3" , "Rd8" , "e5" , "d4" , "h5" , "Bb5" , "d5" , "Nxe5" , "Nf3" , "Bxe4" , "Nbd2" , "Nxg6" , "Qb7" , "hxg4" , "Bf4" , "Bxc6+" , "O-O" , "g4" , "Ba4" , "dxe5" , "Nc4" , "d6" , "Qb4+" , "c3" , "bxc6" , "Kf8" , "Bg3" , "gxh3+" , "Bh5" , "cxd6" , "Qb3" , "a6" , "Bg4" , "e4" , "Qf6" , "Bd6" , "Qxg6" , "Nc6" , "Bg6" , "Re1+" ;
+        chon:nextHalfMove      :hmgampnV76gS .
+
+:rolhgpnV76gST  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpnV76g .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:respnV76gS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

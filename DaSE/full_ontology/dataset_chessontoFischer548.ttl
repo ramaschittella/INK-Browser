@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolSJnHcV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSJnHcV .
+
+:opeSJnHcV  a            chon:ChessOpening ;
+        chon:hasECOCode  "C82" .
+
+:resSJnHcVc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgSJnHcVcX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSJnHcV .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSJnHcV .
+
+:hmgamSJnHcVc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSJnHcVcX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "a6" , "d5" , "Bf5" , "dxe5" , "Nf3" , "Nf6" , "Nc6" , "Ba4" , "Bc2" , "b5" , "Nbd2" , "d4" , "Bc5" , "Bb3" , "e5" , "c3" , "Be6" , "Nxe4" , "O-O" , "Nb3" , "e4" , "Bb5" ;
+        chon:nextHalfMove      :hmgamSJnHcVc , :hmgamjLz2xV2 .
+
+:touSJnHc  a          chon:hessTournament ;
+        chon:atPlace  :plaSJnHcV ;
+        chon:hasName  "Santa Monica" .
+
+chon:HalfMove  chon:subEventOf  :gamSJnHc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSJnHcV .
+
+:plaSJnHcV  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+:hmgamjLz2xV2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgjLz2xV2l ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "b4" , "g3" , "Qd3" , "Qxd3" , "Ng7" , "Bh6" , "c6" , "Nd4" , "b3" , "Bxd3" , "Bd2" , "Qd2" , "Qg2" , "g6" , "Re3" , "Qh6" , "Qc4" , "g4" , "Nd3" , "Qf1" , "Ne6" , "Qh4" , "Nxc5" , "Bf5" , "Nxf5" , "Re8" , "Qh3" , "bxc3" , "Ne7" , "Bg4" , "Re1" , "Be3" , "Nc5" , "Bg5" ;
+        chon:nextHalfMove      :hmgamjLz2xV2 .
+
+:cgrSJnHcV  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamSJnHc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSJnHcV ;
+        chon:atPlace           :plaSJnHcV ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSJnHcVc ;
+        chon:hasHalfMove       :hmgamjLz2xV2 , :hmgamSJnHcVc ;
+        chon:hasLastHalfMove   :hmgamjLz2xV2 ;
+        chon:hasOpening        :opeSJnHcV ;
+        chon:hasReport         :cgrSJnHcV ;
+        chon:hasResult         :resSJnHcVc ;
+        chon:subEventOf        :touSJnHc .
+
+:rolhgjLz2xV2l  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSJnHcV .
+
+:agSJnHcV  a          chon:Agent ;
+        chon:hasName  "Larsen, Bent" , "Fischer, Robert James" .

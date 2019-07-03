@@ -1,0 +1,86 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolFXNBnJ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFXNBnJ .
+
+:rolhgFXNBnJGZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFXNBnJ .
+
+:hmgameVDh1GP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgc0e7cOni , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mascarinas, Rico" ;
+        chon:hasSANRecord      "Qb8" ;
+        chon:nextHalfMove      :hmgamc0e7cOn .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFXNBnJ .
+
+:rolhgRVKPUIJc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFXNBnJ .
+
+:gamFXNBn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFXNBnJ ;
+        chon:atPlace           :plaFXNBnJ ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFXNBnJG ;
+        chon:hasHalfMove       :hmgamc0e7cOn , :hmgamFXNBnJG , :hmgameVDh1GP , :hmgamRVKPUIJ ;
+        chon:hasLastHalfMove   :hmgamc0e7cOn ;
+        chon:hasOpening        :opeFXNBnJ ;
+        chon:hasReport         :cgrFXNBnJ ;
+        chon:hasResult         :resFXNBnJG ;
+        chon:subEventOf        :touFXNBn .
+
+chon:HalfMove  chon:subEventOf  :gamFXNBn .
+
+:plaFXNBnJ  a         chon:Place ;
+        chon:hasName  "Thessaloniki" .
+
+:rolhgc0e7cOni  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFXNBnJ .
+
+:agFXNBnJ  a          chon:Agent ;
+        chon:hasName  "Mascarinas, Rico" , "Karpov, Anatoly" .
+
+:hmgamc0e7cOn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgc0e7cOni ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mascarinas, Rico" ;
+        chon:hasSANRecord      "Bd8" , "Qa4" , "Na5" , "exd5" , "Qf2" , "Nd2" , "Bxd5" , "Nc6" , "Nac3" , "Nxe4" , "Bb6" , "Rd1" , "d5" , "e4" , "dxe4" , "Ndf3" , "Ng1" , "Bd5" , "Kh1" , "f4" , "Qc4" , "Bb7" , "Qb6+" ;
+        chon:nextHalfMove      :hmgamc0e7cOn .
+
+:resFXNBnJG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamRVKPUIJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRVKPUIJc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mascarinas, Rico" ;
+        chon:hasSANRecord      "O-O" , "e3" , "Bc5" , "b6" , "Qb3" , "Bg2" , "Bc3" , "b4" , "Ne4" , "Bd2" , "Nxc3" , "Be7" , "Rxa1" , "Na4" , "a5" , "Qe5" , "axb4" , "Qxb6" , "Nc6" , "Ne5" , "Qc7" , "cxb6" , "b5" , "a6" , "a3" , "c5" , "Nde2" ;
+        chon:nextHalfMove      :hmgameVDh1GP , :hmgamRVKPUIJ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamFXNBnJG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFXNBnJGZ , :rolhgRVKPUIJc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Mascarinas, Rico" ;
+        chon:hasSANRecord      "c5" , "Bb4+" , "b3" , "e6" , "Nxd4" , "Qc7" , "g3" , "cxd4" , "c4" , "d4" , "Nf3" , "Nf6" ;
+        chon:nextHalfMove      :hmgamFXNBnJG , :hmgamRVKPUIJ .
+
+:touFXNBn  a          chon:hessTournament ;
+        chon:atPlace  :plaFXNBnJ ;
+        chon:hasName  "Thessaloniki ol (Men)" .
+
+:opeFXNBnJ  a            chon:ChessOpening ;
+        chon:hasECOCode  "A32" .
+
+:cgrFXNBnJ  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFXNBnJ .

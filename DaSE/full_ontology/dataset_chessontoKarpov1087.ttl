@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolXjgwQW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXjgwQW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXjgwQW .
+
+chon:HalfMove  chon:subEventOf  :gamXjgwQ .
+
+:agXjgwQW  a          chon:Agent ;
+        chon:hasName  "Sokolov, Andrei" , "Karpov, Anatoly" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXjgwQW .
+
+:gamXjgwQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXjgwQW ;
+        chon:atPlace           :plaXjgwQW ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXjgwQWP ;
+        chon:hasHalfMove       :hmgamXjgwQWP , :hmgamplsPdWE ;
+        chon:hasLastHalfMove   :hmgamplsPdWE ;
+        chon:hasOpening        :opeXjgwQW ;
+        chon:hasReport         :cgrXjgwQW ;
+        chon:hasResult         :resXjgwQWP ;
+        chon:subEventOf        :touXjgwQ .
+
+:opeXjgwQW  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:touXjgwQ  a          chon:hessTournament ;
+        chon:atPlace  :plaXjgwQW ;
+        chon:hasName  "Linares cf" .
+
+:hmgamXjgwQWP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXjgwQWPW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sokolov, Andrei" ;
+        chon:hasSANRecord      "Ne4" , "Kxf1" , "Nf3" , "Bb4+" , "b6" , "Bxf1" , "Re1" , "exd5" , "O-O" , "Rc1" , "Rac8" , "Kg2" , "e5" , "c4" , "Bxc3" , "d4" , "c5" , "e4" , "h6" , "Nc3" , "b3" , "cxd5" , "Nc6" , "Bd2" , "e6" , "d5" , "Ba6" , "Nf6" , "Be7" , "Qd7" , "Qd3" , "g3" , "Nxc3" ;
+        chon:nextHalfMove      :hmgamXjgwQWP , :hmgamplsPdWE .
+
+:rolhgplsPdWEm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXjgwQW .
+
+:hmgamplsPdWE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgplsPdWEm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sokolov, Andrei" ;
+        chon:hasSANRecord      "Bc3" , "g4" , "f4" , "Qf5" , "Qb5" , "Ra2" , "Qxd3" , "Kh3" , "a3" , "Rxc8" , "Rb3+" , "Rxa3" , "g6" , "Rd7" , "Rb2" , "Rc3" , "Kg8" , "Kf8" , "Nxd4" , "Bxd4" , "d4" , "Rxd4" , "b4" , "cxd4" , "b5" , "Bc5" , "Red1" , "Bb2" , "Rxa5" , "d3" , "Rb2+" , "Rc7" , "Rb7" , "Rxd3" , "Kf2" , "Kg2" , "Kg3" , "bxa5" , "a5" ;
+        chon:nextHalfMove      :hmgamplsPdWE .
+
+:plaXjgwQW  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrXjgwQW  a   chon:ChessGameReport .
+
+:resXjgwQWP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgXjgwQWPW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXjgwQW .

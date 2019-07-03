@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhglTgQ2iTM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTT7wEi .
+
+:cgrlTgQ2i  a   chon:ChessGameReport .
+
+:rolTT7wEi  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rollTgQ2i  a             chon:AuthorRole ;
+        chon:performedBy  :aglTgQ2i .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTT7wEi .
+
+:hmgamwTd5yiW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwTd5yiW1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov, Veselin" ;
+        chon:hasSANRecord      "Rh1" , "Ke2" , "Kb6" , "Rc1" , "h4" , "Rc3+" , "Rxa5" , "Rxh4" , "Kxd3" , "Rh6+" , "Ra7" , "Rf7+" , "Kh2" , "Kf2" , "a4" , "Rg4" , "Rh4" , "Kd6" , "h3" , "Kg6" , "Rxf2" , "Ke6" , "Ka7" , "Kg3" , "Kc7" , "Ra7+" , "Kf6" , "Kb7" , "Rh7" , "b5" , "b4" , "Ra3" , "R5g3" ;
+        chon:nextHalfMove      :hmgamwTd5yiW .
+
+:rolhgwTd5yiW1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTT7wEi .
+
+:plaTT7wEi  a         chon:Place ;
+        chon:hasName  "Leon" .
+
+chon:HalfMove  chon:subEventOf  :gamTT7wE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTT7wEi .
+
+:hmgamlTgQ2iT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwTd5yiW1 , :rolhglTgQ2iTM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov, Veselin" ;
+        chon:hasSANRecord      "Nd7" , "Rc7" , "Qd2" , "Qxd5" , "Qxd2+" , "Nxd5" , "Rfd5" , "Kh8" , "Re2" , "Bd3" , "Rxg6" , "Kxd2" , "Rc1" , "h3" , "d5" , "Bxd4" , "h5" , "Rxb5" , "Be6" , "cxd5" , "Kg1" , "Kh7" , "Ke2" , "a5" , "Bf8" , "e4" , "Nd4" , "dxe4" , "f6" , "O-O" , "Re8+" , "Rdg5" , "Bxc4" , "bxc4" , "Rf8" , "b3" , "d3" , "Rh7+" , "c6" , "c4" , "Rf5+" , "e5" , "Rge7" , "d6" , "Kd1" , "Rd1" , "Rcc7" , "Ng3+" , "Re3" , "Rf5" , "Nf5" , "Kf8" , "Rb8" , "f3" , "Re7" , "Nc3" , "g6" , "Qa5+" , "Nbd7" , "Nxe4" , "Rgg7" , "Rhg7+" , "d4" , "Rfd8" , "Rg3" , "Bxc5" , "Rcxf6" , "Rc6" , "Kf2" , "b5" , "Kg8" , "Rd2" , "Rg7+" , "Rd8" , "fxe4" , "Nc5" , "Be3" , "Rc3" , "a6" , "Ra7" , "Nf6" , "Nb6" , "Nf2" , "Rxc5" , "Nh3" , "Rxg2" , "Kd2" , "Rxe6" , "Bb5" , "Nd3" , "Rf2" , "Rd6" , "Bc5" , "Bg7" , "Rag7+" , "Ke1" , "exd4" ;
+        chon:nextHalfMove      :hmgamlTgQ2iT , :hmgamwTd5yiW .
+
+:agTT7wEi  a          chon:Agent ;
+        chon:hasName  "Topalov, Veselin" , "Karpov, Anatoly" .
+
+:opeTT7wEi  a            chon:ChessOpening ;
+        chon:hasECOCode  "E81" .
+
+:gamTT7wE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTT7wEi ;
+        chon:atPlace           :plaTT7wEi ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamlTgQ2iT ;
+        chon:hasHalfMove       :hmgamlTgQ2iT , :hmgamwTd5yiW ;
+        chon:hasLastHalfMove   :hmgamwTd5yiW ;
+        chon:hasOpening        :opeTT7wEi ;
+        chon:hasReport         :cgrlTgQ2i ;
+        chon:hasResult         :reslTgQ2iT ;
+        chon:subEventOf        :touTT7wE .
+
+:touTT7wE  a          chon:hessTournament ;
+        chon:atPlace  :plaTT7wEi ;
+        chon:hasName  "Leon" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reslTgQ2iT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgOSapkK9d  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOSapkK .
+
+:touOSapk  a          chon:hessTournament ;
+        chon:atPlace  :plaPlyA9E ;
+        chon:hasName  "World Blitz" .
+
+:resOSapkK9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOSapkK .
+
+chon:HalfMove  chon:subEventOf  :gamPlyA9 .
+
+:cgrOSapkK  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOSapkK .
+
+:agOSapkK  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Grischuk,A" .
+
+:plaPlyA9E  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:rolOSapkK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOSapkK .
+
+:opeOSapkK  a            chon:ChessOpening ;
+        chon:hasECOCode  "E42" .
+
+:gamPlyA9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOSapkK ;
+        chon:atPlace           :plaPlyA9E ;
+        chon:atTime            "2009.11.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOSapkK9 ;
+        chon:hasHalfMove       :hmgamOSapkK9 ;
+        chon:hasLastHalfMove   :hmgamOSapkK9 ;
+        chon:hasOpening        :opeOSapkK ;
+        chon:hasReport         :cgrOSapkK ;
+        chon:hasResult         :resOSapkK9 ;
+        chon:subEventOf        :touOSapk .
+
+:hmgamOSapkK9  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOSapkK9d ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bb4" , "cxd4" , "Qf3" , "Rfxd8" , "Rg1" , "d4" , "h6" , "Bd7" , "Rc5" , "Rd5" , "exd4" , "Rad8" , "Nf6" , "Be3" , "d5" , "Rxc5" , "Kf2" , "Re8" , "b4" , "Bd3" , "Nxd5" , "Kf7" , "Be4" , "c5" , "f6" , "Ke2" , "a6" , "e3" , "f3" , "e6" , "exd5" , "Qxd5" , "Bxc4" , "Rd8" , "Nfd5" , "bxc5" , "Nc3" , "Nc6" , "Bxd5" , "Ne2" , "dxc4" , "Bb5+" , "Ne7" , "h5" , "g3" , "h3" , "Rd1" , "O-O" , "Bc6" , "Nxc3" , "Bxc3+" , "Kg6" , "a3" , "Qxd8" , "g5" , "Rac1" , "c4" , "Rfc1" , "Kf1" ;
+        chon:nextHalfMove      :hmgamOSapkK9 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

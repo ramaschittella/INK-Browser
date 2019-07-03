@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agqp08fQ  a          chon:Agent ;
+        chon:hasName  "Kurajica, Bojan" , "Karpov, Anatoly" .
+
+:rolhgBp7lORlU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqp08fQ .
+
+:opeqp08fQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "E17" .
+
+:gamqp08f  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqp08fQ ;
+        chon:atPlace           :plaqp08fQ ;
+        chon:atTime            "1994.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqp08fQi ;
+        chon:hasHalfMove       :hmgamqp08fQi , :hmgamBp7lORl ;
+        chon:hasLastHalfMove   :hmgamBp7lORl ;
+        chon:hasOpening        :opeqp08fQ ;
+        chon:hasReport         :cgrqp08fQ ;
+        chon:hasResult         :resqp08fQi ;
+        chon:subEventOf        :touqp08f .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqp08fQ .
+
+chon:HalfMove  chon:subEventOf  :gamqp08f .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqp08fQ .
+
+:cgrqp08fQ  a   chon:ChessGameReport .
+
+:hmgamqp08fQi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqp08fQiJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kurajica, Bojan" ;
+        chon:hasSANRecord      "Nc3" , "c4" , "c6" , "d4" , "exd5" , "Nf6" , "dxe4" , "Bc1" , "Nc7" , "Bb7" , "Bg2" , "Ne5" , "Ne6" , "Rc1" , "e6" , "cxd5" , "b3" , "Be7" , "Ba6" , "Bd2" , "g3" , "Na6" , "Bb2" , "d5" , "O-O" , "Nf3" , "b6" , "e4" , "Re1" , "Nxe4" , "Bb4+" , "Bd6" , "Re8" , "Nd3" ;
+        chon:nextHalfMove      :hmgamqp08fQi , :hmgamBp7lORl .
+
+:rolqp08fQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqp08fQ .
+
+:touqp08f  a          chon:hessTournament ;
+        chon:atPlace  :plaqp08fQ ;
+        chon:hasName  "Tilburg blitz" .
+
+:plaqp08fQ  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:rolhgqp08fQiJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqp08fQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resqp08fQi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamBp7lORl  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBp7lORlU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kurajica, Bojan" ;
+        chon:hasSANRecord      "Ncd2" , "Bxe6" , "Qc2" , "Nxb1" , "f4" , "Bb4" , "Rce8" , "Nf2" , "Bb7" , "Be7" , "b4" , "Qb1" , "a5" , "Rc7" , "Nf8" , "Qc3" , "Rxb1" , "Rxe7" , "Re2" , "Nc7" , "Nxg3+" , "Ne2+" , "Kg2" , "Nd5" , "fxe6" , "Bxd7" , "Rec2" , "Ba3" , "Ne7" , "f5" , "Nc3" , "Ree8" , "Ba6" , "Qd7" , "Rf4" , "Qxb5" , "Qb3" , "Bb8" , "a3" , "b5" , "Bd3" , "Bc4" , "Rc8" , "Bd6" , "Bc6" , "Re7" , "Bxd6" , "Qxb1" , "Ne5" , "Qd3" , "Nxc8" , "axb5" , "cxb5" , "d5" , "Ncd6" , "Kf1" , "Rf2" , "f6" , "Kh8" , "Rc4" , "Nc4" , "Be6" , "a4" , "h4" , "Rd8" , "Nd7" , "Rd2" ;
+        chon:nextHalfMove      :hmgamBp7lORl .

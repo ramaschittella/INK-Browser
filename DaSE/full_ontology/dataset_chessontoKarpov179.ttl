@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opetyHkJy  a            chon:ChessOpening ;
+        chon:hasECOCode  "A37" .
+
+:restyHkJy4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamFyEyiz7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFyEyiz7S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bf8" , "Ra6" , "Be6" , "Re8" , "fxe4" , "Rxa3" , "e5" , "Kxf2" , "f4" , "Bd2" , "Rxf2+" , "Qb1" , "Qd4" , "b4" , "dxe4" , "Bxa5" , "Ra2+" , "O-O" , "Rxb5" , "Rf3" , "Rb3" , "Nge7" , "c4" , "bxa5" , "Nd5" , "Kg2" , "Nf3" , "e4" , "Qxa5" , "Qxe5" , "Nxd5" , "Ne1" , "Kxg2" , "Qa4" , "Bxd5" , "Rba8" , "Rf2" , "d3" , "cxd5" , "Rc8" , "Bxg2" , "d5" , "fxe5" , "Re6" , "f5" , "Qc1" , "Ne3" , "b5" , "Nc2" , "Rb7" , "Nxa5" , "Nb6" , "Rb8" ;
+        chon:nextHalfMove      :hmgamFyEyiz7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtyHkJy .
+
+:rolhgtyHkJy4H  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtyHkJy .
+
+chon:HalfMove  chon:subEventOf  :gamtyHkJ .
+
+:cgrtyHkJy  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtyHkJy .
+
+:gamtyHkJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltyHkJy ;
+        chon:atPlace           :platyHkJy ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtyHkJy4 ;
+        chon:hasHalfMove       :hmgamtyHkJy4 , :hmgamFyEyiz7 ;
+        chon:hasLastHalfMove   :hmgamFyEyiz7 ;
+        chon:hasOpening        :opetyHkJy ;
+        chon:hasReport         :cgrtyHkJy ;
+        chon:hasResult         :restyHkJy4 ;
+        chon:subEventOf        :toutyHkJ .
+
+:platyHkJy  a         chon:Place ;
+        chon:hasName  "San Antonio" .
+
+:toutyHkJ  a          chon:hessTournament ;
+        chon:atPlace  :platyHkJy ;
+        chon:hasName  "San Antonio" .
+
+:hmgamtyHkJy4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtyHkJy4H ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc6" , "d6" , "Bg7" , "a5" , "Nc3" , "Rb1" , "a3" , "Bg2" , "c4" , "c5" , "g3" , "g6" ;
+        chon:nextHalfMove      :hmgamFyEyiz7 , :hmgamtyHkJy4 .
+
+:rolhgFyEyiz7S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtyHkJy .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agtyHkJy  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Evans, Larry Melvyn" .
+
+:roltyHkJy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtyHkJy .

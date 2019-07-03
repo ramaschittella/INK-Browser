@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamtXmuSLx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtXmuSLxm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rac8" , "O-O" , "exf5" , "a6" , "Qc2" , "Rf5+" , "Bf2" , "Rg3" , "Nf6" , "d4" , "Bxc3+" , "Nd7" , "Qxf6" , "Ne3" , "bxc3" , "Rcf8" , "Bxf5" , "e4" , "f4" , "d6" , "gxf5" , "cxd6" , "Nd6" , "Rf3" , "Kh8" , "Ba6" , "Rg8" , "Bg3" , "Bd3" , "Kxg7" , "Raf1" , "h4" , "Nxd6" , "Qh4" , "Qd7" , "f5" , "Rg4" , "b5" , "c5" , "Rf1" , "Nec4" , "e6" , "Be3" , "Na5" , "Ng3" , "Nac4" , "Nc3" , "Kxh5" , "Be6" , "Rxg8+" , "Qf2" , "c4" , "Kxg8" , "e5" , "h5" , "Qg7" , "Qc7" , "Bh4" , "Bc4" , "Rf6" , "Nh6" , "Rg6" , "Nf5" , "Qxg7+" , "Rxf5" , "f6" , "g6" , "Nbc4" , "Nb6" , "Nc6" , "b6" , "Qg3+" , "Be7" , "Bf7" , "a3" , "Ne2" , "d5" , "Kh6" , "Bb4" , "Be1" , "Nxf5" ;
+        chon:nextHalfMove      :hmgamtXmuSLx .
+
+:platXmuSL  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:rolhgtXmuSLxm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtXmuSL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtXmuSL .
+
+:cgrtXmuSL  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamtXmuS .
+
+:restXmuSLx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agtXmuSL  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Short, Nigel D" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtXmuSL .
+
+:roltXmuSL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtXmuSL .
+
+:opetXmuSL  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamtXmuS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltXmuSL ;
+        chon:atPlace           :platXmuSL ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtXmuSLx ;
+        chon:hasHalfMove       :hmgamtXmuSLx ;
+        chon:hasLastHalfMove   :hmgamtXmuSLx ;
+        chon:hasOpening        :opetXmuSL ;
+        chon:hasReport         :cgrtXmuSL ;
+        chon:hasResult         :restXmuSLx ;
+        chon:subEventOf        :toutXmuS .
+
+:toutXmuS  a          chon:hessTournament ;
+        chon:atPlace  :platXmuSL ;
+        chon:hasName  "Dortmund" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamBekkVQZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBekkVQZl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bisguier, Arthur Bernard" ;
+        chon:hasSANRecord      "Rd7" , "dxe4" , "Re8" , "Be3" , "g5" , "c5" , "Re3" , "Bd4" , "Rad8" , "Re1" , "Nxe4" , "Rh5" , "Qf6" , "bxc3" , "Qf5" , "g4" , "Bc2" , "Rh3" , "Qe6" , "Rf3" , "c4" ;
+        chon:nextHalfMove      :hmgamBekkVQZ .
+
+:gamqeo7o  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqeo7oQ ;
+        chon:atPlace           :plaqeo7oQ ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqeo7oQU ;
+        chon:hasHalfMove       :hmgamBekkVQZ , :hmgamqeo7oQU ;
+        chon:hasLastHalfMove   :hmgamBekkVQZ ;
+        chon:hasOpening        :opeqeo7oQ ;
+        chon:hasReport         :cgrqeo7oQ ;
+        chon:hasResult         :resqeo7oQU ;
+        chon:subEventOf        :touqeo7o .
+
+:touqeo7o  a          chon:hessTournament ;
+        chon:atPlace  :plaqeo7oQ ;
+        chon:hasName  "Buenos Aires" .
+
+:agqeo7oQ  a          chon:Agent ;
+        chon:hasName  "Bisguier, Arthur Bernard" , "Fischer, Robert James" .
+
+:opeqeo7oQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C78" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqeo7oQ .
+
+chon:HalfMove  chon:subEventOf  :gamqeo7o .
+
+:resqeo7oQU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqeo7oQ .
+
+:rolhgBekkVQZl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqeo7oQ .
+
+:plaqeo7oQ  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:rolhgqeo7oQU9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqeo7oQ .
+
+:cgrqeo7oQ  a   chon:ChessGameReport .
+
+:hmgamqeo7oQU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBekkVQZl , :rolhgqeo7oQU9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bisguier, Arthur Bernard" ;
+        chon:hasSANRecord      "Ba4" , "c3" , "d4" , "Bxh2+" , "Nf6" , "Nxd4" , "Bb7" , "dxc3" , "Nc6" , "e4" , "Nd2" , "b5" , "e5" , "d5" , "Nxe4" , "Bb5" , "exd4" , "Bd6" , "a6" , "Re1" , "Qh5" , "Nf3" , "Bb3" , "O-O" , "Kf1" , "Qxh2" ;
+        chon:nextHalfMove      :hmgamqeo7oQU , :hmgamBekkVQZ .
+
+:rolqeo7oQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqeo7oQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

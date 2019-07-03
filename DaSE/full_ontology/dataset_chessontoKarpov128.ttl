@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaTb1YWP  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:cgrTb1YWP  a   chon:ChessGameReport .
+
+:rolhg60XbtQnI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTb1YWP .
+
+:resTb1YWPk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agTb1YWP  a          chon:Agent ;
+        chon:hasName  "Tseitlin, Mark D" , "Karpov, Anatoly" .
+
+:rolTb1YWP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTb1YWP .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTb1YWP .
+
+:opeTb1YWP  a            chon:ChessOpening ;
+        chon:hasECOCode  "C63" .
+
+chon:HalfMove  chon:subEventOf  :gamTb1YW .
+
+:gamTb1YW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTb1YWP ;
+        chon:atPlace           :plaTb1YWP ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTb1YWPk ;
+        chon:hasHalfMove       :hmgamTb1YWPk , :hmgam60XbtQn ;
+        chon:hasLastHalfMove   :hmgam60XbtQn ;
+        chon:hasOpening        :opeTb1YWP ;
+        chon:hasReport         :cgrTb1YWP ;
+        chon:hasResult         :resTb1YWPk ;
+        chon:subEventOf        :touTb1YW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTb1YWP .
+
+:rolhgTb1YWPkv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTb1YWP .
+
+:hmgam60XbtQn  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg60XbtQnI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tseitlin, Mark D" ;
+        chon:hasSANRecord      "Nf6" , "Nf7" , "Qe5" , "O-O" , "Kg7" , "Nxg6" , "Re3" , "Qh5+" , "Nxe4" , "Bc5" , "Kf8" , "b5" , "Qxh6+" , "Be7" , "Qh5" , "Qe5+" , "Nxe5" , "Kxf7" , "Qxd4" , "bxa4" , "Rb6" , "Ng8" , "Qe8" , "Qxh7+" , "g6" , "Rg3" , "Bh6+" , "Re1" , "fxe4" , "Rb8" , "Nxh8" , "d3" , "Nxh6" ;
+        chon:nextHalfMove      :hmgam60XbtQn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touTb1YW  a          chon:hessTournament ;
+        chon:atPlace  :plaTb1YWP ;
+        chon:hasName  "URS-ch39" .
+
+:hmgamTb1YWPk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTb1YWPkv , :rolhg60XbtQnI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tseitlin, Mark D" ;
+        chon:hasSANRecord      "e5" , "Nf6" , "Bb5" , "e4" , "Nf3" , "Nd4" , "Nc3" , "Ba4" , "Nc6" , "f5" ;
+        chon:nextHalfMove      :hmgamTb1YWPk , :hmgam60XbtQn .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg2MrIKbjz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2MrIKb .
+
+:ag2MrIKb  a          chon:Agent ;
+        chon:hasName  "Portisch, Lajos" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2MrIKb .
+
+:ope2MrIKb  a            chon:ChessOpening ;
+        chon:hasECOCode  "D21" .
+
+chon:HalfMove  chon:subEventOf  :gam2MrIK .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2MrIKb .
+
+:res2MrIKbj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla2MrIKb  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:gam2MrIK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2MrIKb ;
+        chon:atPlace           :pla2MrIKb ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2MrIKbj ;
+        chon:hasHalfMove       :hmgam2MrIKbj , :hmgamcMoWhdl ;
+        chon:hasLastHalfMove   :hmgamcMoWhdl ;
+        chon:hasOpening        :ope2MrIKb ;
+        chon:hasReport         :cgr2MrIKb ;
+        chon:hasResult         :res2MrIKbj ;
+        chon:subEventOf        :tou2MrIK .
+
+:cgr2MrIKb  a   chon:ChessGameReport .
+
+:tou2MrIK  a          chon:hessTournament ;
+        chon:atPlace  :pla2MrIKb ;
+        chon:hasName  "Tilburg" .
+
+:hmgamcMoWhdl  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcMoWhdlK ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Portisch, Lajos" ;
+        chon:hasSANRecord      "Bxc5" , "Bc7" , "Bd4" , "Bc6" , "Rb3" , "Bb6" , "Nd5" , "Qd2" , "Rxb4" , "Qa5" , "Bd6" , "Nxb4" , "Bxb2" , "Qe7" , "Nxc5" , "dxc5" , "Qc3" , "Rb7" , "Qb2" , "Rfd8" , "Bb4" , "Nb4" , "Bxf3" ;
+        chon:nextHalfMove      :hmgamcMoWhdl .
+
+:rolhgcMoWhdlK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2MrIKb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rol2MrIKb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2MrIKb .
+
+:hmgam2MrIKbj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg2MrIKbjz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Portisch, Lajos" ;
+        chon:hasSANRecord      "e3" , "Nc3" , "c4" , "Be2" , "Na2" , "d4" , "Nf3" , "b5" , "Bb7" , "Bb4" , "c5" , "Qe1" , "Rb8" , "Ngf6" , "c3" , "a4" , "b4" , "O-O" , "Bd2" , "dxc4" , "Rb1" , "Nxc3" , "d5" , "bxc3" , "Ne4" , "a6" , "Ned2" , "Nd7" , "e6" , "Ba5" ;
+        chon:nextHalfMove      :hmgamcMoWhdl , :hmgam2MrIKbj .

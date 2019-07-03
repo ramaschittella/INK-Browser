@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaMz2LK5  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+:cgrMz2LK5  a   chon:ChessGameReport .
+
+:gamMz2LK  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMz2LK5 ;
+        chon:atPlace           :plaMz2LK5 ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMz2LK5s ;
+        chon:hasHalfMove       :hmgamXzWYj5v , :hmgamMz2LK5s ;
+        chon:hasLastHalfMove   :hmgamXzWYj5v ;
+        chon:hasOpening        :opeMz2LK5 ;
+        chon:hasReport         :cgrMz2LK5 ;
+        chon:hasResult         :resMz2LK5s ;
+        chon:subEventOf        :touMz2LK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMz2LK5 .
+
+:touMz2LK  a          chon:hessTournament ;
+        chon:atPlace  :plaMz2LK5 ;
+        chon:hasName  "EE Internet sim" .
+
+chon:HalfMove  chon:subEventOf  :gamMz2LK .
+
+:agMz2LK5  a          chon:Agent ;
+        chon:hasName  "Refalo" , "Karpov, Anatoly" .
+
+:rolMz2LK5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMz2LK5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMz2LK5 .
+
+:rolhgMz2LK5s2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMz2LK5 .
+
+:hmgamMz2LK5s  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXzWYj5vc , :rolhgMz2LK5s2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Refalo" ;
+        chon:hasSANRecord      "h6" , "Qc4" , "N7f6" , "Bb2" , "a3" , "Bc6" , "c6" , "Bxe4" , "e6" , "Nf3" , "e4" , "dxe4" , "Nf6" , "Be7" , "Bb4" , "a5" , "b4" , "Qc7" , "Nc3" , "d4" , "g3" , "Bd7" , "Nd5" , "Nbd7" , "Nd7" , "Nxe4" , "c5" , "Re2" , "c4" , "O-O" , "bxc5" , "dxc5" , "b6" , "axb4" , "Bd3" , "d5" , "Re1" , "Bd6" , "Qc2" , "Rb1" ;
+        chon:nextHalfMove      :hmgamMz2LK5s , :hmgamXzWYj5v .
+
+:rolhgXzWYj5vc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMz2LK5 .
+
+:opeMz2LK5  a            chon:ChessOpening ;
+        chon:hasECOCode  "C10" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamXzWYj5v  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgXzWYj5vc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Refalo" ;
+        chon:hasSANRecord      "N5f6" , "Qe4" ;
+        chon:nextHalfMove      :hmgamXzWYj5v .
+
+:resMz2LK5s  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "*" .

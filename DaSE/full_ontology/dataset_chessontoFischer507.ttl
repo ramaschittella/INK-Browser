@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamVJBS8ne  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVJBS8neZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kh2" , "Rf5" , "Nh1" , "Be5" , "a3" , "Bg7" , "e3" , "e4" , "Be6" , "c3" , "Bg5" , "Bf5" , "Nf2" , "Rd7" , "Qd7" , "Re3" , "Nbd2" , "Nf6" , "Qxg4" , "Kg7" , "Qg6" , "Ng4" , "Rdc8" , "Rd3" , "Qd5" , "d6" , "Rc8" , "Qf6" , "dxe5" , "d4" , "Bc4" , "Bg3" , "fxg3" , "Rae1" , "Rc7" , "Rcd8" , "hxg4" , "Nh5" , "Nf3" , "h6" , "Nhf1" , "h4" , "Qxb7" , "e5" , "Bxe6" , "c5" , "Qe7" , "g5" , "g6" , "g4" , "Nc6" , "Nd4" , "Re1" , "Bd7" , "Re2" , "Nh2" , "Nxg3" , "Nxd4" , "exd4" , "Bh4" , "Ba2" , "Rc1" , "O-O" , "Rfd8" , "Rc3" , "Qxe6" , "R1c5" , "h5" , "cxd4" , "h3" , "Qb3" , "Rf3" , "Ne3" , "Rc1+" , "Rxh1+" ;
+        chon:nextHalfMove      :hmgamVJBS8ne .
+
+:plaVJBS8n  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:cgrVJBS8n  a   chon:ChessGameReport .
+
+:touVJBS8  a          chon:hessTournament ;
+        chon:atPlace  :plaVJBS8n ;
+        chon:hasName  "USA-ch" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVJBS8n .
+
+:agVJBS8n  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Bisguier, Arthur Bernard" .
+
+:rolVJBS8n  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVJBS8n .
+
+chon:HalfMove  chon:subEventOf  :gamVJBS8 .
+
+:resVJBS8ne  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVJBS8n .
+
+:rolhgVJBS8neZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVJBS8n .
+
+:gamVJBS8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVJBS8n ;
+        chon:atPlace           :plaVJBS8n ;
+        chon:atTime            "1965.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVJBS8ne ;
+        chon:hasHalfMove       :hmgamVJBS8ne ;
+        chon:hasLastHalfMove   :hmgamVJBS8ne ;
+        chon:hasOpening        :opeVJBS8n ;
+        chon:hasReport         :cgrVJBS8n ;
+        chon:hasResult         :resVJBS8ne ;
+        chon:subEventOf        :touVJBS8 .
+
+:opeVJBS8n  a            chon:ChessOpening ;
+        chon:hasECOCode  "A48" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

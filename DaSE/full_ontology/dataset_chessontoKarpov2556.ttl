@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agVHPepK  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Ivanchuk,V" .
+
+:hmgamVHPepKT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmJ2wMLIz , :rolhgVHPepKT9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Bd6" , "c6" , "Nc3" , "Nxe4" , "Qf3" , "Ne4" , "Qe2" , "dxe4" , "d4" , "Ng5" , "Nf6" , "Bd3" , "Nd2" , "Qxe4" , "h6" , "a4" , "Qc7" , "e4" , "N1f3" , "b6" , "Bxe4" , "Ngf6" , "e6" , "d5" , "Nd7" , "Bd7" , "e5" ;
+        chon:nextHalfMove      :hmgamVHPepKT , :hmgammJ2wMLI .
+
+:opeVHPepK  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:gamVHPep  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVHPepK ;
+        chon:atPlace           :plaVHPepK ;
+        chon:atTime            "2001.03.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVHPepKT ;
+        chon:hasHalfMove       :hmgammJ2wMLI , :hmgamVHPepKT ;
+        chon:hasLastHalfMove   :hmgammJ2wMLI ;
+        chon:hasOpening        :opeVHPepK ;
+        chon:hasReport         :cgrVHPepK ;
+        chon:hasResult         :resVHPepKT ;
+        chon:subEventOf        :touVHPep .
+
+:rolhgVHPepKT9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVHPepK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVHPepK .
+
+chon:HalfMove  chon:subEventOf  :gamVHPep .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVHPepK .
+
+:rolhgmJ2wMLIz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVHPepK .
+
+:cgrVHPepK  a   chon:ChessGameReport .
+
+:touVHPep  a          chon:hessTournament ;
+        chon:atPlace  :plaVHPepK ;
+        chon:hasName  "Amber Rapidplay" .
+
+:hmgammJ2wMLI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmJ2wMLIz , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "g4" , "Ba2" , "dxe5" , "Bxe5" , "Ra1" , "Kd5" , "a3" , "a4" , "Qxf5" , "Kb1" , "Bd6" , "Bg5" , "Bb3+" , "a2+" , "Ra7" , "c4+" , "Ba2+" , "Kf3" , "Bf7" , "Rxf8+" , "Bxf4" , "Bxh4" , "O-O" , "Bb1+" , "Kc6" , "Ke7" , "Bf4" , "h4" , "Qxd3" , "Kc4" , "Bf6" , "Ke4" , "Ke5" , "Ra6+" , "Re8" , "Bd5" , "Qd6" , "Ka1" , "Kd6" , "Be6" , "Bd2" , "Ra8" , "Rxa5" , "Kg2" , "Kd3" , "a5" , "c5" , "h3" , "Re1" , "Qg6" , "Kc2" , "f4" , "f5" , "Bb3" , "Bd3" , "c3" , "bxa5" , "Rxf6" , "Bxh6" , "Rae1" , "Kxf8" , "Kf7" , "Rxe8" , "Qh5" , "Bg5+" , "Kd2" , "Rae8" , "gxf5" ;
+        chon:nextHalfMove      :hmgammJ2wMLI .
+
+:rolVHPepK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVHPepK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaVHPepK  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:resVHPepKT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrgtWpsy  a   chon:ChessGameReport .
+
+:resgtWpsyv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plagtWpsy  a         chon:Place ;
+        chon:hasName  "Ajaccio FRA" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggtWpsy .
+
+:hmgamgtWpsyv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHv9JNyk5 , chon:AgentRole , :rolhggtWpsyvD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Ng6" , "Bh4" , "Be7" , "Qc7" , "Ne7" , "Bg5" , "Bf4" , "Na5" , "e5" , "c4" , "e4" , "O-O" , "Bb7" , "Nxh4" , "Nf3" , "d4" , "b5" , "d3" , "Bxc4" , "h6" , "c5" , "Bc6" , "Nc3" , "e6" , "Bc4" , "Bb3" , "Nc6" , "Re1" , "a6" ;
+        chon:nextHalfMove      :hmgamHv9JNyk , :hmgamgtWpsyv .
+
+chon:HalfMove  chon:subEventOf  :gamgtWps .
+
+:rolhggtWpsyvD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggtWpsy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aggtWpsy .
+
+:aggtWpsy  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Costa,Ala" .
+
+:rolgtWpsy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aggtWpsy .
+
+:opegtWpsy  a            chon:ChessOpening ;
+        chon:hasECOCode  "B30" .
+
+:rolhgHv9JNyk5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aggtWpsy .
+
+:gamgtWps  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolgtWpsy ;
+        chon:atPlace           :plagtWpsy ;
+        chon:atTime            "2007.10.25"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamgtWpsyv ;
+        chon:hasHalfMove       :hmgamgtWpsyv , :hmgamHv9JNyk ;
+        chon:hasLastHalfMove   :hmgamHv9JNyk ;
+        chon:hasOpening        :opegtWpsy ;
+        chon:hasReport         :cgrgtWpsy ;
+        chon:hasResult         :resgtWpsyv ;
+        chon:subEventOf        :tougtWps .
+
+:tougtWps  a          chon:hessTournament ;
+        chon:atPlace  :plagtWpsy ;
+        chon:hasName  "ch-Euro Blitz" .
+
+:hmgamHv9JNyk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHv9JNyk5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "gxf3" , "bxc4" , "Qxe5" , "Qe1" , "Rd4" , "Qg5+" , "O-O" , "Qxa1" , "Nxc4" , "Bxc3" , "Qd1" , "Bxa1" , "Qxd4" , "Bb4" , "Qxc4" , "Qd3" , "b4" , "Bxf3" , "Rxd7" , "b3" , "Rd8" , "Re2" , "Rc3" , "Re4" , "Qc5" , "Rc8" ;
+        chon:nextHalfMove      :hmgamHv9JNyk .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

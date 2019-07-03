@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeVPJ9yp  a            chon:ChessOpening ;
+        chon:hasECOCode  "E68" .
+
+:resVPJ9ypV  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamVPJ9y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVPJ9yp ;
+        chon:atPlace           :plaVPJ9yp ;
+        chon:atTime            "2012.10.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVPJ9ypV ;
+        chon:hasHalfMove       :hmgammRVqVqK , :hmgamVPJ9ypV ;
+        chon:hasLastHalfMove   :hmgammRVqVqK ;
+        chon:hasOpening        :opeVPJ9yp ;
+        chon:hasReport         :cgrVPJ9yp ;
+        chon:hasResult         :resVPJ9ypV ;
+        chon:subEventOf        :touVPJ9y .
+
+:touVPJ9y  a          chon:hessTournament ;
+        chon:atPlace  :plaVPJ9yp ;
+        chon:hasName  "Trophee Karpov Preliminary 2012" .
+
+:rolhgVPJ9ypV9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVPJ9yp .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVPJ9yp .
+
+:hmgammRVqVqK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmRVqVqKx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ju Wenjun" ;
+        chon:hasSANRecord      "Rxg7" , "Rg4" , "g6" , "gxh5" , "g7" , "Rg6" , "Rh4" , "h5" , "Rxh5" , "Rh3" ;
+        chon:nextHalfMove      :hmgammRVqVqK .
+
+:rolhgmRVqVqKx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVPJ9yp .
+
+chon:HalfMove  chon:subEventOf  :gamVPJ9y .
+
+:cgrVPJ9yp  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVPJ9yp .
+
+:plaVPJ9yp  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:hmgamVPJ9ypV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgmRVqVqKx , :rolhgVPJ9ypV9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ju Wenjun" ;
+        chon:hasSANRecord      "Ra7" , "Bxa6" , "Rd2+" , "Bc5" , "Ke6" , "fxe5" , "Bg7" , "Rfd6" , "f4" , "e5" , "Rbxc6" , "O-O" , "Nd2" , "Rfe8" , "Rd5" , "Bxc5" , "Qb3" , "Kg2" , "Qxb4" , "Rd3+" , "Rd2" , "Kd5" , "Rxd2" , "g3" , "Bb7" , "Rb4" , "Ra5" , "g6" , "Nc3" , "Na4" , "Nf3" , "Be3" , "Ke4" , "Re7" , "Rfd1" , "axb4" , "Rxh7" , "Nf6" , "Kf6" , "Qa5" , "c6" , "Rxf6" , "dxe5" , "Rc4" , "Nb6" , "Rd6" , "Kg3" , "Qb4" , "cxd6" , "Ba6" , "d4" , "Nxe4" , "Rh2" , "h3" , "a3" , "g4" , "Rb5" , "Rxa6" , "Kf1" , "Ra6" , "b5" , "cxb5" , "a6" , "Rxd6" , "Ra6+" , "Rb8" , "Kf4" , "Rxb2" , "Re8" , "axb5" , "Rdd6" , "c4" , "Nxa4" , "Rc2" , "e4" , "bxc5" , "d6" , "Bg2" , "Nbd7" , "bxa4" , "Rd4" , "f6" , "Rd7" , "Rac1" , "Rxa4" , "h4" , "g5" , "Kg7" , "Bf8" , "Rb6" , "Bf1" ;
+        chon:nextHalfMove      :hmgammRVqVqK , :hmgamVPJ9ypV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agVPJ9yp  a          chon:Agent ;
+        chon:hasName  "Ju Wenjun" , "Karpov,Ana" .
+
+:rolVPJ9yp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVPJ9yp .

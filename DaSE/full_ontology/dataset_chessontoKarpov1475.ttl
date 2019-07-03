@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgribo5i1  a   chon:ChessGameReport .
+
+:hmgamgp2Tw8s  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggp2Tw8sh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kindermann, Stefan" ;
+        chon:hasSANRecord      "Rxd4" , "Rxe6" , "Qf3" , "Rd8" , "Qa8+" , "Kg7" , "Nxe5" , "Qxb5" , "Qb2" , "Qxd5" , "fxe6" , "Bxd4+" ;
+        chon:nextHalfMove      :hmgamgp2Tw8s .
+
+:resibo5i1U  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolibo5i1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agibo5i1 .
+
+:gamibo5i  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolibo5i1 ;
+        chon:atPlace           :plaibo5i1 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamibo5i1U ;
+        chon:hasHalfMove       :hmgamgp2Tw8s , :hmgamibo5i1U ;
+        chon:hasLastHalfMove   :hmgamgp2Tw8s ;
+        chon:hasOpening        :opeibo5i1 ;
+        chon:hasReport         :cgribo5i1 ;
+        chon:hasResult         :resibo5i1U ;
+        chon:subEventOf        :touibo5i .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agibo5i1 .
+
+:touibo5i  a          chon:hessTournament ;
+        chon:atPlace  :plaibo5i1 ;
+        chon:hasName  "Baden-Baden" .
+
+:plaibo5i1  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+chon:HalfMove  chon:subEventOf  :gamibo5i .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agibo5i1 .
+
+:rolhggp2Tw8sh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agibo5i1 .
+
+:agibo5i1  a          chon:Agent ;
+        chon:hasName  "Kindermann, Stefan" , "Karpov, Anatoly" .
+
+:opeibo5i1  a            chon:ChessOpening ;
+        chon:hasECOCode  "E84" .
+
+:rolhgibo5i1Ux  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agibo5i1 .
+
+:hmgamibo5i1U  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggp2Tw8sh , chon:AgentRole , :rolhgibo5i1Ux ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kindermann, Stefan" ;
+        chon:hasSANRecord      "a6" , "d4" , "Be2" , "Bd3" , "N1e2" , "Rxb5" , "e4" , "Nd7" , "Nc6" , "h5" , "d5" , "exd4" , "Re8" , "Rxb2" , "bxc6" , "dxc6" , "Nf6" , "e5" , "Be3" , "Qe3" , "Bg7" , "Qd2" , "Bxa6" , "c4" , "f3" , "h4" , "cxd5" , "d6" , "O-O" , "Nxd4" , "Nge2" , "Nd4" , "g6" , "c5" , "Be6" , "Qg3" , "Rd1" , "Bb5" , "Qa5" , "Bh6" , "Bxd4" , "Rb8" , "Bf8" , "f4" , "Nc1" , "Nc3" , "Ng4" , "f5" , "Bc5" , "Nxb5" ;
+        chon:nextHalfMove      :hmgamgp2Tw8s , :hmgamibo5i1U .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

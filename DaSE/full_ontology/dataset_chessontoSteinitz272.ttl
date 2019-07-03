@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg1qghpsbW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOqj4Qt .
+
+:plaOqj4Qt  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOqj4Qt .
+
+:rolhgOqj4Qt9J  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOqj4Qt .
+
+:cgrOqj4Qt  a   chon:ChessGameReport .
+
+:hmgamOqj4Qt9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgOqj4Qt9J , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Englisch, Berthold" ;
+        chon:hasSANRecord      "c4" , "e6" , "d4" ;
+        chon:nextHalfMove      :hmgam1qghpsb , :hmgamOqj4Qt9 .
+
+chon:HalfMove  chon:subEventOf  :gamOqj4Q .
+
+:agOqj4Qt  a          chon:Agent ;
+        chon:hasName  "Englisch, Berthold" , "Steinitz, William" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOqj4Qt .
+
+:rolOqj4Qt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOqj4Qt .
+
+:gamOqj4Q  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOqj4Qt ;
+        chon:atPlace           :plaOqj4Qt ;
+        chon:atTime            "1882.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOqj4Qt9 ;
+        chon:hasHalfMove       :hmgamOqj4Qt9 , :hmgam1qghpsb ;
+        chon:hasLastHalfMove   :hmgam1qghpsb ;
+        chon:hasOpening        :opeOqj4Qt ;
+        chon:hasReport         :cgrOqj4Qt ;
+        chon:hasResult         :resOqj4Qt9 ;
+        chon:subEventOf        :touOqj4Q .
+
+:opeOqj4Qt  a            chon:ChessOpening ;
+        chon:hasECOCode  "E33" .
+
+:touOqj4Q  a          chon:hessTournament ;
+        chon:atPlace  :plaOqj4Qt ;
+        chon:hasName  "Vienna" .
+
+:resOqj4Qt9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgam1qghpsb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1qghpsbW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Englisch, Berthold" ;
+        chon:hasSANRecord      "Nc3" , "dxc4" , "Nf6" , "Rd1" , "f4" , "Nd2" , "Bd4" , "b3" , "Rxc5" , "a5" , "e3" , "dxc5" , "c5" , "Nf3" , "d5" , "Rc8" , "O-O" , "Bb2" , "Bxc4" , "Ne7" , "Nf5" , "Qb3" , "Qxc3" , "Nc6" , "Qc7" , "a3" , "Ng4" , "Ba6" , "Bd3" , "bxc4" , "b6" , "Qd2" , "Bxc3+" , "Nxc4" , "Bb4+" ;
+        chon:nextHalfMove      :hmgam1qghpsb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

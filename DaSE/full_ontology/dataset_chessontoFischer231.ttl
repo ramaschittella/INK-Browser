@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam9e1Rff3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9e1Rff3L ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "f3" , "Nf6" , "e6" , "exd5" , "Qf2" , "cxd5" , "b3" , "d5" , "bxc6" , "Rac8" , "Qd2" , "Nxc6" , "Rfd8" , "Rxc8+" , "Qe7" , "Nc3" , "Rfd1" , "Rxd5" , "Qxc8" , "Rc1" , "O-O" , "Nxd5" , "Qd7" ;
+        chon:nextHalfMove      :hmgam9e1Rff3 .
+
+:placgjIvf  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:rolhg9e1Rff3L  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcgjIvf .
+
+:cgrcgjIvf  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcgjIvf .
+
+:hmgamcgjIvfK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcgjIvfKN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "g6" , "d6" , "Bg7" , "Nc6" , "cxd4" , "Nf3" , "Qxd7" , "Bd7" , "e4" , "Be3" , "c5" , "Nxd4" , "Bxd7+" , "Bb5+" , "c4" , "d4" , "O-O" ;
+        chon:nextHalfMove      :hmgamcgjIvfK , :hmgam9e1Rff3 .
+
+:agcgjIvf  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Blau, Max" .
+
+:rolcgjIvf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agcgjIvf .
+
+chon:HalfMove  chon:subEventOf  :gamcgjIv .
+
+:opecgjIvf  a            chon:ChessOpening ;
+        chon:hasECOCode  "B52" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agcgjIvf .
+
+:gamcgjIv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolcgjIvf ;
+        chon:atPlace           :placgjIvf ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamcgjIvfK ;
+        chon:hasHalfMove       :hmgamcgjIvfK , :hmgam9e1Rff3 ;
+        chon:hasLastHalfMove   :hmgam9e1Rff3 ;
+        chon:hasOpening        :opecgjIvf ;
+        chon:hasReport         :cgrcgjIvf ;
+        chon:hasResult         :rescgjIvfK ;
+        chon:subEventOf        :toucgjIv .
+
+:rescgjIvfK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:toucgjIv  a          chon:hessTournament ;
+        chon:atPlace  :placgjIvf ;
+        chon:hasName  "Zuerich" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgcgjIvfKN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agcgjIvf .

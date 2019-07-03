@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam6mgyW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6mgyWM ;
+        chon:atPlace           :pla6mgyWM ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhmcMtLT ;
+        chon:hasHalfMove       :hmgamhmcMtLT ;
+        chon:hasLastHalfMove   :hmgamhmcMtLT ;
+        chon:hasOpening        :ope6mgyWM ;
+        chon:hasReport         :cgr6mgyWM ;
+        chon:hasResult         :res6mgyWMP ;
+        chon:subEventOf        :tou6mgyW .
+
+:pla6mgyWM  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:rolhghmcMtLTL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6mgyWM .
+
+:cgr6mgyWM  a   chon:ChessGameReport .
+
+:ag6mgyWM  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Redolfi, Argentino Rodolfo" .
+
+:rol6mgyWM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6mgyWM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6mgyWM .
+
+:ope6mgyWM  a            chon:ChessOpening ;
+        chon:hasECOCode  "B52" .
+
+chon:HalfMove  chon:subEventOf  :gam6mgyW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6mgyWM .
+
+:tou6mgyW  a          chon:hessTournament ;
+        chon:atPlace  :pla6mgyWM ;
+        chon:hasName  "Mar del Plata" .
+
+:hmgamhmcMtLT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhghmcMtLTL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nxd4" , "h5" , "f5" , "f4" , "a4" , "Rxe8" , "b3" , "h3" , "Bg5" , "Kh7" , "Kf7" , "Qc1" , "g6" , "exd5" , "e5" , "Qxd5" , "Nbd2" , "dxe4" , "Nxd6" , "Nc6" , "Qd1" , "f6" , "Kg8" , "Kh8" , "d5" , "b5" , "Bd7" , "h4" , "Bd2" , "Nc4" , "Qxa4" , "Bb5+" , "Qxg4" , "Rae8" , "fxg4" , "Nge7" , "Qxh5+" , "Re1" , "c5" , "e6" , "Qd1+" , "Qxd6" , "Nf5" , "Rxd3" , "Nd4" , "d6" , "Qf1" , "Nf3" , "c3" , "d3" , "Qd8+" , "Kh2" , "e4" , "Qxd3" , "Qxb3" , "Bg7" , "Rd8" , "Qd7" , "Re3" , "fxe4" , "Qxd7" , "exd4" , "Nd6" , "Bf4" , "Bxd7+" , "Qg5" , "gxf5" , "O-O" , "Qb6" , "Bc3" , "Qg4" ;
+        chon:nextHalfMove      :hmgamhmcMtLT .
+
+:res6mgyWMP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

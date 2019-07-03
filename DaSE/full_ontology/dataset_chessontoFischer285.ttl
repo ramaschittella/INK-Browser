@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resDaktKG6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDaktKG .
+
+:agDaktKG  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" .
+
+:gamsanfd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsanfdF ;
+        chon:atPlace           :plasanfdF ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamDaktKG6 ;
+        chon:hasHalfMove       :hmgamDaktKG6 , :hmgam6cwM7HU ;
+        chon:hasLastHalfMove   :hmgam6cwM7HU ;
+        chon:hasOpening        :opeDaktKG ;
+        chon:hasReport         :cgrDaktKG ;
+        chon:hasResult         :resDaktKG6 ;
+        chon:subEventOf        :tousanfd .
+
+:hmgamDaktKG6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDaktKG6i , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rc1" , "gxf6" , "c3" , "Nf6" , "Ke7" , "Qb3" , "b5" , "Qb6" , "e3" , "Qxb6" , "Bd3" , "Na3" , "Bxf6" , "h6" , "Ra1" , "Nh4" , "Bxb4+" , "Bd6" , "cxd4" , "Ra7" , "c5" , "Nc6" , "d5" , "Kc7" , "Nc2" , "Kc2" , "Kb3" , "Bd7" , "d4" , "Kd7" , "Bg5" , "Nxa2" , "e6" , "Rxa2" , "Nxb4" , "Kb6" , "g3" , "Rc8" , "axb6" , "Kd2" , "Nb4" , "Bc6" , "Nf3" ;
+        chon:nextHalfMove      :hmgam6cwM7HU , :hmgamDaktKG6 .
+
+:rolsanfdF  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgam6cwM7HU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6cwM7HUJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bxb3+" , "Rh8" , "Ba4+" , "Bb1" , "Kb2" , "Rxh6" , "b3+" , "Ka2" , "Kxb3" , "Rd1" , "Kb4" , "Ka5" , "b4" , "b3" , "Rc1" , "Rc6" , "Kc3" , "Rd2+" , "Ka1" , "Ra8" ;
+        chon:nextHalfMove      :hmgam6cwM7HU .
+
+chon:HalfMove  chon:subEventOf  :gamsanfd .
+
+:opeDaktKG  a            chon:ChessOpening ;
+        chon:hasECOCode  "A45" .
+
+:rolhg6cwM7HUJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsanfdF , :agDaktKG .
+
+:cgrDaktKG  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tousanfd  a          chon:hessTournament ;
+        chon:atPlace  :plasanfdF ;
+        chon:hasName  "Mar del Plata" .
+
+:plasanfdF  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:rolDaktKG  a             chon:AuthorRole ;
+        chon:performedBy  :agDaktKG .
+
+:agsanfdF  a          chon:Agent ;
+        chon:hasName  "Letelier, Rene" .
+
+:rolhgDaktKG6i  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDaktKG , :agsanfdF .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsanfdF .

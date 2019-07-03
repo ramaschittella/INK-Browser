@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrrsfOwr  a   chon:ChessGameReport .
+
+:hmgamrsfOwrw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrsfOwrwW ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Qg3" , "f5" , "Bxc3+" , "Bd2" , "c5" , "e6" , "Bd3" , "O-O" , "Ne7" , "Bb4" , "Nf3" , "Qg4" , "d5" , "a4" , "d4" , "Qa5" , "e4" , "Nbc6" , "a3" , "e5" , "f6" , "bxc3" , "Nc3" ;
+        chon:nextHalfMove      :hmgamrsfOwrw , :hmgamSsb34qz .
+
+:agrsfOwr  a          chon:Agent ;
+        chon:hasName  "Kortschnoj, Viktor" , "Fischer, Robert James" .
+
+:rolrsfOwr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrsfOwr .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrsfOwr .
+
+:hmgamSsb34qz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSsb34qz9 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kortschnoj, Viktor" ;
+        chon:hasSANRecord      "Qxd2" , "Rxa4" , "Ra2" , "h5" , "Qh4" , "a3" , "a4" , "Rb4" , "Nxe4" , "a6" , "Rb6" , "Nc6" , "Bxf1" , "Bf1" , "e4" , "Ng6" , "c4" , "bxa4" , "Ra8" , "Bc6" , "Rxd5" , "Nxa4" , "Rb1" , "Rfa1" , "Nd2" , "Bd1" , "Nd4" , "h4" , "c3" , "h6" , "Ra5" , "Nb5" , "Nxh4" , "Rd8" , "Kxc3" , "Nxe5" , "Bb5" , "Ne7" , "a5" , "Rda1" , "Rb8" , "Kxf1" , "Nf3" , "cxd4" , "Bf3" , "Nxa3" , "Ng5" , "e5" , "Ne2" , "R5a4" , "g3" , "Rb5" , "Rc8" , "Kf7" , "Nxd4" , "Nb1" , "Rxb5" , "fxg3" , "Rxa3+" , "Nc3" , "b5" , "Be2" , "Kd3" , "f4" , "Bb7" , "O-O" , "Kd4" , "Nxb5" , "Ke2" , "Rd1" , "Nxd2" ;
+        chon:nextHalfMove      :hmgamSsb34qz .
+
+chon:HalfMove  chon:subEventOf  :gamrsfOw .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrsfOwr .
+
+:opersfOwr  a            chon:ChessOpening ;
+        chon:hasECOCode  "C19" .
+
+:rolhgSsb34qz9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrsfOwr .
+
+:rolhgrsfOwrwW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrsfOwr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamrsfOw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrsfOwr ;
+        chon:atPlace           :plarsfOwr ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrsfOwrw ;
+        chon:hasHalfMove       :hmgamrsfOwrw , :hmgamSsb34qz ;
+        chon:hasLastHalfMove   :hmgamSsb34qz ;
+        chon:hasOpening        :opersfOwr ;
+        chon:hasReport         :cgrrsfOwr ;
+        chon:hasResult         :resrsfOwrw ;
+        chon:subEventOf        :toursfOw .
+
+:resrsfOwrw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:toursfOw  a          chon:hessTournament ;
+        chon:atPlace  :plarsfOwr ;
+        chon:hasName  "Herceg Novi blitz" .
+
+:plarsfOwr  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agbPYG8j  a          chon:Agent ;
+        chon:hasName  "Albarran,G" , "Karpov,An" .
+
+:rolhgbPYG8j9h  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbPYG8j .
+
+:opebPYG8j  a            chon:ChessOpening ;
+        chon:hasECOCode  "E10" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbPYG8j .
+
+:hmgambPYG8j9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbPYG8j9h , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Albarran,G" ;
+        chon:hasSANRecord      "Qh4" , "g6" , "Qd3" , "Ne4" , "dxc6" , "Nc3" , "Ba3" , "Be5" , "O-O" , "Re8" , "d4" , "Rd1" , "b6" , "c5" , "e3" , "Qc1" , "Nf3" , "Nxc6" , "Nxe4" , "Be2" , "Ng3" , "Nc6" , "Bg7" , "Nf6" , "cxd4" , "Rd2" , "Nxd4" , "Rxe2" , "Qc2" , "Bxg7" , "e6" , "b3" , "Ra7" , "a6" , "c4" , "Bd6" , "Rd7" , "Kxg7" ;
+        chon:nextHalfMove      :hmgambPYG8j9 .
+
+chon:HalfMove  chon:subEventOf  :gambPYG8 .
+
+:plabPYG8j  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbPYG8j .
+
+:cgrbPYG8j  a   chon:ChessGameReport .
+
+:resbPYG8j9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gambPYG8  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbPYG8j ;
+        chon:atPlace           :plabPYG8j ;
+        chon:atTime            "2001.08.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambPYG8j9 ;
+        chon:hasHalfMove       :hmgambPYG8j9 ;
+        chon:hasLastHalfMove   :hmgambPYG8j9 ;
+        chon:hasOpening        :opebPYG8j ;
+        chon:hasReport         :cgrbPYG8j ;
+        chon:hasResult         :resbPYG8j9 ;
+        chon:subEventOf        :toubPYG8 .
+
+:rolbPYG8j  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbPYG8j .
+
+:toubPYG8  a          chon:hessTournament ;
+        chon:atPlace  :plabPYG8j ;
+        chon:hasName  "Karpov-Boca Simul" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

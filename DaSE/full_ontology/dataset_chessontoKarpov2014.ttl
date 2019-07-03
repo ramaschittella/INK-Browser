@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgKgSFIL3c  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKgSFIL .
+
+:touKgSFI  a          chon:hessTournament ;
+        chon:atPlace  :plaKgSFIL ;
+        chon:hasName  "Biel SKA" .
+
+:hmgamKgSFIL3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKgSFIL3c ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Romanishin, Oleg M" ;
+        chon:hasSANRecord      "c5" , "e4" , "Nbd7" , "h4" , "Bg7" , "Nh5" , "Bd2" , "Ndf6" , "Ng4" , "Rb8" , "Bd7" , "Bb7" , "Nb5" , "b4" , "g3" , "Rxd7" , "Rb1" , "d6" , "O-O" , "Rfb1" , "f3" , "bxc5" , "Nxd7" , "Qd3" , "Rb7" , "Na4" , "Ne1" , "Ne8" , "g6" , "a3" , "Nc3" , "Rab8" , "Be2" , "Rxb6" , "b6" , "Qc2" , "Bg5" , "Rb3" , "Qh3" , "d5" , "Nxb6" , "a6" , "Bxg4" , "e6" , "Rb6" , "e5" , "d4" , "Bc8" , "Nf6" , "Nf3" , "Nd3" , "Qd7" , "Ng2" , "Qh5" , "c4" ;
+        chon:nextHalfMove      :hmgamKgSFIL3 , :hmgamWgPVgK6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKgSFIL .
+
+chon:HalfMove  chon:subEventOf  :gamKgSFI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKgSFIL .
+
+:plaKgSFIL  a         chon:Place ;
+        chon:hasName  "Biel" .
+
+:rolhgWgPVgK6n  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKgSFIL .
+
+:hmgamWgPVgK6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWgPVgK6n , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Romanishin, Oleg M" ;
+        chon:hasSANRecord      "Nf2" , "Qxf3" ;
+        chon:nextHalfMove      :hmgamWgPVgK6 .
+
+:cgrKgSFIL  a   chon:ChessGameReport .
+
+:resKgSFIL3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamKgSFI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKgSFIL ;
+        chon:atPlace           :plaKgSFIL ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKgSFIL3 ;
+        chon:hasHalfMove       :hmgamWgPVgK6 , :hmgamKgSFIL3 ;
+        chon:hasLastHalfMove   :hmgamWgPVgK6 ;
+        chon:hasOpening        :opeKgSFIL ;
+        chon:hasReport         :cgrKgSFIL ;
+        chon:hasResult         :resKgSFIL3 ;
+        chon:subEventOf        :touKgSFI .
+
+:agKgSFIL  a          chon:Agent ;
+        chon:hasName  "Romanishin, Oleg M" , "Karpov, Anatoly" .
+
+:rolKgSFIL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKgSFIL .
+
+:opeKgSFIL  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

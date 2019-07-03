@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agMWIF82  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Evans, Larry Melvyn" .
+
+:rolMWIF82  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMWIF82 .
+
+:rolhgMWIF822D  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMWIF82 .
+
+:plaAWLrA1  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:hmgamMWIF822  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMWIF822D , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "bxc5" , "Na4" , "Kg2" , "Nd4" , "Rb6" , "Bc3" , "Rda8" , "R8a4" , "g3" , "Be6" , "Re2" , "Bc8" , "Rec1" , "Rc7" , "a5" , "Rfb1" , "Ra2" , "Ne8" , "Raa1" , "Bh6" , "Qa5" , "Bg7" , "b6" , "c5" , "Kf3" , "Nc7" , "Nge2" , "h6" , "dxc5" , "Rxa2" , "Nb5" , "Nd8" , "Ra1" , "Bxc3" , "axb4" , "h4" , "Qxa5" , "Bd2" , "Rd8" , "Rd2" , "Nxc5" , "Kg7" , "g6" , "Nf6" , "Rc6" , "Be3" , "Kd2" , "Rhe1+" , "Rc1" , "Kf8" , "Na6" , "Bh8" , "Nxa2" , "Rh1" , "Qxc3" , "d4" , "Nxe2+" , "Ra3+" , "Nc6" , "Bf1" , "Rxa5" , "Rb2" , "a3" , "Nd5" , "Rbc2" , "Rb7" , "Bd3" , "O-O" , "d6" , "Rxc5" , "Nb4" , "Ke3" , "c4" , "Na2" , "Ra3" , "e4" , "Ra7" , "Qc1" , "Re8" , "Bg2" , "b4" , "d3" , "Nc3" , "Nxe2" , "Ne6" , "Rb1" ;
+        chon:nextHalfMove      :hmgamMWIF822 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMWIF82 .
+
+:gamAWLrA  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMWIF82 ;
+        chon:atPlace           :plaAWLrA1 ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMWIF822 ;
+        chon:hasHalfMove       :hmgamMWIF822 ;
+        chon:hasLastHalfMove   :hmgamMWIF822 ;
+        chon:hasOpening        :opeMWIF82 ;
+        chon:hasReport         :cgrMWIF82 ;
+        chon:hasResult         :resMWIF822 ;
+        chon:subEventOf        :touMWIF8 .
+
+chon:HalfMove  chon:subEventOf  :gamAWLrA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMWIF82 .
+
+:opeMWIF82  a            chon:ChessOpening ;
+        chon:hasECOCode  "A36" .
+
+:resMWIF822  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrMWIF82  a   chon:ChessGameReport .
+
+:touMWIF8  a          chon:hessTournament ;
+        chon:atPlace  :plaAWLrA1 ;
+        chon:hasName  "USA-ch" .

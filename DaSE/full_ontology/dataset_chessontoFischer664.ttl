@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agFJ7IyB  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Matulovic, Milan" .
+
+:rolFJ7IyB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFJ7IyB .
+
+:opeFJ7IyB  a            chon:ChessOpening ;
+        chon:hasECOCode  "B97" .
+
+:hmgamFJ7IyBR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFJ7IyBRT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Bxe6" , "Rxa8" , "Nd5+" , "Qb4" , "Bxa2" , "Nxd4" , "a3" , "Bc4" , "Ra2" , "b5" , "Re3" , "Rg3" , "Bd3" , "Qxb2" , "Nxf6+" , "Kf8" , "Kc7" , "Qa3" , "exf5" , "d5" , "Rh3" , "f5" , "e6" , "h5" , "Nxd5" , "a4" , "Nxf5" , "Ne7" , "Qxd2" , "Rf2" , "Rd4" , "Nxf1" , "Ra3" , "Nc3" , "Re1" , "Nxg3" , "Bg7" , "Ke7" , "Nc6" , "Bg5" , "Nd8+" , "a5" , "g4" , "c5" , "Nxa8" , "Rf3" , "c4" , "Bf6" , "Rd8" , "e4" , "Rxf1" , "O-O" , "Kxc5" , "Rb2" , "Nd6" , "cxd4" , "Nf3" , "Nf6" , "d6" , "h6" , "a2" , "Ne4+" , "d4" , "Re2" , "Kd6" , "Qb6" , "Bxf6" , "Nxd2" , "Ra4" , "g5" , "Nb7+" , "Nc7" , "Qd2" , "fxe6" , "Bf1" , "Nb3" , "a6" , "f4" , "h4" , "Rd3" , "Kc6" , "gxf6" ;
+        chon:nextHalfMove      :hmgamFJ7IyBR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFJ7IyB .
+
+chon:HalfMove  chon:subEventOf  :gamFJ7Iy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFJ7IyB .
+
+:resFJ7IyBR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:gamFJ7Iy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFJ7IyB ;
+        chon:atPlace           :plaFJ7IyB ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFJ7IyBR ;
+        chon:hasHalfMove       :hmgamFJ7IyBR ;
+        chon:hasLastHalfMove   :hmgamFJ7IyBR ;
+        chon:hasOpening        :opeFJ7IyB ;
+        chon:hasReport         :cgrFJ7IyB ;
+        chon:hasResult         :resFJ7IyBR ;
+        chon:subEventOf        :touFJ7Iy .
+
+:plaFJ7IyB  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgFJ7IyBRT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFJ7IyB .
+
+:cgrFJ7IyB  a   chon:ChessGameReport .
+
+:touFJ7Iy  a          chon:hessTournament ;
+        chon:atPlace  :plaFJ7IyB ;
+        chon:hasName  "Herceg Novi blitz" .

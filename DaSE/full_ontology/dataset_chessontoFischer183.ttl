@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:res3A6S2oL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgameA2PzpO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeA2PzpOv , :rolhgcPFSKwof ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d6" , "Rc2" , "c4" , "h5" , "Nc4" , "cxd6" , "Kh1" , "Nf6" , "f5" , "Ne1" , "Bh6" , "c5" , "Nd7" , "Qe1" , "Nh7" , "Bf2" , "g6" , "d5" , "e5" , "Rb8" , "Nbd7" , "f4" , "Nc3" , "Be2" , "Rf6" , "O-O" , "a6" , "Rc1" , "Na5" , "b5" , "Qe8" , "g5" , "h6" , "f3" , "Bg5" , "g4" , "Bh4" , "Nd3" , "e4" , "d4" , "Ndf6" , "b4" , "Qg6" , "Bg7" , "Nb6" , "Na4" ;
+        chon:nextHalfMove      :hmgameA2PzpO , :hmgamcPFSKwo .
+
+:pla3A6S2o  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:gam3A6S2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3A6S2o ;
+        chon:atPlace           :pla3A6S2o ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3A6S2oL ;
+        chon:hasHalfMove       :hmgameA2PzpO , :hmgam3A6S2oL , :hmgamcPFSKwo ;
+        chon:hasLastHalfMove   :hmgamcPFSKwo ;
+        chon:hasOpening        :ope3A6S2o ;
+        chon:hasReport         :cgr3A6S2o ;
+        chon:hasResult         :res3A6S2oL ;
+        chon:subEventOf        :tou3A6S2 .
+
+:tou3A6S2  a          chon:hessTournament ;
+        chon:atPlace  :pla3A6S2o ;
+        chon:hasName  "Mar del Plata" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3A6S2o .
+
+:cgr3A6S2o  a   chon:ChessGameReport .
+
+:rolhgcPFSKwof  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3A6S2o .
+
+chon:HalfMove  chon:subEventOf  :gam3A6S2 .
+
+:ag3A6S2o  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Sanchez, Luis A" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3A6S2o .
+
+:rol3A6S2o  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3A6S2o .
+
+:hmgamcPFSKwo  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgcPFSKwof ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qxg7" , "g3" , "Ne7" , "Bf2" , "Bxc6" , "Nf6" , "Nd3" , "Nb2" , "h4" , "Kg7" , "Rg7" , "Qc7" , "Nc8" , "Qe6" , "Qb3+" , "Ng6" , "Bd1" , "Rc7" , "Rc1" , "gxh2" , "Qc3" , "Kxh2" , "Bb3" , "dxc6" , "Bd7" , "Rxg7+" , "Nc6" , "Rf7" , "Bg1" ;
+        chon:nextHalfMove      :hmgamcPFSKwo .
+
+:hmgam3A6S2oL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeA2PzpOv , chon:AgentRole ;
+        chon:hasSANRecord      "Nf3" ;
+        chon:nextHalfMove      :hmgameA2PzpO .
+
+:rolhgeA2PzpOv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3A6S2o .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope3A6S2o  a            chon:ChessOpening ;
+        chon:hasECOCode  "E93" .

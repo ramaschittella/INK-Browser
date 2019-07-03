@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg7d6bunOK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7d6bun .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7d6bun .
+
+:cgr7d6bun  a   chon:ChessGameReport .
+
+:tou7d6bu  a          chon:hessTournament ;
+        chon:atPlace  :pla7d6bun ;
+        chon:hasName  "Valkeakoski sim" .
+
+chon:HalfMove  chon:subEventOf  :gam7d6bu .
+
+:hmgam7d6bunO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7d6bunOK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Koskela, Niina" ;
+        chon:hasSANRecord      "Qe3" , "d4" , "Rac8" , "Rfe1" , "b6" , "O-O" , "bxc5" , "Kg7" , "Bg2" , "Qe5" , "Bb7" , "Qf3" , "Qxe5" , "Bxe4" , "Rd6" , "b3" , "Bxg5" , "Bc8" , "Qf6" , "e4" , "Rc7" , "Nxe4" , "dxe4" , "Ne5" , "Rxd1" , "g3" , "Qa3" , "e6" , "c4" , "Rc1" , "Bc4" , "Bf4" , "Re8" , "Qd8" , "b4" , "Nf6" , "Rxc6" , "Rcd1" , "Bxa2" , "h4" , "Rd8" , "dxe5" , "Nfd7" , "Ba6" , "d5" , "g6" , "Nxd7" , "Nc3" , "Qxg5" , "Bg5" , "c6" , "c5" , "Nf3" , "Be7" ;
+        chon:nextHalfMove      :hmgam7d6bunO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7d6bun .
+
+:rol7d6bun  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7d6bun .
+
+:pla7d6bun  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:res7d6bunO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag7d6bun  a          chon:Agent ;
+        chon:hasName  "Koskela, Niina" , "Karpov, Anatoly" .
+
+:gam7d6bu  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7d6bun ;
+        chon:atPlace           :pla7d6bun ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7d6bunO ;
+        chon:hasHalfMove       :hmgam7d6bunO ;
+        chon:hasLastHalfMove   :hmgam7d6bunO ;
+        chon:hasOpening        :ope7d6bun ;
+        chon:hasReport         :cgr7d6bun ;
+        chon:hasResult         :res7d6bunO ;
+        chon:subEventOf        :tou7d6bu .
+
+:ope7d6bun  a            chon:ChessOpening ;
+        chon:hasECOCode  "E17" .

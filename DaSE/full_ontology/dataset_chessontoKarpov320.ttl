@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ope3bFDN9  a            chon:ChessOpening ;
+        chon:hasECOCode  "E14" .
+
+:res3bFDN9A  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamd0BRk0F  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgd0BRk0Fa ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bb4" , "b4" , "Qb3" , "f6" , "Bb7" , "Na5" , "Nxe3" , "Rc8" , "Qh3" , "Bg5" , "Qxe3" , "Rad1" , "Ne8" , "g4" , "Be2" , "Bxf4" , "Bxe4" , "Nc6" , "Nc3" , "Ne2" , "f4" , "Ne4" , "b5" , "fxe5" , "Bd3" , "Nf4" , "g6" , "cxb6" , "Nc4" , "Rxf4" , "Be3" , "Qe2" , "b3" , "f5" , "Nd6" , "Qe7" , "cxd4" , "Ne5" , "Qd1" , "Be7" , "d5" , "O-O" , "axb6" , "c5" , "exd4" ;
+        chon:nextHalfMove      :hmgamd0BRk0F .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3bFDN9 .
+
+chon:HalfMove  chon:subEventOf  :gam3bFDN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3bFDN9 .
+
+:rolhgd0BRk0Fa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3bFDN9 .
+
+:rolhg3bFDN9AX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3bFDN9 .
+
+:hmgam3bFDN9A  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3bFDN9AX , :rolhgd0BRk0Fa ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "Nf6" , "b6" , "c4" , "e6" , "Nf3" , "e3" , "d4" ;
+        chon:nextHalfMove      :hmgamd0BRk0F , :hmgam3bFDN9A .
+
+:gam3bFDN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3bFDN9 ;
+        chon:atPlace           :pla3bFDN9 ;
+        chon:atTime            "1974.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3bFDN9A ;
+        chon:hasHalfMove       :hmgamd0BRk0F , :hmgam3bFDN9A ;
+        chon:hasLastHalfMove   :hmgamd0BRk0F ;
+        chon:hasOpening        :ope3bFDN9 ;
+        chon:hasReport         :cgr3bFDN9 ;
+        chon:hasResult         :res3bFDN9A ;
+        chon:subEventOf        :tou3bFDN .
+
+:pla3bFDN9  a         chon:Place ;
+        chon:hasName  "Nice" .
+
+:tou3bFDN  a          chon:hessTournament ;
+        chon:atPlace  :pla3bFDN9 ;
+        chon:hasName  "Nice olm prel" .
+
+:cgr3bFDN9  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag3bFDN9  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Zalm, NE." .
+
+:rol3bFDN9  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3bFDN9 .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolNbEbJR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNbEbJR .
+
+:opeNbEbJR  a            chon:ChessOpening ;
+        chon:hasECOCode  "B14" .
+
+:hmgamNbEbJRZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNbEbJRZs ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kanerva, Jukka" ;
+        chon:hasSANRecord      "Be7" , "Rxe6" , "Rd7" , "b4" , "Qxc5+" , "c4" , "Qb4" , "Qxe1+" , "Re1" , "Ne4" , "Bb5" , "Qc7" , "Kxf7" , "Na6" , "Bxc7" , "Bxd7" , "Re7" , "Nc6" , "Qf8" , "Rfc8" , "Ra2" , "Re3" , "f3" , "Nxf7" , "O-O" , "Qh5+" , "Bf4" , "Rae2" , "c6" , "Qe2" , "Kg8" , "Nc3" , "Nf6" , "Nb8" , "Rxe7" , "R2e5" , "Nd7" , "Nf3" , "d4" , "b5" , "cxd5" , "Bd7" , "Rf7" , "Qd8" , "Bxc5" , "Kh1" , "Rxc7" , "d5" , "dxc5" , "c5" , "Nc7" , "exd5" , "Qe1" , "Qxd7" , "a4" , "e6" , "Ne5" , "e4" , "Rf8" ;
+        chon:nextHalfMove      :hmgamNbEbJRZ .
+
+:touNbEbJ  a          chon:hessTournament ;
+        chon:atPlace  :plaNbEbJR ;
+        chon:hasName  "Valkeakoski sim" .
+
+:rolhgNbEbJRZs  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNbEbJR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNbEbJR .
+
+chon:HalfMove  chon:subEventOf  :gamSbIYc .
+
+:resNbEbJRZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNbEbJR .
+
+:gamSbIYc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNbEbJR ;
+        chon:atPlace           :plaNbEbJR ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNbEbJRZ ;
+        chon:hasHalfMove       :hmgamNbEbJRZ ;
+        chon:hasLastHalfMove   :hmgamNbEbJRZ ;
+        chon:hasOpening        :opeNbEbJR ;
+        chon:hasReport         :cgrNbEbJR ;
+        chon:hasResult         :resNbEbJRZ ;
+        chon:subEventOf        :touNbEbJ .
+
+:plaNbEbJR  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:cgrNbEbJR  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agNbEbJR  a          chon:Agent ;
+        chon:hasName  "Kanerva, Jukka" , "Karpov, Anatoly" .

@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaPNt1tu  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:rolhggPFjPu5h  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPNt1tu .
+
+:hmgamPNt1tuc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggPFjPu5h , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamgPFjPu5 .
+
+:opePNt1tu  a            chon:ChessOpening ;
+        chon:hasECOCode  "B18" .
+
+:agPNt1tu  a          chon:Agent ;
+        chon:hasName  "Foguelman, Alberto" , "Fischer, Robert James" .
+
+:gamPNt1t  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPNt1tu ;
+        chon:atPlace           :plaPNt1tu ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPNt1tuc ;
+        chon:hasHalfMove       :hmgamgPFjPu5 , :hmgamPNt1tuc , :hmgamsPBxmt8 ;
+        chon:hasLastHalfMove   :hmgamsPBxmt8 ;
+        chon:hasOpening        :opePNt1tu ;
+        chon:hasReport         :cgrPNt1tu ;
+        chon:hasResult         :resPNt1tuc ;
+        chon:subEventOf        :touPNt1t .
+
+:rolPNt1tu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPNt1tu .
+
+:touPNt1t  a          chon:hessTournament ;
+        chon:atPlace  :plaPNt1tu ;
+        chon:hasName  "Buenos Aires" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPNt1tu .
+
+:resPNt1tuc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamPNt1t .
+
+:hmgamgPFjPu5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhggPFjPu5h , :rolhgsPBxmt8s ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Foguelman, Alberto" ;
+        chon:hasSANRecord      "dxe5" , "b6+" , "Nh3" , "e5" , "Kf5" , "Rd2+" , "Kxg7" , "Rg6" , "Bg3" , "Rg1" , "Qxd1+" , "Ka5" , "g6" , "Bxg6" , "g3" , "Rg3" , "Nc6" , "Bf5" , "d5" , "Kg6" , "Kc3" , "c5" , "Nxe4" , "Ng3" , "Be3" , "c3" , "Rxb7+" , "Rc3" , "Re8" , "Rae1" , "Bxd6" , "hxg6" , "Nbd7" , "Kxb6" , "b4" , "f5" , "Kc7" , "Be4" , "c4" , "Kb5" , "Rg4" , "Rd4+" , "Nf2" , "Nxe4+" , "Ne4" , "Ka6" , "Re7" , "c6" , "g7" , "Re6+" , "Kd3" , "Nxe5" , "Ng4" , "Rxd6" , "Kxd1" , "Re4" , "Nd5" , "Rh7" , "Rxa7+" , "Nf4" , "Rxc4" , "Nec4" , "Nc3" , "Re1" , "f6" , "b5+" , "Nf6" , "a3" , "dxe4" , "Rxh4" , "Nxg6" , "Kf7" , "Rxb6" , "Nxd6+" , "h4" , "Bd3" , "Rxa3" , "g4" , "Nb6" , "g5" , "O-O-O" , "Kb6" , "Be2" , "Nd6" , "Kxe4" , "Re7+" , "Nb4+" , "Kc2" , "Rb7+" , "Bf1" , "Ne5" , "Bf4" , "d4" , "Rf3+" , "Ra6+" , "Bg6" , "Re2" , "Rxf2" ;
+        chon:nextHalfMove      :hmgamgPFjPu5 , :hmgamsPBxmt8 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPNt1tu .
+
+:rolhgsPBxmt8s  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPNt1tu .
+
+:cgrPNt1tu  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamsPBxmt8  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsPBxmt8s , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Foguelman, Alberto" ;
+        chon:hasSANRecord      "Rxg7" , "c2" , "Kc4" , "Kxf5" , "c3" , "Kf6" ;
+        chon:nextHalfMove      :hmgamsPBxmt8 .

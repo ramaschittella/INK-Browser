@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolBSSoFq  a   chon:WhitePlayerRole .
+
+:resMAPEesS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgMAPEesSn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMAPEes .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMAPEes .
+
+:cgrMAPEes  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamBSSoF .
+
+:agMAPEes  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Spassky, Boris V" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMAPEes .
+
+:rolMAPEes  a             chon:AuthorRole , chon:BlackPlayerRole ;
+        chon:performedBy  :agMAPEes .
+
+:hmgamMAPEesS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgMAPEesSn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxe2" , "g3" , "Nxf3+" , "c5" , "a3" , "c3" , "Rc8" , "Bf2" , "d6" , "b6" , "f4" , "Bg2" , "Nc3" , "Bxf3" , "O-O" , "Rb1" , "Nd4" , "Rb8" , "Nxe2+" , "Nge7" , "g6" , "e4" , "Ne2" , "Be3" , "Bb7" , "Qd2" , "d3" , "Nf3" , "e6" , "Bg7" , "Nc6" ;
+        chon:nextHalfMove      :hmgamMAPEesS .
+
+:plaBSSoFq  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamBSSoF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMAPEes , :rolBSSoFq ;
+        chon:atPlace           :plaBSSoFq ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMAPEesS ;
+        chon:hasHalfMove       :hmgamMAPEesS ;
+        chon:hasLastHalfMove   :hmgamMAPEesS ;
+        chon:hasOpening        :opeMAPEes ;
+        chon:hasReport         :cgrMAPEes ;
+        chon:hasResult         :resMAPEesS ;
+        chon:subEventOf        :touBSSoF .
+
+:opeMAPEes  a            chon:ChessOpening ;
+        chon:hasECOCode  "B25" .
+
+:touBSSoF  a          chon:hessTournament ;
+        chon:atPlace  :plaBSSoFq ;
+        chon:hasName  "Linares" .

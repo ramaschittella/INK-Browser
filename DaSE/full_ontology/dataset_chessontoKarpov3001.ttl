@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agq6ia4R  a          chon:Agent ;
+        chon:hasName  "Anand,V" , "Karpov,Ana" .
+
+:hmgamq6ia4R2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgq6ia4R2d , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Anand,V" ;
+        chon:hasSANRecord      "g4" , "Bxd4" , "c4" , "Rxd4" , "Ne2" , "Ra1+" , "O-O-O" , "bxc6" , "dxc6" , "O-O" , "f4" , "Nd4" , "f5" , "Kh8" , "Qe8" , "d4" , "Nd5" , "Rb8" , "Nbc6" , "Be3" , "Nf8" , "g6" , "d5" , "c6" , "g5" , "c5" , "Rf7" , "exd4" , "Qxc5" , "Nge2" , "Bg7" , "Rxf6" , "Qxa5" , "Nec3" , "Ne6" , "Nxd4" , "Na6" , "Bd3" , "Qxd6" , "Be6" , "h3" , "Nf6" , "Rd8" , "Nb6" , "e5" , "a5" , "Qa3" , "Na4" , "Qd2" , "Nc3" , "Nb4" , "Rxa2" , "Ng3" , "Nb1" , "e4" , "Nd7" , "gxf6" , "d6" , "Ra7" ;
+        chon:nextHalfMove      :hmgamq6ia4R2 .
+
+:opeq6ia4R  a            chon:ChessOpening ;
+        chon:hasECOCode  "E71" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agq6ia4R .
+
+chon:HalfMove  chon:subEventOf  :gamq6ia4 .
+
+:resq6ia4R2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agq6ia4R .
+
+:cgrq6ia4R  a   chon:ChessGameReport .
+
+:rolq6ia4R  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agq6ia4R .
+
+:rolhgq6ia4R2d  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agq6ia4R .
+
+:plaq6ia4R  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:gamq6ia4  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolq6ia4R ;
+        chon:atPlace           :plaq6ia4R ;
+        chon:atTime            "2007.11.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamq6ia4R2 ;
+        chon:hasHalfMove       :hmgamq6ia4R2 ;
+        chon:hasLastHalfMove   :hmgamq6ia4R2 ;
+        chon:hasOpening        :opeq6ia4R ;
+        chon:hasReport         :cgrq6ia4R ;
+        chon:hasResult         :resq6ia4R2 ;
+        chon:subEventOf        :touq6ia4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touq6ia4  a          chon:hessTournament ;
+        chon:atPlace  :plaq6ia4R ;
+        chon:hasName  "World Blitz" .

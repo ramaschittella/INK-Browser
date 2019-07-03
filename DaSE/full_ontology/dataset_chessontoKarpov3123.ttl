@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgz8ZzO5tw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag96Ngr4 .
+
+:gam96Ngr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol96Ngr4 ;
+        chon:atPlace           :pla96Ngr4 ;
+        chon:atTime            "2009.02.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam96Ngr4E ;
+        chon:hasHalfMove       :hmgamz8ZzO5t , :hmgam96Ngr4E ;
+        chon:hasLastHalfMove   :hmgamz8ZzO5t ;
+        chon:hasOpening        :ope96Ngr4 ;
+        chon:hasReport         :cgr96Ngr4 ;
+        chon:hasResult         :res96Ngr4E ;
+        chon:subEventOf        :tou96Ngr .
+
+:res96Ngr4E  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag96Ngr4 .
+
+chon:HalfMove  chon:subEventOf  :gam96Ngr .
+
+:hmgam96Ngr4E  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg96Ngr4E7 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rc7" , "Bd6" , "b4" , "Kg2" , "Bg2" , "Bb2" , "Nbd2" , "Rxc5" , "Bb3" , "Re8" , "Bxb7" , "Qc2" , "a5" , "d5" , "Nf4" , "Bxf4" , "Nf6" , "Kd6" , "c5" , "Ba6" , "dxc4" , "g3" , "Nd3" , "Bc4" , "b6" , "N7b6" , "exd5" , "Rxb2" , "Be7" , "Qxf4" , "cxd5" , "c3" , "Ke7" , "Bb7" , "Nbd7" , "h6" , "Rxe2" , "Qxb2" , "dxc5" , "Qxc5" , "e6" , "b3" , "Rfd1" , "Qf5" , "Qb6" , "O-O" , "Rfc8" , "Nc4" , "Nd5" , "Rd1" , "Qxa4" , "d4" , "Kf8" , "Qd4" , "a4" , "Rc1" , "Nf3" , "bxc5" , "c4" , "Kf3" , "Ne5" ;
+        chon:nextHalfMove      :hmgam96Ngr4E , :hmgamz8ZzO5t .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag96Ngr4 .
+
+:tou96Ngr  a          chon:hessTournament ;
+        chon:atPlace  :pla96Ngr4 ;
+        chon:hasName  "Mate of the King Blitz" .
+
+:pla96Ngr4  a         chon:Place ;
+        chon:hasName  "Tehran IRI" .
+
+:cgr96Ngr4  a   chon:ChessGameReport .
+
+:hmgamz8ZzO5t  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgz8ZzO5tw , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rxf2" , "Kc5" , "Kd3" , "Ke4" , "Re2+" ;
+        chon:nextHalfMove      :hmgamz8ZzO5t .
+
+:rolhg96Ngr4E7  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag96Ngr4 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ag96Ngr4  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Ghaem Maghami,E" .
+
+:rol96Ngr4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag96Ngr4 .
+
+:ope96Ngr4  a            chon:ChessOpening ;
+        chon:hasECOCode  "E06" .

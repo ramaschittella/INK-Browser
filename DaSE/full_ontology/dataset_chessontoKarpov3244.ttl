@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolrPlUgT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrPlUgT .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrPlUgT .
+
+:rolhgrPlUgT2E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrPlUgT .
+
+:gamrPlUg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrPlUgT ;
+        chon:atPlace           :plarPlUgT ;
+        chon:atTime            "2012.10.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrPlUgT2 ;
+        chon:hasHalfMove       :hmgamkv7nyK1 , :hmgamrPlUgT2 ;
+        chon:hasLastHalfMove   :hmgamkv7nyK1 ;
+        chon:hasOpening        :operPlUgT ;
+        chon:hasReport         :cgrrPlUgT ;
+        chon:hasResult         :resrPlUgT2 ;
+        chon:subEventOf        :tourPlUg .
+
+chon:HalfMove  chon:subEventOf  :gamrPlUg .
+
+:operPlUgT  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrPlUgT .
+
+:hmgamrPlUgT2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkv7nyK1S , :rolhgrPlUgT2E , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "e5" , "Nc3" , "Qc2" , "c4" , "Bb4" , "e4" , "Nf6" , "d4" , "O-O" , "Nf3" , "dxe5" , "Nc6" , "Ng4" , "e6" , "d6" ;
+        chon:nextHalfMove      :hmgamrPlUgT2 , :hmgamkv7nyK1 .
+
+:hmgamkv7nyK1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkv7nyK1S , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bb2" , "c6" , "c5" , "Rb8" , "Rc8" , "Be3" , "Nxa6" , "Re6" , "f6" , "Ra4" , "Bxc3+" , "Bxe5" , "Nxf6" , "Bc1" , "Nd4" , "Ba6" , "Bb4" , "Bc3" , "Nc7" , "Rxa1" , "Bg4" , "Rc1" , "Nc2+" , "Qxc3" , "a3" , "Qxf6" , "Ke2" , "Bd4" , "Ne8" , "Nxa1" , "bxa6" , "a5" , "b5" , "b4" , "Kf7" , "Be2" , "exf6" , "e5" , "Rxa3+" , "g4" , "h3" , "Ra3+" , "Kd3" , "Rae8" , "Ra2" , "Bxc5" , "Bxb7" , "Bd6" , "Rxa6" , "Bxf3" ;
+        chon:nextHalfMove      :hmgamkv7nyK1 .
+
+:plarPlUgT  a         chon:Place ;
+        chon:hasName  "Potsdam GER" .
+
+:rolhgkv7nyK1S  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrPlUgT .
+
+:cgrrPlUgT  a   chon:ChessGameReport .
+
+:tourPlUg  a          chon:hessTournament ;
+        chon:atPlace  :plarPlUgT ;
+        chon:hasName  "Trans-Europa-Schach-Express 2012" .
+
+:resrPlUgT2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agrPlUgT  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Short,N" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgRUFoPiDh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRUFoPi .
+
+:agRUFoPi  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rolRUFoPi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRUFoPi .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRUFoPi .
+
+chon:HalfMove  chon:subEventOf  :gamRUFoP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRUFoPi .
+
+:gamRUFoP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRUFoPi ;
+        chon:atPlace           :plaRUFoPi ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRUFoPiD ;
+        chon:hasHalfMove       :hmgamRUFoPiD ;
+        chon:hasLastHalfMove   :hmgamRUFoPiD ;
+        chon:hasOpening        :opeRUFoPi ;
+        chon:hasReport         :cgrRUFoPi ;
+        chon:hasResult         :resRUFoPiD ;
+        chon:subEventOf        :touRUFoP .
+
+:hmgamRUFoPiD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRUFoPiDh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qxd4" , "Kxg2" , "d4" , "g6" , "Qc7" , "Nf3" , "Nxe4" , "Nc3" , "Bg7" , "g3" , "c4" , "b6" , "Bxg2" , "Qe5" , "e4" , "Bf4" , "Qf3" , "Nxd4" , "c5" , "Rb1" , "cxd4" , "O-O" , "Bb7" , "b3" , "Bg2" , "Nf6" ;
+        chon:nextHalfMove      :hmgamRUFoPiD .
+
+:opeRUFoPi  a            chon:ChessOpening ;
+        chon:hasECOCode  "A30" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaRUFoPi  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:resRUFoPiD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgrRUFoPi  a   chon:ChessGameReport .
+
+:touRUFoP  a          chon:hessTournament ;
+        chon:atPlace  :plaRUFoPi ;
+        chon:hasName  "World Championship 31th-KK1" .

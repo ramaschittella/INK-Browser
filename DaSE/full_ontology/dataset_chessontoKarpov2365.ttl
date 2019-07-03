@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgKf2tvRjj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKf2tvR .
+
+:agKf2tvR  a          chon:Agent ;
+        chon:hasName  "Slama, A." , "Karpov, Anatoly" .
+
+:opeKf2tvR  a            chon:ChessOpening ;
+        chon:hasECOCode  "A25" .
+
+:rolhgcfbNSTaK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKf2tvR .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKf2tvR .
+
+:touKf2tv  a          chon:hessTournament ;
+        chon:atPlace  :plaKf2tvR ;
+        chon:hasName  "Bastia sim" .
+
+chon:HalfMove  chon:subEventOf  :gamKf2tv .
+
+:resKf2tvRj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKf2tvR .
+
+:plaKf2tvR  a         chon:Place ;
+        chon:hasName  "Bastia" .
+
+:cgrKf2tvR  a   chon:ChessGameReport .
+
+:hmgamKf2tvRj  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKf2tvRjj , chon:AgentRole ;
+        chon:hasSANRecord      "c4" ;
+        chon:nextHalfMove      :hmgamcfbNSTa .
+
+:rolKf2tvR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agKf2tvR .
+
+:hmgamcfbNSTa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgcfbNSTaK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Slama, A." ;
+        chon:hasSANRecord      "h6" , "f5" , "g4" , "Qd3" , "exd4" , "b4" , "e3" , "Qb6" , "d5" , "Bg4" , "Bb4" , "Qxh6" , "Qh4" , "Rxc5" , "cxd4" , "Qd6" , "d4" , "Nc6" , "Nc3" , "e5" , "f4" , "Rd7" , "Rad1" , "a6" , "Rcxd5" , "h3" , "c5" , "Bf4" , "Na5" , "Nxf6+" , "Qxd4" , "Bh5" , "Qf2" , "b6" , "Bc5" , "gxf6" , "Bg6" , "Re5" , "Bg3" , "Kg8" , "Nge2" , "Re8" , "Bxc3" , "Kh2" , "Bg5" , "Bh4" , "Nxc3" , "Rd2" , "Bg2" , "Kg7" , "Rb8" , "g3" , "d6" , "Bh7" , "O-O" , "Qd4" , "Rd8" , "Qf4" , "a3" , "Rc1" , "Ne7" , "bxc5" , "Nf6" , "Nd8" , "Nd5" ;
+        chon:nextHalfMove      :hmgamcfbNSTa .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamKf2tv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolKf2tvR ;
+        chon:atPlace           :plaKf2tvR ;
+        chon:atTime            "1998.11.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKf2tvRj ;
+        chon:hasHalfMove       :hmgamKf2tvRj , :hmgamcfbNSTa ;
+        chon:hasLastHalfMove   :hmgamcfbNSTa ;
+        chon:hasOpening        :opeKf2tvR ;
+        chon:hasReport         :cgrKf2tvR ;
+        chon:hasResult         :resKf2tvRj ;
+        chon:subEventOf        :touKf2tv .

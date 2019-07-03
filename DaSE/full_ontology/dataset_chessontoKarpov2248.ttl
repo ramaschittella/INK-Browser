@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhJnjiD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghJnjiD .
+
+:rolhghJnjiDvn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghJnjiD .
+
+:reshJnjiDv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghJnjiD .
+
+:rolhgtJixPSyy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghJnjiD .
+
+:aghJnjiD  a          chon:Agent ;
+        chon:hasName  "Riazhskikh" , "Karpov, Anatoly" .
+
+chon:HalfMove  chon:subEventOf  :gamhJnji .
+
+:opehJnjiD  a            chon:ChessOpening ;
+        chon:hasECOCode  "A35" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghJnjiD .
+
+:hmgamhJnjiDv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghJnjiDvn , chon:AgentRole ;
+        chon:hasSANRecord      "c4" ;
+        chon:nextHalfMove      :hmgamtJixPSy .
+
+:gamhJnji  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhJnjiD ;
+        chon:atPlace           :plahJnjiD ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhJnjiDv ;
+        chon:hasHalfMove       :hmgamhJnjiDv , :hmgamtJixPSy ;
+        chon:hasLastHalfMove   :hmgamtJixPSy ;
+        chon:hasOpening        :opehJnjiD ;
+        chon:hasReport         :cgrhJnjiD ;
+        chon:hasResult         :reshJnjiDv ;
+        chon:subEventOf        :touhJnji .
+
+:plahJnjiD  a         chon:Place ;
+        chon:hasName  "Voronezh" .
+
+:touhJnji  a          chon:hessTournament ;
+        chon:atPlace  :plahJnjiD ;
+        chon:hasName  "Voronezh simul" .
+
+:cgrhJnjiD  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamtJixPSy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtJixPSyy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Riazhskikh" ;
+        chon:hasSANRecord      "Nb7" , "Rd1" , "Kh2" , "Nxe6" , "Be2" , "b6" , "Bf8" , "Na7" , "Rxe4" , "Bg7" , "Rexe6" , "Qb1+" , "d5" , "bxc5" , "Ncd4" , "Bxe4" , "Qd7" , "Qc6" , "Rc1" , "Rd6" , "Nf3" , "Re8" , "Rc8" , "Re5" , "Qe4" , "Be5+" , "e3" , "Nc6" , "Re6" , "cxd4" , "Ne4" , "Nd2" , "c5" , "exd4" , "Nxb3" , "g6" , "fxe6" , "Bxe6" , "Qc7" , "Na5" , "Qc4" , "Nc3" , "dxe4" , "Qb7" , "Nb5" , "Qd4" , "Be3" , "Qxb3" , "Nb3" , "Rxe5" , "Ra8" , "dxe6" , "b4" , "a6" , "Bf3" , "Bd7" , "d6" , "O-O" , "h3" , "e5" , "Nf6" , "d4" , "Kh8" , "Rc4" ;
+        chon:nextHalfMove      :hmgamtJixPSy .

@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pladS2Azu  a         chon:Place ;
+        chon:hasName  "Monte Carlo" .
+
+:agdS2Azu  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Larsen, Bent" .
+
+:roldS2Azu  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdS2Azu .
+
+:hmgamoSYO9tr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoSYO9trl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Re8" , "d6" , "Re7" , "Bd5" , "gxh5" , "Be2" , "c6" , "Kg2" , "c5" , "Nd4+" , "Ra6" , "Nc6" , "Rc3" , "e5" , "g4" , "Rb8" , "exd5" , "Nxa7" , "Rh1" , "Qxd8" , "Nd4" , "Kf2" , "h6" , "Nf3" , "b5" , "Kf1" , "b4" , "c2" , "Nxd8" , "Nc3+" , "Ng5" , "Nxc1" , "Rg6+" , "d4" , "Rf6" , "f3" , "Bc4" , "Rc1" , "Nc3" , "Ne2" , "Rh3+" , "Ke7" , "Ke6" , "Rd3" , "O-O" , "Be3" , "Rxe8" , "Nb5" , "Nbxc5" , "Nxd5" , "Nf2" , "Nxe8" , "g6" , "a4" , "Rh3" , "a3" , "Rd8+" , "Rh2" , "Rd8" , "Kd6" , "Kd5" , "Nd6" , "Nf5" , "Kf3" , "b6" , "Bf1" , "bxa4" , "c3" , "Rd1" , "Rxa7" , "Nc5+" , "Nxa4" , "Nb3" , "f5" , "Rfd1" , "Ne4+" , "Rg2" , "Bc5" , "Kg7" , "Nh3" , "Nb7" , "Bb5" , "Ne8" , "Ke3" , "Bg8" , "dxe5" , "Bg7" , "Kxd5" , "Kf6" , "Nf6" , "Kc6" , "e4" , "Rd2" , "Nxc5" , "Rxc8" , "Rd5" , "Kxh3" , "Rg3" , "h5" , "fxe4" , "h4" , "Bxc5" , "Ne6" , "Bf8" , "Kxb6" , "c4" , "Nd7" ;
+        chon:nextHalfMove      :hmgamoSYO9tr .
+
+chon:HalfMove  chon:subEventOf  :gamdS2Az .
+
+:cgroSYO9t  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agdS2Azu .
+
+:rolhgoSYO9trl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agdS2Azu .
+
+:gamdS2Az  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roldS2Azu ;
+        chon:atPlace           :pladS2Azu ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoSYO9tr ;
+        chon:hasHalfMove       :hmgamoSYO9tr ;
+        chon:hasLastHalfMove   :hmgamoSYO9tr ;
+        chon:hasOpening        :opedS2Azu ;
+        chon:hasReport         :cgroSYO9t ;
+        chon:hasResult         :resdS2Azuo ;
+        chon:subEventOf        :toudS2Az .
+
+:roloSYO9t  a             chon:AuthorRole ;
+        chon:performedBy  :agoSYO9t .
+
+:toudS2Az  a          chon:hessTournament ;
+        chon:atPlace  :pladS2Azu ;
+        chon:hasName  "Monte Carlo" .
+
+:resdS2Azuo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opedS2Azu  a            chon:ChessOpening ;
+        chon:hasECOCode  "E97" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

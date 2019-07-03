@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamscK5bnI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgscK5bnI5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nc6" , "Bxc6" , "Rc6" , "b6" , "Rc1" , "Ba4" , "d4" , "a6" , "Qe2" , "Rfc8" , "Nc3" , "Nxe7+" , "Bd5" , "Nf6" , "h3" , "d5" , "O-O" , "g6" , "e6" , "Ne5" , "Qxe7" , "exd5" , "Bd3" , "Bc4" , "Re1" , "Qa4" , "c6" , "cxd5" , "h4" , "c4" , "Qd7" , "Be7" , "a3" , "b5" , "Qxa6" , "Rc8" , "Nf3" , "Ba6" , "Bc2" , "Nxd5" , "e4" , "Bf4" , "Qd2" , "Bg3" , "Rxc6" ;
+        chon:nextHalfMove      :hmgamscK5bnI .
+
+:rolhgscK5bnI5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agscK5bn .
+
+:cgrscK5bn  a   chon:ChessGameReport .
+
+:agscK5bn  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agscK5bn .
+
+:rolscK5bn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agscK5bn .
+
+:opescK5bn  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+chon:HalfMove  chon:subEventOf  :gamxe4Vs .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agscK5bn .
+
+:touscK5b  a          chon:hessTournament ;
+        chon:atPlace  :plaxe4Vsn ;
+        chon:hasName  "Hoogovens" .
+
+:plaxe4Vsn  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee" .
+
+:resscK5bnI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamxe4Vs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolscK5bn ;
+        chon:atPlace           :plaxe4Vsn ;
+        chon:atTime            "1998.01.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamscK5bnI ;
+        chon:hasHalfMove       :hmgamscK5bnI ;
+        chon:hasLastHalfMove   :hmgamscK5bnI ;
+        chon:hasOpening        :opescK5bn ;
+        chon:hasReport         :cgrscK5bn ;
+        chon:hasResult         :resscK5bnI ;
+        chon:subEventOf        :touscK5b .

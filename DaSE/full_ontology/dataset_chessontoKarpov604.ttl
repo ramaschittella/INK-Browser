@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamrFdHQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrFdHQZ ;
+        chon:atPlace           :plarFdHQZ ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrFdHQZF ;
+        chon:hasHalfMove       :hmgamrFdHQZF ;
+        chon:hasLastHalfMove   :hmgamrFdHQZF ;
+        chon:hasOpening        :operFdHQZ ;
+        chon:hasReport         :cgrrFdHQZ ;
+        chon:hasResult         :resrFdHQZF ;
+        chon:subEventOf        :tourFdHQ .
+
+:tourFdHQ  a          chon:hessTournament ;
+        chon:atPlace  :plarFdHQZ ;
+        chon:hasName  "Buenos Aires" .
+
+:resrFdHQZF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrFdHQZ .
+
+chon:HalfMove  chon:subEventOf  :gamrFdHQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrFdHQZ .
+
+:plarFdHQZ  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:rolhgrFdHQZFZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrFdHQZ .
+
+:cgrrFdHQZ  a   chon:ChessGameReport .
+
+:agrFdHQZ  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Najdorf, Miguel" .
+
+:rolrFdHQZ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrFdHQZ .
+
+:operFdHQZ  a            chon:ChessOpening ;
+        chon:hasECOCode  "D41" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamrFdHQZF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrFdHQZFZ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bxc5" , "Nxd5" , "Bxg2" , "d5" , "e3" , "f3" , "Be7" , "O-O" , "Nc3" , "Kxg2" , "Qe6" , "Qf6" , "Qf5" , "d4" , "Rc3" , "b3" , "Nd4" , "Bg2" , "exd5" , "cxd5" , "Rb1" , "dxc5" , "Rcd3" , "Rfd8" , "Bb2" , "Qe7" , "Rd2" , "Rf2" , "Be4" , "Nb4" , "Nf3" , "e6" , "Nc6" , "g3" , "Bf5" , "Bxd4" , "Qe4+" , "Rd7" , "c4" , "c5" , "Nf6" , "Rc1" , "Rab8" ;
+        chon:nextHalfMove      :hmgamrFdHQZF .

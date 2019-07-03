@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resSruBX3l  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgam1n9YdZE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg1n9YdZE0 , chon:AgentRole ;
+        chon:hasSANRecord      "g4" .
+
+:opeSruBX3  a            chon:ChessOpening ;
+        chon:hasECOCode  "C70" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSruBX3 .
+
+:hmgamSruBX3l  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5prPu3ob , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgam5prPu3o .
+
+chon:HalfMove  chon:subEventOf  :gamSruBX .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSruBX3 .
+
+:rolhg1n9YdZE0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSruBX3 .
+
+:plaSruBX3  a         chon:Place ;
+        chon:hasName  "?" .
+
+:cgrSruBX3  a   chon:ChessGameReport .
+
+:gamSruBX  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSruBX3 ;
+        chon:atPlace           :plaSruBX3 ;
+        chon:atTime            "1957.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSruBX3l ;
+        chon:hasHalfMove       :hmgam5prPu3o , :hmgamSruBX3l , :hmgam1n9YdZE ;
+        chon:hasLastHalfMove   :hmgam1n9YdZE ;
+        chon:hasOpening        :opeSruBX3 ;
+        chon:hasReport         :cgrSruBX3 ;
+        chon:hasResult         :resSruBX3l ;
+        chon:subEventOf        :touSruBX .
+
+:agSruBX3  a          chon:Agent ;
+        chon:hasName  "Walker, RG." , "Fischer, Robert James" .
+
+:touSruBX  a          chon:hessTournament ;
+        chon:atPlace  :plaSruBX3 ;
+        chon:hasName  "USA-chJ" .
+
+:rolSruBX3  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSruBX3 .
+
+:rolhg5prPu3ob  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSruBX3 .
+
+:hmgam5prPu3o  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5prPu3ob , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Walker, RG." ;
+        chon:hasSANRecord      "a6" , "Bc5" , "Nxb3" , "Ne7" , "Be6" , "axb3" , "Bxf5" , "b5" , "O-O" , "Nh4" , "Rad1" , "Bg7" , "d6" , "Nc6" , "Bb5" , "Qc8" , "Be3" , "Bxf8" , "Nf5" , "Nxf5" , "Ba4" , "Na5" , "Bb3" , "Nd5" , "f6" , "exf5" , "g5" , "Nc3" , "Kg7" , "Qf3" , "e5" , "Nf3" , "d4" , "dxe5" ;
+        chon:nextHalfMove      :hmgam1n9YdZE , :hmgam5prPu3o .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

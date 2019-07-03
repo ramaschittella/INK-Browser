@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrbzjxnH  a   chon:ChessGameReport .
+
+:rolhgSBvRKHAX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbzjxnH .
+
+:hmgamSBvRKHA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSBvRKHAX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Rb2" , "Re5" , "g5" , "Nxb5" , "Bc5" , "Nd4" , "Bd7" , "b4" , "Rd2" , "f4" , "Kd2" , "Nxb4" , "axb4" , "a6" , "Bxb4" , "Ke3" , "Rd5" , "Nd5+" , "Nf6" , "Rc2" , "a5" , "Ne2" , "g4" , "c6" , "Kf2" , "Rb5" ;
+        chon:nextHalfMove      :hmgamSBvRKHA .
+
+:rolbzjxnH  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbzjxnH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbzjxnH .
+
+chon:HalfMove  chon:subEventOf  :gambzjxn .
+
+:plabzjxnH  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .
+
+:hmgambzjxnHJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSBvRKHAX , chon:AgentRole , :rolhgbzjxnHJx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Nf3" , "c4" , "Nb3" , "O-O" , "Ne5" , "Rd6" , "Rc1" , "g3" , "Qe8" , "Bd2" , "Qxe7" , "Rad8" , "Qe3" , "Qd3" , "f6" , "Bc4" , "Bb4" , "Bg5" , "Nc6" , "Qh5" , "Rf2" , "Re3" , "Be7" , "Bxe2" , "Qxc4" , "Nc5" , "e6" , "bxc6" , "Nxe7+" , "f5" , "e5" , "Nxc6" , "Qg5" , "Qa4" , "Bb5" , "Ba5" , "Ba6" , "Be6" , "d5" , "Nc3" , "Rc6" , "Nf6" , "Re7" , "Rfe8" , "Rxc6" , "dxc4" , "dxe5" , "d4" , "f3" , "Bxc6" , "Qxe5" , "Bg2" , "Qxh5" , "Na4" , "h6" , "Nxh5" ;
+        chon:nextHalfMove      :hmgamSBvRKHA , :hmgambzjxnHJ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbzjxnH .
+
+:rolhgbzjxnHJx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbzjxnH .
+
+:agbzjxnH  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Georgiev,Ki" .
+
+:opebzjxnH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:resbzjxnHJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gambzjxn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbzjxnH ;
+        chon:atPlace           :plabzjxnH ;
+        chon:atTime            "2002.04.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambzjxnHJ ;
+        chon:hasHalfMove       :hmgambzjxnHJ , :hmgamSBvRKHA ;
+        chon:hasLastHalfMove   :hmgamSBvRKHA ;
+        chon:hasOpening        :opebzjxnH ;
+        chon:hasReport         :cgrbzjxnH ;
+        chon:hasResult         :resbzjxnHJ ;
+        chon:subEventOf        :toubzjxn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toubzjxn  a          chon:hessTournament ;
+        chon:atPlace  :plabzjxnH ;
+        chon:hasName  "FIDE GP" .

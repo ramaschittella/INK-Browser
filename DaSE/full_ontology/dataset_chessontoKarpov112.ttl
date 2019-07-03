@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaxdEhsV  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+:hmgamSSmYgJv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSSmYgJvy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nxe7+" , "Nb5" , "Rb1" , "Nxd5" , "a6" , "Nxe7" , "Bg7" , "axb5" , "Nc6" , "Bg5" , "Bxb2" , "N1c3" ;
+        chon:nextHalfMove      :hmgamSSmYgJv .
+
+:cgrxdEhsV  a   chon:ChessGameReport .
+
+:hmgamqSrLJKs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqSrLJKsn ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nxd4" , "cxd4" , "O-O" , "Nxd5" , "cxd5" , "c4" , "g6" , "Bg2" , "g3" , "Nf6" , "d5" , "Bg7" , "c5" , "d4" ;
+        chon:nextHalfMove      :hmgamqSrLJKs , :hmgamSSmYgJv .
+
+:hmgamxdEhsVu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgqSrLJKsn , chon:AgentRole ;
+        chon:hasSANRecord      "Nf3" ;
+        chon:nextHalfMove      :hmgamqSrLJKs .
+
+:agxdEhsV  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Andersson, Ulf" .
+
+:rolxdEhsV  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxdEhsV .
+
+:opexdEhsV  a            chon:ChessOpening ;
+        chon:hasECOCode  "D73" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxdEhsV .
+
+:gamxdEhs  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxdEhsV ;
+        chon:atPlace           :plaxdEhsV ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxdEhsVu ;
+        chon:hasHalfMove       :hmgamSSmYgJv , :hmgamxdEhsVu , :hmgamqSrLJKs ;
+        chon:hasLastHalfMove   :hmgamSSmYgJv ;
+        chon:hasOpening        :opexdEhsV ;
+        chon:hasReport         :cgrxdEhsV ;
+        chon:hasResult         :resxdEhsVu ;
+        chon:subEventOf        :touxdEhs .
+
+chon:HalfMove  chon:subEventOf  :gamxdEhs .
+
+:rolhgqSrLJKsn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxdEhsV .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxdEhsV .
+
+:resxdEhsVu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgSSmYgJvy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxdEhsV .
+
+:touxdEhs  a          chon:hessTournament ;
+        chon:atPlace  :plaxdEhsV ;
+        chon:hasName  "Hastings7172" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

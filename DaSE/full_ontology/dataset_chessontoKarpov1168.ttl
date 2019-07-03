@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgoQuyeacO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoQuyea .
+
+:resoQuyeac  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:cgroQuyea  a   chon:ChessGameReport .
+
+:roloQuyea  a             chon:AuthorRole ;
+        chon:performedBy  :agoQuyea .
+
+:agoQuyea  a          chon:Agent ;
+        chon:hasName  "Gavrikov, Viktor" , "Karpov, Anatoly" .
+
+:plaXOigS0  a         chon:Place ;
+        chon:hasName  "Mazatlan" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoQuyea .
+
+:opeoQuyea  a            chon:ChessOpening ;
+        chon:hasECOCode  "A61" .
+
+chon:HalfMove  chon:subEventOf  :gamXOigS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoQuyea .
+
+:rolXOigS0  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamoQuyeac  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoQuyeacO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gavrikov, Viktor" ;
+        chon:hasSANRecord      "Kd1" , "d6" , "gxh4" , "e3" , "c4" , "Rg8" , "h4" , "Rxb4" , "Nh5" , "Nb7" , "b3" , "g6" , "Ne5" , "Bf6" , "Rb8" , "a4" , "Rb4" , "Bg7" , "f4" , "d5" , "Bh6" , "Qc2" , "Bd7" , "Nf3" , "Rxh4" , "cxb4" , "Ng4" , "g5" , "Nc4" , "Kc1" , "a6" , "Nf6" , "Bc8" , "h6" , "exd5" , "hxg3" , "d4" , "Bxb7" , "Bg3" , "Nd2" , "Kf8" , "Rg6" , "Ra4" , "axb7" , "Nbxd6" , "Nb5" , "Bxd3+" , "Nc3" , "Qxb7" , "Bd3" , "Qe7" , "a5" , "Be2" , "h5" , "Nxg3" , "cxd5" , "Kb1" , "Bf1" , "Bg5" , "Qd2" , "Nd7" , "Bb5+" , "Bh4" , "e6" , "c5" , "Bf5+" , "Qxd3" ;
+        chon:nextHalfMove      :hmgamoQuyeac .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamXOigS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXOigS0 ;
+        chon:atPlace           :plaXOigS0 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoQuyeac ;
+        chon:hasHalfMove       :hmgamoQuyeac ;
+        chon:hasLastHalfMove   :hmgamoQuyeac ;
+        chon:hasOpening        :opeoQuyea ;
+        chon:hasReport         :cgroQuyea ;
+        chon:hasResult         :resoQuyeac ;
+        chon:subEventOf        :touXOigS .
+
+:touXOigS  a          chon:hessTournament ;
+        chon:atPlace  :plaXOigS0 ;
+        chon:hasName  "Mazatlan rapid" .

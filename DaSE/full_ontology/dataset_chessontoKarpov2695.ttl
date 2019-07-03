@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plandgPeY  a         chon:Place ;
+        chon:hasName  "Benidorm ESP" .
+
+:rolhgydd4LXxg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agydd4LX .
+
+:resydd4LXx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agydd4LX .
+
+chon:HalfMove  chon:subEventOf  :gamndgPe .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agydd4LX .
+
+:cgrydd4LX  a   chon:ChessGameReport .
+
+:gamndgPe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolydd4LX ;
+        chon:atPlace           :plandgPeY ;
+        chon:atTime            "2002.12.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamydd4LXx ;
+        chon:hasHalfMove       :hmgamydd4LXx ;
+        chon:hasLastHalfMove   :hmgamydd4LXx ;
+        chon:hasOpening        :opeydd4LX ;
+        chon:hasReport         :cgrydd4LX ;
+        chon:hasResult         :resydd4LXx ;
+        chon:subEventOf        :touydd4L .
+
+:touydd4L  a          chon:hessTournament ;
+        chon:atPlace  :plandgPeY ;
+        chon:hasName  "Superstars Hotel Bali" .
+
+:hmgamydd4LXx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgydd4LXxg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "fxe4" , "e4" , "Nbd7" , "Rb8" , "Bg2" , "Kh7" , "b4" , "a6" , "O-O" , "Ng4" , "Qd2" , "Qc2" , "Qxc4" , "Qc7" , "Qg5" , "Bg5" , "Nd7" , "d6" , "Qe8" , "Qd8+" , "Nxg2" , "Nxf6" , "Qb1" , "Qxd6" , "g3" , "dxc4" , "Rxd8+" , "h5" , "Ne1" , "Nd3" , "Rd1" , "Qc1" , "f3" , "Qxc5" , "Rc6" , "Qb6" , "Kg8" , "Qd4+" , "Nc3" , "Bxd6" , "Nf4" , "Nf6" , "g6" , "d5" , "e6" , "Kf2" , "Qe3" , "bxc3" , "Kf8" , "Ke8" , "Qxd8" , "Kg7" , "d4" , "Ng2" , "Nf2" , "Bb7" , "Ne3" , "e5" , "Rd6" , "Qc6" , "Rd8" , "Rc8" , "Qb8" , "c4" , "b5" , "Qxe2" , "Bxg2" , "Nf3" , "Bxf6" , "Qxa6" , "Qc3" , "h4" , "c5" , "Qd6" , "Rxd6" , "Be7" , "Kg2" , "Rd2" ;
+        chon:nextHalfMove      :hmgamydd4LXx .
+
+:agydd4LX  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Kurajica,B" .
+
+:rolydd4LX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agydd4LX .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeydd4LX  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .

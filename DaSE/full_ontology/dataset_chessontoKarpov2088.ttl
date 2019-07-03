@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgtbl5bblW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxdDVre .
+
+:hmgamtbl5bbl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtbl5bblW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rae1" , "g6" , "Ke2" , "Rc4" , "b5" , "Qg1+" , "Ke3" , "Bc5" , "Rg1+" , "h3" , "Qxf3" , "axb4" , "Qd6" , "Qf6" , "Rd3" , "Qxh4+" , "g3" , "Qe4+" , "Qxe5" , "Rc8" , "Re8" , "gxh4" , "Qc5" , "Rf3" , "Rc5" , "Qxh4" , "Bxb4" , "Qa2" , "Kf4" , "Re3" , "Qd1+" , "Qb5+" , "h4" , "Qd5+" , "Kf3" , "Qd4" , "Qe7" , "Qxa7" , "Kg2" , "Bxf3" , "Qg5+" , "Qc2+" , "Qc4+" , "Qa6" , "Kh2" , "Qxf5" , "Qg4+" , "Qb3" , "Re1" , "Rb1+" , "Kf1" , "Qh1+" , "Qa3" , "Bb4" , "Rd1" , "Kg7" , "h5" , "Qxd4" , "Kg3" , "Rxd4" , "Kd2" , "Kh7" , "Qb7" , "Kh3" , "Rd4" , "Rxb5" ;
+        chon:nextHalfMove      :hmgamtbl5bbl .
+
+:hmgamxdDVre6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxdDVre6Y , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "O-O" , "Qb3" , "Bxf5" , "Nf6" , "cxd4" , "Nxc3" , "d4" , "Ne8" , "Rc8" , "e6" , "Nf3" , "Bf4" , "Nd6" , "d5" , "Qc2" , "cxd5" , "Qb1" , "c5" , "exf5" , "Nc3" , "a3" , "Nxd5" , "Bb7" , "e5" , "Nd7" , "bxc3" , "Nf5" , "b6" , "e4" , "Bd3" , "c4" , "Be7" , "Bd2" ;
+        chon:nextHalfMove      :hmgamxdDVre6 , :hmgamtbl5bbl .
+
+:gamxdDVr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxdDVre ;
+        chon:atPlace           :plaxdDVre ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxdDVre6 ;
+        chon:hasHalfMove       :hmgamtbl5bbl , :hmgamxdDVre6 ;
+        chon:hasLastHalfMove   :hmgamtbl5bbl ;
+        chon:hasOpening        :opexdDVre ;
+        chon:hasReport         :cgrxdDVre ;
+        chon:hasResult         :resxdDVre6 ;
+        chon:subEventOf        :touxdDVr .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxdDVre .
+
+:rolhgxdDVre6Y  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxdDVre .
+
+:plaxdDVre  a         chon:Place ;
+        chon:hasName  "Oropesa del Mar" .
+
+chon:HalfMove  chon:subEventOf  :gamxdDVr .
+
+:cgrxdDVre  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxdDVre .
+
+:resxdDVre6  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agxdDVre  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Cramling, Pia" .
+
+:touxdDVr  a          chon:hessTournament ;
+        chon:atPlace  :plaxdDVre ;
+        chon:hasName  "ESP-chT" .
+
+:rolxdDVre  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxdDVre .
+
+:opexdDVre  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam2FStQyp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2FStQyp8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "f4" , "b6" , "Kf2" , "Na6" , "Qc2" , "Qb3" , "Ra7" , "Bb2" , "b3" , "Bg2" , "Nb4" , "c5" , "O-O" , "Ba6" , "Rd8" , "Rxc4" , "Nb6" , "Qb1" , "bxc5" , "Rb7" , "Rec1" , "Rfe1" , "Nf6" , "Nc4" , "d5" , "Rb4" , "Qc6" , "Nec4" , "Nf3" , "a5" , "Qd2" , "dxc5" , "Nd7" , "bxa4" , "Na5" , "Rad1" , "Rxc5" , "e4" , "Rxa4" , "d4" , "Bxd4" , "exd5" , "Bxc5" , "c4" , "Be7" , "a3" , "Nbd2" , "Nc6" , "Qc7" , "Ne5" , "cxd5" , "Rxa5" , "e6" , "Nxc4" , "Qa4" , "g3" , "Nxa5" , "Rc1" , "a4" , "Qb6" , "Bb7" ;
+        chon:nextHalfMove      :hmgam2FStQyp .
+
+:tou2FStQ  a          chon:hessTournament ;
+        chon:atPlace  :pla2FStQy ;
+        chon:hasName  "Amber Rapidplay" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2FStQy .
+
+:res2FStQyp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gam2FStQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag2FStQy .
+
+:pla2FStQy  a         chon:Place ;
+        chon:hasName  "Monaco MNC" .
+
+:rolhg2FStQyp8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag2FStQy .
+
+:cgr2FStQy  a   chon:ChessGameReport .
+
+:ag2FStQy  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Lautier,J" .
+
+:rol2FStQy  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag2FStQy .
+
+:gam2FStQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol2FStQy ;
+        chon:atPlace           :pla2FStQy ;
+        chon:atTime            "2000.03.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam2FStQyp ;
+        chon:hasHalfMove       :hmgam2FStQyp ;
+        chon:hasLastHalfMove   :hmgam2FStQyp ;
+        chon:hasOpening        :ope2FStQy ;
+        chon:hasReport         :cgr2FStQy ;
+        chon:hasResult         :res2FStQyp ;
+        chon:subEventOf        :tou2FStQ .
+
+:ope2FStQy  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

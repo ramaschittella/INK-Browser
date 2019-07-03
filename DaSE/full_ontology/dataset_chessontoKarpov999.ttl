@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla5LEBFG  a         chon:Place ;
+        chon:hasName  "London/Leningrad" .
+
+:hmgam5LEBFGn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg5LEBFGnD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rc1" , "Rxe8+" , "e6" , "Kf8" , "Ba6" , "Qg4" , "e5" , "b6" , "h4" , "Nf3" , "Nc3" , "Rcd1" , "Bxd5" , "c6" , "Nxe8" , "Qe4" , "Kg6" , "f4" , "Bxd4" , "c5" , "Ne8" , "Kf2" , "O-O" , "dxc4" , "Rd8+" , "Ke7" , "g4" , "d5" , "Bc4" , "Nf6" , "d4" , "Rxd5" , "Nc7" , "Bxc4" , "Be7" , "h3" , "Bd3" , "b4" , "Kf5" , "e3" , "Nd7" , "Kd6" , "Qxe4" , "c4" , "Bb3" , "cxd4" , "Bxc8" , "Rfd1" , "Re8" , "Ke5" , "Bxf6" , "h6" , "Bg5" , "Re7" , "Nc5" , "Ke4" , "Qxd4" , "Bb7" , "Qe7" , "Rc8" , "exd4" , "Nd5" , "Nxd5" , "f6+" , "Kf3" , "Nxd4" , "Nxe4" ;
+        chon:nextHalfMove      :hmgam5LEBFGn .
+
+:ag5LEBFG  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kasparov, Gary" .
+
+:rol5LEBFG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5LEBFG .
+
+:ope5LEBFG  a            chon:ChessOpening ;
+        chon:hasECOCode  "D55" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5LEBFG .
+
+chon:HalfMove  chon:subEventOf  :gam5LEBF .
+
+:res5LEBFGn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5LEBFG .
+
+:cgr5LEBFG  a   chon:ChessGameReport .
+
+:rolhg5LEBFGnD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5LEBFG .
+
+:gam5LEBF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5LEBFG ;
+        chon:atPlace           :pla5LEBFG ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5LEBFGn ;
+        chon:hasHalfMove       :hmgam5LEBFGn ;
+        chon:hasLastHalfMove   :hmgam5LEBFGn ;
+        chon:hasOpening        :ope5LEBFG ;
+        chon:hasReport         :cgr5LEBFG ;
+        chon:hasResult         :res5LEBFGn ;
+        chon:subEventOf        :tou5LEBF .
+
+:tou5LEBF  a          chon:hessTournament ;
+        chon:atPlace  :pla5LEBFG ;
+        chon:hasName  "World Championship 33th-KK3" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

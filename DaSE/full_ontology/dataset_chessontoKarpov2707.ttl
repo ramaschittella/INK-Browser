@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolRZ3TMS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agRZ3TMS .
+
+:hmgamRZ3TMSY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRZ3TMSYN , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Van Wely,L" ;
+        chon:hasSANRecord      "Na6" , "e3" , "Bf5" , "Bd2" , "Qa4+" , "Be6" , "Rxe5" , "a3" , "Qxc3" , "Ne5" , "Ra2" , "Rxd1" , "Ra1" , "O-O" , "Bf4" , "dxe5" , "Qc3" , "Bg2" , "Qc6" , "h5" , "Kg7" , "c4" , "Bxe5" , "Kg6" , "exd5" , "Nb6" , "Qb3" , "Bxd1" , "Rf7" , "cxd4" , "e6" , "Nf6" , "Re7" , "Na3" , "Kf3" , "Rd8+" , "Ke3" , "Qd7" , "g6" , "d5" , "g5" , "g3" , "Qa6" , "bxc3" , "Rd1" , "Qa4" , "Nb5" , "exd4" , "a5" , "c5" , "Kg2" , "Ra6" , "Rxd5" , "axb4" , "Qxc4" , "d4" , "Nd5" , "Qxb4" , "Nf3" , "Bh6" , "Nd4" , "Re8" , "Bg4" , "Rc7" , "Qc4" , "Bd6" , "f6" , "Nab4" , "dxc4" , "h4" , "Nfd7" , "Bxd5" , "Bg7" ;
+        chon:nextHalfMove      :hmgamRZ3TMSY .
+
+:gamRZ3TM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolRZ3TMS ;
+        chon:atPlace           :plaRZ3TMS ;
+        chon:atTime            "2003.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRZ3TMSY ;
+        chon:hasHalfMove       :hmgamRZ3TMSY ;
+        chon:hasLastHalfMove   :hmgamRZ3TMSY ;
+        chon:hasOpening        :opeRZ3TMS ;
+        chon:hasReport         :cgrRZ3TMS ;
+        chon:hasResult         :resRZ3TMSY ;
+        chon:subEventOf        :touRZ3TM .
+
+:plaRZ3TMS  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee NED" .
+
+:touRZ3TM  a          chon:hessTournament ;
+        chon:atPlace  :plaRZ3TMS ;
+        chon:hasName  "GMA" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRZ3TMS .
+
+:rolhgRZ3TMSYN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agRZ3TMS .
+
+chon:HalfMove  chon:subEventOf  :gamRZ3TM .
+
+:resRZ3TMSY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agRZ3TMS  a          chon:Agent ;
+        chon:hasName  "Van Wely,L" , "Karpov,An" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agRZ3TMS .
+
+:opeRZ3TMS  a            chon:ChessOpening ;
+        chon:hasECOCode  "D73" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrRZ3TMS  a   chon:ChessGameReport .

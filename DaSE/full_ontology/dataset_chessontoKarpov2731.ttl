@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamGsMLZAj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGsMLZAj0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Nf3" , "O-O" , "Bxd5" , "Bd3" , "Nb4" , "cxd5" , "Be6" , "c4" , "Nf6" , "Ne7" , "Be7" , "d6" , "Nc6" , "a3" , "Nxe5" , "e4" , "Bf6" , "Nxc3" , "e5" , "d5" , "d4" , "Be2" , "Nc3" , "Nxe4" , "Bf5" , "Bf4" , "Re1" , "bxc3" ;
+        chon:nextHalfMove      :hmgamSsGZxSm , :hmgamGsMLZAj .
+
+:plaGsMLZA  a         chon:Place ;
+        chon:hasName  "Lanzarote ESP" .
+
+:rolhgSsGZxSmm  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGsMLZA .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGsMLZA .
+
+:cgrGsMLZA  a   chon:ChessGameReport .
+
+:resGsMLZAj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:HalfMove  chon:subEventOf  :gamGsMLZ .
+
+:agGsMLZA  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Kolev,At" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGsMLZA .
+
+:rolGsMLZA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGsMLZA .
+
+:gamGsMLZ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGsMLZA ;
+        chon:atPlace           :plaGsMLZA ;
+        chon:atTime            "2003.05.13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGsMLZAj ;
+        chon:hasHalfMove       :hmgamSsGZxSm , :hmgamGsMLZAj ;
+        chon:hasLastHalfMove   :hmgamSsGZxSm ;
+        chon:hasOpening        :opeGsMLZA ;
+        chon:hasReport         :cgrGsMLZA ;
+        chon:hasResult         :resGsMLZAj ;
+        chon:subEventOf        :touGsMLZ .
+
+:opeGsMLZA  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:hmgamSsGZxSm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSsGZxSmm ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qxb6" , "cxd4" , "Rb1" , "Rxa3" , "Ng6" , "c4" , "Rxd4" , "Qb6" , "Bxd4" , "Qxf3" , "Bxf3" , "hxg6" , "Bxg6" , "Rad1" , "Qxb7" , "c5" , "Be3" , "axb6" ;
+        chon:nextHalfMove      :hmgamSsGZxSm .
+
+:rolhgGsMLZAj0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGsMLZA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touGsMLZ  a          chon:hessTournament ;
+        chon:atPlace  :plaGsMLZA ;
+        chon:hasName  "TCh-ESP" .

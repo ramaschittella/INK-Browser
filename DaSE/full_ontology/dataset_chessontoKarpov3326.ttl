@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrF5TB5Z  a   chon:ChessGameReport .
+
+:touF5TB5  a          chon:hessTournament ;
+        chon:atPlace  :plat5WovZ ;
+        chon:hasName  "14th Puhajarve Rapid" .
+
+:hmgamF5TB5Zi  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgF5TB5ZiB ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jarvet,Juri" ;
+        chon:hasSANRecord      "Rf8" , "Rfc1" , "Rd7+" , "Ne5" , "Qa6" , "Nxe5" , "Qxb6" , "Bg5" , "Kxg2" , "h3" , "Qb6" , "Nf3" , "Qb4" , "Bb7" , "a5" , "e4" , "Rd8+" , "Kg7" , "Rd3" , "Bf8" , "Rb7" , "Bf4" , "Bxc6" , "Rc6" , "Nc6" , "Bc5" , "Rxc7" , "dxc6" , "Rb4" , "Bxf4" , "a4" , "Nd5" , "exd4" , "Nd4" , "g4" , "d4" , "Rf7" , "Nb4" , "bxc6" , "Rd1" , "b3" , "O-O" , "fxe5" , "Rab1" , "d5" , "R6c7" , "a6" , "Be3" , "f6" , "Kf3" , "Bxg2" , "Rd8" , "Rbc1" , "Bg2" , "Rb8" , "Nc4" , "c4" , "Bxd4" , "Nc3" , "Nf6" , "g6" , "Rec8" , "Nxc6" , "Bb8" , "Kd5" , "Rfe8" , "Rd5" , "Nxb6" , "Kg8" , "Rc8" , "Ke4" , "Bg7" , "dxc4" , "Nxc4" , "axb6" , "Qa4" , "c6" , "Ra7" , "f4" , "e5" , "g3" , "Ba7" , "Kxd4" ;
+        chon:nextHalfMove      :hmgamF5TB5Zi .
+
+:rolhgF5TB5ZiB  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agF5TB5Z .
+
+:agF5TB5Z  a          chon:Agent ;
+        chon:hasName  "Jarvet,Juri" , "Karpov,Ana" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agF5TB5Z .
+
+:rolF5TB5Z  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agF5TB5Z .
+
+:opeF5TB5Z  a            chon:ChessOpening ;
+        chon:hasECOCode  "D77" .
+
+chon:HalfMove  chon:subEventOf  :gamt5Wov .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agF5TB5Z .
+
+:resF5TB5Zi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gamt5Wov  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolF5TB5Z ;
+        chon:atPlace           :plat5WovZ ;
+        chon:atTime            "2013.11.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamF5TB5Zi ;
+        chon:hasHalfMove       :hmgamF5TB5Zi ;
+        chon:hasLastHalfMove   :hmgamF5TB5Zi ;
+        chon:hasOpening        :opeF5TB5Z ;
+        chon:hasReport         :cgrF5TB5Z ;
+        chon:hasResult         :resF5TB5Zi ;
+        chon:subEventOf        :touF5TB5 .
+
+:plat5WovZ  a         chon:Place ;
+        chon:hasName  "Puhajarve EST" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

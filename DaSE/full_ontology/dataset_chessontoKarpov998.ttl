@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tourJy6L  a          chon:hessTournament ;
+        chon:atPlace  :plarJy6LG ;
+        chon:hasName  "World Championship 33th-KK3" .
+
+:plarJy6LG  a         chon:Place ;
+        chon:hasName  "London/Leningrad" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrJy6LG .
+
+:hmgamrJy6LGs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrJy6LGs3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "d4" , "exd4" , "Nc3" , "Be3" , "Rc1" , "Bd2" , "h3" , "g6" , "O-O" , "Bxc4" , "Nf6" , "c4" , "Bf5" , "Bc6" , "Bf4" , "Qe2" , "dxc4" , "Bg7" , "e3" , "Rfd1" , "Qa5" , "dxc5" , "c5" , "Qb6" , "e6" , "Qxc5" , "Nxd4" , "Nf3" , "Nd4" , "d5" , "Bd7" , "Nc6" , "Bb3" ;
+        chon:nextHalfMove      :hmgamrJy6LGs .
+
+chon:HalfMove  chon:subEventOf  :gamrJy6L .
+
+:rolhgrJy6LGs3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrJy6LG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrJy6LG .
+
+:agrJy6LG  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolrJy6LG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrJy6LG .
+
+:operJy6LG  a            chon:ChessOpening ;
+        chon:hasECOCode  "D93" .
+
+:resrJy6LGs  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrrJy6LG  a   chon:ChessGameReport .
+
+:gamrJy6L  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrJy6LG ;
+        chon:atPlace           :plarJy6LG ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrJy6LGs ;
+        chon:hasHalfMove       :hmgamrJy6LGs ;
+        chon:hasLastHalfMove   :hmgamrJy6LGs ;
+        chon:hasOpening        :operJy6LG ;
+        chon:hasReport         :cgrrJy6LG ;
+        chon:hasResult         :resrJy6LGs ;
+        chon:subEventOf        :tourJy6L .

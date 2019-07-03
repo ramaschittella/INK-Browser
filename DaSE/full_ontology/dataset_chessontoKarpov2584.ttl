@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resrRbMViU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrRbMVi .
+
+:tourRbMV  a          chon:hessTournament ;
+        chon:atPlace  :plarRbMVi ;
+        chon:hasName  "Karpov-Boca Simul" .
+
+:rolhgrRbMViUu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrRbMVi .
+
+chon:HalfMove  chon:subEventOf  :gamrRbMV .
+
+:hmgamrRbMViU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgrRbMViUu , :rolhgmPSWFibu , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seminara,J" ;
+        chon:hasSANRecord      "Rd7" , "Rxd1+" , "Rxd8" , "d4" , "Rfd1" , "g6" , "g4" , "Nf3" , "O-O" , "e5" , "Nc3" , "g5" , "d6" , "Rxd1" , "hxg5" , "Bg7" , "Nc7" , "Qxd8" , "Nf6" , "Ne6" , "Bg4" , "e4" , "h6" , "Be3" , "dxe5" , "Nh7" , "Na6" , "Kf1" , "c6" , "c4" , "Be2" , "h4" , "Bxf3" ;
+        chon:nextHalfMove      :hmgamrRbMViU , :hmgammPSWFib .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrRbMVi .
+
+:plarRbMVi  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:hmgammPSWFib  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmPSWFibu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Seminara,J" ;
+        chon:hasSANRecord      "Rb6" , "Bf4" , "c5" , "Rxc5" , "Bb5" , "Ra7" , "Nd5" , "Nhxg5" , "Rxa7" , "Be8" , "Nf3" , "Nd4" , "Nd7" , "Bh6" , "Nxd5" , "a5" , "Re8" , "Rb5" , "Ra6" , "Kd3" , "Rd8" , "Bc7" , "Ke2" , "Nf6+" , "Bd2" , "f3" , "a4" , "Bd7" , "Kg7" , "Kf8" , "Nxg5" , "Bxd5" , "b3" , "Rd6" , "Nxb6" , "Rxe5" , "Bg5" , "Re6" , "Rc7" , "Rb8" , "Bxa5" , "Bc6" , "Bb7" , "Ke7" , "Bxg5" , "Nf4" , "Bxf7" , "Ne6" , "Bg4" , "b6" ;
+        chon:nextHalfMove      :hmgammPSWFib .
+
+:rolhgmPSWFibu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrRbMVi .
+
+:cgrrRbMVi  a   chon:ChessGameReport .
+
+:agrRbMVi  a          chon:Agent ;
+        chon:hasName  "Seminara,J" , "Karpov,An" .
+
+:rolrRbMVi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrRbMVi .
+
+:operRbMVi  a            chon:ChessOpening ;
+        chon:hasECOCode  "E94" .
+
+:gamrRbMV  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrRbMVi ;
+        chon:atPlace           :plarRbMVi ;
+        chon:atTime            "2001.08.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrRbMViU ;
+        chon:hasHalfMove       :hmgamrRbMViU , :hmgammPSWFib ;
+        chon:hasLastHalfMove   :hmgammPSWFib ;
+        chon:hasOpening        :operRbMVi ;
+        chon:hasReport         :cgrrRbMVi ;
+        chon:hasResult         :resrRbMViU ;
+        chon:subEventOf        :tourRbMV .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

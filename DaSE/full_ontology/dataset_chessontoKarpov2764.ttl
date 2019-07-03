@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toutqkMO  a          chon:hessTournament ;
+        chon:atPlace  :platqkMOx ;
+        chon:hasName  "Lindsborg Inv Rapid" .
+
+:hmgamtqkMOxY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtqkMOxYV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Rfc1" , "d5" , "O-O" , "e3" , "Nf6" , "d4" , "Be3" , "a3" , "Bxd5" , "Nxd5" , "Bb4" , "Rc1" , "Bxc3+" , "c4" , "Ne7" , "Rc5" , "Qf3" , "Ned5" , "exd5" , "e6" , "Nc3" , "Be6" , "exd4" , "Bxc4" , "Ne2" , "cxd4" , "c5" , "h6" , "Nc6" , "dxc4" , "Nxc3" ;
+        chon:nextHalfMove      :hmgamtqkMOxY .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtqkMOx .
+
+:platqkMOx  a         chon:Place ;
+        chon:hasName  "Kansas USA" .
+
+chon:HalfMove  chon:subEventOf  :gamtqkMO .
+
+:cgrtqkMOx  a   chon:ChessGameReport .
+
+:restqkMOxY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtqkMOx .
+
+:agtqkMOx  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Donaldson,J" .
+
+:roltqkMOx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtqkMOx .
+
+:opetqkMOx  a            chon:ChessOpening ;
+        chon:hasECOCode  "E42" .
+
+:gamtqkMO  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltqkMOx ;
+        chon:atPlace           :platqkMOx ;
+        chon:atTime            "2003.12.14"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtqkMOxY ;
+        chon:hasHalfMove       :hmgamtqkMOxY ;
+        chon:hasLastHalfMove   :hmgamtqkMOxY ;
+        chon:hasOpening        :opetqkMOx ;
+        chon:hasReport         :cgrtqkMOx ;
+        chon:hasResult         :restqkMOxY ;
+        chon:subEventOf        :toutqkMO .
+
+:rolhgtqkMOxYV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtqkMOx .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

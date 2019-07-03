@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhge40bof1V  a         chon:ActingPlayerRole ;
+        chon:performedBy  :age40bof .
+
+:opee40bof  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age40bof .
+
+chon:HalfMove  chon:subEventOf  :game40bo .
+
+:rese40bof1  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :age40bof .
+
+:plae40bof  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:cgre40bof  a   chon:ChessGameReport .
+
+:game40bo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :role40bof ;
+        chon:atPlace           :plae40bof ;
+        chon:atTime            "1999.04.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgame40bof1 ;
+        chon:hasHalfMove       :hmgame40bof1 ;
+        chon:hasLastHalfMove   :hmgame40bof1 ;
+        chon:hasOpening        :opee40bof ;
+        chon:hasReport         :cgre40bof ;
+        chon:hasResult         :rese40bof1 ;
+        chon:subEventOf        :toue40bo .
+
+:toue40bo  a          chon:hessTournament ;
+        chon:atPlace  :plae40bof ;
+        chon:hasName  "Dos Hermanas" .
+
+:age40bof  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Topalov, Veselin" .
+
+:role40bof  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :age40bof .
+
+:hmgame40bof1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhge40bof1V , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "d5" , "a5" , "Nce8" , "Nf3" , "e3" , "Bxe7" , "Rh3" , "Na6" , "Ne5" , "b6" , "a3" , "Qe2" , "exd4" , "dxc4" , "Nf6" , "Ne4" , "Rd3" , "O-O" , "b4" , "Qc2" , "Qxe7" , "b5" , "Ba2" , "Bg5" , "cxd4" , "Nc7" , "c4" , "Nc3" , "Nb5" , "Rc7" , "e6" , "Rc8" , "Rd1" , "c5" , "Bxc4" , "Na7" , "Be7" , "Bb7" , "d4" ;
+        chon:nextHalfMove      :hmgame40bof1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

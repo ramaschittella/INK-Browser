@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfsaDk5 .
+
+:rolhgfsaDk5SG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfsaDk5 .
+
+chon:HalfMove  chon:subEventOf  :gamfsaDk .
+
+:resfsaDk5S  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfsaDk5 .
+
+:plafsaDk5  a         chon:Place ;
+        chon:hasName  "Tallinn EST" .
+
+:cgrfsaDk5  a   chon:ChessGameReport .
+
+:hmgamfsaDk5S  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfsaDk5SG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bf5" , "e4" , "Ra6" , "dxc5" , "Nd7" , "Rd2" , "Be3" , "d5" , "Nd4" , "Bxf6" , "Kg1" , "c3" , "Qe1" , "Bd3" , "Nb6" , "Nh1" , "Be4" , "Nxc5" , "Be7" , "Nxd4" , "a3" , "Be2" , "Nf3" , "Rh5" , "g6" , "Ng4" , "Kc8" , "Rfd1" , "Ng3" , "Nc3" , "Nb5" , "Ra8" , "Ne7" , "e5" , "Qf3" , "h4" , "Be5" , "Ne2" , "Rc8" , "h5" , "b6" , "c6" , "Qc6" , "Kb7" , "Nf2" , "f4" , "c5" , "axb5" , "Qc7" , "e6" , "Bxd4" , "a6" , "Kd7" , "exf6" , "Nf6+" , "d4" , "O-O" , "Rh8" , "Na4" , "Bd4" , "Qe3" , "Bxb5+" , "Kh2" , "Qf2" , "h3" , "Qc4" , "Nec6" , "b4" ;
+        chon:nextHalfMove      :hmgamfsaDk5S .
+
+:agfsaDk5  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Rytshagov,M" .
+
+:rolfsaDk5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfsaDk5 .
+
+:opefsaDk5  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:gamfsaDk  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfsaDk5 ;
+        chon:atPlace           :plafsaDk5 ;
+        chon:atTime            "2005.01.09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfsaDk5S ;
+        chon:hasHalfMove       :hmgamfsaDk5S ;
+        chon:hasLastHalfMove   :hmgamfsaDk5S ;
+        chon:hasOpening        :opefsaDk5 ;
+        chon:hasReport         :cgrfsaDk5 ;
+        chon:hasResult         :resfsaDk5S ;
+        chon:subEventOf        :toufsaDk .
+
+:toufsaDk  a          chon:hessTournament ;
+        chon:atPlace  :plafsaDk5 ;
+        chon:hasName  "Keres Mem Rapid" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla4oNlpb  a         chon:Place ;
+        chon:hasName  "Mexico City MEX" .
+
+:hmgam4oNlpbw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg4oNlpbwH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Barreto Reyna,Estefania" ;
+        chon:hasSANRecord      "Bd7" , "Ng1" , "g3" , "Bxh5" , "Bh6" , "f3" , "gxh5" , "dxe5" , "Qd6" , "O-O-O" , "Nbd7" , "g6" , "O-O" , "Bg5" , "Rhe1" , "d4" , "f5" , "f4" , "Qd2" , "Be2" , "Nxe5" , "Nc3" , "c5" , "Nf3" , "Nh5" , "Qxh5" , "d5" , "Qg5+" , "Ne2" , "Kh8" , "e4" , "Nf6" , "Kxg7" , "a6" , "c4" , "Bg7" , "d6" , "Ne5" , "Bxg7" ;
+        chon:nextHalfMove      :hmgam4oNlpbw , :hmgamfoJBWaB .
+
+:cgr4oNlpb  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4oNlpb .
+
+:ag4oNlpb  a          chon:Agent ;
+        chon:hasName  "Barreto Reyna,Estefania" , "Karpov,Ana" .
+
+:rol4oNlpb  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4oNlpb .
+
+chon:HalfMove  chon:subEventOf  :gam4oNlp .
+
+:ope4oNlpb  a            chon:ChessOpening ;
+        chon:hasECOCode  "E70" .
+
+:hmgamfoJBWaB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfoJBWaBU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Barreto Reyna,Estefania" ;
+        chon:hasSANRecord      "Kf8" , "d6" , "Rxb3" , "Rb3" , "e6" , "Rxc3+" , "Qxc3+" , "g5" , "g6" , "Rb8" , "Nxe5" , "gxf5" , "Rh3" , "Rd3" , "Qf6" , "Nxg6+" , "Rf6" , "Ne5" , "g4" , "Rb6" , "f5" , "Re3" , "Rxh2" , "f4" , "Nxf3" , "axb3" , "Rh6" , "c4" , "b5" , "Bb5" , "hxg6" , "Be8" , "Bg6" , "Qxc3" , "Qh4" , "Rc3" , "Qd2" , "bxc4" , "Rh5" , "Nxc4" , "Qg5" , "bxc3" , "exd5" , "Kg7" ;
+        chon:nextHalfMove      :hmgamfoJBWaB .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4oNlpb .
+
+:res4oNlpbw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gam4oNlp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4oNlpb ;
+        chon:atPlace           :pla4oNlpb ;
+        chon:atTime            "2010.11.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam4oNlpbw ;
+        chon:hasHalfMove       :hmgam4oNlpbw , :hmgamfoJBWaB ;
+        chon:hasLastHalfMove   :hmgamfoJBWaB ;
+        chon:hasOpening        :ope4oNlpb ;
+        chon:hasReport         :cgr4oNlpb ;
+        chon:hasResult         :res4oNlpbw ;
+        chon:subEventOf        :tou4oNlp .
+
+:tou4oNlp  a          chon:hessTournament ;
+        chon:atPlace  :pla4oNlpb ;
+        chon:hasName  "UNAM Selected Simul" .
+
+:rolhgfoJBWaBU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4oNlpb .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg4oNlpbwH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4oNlpb .

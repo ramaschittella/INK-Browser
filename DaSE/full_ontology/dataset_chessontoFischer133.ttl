@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag4KHNIa  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Byrne, Robert E" .
+
+:tou4KHNI  a          chon:hessTournament ;
+        chon:atPlace  :pla4KHNIa ;
+        chon:hasName  "USA-ch" .
+
+:rol4KHNIa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag4KHNIa .
+
+:rolhgbIl0Z0lX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4KHNIa .
+
+:ope4KHNIa  a            chon:ChessOpening ;
+        chon:hasECOCode  "E62" .
+
+:res4KHNIa2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4KHNIa .
+
+chon:HalfMove  chon:subEventOf  :gam4KHNI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4KHNIa .
+
+:hmgambIl0Z0l  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbIl0Z0lX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Ng3" , "Bh3" , "Nh4" , "Rf2" , "Ne4" , "Qxe3" , "Bxe3+" , "Qa7" , "Bf5" , "Rf1" , "Nf5" ;
+        chon:nextHalfMove      :hmgambIl0Z0l .
+
+:cgr4KHNIa  a   chon:ChessGameReport .
+
+:hmgamZIoWs0i  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZIoWs0iM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nxe5" , "Bxe5" , "g3" , "f5" , "b5" , "d5" , "Nd7" , "axb6" , "Bg7" , "Bxf3" , "Ne7" , "Nc3" , "Nd2" , "e4" , "a4" , "c4" , "gxf4" , "d6" , "Bd7" , "Bg2" , "f3" , "cxd6" , "O-O" , "Nc6" , "Rxa1" , "Bxf4" , "Qb3" , "Nf6" , "d4" , "Nc4" , "Nf3" , "e5" , "a5" , "c5" , "Ne5" , "Be3" , "f4" , "exf3" , "g6" ;
+        chon:nextHalfMove      :hmgambIl0Z0l , :hmgamZIoWs0i .
+
+:rolhgZIoWs0iM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4KHNIa .
+
+:pla4KHNIa  a         chon:Place ;
+        chon:hasName  "New York" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gam4KHNI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4KHNIa ;
+        chon:atPlace           :pla4KHNIa ;
+        chon:atTime            "1958.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZIoWs0i ;
+        chon:hasHalfMove       :hmgambIl0Z0l , :hmgamZIoWs0i ;
+        chon:hasLastHalfMove   :hmgambIl0Z0l ;
+        chon:hasOpening        :ope4KHNIa ;
+        chon:hasReport         :cgr4KHNIa ;
+        chon:hasResult         :res4KHNIa2 ;
+        chon:subEventOf        :tou4KHNI .

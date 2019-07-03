@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg9w23F0Qx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9w23F0 .
+
+:pla9w23F0  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:res9w23F0Q  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:cgr9w23F0  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9w23F0 .
+
+chon:HalfMove  chon:subEventOf  :gam9w23F .
+
+:rol9w23F0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9w23F0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9w23F0 .
+
+:ag9w23F0  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Bologan,V" .
+
+:hmgam9w23F0Q  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9w23F0Qx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "d4" , "e5" , "g5" , "Bg5" , "Nxg3" , "Nf6" , "d5" , "fxg5" , "Rc5" , "Bxc4" , "Bxf5" , "Bd3" , "Rf8+" , "Rad8" , "Nf3" , "Ne7" , "Nxe5" , "Nc3" , "hxg5" , "h6" , "Qd7" , "e4" , "g4" , "Bg3" , "Rexe5" , "O-O" , "Qxd7" , "b6" , "Raf1" , "Rf1" , "Nb4" , "Be7" , "dxc4" , "Bd6" , "Ne5" , "Nxe4" , "bxc3" , "Be4" , "a3" , "Rfe8" , "hxg3" , "Rd5" , "Rxf7" , "f4" , "Bxd7" , "Bh4" , "Be2" , "d6" , "Bxe5" , "Nxc3" , "c4" , "Re1" , "Nxf5" , "Bf5" , "Be6" , "Rf5" , "dxe5" , "Nc6" ;
+        chon:nextHalfMove      :hmgam9w23F0Q .
+
+:ope9w23F0  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:gam9w23F  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9w23F0 ;
+        chon:atPlace           :pla9w23F0 ;
+        chon:atTime            "2000.09.26"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9w23F0Q ;
+        chon:hasHalfMove       :hmgam9w23F0Q ;
+        chon:hasLastHalfMove   :hmgam9w23F0Q ;
+        chon:hasOpening        :ope9w23F0 ;
+        chon:hasReport         :cgr9w23F0 ;
+        chon:hasResult         :res9w23F0Q ;
+        chon:subEventOf        :tou9w23F .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou9w23F  a          chon:hessTournament ;
+        chon:atPlace  :pla9w23F0 ;
+        chon:hasName  "Super Final" .

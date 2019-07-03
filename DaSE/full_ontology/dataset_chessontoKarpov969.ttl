@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla8LSwSa  a         chon:Place ;
+        chon:hasName  "Bugojno" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8LSwSa .
+
+:cgr8LSwSa  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam8LSwS .
+
+:res8LSwSao  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ag8LSwSa  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Timman, Jan H" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag8LSwSa .
+
+:rol8LSwSa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag8LSwSa .
+
+:rolhg8LSwSaoG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag8LSwSa .
+
+:ope8LSwSa  a            chon:ChessOpening ;
+        chon:hasECOCode  "C93" .
+
+:hmgam8LSwSao  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg8LSwSaoG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Ba4" , "Qb6" , "Nbd7" , "Nc2" , "a3" , "e4" , "c4" , "Bxa1" , "Be7" , "O-O" , "Nb8" , "Rxa1" , "Ne3" , "Bg7" , "Nf3" , "Nxc5" , "Bxf6" , "h6" , "Bb7" , "Nxd4" , "Nbd2" , "cxb5" , "c6" , "d6" , "d4" , "Re8" , "c5" , "g6" , "Nc6" , "exd4" , "h3" , "e5" , "bxc5" , "b5" , "Bb5" , "Qc7" , "Bb3" , "Re1" , "c3" , "axb5" , "b4" , "Bb2" , "Bxa4" , "bxa4" , "Bf8" , "Nf6" , "Bc2" , "a6" , "a4" ;
+        chon:nextHalfMove      :hmgam8LSwSao .
+
+:gam8LSwS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8LSwSa ;
+        chon:atPlace           :pla8LSwSa ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam8LSwSao ;
+        chon:hasHalfMove       :hmgam8LSwSao ;
+        chon:hasLastHalfMove   :hmgam8LSwSao ;
+        chon:hasOpening        :ope8LSwSa ;
+        chon:hasReport         :cgr8LSwSa ;
+        chon:hasResult         :res8LSwSao ;
+        chon:subEventOf        :tou8LSwS .
+
+:tou8LSwS  a          chon:hessTournament ;
+        chon:atPlace  :pla8LSwSa ;
+        chon:hasName  "Bugojno" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

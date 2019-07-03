@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolE6lS59  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agE6lS59 .
+
+:hmgamE6lS59S  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgE6lS59SI , :rolhgA23LO9TI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e4" , "Nf6" , "a6" , "Nf3" , "Re1" , "Be7" , "Bb5" , "e5" , "Ba4" , "Nc6" , "O-O" ;
+        chon:nextHalfMove      :hmgamE6lS59S , :hmgamA23LO9T .
+
+:hmgamA23LO9T  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgA23LO9TI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bb3" , "Re8" , "Rxb2" , "d4" , "Nxe5" , "cxb5" , "Rad8" , "Qxe7" , "c6" , "Ne5" , "Nd5" , "Nxd4" , "Qf6" , "Nb1" , "Bg5" , "Nbd2" , "Re3" , "b5" , "Rb8+" , "Re7" , "exd4" , "Ne2+" , "Rxe2" , "c3" , "Nh5" , "dxe5" , "exf5" , "axb5" , "Re4" , "Nf5" , "Kf1" , "c4" , "Bxf5" , "Nbd7" , "N2f3" , "h3" , "Qg3" , "Rd2" , "b4" , "Nb8" , "Bxe7" , "Rxb4" , "Nc3" , "Qf3" , "h6" , "O-O" , "Bh4" , "Nf4" , "Kh7" , "Rae1" , "Rb7" , "d6" ;
+        chon:nextHalfMove      :hmgamA23LO9T .
+
+:rolhgA23LO9TI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agE6lS59 .
+
+:gamE6lS5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolE6lS59 ;
+        chon:atPlace           :plaE6lS59 ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamE6lS59S ;
+        chon:hasHalfMove       :hmgamA23LO9T , :hmgamE6lS59S ;
+        chon:hasLastHalfMove   :hmgamA23LO9T ;
+        chon:hasOpening        :opeE6lS59 ;
+        chon:hasReport         :cgrE6lS59 ;
+        chon:hasResult         :resE6lS59S ;
+        chon:subEventOf        :touE6lS5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agE6lS59 .
+
+:touE6lS5  a          chon:hessTournament ;
+        chon:atPlace  :plaE6lS59 ;
+        chon:hasName  "Leningrad Interzonal" .
+
+chon:HalfMove  chon:subEventOf  :gamE6lS5 .
+
+:agE6lS59  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Tukmakov, Vladimir B" .
+
+:resE6lS59S  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:opeE6lS59  a            chon:ChessOpening ;
+        chon:hasECOCode  "C95" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agE6lS59 .
+
+:rolhgE6lS59SI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agE6lS59 .
+
+:plaE6lS59  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+:cgrE6lS59  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

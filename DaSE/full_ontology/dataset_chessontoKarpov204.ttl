@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agfSoRpx  a          chon:Agent ;
+        chon:hasName  "Schauwecker, Meinrad" , "Karpov, Anatoly" .
+
+:hmgammQ3eHw2  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmQ3eHw2G ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schauwecker, Meinrad" ;
+        chon:hasSANRecord      "Rh8+" , "Nh7" , "Qg7" , "Nf6" , "Rf8" , "Rg8" ;
+        chon:nextHalfMove      :hmgammQ3eHw2 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfSoRpx .
+
+:opefSoRpx  a            chon:ChessOpening ;
+        chon:hasECOCode  "A33" .
+
+:rolhgmQ3eHw2G  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfSoRpx .
+
+:gamfSoRp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolfSoRpx ;
+        chon:atPlace           :plafSoRpx ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamfSoRpxH ;
+        chon:hasHalfMove       :hmgammQ3eHw2 , :hmgambQ81axY , :hmgamfSoRpxH ;
+        chon:hasLastHalfMove   :hmgammQ3eHw2 ;
+        chon:hasOpening        :opefSoRpx ;
+        chon:hasReport         :cgrfSoRpx ;
+        chon:hasResult         :resfSoRpxH ;
+        chon:subEventOf        :toufSoRp .
+
+chon:HalfMove  chon:subEventOf  :gamfSoRp .
+
+:hmgambQ81axY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmQ3eHw2G , :rolhgbQ81axYt ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schauwecker, Meinrad" ;
+        chon:hasSANRecord      "Bxa4" , "e4" , "Bc6" , "a4" , "Nf6" , "d4" , "g3" , "Bf6" , "Ne8" , "Rc1" , "Rfe7" , "Bf3" , "Qc7" , "Qb4" , "Be5" , "Re3" , "f5" , "Bd1" , "Rd7" , "Bd7" , "d6" , "Rd1" , "h5" , "Nc6" , "bxa4" , "exd5" , "Rxd4" , "g5" , "Rb8" , "g6" , "Re7" , "Ra2" , "Rdd7" , "Qd2" , "Rd3" , "Qa7" , "Kh6" , "Nxd4" , "Kg7" , "Rf7" , "Qe2" , "O-O" , "Bg2" , "Bb6" , "b3" , "Qh5" , "Qb8" , "Ba4" , "h3" , "Ba3" , "Rdb1" , "Qg6" , "Rb3" , "Nd5" , "cxd5" , "Qf7" , "Rc8" , "a5" , "a6" , "exf5" , "Qc2" , "Bb4" , "Qb6" , "Be7" , "Ba5" , "f6" , "Rd8" , "Bd8" , "cxd4" , "Rd2" ;
+        chon:nextHalfMove      :hmgammQ3eHw2 , :hmgambQ81axY .
+
+:cgrfSoRpx  a   chon:ChessGameReport .
+
+:resfSoRpxH  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgbQ81axYt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfSoRpx .
+
+:rolfSoRpx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agfSoRpx .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toufSoRp  a          chon:hessTournament ;
+        chon:atPlace  :plafSoRpx ;
+        chon:hasName  "EU-chT" .
+
+:plafSoRpx  a         chon:Place ;
+        chon:hasName  "Bath" .
+
+:hmgamfSoRpxH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfSoRpxHv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Schauwecker, Meinrad" ;
+        chon:hasSANRecord      "c4" , "Nf6" , "Nf3" , "c5" , "Nc3" , "e6" ;
+        chon:nextHalfMove      :hmgambQ81axY , :hmgamfSoRpxH .
+
+:rolhgfSoRpxHv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agfSoRpx .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agfSoRpx .

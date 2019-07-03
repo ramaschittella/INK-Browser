@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam19IbeBT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg19IbeBTG ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lontoc, Ramon" ;
+        chon:hasSANRecord      "e5" , "O-O-O" , "Qf3" , "c5" , "Nxd4" , "f4" , "a6" , "e4" , "Be3" , "Nc5" , "Qc7" , "e6" , "Nf6" , "Be7" , "cxd4" , "Bb3" , "Bc4" , "d4" , "h5" , "d6" , "Nf3" , "Nc3" , "f5" , "Nbd7" ;
+        chon:nextHalfMove      :hmgamb9SpNSW , :hmgam19IbeBT .
+
+:hmgamb9SpNSW  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgb9SpNSWS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lontoc, Ramon" ;
+        chon:hasSANRecord      "Nxg5" , "fxg5" , "hxg3" , "c3" , "Nde2" , "Rc8" , "Qxg7+" , "Ke7" , "Rhd8" , "Rxd5" , "Ng1" , "Qxe5" , "axb3" , "b5" , "h4" , "b4" , "Kc7" , "g3" , "Qxg3" , "Rd7" , "Bxf6" , "Nd5" , "Kd7" , "Nf3" , "Bxd5" , "f6" , "Kb1" , "Bb7" , "Rd1" , "Rc6" , "Qxg5" , "Nxb3+" , "Qb6" , "Bg5" , "Qd3" ;
+        chon:nextHalfMove      :hmgamb9SpNSW .
+
+:pla19IbeB  a         chon:Place ;
+        chon:hasName  "Meralco" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag19IbeB .
+
+:cgr19IbeB  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam19Ibe .
+
+:res19IbeBT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:ag19IbeB  a          chon:Agent ;
+        chon:hasName  "Lontoc, Ramon" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag19IbeB .
+
+:rol19IbeB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag19IbeB .
+
+:ope19IbeB  a            chon:ChessOpening ;
+        chon:hasECOCode  "B86" .
+
+:rolhgb9SpNSWS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag19IbeB .
+
+:rolhg19IbeBTG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag19IbeB .
+
+:gam19Ibe  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol19IbeB ;
+        chon:atPlace           :pla19IbeB ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam19IbeBT ;
+        chon:hasHalfMove       :hmgamb9SpNSW , :hmgam19IbeBT ;
+        chon:hasLastHalfMove   :hmgamb9SpNSW ;
+        chon:hasOpening        :ope19IbeB ;
+        chon:hasReport         :cgr19IbeB ;
+        chon:hasResult         :res19IbeBT ;
+        chon:subEventOf        :tou19Ibe .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou19Ibe  a          chon:hessTournament ;
+        chon:atPlace  :pla19IbeB ;
+        chon:hasName  "Meralco" .

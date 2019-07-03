@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamUaARzNa  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUaARzNa1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smejkal, Jan" ;
+        chon:hasSANRecord      "Be3" , "Rf2" , "Bxf1" , "Neg6" , "Qf7" , "Nh4" , "Rxf1+" , "Rf8" , "Qf6" , "Be2" , "Qxh3" , "Kg7" , "Qe7" , "Nxe5" , "Rxf2" , "Qg4" , "fxe4" , "Kf7" , "N7g6" , "Ng3" , "c4" , "Qc8" , "b6" , "Bd3" , "Bxf2" , "b3" , "Bh7" , "Qd7" , "g5" , "Nxh3+" , "Qd1" , "Nxe4" , "Be4" , "Bf2" , "Rdf1" , "Be5" , "h6" , "Qc2" , "Nf4" ;
+        chon:nextHalfMove      :hmgamUaARzNa .
+
+:rolhgUaARzNa1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYcTIQP .
+
+:resYcTIQPT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYcTIQP .
+
+:plaYcTIQP  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+chon:HalfMove  chon:subEventOf  :gamYcTIQ .
+
+:cgrYcTIQP  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYcTIQP .
+
+:agYcTIQP  a          chon:Agent ;
+        chon:hasName  "Smejkal, Jan" , "Karpov, Anatoly" .
+
+:rolYcTIQP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYcTIQP .
+
+:opeYcTIQP  a            chon:ChessOpening ;
+        chon:hasECOCode  "B08" .
+
+:rolhgYcTIQPT1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYcTIQP .
+
+:hmgamYcTIQPT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgYcTIQPT1 , :rolhgUaARzNa1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smejkal, Jan" ;
+        chon:hasSANRecord      "Nf3" , "Bxf3" , "Rad1" , "Ne7" , "e4" , "fxe5" , "Be2" , "g6" , "Kh8" , "Bg4" , "d5" , "f4" , "d6" , "Nc3" , "Nc6" , "O-O" , "h3" , "Nd7" , "a6" , "Qd2" , "Bg7" , "d4" , "e5" , "Nf6" , "Be3" , "f5" ;
+        chon:nextHalfMove      :hmgamYcTIQPT , :hmgamUaARzNa .
+
+:gamYcTIQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYcTIQP ;
+        chon:atPlace           :plaYcTIQP ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYcTIQPT ;
+        chon:hasHalfMove       :hmgamYcTIQPT , :hmgamUaARzNa ;
+        chon:hasLastHalfMove   :hmgamUaARzNa ;
+        chon:hasOpening        :opeYcTIQP ;
+        chon:hasReport         :cgrYcTIQP ;
+        chon:hasResult         :resYcTIQPT ;
+        chon:subEventOf        :touYcTIQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touYcTIQ  a          chon:hessTournament ;
+        chon:atPlace  :plaYcTIQP ;
+        chon:hasName  "October Revolution 60" .

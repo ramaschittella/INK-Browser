@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:platqSSER  a         chon:Place ;
+        chon:hasName  "Buenos Aires" .
+
+:rolhgFox9dSas  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtqSSER .
+
+:toutqSSE  a          chon:hessTournament ;
+        chon:atPlace  :platqSSER ;
+        chon:hasName  "Buenos Aires" .
+
+:restqSSER8  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agtqSSER  a          chon:Agent ;
+        chon:hasName  "Kavalek, Lubomir" , "Karpov, Anatoly" .
+
+:roltqSSER  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtqSSER .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtqSSER .
+
+:opetqSSER  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+:hmgamFox9dSa  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFox9dSas , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Qe5" , "Nd7" , "Bf4" , "Nxd7" , "Rxd7" , "Qf6" , "Be3" , "Bd3" , "Qd4" ;
+        chon:nextHalfMove      :hmgamFox9dSa .
+
+chon:HalfMove  chon:subEventOf  :gamtqSSE .
+
+:hmgamtqSSER8  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFox9dSas , :rolhgtqSSER8f ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kavalek, Lubomir" ;
+        chon:hasSANRecord      "Nb3" , "a4" , "Na4" , "Re8" , "Nc3" , "a6" , "Rb8" , "Nfd7" , "Bf1" , "Qc1" , "Nbd7" , "Be7" , "dxc5" , "O-O" , "Bc6" , "Be2" , "e4" , "d4" , "c5" , "Nb6" , "a5" , "Re1" , "Nc5" , "d6" , "Nf3" , "Rbd8" , "Bf3" , "cxd4" , "Be3" , "Bd7" , "e6" , "h3" , "Nxc5" , "Nf6" , "Qc7" , "Ne5" , "Nxd4" ;
+        chon:nextHalfMove      :hmgamtqSSER8 , :hmgamFox9dSa .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtqSSER .
+
+:gamtqSSE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltqSSER ;
+        chon:atPlace           :platqSSER ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtqSSER8 ;
+        chon:hasHalfMove       :hmgamFox9dSa , :hmgamtqSSER8 ;
+        chon:hasLastHalfMove   :hmgamFox9dSa ;
+        chon:hasOpening        :opetqSSER ;
+        chon:hasReport         :cgrtqSSER ;
+        chon:hasResult         :restqSSER8 ;
+        chon:subEventOf        :toutqSSE .
+
+:cgrtqSSER  a   chon:ChessGameReport .
+
+:rolhgtqSSER8f  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtqSSER .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

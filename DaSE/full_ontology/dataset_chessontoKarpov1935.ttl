@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resGgS2GMn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolhgSgOfdNql  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGgS2GM .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGgS2GM .
+
+:rolhgGgS2GMna  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGgS2GM .
+
+chon:HalfMove  chon:subEventOf  :gamGgS2G .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGgS2GM .
+
+:gamGgS2G  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGgS2GM ;
+        chon:atPlace           :plaGgS2GM ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamGgS2GMn ;
+        chon:hasHalfMove       :hmgamGgS2GMn , :hmgamSgOfdNq ;
+        chon:hasLastHalfMove   :hmgamSgOfdNq ;
+        chon:hasOpening        :opeGgS2GM ;
+        chon:hasReport         :cgrGgS2GM ;
+        chon:hasResult         :resGgS2GMn ;
+        chon:subEventOf        :touGgS2G .
+
+:plaGgS2GM  a         chon:Place ;
+        chon:hasName  "Linares" .
+
+:touGgS2G  a          chon:hessTournament ;
+        chon:atPlace  :plaGgS2GM ;
+        chon:hasName  "Linares" .
+
+:cgrGgS2GM  a   chon:ChessGameReport .
+
+:agGgS2GM  a          chon:Agent ;
+        chon:hasName  "Beliavsky, Alexander G" , "Karpov, Anatoly" .
+
+:rolGgS2GM  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGgS2GM .
+
+:hmgamSgOfdNq  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSgOfdNql , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Kc2" , "Ne2" , "a4" , "Nf5" , "Kg7" , "Kh6" , "Ba3" , "f6" , "Bc5+" , "Nf4" , "Nc3" , "Nd4+" , "Ke2" , "Ke3" , "Bd7" , "Bc4" , "Ne4" , "b3" , "g5" , "Bb7" , "h5" , "Bb2" , "Kf8" , "h4" , "Bxd5" , "Ne6" , "Bh3" , "g3" , "Ng5" , "Kd3" , "Bb4" , "Nd5" , "Ke7" , "Bc8" , "Nxg3" ;
+        chon:nextHalfMove      :hmgamSgOfdNq .
+
+:opeGgS2GM  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+:hmgamGgS2GMn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgGgS2GMna ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Bxf5" , "Nf3" , "Nb3" , "Bg5" , "Qxc1" , "Bd2" , "Qxe8" , "Kf1" , "Kg8" , "e4" , "Kb1" , "Kc2" , "c6" , "Bxd1" , "Bg7" , "Bd5" , "e6" , "Ba6" , "Nxd5" , "Rxc1+" , "Ne7" , "Nc3" , "Nd4" , "Nd5" , "d4" , "a5" , "Be7" , "Nc6" , "Bg3" , "Ba2" , "Kc1" , "Rac1" , "Bb7" , "c4" , "Qd3" , "Bd3" , "Ba4" , "Qe6" , "Re8" , "Be3" , "Ne5" , "O-O" , "b6" , "Bf8" , "g6" , "Nd3" , "a3" , "Nb3+" , "Bb3" , "Kd2" , "exd5" , "Re1" , "d5" , "Qf5" , "Rc8" , "Nf4" , "Nb4" , "Qd1" , "Qd2" , "Bf4" , "Nf6" , "Ke1" , "h6" , "Ne4" , "Nd2+" , "Bc4" , "Rxe8" , "Bxd5" , "cxd5" , "Bb1" , "Kf8" , "Nd4+" ;
+        chon:nextHalfMove      :hmgamSgOfdNq , :hmgamGgS2GMn .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

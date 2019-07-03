@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamnhN1e  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnhN1er ;
+        chon:atPlace           :planhN1er ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyhKdLs0 ;
+        chon:hasHalfMove       :hmgamyhKdLs0 , :hmgamZhUw9t2 ;
+        chon:hasLastHalfMove   :hmgamZhUw9t2 ;
+        chon:hasOpening        :opeyhKdLs ;
+        chon:hasReport         :cgryhKdLs ;
+        chon:hasResult         :resyhKdLs0 ;
+        chon:subEventOf        :tounhN1e .
+
+:cgryhKdLs  a   chon:ChessGameReport .
+
+:tounhN1e  a          chon:hessTournament ;
+        chon:atPlace  :planhN1er ;
+        chon:hasName  "EU-ch U18 sf 6768" .
+
+:resyhKdLs0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:rolyhKdLs  a             chon:AuthorRole ;
+        chon:performedBy  :agyhKdLs .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyhKdLs .
+
+:rolhgyhKdLs07  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyhKdLs .
+
+chon:HalfMove  chon:subEventOf  :gamnhN1e .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyhKdLs .
+
+:planhN1er  a         chon:Place ;
+        chon:hasName  "Groningen" .
+
+:agyhKdLs  a          chon:Agent ;
+        chon:hasName  "Ligterink, Gert" , "Karpov, Anatoly" .
+
+:opeyhKdLs  a            chon:ChessOpening ;
+        chon:hasECOCode  "B20" .
+
+:rolhgZhUw9t2x  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyhKdLs .
+
+:rolnhN1er  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:hmgamZhUw9t2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZhUw9t2x , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ligterink, Gert" ;
+        chon:hasSANRecord      "Bg7" , "Be3" , "b6" , "Nf6" , "Nd2" , "O-O" , "Bb7" , "Nh3" , "Kc2" , "Rd1" , "Rfd8" , "c3" , "g6" , "f3" ;
+        chon:nextHalfMove      :hmgamZhUw9t2 .
+
+:hmgamyhKdLs0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyhKdLs07 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ligterink, Gert" ;
+        chon:hasSANRecord      "d5" , "d3" , "Nc6" , "g3" , "c5" , "dxe4" , "Kxd1" , "Qxd1+" , "e4" ;
+        chon:nextHalfMove      :hmgamZhUw9t2 , :hmgamyhKdLs0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

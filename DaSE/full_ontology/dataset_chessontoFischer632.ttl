@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeVsD3OW  a            chon:ChessOpening ;
+        chon:hasECOCode  "E61" .
+
+:gamVsD3O  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolVsD3OW ;
+        chon:atPlace           :plaVsD3OW ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamVsD3OWp ;
+        chon:hasHalfMove       :hmgamVsD3OWp ;
+        chon:hasLastHalfMove   :hmgamVsD3OWp ;
+        chon:hasOpening        :opeVsD3OW ;
+        chon:hasReport         :cgrVsD3OW ;
+        chon:hasResult         :resVsD3OWp ;
+        chon:subEventOf        :touVsD3O .
+
+:touVsD3O  a          chon:hessTournament ;
+        chon:atPlace  :plaVsD3OW ;
+        chon:hasName  "Vinkovci" .
+
+:hmgamVsD3OWp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVsD3OWpp , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nf3+" , "a4" , "d5" , "h5" , "f5" , "Bf5" , "d4" , "Kg1" , "Ne3" , "Nc3" , "Nbd7" , "Nf8" , "Bxf4" , "exf4" , "g5" , "hxg4" , "e5" , "O-O" , "b5" , "g6" , "b4" , "Qxf5" , "Kg6" , "Nf4" , "Kh2" , "Qd2+" , "Rh8" , "Kg7" , "Qh3" , "d6" , "Bh6" , "gxf3" , "c5" , "a5" , "Nge2" , "c6" , "Nd1" , "Bg2" , "Rxh6" , "Bg7" , "Ng5" , "Rb1" , "Bd2" , "Nf6" , "Bh6+" , "bxc6" , "N8h7" , "g3" , "h3" , "e3" , "Kxh6" , "Bxf3" , "c4" , "Rh1" , "e4" , "Qd7" , "Bg4" , "Re8" , "Rb2" ;
+        chon:nextHalfMove      :hmgamVsD3OWp .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVsD3OW .
+
+:rolhgVsD3OWpp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agVsD3OW .
+
+chon:HalfMove  chon:subEventOf  :gamVsD3O .
+
+:cgrVsD3OW  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agVsD3OW .
+
+:resVsD3OWp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaVsD3OW  a         chon:Place ;
+        chon:hasName  "Vinkovci" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agVsD3OW  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Nikolic, Emil" .
+
+:rolVsD3OW  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agVsD3OW .

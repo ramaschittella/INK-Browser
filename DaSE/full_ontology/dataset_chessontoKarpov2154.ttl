@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgFsOc62p5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agFsOc62 .
+
+:gamJu84l  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolFsOc62 ;
+        chon:atPlace           :plaJu84l4 ;
+        chon:atTime            "1997.11.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamFsOc62p ;
+        chon:hasHalfMove       :hmgamFsOc62p ;
+        chon:hasLastHalfMove   :hmgamFsOc62p ;
+        chon:hasOpening        :opeFsOc62 ;
+        chon:hasReport         :cgrFsOc62 ;
+        chon:hasResult         :resFsOc62p ;
+        chon:subEventOf        :touJu84l .
+
+:plaJu84l4  a         chon:Place ;
+        chon:hasName  "Jakarta" .
+
+:touJu84l  a          chon:hessTournament ;
+        chon:atPlace  :plaJu84l4 ;
+        chon:hasName  "Jakarta m 25' blindfold" .
+
+:cgrFsOc62  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFsOc62 .
+
+chon:HalfMove  chon:subEventOf  :gamJu84l .
+
+:resFsOc62p  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolFsOc62  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agFsOc62 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agFsOc62 .
+
+:hmgamFsOc62p  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgFsOc62p5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "fxe2+" , "Rhe8" , "Nxf3" , "Bb2" , "Nxd5" , "axb5" , "a6" , "Kf6" , "Bd6" , "Rb3" , "Bb5" , "Bxf3" , "f6" , "Kxd5" , "Bc3" , "Rd4" , "Ne1" , "Rd2+" , "Re1" , "Nc6" , "Kf1" , "Ng5" , "Kd3" , "Re4" , "Qe2" , "Ne7" , "bxc4" , "Rxd3" , "Rd1" , "a4" , "Kf7" , "Rg8" , "f4" , "d3" , "cxd5" , "c5" , "Bd2" , "Bc1" , "Ke4" , "Bd7" , "h5" , "O-O" , "Qf3" , "Nc4" , "e4" , "Na3" , "c3" , "Re2" , "Rc2" , "Rd8" , "Ra4" , "Kd1" , "Rdb8" , "Rxd1" , "Bg4" , "gxf5" , "Kxe4" , "Rae1" , "Bxc6" , "b5" , "Nf3" , "Kf5" , "Nd5" , "exf5" , "cxd3" , "Kxd1" , "Qc6" , "Ke2" , "fxe4+" , "Kc4" , "Rb5" , "h6" , "f5" , "f3+" , "c4" , "Be6" , "dxc6" , "R8b4" , "Ra2" , "Qd6" , "Qh5+" , "Rb8" , "Ne3" , "g6" , "e5" , "gxf3" , "Qd7" , "Qxf3" , "b3" ;
+        chon:nextHalfMove      :hmgamFsOc62p .
+
+:agFsOc62  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Adianto, Utut" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeFsOc62  a            chon:ChessOpening ;
+        chon:hasECOCode  "C68" .

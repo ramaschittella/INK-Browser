@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrm7JOxw  a   chon:ChessGameReport .
+
+:rolhgm7JOxwvj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agm7JOxw .
+
+:toum7JOx  a          chon:hessTournament ;
+        chon:atPlace  :plam7JOxw ;
+        chon:hasName  "TCh-RUS" .
+
+:rolhgh3sXgwMh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agm7JOxw .
+
+:plam7JOxw  a         chon:Place ;
+        chon:hasName  "Dagomys RUS" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agm7JOxw .
+
+chon:HalfMove  chon:subEventOf  :gamm7JOx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agm7JOxw .
+
+:resm7JOxwv  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agm7JOxw  a          chon:Agent ;
+        chon:hasName  "Efimenko,Z" , "Karpov,Ana" .
+
+:rolm7JOxw  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agm7JOxw .
+
+:hmgamh3sXgwM  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgh3sXgwMh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Efimenko,Z" ;
+        chon:hasSANRecord      "exf5" , "Nxg4" , "Nfd7" , "Rxd1" , "Na4" , "Nc5" , "Kf7" , "Rf8" , "Bc6" , "Kd4" , "Be2" , "Ra3" , "e5" , "g4" , "Rh1" , "Kxf4" , "b4" , "h4" , "Bd1" , "Rf2+" , "Bxf3" , "Qxd4" , "O-O" , "Rad1" , "Rh8" , "Rd4" , "Rf8+" , "Rb1" , "Kf4" , "Ne2" , "Rd5" , "Nf6" , "Rf1" , "Nxb6" , "Kb5" , "Rfd1" , "Nc6" , "Bxd1" , "Kc3" , "exf4+" , "Nd3" , "Rfc8" , "gxf5" , "Rbd2" , "Kb2" , "Ne5" , "cxd4" , "Kh3" , "Rxd6" , "Rxf3" , "Nd7" , "a4" , "Qb6" , "Bd3" , "Kg6" , "Ke3" , "Nxd4" , "Rb2" , "f4" , "Kg3" , "Qa5" , "Rf3+" , "Rh2+" , "f5" , "Ka4" , "Rf2" , "Kf2" , "Ba4" , "Rg2+" , "a5" , "fxg4" , "Bxd4" , "Ra8" , "Bd7" , "hxg4" , "Kb3" , "Nc3" , "Qxb6" , "axb3" , "b3" , "Rg1+" , "h5" , "Rf1+" , "Rd3" ;
+        chon:nextHalfMove      :hmgamh3sXgwM .
+
+:opem7JOxw  a            chon:ChessOpening ;
+        chon:hasECOCode  "E90" .
+
+:hmgamm7JOxwv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgh3sXgwMh , :rolhgm7JOxwvj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Efimenko,Z" ;
+        chon:hasSANRecord      "c5" , "Nc3" , "Nf6" , "d6" , "Bg7" , "Be3" , "d4" , "e4" , "g6" , "O-O" , "Nf3" , "h3" , "c4" ;
+        chon:nextHalfMove      :hmgamh3sXgwM , :hmgamm7JOxwv .
+
+:gamm7JOx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolm7JOxw ;
+        chon:atPlace           :plam7JOxw ;
+        chon:atTime            "2008.04.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamm7JOxwv ;
+        chon:hasHalfMove       :hmgamh3sXgwM , :hmgamm7JOxwv ;
+        chon:hasLastHalfMove   :hmgamh3sXgwM ;
+        chon:hasOpening        :opem7JOxw ;
+        chon:hasReport         :cgrm7JOxw ;
+        chon:hasResult         :resm7JOxwv ;
+        chon:subEventOf        :toum7JOx .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

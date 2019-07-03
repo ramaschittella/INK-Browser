@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeiB9rrw  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamiB9rrwD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiB9rrwDX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Balashov, Yuri S" ;
+        chon:hasSANRecord      "Nxe4" , "e4" , "Ng5" , "e6" , "Ngf6" , "Nd2" , "Nd7" , "c6" , "Bc4" , "Qe2" , "dxe4" , "d5" , "d4" ;
+        chon:nextHalfMove      :hmgamiB9rrwD , :hmgamJBkJNxu .
+
+:rolhgiB9rrwDX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiB9rrw .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiB9rrw .
+
+:plaiB9rrw  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:resiB9rrwD  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:HalfMove  chon:subEventOf  :gamiB9rr .
+
+:cgriB9rrw  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiB9rrw .
+
+:roliB9rrw  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiB9rrw .
+
+:hmgamJBkJNxu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJBkJNxum , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Balashov, Yuri S" ;
+        chon:hasSANRecord      "Ne5" , "a6" , "Ng8" , "Bc1" , "Rac8" , "Nb6" , "Qd2" , "Ba7" , "Qb7" , "a3" , "Be3" , "b5" , "N5f3" , "Rad1" , "Ng4" , "Ba8" , "Ngf3" , "Be4" , "O-O" , "Nbd5" , "Bd2" , "Bb1" , "Kf8" , "Rxd7" , "Nc6" , "Bf8" , "Bb7" , "Qd3" , "exd5" , "b6" , "dxe4" , "Bxa7" , "Rfd8" , "d5" , "Rd7" , "Qc7" , "c5" , "Ne7" , "Nh4" , "Rfe1" , "Qxd7" , "Nef3" , "h3" , "Qe2" , "c3" , "Bb8" , "h6" , "Bd3" , "cxd4" , "Bd6" , "Nxa7" ;
+        chon:nextHalfMove      :hmgamJBkJNxu .
+
+:gamiB9rr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliB9rrw ;
+        chon:atPlace           :plaiB9rrw ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiB9rrwD ;
+        chon:hasHalfMove       :hmgamiB9rrwD , :hmgamJBkJNxu ;
+        chon:hasLastHalfMove   :hmgamJBkJNxu ;
+        chon:hasOpening        :opeiB9rrw ;
+        chon:hasReport         :cgriB9rrw ;
+        chon:hasResult         :resiB9rrwD ;
+        chon:subEventOf        :touiB9rr .
+
+:touiB9rr  a          chon:hessTournament ;
+        chon:atPlace  :plaiB9rrw ;
+        chon:hasName  "Tilburg" .
+
+:rolhgJBkJNxum  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiB9rrw .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agiB9rrw  a          chon:Agent ;
+        chon:hasName  "Balashov, Yuri S" , "Karpov, Anatoly" .

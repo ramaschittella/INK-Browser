@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaaHNelB  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaHNelB .
+
+:cgraHNelB  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamaHNel .
+
+:resaHNelBo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agaHNelB  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kortschnoj, Viktor" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agaHNelB .
+
+:rolaHNelB  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agaHNelB .
+
+:opeaHNelB  a            chon:ChessOpening ;
+        chon:hasECOCode  "A28" .
+
+:gamaHNel  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolaHNelB ;
+        chon:atPlace           :plaaHNelB ;
+        chon:atTime            "1987.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgammFJsSAr ;
+        chon:hasHalfMove       :hmgammFJsSAr ;
+        chon:hasLastHalfMove   :hmgammFJsSAr ;
+        chon:hasOpening        :opeaHNelB ;
+        chon:hasReport         :cgraHNelB ;
+        chon:hasResult         :resaHNelBo ;
+        chon:subEventOf        :touaHNel .
+
+:touaHNel  a          chon:hessTournament ;
+        chon:atPlace  :plaaHNelB ;
+        chon:hasName  "Euwe mem" .
+
+:hmgammFJsSAr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgmFJsSArX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "h4" , "f4" , "Bd7" , "e4" , "Rxa5" , "Bxf5" , "Bxd5" , "Re6" , "Rd6" , "Rxg1+" , "Rg8+" , "Kh1" , "Kg1" , "fxe4" , "Rc1" , "bxc6" , "Rxh4" , "Rad8" , "Ree2" , "Kf4" , "d5" , "O-O" , "Rh8" , "Ke4" , "axb4" , "exf5" , "Nd5" , "Be6" , "Qxd5" , "Nh4" , "Kg7" , "Nxf6+" , "Ra2" , "Rd5" , "Rb5" , "h3" , "f3" , "e3" , "Rxb4" , "h6" , "Nf5+" , "Rxe3" , "Rxc7" , "gxf6" , "Nc6" , "a5" , "Re8" , "Rb8" , "Ra8" , "Kf3" , "c4" , "Ke3" , "Qc2" , "Ra2+" , "Ra1+" , "Rf2" , "Rd2" , "Qh5" , "Qf5" , "Bb5" , "Kg6" , "Kf6" , "Rb4+" , "Rb3+" , "Rb2+" , "a4" , "Bxc6" , "b4" , "Rb7" , "Ra7" , "h5" , "Rxg2" , "f5" , "e5" , "Rxd2" , "Rfc2" , "Rxc6" , "Be2" , "Rxf5" , "Kh2" , "cxd5" , "Kf2" , "Nf3" , "Nc3" , "Bb4" , "Kg5" , "d6" , "Rg1" , "Ke5" , "Re1" , "Nf6" , "Bxd2" , "Kxg1" ;
+        chon:nextHalfMove      :hmgammFJsSAr .
+
+:rolhgmFJsSArX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agaHNelB .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

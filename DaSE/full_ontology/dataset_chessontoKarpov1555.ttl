@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeoskpP8  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:hmgamQuuHa9G  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQuuHa9GJ ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bf8" , "Bxd5" , "Nh2" , "Ne4" , "Qf4" , "Qb1+" , "d2" , "Rf3" , "c4" , "Nd3" , "Bd6+" , "Rc8" , "Bxe4" , "Qd8" , "Bf3" , "Be3" , "Nxb2" , "Bxh6" , "Rxc8" , "Qd2" , "Qc2" , "Kh7" , "Ng4" , "Qxc8" , "Rc6" , "Qxd1" , "Re6" , "g3" , "Qe8" , "Nf6" , "exf5" , "Qg6" , "Rxf5" , "f5" , "d4" , "d1=Q+" , "Bh6" , "Qe1" , "Qxf5" , "Bxf6" , "Nxa4" , "Kh2" , "Bg5" , "d5" , "Qg4" , "d3" , "gxf6" , "Nc5" , "Re5" , "Bd5+" , "Ra3" ;
+        chon:nextHalfMove      :hmgamQuuHa9G .
+
+:rolhgoskpP8Rl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoskpP8 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoskpP8 .
+
+chon:HalfMove  chon:subEventOf  :gamoskpP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agoskpP8 .
+
+:gamoskpP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roloskpP8 ;
+        chon:atPlace           :plaoskpP8 ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoskpP8R ;
+        chon:hasHalfMove       :hmgamoskpP8R , :hmgamQuuHa9G ;
+        chon:hasLastHalfMove   :hmgamQuuHa9G ;
+        chon:hasOpening        :opeoskpP8 ;
+        chon:hasReport         :cgroskpP8 ;
+        chon:hasResult         :resoskpP8R ;
+        chon:subEventOf        :touoskpP .
+
+:touoskpP  a          chon:hessTournament ;
+        chon:atPlace  :plaoskpP8 ;
+        chon:hasName  "Reggio Emilia9192" .
+
+:resoskpP8R  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plaoskpP8  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:rolhgQuuHa9GJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agoskpP8 .
+
+:hmgamoskpP8R  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoskpP8Rl , :rolhgQuuHa9GJ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Re1" , "Nd7" , "e4" , "Bb5" , "Nf6" , "b5" , "a6" , "h3" , "Be7" , "Nbd2" , "d6" , "Bb7" , "d5" , "Nb4" , "d4" , "e5" , "h6" , "Bb1" , "Re8" , "c5" , "O-O" , "c3" , "Bb3" , "Bc2" , "Ba4" , "Nf3" , "Nc6" , "a4" , "Bf8" , "cxd4" , "exd4" ;
+        chon:nextHalfMove      :hmgamQuuHa9G , :hmgamoskpP8R .
+
+:cgroskpP8  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agoskpP8  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Khalifman, Alexander" .
+
+:roloskpP8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agoskpP8 .

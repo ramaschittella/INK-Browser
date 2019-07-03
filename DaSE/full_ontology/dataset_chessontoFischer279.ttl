@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeF7sqnD  a            chon:ChessOpening ;
+        chon:hasECOCode  "D38" .
+
+:hmgamF7sqnDr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgF7sqnDrp , chon:AgentRole ;
+        chon:hasSANRecord      "Nf3" ;
+        chon:nextHalfMove      :hmgamR7pEVSu .
+
+:touF7sqn  a          chon:hessTournament ;
+        chon:atPlace  :plaF7sqnD ;
+        chon:hasName  "Mar del Plata" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agF7sqnD .
+
+chon:HalfMove  chon:subEventOf  :gamF7sqn .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agF7sqnD .
+
+:resF7sqnDr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaF7sqnD  a         chon:Place ;
+        chon:hasName  "Mar del Plata" .
+
+:hmgamR7pEVSu  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgR7pEVSuS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qe4" , "Nd7+" , "Nd2" , "Nxe4" , "e6" , "hxg3" , "c5" , "Rxe1+" , "cxd5" , "Nxc3" , "Ne2+" , "c4" , "Kf8" , "Rc8" , "Nxd4" , "Qe1" , "Bc7" , "Bd7" , "Qxe2" , "bxc3" , "d4" , "Be6" , "Bg3" , "Rxf7" , "e4" , "e3" , "Ne4" , "Rb4" , "Rhe8" , "Ba6" , "h6" , "Kh2" , "Kh1" , "Nc3" , "O-O" , "d5" , "Qxc7" , "Qxe4" , "Nc5" , "Re1" , "Kd6" , "Bh4" , "exd5" , "Bb5" , "Bb4" , "Bxc3" , "Qa5" , "Nxe2+" , "Bg5" , "Ng3+" , "g4" , "Qf4" , "Rxc4" , "Rc1" , "Nc6" , "Be2" , "Rcc1" , "Ke7" , "Nxa6" , "g5" , "Nf6" , "Rxb7" ;
+        chon:nextHalfMove      :hmgamR7pEVSu .
+
+:cgrF7sqnD  a   chon:ChessGameReport .
+
+:gamF7sqn  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolF7sqnD ;
+        chon:atPlace           :plaF7sqnD ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamF7sqnDr ;
+        chon:hasHalfMove       :hmgamR7pEVSu , :hmgamF7sqnDr ;
+        chon:hasLastHalfMove   :hmgamR7pEVSu ;
+        chon:hasOpening        :opeF7sqnD ;
+        chon:hasReport         :cgrF7sqnD ;
+        chon:hasResult         :resF7sqnDr ;
+        chon:subEventOf        :touF7sqn .
+
+:rolhgR7pEVSuS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agF7sqnD .
+
+:rolhgF7sqnDrp  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agF7sqnD .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agF7sqnD  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Bazan, Osvaldo" .
+
+:rolF7sqnD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agF7sqnD .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamF50ea  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolF50eaA ;
+        chon:atPlace           :plaF50eaA ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEjN4mGV ;
+        chon:hasHalfMove       :hmgamEjN4mGV ;
+        chon:hasLastHalfMove   :hmgamEjN4mGV ;
+        chon:hasOpening        :opeF50eaA ;
+        chon:hasReport         :cgrF50eaA ;
+        chon:hasResult         :resF50eaAn ;
+        chon:subEventOf        :touF50ea .
+
+:touF50ea  a          chon:hessTournament ;
+        chon:atPlace  :plaF50eaA ;
+        chon:hasName  "Meralco" .
+
+:resF50eaAn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agF50eaA .
+
+:plaF50eaA  a         chon:Place ;
+        chon:hasName  "Meralco" .
+
+chon:HalfMove  chon:subEventOf  :gamF50ea .
+
+:cgrF50eaA  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agF50eaA .
+
+:agF50eaA  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Reyes, Romuel" .
+
+:rolF50eaA  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agF50eaA .
+
+:opeF50eaA  a            chon:ChessOpening ;
+        chon:hasECOCode  "B95" .
+
+:hmgamEjN4mGV  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEjN4mGV0 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "d4" , "Re2" , "f4" , "g3" , "Qd2" , "e6" , "Bb6" , "Nc4" , "Bb7" , "Nf6" , "Bd5" , "Qa8" , "Nxe4" , "Bd2" , "Be6" , "cxd4" , "Be3" , "bxc3" , "b5" , "g4" , "a3" , "Re1" , "h4" , "hxg4" , "e4" , "Qf8" , "fxg4" , "f3" , "Qd1" , "Rc6" , "Qc8" , "Qe2" , "Rxc3" , "Nc3" , "Nf5" , "Nxd4" , "exf5" , "Rc4" , "Nxb6" , "Bxe4" , "Nf3" , "h5" , "Re3" , "O-O" , "d6" , "Rf2" , "Rb7" , "Rd1" , "Bd8" , "Nbd7" , "Rc8" , "Qd4" , "Re7" , "Ne5" , "Be7" , "Bxb6" , "Rc3" , "Bg5" , "a6" , "Bg2" , "c5" ;
+        chon:nextHalfMove      :hmgamEjN4mGV .
+
+:rolhgEjN4mGV0  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agF50eaA .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

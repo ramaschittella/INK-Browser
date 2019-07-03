@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touq3ePi  a          chon:hessTournament ;
+        chon:atPlace  :plav7xGym ;
+        chon:hasName  "EU-chT Plovdiv" .
+
+:gamv7xGy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolq3ePik ;
+        chon:atPlace           :plav7xGym ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamq3ePikI ;
+        chon:hasHalfMove       :hmgamq3ePikI ;
+        chon:hasLastHalfMove   :hmgamq3ePikI ;
+        chon:hasOpening        :opeq3ePik ;
+        chon:hasReport         :cgrq3ePik ;
+        chon:hasResult         :resq3ePikI ;
+        chon:subEventOf        :touq3ePi .
+
+:hmgamq3ePikI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgq3ePikIH , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qa5" , "Be2" , "Nf3" , "c5" , "Bf4" , "c4" , "Be7" , "exd5" , "e3" , "Nc6" , "Rd8" , "d5" , "Bg4" , "dxc5" , "Nf6" , "a3" , "Qc2" , "O-O" , "e6" , "d4" , "cxd5" , "Rd2" , "Bxf3" , "Rd1" , "Nc3" , "Bxc5" ;
+        chon:nextHalfMove      :hmgamq3ePikI .
+
+:opeq3ePik  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agq3ePik .
+
+chon:HalfMove  chon:subEventOf  :gamv7xGy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agq3ePik .
+
+:plav7xGym  a         chon:Place ;
+        chon:hasName  "Plovdiv" .
+
+:cgrq3ePik  a   chon:ChessGameReport .
+
+:rolhgq3ePikIH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agq3ePik .
+
+:agq3ePik  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Miles, Anthony J" .
+
+:rolq3ePik  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agq3ePik .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resq3ePikI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

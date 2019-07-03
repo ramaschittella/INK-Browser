@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamxVlgfSZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxVlgfSZN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hort, Vlastimil" ;
+        chon:hasSANRecord      "Bb3" , "f3" , "h4" , "Qc7" , "Bg7" , "Qd7" , "Be2" , "Bc4" , "Ba6" , "Qd4" , "Bg3" , "Rd2" , "Rd7" , "Bxg6" , "Kg3" , "Bxf7+" , "Qc4" , "Be6" , "Bb1" , "Kxg7" , "exd5" , "b5" , "Qe3" , "Bf3" , "Bc2" , "h5" , "Qxh6" , "Rxe1" , "a5" , "Ne5" , "Be3" , "Bc5" , "Qf8" , "Qd5" , "Kh7" , "Rc2" , "Qf6+" , "Qc8+" , "Bxg7" , "Rdc7" , "Rc5" , "Qe8" , "Bf5" , "Qf4" , "Qa2" , "Qf5+" , "dxe5" , "Bd3" , "Nxe5" , "Bb5" , "Rc1" , "b6" , "Bf4" , "h3" , "Qc6" , "Bd6" , "Ba2" , "Qg5" , "Kh2" , "Nxd5" , "h6" , "Rde2" , "Rd1" , "Qb6" , "Bg5" , "Kh8" , "g6" , "Bf8" , "Qe6" , "Rxd2" , "Qxd2" , "d4" , "Bf6" , "Kg8" ;
+        chon:nextHalfMove      :hmgamxVlgfSZ .
+
+:opeBXE8vE  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+:resBXE8vEI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgBXE8vEIP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBXE8vE .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBXE8vE .
+
+:plaBXE8vE  a         chon:Place ;
+        chon:hasName  "La Valetta" .
+
+chon:HalfMove  chon:subEventOf  :gamBXE8v .
+
+:cgrBXE8vE  a   chon:ChessGameReport .
+
+:touBXE8v  a          chon:hessTournament ;
+        chon:atPlace  :plaBXE8vE ;
+        chon:hasName  "Malta ol (Men)" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBXE8vE .
+
+:agBXE8vE  a          chon:Agent ;
+        chon:hasName  "Hort, Vlastimil" , "Karpov, Anatoly" .
+
+:rolBXE8vE  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBXE8vE .
+
+:rolhgxVlgfSZN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBXE8vE .
+
+:hmgamBXE8vEI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBXE8vEIP , chon:AgentRole , :rolhgxVlgfSZN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hort, Vlastimil" ;
+        chon:hasSANRecord      "Nf3" , "c6" , "c4" , "Be3" , "Bh4" , "Bd3" , "Be8" , "cxd5" , "Qd3" , "Rac8" , "e6" , "Nxd5" , "Bd7" , "Nc3" , "h6" , "Rd8" , "Qb8" , "Qc2" , "Qe2" , "Bg5" , "d4" , "Bb1" , "Qd6" , "Nc6" , "Nd5" , "Nf6" , "d5" , "e4" , "O-O" , "a3" , "Re1" , "Be7" , "Rad1" , "exd5" ;
+        chon:nextHalfMove      :hmgamBXE8vEI , :hmgamxVlgfSZ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamBXE8v  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBXE8vE ;
+        chon:atPlace           :plaBXE8vE ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBXE8vEI ;
+        chon:hasHalfMove       :hmgamxVlgfSZ , :hmgamBXE8vEI ;
+        chon:hasLastHalfMove   :hmgamxVlgfSZ ;
+        chon:hasOpening        :opeBXE8vE ;
+        chon:hasReport         :cgrBXE8vE ;
+        chon:hasResult         :resBXE8vEI ;
+        chon:subEventOf        :touBXE8v .

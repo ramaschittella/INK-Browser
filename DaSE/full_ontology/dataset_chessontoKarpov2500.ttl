@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plasNFb97  a         chon:Place ;
+        chon:hasName  "Shenyang CHN" .
+
+:cgrsNFb97  a   chon:ChessGameReport .
+
+:ressNFb97I  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:agsNFb97  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Ye Jiangchuan" .
+
+:rolsNFb97  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsNFb97 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsNFb97 .
+
+chon:HalfMove  chon:subEventOf  :gamsNFb9 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsNFb97 .
+
+:opesNFb97  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+:hmgamsNFb97I  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsNFb97Ir ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Bb3" , "Bf5" , "Ng3" , "Nd7" , "Qe3" , "Qb7" , "Qc7" , "Bd7" , "e4" , "f4" , "c5" , "Nd5" , "Ne5" , "exf5" , "Kf2" , "O-O" , "Bc4" , "d4" , "Nd2" , "Rd4" , "dxe4" , "Nb6" , "Nc6" , "b5" , "Red1" , "Ngf6" , "g5" , "h3" , "Qxe5" , "Rh4" , "Nf6" , "Re8" , "Nb4" , "Bg4" , "Kd5" , "Rhd8" , "Qc8" , "Nxd4" , "Nxe4" , "Nf3" , "c6" , "Nxg5" , "Bf4" , "Kxg7" , "Bg7" , "cxd4" , "Nxf5+" , "Nd3" , "Nxc4" , "Nh7" , "Rd5" , "Ke6" , "Kf6" , "a6" , "Qg5" , "Ke2" , "Qc1" , "g6" , "Bxg7" , "Nc5" , "b3" , "Re1" , "Kd6" , "Nxe5" , "Rad8" , "d5" , "bxc4" , "Qe2" , "f3" , "Rh8" , "Qc2" , "c3" , "Bxh3" , "h5" , "Rxd4" , "Rad1" , "a4" , "e6" , "Bxc4" , "Nc4" , "Bh6" , "Qe5" , "Ne4+" ;
+        chon:nextHalfMove      :hmgamsNFb97I .
+
+:rolhgsNFb97Ir  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsNFb97 .
+
+:gamsNFb9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsNFb97 ;
+        chon:atPlace           :plasNFb97 ;
+        chon:atTime            "2000.04.18"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsNFb97I ;
+        chon:hasHalfMove       :hmgamsNFb97I ;
+        chon:hasLastHalfMove   :hmgamsNFb97I ;
+        chon:hasOpening        :opesNFb97 ;
+        chon:hasReport         :cgrsNFb97 ;
+        chon:hasResult         :ressNFb97I ;
+        chon:subEventOf        :tousNFb9 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tousNFb9  a          chon:hessTournament ;
+        chon:atPlace  :plasNFb97 ;
+        chon:hasName  "Match g/25" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr7FSAMT  a   chon:ChessGameReport .
+
+:ag7FSAMT  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Furman, Semen Abramovich" .
+
+:rol7FSAMT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7FSAMT .
+
+:res7FSAMTI  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7FSAMT .
+
+:rolhgiFzNlSKL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7FSAMT .
+
+chon:HalfMove  chon:subEventOf  :gam7FSAM .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7FSAMT .
+
+:ope7FSAMT  a            chon:ChessOpening ;
+        chon:hasECOCode  "D47" .
+
+:hmgamiFzNlSK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiFzNlSKL ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qe2" , "Nbd7" , "Nf3" , "O-O" , "Nb6" , "b4" , "c5" , "Ne4" , "Bxe4" , "b5" , "c6" , "Nf6" , "d5" , "e6" , "dxc4" , "Bb7" , "Bd3" , "e3" , "Bd2" , "d4" , "Nc3" , "Rd1" , "Be7" , "c4" , "Bxc4" , "Nxe4" ;
+        chon:nextHalfMove      :hmgamiFzNlSK .
+
+:gam7FSAM  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7FSAMT ;
+        chon:atPlace           :pla7FSAMT ;
+        chon:atTime            "1975.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiFzNlSK ;
+        chon:hasHalfMove       :hmgamiFzNlSK ;
+        chon:hasLastHalfMove   :hmgamiFzNlSK ;
+        chon:hasOpening        :ope7FSAMT ;
+        chon:hasReport         :cgr7FSAMT ;
+        chon:hasResult         :res7FSAMTI ;
+        chon:subEventOf        :tou7FSAM .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:tou7FSAM  a          chon:hessTournament ;
+        chon:atPlace  :pla7FSAMT ;
+        chon:hasName  "Portoroz/Ljubljana" .
+
+:pla7FSAMT  a         chon:Place ;
+        chon:hasName  "Ljubljana" .

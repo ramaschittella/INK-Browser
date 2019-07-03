@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam7rlwfiw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7rlwfiwv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "cxd5" , "e6" , "Qxd4" , "Nc3" , "Ng4" , "Qxd3" , "Rxc8" , "exd4" , "Rfc8" , "Bb7" , "Bc6" , "Rc7" , "Rd7" , "Be3" , "b6" , "c5" , "d5" , "Bd3" , "Nc6" , "d4" , "O-O" , "Bd7" , "Qxg6" , "fxg6" , "Bf4" , "Bc5" , "Qxg4" , "a3" , "Be7" , "cxd4" , "Rfd1" , "Nf3" , "Rxc8+" , "Nxd5" , "Rc1" , "Nxd4" , "Qg6" , "e3" , "b4" , "Qe2" , "c4" , "Nb5" , "Nf6" ;
+        chon:nextHalfMove      :hmgamiriKMjz , :hmgam7rlwfiw .
+
+:pla7rlwfi  a         chon:Place ;
+        chon:hasName  "Bled" .
+
+:rolhgiriKMjzI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7rlwfi .
+
+:rolhg7rlwfiwv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7rlwfi .
+
+:cgr7rlwfi  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7rlwfi .
+
+:gam7rlwf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7rlwfi ;
+        chon:atPlace           :pla7rlwfi ;
+        chon:atTime            "1961.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7rlwfiw ;
+        chon:hasHalfMove       :hmgam7rlwfiw , :hmgamiriKMjz ;
+        chon:hasLastHalfMove   :hmgamiriKMjz ;
+        chon:hasOpening        :ope7rlwfi ;
+        chon:hasReport         :cgr7rlwfi ;
+        chon:hasResult         :res7rlwfiw ;
+        chon:subEventOf        :tou7rlwf .
+
+chon:HalfMove  chon:subEventOf  :gam7rlwf .
+
+:res7rlwfiw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:ag7rlwfi  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Bisguier, Arthur Bernard" .
+
+:rol7rlwfi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7rlwfi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7rlwfi .
+
+:hmgamiriKMjz  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiriKMjzI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Kg3" , "Kf3" , "Ke2" , "Nc4" , "Kxh2" , "Nxe5" , "Kd3" , "Kxe3" , "Nd1" , "g4" , "Rxc8+" , "Kg2" , "Bd7" , "Kf2" , "Nd6" , "fxe3" , "Kd2" , "Ke6" , "Kf8" , "Kxe6" , "e5" , "Bc6" , "Ne3" , "Bxc8" , "Kxg5" , "Bxe3" , "Ke5" , "g5" , "e4" , "Kf5" , "Ke7" , "Be6" , "g6+" , "Kd4" , "g3" , "Bxe4" , "b5" , "Ke4" ;
+        chon:nextHalfMove      :hmgamiriKMjz .
+
+:tou7rlwf  a          chon:hessTournament ;
+        chon:atPlace  :pla7rlwfi ;
+        chon:hasName  "Bled" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:ope7rlwfi  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .

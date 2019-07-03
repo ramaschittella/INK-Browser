@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resXEyu55q  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agXEyu55  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Ivanchuk, Vassily" .
+
+:rolXEyu55  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agXEyu55 .
+
+:opeXEyu55  a            chon:ChessOpening ;
+        chon:hasECOCode  "D42" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXEyu55 .
+
+:hmgamoGJMp5i  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgoGJMp5iZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nce7" , "Nc6" , "e4" , "Nf6" , "Nf3" , "cxd5" , "Bf6" , "Bd3" , "d5" , "Nxd5" , "Be7" , "d4" , "Nc3" , "c6" , "Ne5" , "O-O" , "Re1" , "exd5" , "c4" , "Be4" , "e6" ;
+        chon:nextHalfMove      :hmgamoGJMp5i .
+
+chon:HalfMove  chon:subEventOf  :gamXEyu5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agXEyu55 .
+
+:cgrXEyu55  a   chon:ChessGameReport .
+
+:gamXEyu5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolXEyu55 ;
+        chon:atPlace           :plaXEyu55 ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamoGJMp5i ;
+        chon:hasHalfMove       :hmgamoGJMp5i ;
+        chon:hasLastHalfMove   :hmgamoGJMp5i ;
+        chon:hasOpening        :opeXEyu55 ;
+        chon:hasReport         :cgrXEyu55 ;
+        chon:hasResult         :resXEyu55q ;
+        chon:subEventOf        :touXEyu5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touXEyu5  a          chon:hessTournament ;
+        chon:atPlace  :plaXEyu55 ;
+        chon:hasName  "URS-ch55" .
+
+:rolhgoGJMp5iZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agXEyu55 .
+
+:plaXEyu55  a         chon:Place ;
+        chon:hasName  "Moscow" .

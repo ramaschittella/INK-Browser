@@ -1,0 +1,71 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam8BT2a  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol8BT2aR ;
+        chon:atPlace           :pla8BT2aR ;
+        chon:atTime            "1962.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzD4mxRT ;
+        chon:hasHalfMove       :hmgamzD4mxRT , :hmgamKD1A5RW ;
+        chon:hasLastHalfMove   :hmgamKD1A5RW ;
+        chon:hasOpening        :opezD4mxR ;
+        chon:hasReport         :cgrzD4mxR ;
+        chon:hasResult         :reszD4mxRT ;
+        chon:subEventOf        :tou8BT2a .
+
+:hmgamKD1A5RW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKD1A5RWV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "Kxh6" , "Re8" , "Qc7" , "Qa5" , "Qxe8+" , "Rfd1" , "fxg5" , "Rff1" , "gxh6" , "Qf6" , "Nxe8" , "Qb2" , "Ra4" , "bxc5" , "Ree1" , "Rf2" , "Rxf3" , "Rc1" , "c6" , "Kg7" , "Qxa2" , "Rxe8+" , "Rd4" , "c5" , "Kg6" , "g5" , "Re1" , "Rd6+" , "Kh7" ;
+        chon:nextHalfMove      :hmgamKD1A5RW .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzD4mxR .
+
+:rolhgzD4mxRTK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzD4mxR .
+
+:hmgamzD4mxRT  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzD4mxRTK , :rolhgKD1A5RWV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Geller, Efim P" ;
+        chon:hasSANRecord      "b4" , "Be7" , "Bxd5" , "Rad8" , "Rd7" , "Nf3" , "Qe5" , "d5" , "c5" , "Qxd4" , "h3" , "Rd2" , "Re8" , "O-O" , "Nc6" , "Ba6" , "Bf3" , "exd5" , "Bc5" , "Kh1" , "Nf6" , "e6" , "Qh4" , "e4" , "Rdf1" , "h6" , "cxd4" , "Re3" , "Bb3" , "Bb7" , "Rd1" , "Qa4" , "Bc4" , "Ng4" , "b6" , "Nc3" , "Be3" , "f4" , "d6" , "c4" , "d4" , "Red8" , "Bd4" , "Nxd5" , "Bxd4" , "Rf3" , "Nxd4" ;
+        chon:nextHalfMove      :hmgamzD4mxRT , :hmgamKD1A5RW .
+
+:cgrzD4mxR  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gam8BT2a .
+
+:rolzD4mxR  a             chon:AuthorRole ;
+        chon:performedBy  :agzD4mxR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzD4mxR .
+
+:agzD4mxR  a          chon:Agent ;
+        chon:hasName  "Geller, Efim P" , "Fischer, Robert James" .
+
+:opezD4mxR  a            chon:ChessOpening ;
+        chon:hasECOCode  "B88" .
+
+:pla8BT2aR  a         chon:Place ;
+        chon:hasName  "Curacao" .
+
+:tou8BT2a  a          chon:hessTournament ;
+        chon:atPlace  :pla8BT2aR ;
+        chon:hasName  "Candidats Tournament" .
+
+:rolhgKD1A5RWV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzD4mxR .
+
+:rol8BT2aR  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:reszD4mxRT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

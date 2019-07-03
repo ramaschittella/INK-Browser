@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opewIKkeF  a            chon:ChessOpening ;
+        chon:hasECOCode  "E20" .
+
+:touwIKke  a          chon:hessTournament ;
+        chon:atPlace  :plawIKkeF ;
+        chon:hasName  "WchT" .
+
+:reswIKkeFl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwIKkeF .
+
+chon:HalfMove  chon:subEventOf  :gamwIKke .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwIKkeF .
+
+:hmgamsGrtYDB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsGrtYDB5 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Portisch, Lajos" ;
+        chon:hasSANRecord      "exd5" , "Nbd7" , "Qf6" , "Rfd8" , "Bxg2" , "Kg1" , "Nfd5" , "c5" , "Qf1" , "Rb1" , "Bd4" , "Nc3" , "Kxg2" , "Nb6" , "Rd4" , "Bd7" , "g3" , "Qb5" , "Nh4" , "Rxd8" , "Rxb8" , "Qxc4" , "Be3" , "c4" , "Qxa7" , "Qa3" , "Nb5" , "d4" , "Nxd4" , "cxd4" , "Nf3" , "dxc4" , "Bxd5" , "e5" , "Nxb7" , "Rd1" , "bxc3" , "d5" , "Nbd5" , "Qf3+" , "Nf6" , "Bg2" , "Nd6" , "e6" , "Rxd8+" , "Kh7" , "Bb4+" , "Qb3" , "h6" , "Qh5" , "e4" , "Ne7" , "Bc6" , "O-O" , "Qxb8+" , "Nf5" , "Rb8" , "Bxc3+" , "Bxb7" ;
+        chon:nextHalfMove      :hmgamsGrtYDB .
+
+:gamwIKke  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwIKkeF ;
+        chon:atPlace           :plawIKkeF ;
+        chon:atTime            "1985.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsGrtYDB ;
+        chon:hasHalfMove       :hmgamsGrtYDB ;
+        chon:hasLastHalfMove   :hmgamsGrtYDB ;
+        chon:hasOpening        :opewIKkeF ;
+        chon:hasReport         :cgrsGrtYD ;
+        chon:hasResult         :reswIKkeFl ;
+        chon:subEventOf        :touwIKke .
+
+:plawIKkeF  a         chon:Place ;
+        chon:hasName  "Luzern" .
+
+:rolhgsGrtYDB5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwIKkeF .
+
+:cgrsGrtYD  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolsGrtYD  a             chon:AuthorRole ;
+        chon:performedBy  :agsGrtYD .
+
+:agwIKkeF  a          chon:Agent ;
+        chon:hasName  "Portisch, Lajos" , "Karpov, Anatoly" .
+
+:rolwIKkeF  a   chon:BlackPlayerRole , chon:WhitePlayerRole .

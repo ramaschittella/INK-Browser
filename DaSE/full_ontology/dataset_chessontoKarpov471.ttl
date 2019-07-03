@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgzjRj9Spx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzjRj9S .
+
+:hmgamLjOxFRs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLjOxFRsI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "g3" , "Nb8" , "O-O" , "c4" , "Bd2" , "Bxd2+" , "Nf3" , "Bb4+" , "d6" , "Qe7" , "b4" , "Nbxd2" , "e5" , "e6" , "Nc6" , "Bg2" , "d5" , "e3" ;
+        chon:nextHalfMove      :hmgamLjOxFRs .
+
+:plazjRj9S  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzjRj9S .
+
+:cgrzjRj9S  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamzjRj9 .
+
+:hmgamzjRj9Sp  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgzjRj9Spx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nf6" , "d4" ;
+        chon:nextHalfMove      :hmgamLjOxFRs , :hmgamzjRj9Sp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzjRj9S .
+
+:agzjRj9S  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Vaganian, Rafael A" .
+
+:rolzjRj9S  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzjRj9S .
+
+:opezjRj9S  a            chon:ChessOpening ;
+        chon:hasECOCode  "E11" .
+
+:rolhgLjOxFRsI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzjRj9S .
+
+:gamzjRj9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzjRj9S ;
+        chon:atPlace           :plazjRj9S ;
+        chon:atTime            "1977.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzjRj9Sp ;
+        chon:hasHalfMove       :hmgamLjOxFRs , :hmgamzjRj9Sp ;
+        chon:hasLastHalfMove   :hmgamLjOxFRs ;
+        chon:hasOpening        :opezjRj9S ;
+        chon:hasReport         :cgrzjRj9S ;
+        chon:hasResult         :reszjRj9Sp ;
+        chon:subEventOf        :touzjRj9 .
+
+:touzjRj9  a          chon:hessTournament ;
+        chon:atPlace  :plazjRj9S ;
+        chon:hasName  "October Revolution 60" .
+
+:reszjRj9Sp  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

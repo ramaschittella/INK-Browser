@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaNY2fJU  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .
+
+:cgrNY2fJU  a   chon:ChessGameReport .
+
+:rolhgYYYtiToX  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNY2fJU .
+
+:resNY2fJUj  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agNY2fJU  a          chon:Agent ;
+        chon:hasName  "Zhu Chen" , "Karpov,An" .
+
+:rolNY2fJU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNY2fJU .
+
+:opeNY2fJU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B00" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNY2fJU .
+
+chon:HalfMove  chon:subEventOf  :gamNY2fJ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNY2fJU .
+
+:hmgamNY2fJUj  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgNY2fJUjJ , :rolhgYYYtiToX ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zhu Chen" ;
+        chon:hasSANRecord      "d4" , "e4" , "b6" ;
+        chon:nextHalfMove      :hmgamNY2fJUj , :hmgamYYYtiTo .
+
+:gamNY2fJ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNY2fJU ;
+        chon:atPlace           :plaNY2fJU ;
+        chon:atTime            "2002.04.04"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNY2fJUj ;
+        chon:hasHalfMove       :hmgamYYYtiTo , :hmgamNY2fJUj ;
+        chon:hasLastHalfMove   :hmgamYYYtiTo ;
+        chon:hasOpening        :opeNY2fJU ;
+        chon:hasReport         :cgrNY2fJU ;
+        chon:hasResult         :resNY2fJUj ;
+        chon:subEventOf        :touNY2fJ .
+
+:touNY2fJ  a          chon:hessTournament ;
+        chon:atPlace  :plaNY2fJU ;
+        chon:hasName  "FIDE GP" .
+
+:rolhgNY2fJUjJ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNY2fJU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamYYYtiTo  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYYYtiToX , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Zhu Chen" ;
+        chon:hasSANRecord      "e6" , "exf6" , "Bd1" , "Qd7" , "Qb6" , "Bg7" , "Bf4" , "h4" , "f6" , "Nf6+" , "Rec1" , "Be2" , "Nd7" , "Ngf3" , "Qf4" , "Bb7" , "h6" , "Bc2" , "axb3" , "Rc1" , "a5" , "Nd2" , "gxf3" , "cxb3" , "cxb4" , "Ne7" , "Bxe2" , "O-O" , "h3" , "Rxd5" , "N1h2" , "Re6+" , "c3" , "Bd3" , "Bxf3" , "h5" , "Rcxc6" , "g6" , "d6" , "Nxf6" , "Ng4" , "Qa7" , "c4" , "a6" , "Nc6" , "Nf1" , "Rb6" , "Nxb4" , "Rc5" , "Bxe5" , "Nb8" , "b4" , "b5" , "e5" , "Re1" , "Bd6" , "Bxf6" , "d5" , "Ba6" , "Qe2" , "Qe3" , "c5" , "Rb5" , "N4c6" ;
+        chon:nextHalfMove      :hmgamYYYtiTo .

@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolDvxcHp  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:agBJa2Ty  a          chon:Agent ;
+        chon:hasName  "Tinsley, Samuel" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBJa2Ty .
+
+:hmgamNJ8fsxu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNJ8fsxuk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tinsley, Samuel" ;
+        chon:hasSANRecord      "Kf8" , "Ra8" , "Qa6+" , "b3" , "Bd4" , "f4" , "b4" , "Rb5" , "Bxb7" , "Kd2" , "Re3" , "Qb5" , "Bxa6" , "Kc2" , "Kd3" , "c3+" , "Be5" , "Nf4" , "Bxf4" , "Ke2" , "Bd4+" , "Bf6" , "Rxa4" , "Rb1" , "Kf1" , "Qxa4" , "Qb3" , "f5" , "Re2" , "Qxb7" , "Rb4" , "c4" ;
+        chon:nextHalfMove      :hmgamNJ8fsxu .
+
+:cgrBJa2Ty  a   chon:ChessGameReport .
+
+:rolhgBJa2Typ9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBJa2Ty , :agDvxcHp .
+
+:touDvxcH  a          chon:hessTournament ;
+        chon:atPlace  :plaDvxcHp ;
+        chon:hasName  "Hastings" .
+
+:resBJa2Typ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgNJ8fsxuk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agDvxcHp , :agBJa2Ty .
+
+chon:HalfMove  chon:subEventOf  :gamDvxcH .
+
+:hmgamBJa2Typ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBJa2Typ9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tinsley, Samuel" ;
+        chon:hasSANRecord      "c5" , "Nc3" , "Kf2" , "Rxh3" , "f3" , "Re8" , "d4" , "a4" , "a6" , "Nxd5" , "Nc6" , "cxd5" , "Ne6" , "h4" , "g6" , "Bg7" , "e6" , "c4" , "Nh3" , "Rb8" , "Bg3" , "Nf4" , "Nf6" , "Bh6" , "Be6" , "Nge2" , "Be2" , "Ne3" , "Ne5" , "Nd5" , "b6" , "h5" , "Rb7" , "d6" , "Bg5" , "e4" , "Bd3" , "O-O" , "Qd7" , "Nd4" , "Bxh3" , "Nbd7" , "Bf4" , "exd5" , "Nf2" , "d5" ;
+        chon:nextHalfMove      :hmgamNJ8fsxu , :hmgamBJa2Typ .
+
+:plaDvxcHp  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+:opeBJa2Ty  a            chon:ChessOpening ;
+        chon:hasECOCode  "E70" .
+
+:agDvxcHp  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolBJa2Ty  a             chon:AuthorRole ;
+        chon:performedBy  :agBJa2Ty .
+
+:gamDvxcH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolDvxcHp ;
+        chon:atPlace           :plaDvxcHp ;
+        chon:atTime            "1895.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBJa2Typ ;
+        chon:hasHalfMove       :hmgamNJ8fsxu , :hmgamBJa2Typ ;
+        chon:hasLastHalfMove   :hmgamNJ8fsxu ;
+        chon:hasOpening        :opeBJa2Ty ;
+        chon:hasReport         :cgrBJa2Ty ;
+        chon:hasResult         :resBJa2Typ ;
+        chon:subEventOf        :touDvxcH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agDvxcHp .

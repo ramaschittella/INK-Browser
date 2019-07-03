@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr9V4uS1  a   chon:ChessGameReport .
+
+:gamWX8g6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWX8g6Z ;
+        chon:atPlace           :plaWX8g6Z ;
+        chon:atTime            "1976.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9V4uS1I ;
+        chon:hasHalfMove       :hmgam9V4uS1I ;
+        chon:hasLastHalfMove   :hmgam9V4uS1I ;
+        chon:hasOpening        :ope9V4uS1 ;
+        chon:hasReport         :cgr9V4uS1 ;
+        chon:hasResult         :res9V4uS1I ;
+        chon:subEventOf        :touWX8g6 .
+
+:touWX8g6  a          chon:hessTournament ;
+        chon:atPlace  :plaWX8g6Z ;
+        chon:hasName  "Amsterdam" .
+
+:hmgam9V4uS1I  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9V4uS1Ih ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Browne, Walter S" ;
+        chon:hasSANRecord      "cxd4" , "Ncxe4" , "Nxd4" , "Qxe4" , "Ng3" , "d4" , "Be7" , "Qc3" , "Ra8" , "Be2" , "a6" , "Bd4" , "Nc5" , "e4" , "Qb6" , "d6" , "bxc3" , "Nxe4" , "Rb1" , "Qc6" , "Nf5" , "Be3" , "Rb8" , "Nf3" , "Nbd7" , "Qxc3" , "Qb4+" , "Ngxe4" , "Qd2" , "exf4" , "c5" , "e5" , "Nc3" , "Bxf4" , "Ba7" , "Nf6" , "Qb6+" , "O-O" , "Bf3" , "f4" , "Qc7" ;
+        chon:nextHalfMove      :hmgam9V4uS1I .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWX8g6Z .
+
+chon:HalfMove  chon:subEventOf  :gamWX8g6 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9V4uS1 .
+
+:plaWX8g6Z  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:rolhg9V4uS1Ih  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9V4uS1 , :agWX8g6Z .
+
+:res9V4uS1I  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ag9V4uS1  a          chon:Agent ;
+        chon:hasName  "Browne, Walter S" .
+
+:rol9V4uS1  a             chon:AuthorRole ;
+        chon:performedBy  :ag9V4uS1 .
+
+:ope9V4uS1  a            chon:ChessOpening ;
+        chon:hasECOCode  "B93" .
+
+:agWX8g6Z  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:rolWX8g6Z  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

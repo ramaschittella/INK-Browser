@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resx3qVy4m  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:plax3qVy4  a         chon:Place ;
+        chon:hasName  "Santa Monica" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx3qVy4 .
+
+:cgrx3qVy4  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamx3qVy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx3qVy4 .
+
+:rolx3qVy4  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agx3qVy4 .
+
+:rolhgx3qVy4mi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx3qVy4 .
+
+:hmgamx3qVy4m  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgx3qVy4mi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Larsen, Bent" ;
+        chon:hasSANRecord      "a3" , "Nd5" , "Nxf7" , "dxe5" , "Kf7" , "d4" , "Kd7" , "Nc3" , "Qg3+" , "c4" , "Nxe5" , "Qh5+" , "Ke6" , "Qxd4" , "e5" , "Ke8" , "Qxb2" , "Kxf7" , "Nf6" , "Qb4" , "Kd6" , "Be3" , "N7f6" , "Bc4+" , "d6" , "Nf3" , "e4" , "Nd7" , "Rd1+" , "Qg4+" , "Nb5" , "Qxd5" , "cxd5+" ;
+        chon:nextHalfMove      :hmgamx3qVy4m .
+
+:gamx3qVy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolx3qVy4 ;
+        chon:atPlace           :plax3qVy4 ;
+        chon:atTime            "1966.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamx3qVy4m ;
+        chon:hasHalfMove       :hmgamx3qVy4m ;
+        chon:hasLastHalfMove   :hmgamx3qVy4m ;
+        chon:hasOpening        :opex3qVy4 ;
+        chon:hasReport         :cgrx3qVy4 ;
+        chon:hasResult         :resx3qVy4m ;
+        chon:subEventOf        :toux3qVy .
+
+:toux3qVy  a          chon:hessTournament ;
+        chon:atPlace  :plax3qVy4 ;
+        chon:hasName  "Freie Partie" .
+
+:agx3qVy4  a          chon:Agent ;
+        chon:hasName  "Larsen, Bent" , "Fischer, Robert James" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opex3qVy4  a            chon:ChessOpening ;
+        chon:hasECOCode  "B04" .

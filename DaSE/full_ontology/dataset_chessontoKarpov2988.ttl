@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgotFJ54uM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agotFJ54 .
+
+:cgrotFJ54  a   chon:ChessGameReport .
+
+:resotFJ54u  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agotFJ54 .
+
+chon:HalfMove  chon:subEventOf  :gamotFJ5 .
+
+:gamotFJ5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolotFJ54 ;
+        chon:atPlace           :plaotFJ54 ;
+        chon:atTime            "2007.11.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamotFJ54u ;
+        chon:hasHalfMove       :hmgamotFJ54u , :hmgamQvR3p6j ;
+        chon:hasLastHalfMove   :hmgamQvR3p6j ;
+        chon:hasOpening        :opeotFJ54 ;
+        chon:hasReport         :cgrotFJ54 ;
+        chon:hasResult         :resotFJ54u ;
+        chon:subEventOf        :touotFJ5 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agotFJ54 .
+
+:touotFJ5  a          chon:hessTournament ;
+        chon:atPlace  :plaotFJ54 ;
+        chon:hasName  "World Blitz" .
+
+:hmgamQvR3p6j  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQvR3p6jc , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bacrot,E" ;
+        chon:hasSANRecord      "Bf1" , "Rd1" , "Nf5" , "b4" , "Bb6" , "Re6" , "Rxa1" , "axb3" , "Nc5" , "b5" , "Ne5" , "Bf8" , "f3" , "Re8" , "Be3" , "Qd8" , "Ncd7" , "a4" , "Nxd4" , "Qxa1" , "Qa7" , "a5" , "Qc7" ;
+        chon:nextHalfMove      :hmgamQvR3p6j .
+
+:plaotFJ54  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+:rolhgQvR3p6jc  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agotFJ54 .
+
+:agotFJ54  a          chon:Agent ;
+        chon:hasName  "Bacrot,E" , "Karpov,Ana" .
+
+:rolotFJ54  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agotFJ54 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeotFJ54  a            chon:ChessOpening ;
+        chon:hasECOCode  "A55" .
+
+:hmgamotFJ54u  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQvR3p6jc , :rolhgotFJ54uM ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bacrot,E" ;
+        chon:hasSANRecord      "Re1" , "Be2" , "c4" , "e5" , "O-O" , "Ngf6" , "e4" , "Be7" , "Nc3" , "c6" , "exd4" , "d4" , "Nd7" , "Nf3" , "d6" ;
+        chon:nextHalfMove      :hmgamotFJ54u , :hmgamQvR3p6j .

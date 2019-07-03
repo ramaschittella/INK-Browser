@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolLhfeEu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agLhfeEu .
+
+:opeLhfeEu  a            chon:ChessOpening ;
+        chon:hasECOCode  "E39" .
+
+:rolhgLhfeEuho  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agLhfeEu .
+
+:resLhfeEuh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLhfeEu .
+
+chon:HalfMove  chon:subEventOf  :gamLhfeE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agLhfeEu .
+
+:gamLhfeE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolLhfeEu ;
+        chon:atPlace           :plaLhfeEu ;
+        chon:atTime            "2003.04.10"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamLhfeEuh ;
+        chon:hasHalfMove       :hmgamLhfeEuh ;
+        chon:hasLastHalfMove   :hmgamLhfeEuh ;
+        chon:hasOpening        :opeLhfeEu ;
+        chon:hasReport         :cgrLhfeEu ;
+        chon:hasResult         :resLhfeEuh ;
+        chon:subEventOf        :touLhfeE .
+
+:plaLhfeEu  a         chon:Place ;
+        chon:hasName  "Warsaw POL" .
+
+:hmgamLhfeEuh  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgLhfeEuho ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Macieja,B" ;
+        chon:hasSANRecord      "Na5" , "Bb4" , "O-O" , "Rfd8" , "h6" , "a6" , "hxg3" , "c4" , "dxc5" , "Be7" , "Bb7" , "Nf3" , "Rxd6" , "c5" , "Qd2" , "Nc6" , "d4" , "Bg3" , "Rd1" , "e6" , "Nxg3" , "e3" , "a3" , "Nb5" , "b6" , "Nd6" , "Qb4" , "Nc3" , "Qc7" , "Nh5" , "Nf6" , "Bxd6" , "Qc2" , "Be2" , "Bxc5" , "Bf4" ;
+        chon:nextHalfMove      :hmgamLhfeEuh .
+
+:cgrLhfeEu  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agLhfeEu  a          chon:Agent ;
+        chon:hasName  "Macieja,B" , "Karpov,Ana" .
+
+:touLhfeE  a          chon:hessTournament ;
+        chon:atPlace  :plaLhfeEu ;
+        chon:hasName  "PlusGSM Rapid Match" .

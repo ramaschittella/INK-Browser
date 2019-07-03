@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrxQRqfO  a   chon:ChessGameReport .
+
+:resxQRqfOL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolxQRqfO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxQRqfO .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxQRqfO .
+
+:gamxQRqf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxQRqfO ;
+        chon:atPlace           :plaxQRqfO ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxQRqfOL ;
+        chon:hasHalfMove       :hmgamJQMGOPO , :hmgamxQRqfOL ;
+        chon:hasLastHalfMove   :hmgamJQMGOPO ;
+        chon:hasOpening        :opexQRqfO ;
+        chon:hasReport         :cgrxQRqfO ;
+        chon:hasResult         :resxQRqfOL ;
+        chon:subEventOf        :touxQRqf .
+
+:rolhgxQRqfOL8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxQRqfO .
+
+chon:HalfMove  chon:subEventOf  :gamxQRqf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxQRqfO .
+
+:plaxQRqfO  a         chon:Place ;
+        chon:hasName  "Reggio Emilia" .
+
+:hmgamJQMGOPO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJQMGOPOi ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Andersson, Ulf" ;
+        chon:hasSANRecord      "g3" , "Ba6" , "Ne8" , "Nd2" , "Bb4+" , "Nb1" , "O-O" , "d5" , "Nc3" , "Bxd2" , "Qb7" , "Bg6" , "Rxa3" , "Nf3" , "Qe7" , "Bh3" , "b3" , "Rc7" , "Nbd2" , "c5" , "a5" , "Qc2" , "Bc3" , "Bxa5" , "Ba3" , "e4" , "c6" , "Qc7" , "c4" , "Ra8" , "Nb5" , "Qd8" , "Rec8" , "d6" , "Nc7" , "Ne2" , "b5" , "Bg2" , "Nf4" , "Qe3" , "b4" , "Ra1" , "Bb2" , "Rbb8" , "Ra4" , "e6" , "Be4" , "Nbd7" , "Qd2" , "Rb7" , "Rfd1" , "h6" , "Re1" , "Bb7" , "Qb3" , "e5" , "Rac1" , "bxa3" , "a4" , "Bh7" , "Rac8" , "b6" , "Bxd2+" , "a6" , "Rfe8" ;
+        chon:nextHalfMove      :hmgamJQMGOPO .
+
+:agxQRqfO  a          chon:Agent ;
+        chon:hasName  "Andersson, Ulf" , "Karpov, Anatoly" .
+
+:opexQRqfO  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+:touxQRqf  a          chon:hessTournament ;
+        chon:atPlace  :plaxQRqfO ;
+        chon:hasName  "Reggio Emilia91 Top16" .
+
+:rolhgJQMGOPOi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxQRqfO .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamxQRqfOL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxQRqfOL8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Andersson, Ulf" ;
+        chon:hasSANRecord      "Nf6" , "d4" ;
+        chon:nextHalfMove      :hmgamJQMGOPO , :hmgamxQRqfOL .

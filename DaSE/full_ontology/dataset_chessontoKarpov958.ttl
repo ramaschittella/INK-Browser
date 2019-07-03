@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agkTL6pf  a          chon:Agent ;
+        chon:hasName  "Miles, Anthony J" , "Karpov, Anatoly" .
+
+:rolkTL6pf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkTL6pf .
+
+:opekTL6pf  a            chon:ChessOpening ;
+        chon:hasECOCode  "B41" .
+
+:hmgamkTL6pfB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkTL6pfBM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Miles, Anthony J" ;
+        chon:hasSANRecord      "f6" , "Qc7" , "Qf4" , "Bxb2" , "Bb1" , "h5" , "e4" , "d6" , "c4" , "Bd2" , "Ree8" , "Rad8" , "Ba3" , "c5" , "Rd1" , "Re8" , "Bb7" , "Qg4" , "Rxe6" , "Bc1" , "Ne1" , "Re7" , "Bc7" , "Ng4" , "Ng6" , "Nd5" , "Nxc7" , "Ng5" , "f5" , "b3" , "Rde1" , "Rcd1" , "Nf3" , "f4" , "Qg3" , "Rd5" , "h3" , "Kh1" , "Nxd4" , "Nf8" , "a6" , "Bf6" , "d4" , "Bb4" , "Qh6" , "Qb8" , "Rc1" , "Bd3" , "g6" , "Be3" , "Bd8" , "Rde8" , "Re6" , "b6" , "O-O" , "Nf6" , "Bb2" , "h6" , "Nge5" , "Qh4" , "Nxe6" , "Nc6" , "Qe2" , "Bd6" , "Re5" , "Nd8" , "Rd2" , "e6" , "Ra5" , "Nfe6" , "Nc3" , "cxd4" , "b5" ;
+        chon:nextHalfMove      :hmgamkTL6pfB .
+
+:gam9TORQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkTL6pf ;
+        chon:atPlace           :pla9TORQf ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkTL6pfB ;
+        chon:hasHalfMove       :hmgamkTL6pfB ;
+        chon:hasLastHalfMove   :hmgamkTL6pfB ;
+        chon:hasOpening        :opekTL6pf ;
+        chon:hasReport         :cgrkTL6pf ;
+        chon:hasResult         :reskTL6pfB ;
+        chon:subEventOf        :toukTL6p .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkTL6pf .
+
+chon:HalfMove  chon:subEventOf  :gam9TORQ .
+
+:rolhgkTL6pfBM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkTL6pf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkTL6pf .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrkTL6pf  a   chon:ChessGameReport .
+
+:toukTL6p  a          chon:hessTournament ;
+        chon:atPlace  :pla9TORQf ;
+        chon:hasName  "SWIFT" .
+
+:reskTL6pfB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:pla9TORQf  a         chon:Place ;
+        chon:hasName  "Brussels" .

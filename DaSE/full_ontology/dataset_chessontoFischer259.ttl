@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plavaB9aa  a         chon:Place ;
+        chon:hasName  "Leipzig" .
+
+:rolhgWcNtuaTA  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvaB9aa .
+
+:agvaB9aa  a          chon:Agent ;
+        chon:hasName  "Bobotsov, Milko G" , "Fischer, Robert James" .
+
+:gamvaB9a  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvaB9aa ;
+        chon:atPlace           :plavaB9aa ;
+        chon:atTime            "1960.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWcNtuaT ;
+        chon:hasHalfMove       :hmgamWcNtuaT , :hmgam9cIH4bY ;
+        chon:hasLastHalfMove   :hmgam9cIH4bY ;
+        chon:hasOpening        :opevaB9aa ;
+        chon:hasReport         :cgrvaB9aa ;
+        chon:hasResult         :resvaB9aa5 ;
+        chon:subEventOf        :touvaB9a .
+
+:rolvaB9aa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvaB9aa .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvaB9aa .
+
+:opevaB9aa  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:touvaB9a  a          chon:hessTournament ;
+        chon:atPlace  :plavaB9aa ;
+        chon:hasName  "Leipzig olm fin-A" .
+
+:hmgam9cIH4bY  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9cIH4bYN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bobotsov, Milko G" ;
+        chon:hasSANRecord      "Qh6" , "Qb3+" , "Kh8" , "Ke2" , "Qh1+" , "Qxh3+" , "Qd1" , "Qg3+" , "bxc5" , "Rxf3" , "Qf3" , "Rxf8+" , "Rxf8" , "Ke1" , "Qc6" , "Kf1" , "Qxf3" , "Qe6+" , "b4" , "gxf3" ;
+        chon:nextHalfMove      :hmgam9cIH4bY .
+
+chon:HalfMove  chon:subEventOf  :gamvaB9a .
+
+:hmgamWcNtuaT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWcNtuaTA , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bobotsov, Milko G" ;
+        chon:hasSANRecord      "a6" , "Bxd4" , "Bb5" , "Nb4" , "cxd4" , "Rc1" , "d6" , "Rf4" , "Bxf6" , "Be7" , "O-O" , "Rg4" , "Ne4" , "Re1" , "Rxe4" , "Bb3" , "Qd5" , "Nc6" , "e4" , "Be3" , "c3" , "c5" , "exf6" , "h5" , "e5" , "dxe4" , "exd4" , "Qd2" , "f5" , "d4" , "Qc2" , "b5" , "Rad8" , "Nf3" , "Nxd4" , "Nf6" , "axb3" , "Bxb3" , "d5" , "Ba4" , "Nc3" , "Be6" , "h3" , "Nxe4" ;
+        chon:nextHalfMove      :hmgamWcNtuaT , :hmgam9cIH4bY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvaB9aa .
+
+:rolhg9cIH4bYN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvaB9aa .
+
+:resvaB9aa5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrvaB9aa  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

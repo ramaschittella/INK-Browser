@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolBidHPn  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBidHPn .
+
+:opeBidHPn  a            chon:ChessOpening ;
+        chon:hasECOCode  "A11" .
+
+:resBidHPnr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:touBidHP  a          chon:hessTournament ;
+        chon:atPlace  :plaBidHPn ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBidHPn .
+
+:rolhgOhmvNmHu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBidHPn .
+
+:hmgamBidHPnr  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBidHPnrh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Rc7" , "axb3" , "d5" , "Be7" , "Be3" , "O-O" , "Bd3" , "hxg4" , "Bf5" , "Bxd5" , "c6" , "e5" , "Nf3" , "g5" , "exd5" , "Qxb3" , "c4" , "Bg2" , "Rad8" , "Bd8" , "Nd2" , "Bc2" , "Rfd1" , "dxe4" , "Qb3" , "e6" , "Qb6" , "Bxf3" , "Bxb3" , "e4" , "Ng4" , "Rdc1" , "f3" , "Bf4" , "Nc3" , "Rxb7" , "Bd5" , "Nxe5" , "Bb6" , "cxd5" , "gxf4" , "Bg6" , "Nxd5" , "h3" , "g3" , "Nf6" , "Nc6" , "d3" ;
+        chon:nextHalfMove      :hmgamBidHPnr , :hmgamOhmvNmH .
+
+chon:HalfMove  chon:subEventOf  :gamBidHP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBidHPn .
+
+:hmgamOhmvNmH  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOhmvNmHu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polugaevsky, Lev" ;
+        chon:hasSANRecord      "Rbd8" , "Nxf6" , "g4" , "Bxd8" , "Bxf7+" , "Rd8" , "Rd3" , "Nf6" , "Rd2" , "Kg6" , "Bc4" , "Rxd7" , "Nxg4" , "Rb8" , "Kg2" , "Kxf6" , "Kg5" , "Rd1" , "Rd7" , "Ne4" , "Rxd8" , "Kg7" ;
+        chon:nextHalfMove      :hmgamOhmvNmH .
+
+:rolhgBidHPnrh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBidHPn .
+
+:plaBidHPn  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .
+
+:gamBidHP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBidHPn ;
+        chon:atPlace           :plaBidHPn ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBidHPnr ;
+        chon:hasHalfMove       :hmgamOhmvNmH , :hmgamBidHPnr ;
+        chon:hasLastHalfMove   :hmgamOhmvNmH ;
+        chon:hasOpening        :opeBidHPn ;
+        chon:hasReport         :cgrBidHPn ;
+        chon:hasResult         :resBidHPnr ;
+        chon:subEventOf        :touBidHP .
+
+:cgrBidHPn  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agBidHPn  a          chon:Agent ;
+        chon:hasName  "Polugaevsky, Lev" , "Fischer, Robert James" .

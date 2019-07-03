@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhg1xzHx5bl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPxDt16 .
+
+:plaPxDt16  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:rolhgPxDt1679  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agPxDt16 .
+
+:cgrPxDt16  a   chon:ChessGameReport .
+
+:hmgamPxDt167  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPxDt1679 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Boskovic,Mar" ;
+        chon:hasSANRecord      "c4" , "Nf6" , "d4" ;
+        chon:nextHalfMove      :hmgam1xzHx5b , :hmgamPxDt167 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPxDt16 .
+
+:agPxDt16  a          chon:Agent ;
+        chon:hasName  "Boskovic,Mar" , "Karpov,Ana" .
+
+:rolPxDt16  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agPxDt16 .
+
+chon:HalfMove  chon:subEventOf  :gamPxDt1 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agPxDt16 .
+
+:gamPxDt1  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolPxDt16 ;
+        chon:atPlace           :plaPxDt16 ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamPxDt167 ;
+        chon:hasHalfMove       :hmgam1xzHx5b , :hmgamPxDt167 ;
+        chon:hasLastHalfMove   :hmgam1xzHx5b ;
+        chon:hasOpening        :opePxDt16 ;
+        chon:hasReport         :cgrPxDt16 ;
+        chon:hasResult         :resPxDt167 ;
+        chon:subEventOf        :touPxDt1 .
+
+:touPxDt1  a          chon:hessTournament ;
+        chon:atPlace  :plaPxDt16 ;
+        chon:hasName  "Simul" .
+
+:resPxDt167  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgam1xzHx5b  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg1xzHx5bl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Boskovic,Mar" ;
+        chon:hasSANRecord      "Bg7" , "Nc3" , "Nf3" , "f5" , "O-O" , "gxf5" , "Bxf5" , "exf5" , "e5" , "d6" , "a5" , "e4" , "Ne8" , "d5" , "g6" , "g4" , "h3" , "Be3" ;
+        chon:nextHalfMove      :hmgam1xzHx5b .
+
+:opePxDt16  a            chon:ChessOpening ;
+        chon:hasECOCode  "E71" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

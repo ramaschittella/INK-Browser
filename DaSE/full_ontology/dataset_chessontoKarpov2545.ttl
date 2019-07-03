@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:aglLNYlL  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Grischuk,A" .
+
+:rollLNYlL  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:cgrxKJbUK  a   chon:ChessGameReport .
+
+:opelLNYlL  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:rolxKJbUK  a             chon:AuthorRole ;
+        chon:performedBy  :agxKJbUK .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglLNYlL .
+
+:hmgamxKJbUKy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxKJbUKyH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "O-O" , "Qxc4" , "Rd6+" , "Rb8" , "Nh4" , "Rd8" , "Rf8" , "Nxh4" , "Rxf3" , "Kd4" , "Rdc1" , "Ra4+" , "Nb6" , "f6" , "bxc4" , "h6" , "Nd7" , "Be7" , "Rdd7" , "Kd3" , "Na4" , "Qb6" , "Rb2" , "e4" , "g4" , "Bf5" , "Rxg5+" , "Bxg5+" , "Rxe4" , "a5" , "hxg5" , "Rab1" , "c6" , "e6" , "Ng5" , "Rd1+" , "b3" , "Nf3" , "Rdf3" , "Qxe2" , "Rhc8" , "Be3" , "Bg4" , "Qc7" , "Ke5" , "Qxd7+" , "Ra4" , "Nb2" , "Rd1" , "Rh8" , "Raxa5" , "Kxd7" , "Kd2" , "d4" , "h4" , "Rb1+" , "Rc7+" , "Rxg7" , "Qxc6" , "d6" , "Rc8" , "Nxc4" , "Rxa2" , "Kf6" , "Bxh4" , "Nc3" , "c4" , "Bxe2" , "Ra7" , "Rdf7+" , "Rf4" , "Kxd6" , "fxe5" , "Qd7" , "e5" , "g5" , "Rg3+" , "Be2" , "Kc2" , "Kg2" , "Raf4" , "Bb6" , "Rxe6" , "Ne7" , "Rdd3" , "Bxg5" , "b5" , "d5" , "Nf5" , "dxc4" ;
+        chon:nextHalfMove      :hmgamxKJbUKy .
+
+chon:HalfMove  chon:subEventOf  :gamlLNYl .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aglLNYlL .
+
+:gamlLNYl  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rollLNYlL ;
+        chon:atPlace           :plalLNYlL ;
+        chon:atTime            "2001.03.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxKJbUKy ;
+        chon:hasHalfMove       :hmgamxKJbUKy ;
+        chon:hasLastHalfMove   :hmgamxKJbUKy ;
+        chon:hasOpening        :opelLNYlL ;
+        chon:hasReport         :cgrxKJbUK ;
+        chon:hasResult         :resxKJbUKy ;
+        chon:subEventOf        :toulLNYl .
+
+:resxKJbUKy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:toulLNYl  a          chon:hessTournament ;
+        chon:atPlace  :plalLNYlL ;
+        chon:hasName  "SuperGM" .
+
+:rolhgxKJbUKyH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aglLNYlL .
+
+:plalLNYlL  a         chon:Place ;
+        chon:hasName  "Linares ESP" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

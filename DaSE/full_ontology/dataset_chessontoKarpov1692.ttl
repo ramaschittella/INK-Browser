@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr13Agxo  a   chon:ChessGameReport .
+
+:gam13Agx  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol13Agxo ;
+        chon:atPlace           :pla13Agxo ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamb3ww7nb ;
+        chon:hasHalfMove       :hmgamb3ww7nb ;
+        chon:hasLastHalfMove   :hmgamb3ww7nb ;
+        chon:hasOpening        :ope13Agxo ;
+        chon:hasReport         :cgr13Agxo ;
+        chon:hasResult         :res13Agxo9 ;
+        chon:subEventOf        :tou13Agx .
+
+:tou13Agx  a          chon:hessTournament ;
+        chon:atPlace  :pla13Agxo ;
+        chon:hasName  "FIDE-Wch" .
+
+:ag13Agxo  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+:rol13Agxo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag13Agxo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag13Agxo .
+
+:rolhgb3ww7nbx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag13Agxo .
+
+chon:HalfMove  chon:subEventOf  :gam13Agx .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag13Agxo .
+
+:hmgamb3ww7nb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgb3ww7nbx ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Qd2" , "Nb5" , "Qh5" , "Nd5" , "h6" , "Kh2" , "Qg4" , "Bb4" , "exf6" , "Nf3" , "Ke8" , "Bxc3+" , "c5" , "Rd7" , "Kxf7" , "Kf8" , "Bf2" , "Bxc4" , "Rd1" , "dxc4" , "Qd1+" , "Be3" , "f5" , "Qxd6" , "Nc3" , "Rg3" , "f4" , "Nf6" , "e6" , "Nxd4" , "Rf4" , "e5" , "O-O" , "Ke7" , "bxc3" , "Bd7" , "cxd4" , "f7+" , "e4" , "Qh8+" , "Nd6+" , "d5" , "Qd4" , "Qxg7+" , "Nd7" , "d4" , "Rhd8" , "Bh4" , "h3" , "Bc6" , "Bg5" , "Kg8" , "Re4+" , "N7b6" , "Qa5" , "Qxe5" , "c4" , "Rd3" , "f6" , "Bc4" , "Bxd5" ;
+        chon:nextHalfMove      :hmgamb3ww7nb .
+
+:ope13Agxo  a            chon:ChessOpening ;
+        chon:hasECOCode  "D39" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:res13Agxo9  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:pla13Agxo  a         chon:Place ;
+        chon:hasName  "NLD/INA" .

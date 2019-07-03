@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaSjOpUr  a         chon:Place ;
+        chon:hasName  "Vienna" .
+
+:hmgam4jLFtqe  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg4jLFtqez ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Rad8" , "Kd4" , "Kf4" , "Qxd6" , "Nc5" , "Nfd7" , "Rh8" , "Kb6" , "Kf2" , "Rxb5" , "Kb3" , "Kd3" , "Rc7" , "h4" , "Re7" , "Nc3" , "Qf4" , "a4" , "h5" , "Re8" , "Kf8" , "f6" , "a3" , "Bd6" , "Nxc7" , "bxa5" , "Rc2" , "Nxb5" , "e3" , "Kc6" , "fxg4" , "Kxa7" , "Nd4" , "Nxc5" , "Rxh2" , "Kb4" , "Kc5" , "Ke5" , "Re2+" , "Nce2" , "Ra1" , "Rh2" , "Rb1+" , "b4" , "a7" , "Kb2" , "Rxe3" , "Bf1" , "Qd2" , "Kd2" , "Rc6" , "Nd8" , "Red1" , "Nbc6" , "h3" , "Be8" , "Rxa7+" , "gxf4" , "Rab1" , "f5" , "Ra8" , "Bb5" , "Ne6" , "Nxd7" , "Rc5" , "dxc5" , "Ra5" , "Ne5" , "axb5" , "Bxb5" , "Kd6" , "a6" , "Kb7" , "Kc2" , "Rxd5" , "Nb4" , "a5" , "Kf3" , "c5" , "Rdb1" , "Kxf5" , "Rh1" , "Na2" , "g6" , "Ke1" , "Rc1" , "Bc6" , "g5" , "Rxh3" , "Rb8" , "f3" , "Kxd7" , "g4" , "Rxc7+" , "Ke7" , "Rb7" , "Rc3" , "Qxf4" , "Ra3" , "Rd6" , "Bxd6" ;
+        chon:nextHalfMove      :hmgam4jLFtqe .
+
+:rolhg4jLFtqez  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSjOpUr .
+
+:hmgamSjOpUrb  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSjOpUrbo , :rolhg4jLFtqez , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "O-O" , "Re1" , "Bg2" , "g3" , "b6" , "Nc3" , "cxd5" , "Na6" , "Be7" , "Nf6" , "d5" , "d4" , "Bb7" , "c4" , "Nf3" , "exd5" , "Bf4" , "e6" ;
+        chon:nextHalfMove      :hmgamSjOpUrb , :hmgam4jLFtqe .
+
+:gamSjOpU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSjOpUr ;
+        chon:atPlace           :plaSjOpUr ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSjOpUrb ;
+        chon:hasHalfMove       :hmgamSjOpUrb , :hmgam4jLFtqe ;
+        chon:hasLastHalfMove   :hmgam4jLFtqe ;
+        chon:hasOpening        :opeSjOpUr ;
+        chon:hasReport         :cgrSjOpUr ;
+        chon:hasResult         :resSjOpUrb ;
+        chon:subEventOf        :touSjOpU .
+
+:agSjOpUr  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gelfand, Boris" .
+
+:touSjOpU  a          chon:hessTournament ;
+        chon:atPlace  :plaSjOpUr ;
+        chon:hasName  "Vienna Millenium" .
+
+:rolSjOpUr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSjOpUr .
+
+:opeSjOpUr  a            chon:ChessOpening ;
+        chon:hasECOCode  "E17" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSjOpUr .
+
+chon:HalfMove  chon:subEventOf  :gamSjOpU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSjOpUr .
+
+:rolhgSjOpUrbo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSjOpUr .
+
+:resSjOpUrb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:cgrSjOpUr  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

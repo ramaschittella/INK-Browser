@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agyQGmpc  a          chon:Agent ;
+        chon:hasName  "Havrdova, Lenka" , "Karpov, Anatoly" .
+
+:opeyQGmpc  a            chon:ChessOpening ;
+        chon:hasECOCode  "B31" .
+
+:resyQGmpcX  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgyQGmpcXy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyQGmpc .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyQGmpc .
+
+:hmgamKQDAYb1  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKQDAYb1J ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Havrdova, Lenka" ;
+        chon:hasSANRecord      "Qh4" , "Nc6" , "e5" , "Nxf8" , "Bg3" , "Qa6" , "Qc4" , "Rxb2" , "Qxa2" , "Bxd6" , "Nd5" , "Nxd4" , "Rb6" , "Nc3" , "Ncb4" , "Rb8" , "Bxf8" , "Rc1" , "cxd4" , "c5" , "Bf4" , "Qa5" , "exd6" ;
+        chon:nextHalfMove      :hmgamKQDAYb1 .
+
+:playQGmpc  a         chon:Place ;
+        chon:hasName  "Cannes" .
+
+chon:HalfMove  chon:subEventOf  :gamyQGmp .
+
+:hmgamyQGmpcX  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgyQGmpcXy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Havrdova, Lenka" ;
+        chon:hasSANRecord      "d4" , "Bb5" , "O-O" , "Nc6" , "bxc6" , "d6" , "Nd7" , "e4" , "c3" , "cxd4" , "Nf6" , "Bxc6" , "c5" , "Nf3" , "Bg7" , "Re1" , "g6" , "h3" ;
+        chon:nextHalfMove      :hmgamyQGmpcX , :hmgamKQDAYb1 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyQGmpc .
+
+:cgryQGmpc  a   chon:ChessGameReport .
+
+:rolyQGmpc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyQGmpc .
+
+:gamyQGmp  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyQGmpc ;
+        chon:atPlace           :playQGmpc ;
+        chon:atTime            "1998.02.28"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyQGmpcX ;
+        chon:hasHalfMove       :hmgamKQDAYb1 , :hmgamyQGmpcX ;
+        chon:hasLastHalfMove   :hmgamKQDAYb1 ;
+        chon:hasOpening        :opeyQGmpc ;
+        chon:hasReport         :cgryQGmpc ;
+        chon:hasResult         :resyQGmpcX ;
+        chon:subEventOf        :touyQGmp .
+
+:touyQGmp  a          chon:hessTournament ;
+        chon:atPlace  :playQGmpc ;
+        chon:hasName  "EE Internet sim" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgKQDAYb1J  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyQGmpc .

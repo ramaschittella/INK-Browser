@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeqMJxYS  a            chon:ChessOpening ;
+        chon:hasECOCode  "C52" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqMJxYS .
+
+:rolqMJxYS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agqMJxYS .
+
+:hmgamSMFNxSH  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSMFNxSHb , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Rdb1" , "h5" , "Nc3" , "Nd7" , "axb6" , "Rxb1" , "Be6" , "O-O-O" , "dxe5" , "Kb7" , "Rfd1" , "c5" , "Bb5" , "Rxd8" , "Ba3" , "cxb5" , "Kd2" , "Bxc6" , "cxd4" , "Qa6+" , "Qa4" , "Qe2" , "bxc6" , "Nxb6" , "Nf6" , "f3" , "Nxd8+" , "Bb6" , "Nxe5" , "Na4" , "Ke3" , "Nc6+" , "Ra4" , "Nxc5" , "axb4" , "dxc5" , "a3" , "Qb5" , "Qxc5" , "Bc5" , "Qd6" , "Qd5" , "Kf2" , "Kc6" , "Kb8" , "Qxb5" , "b4" , "Rxb4" , "e5" , "Ra8" ;
+        chon:nextHalfMove      :hmgambKtsaBR , :hmgamSMFNxSH .
+
+chon:HalfMove  chon:subEventOf  :gamqMJxY .
+
+:rolhgSMFNxSHb  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqMJxYS .
+
+:rolhgqMJxYSEY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqMJxYS .
+
+:plaqMJxYS  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgambKtsaBR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgbKtsaBRK , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "c4" , "Kd4" , "Kc2" , "Rb6" , "Rb4" , "Be6" , "g6" , "Rxb1" , "c3+" , "b4" , "b5" , "b3+" , "Rb7" , "Rb8" , "Kc4" , "Kd5" , "h4" , "Rd8" , "Rd1+" , "Ke3" , "Bd5" , "Kb1" , "Kd3" , "Ra1" , "Kb2" , "Rb5" ;
+        chon:nextHalfMove      :hmgambKtsaBR .
+
+:rolhgbKtsaBRK  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agqMJxYS .
+
+:agqMJxYS  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Chigorin, Mikhail" .
+
+:cgrqMJxYS  a   chon:ChessGameReport .
+
+:gamqMJxY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolqMJxYS ;
+        chon:atPlace           :plaqMJxYS ;
+        chon:atTime            "1895.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamqMJxYSE ;
+        chon:hasHalfMove       :hmgamqMJxYSE , :hmgamSMFNxSH , :hmgambKtsaBR ;
+        chon:hasLastHalfMove   :hmgambKtsaBR ;
+        chon:hasOpening        :opeqMJxYS ;
+        chon:hasReport         :cgrqMJxYS ;
+        chon:hasResult         :resqMJxYSE ;
+        chon:subEventOf        :touqMJxY .
+
+:resqMJxYSE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touqMJxY  a          chon:hessTournament ;
+        chon:atPlace  :plaqMJxYS ;
+        chon:hasName  "Hastings" .
+
+:hmgamqMJxYSE  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgqMJxYSEY ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "c3" , "Bc4" , "d4" , "O-O" , "b4" , "Bc5" , "d6" , "Nc6" , "Nf3" , "Bxb4" , "Ba5" , "e4" , "e5" , "exd4" ;
+        chon:nextHalfMove      :hmgamSMFNxSH , :hmgamqMJxYSE .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agqMJxYS .

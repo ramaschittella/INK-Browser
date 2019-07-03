@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolUA36S1  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUA36S1 .
+
+:hmgamUA36S1M  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgUA36S1M6 , chon:AgentRole , :rolhg7AYjpZPg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c4" , "d5" , "dxc4" , "d4" , "Nf3" ;
+        chon:nextHalfMove      :hmgam7AYjpZP , :hmgamUA36S1M .
+
+:plaUA36S1  a         chon:Place ;
+        chon:hasName  "Frankfurt" .
+
+:gamUA36S  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUA36S1 ;
+        chon:atPlace           :plaUA36S1 ;
+        chon:atTime            "1999.07.01"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUA36S1M ;
+        chon:hasHalfMove       :hmgamUA36S1M , :hmgam7AYjpZP ;
+        chon:hasLastHalfMove   :hmgam7AYjpZP ;
+        chon:hasOpening        :opeUA36S1 ;
+        chon:hasReport         :cgrUA36S1 ;
+        chon:hasResult         :resUA36S1M ;
+        chon:subEventOf        :touUA36S .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUA36S1 .
+
+:rolhgUA36S1M6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUA36S1 .
+
+chon:HalfMove  chon:subEventOf  :gamUA36S .
+
+:agUA36S1  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kramnik, Vladimir" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUA36S1 .
+
+:hmgam7AYjpZP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg7AYjpZPg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "exf5" , "Rab8" , "Rxc1" , "Ra8" , "Nb7" , "Kd8" , "Ne4" , "Bd4" , "axb3" , "a4" , "Bxf3" , "Be2" , "Nf6" , "b6" , "Nxa7" , "e4" , "Ne1" , "Kc4" , "e3" , "Bb7" , "a6" , "Bxc4" , "f6" , "Ke2" , "Qxd1" , "gxf3" , "Ke7" , "Kc7" , "Na5" , "Kc6" , "Kb5" , "dxc5" , "Nb5+" , "Nd6+" , "Nf7" , "Ba3" , "Be7" , "Rhd8" , "Rac1" , "Ra7" , "Nbd2" , "Rxc5" , "Kd3" , "O-O" , "Bd2" , "Bd8" , "Kf1" , "Bxc5" , "Rxa7" , "Nd3" , "b3" , "Be4" , "gxf5" , "Rd1" , "Ke8" , "c5" , "a5" , "Nxc5" , "Bb2" , "Rc7" , "Rb7" , "g6" , "e5" , "exf4" , "Rxd1" , "Nb5" , "Rdc8" , "Nc8" , "Bxb4" , "Rc1" , "Na7" , "Nbd7" , "e6" , "Nd5" , "Nc4" , "b5" , "Nd4" , "b4" , "Bf3" , "Kc3" , "Ne7" , "Bc1" , "h5" , "f5" , "f4" , "Ng5" ;
+        chon:nextHalfMove      :hmgam7AYjpZP .
+
+:opeUA36S1  a            chon:ChessOpening ;
+        chon:hasECOCode  "D27" .
+
+:touUA36S  a          chon:hessTournament ;
+        chon:atPlace  :plaUA36S1 ;
+        chon:hasName  "Siemens Giants" .
+
+:rolhg7AYjpZPg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUA36S1 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrUA36S1  a   chon:ChessGameReport .
+
+:resUA36S1M  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

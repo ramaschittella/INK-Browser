@@ -1,0 +1,84 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrQOYbzl  a   chon:ChessGameReport .
+
+:rolhg2MVr8mqe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUQh3Qn , :agQOYbzl .
+
+:rolhgQOYbzln3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQOYbzl , :agUQh3Qn .
+
+:gamUQh3Q  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUQh3Qn ;
+        chon:atPlace           :plaUQh3Qn ;
+        chon:atTime            "1874.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQOYbzln ;
+        chon:hasHalfMove       :hmgam2MVr8mq , :hmgamQOYbzln , :hmgamsO8Jtmf ;
+        chon:hasLastHalfMove   :hmgamsO8Jtmf ;
+        chon:hasOpening        :opeQOYbzl ;
+        chon:hasReport         :cgrQOYbzl ;
+        chon:hasResult         :resQOYbzln ;
+        chon:subEventOf        :touUQh3Q .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQOYbzl .
+
+:resQOYbzln  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touUQh3Q  a          chon:hessTournament ;
+        chon:atPlace  :plaUQh3Qn ;
+        chon:hasName  "GBR tour sim" .
+
+:rolUQh3Qn  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:plaUQh3Qn  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+chon:HalfMove  chon:subEventOf  :gamUQh3Q .
+
+:hmgamQOYbzln  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQOYbzln3 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Moriau" ;
+        chon:hasSANRecord      "e5" , "Bg4" , "Nc6" , "Bb5" , "d3" , "Qxf3" , "b4" , "c3" , "f4" , "Nf6" , "a4" , "e4" , "d6" , "h6" , "Ne2" , "Bb3" , "Nf3" , "Bc5" , "O-O" , "h3" , "Ba4" , "Nc3" , "h4" , "Bd1" , "b5" , "Nb4" , "f5" , "g4" , "Bxf3" , "Nh7" , "f6" , "a5" ;
+        chon:nextHalfMove      :hmgam2MVr8mq , :hmgamQOYbzln .
+
+:hmgamsO8Jtmf  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsO8JtmfE ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Moriau" ;
+        chon:hasSANRecord      "Rd2" , "c2+" , "Qc4" , "Qc6" , "Qh3" , "Rfe8" , "Qxc3" , "Qd6" , "Qg3" , "Kc1" , "Rg2" , "bxc4" , "Bc2" , "Nxg5" , "Bxg5" , "Bxc4" , "exd3" , "Kd1" , "Kf7" , "dxe4" , "Rxg5" , "c3" , "Bb1" , "Ba2" , "Ng6" ;
+        chon:nextHalfMove      :hmgamsO8Jtmf .
+
+:agUQh3Qn  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" .
+
+:rolQOYbzl  a             chon:AuthorRole ;
+        chon:performedBy  :agQOYbzl .
+
+:rolhgsO8JtmfE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQOYbzl , :agUQh3Qn .
+
+:hmgam2MVr8mq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg2MVr8mqe ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Moriau" ;
+        chon:hasSANRecord      "Nf6" , "hxg5" , "Nf4" , "Rad8" , "g5" , "Qe7" , "a3" , "Nf7" , "Ng1" , "Ra2" , "fxg5" , "Nd8" , "Nh3" , "Qh5" , "d5" , "Bb6" ;
+        chon:nextHalfMove      :hmgam2MVr8mq , :hmgamsO8Jtmf .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agQOYbzl  a          chon:Agent ;
+        chon:hasName  "Moriau" .
+
+:opeQOYbzl  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUQh3Qn .

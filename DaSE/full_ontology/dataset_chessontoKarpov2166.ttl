@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resQVdXYLE  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQVdXYL .
+
+:gamSGS9K  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQVdXYL ;
+        chon:atPlace           :plaSGS9KD ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQVdXYLE ;
+        chon:hasHalfMove       :hmgamQVdXYLE ;
+        chon:hasLastHalfMove   :hmgamQVdXYLE ;
+        chon:hasOpening        :opeQVdXYL ;
+        chon:hasReport         :cgrQVdXYL ;
+        chon:hasResult         :resQVdXYLE ;
+        chon:subEventOf        :touQVdXY .
+
+chon:HalfMove  chon:subEventOf  :gamSGS9K .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQVdXYL .
+
+:cgrQVdXYL  a   chon:ChessGameReport .
+
+:plaSGS9KD  a         chon:Place ;
+        chon:hasName  "Dortmund" .
+
+:touQVdXY  a          chon:hessTournament ;
+        chon:atPlace  :plaSGS9KD ;
+        chon:hasName  "Dortmund" .
+
+:agQVdXYL  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Gelfand, Boris" .
+
+:rolQVdXYL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQVdXYL .
+
+:opeQVdXYL  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:hmgamQVdXYLE  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQVdXYLEL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qc2" , "gxf6" , "Bxc5" , "Qa4+" , "O-O" , "e6" , "Be4" , "Nf3" , "d5" , "Nc6" , "h6" , "dxc5" , "Bb7" , "Rd1" , "Qd7" , "b6" , "Qb8" , "Na5" , "Bxc4" , "a3" , "Nf6" , "Bxb7" , "d4" , "Qd1" , "e3" , "Qc8" , "dxc4" , "Bd3" , "Rc1" , "Nc3" , "Bxf6" , "Na4" , "Be7" , "Bg5" , "Qxb7" , "c4" , "c5" ;
+        chon:nextHalfMove      :hmgamQVdXYLE .
+
+:rolhgQVdXYLEL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQVdXYL .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

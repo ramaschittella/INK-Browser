@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resa7iSFiF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhga7iSFiF3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aga7iSFi .
+
+:plaI76kjh  a         chon:Place ;
+        chon:hasName  "Siegen" .
+
+:toua7iSF  a          chon:hessTournament ;
+        chon:atPlace  :plaI76kjh ;
+        chon:hasName  "Siegen olm" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga7iSFi .
+
+:cgra7iSFi  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamI76kj .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aga7iSFi .
+
+:rola7iSFi  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aga7iSFi .
+
+:hmgama7iSFiF  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhga7iSFiF3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Rd8" , "Bxd4" , "Nxd2" , "c5" , "Nc4" , "Rd2" , "Bxb7" , "f5" , "Re1" , "Nd5+" , "Rd4" , "Bf2" , "d5" , "g4" , "e6" , "Be3" , "Kh8" , "Qd4" , "Bxe4" , "Qe1" , "e4" , "Rf8" , "Re8+" , "Qxb7" , "c4" , "Qe4" , "Ng5" , "Re2" , "fxe4" , "Ng3" , "Ne2" , "Rxf2" , "g5" , "b5" , "Bg7" , "cxd4" , "Ne4" , "Rf1" , "Qc7" , "d4" , "Qxe6" , "Nxd5" , "Rc1" , "Na5" , "f4" , "Rf8+" , "O-O" , "bxc3" , "Qe2" , "Nxc3" , "Bxf2+" , "Nc3" , "Rxd2" , "Kf7" , "Nf6+" , "Nf6" , "Bc4" , "Bb7" , "h3" , "Qc6" , "Bd3" , "Rd6" , "b6" , "g6" , "Qb6" , "Kg8" , "Nc6" , "cxd5" , "Rf2" ;
+        chon:nextHalfMove      :hmgama7iSFiF .
+
+:gamI76kj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rola7iSFi ;
+        chon:atPlace           :plaI76kjh ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgama7iSFiF ;
+        chon:hasHalfMove       :hmgama7iSFiF ;
+        chon:hasLastHalfMove   :hmgama7iSFiF ;
+        chon:hasOpening        :opea7iSFi ;
+        chon:hasReport         :cgra7iSFi ;
+        chon:hasResult         :resa7iSFiF ;
+        chon:subEventOf        :toua7iSF .
+
+:aga7iSFi  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opea7iSFi  a            chon:ChessOpening ;
+        chon:hasECOCode  "D87" .

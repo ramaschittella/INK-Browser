@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgRFwn0I09  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agpDm3MI .
+
+:plapDm3MI  a         chon:Place ;
+        chon:hasName  "Linares ESP" .
+
+:cgrpDm3MI  a   chon:ChessGameReport .
+
+:agpDm3MI  a          chon:Agent ;
+        chon:hasName  "Karpov,An" , "Leko,P" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpDm3MI .
+
+:rolpDm3MI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agpDm3MI .
+
+:opepDm3MI  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:HalfMove  chon:subEventOf  :gampDm3M .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agpDm3MI .
+
+:gampDm3M  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolpDm3MI ;
+        chon:atPlace           :plapDm3MI ;
+        chon:atTime            "2001.03.06"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamRFwn0I0 ;
+        chon:hasHalfMove       :hmgamRFwn0I0 ;
+        chon:hasLastHalfMove   :hmgamRFwn0I0 ;
+        chon:hasOpening        :opepDm3MI ;
+        chon:hasReport         :cgrpDm3MI ;
+        chon:hasResult         :respDm3MIi ;
+        chon:subEventOf        :toupDm3M .
+
+:respDm3MIi  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamRFwn0I0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRFwn0I09 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,An" ;
+        chon:hasSANRecord      "Qg4" , "Ba3+" , "Ne5" , "Kf6" , "O-O" , "Qe1" , "h6" , "Rc1" , "Bd6" , "Kf8" , "Qd6" , "Qd5" , "Rxe5" , "Qxe4" , "Qxd4" , "N1f3" , "Bb2" , "Kg8" , "d5" , "b4" , "Qh3" , "Qh5" , "Rd1" , "Rxe8" , "cxb5" , "Nxf3+" , "Qxc7" , "Nd7" , "Qd2" , "b5" , "Ra7" , "dxe4" , "Qa2" , "e4" , "Kg2" , "Bd3" , "Bxb6" , "Re2" , "Rb1" , "Qa5" , "Re7" , "Qxd5" , "Bc6" , "Qe2" , "fxe5" , "Be5" , "c6" , "Be8" , "c5" , "Ra1" , "Nc3" , "Nxe4" , "Ng5" , "cxd4" , "b6" , "Bxe8" , "Rc4" , "Rb8" , "Qb3" , "Ne4" , "Rhd8" , "Qf1" , "axb6" , "Qc7" , "Bxc7" , "Qxa2" , "Qc3" , "Kg7" , "Bf7" , "Bd7" , "Ngf6" , "Qe4" , "Be4" , "Bc5" , "g5" , "Rad1" , "c4" , "Rfe1" , "e6" , "b3" , "Qh4" , "Rac8" , "Rc5" , "Ra5" , "Rc7" , "gxf3" , "d4" , "f6" ;
+        chon:nextHalfMove      :hmgamRFwn0I0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toupDm3M  a          chon:hessTournament ;
+        chon:atPlace  :plapDm3MI ;
+        chon:hasName  "SuperGM" .

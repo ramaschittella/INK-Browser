@@ -1,0 +1,68 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resWXjnDSe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgWXjnDSeI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWXjnDS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWXjnDS .
+
+:cgrWXjnDS  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamWXjnD .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agWXjnDS .
+
+:rolWXjnDS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agWXjnDS .
+
+:gamWXjnD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolWXjnDS ;
+        chon:atPlace           :plaWXjnDS ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamWXjnDSe ;
+        chon:hasHalfMove       :hmgamWXjnDSe , :hmgamRT1wmSv ;
+        chon:hasLastHalfMove   :hmgamRT1wmSv ;
+        chon:hasOpening        :opeWXjnDS ;
+        chon:hasReport         :cgrWXjnDS ;
+        chon:hasResult         :resWXjnDSe ;
+        chon:subEventOf        :touWXjnD .
+
+:touWXjnD  a          chon:hessTournament ;
+        chon:atPlace  :plaWXjnDS ;
+        chon:hasName  "Alma-Ata m3" .
+
+:plaWXjnDS  a         chon:Place ;
+        chon:hasName  "Alma-Ata" .
+
+:hmgamRT1wmSv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRT1wmSvG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qd4" .
+
+:agWXjnDS  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Polgar, Judit" .
+
+:hmgamWXjnDSe  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgWXjnDSeI , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "cxb4" , "Re3" , "Qd3" , "Qa6" , "Qf3" , "Bg6" , "Nbd2" , "Qc7" , "Nc6" , "Rfe8" , "h3" , "h5" , "Nxc4" , "cxd5" , "Ng4" , "Rc7" , "Nc4" , "Na5" , "Bg4" , "Nd7" , "Nf6" , "Nh2" , "Qxa2" , "Qxd4" , "hxg7" , "c3" , "Bxg7" , "e6" , "b5" , "Nh7" , "Nf8" , "Bf8" , "Qe3" , "Bf4" , "e4" , "Ng5" , "d4" , "hxg6" , "Bh5" , "Bxe5" , "Qxb4" , "c6" , "g3" , "Nf3" , "b4" , "O-O" , "Rae1" , "Bd3" , "exd5" , "Qxc4" , "Bd6" , "Qxb2" , "h4" , "Bxg6" , "Bg5" , "h6" , "Rac8" , "Qe2" , "Nxe5" , "Be5" , "d5" ;
+        chon:nextHalfMove      :hmgamWXjnDSe , :hmgamRT1wmSv .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeWXjnDS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B13" .
+
+:rolhgRT1wmSvG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agWXjnDS .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgampFzqxw1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgpFzqxw1G , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qxc3+" , "Ne5" , "f5" , "Bd7" , "Rdg8" , "Rc1" , "Qa5" , "Bf1" , "Rd2" , "Nxe4" , "Bg3" , "Rg8" , "Nh5" , "Nd7" , "Qe3" , "Nxc4" , "Bxc3+" , "Rc2" , "Bc6" , "b6" , "Qxc4" , "Rf8" , "Qe4" , "Re2" , "Rb2" , "Qxh5" , "Bd3" , "Qf6" , "e5" , "Qb3" , "bxc3" , "Bf3" , "Kf1" , "f4" , "Kg1" , "Bb5" , "Qf7" , "Ne2" , "Rg3" , "h4" , "Bxf3" , "g4" , "Bxe4" , "Qxg4" , "Nxg3" , "dxe6" , "Be2" , "O-O-O" , "fxg3" ;
+        chon:nextHalfMove      :hmgampFzqxw1 .
+
+:rolhgYDn9avbg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYDn9av .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYDn9av .
+
+:plaYDn9av  a         chon:Place ;
+        chon:hasName  "Belgrade" .
+
+chon:HalfMove  chon:subEventOf  :gamYDn9a .
+
+:cgrYDn9av  a   chon:ChessGameReport .
+
+:hmgamYDn9avb  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpFzqxw1G , :rolhgYDn9avbg ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "c5" , "d6" , "d5" , "h6" , "g6" , "e4" , "Bg5" , "g5" , "Bg7" , "Nf6" , "d4" , "Bh4" , "c4" , "Nc3" ;
+        chon:nextHalfMove      :hmgamYDn9avb , :hmgampFzqxw1 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agYDn9av .
+
+:gamYDn9a  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolYDn9av ;
+        chon:atPlace           :plaYDn9av ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamYDn9avb ;
+        chon:hasHalfMove       :hmgampFzqxw1 , :hmgamYDn9avb ;
+        chon:hasLastHalfMove   :hmgampFzqxw1 ;
+        chon:hasOpening        :opeYDn9av ;
+        chon:hasReport         :cgrYDn9av ;
+        chon:hasResult         :resYDn9avb ;
+        chon:subEventOf        :touYDn9a .
+
+:agYDn9av  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Spassky, Boris V" .
+
+:rolYDn9av  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agYDn9av .
+
+:opeYDn9av  a            chon:ChessOpening ;
+        chon:hasECOCode  "E70" .
+
+:resYDn9avb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgpFzqxw1G  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agYDn9av .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touYDn9a  a          chon:hessTournament ;
+        chon:atPlace  :plaYDn9av ;
+        chon:hasName  "St Stefan/Belgrade m" .

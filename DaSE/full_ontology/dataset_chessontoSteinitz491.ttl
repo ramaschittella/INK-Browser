@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolkjks0R  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agkjks0R .
+
+:reskjks0R7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opekjks0R  a            chon:ChessOpening ;
+        chon:hasECOCode  "C11" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkjks0R .
+
+chon:HalfMove  chon:subEventOf  :gamkjks0 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agkjks0R .
+
+:hmgamkjks0R7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgkjks0R7i , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Enschede, C." ;
+        chon:hasSANRecord      "Rf6" , "Rg6" , "Bh5" , "Be8" , "cxd4" , "Bf4" , "Ne8" , "e4" , "Nc3" , "exf6" , "Rc1" , "Bg5" , "Bd7" , "Nfd7" , "c3" , "a6" , "Qb3" , "Be7" , "Bxe7" , "Bxf3" , "Na5" , "g3" , "Bg2" , "d5" , "e6" , "Qe2" , "Rc6" , "Qxe7" , "Nb1" , "e5" , "Nc6" , "Qb5" , "c5" , "d4" , "Nf3" , "Nxd5" , "Be3" , "f6" , "Bg4" , "Rc8" , "Nf6" , "Nxf6" , "O-O" ;
+        chon:nextHalfMove      :hmgamkjks0R7 .
+
+:plakjks0R  a         chon:Place ;
+        chon:hasName  "New York" .
+
+:cgrkjks0R  a   chon:ChessGameReport .
+
+:gamkjks0  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolkjks0R ;
+        chon:atPlace           :plakjks0R ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamkjks0R7 ;
+        chon:hasHalfMove       :hmgamkjks0R7 ;
+        chon:hasLastHalfMove   :hmgamkjks0R7 ;
+        chon:hasOpening        :opekjks0R ;
+        chon:hasReport         :cgrkjks0R ;
+        chon:hasResult         :reskjks0R7 ;
+        chon:subEventOf        :toukjks0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:toukjks0  a          chon:hessTournament ;
+        chon:atPlace  :plakjks0R ;
+        chon:hasName  "New York sim" .
+
+:rolhgkjks0R7i  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agkjks0R .
+
+:agkjks0R  a          chon:Agent ;
+        chon:hasName  "Enschede, C." , "Steinitz, William" .

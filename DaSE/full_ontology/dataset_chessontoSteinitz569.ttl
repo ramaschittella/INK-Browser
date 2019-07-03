@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolylcMPx  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agylcMPx .
+
+:playlcMPx  a         chon:Place ;
+        chon:hasName  "London" .
+
+:hmgamylcMPxS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgylcMPxSE , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "c3" , "Qe2" , "Bd7" , "exd5" , "Nxh5" , "d5" , "e4" , "e3" , "d4" , "Bxe4" , "e6" , "Nxe4" , "Na5" , "Bg2" , "Nc6" , "Re5" , "Rxe5" , "O-O" , "Ne2" , "a4" , "Nh5" , "hxg6" , "f5" , "dxe4" , "Rf8" , "Nd2" , "Rxf4" , "Rf7" , "Bd6" , "g6" , "Rae1" , "fxe4" , "Bxe5" , "b4" , "Qh6" , "Bf4" , "Qc7" , "Be7" , "Rg7" , "b5" , "g3" , "Rb8" , "Re1" , "Qxh5" , "Bxg6" , "gxf4" , "c5" , "Nb3" , "c4" , "Nf4" , "Nf6" ;
+        chon:nextHalfMove      :hmgamylcMPxS .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agylcMPx .
+
+chon:HalfMove  chon:subEventOf  :gamylcMP .
+
+:agylcMPx  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Tinsley, Samuel" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agylcMPx .
+
+:opeylcMPx  a            chon:ChessOpening ;
+        chon:hasECOCode  "D00" .
+
+:resylcMPxS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:rolhgylcMPxSE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agylcMPx .
+
+:gamylcMP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolylcMPx ;
+        chon:atPlace           :playlcMPx ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamylcMPxS ;
+        chon:hasHalfMove       :hmgamylcMPxS ;
+        chon:hasLastHalfMove   :hmgamylcMPxS ;
+        chon:hasOpening        :opeylcMPx ;
+        chon:hasReport         :cgrylcMPx ;
+        chon:hasResult         :resylcMPxS ;
+        chon:subEventOf        :touylcMP .
+
+:touylcMP  a          chon:hessTournament ;
+        chon:atPlace  :playlcMPx ;
+        chon:hasName  "London" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrylcMPx  a   chon:ChessGameReport .

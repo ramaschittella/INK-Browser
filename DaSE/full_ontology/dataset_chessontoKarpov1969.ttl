@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agrXum3B  a          chon:Agent ;
+        chon:hasName  "Rogulj, Branko" , "Karpov, Anatoly" .
+
+:operXum3B  a            chon:ChessOpening ;
+        chon:hasECOCode  "D94" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrXum3B .
+
+:cgrrXum3B  a   chon:ChessGameReport .
+
+:hmgamzV8JjA5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzV8JjA5l ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rogulj, Branko" ;
+        chon:hasSANRecord      "Kf4" , "Nxg7" , "a3" , "f4" , "axb4" , "Nd4" , "Be6" , "Nc5" , "Rh1" , "Kf7" , "Bc3" , "Na4" , "Nd3+" , "Ba2+" , "a5" , "Kh2" , "Rg2" , "Nc4+" , "Rd8" , "Kg3" , "Ke8" , "Rxh5" , "Re7" , "Rg6+" , "Ke3" , "b4" , "Re6" , "Nf5" , "Nb2" , "gxf3" , "Kg6" , "h5" , "Bd4" , "Rxg7" ;
+        chon:nextHalfMove      :hmgamzV8JjA5 .
+
+:resrXum3BL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:tourXum3  a          chon:hessTournament ;
+        chon:atPlace  :plarXum3B ;
+        chon:hasName  "San Giorgio sim rapid" .
+
+chon:HalfMove  chon:subEventOf  :gamrXum3 .
+
+:rolhgrXum3BLa  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrXum3B .
+
+:hmgamrXum3BL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgrXum3BLa , :rolhgDXqzzAOl ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rogulj, Branko" ;
+        chon:hasSANRecord      "c6" , "Nf3" , "c4" , "d4" , "dxc4" , "Nc3" , "Nf6" , "g6" , "d5" , "e3" ;
+        chon:nextHalfMove      :hmgamDXqzzAO , :hmgamrXum3BL .
+
+:rolhgDXqzzAOl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrXum3B .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolrXum3B  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrXum3B .
+
+:hmgamDXqzzAO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgDXqzzAOl , :rolhgzV8JjA5l , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Rogulj, Branko" ;
+        chon:hasSANRecord      "Nfd4" , "hxg4" , "Be3" , "Rc8" , "Rc1" , "Ne5" , "Nh5" , "Rc5" , "b5" , "Rf7" , "Nxe6" , "Bb1" , "Rxh5" , "Nbd7" , "h6" , "dxe6" , "Bg7" , "Bxc4" , "Bg4" , "e4" , "O-O" , "d5" , "Nb6" , "Kh7" , "Nd7" , "Be6" , "Bxd2" , "Bd3" , "b3" , "Ne2" , "Qxd2" , "fxe6" , "Qd2" , "e6" , "gxh5" , "h3" ;
+        chon:nextHalfMove      :hmgamzV8JjA5 , :hmgamDXqzzAO .
+
+:gamrXum3  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrXum3B ;
+        chon:atPlace           :plarXum3B ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrXum3BL ;
+        chon:hasHalfMove       :hmgamDXqzzAO , :hmgamzV8JjA5 , :hmgamrXum3BL ;
+        chon:hasLastHalfMove   :hmgamzV8JjA5 ;
+        chon:hasOpening        :operXum3B ;
+        chon:hasReport         :cgrrXum3B ;
+        chon:hasResult         :resrXum3BL ;
+        chon:subEventOf        :tourXum3 .
+
+:rolhgzV8JjA5l  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrXum3B .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrXum3B .
+
+:plarXum3B  a         chon:Place ;
+        chon:hasName  "San Giorgio" .

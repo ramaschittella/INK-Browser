@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resrPZtF5A  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrPZtF5 .
+
+:rolhgrPZtF5AN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrPZtF5 .
+
+:tourPZtF  a          chon:hessTournament ;
+        chon:atPlace  :plarPZtF5 ;
+        chon:hasName  "Bad Kissingen" .
+
+chon:HalfMove  chon:subEventOf  :gamrPZtF .
+
+:operPZtF5  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrPZtF5 .
+
+:plarPZtF5  a         chon:Place ;
+        chon:hasName  "Bad Kissingen" .
+
+:hmgamrPZtF5A  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnMGSp3QN , chon:AgentRole , :rolhgrPZtF5AN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "c6" , "Nf3" , "Nd7" , "dxe4" , "Nxe4" , "Nd2" , "d4" , "e4" , "d5" ;
+        chon:nextHalfMove      :hmgamrPZtF5A , :hmgamnMGSp3Q .
+
+:hmgamnMGSp3Q  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgnMGSp3QN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "fxe3" , "Nd5" , "Nc4" , "cxd7" , "h4" , "Ke3" , "Rxd5" , "Bf5" , "c4" , "a3" , "g3+" , "Nxe3" , "f5" , "Qf3" , "b5" , "Rd5" , "Kg5" , "Qb8" , "Nxf6" , "Qe4" , "Re7" , "Rb8" , "Qxf4" , "e6" , "Rd7" , "Ne3" , "Bg5" , "Ngf6" , "Rc8" , "cxd5" , "Qd6" , "Ne5" , "Rc1" , "e4" , "Rxd7" , "Qxd3" , "a4" , "Qg4+" , "f6" , "O-O" , "b3" , "Kf2" , "Rhh8" , "a6" , "c5" , "Kxh4" , "Nb6" , "Bxd3" , "Bf4" , "Rd6" , "Kg6" , "Rh6" , "Rad1" , "Rd8" , "Rae8" , "c3" , "Qxg4+" , "Red1" , "Bg6" , "Nxf6+" , "Nd7" , "g6" , "e5" , "Kf7" , "Rfe1" , "c6" , "h5" , "a5" , "Rc5" , "d5" , "Kg3" , "Kh2" , "Bxf4" , "Kh5" , "hxg4" , "Qe6" , "Bd3" , "bxc4" , "Bd6" , "Rec7" ;
+        chon:nextHalfMove      :hmgamnMGSp3Q .
+
+:cgrrPZtF5  a   chon:ChessGameReport .
+
+:rolhgnMGSp3QN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrPZtF5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamrPZtF  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrPZtF5 ;
+        chon:atPlace           :plarPZtF5 ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamrPZtF5A ;
+        chon:hasHalfMove       :hmgamnMGSp3Q , :hmgamrPZtF5A ;
+        chon:hasLastHalfMove   :hmgamnMGSp3Q ;
+        chon:hasOpening        :operPZtF5 ;
+        chon:hasReport         :cgrrPZtF5 ;
+        chon:hasResult         :resrPZtF5A ;
+        chon:subEventOf        :tourPZtF .
+
+:agrPZtF5  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Karpov, Anatoly" .
+
+:rolrPZtF5  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agrPZtF5 .

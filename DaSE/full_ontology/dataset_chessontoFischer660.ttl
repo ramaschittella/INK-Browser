@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamyNslf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyNslfS ;
+        chon:atPlace           :playNslfS ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyNslfSx ;
+        chon:hasHalfMove       :hmgamZPSDBSp , :hmgamyNslfSx ;
+        chon:hasLastHalfMove   :hmgamZPSDBSp ;
+        chon:hasOpening        :opeyNslfS ;
+        chon:hasReport         :cgryNslfS ;
+        chon:hasResult         :resyNslfSx ;
+        chon:subEventOf        :touyNslf .
+
+:touyNslf  a          chon:hessTournament ;
+        chon:atPlace  :playNslfS ;
+        chon:hasName  "Herceg Novi blitz" .
+
+:resyNslfSx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyNslfS .
+
+:cgryNslfS  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamyNslf .
+
+:hmgamyNslfSx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyNslfSxI , :rolhgZPSDBSp8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Reshevsky, Samuel Herman" ;
+        chon:hasSANRecord      "Ne1" , "g6" , "c5" , "Qxe4" , "d4" , "Qa1" , "Rxb5" , "a2" , "b5" , "b4" , "axb4" , "Nb5" , "Bd7" , "Bd2" , "Nc7" , "Nc3" , "Rb1" , "Nxd5" , "c4" , "g3" , "d6" , "cxb4" , "a4" , "e4" , "a3" , "b6" , "Rxd2" , "Nf6" , "Qe7" , "Qxb6" , "R1b3" , "e6" , "a5" , "e5" , "exd4" , "cxd5" , "Bg7" , "d3" , "h3" , "Rfb1" , "Rd3" , "Rfc8" , "Rb4" , "Rbb3" , "Nd5" , "Bg2" , "Nf3" , "Rc2" , "Ne8" , "Qd8" , "Ne7" , "Rxa2" , "Nc6" , "O-O" , "Bxb5" , "Bf1" ;
+        chon:nextHalfMove      :hmgamyNslfSx , :hmgamZPSDBSp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyNslfS .
+
+:playNslfS  a         chon:Place ;
+        chon:hasName  "Herceg Novi" .
+
+:rolhgZPSDBSp8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyNslfS .
+
+:hmgamZPSDBSp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZPSDBSp8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Reshevsky, Samuel Herman" ;
+        chon:hasSANRecord      "Qe1+" , "Qe4" , "Rd1" , "Bxa1" , "Rxb2" , "f4" , "Kf1" , "Kh6" , "Kg2" , "f5" , "Rb7+" , "Rxg6+" , "Nb2" , "Kxg6" , "Qc3" , "Ne3" , "Nd1" , "d4" , "Rdb2" , "fxg3" , "Qf5" , "Rbb1" , "Rxa8+" , "b4" , "Qxd5" , "Qc2+" , "Kd1" , "b5" , "Rb3" , "Rab1" , "Qb1+" , "Rxg3" , "Qe4+" , "Nf1" , "Kf5" , "h4" , "Kg7" , "Qc2" , "Rxa1" , "h5" , "b3" , "Ke2" , "b2" , "d2" , "Kf3" , "Rb6" , "Rdxd2" , "Ke1" , "Rb1" , "Qc4" , "d5" , "Ng2" , "Qxg6" , "Qd3" , "Rbxg6+" ;
+        chon:nextHalfMove      :hmgamZPSDBSp .
+
+:agyNslfS  a          chon:Agent ;
+        chon:hasName  "Reshevsky, Samuel Herman" , "Fischer, Robert James" .
+
+:rolyNslfS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyNslfS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeyNslfS  a            chon:ChessOpening ;
+        chon:hasECOCode  "A34" .
+
+:rolhgyNslfSxI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyNslfS .

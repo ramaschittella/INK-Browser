@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamwPSPS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwPSPSU ;
+        chon:atPlace           :plawPSPSU ;
+        chon:atTime            "1870.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwPSPSUn ;
+        chon:hasHalfMove       :hmgamwPSPSUn , :hmgamHPy4bUq ;
+        chon:hasLastHalfMove   :hmgamHPy4bUq ;
+        chon:hasOpening        :opewPSPSU ;
+        chon:hasReport         :cgrwPSPSU ;
+        chon:hasResult         :reswPSPSUn ;
+        chon:subEventOf        :touwPSPS .
+
+:touwPSPS  a          chon:hessTournament ;
+        chon:atPlace  :plawPSPSU ;
+        chon:hasName  "GBR tour sim" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwPSPSU .
+
+:rolhgwPSPSUnG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwPSPSU .
+
+:opewPSPSU  a            chon:ChessOpening ;
+        chon:hasECOCode  "C30" .
+
+chon:HalfMove  chon:subEventOf  :gamwPSPS .
+
+:rolhgHPy4bUqU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwPSPSU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwPSPSU .
+
+:reswPSPSUn  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:hmgamHPy4bUq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHPy4bUqU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ranken, CE." ;
+        chon:hasSANRecord      "h6" , "Qg1+" , "Ke2" , "Rg1+" , "Bxg1" , "Qe3+" , "Kd1" , "Kd2" , "Rxf3" , "Qf7" , "Qd4+" , "Nxg1" , "Qxb2" , "Qg4" , "Qxg1+" , "Bxe4" , "Qxf3" , "Qxg1" , "Rf3" , "Rh3" , "Qd3" , "Rxg5" , "Qf2+" , "dxe4" , "Qxa1" , "Rf8" ;
+        chon:nextHalfMove      :hmgamHPy4bUq .
+
+:plawPSPSU  a         chon:Place ;
+        chon:hasName  "Great Britain" .
+
+:hmgamwPSPSUn  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgwPSPSUnG , :rolhgHPy4bUqU ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ranken, CE." ;
+        chon:hasSANRecord      "Bc5" , "fxg5" , "Bd7" , "Qe8" , "Bxg5" , "Nxb3" , "f4" , "e5" , "h4" , "Bc6" , "a6" , "Rxf5" , "Nc3" , "f5" , "Bb5" , "h5" , "Nxf5" , "d6" , "Ne4" , "axb3" , "e4" , "Na5" , "Nge7" , "f6" , "Ba4" , "g4" , "Nf3" , "O-O" , "exf5" , "g5" , "Nc6" , "Bb3" , "d3" ;
+        chon:nextHalfMove      :hmgamHPy4bUq , :hmgamwPSPSUn .
+
+:cgrwPSPSU  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agwPSPSU  a          chon:Agent ;
+        chon:hasName  "Ranken, CE." , "Steinitz, William" .
+
+:rolwPSPSU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwPSPSU .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agtdUvyt  a          chon:Agent ;
+        chon:hasName  "Akopian, Vladimir" , "Karpov, Anatoly" .
+
+:roltdUvyt  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtdUvyt .
+
+:opetdUvyt  a            chon:ChessOpening ;
+        chon:hasECOCode  "D46" .
+
+:rolhgtdUvytlF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtdUvyt .
+
+:rolhgVd8NTuc5  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtdUvyt .
+
+:gamtdUvy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltdUvyt ;
+        chon:atPlace           :platdUvyt ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtdUvytl ;
+        chon:hasHalfMove       :hmgamtdUvytl , :hmgamVd8NTuc ;
+        chon:hasLastHalfMove   :hmgamVd8NTuc ;
+        chon:hasOpening        :opetdUvyt ;
+        chon:hasReport         :cgrtdUvyt ;
+        chon:hasResult         :restdUvytl ;
+        chon:subEventOf        :toutdUvy .
+
+:hmgamtdUvytl  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVd8NTuc5 , :rolhgtdUvytlF , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Akopian, Vladimir" ;
+        chon:hasSANRecord      "c4" , "Bd6" , "Qc2" , "Nf6" , "Nbd7" , "d5" , "Be2" , "O-O" , "d4" , "Nc3" , "e3" , "c6" , "Nf3" , "e6" ;
+        chon:nextHalfMove      :hmgamVd8NTuc , :hmgamtdUvytl .
+
+:toutdUvy  a          chon:hessTournament ;
+        chon:atPlace  :platdUvyt ;
+        chon:hasName  "Moscow rapid" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtdUvyt .
+
+chon:HalfMove  chon:subEventOf  :gamtdUvy .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtdUvyt .
+
+:hmgamVd8NTuc  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVd8NTuc5 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Akopian, Vladimir" ;
+        chon:hasSANRecord      "Ke5" , "Qe2" , "dxc5" , "Ba7" , "Qxe5" , "Kd6" , "Qc8" , "Qe7" , "e4" , "Rxd1" , "h3" , "Qf6" , "Rxd8+" , "Ke7" , "Bh7" , "Qc8+" , "Bg3" , "Kf6" , "Kg2" , "Bc2" , "e5" , "Bf4" , "Bg8" , "Bxf4" , "Qc3" , "Nf6" , "Bxc4" , "Kh2" , "b3" , "Nxe4" , "Qb5" , "Qxa5" , "Nb6" , "Kf8" , "g5" , "g6" , "a4" , "h4" , "Bd3" , "Bxe4" , "Rd1" , "Ke2" , "h5" , "Kf1" , "a5" , "dxc4" , "gxf3" , "Qc4" , "Bxc5" , "a6" , "gxf4" , "Qxf6+" , "b4" , "Bf1" , "b5" , "Rxd1+" , "Nd5" , "Kd3" , "Qd8" , "c5" , "Ne4" , "Bd4" , "Kg7" , "h6" , "Kxf6" , "Qe1+" , "Bb7" , "Bxf2" , "Nf4" , "Qxd8" , "Rd8" , "Rfd8" , "Bxf3" ;
+        chon:nextHalfMove      :hmgamVd8NTuc .
+
+:restdUvytl  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:platdUvyt  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrtdUvyt  a   chon:ChessGameReport .

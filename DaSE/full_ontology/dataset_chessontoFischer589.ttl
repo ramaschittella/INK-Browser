@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolHg1Yja  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agHg1Yja .
+
+:resHg1YjaZ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaHg1Yja  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHg1Yja .
+
+:gamHg1Yj  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolHg1Yja ;
+        chon:atPlace           :plaHg1Yja ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamHg1YjaZ ;
+        chon:hasHalfMove       :hmgam9ibgFbO , :hmgamHg1YjaZ ;
+        chon:hasLastHalfMove   :hmgam9ibgFbO ;
+        chon:hasOpening        :opeHg1Yja ;
+        chon:hasReport         :cgrHg1Yja ;
+        chon:hasResult         :resHg1YjaZ ;
+        chon:subEventOf        :touHg1Yj .
+
+:hmgamHg1YjaZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgHg1YjaZd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Popov, Luben" ;
+        chon:hasSANRecord      "O-O" , "g6" , "c5" , "d3" , "Qd6" , "d6" , "Ne7" , "d4" , "dxc5" , "e6" , "Qa5+" , "Nf3" , "Na6" , "e4" , "g3" , "Be3" , "Nec6" , "Nc3" , "Bg2" , "Bg7" ;
+        chon:nextHalfMove      :hmgam9ibgFbO , :hmgamHg1YjaZ .
+
+:agHg1Yja  a          chon:Agent ;
+        chon:hasName  "Popov, Luben" , "Fischer, Robert James" .
+
+chon:HalfMove  chon:subEventOf  :gamHg1Yj .
+
+:opeHg1Yja  a            chon:ChessOpening ;
+        chon:hasECOCode  "B40" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agHg1Yja .
+
+:hmgam9ibgFbO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg9ibgFbOE ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Popov, Luben" ;
+        chon:hasSANRecord      "Rxc2" , "Bf8" , "Reb8" , "Qb2" , "Qxa5" , "Qb6" , "Ra1" , "a4" , "Rdc8" , "g4" , "Nxe7" , "Rd8" , "Qxb2" , "h6" , "Ng5" , "Rfd1" , "Bf1" , "Nc2" , "Be3" , "Be7" , "Nb4" , "Rac1" , "Qxb7" , "Bd2" , "Bd6" , "Nc7" , "Rc1" , "Rxa7" , "Rxa8" , "Rb1" , "Qb8" , "Rd5" , "Rd1" , "Kg7" , "Ne7+" , "a5" , "Re8" , "Rc8" , "e5" , "Rca2" , "Rb7" , "Nd5" , "Qxe7" , "Qxc7" , "Qc6" , "Qxa8" , "Rfd8" , "Qd6" , "Nxe6" , "c3" , "Qa2" , "Ra6" , "c4" , "Rb8" , "Be6" , "Rxa1" ;
+        chon:nextHalfMove      :hmgam9ibgFbO .
+
+:rolhg9ibgFbOE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHg1Yja .
+
+:touHg1Yj  a          chon:hessTournament ;
+        chon:atPlace  :plaHg1Yja ;
+        chon:hasName  "Skopje" .
+
+:rolhgHg1YjaZd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agHg1Yja .
+
+:cgrHg1Yja  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

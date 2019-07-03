@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag9csbht  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Hjartarson, Johann" .
+
+:rol9csbht  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9csbht .
+
+:hmgam9csbhtG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg9csbhtGl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qb7" , "Nxf3" , "e6" , "Kf8" , "d4" , "Nbd2" , "Qd7" , "Bg2" , "d5" , "a3" , "Bd4" , "Rac1" , "b6" , "Ke7" , "Nbd7" , "g3" , "Qc6" , "Rfc8" , "Nf6" , "Qd3" , "Nxg2" , "Bb7" , "Nf3" , "Bxc5" , "cxd5" , "c4" , "Bxg2" , "O-O" , "dxc5" , "a5" , "Bxd5" , "Rfd1" , "Qf3" , "Qxf3" , "Qa4+" , "Be3" , "Qc2" , "Ba6" , "Nh4" , "c5" ;
+        chon:nextHalfMove      :hmgam9csbhtG .
+
+:ope9csbht  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9csbht .
+
+chon:HalfMove  chon:subEventOf  :gamXcwXI .
+
+:res9csbhtG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9csbht .
+
+:rolhg9csbhtGl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9csbht .
+
+:plaXcwXIu  a         chon:Place ;
+        chon:hasName  "Amsterdam" .
+
+:gamXcwXI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9csbht ;
+        chon:atPlace           :plaXcwXIu ;
+        chon:atTime            "1991.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam9csbhtG ;
+        chon:hasHalfMove       :hmgam9csbhtG ;
+        chon:hasLastHalfMove   :hmgam9csbhtG ;
+        chon:hasOpening        :ope9csbht ;
+        chon:hasReport         :cgr9csbht ;
+        chon:hasResult         :res9csbhtG ;
+        chon:subEventOf        :tou9csbh .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr9csbht  a   chon:ChessGameReport .
+
+:tou9csbh  a          chon:hessTournament ;
+        chon:atPlace  :plaXcwXIu ;
+        chon:hasName  "Euwe mem" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resQFsW5i2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touQFsW5  a          chon:hessTournament ;
+        chon:atPlace  :plaoDhBHi ;
+        chon:hasName  "Trophee CCAS GpA" .
+
+:gamoDhBH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQFsW5i ;
+        chon:atPlace           :plaoDhBHi ;
+        chon:atTime            "2010.10.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQFsW5i2 ;
+        chon:hasHalfMove       :hmgamQFsW5i2 ;
+        chon:hasLastHalfMove   :hmgamQFsW5i2 ;
+        chon:hasOpening        :opeQFsW5i ;
+        chon:hasReport         :cgrQFsW5i ;
+        chon:hasResult         :resQFsW5i2 ;
+        chon:subEventOf        :touQFsW5 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQFsW5i .
+
+:cgrQFsW5i  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamoDhBH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQFsW5i .
+
+:rolhgQFsW5i2d  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQFsW5i .
+
+:hmgamQFsW5i2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgQFsW5i2d , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Qd2" , "e6" , "Ba6" , "c6" , "gxf4" , "e4" , "Rxf4" , "f6" , "Nd3" , "Be7" , "a3" , "Qh6" , "Ne5" , "Nf6" , "b5" , "e5" , "g5" , "Rxa3" , "Rf1" , "Qxb4" , "axb4" , "Qd8" , "Bxd8" , "Nh5" , "Ra1" , "Bc8" , "Nxb4" , "Bxf1" , "f4" , "Bg5" , "Qxd8" , "Qe7" , "Rxf1+" , "Ra8" , "b6" , "Nbd7" , "g6" , "Be2" , "d5" , "fxe5" , "Rg4" , "Bf4" , "O-O" , "Nxe5" , "Nc3" , "a5" , "c5" , "Bd8" , "Qf6" , "Na2" , "e3" , "Bb7" , "h6" , "Na4" , "Bd3" , "dxe5" , "Nf3" , "Rg5" , "Qc8" , "b4" , "d4" , "Ng7" , "c4" , "Nxc6" ;
+        chon:nextHalfMove      :hmgamQFsW5i2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agQFsW5i  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Edouard,R" .
+
+:rolQFsW5i  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQFsW5i .
+
+:plaoDhBHi  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:opeQFsW5i  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .

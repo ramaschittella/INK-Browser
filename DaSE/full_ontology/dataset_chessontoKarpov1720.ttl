@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touOFauH  a          chon:hessTournament ;
+        chon:atPlace  :plaOFauHv ;
+        chon:hasName  "Tilburg" .
+
+:rolhgfHnM5vVi  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOFauHv .
+
+:hmgamOFauHv5  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgfHnM5vVi , :rolhgOFauHv5T ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "O-O" , "e6" , "Bf4" , "Nf3" , "Be7" , "e3" , "Nf6" , "c4" , "cxd5" , "Nc3" , "Bxc5" , "d5" , "dxc5" , "d4" , "c5" , "Nxd5" ;
+        chon:nextHalfMove      :hmgamfHnM5vV , :hmgamOFauHv5 .
+
+:rolhgOFauHv5T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agOFauHv .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOFauHv .
+
+chon:HalfMove  chon:subEventOf  :gamOFauH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agOFauHv .
+
+:resOFauHv5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamOFauH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolOFauHv ;
+        chon:atPlace           :plaOFauHv ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamOFauHv5 ;
+        chon:hasHalfMove       :hmgamOFauHv5 , :hmgamfHnM5vV ;
+        chon:hasLastHalfMove   :hmgamfHnM5vV ;
+        chon:hasOpening        :opeOFauHv ;
+        chon:hasReport         :cgrOFauHv ;
+        chon:hasResult         :resOFauHv5 ;
+        chon:subEventOf        :touOFauH .
+
+:plaOFauHv  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:hmgamfHnM5vV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgfHnM5vVi , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Beliavsky, Alexander G" ;
+        chon:hasSANRecord      "Bg4" , "Bxc6" , "d3" , "Rb7" , "Nxg6+" , "Qb6" , "Rc1" , "Ra4" , "Rb1" , "Kh8" , "O-O" , "Bxc7" , "Rxc6" , "Qd3" , "Bb5" , "Qxe4" , "Ra1" , "Qxe4+" , "Bh5" , "h3" , "Qxc5" , "hxg6" , "f6" , "Rd4" , "d4" , "a3" , "bxc6" , "exd5" , "bxc5" , "Rxa7" , "Bd3" , "Bb6" , "Re1" , "b4" , "Kg2" , "Rc8" , "Re8" , "Rd1" , "Nc6" , "a4" , "Rxe4" , "e4" , "g4" , "Kf3" , "Nh4" , "Bg6" , "Qxc7" , "d2" , "Bc7" , "c5" , "Qe5" ;
+        chon:nextHalfMove      :hmgamfHnM5vV .
+
+:cgrOFauHv  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agOFauHv  a          chon:Agent ;
+        chon:hasName  "Beliavsky, Alexander G" , "Karpov, Anatoly" .
+
+:rolOFauHv  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agOFauHv .
+
+:opeOFauHv  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .

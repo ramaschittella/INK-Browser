@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamYe2ImyV  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYe2ImyVd , chon:AgentRole , :rolhgRUOcSnTr ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Na8" , "a6" , "Rd4" , "Nxa4" , "Rd7" , "Bc4" , "a4" , "Bxe3" , "Bd3" , "Rd1" , "Qc7" , "g3" , "h3" , "Nc2" , "Rxa4" , "Bxe5" , "Ke2" , "d5" , "h5" , "Qxc3" , "Bg7" , "Rb1" , "O-O" , "axb6" , "Rc4" , "Rh1" , "Bxa6" , "gxf5" , "Nxe1" , "Bf1" , "Nf6" , "Na4" , "c3" , "g6" , "Ne5" , "Rb1+" , "c4" , "Kg7" , "Re7" , "Rxe3" , "Rb8" , "Ne3" , "e6" , "Reb8" , "Bf4" , "Kg6" , "f4" , "Rb7" , "Bc5" , "Rd8" , "gxf4" , "f5" , "Rc2" , "Qxe3" , "a5" , "Nf3" , "c5" , "Kf3" , "Rxa6" , "exd5" , "Rxd5" , "fxe3" , "bxc3" , "Bd4" , "Rd2" , "Nd2" , "Nfd7" , "Qe3" , "Re1" , "b5" , "Qe2" , "cxd5" , "Naxb6" , "e4" , "d6" , "Nc3" , "Nb6" , "Rc8" , "Re8" , "exf5" , "Kf1" , "Rxe1+" , "Nbd7" ;
+        chon:nextHalfMove      :hmgamYe2ImyV , :hmgamRUOcSnT .
+
+:resMe7tNzS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaMe7tNz  a         chon:Place ;
+        chon:hasName  "Kuala Lumpur" .
+
+:hmgamRUOcSnT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgRUOcSnTr , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Timman, Jan H" ;
+        chon:hasSANRecord      "Kf7" , "f6+" , "Rd7+" , "Rxd6" , "Kg7" , "Kg6" , "Rd3+" , "h4" , "e4" , "Ke2" , "h3" , "Rxh3" , "Re2" , "Kh1" , "Rf7+" , "f5" , "Kf8" , "Ra3" , "Ke8" , "e5" , "Ra2+" , "Rd6+" , "Rf2" , "Re6+" , "h2" , "Ra5" , "Re7" , "e6" , "Kf2" , "Kg2" ;
+        chon:nextHalfMove      :hmgamRUOcSnT .
+
+:cgrMe7tNz  a   chon:ChessGameReport .
+
+:rolhgYe2ImyVd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMe7tNz .
+
+:hmgamMe7tNzS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgYe2ImyVd , chon:AgentRole ;
+        chon:hasSANRecord      "d4" ;
+        chon:nextHalfMove      :hmgamYe2ImyV .
+
+:agMe7tNz  a          chon:Agent ;
+        chon:hasName  "Timman, Jan H" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMe7tNz .
+
+:rolMe7tNz  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMe7tNz .
+
+:opeMe7tNz  a            chon:ChessOpening ;
+        chon:hasECOCode  "A70" .
+
+chon:HalfMove  chon:subEventOf  :gamMe7tN .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMe7tNz .
+
+:gamMe7tN  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMe7tNz ;
+        chon:atPlace           :plaMe7tNz ;
+        chon:atTime            "1990.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMe7tNzS ;
+        chon:hasHalfMove       :hmgamYe2ImyV , :hmgamRUOcSnT , :hmgamMe7tNzS ;
+        chon:hasLastHalfMove   :hmgamRUOcSnT ;
+        chon:hasOpening        :opeMe7tNz ;
+        chon:hasReport         :cgrMe7tNz ;
+        chon:hasResult         :resMe7tNzS ;
+        chon:subEventOf        :touMe7tN .
+
+:touMe7tN  a          chon:hessTournament ;
+        chon:atPlace  :plaMe7tNz ;
+        chon:hasName  "Candidats final" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgRUOcSnTr  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMe7tNz .

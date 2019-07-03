@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agwr141g  a          chon:Agent ;
+        chon:hasName  "Soos, Bela" , "Fischer, Robert James" .
+
+:rolwr141g  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agwr141g .
+
+:reswr141g5  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opewr141g  a            chon:ChessOpening ;
+        chon:hasECOCode  "B82" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwr141g .
+
+chon:HalfMove  chon:subEventOf  :gamwr141 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agwr141g .
+
+:rolhgwr141g5T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agwr141g .
+
+:hmgamwr141g5  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwr141g5T , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Soos, Bela" ;
+        chon:hasSANRecord      "Qg5+" , "f4" , "Rc8" , "Rc2" , "Rh8" , "Qb8" , "Kd8" , "Ba8" , "Rd7" , "Qc7" , "a6" , "Rxe6" , "Be7" , "hxg6" , "Qxf5" , "b5" , "Rxd4" , "d4" , "Rxf5" , "a3" , "Nc5" , "Ke8" , "Rf7" , "Nb3" , "Qf3" , "Bd3" , "g5" , "Rc7" , "Qb7" , "Nxe6" , "g4" , "Rhg1" , "Nxd4" , "Bxg5" , "Rxg6" , "Bg5" , "e4" , "Nf3" , "Qg4" , "Rxg5" , "Bd8" , "d6" , "Nd5" , "fxg6" , "Nf6" , "Nc3" , "cxd4" , "e6" , "Kb1" , "Rd2" , "exd4" , "f5" , "c5" , "cxd3" , "Nf8" , "Rf5" , "Ne6" , "Rc8+" , "Nc6" , "Nde2" , "Nd4" , "Rh6" , "O-O-O" , "Nxd3" , "Nd7" , "Qg2" , "Rg4" , "Bb7" , "Be3" , "e5" , "Nb4" , "g6" ;
+        chon:nextHalfMove      :hmgamwr141g5 .
+
+:plawr141g  a         chon:Place ;
+        chon:hasName  "Skopje" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamwr141  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolwr141g ;
+        chon:atPlace           :plawr141g ;
+        chon:atTime            "1967.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamwr141g5 ;
+        chon:hasHalfMove       :hmgamwr141g5 ;
+        chon:hasLastHalfMove   :hmgamwr141g5 ;
+        chon:hasOpening        :opewr141g ;
+        chon:hasReport         :cgrwr141g ;
+        chon:hasResult         :reswr141g5 ;
+        chon:subEventOf        :touwr141 .
+
+:cgrwr141g  a   chon:ChessGameReport .
+
+:touwr141  a          chon:hessTournament ;
+        chon:atPlace  :plawr141g ;
+        chon:hasName  "Skopje" .

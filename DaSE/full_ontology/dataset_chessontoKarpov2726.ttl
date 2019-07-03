@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resyma4tyQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:playma4ty  a         chon:Place ;
+        chon:hasName  "Santurtzi ESP" .
+
+:cgryma4ty  a   chon:ChessGameReport .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyma4ty .
+
+chon:HalfMove  chon:subEventOf  :gamyma4t .
+
+:agyma4ty  a          chon:Agent ;
+        chon:hasName  "Gomez Esteban,J" , "Karpov,Ana" .
+
+:rolyma4ty  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyma4ty .
+
+:opeyma4ty  a            chon:ChessOpening ;
+        chon:hasECOCode  "D35" .
+
+:gamyma4t  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyma4ty ;
+        chon:atPlace           :playma4ty ;
+        chon:atTime            "2003.05.03"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamyma4tyQ ;
+        chon:hasHalfMove       :hmgamyma4tyQ ;
+        chon:hasLastHalfMove   :hmgamyma4tyQ ;
+        chon:hasOpening        :opeyma4ty ;
+        chon:hasReport         :cgryma4ty ;
+        chon:hasResult         :resyma4tyQ ;
+        chon:subEventOf        :touyma4t .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyma4ty .
+
+:touyma4t  a          chon:hessTournament ;
+        chon:atPlace  :playma4ty ;
+        chon:hasName  "Basque Country vs. World Blindfold" .
+
+:rolhgyma4tyQ8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyma4ty .
+
+:hmgamyma4tyQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgyma4tyQ8 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Gomez Esteban,J" ;
+        chon:hasSANRecord      "Nf6" , "Bg4" , "a5" , "Na4" , "Bxf6" , "Qc2" , "a4" , "Be7" , "e3" , "exd5" , "d5" , "Nc3" , "bxc6" , "Bh5" , "Nge2" , "O-O" , "Nd7" , "a6" , "d4" , "b5" , "c6" , "e6" , "cxd5" , "Kxe2" , "Bxe2" , "b4" , "Bd3" , "Bg5" , "c4" ;
+        chon:nextHalfMove      :hmgamyma4tyQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

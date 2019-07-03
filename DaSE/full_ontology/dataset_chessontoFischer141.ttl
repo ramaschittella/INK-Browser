@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamx0H9rSB  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJ0DmZRG4 , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamJ0DmZRG .
+
+:agx0H9rS  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Sanguineti, Raul" .
+
+:rolx0H9rS  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agx0H9rS .
+
+:opex0H9rS  a            chon:ChessOpening ;
+        chon:hasECOCode  "B93" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx0H9rS .
+
+:resx0H9rSB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:HalfMove  chon:subEventOf  :gamx0H9r .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agx0H9rS .
+
+:hmgamJ0DmZRG  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgJ0DmZRG4 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Nbd7" , "d6" , "e5" , "Bf1" , "Nh4" , "Bd3" , "dxe5" , "b4" , "Rad1" , "Nf4" , "Ne4" , "Nxd2" , "Qc7" , "Nc3" , "Rf2" , "a6" , "Nxd5" , "Bxd5" , "bxc3" , "fxe5" , "f4" , "Bxg7" , "Nf3" , "Bh6" , "Bb7" , "Nc5" , "Kxg7" , "O-O" , "cxd4" , "exd5" , "Qe1" , "c4" , "Nf6" , "Rfd2" , "Nxd4" , "Qxd2" , "Nd5" , "Bg7" , "Nh5" , "d4" , "Qh4" , "c5" , "b5" , "g6" , "f6" ;
+        chon:nextHalfMove      :hmgamJ0DmZRG .
+
+:gamx0H9r  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolx0H9rS ;
+        chon:atPlace           :plax0H9rS ;
+        chon:atTime            "1958.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamx0H9rSB ;
+        chon:hasHalfMove       :hmgamJ0DmZRG , :hmgamx0H9rSB ;
+        chon:hasLastHalfMove   :hmgamJ0DmZRG ;
+        chon:hasOpening        :opex0H9rS ;
+        chon:hasReport         :cgrx0H9rS ;
+        chon:hasResult         :resx0H9rSB ;
+        chon:subEventOf        :toux0H9r .
+
+:plax0H9rS  a         chon:Place ;
+        chon:hasName  "Portoroz" .
+
+:toux0H9r  a          chon:hessTournament ;
+        chon:atPlace  :plax0H9rS ;
+        chon:hasName  "Portoroz Interzonal" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrx0H9rS  a   chon:ChessGameReport .
+
+:rolhgJ0DmZRG4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agx0H9rS .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgTHpUS8I2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agTHpUS8 .
+
+:hmgamTHpUS8I  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTHpUS8I2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kesseli, Anne" ;
+        chon:hasSANRecord      "Nf3" , "e4" , "Rd8" , "Nfd2" , "Ke2" , "Be3" , "Rfe8" , "b3" , "Nb1" , "O-O" , "Nd6" , "Nba3" , "Bb2" , "Bxc6" , "a4" , "a6" , "Be6" , "Bb5" , "Bb7" , "Nbd2" , "e5" , "Kf1" , "Qxc4" , "Bxc4+" , "d6" , "Nb8" , "bxc6" , "Ne7" , "Rxd7" , "Bxd7" , "Qc4" , "c3" , "f6" , "Rd1" , "a5" , "Be7" , "Rd7" , "Nb5" , "c5" , "h3" , "dxe5" , "Qe6" , "c6" , "Na5" , "Qd6" , "Qe7" , "Rc8" , "Re1" , "Rxd6" , "bxc4" , "Na6" , "Bxd6" , "Rad1" , "d4" , "Nc4" , "Qe2" , "Bf6" , "Bf8" , "Nxc4" , "Bc8" , "Nc6" , "Bc1" ;
+        chon:nextHalfMove      :hmgamTHpUS8I .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTHpUS8 .
+
+:agTHpUS8  a          chon:Agent ;
+        chon:hasName  "Kesseli, Anne" , "Karpov, Anatoly" .
+
+:gamTHpUS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolTHpUS8 ;
+        chon:atPlace           :plaTHpUS8 ;
+        chon:atTime            "1997.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTHpUS8I ;
+        chon:hasHalfMove       :hmgamTHpUS8I ;
+        chon:hasLastHalfMove   :hmgamTHpUS8I ;
+        chon:hasOpening        :opeTHpUS8 ;
+        chon:hasReport         :cgrTHpUS8 ;
+        chon:hasResult         :resTHpUS8I ;
+        chon:subEventOf        :touTHpUS .
+
+chon:HalfMove  chon:subEventOf  :gamTHpUS .
+
+:touTHpUS  a          chon:hessTournament ;
+        chon:atPlace  :plaTHpUS8 ;
+        chon:hasName  "Karpov sim" .
+
+:opeTHpUS8  a            chon:ChessOpening ;
+        chon:hasECOCode  "C68" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agTHpUS8 .
+
+:resTHpUS8I  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaTHpUS8  a         chon:Place ;
+        chon:hasName  "Valkeakoski" .
+
+:cgrTHpUS8  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolTHpUS8  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agTHpUS8 .

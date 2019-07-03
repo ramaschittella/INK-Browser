@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opezZoNvK  a            chon:ChessOpening ;
+        chon:hasECOCode  "E16" .
+
+:hmgamKXi23JD  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKXi23JD4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "Nbd7" , "Be7" , "exd5" , "Bxd6" , "Rxe1+" , "Qxd6" , "Ne5" , "Nxd7" , "Qd3" , "dxc5" , "Nf4" , "g4" , "Qe7" , "Bd6" , "Qe6" , "O-O" , "d5" , "h3" , "Bf4" , "Be5" , "Nxc5" , "Qxe3" , "Ne4" , "f5" , "f4" , "Qxe3+" , "Rc1" , "Nc3" , "Bb4+" , "Rxe1" , "Rxe3" , "c6" , "Rfe1" , "c5" , "Bb7" , "Bf8" , "Kf8" , "Qg3" , "e3" , "Nf6" , "Ne2" , "Bg2" , "cxd5" , "Bd2" , "Qd4" , "Re8" ;
+        chon:nextHalfMove      :hmgamKXi23JD .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzZoNvK .
+
+:hmgamzZoNvKy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKXi23JD4 , :rolhgzZoNvKyS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Ljubojevic, Ljubomir" ;
+        chon:hasSANRecord      "d4" , "e6" , "Nf3" , "g3" , "c4" , "Nf6" , "b6" ;
+        chon:nextHalfMove      :hmgamzZoNvKy , :hmgamKXi23JD .
+
+chon:HalfMove  chon:subEventOf  :gamzZoNv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzZoNvK .
+
+:gamzZoNv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzZoNvK ;
+        chon:atPlace           :plazZoNvK ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzZoNvKy ;
+        chon:hasHalfMove       :hmgamzZoNvKy , :hmgamKXi23JD ;
+        chon:hasLastHalfMove   :hmgamKXi23JD ;
+        chon:hasOpening        :opezZoNvK ;
+        chon:hasReport         :cgrzZoNvK ;
+        chon:hasResult         :reszZoNvKy ;
+        chon:subEventOf        :touzZoNv .
+
+:plazZoNvK  a         chon:Place ;
+        chon:hasName  "Luzern" .
+
+:cgrzZoNvK  a   chon:ChessGameReport .
+
+:rolhgzZoNvKyS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzZoNvK .
+
+:rolhgKXi23JD4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzZoNvK .
+
+:reszZoNvKy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agzZoNvK  a          chon:Agent ;
+        chon:hasName  "Ljubojevic, Ljubomir" , "Karpov, Anatoly" .
+
+:rolzZoNvK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzZoNvK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touzZoNv  a          chon:hessTournament ;
+        chon:atPlace  :plazZoNvK ;
+        chon:hasName  "WchT" .

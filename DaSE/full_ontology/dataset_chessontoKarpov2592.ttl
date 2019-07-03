@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:pla6SwSfk  a         chon:Place ;
+        chon:hasName  "Buenos Aires ARG" .
+
+:hmgam6SwSfk3  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg6SwSfk3a , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Short,N" ;
+        chon:hasSANRecord      "Qxd6" , "Rc4" , "Nc6" , "hxg5" , "g6" , "Rxc1+" , "e6" , "Rd2" , "Bf3" , "Qa4" , "Bg4" , "Rd3" , "e3" , "c5" , "h6" , "Bxd5" , "Be4" , "Rdc8" , "h3" , "Kg2" , "Ne5" , "cxd5" , "Nf6" , "Bd6" , "Nf3" , "Bxc5" , "exd5" , "c4" , "Kg7" , "Rc2" , "O-O" , "Qd4" , "Bf4" , "Nxb2" , "Nc3" , "Rac8" , "Bxd6" , "Nxd5" , "h4" , "g4" , "Qxd4" , "d4" , "Rab1" , "d5" , "Rxc1" , "Qb6" , "g5" , "b6" , "Be7" , "a3" , "Rc1+" , "Bxf3" , "Rfd1" , "Rxd4" , "Rfd8" , "Be2" , "R8c5" , "Nc4" , "dxc5" ;
+        chon:nextHalfMove      :hmgam6SwSfk3 .
+
+:cgr6SwSfk  a   chon:ChessGameReport .
+
+:ag6SwSfk  a          chon:Agent ;
+        chon:hasName  "Short,N" , "Karpov,An" .
+
+:rol6SwSfk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag6SwSfk .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6SwSfk .
+
+chon:HalfMove  chon:subEventOf  :gam6SwSf .
+
+:ope6SwSfk  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:res6SwSfk3  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gam6SwSf  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol6SwSfk ;
+        chon:atPlace           :pla6SwSfk ;
+        chon:atTime            "2001.09.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam6SwSfk3 ;
+        chon:hasHalfMove       :hmgam6SwSfk3 ;
+        chon:hasLastHalfMove   :hmgam6SwSfk3 ;
+        chon:hasOpening        :ope6SwSfk ;
+        chon:hasReport         :cgr6SwSfk ;
+        chon:hasResult         :res6SwSfk3 ;
+        chon:subEventOf        :tou6SwSf .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag6SwSfk .
+
+:tou6SwSf  a          chon:hessTournament ;
+        chon:atPlace  :pla6SwSfk ;
+        chon:hasName  "Najdorf Memorial" .
+
+:rolhg6SwSfk3a  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag6SwSfk .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

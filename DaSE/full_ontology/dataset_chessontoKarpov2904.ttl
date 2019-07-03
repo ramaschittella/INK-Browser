@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamFi6qfXv  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgFi6qfXvd , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kyas,Philipp" ;
+        chon:hasSANRecord      "gxf5" , "Rxe1" , "Nd3" , "Nxe5" , "Nxe1" , "Nd2" ;
+        chon:nextHalfMove      :hmgamFi6qfXv .
+
+:rolhgFi6qfXvd  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJkohwY .
+
+:cgrJkohwY  a   chon:ChessGameReport .
+
+:gamJkohw  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolJkohwY ;
+        chon:atPlace           :plaJkohwY ;
+        chon:atTime            "2007.01.20"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamJkohwYe ;
+        chon:hasHalfMove       :hmgamFi6qfXv , :hmgamJkohwYe ;
+        chon:hasLastHalfMove   :hmgamFi6qfXv ;
+        chon:hasOpening        :opeJkohwY ;
+        chon:hasReport         :cgrJkohwY ;
+        chon:hasResult         :resJkohwYe ;
+        chon:subEventOf        :touJkohw .
+
+:resJkohwYe  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touJkohw  a          chon:hessTournament ;
+        chon:atPlace  :plaJkohwY ;
+        chon:hasName  "Simul" .
+
+:rolhgJkohwYef  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agJkohwY .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJkohwY .
+
+chon:HalfMove  chon:subEventOf  :gamJkohw .
+
+:plaJkohwY  a         chon:Place ;
+        chon:hasName  "Wolfsburg GER" .
+
+:hmgamJkohwYe  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJkohwYef ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kyas,Philipp" ;
+        chon:hasSANRecord      "Nd5" , "Be6" , "c5" , "Nd7" , "Nb8" , "Rxd8" , "Bb5" , "d6" , "bxc6" , "c4" , "Kxe7" , "O-O" , "Bxc6" , "Rae1" , "f5" , "b3" , "Na6" , "dxe5" , "Re5" , "Nxe7" , "Nb4" , "Nxd4" , "Nf6" , "Bd7" , "Bxe5" , "Rd6" , "f3" , "Re1" , "Re2" , "Ne4" , "Rd8" , "h6" , "Nxe5" , "Nf3" , "Rc6" , "g4" , "e5" , "a3" , "Be3" , "Be7" , "Qxd8+" , "Rd5" , "Nc3" , "Nc6" , "e4" , "exd4" , "Bf4" , "d4" ;
+        chon:nextHalfMove      :hmgamJkohwYe , :hmgamFi6qfXv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agJkohwY .
+
+:agJkohwY  a          chon:Agent ;
+        chon:hasName  "Kyas,Philipp" , "Karpov,Ana" .
+
+:rolJkohwY  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agJkohwY .
+
+:opeJkohwY  a            chon:ChessOpening ;
+        chon:hasECOCode  "C66" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

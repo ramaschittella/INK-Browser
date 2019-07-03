@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plaQkSZQk  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+:resQkSZQkL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgam3ixdpjN  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3ixdpjNV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "dxc4" , "Bc8" , "Nh5" , "Nf4" , "Nd2" , "Nc4" , "Bxc4" , "Ne6" , "Qxe7" , "Bg5" , "c5" , "Bxe7" , "Ng3" , "Nxc4" , "Be6" ;
+        chon:nextHalfMove      :hmgam3ixdpjN .
+
+:agQkSZQk  a          chon:Agent ;
+        chon:hasName  "Tal, Mihail" , "Karpov, Anatoly" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQkSZQk .
+
+:opeQkSZQk  a            chon:ChessOpening ;
+        chon:hasECOCode  "C88" .
+
+chon:HalfMove  chon:subEventOf  :gamQkSZQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agQkSZQk .
+
+:rolhg3ixdpjNV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQkSZQk .
+
+:rolhgQkSZQkLI  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agQkSZQk .
+
+:cgrQkSZQk  a   chon:ChessGameReport .
+
+:hmgamQkSZQkL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3ixdpjNV , :rolhgQkSZQkLI ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tal, Mihail" ;
+        chon:hasSANRecord      "Nc6" , "Bb5" , "Nf6" , "Re1" , "a4" , "Ba2" , "Nc3" , "b5" , "Bb3" , "b4" , "Be7" , "d6" , "O-O" , "Nf3" , "d3" , "Na5" , "Bb7" , "Ba4" , "e5" , "e4" , "a6" , "Ne2" ;
+        chon:nextHalfMove      :hmgamQkSZQkL , :hmgam3ixdpjN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamQkSZQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolQkSZQk ;
+        chon:atPlace           :plaQkSZQk ;
+        chon:atTime            "1980.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamQkSZQkL ;
+        chon:hasHalfMove       :hmgamQkSZQkL , :hmgam3ixdpjN ;
+        chon:hasLastHalfMove   :hmgam3ixdpjN ;
+        chon:hasOpening        :opeQkSZQk ;
+        chon:hasReport         :cgrQkSZQk ;
+        chon:hasResult         :resQkSZQkL ;
+        chon:subEventOf        :touQkSZQ .
+
+:touQkSZQ  a          chon:hessTournament ;
+        chon:atPlace  :plaQkSZQk ;
+        chon:hasName  "Tilburg" .
+
+:rolQkSZQk  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agQkSZQk .

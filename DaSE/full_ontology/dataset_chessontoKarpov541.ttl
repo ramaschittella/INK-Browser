@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamXoqVfSA  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgXoqVfSAP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Spassky, Boris V" ;
+        chon:hasSANRecord      "e6" , "d6" , "Be2" , "Rd8" , "Nf3" , "Ne4" , "Nxc3" , "c5" , "b6" , "Bf8" , "dxc5" , "Rd1" , "Qd8" , "Kh1" , "Nc6" , "Kh2" , "Nc3" , "Kg7" , "Rxc6" , "a5" , "h6" , "a6" , "Rfd1" , "d5" , "R6d7" , "O-O" , "Rd3" , "g5" , "f6" , "Nd2" , "Bf4" , "b5" , "Bf7" , "Be7" , "cxd5" , "Qc6" , "Qc7" , "Nf6" , "R1d2" , "Bxc5" , "Bd7" , "Ne5" , "Nxc6" , "c4" , "f4" , "Qe2" , "f5" , "Bf3" , "b3" , "a3" , "Be5" , "Be6" , "Qb5" , "Qc2" , "d4" , "Qb6" , "Rxe7" , "Rfc8" , "h3" , "g3" , "Re2" , "g4" , "Bxc3" , "exd5" , "Qa5" , "Bg2" , "Qh5" , "Qc4" , "e3" , "Qd1" , "e4" , "Rcd6" ;
+        chon:nextHalfMove      :hmgamXoqVfSA .
+
+:plaMotGHT  a         chon:Place ;
+        chon:hasName  "Montreal" .
+
+:agMotGHT  a          chon:Agent ;
+        chon:hasName  "Spassky, Boris V" , "Karpov, Anatoly" .
+
+:rolMotGHT  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamMotGH  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMotGHT ;
+        chon:atPlace           :plaMotGHT ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamXoqVfSA ;
+        chon:hasHalfMove       :hmgamXoqVfSA ;
+        chon:hasLastHalfMove   :hmgamXoqVfSA ;
+        chon:hasOpening        :opeMotGHT ;
+        chon:hasReport         :cgrXoqVfS ;
+        chon:hasResult         :resMotGHTy ;
+        chon:subEventOf        :touMotGH .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMotGHT .
+
+chon:HalfMove  chon:subEventOf  :gamMotGH .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMotGHT .
+
+:rolhgXoqVfSAP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMotGHT .
+
+:cgrXoqVfS  a   chon:ChessGameReport .
+
+:resMotGHTy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolXoqVfS  a             chon:AuthorRole ;
+        chon:performedBy  :agXoqVfS .
+
+:opeMotGHT  a            chon:ChessOpening ;
+        chon:hasECOCode  "D37" .
+
+:touMotGH  a          chon:hessTournament ;
+        chon:atPlace  :plaMotGHT ;
+        chon:hasName  "Montreal" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

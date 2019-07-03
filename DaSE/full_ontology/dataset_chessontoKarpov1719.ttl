@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rol5Hqyvw  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag5Hqyvw .
+
+:res5HqyvwR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5Hqyvw .
+
+chon:HalfMove  chon:subEventOf  :gam5Hqyv .
+
+:ag5Hqyvw  a          chon:Agent ;
+        chon:hasName  "Jussupow, Artur" , "Karpov, Anatoly" .
+
+:hmgamvJATRwI  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvJATRwIv , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jussupow, Artur" ;
+        chon:hasSANRecord      "Qe7" , "cxd6" , "Kc3" , "Qd3" , "Kc2" , "Bxc8" , "f6" , "b4" , "Rh2" , "Nc6" , "Kf7" , "b5" , "Bc8" , "Rh5" , "d6" , "Qg4" , "Kf8" , "h5" , "h7" , "Nxa7" , "Ba6" , "Rxf8+" , "Kg7" , "R6a7" , "Na7" , "f3" , "c5" , "dxc5" , "Bd8" , "Qh3" , "Rh8" , "Kc4" , "Ra6" , "Rg8" , "Rxg5" , "Bh8" , "Qd8" , "Qd7" , "Qxc8" , "Rf1" , "Be7" , "Rhf8" , "Raf8" , "h6" , "Qf2" , "Re2" , "f4" , "Qe2" , "Kg8" , "Re8" , "Rha8" , "Rxa7" , "Rg1" , "f5" , "Qxg4" , "Qc2" , "Ra8" , "Rf2" , "Nb5" , "Bxf6" , "hxg4" , "Qf3" , "Rf8" , "Ke7" , "Ref8" , "Ra1" , "Bf6" , "g5" , "Kb1" ;
+        chon:nextHalfMove      :hmgamvJATRwI .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag5Hqyvw .
+
+:ope5Hqyvw  a            chon:ChessOpening ;
+        chon:hasECOCode  "E17" .
+
+:rolhgvJATRwIv  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5Hqyvw .
+
+:rolhg5HqyvwR8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag5Hqyvw .
+
+:pla5Hqyvw  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgr5Hqyvw  a   chon:ChessGameReport .
+
+:gam5Hqyv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol5Hqyvw ;
+        chon:atPlace           :pla5Hqyvw ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam5HqyvwR ;
+        chon:hasHalfMove       :hmgam5HqyvwR , :hmgamvJATRwI ;
+        chon:hasLastHalfMove   :hmgamvJATRwI ;
+        chon:hasOpening        :ope5Hqyvw ;
+        chon:hasReport         :cgr5Hqyvw ;
+        chon:hasResult         :res5HqyvwR ;
+        chon:subEventOf        :tou5Hqyv .
+
+:hmgam5HqyvwR  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg5HqyvwR8 , chon:AgentRole , :rolhgvJATRwIv ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Jussupow, Artur" ;
+        chon:hasSANRecord      "Bf6" , "Qd7" , "b6" , "O-O-O" , "Nc3" , "Nf6" , "Bh3" , "c4" , "Nf3" , "d6" , "Bd2" , "Qxd2" , "Bb7" , "Nxd2" , "Nxb8" , "Bg2" , "Rfxb8" , "a5" , "e5" , "Nc6" , "e6" , "g6" , "Qc2" , "h4" , "Be7" , "Nd4" , "O-O" , "d4" , "g3" , "d5" , "Ne4" , "h5" , "Rf8" , "a4" , "e4" ;
+        chon:nextHalfMove      :hmgamvJATRwI , :hmgam5HqyvwR .
+
+:tou5Hqyv  a          chon:hessTournament ;
+        chon:atPlace  :pla5Hqyvw ;
+        chon:hasName  "Tilburg" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:plazvdgEr  a         chon:Place ;
+        chon:hasName  "Baguio City" .
+
+:hmgamvtUpop1  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvtUpop1f , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Be7" , "Kf7" , "Bxd3" , "g5" , "Ra8" , "Qxd3" , "Rd7" , "Ra4" , "f6" , "Rc2" , "Rb6" , "dxe4" , "Rc7" , "h4" , "g4" , "Bxe4" , "Rxa4" , "a3" , "Rda6" , "Ke6" , "Rd6" , "f5" , "Red1" , "R8a7" , "g6" , "Rd2" , "Qb3" , "Rxe6" , "Qxe6" , "Raa8" , "Kf1" , "Rc8" , "Kg2" , "Re1" ;
+        chon:nextHalfMove      :hmgamvtUpop1 .
+
+:cgrzvdgEr  a   chon:ChessGameReport .
+
+:agzvdgEr  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kortschnoj, Viktor" .
+
+:gamzvdgE  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzvdgEr ;
+        chon:atPlace           :plazvdgEr ;
+        chon:atTime            "1978.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzvdgErK ;
+        chon:hasHalfMove       :hmgamvtUpop1 , :hmgamzvdgErK ;
+        chon:hasLastHalfMove   :hmgamvtUpop1 ;
+        chon:hasOpening        :opezvdgEr ;
+        chon:hasReport         :cgrzvdgEr ;
+        chon:hasResult         :reszvdgErK ;
+        chon:subEventOf        :touzvdgE .
+
+:rolzvdgEr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzvdgEr .
+
+:touzvdgE  a          chon:hessTournament ;
+        chon:atPlace  :plazvdgEr ;
+        chon:hasName  "World Championship 29th" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzvdgEr .
+
+:opezvdgEr  a            chon:ChessOpening ;
+        chon:hasECOCode  "E06" .
+
+chon:HalfMove  chon:subEventOf  :gamzvdgE .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzvdgEr .
+
+:hmgamzvdgErK  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgvtUpop1f , :rolhgzvdgErKh ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "g3" , "Nbd2" , "Re8" , "Ba6" , "Bd6" , "exd5" , "Ne4" , "Bb2" , "Bg2" , "O-O" , "b6" , "b3" , "e6" , "d5" , "Ndf3" , "bxa4" , "Nbd7" , "Nd3" , "Qe6" , "d4" , "a5" , "dxc5" , "Nf6" , "Nf3" , "Nxd7" , "c4" , "c5" , "Bb7" , "a4" , "cxd5" , "bxc5" , "e3" , "Be7" , "Rc1" , "Qxd7" , "Ne5" ;
+        chon:nextHalfMove      :hmgamzvdgErK , :hmgamvtUpop1 .
+
+:rolhgvtUpop1f  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzvdgEr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgzvdgErKh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzvdgEr .
+
+:reszvdgErK  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agUzaTF6  a          chon:Agent ;
+        chon:hasName  "Topalov,V" , "Karpov,Ana" .
+
+:plaIzeF97  a         chon:Place ;
+        chon:hasName  "Vitoria Gasteiz ESP" .
+
+:rolUzaTF6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agUzaTF6 .
+
+:opeUzaTF6  a            chon:ChessOpening ;
+        chon:hasECOCode  "E36" .
+
+:hmgamUzaTF64  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgUzaTF64c ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov,V" ;
+        chon:hasSANRecord      "Rg4" , "Rb7" , "Kg1" , "Nb6" , "Qxd3" , "Nf8" , "Ba6" , "bxc5" , "f4" , "Rfe8" , "Qb6" , "Bc3" , "Rbb4" , "Nc3" , "a5" , "f5" , "Qxc4" , "O-O" , "Ne8" , "Re4" , "d5" , "Nd5" , "Rd1" , "dxc4" , "e5" , "Rab8" , "Nc7" , "Bb4" , "Rd4" , "c5" , "h5" , "Nb4" , "Rc1" , "Bxf4" , "Nf3" , "Rxd3" , "Qc4" , "Qxb4" , "Nxf4" , "Qf2" , "Reb8" , "Qc7" , "Re1" , "b6" , "Nbd7" , "Bxb4" , "cxb4" , "Qe2" , "Qb7" , "Kxf1" , "Qd2" , "f6" , "Nd6" , "Bxf1" , "Rh3" , "dxc5" , "Rxh5" , "Qc2" , "Qa5+" , "Bd2" , "h4" , "Bg5" , "Qd6" , "h6" , "Nf4" , "Nb5" , "Nf6" , "b3" , "Rcc3" , "e6" , "Bxc3+" , "Nh3" , "Qf3" , "Kh7" , "d4" , "a3" , "Re3" , "a4" , "Qxc3" , "Qf7" , "e4" , "Ng5" , "Rd3" , "Rb4" , "Nd7" , "Rg3" , "c4" , "Rh4" ;
+        chon:nextHalfMove      :hmgamUzaTF64 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUzaTF6 .
+
+:rolhgUzaTF64c  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agUzaTF6 .
+
+chon:HalfMove  chon:subEventOf  :gamIzeF9 .
+
+:gamIzeF9  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolUzaTF6 ;
+        chon:atPlace           :plaIzeF97 ;
+        chon:atTime            "2007.11.02"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamUzaTF64 ;
+        chon:hasHalfMove       :hmgamUzaTF64 ;
+        chon:hasLastHalfMove   :hmgamUzaTF64 ;
+        chon:hasOpening        :opeUzaTF6 ;
+        chon:hasReport         :cgrUzaTF6 ;
+        chon:hasResult         :resUzaTF64 ;
+        chon:subEventOf        :touUzaTF .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agUzaTF6 .
+
+:cgrUzaTF6  a   chon:ChessGameReport .
+
+:touUzaTF  a          chon:hessTournament ;
+        chon:atPlace  :plaIzeF97 ;
+        chon:hasName  "Chess Champions League" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resUzaTF64  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .

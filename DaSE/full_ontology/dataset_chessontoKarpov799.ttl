@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agh4RYhG  a          chon:Agent ;
+        chon:hasName  "Giorgadze, Tamaz" , "Karpov, Anatoly" .
+
+:hmgamt4ObOFc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgt4ObOFcS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Giorgadze, Tamaz" ;
+        chon:hasSANRecord      "Re5" , "Qg5" , "Qxg5" , "axb5" , "Rad8" , "Qe7" , "Kh7" , "Qxe5" , "h4" , "h5" , "Nd6" , "Rfc1" , "Qd4" , "b6" , "Rxc7" , "Bg4" , "Rxe6" , "a4" , "Ng7" , "Kh8" , "Qb5" , "Qb6" , "Nxb5" , "Nf5" , "Bc8" , "Bd5" , "Bf1" , "Rg5" , "h3" , "Nd4" , "Qd8+" , "dxe6" , "Bb5" , "b4" , "b5" , "Qb1" , "Qb4" , "Qxc8" , "R1c2" , "Bc6" , "f5" , "Ne8" , "Be2" , "Kg2" , "Qxh4+" , "Qd7" , "Ne6" , "Rde8" , "Kg8" , "Re8" , "Qa1" , "g6" , "Bh3" , "Qf6" , "Qb2" , "Qc5" , "g3" , "Bxe6" , "R7c5" , "Rc8" , "Qc1+" , "Qd5" , "Rxg5" ;
+        chon:nextHalfMove      :hmgamt4ObOFc .
+
+:gamh4RYh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolh4RYhG ;
+        chon:atPlace           :plah4RYhG ;
+        chon:atTime            "1983.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamh4RYhG0 ;
+        chon:hasHalfMove       :hmgamt4ObOFc , :hmgamh4RYhG0 ;
+        chon:hasLastHalfMove   :hmgamt4ObOFc ;
+        chon:hasOpening        :opeh4RYhG ;
+        chon:hasReport         :cgrh4RYhG ;
+        chon:hasResult         :resh4RYhG0 ;
+        chon:subEventOf        :touh4RYh .
+
+:opeh4RYhG  a            chon:ChessOpening ;
+        chon:hasECOCode  "D55" .
+
+:touh4RYh  a          chon:hessTournament ;
+        chon:atPlace  :plah4RYhG ;
+        chon:hasName  "Hannover" .
+
+:rolhgt4ObOFcS  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agh4RYhG .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agh4RYhG .
+
+chon:HalfMove  chon:subEventOf  :gamh4RYh .
+
+:rolhgh4RYhG0p  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agh4RYhG .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agh4RYhG .
+
+:hmgamh4RYhG0  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgh4RYhG0p , chon:AgentRole , :rolhgt4ObOFcS ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Giorgadze, Tamaz" ;
+        chon:hasSANRecord      "c4" , "Nxf6+" , "Rc1" , "e3" , "Ne7" , "Be7" , "Nf6" , "Bxf6" , "h6" , "Nc6" , "Bg5" , "Bxc4" , "O-O" , "e5" , "Be2" , "Nf3" , "d4" , "d5" , "Qd2" , "e4" , "Nd6" , "dxc4" , "Nc3" , "Nf5" , "Qxf6" , "Ne4" , "a6" , "e6" ;
+        chon:nextHalfMove      :hmgamh4RYhG0 , :hmgamt4ObOFc .
+
+:cgrh4RYhG  a   chon:ChessGameReport .
+
+:rolh4RYhG  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agh4RYhG .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plah4RYhG  a         chon:Place ;
+        chon:hasName  "Hannover" .
+
+:resh4RYhG0  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrU53xSg  a   chon:ChessGameReport .
+
+:rolhgU53xSgTM  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agU53xSg .
+
+:rolU53xSg  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agU53xSg .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agU53xSg .
+
+chon:HalfMove  chon:subEventOf  :gamU53xS .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agU53xSg .
+
+:rolhg65ZLpfWZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agU53xSg .
+
+:hmgam65ZLpfW  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg65ZLpfWZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "f5" , "Rc1+" , "Ke5" , "Ke7" , "Re7" , "Kd1" , "Kxe4" , "h5" , "Rg1+" , "Rxh5" , "a4" , "Kh1" , "Kf1" , "Ra6" , "f2" , "bxc4" , "Rxa4" , "c4" , "f4" , "Rg8+" , "Kxf5" , "Kd2" , "Rb2" , "Rhg6" , "Rh8" , "Kh2" , "Ra3" , "Kxg3" , "Rh2" , "Rc2+" , "Kf3" , "f3" , "Rg2" , "Ke1" , "Kg3" , "Ng3" , "Kg5" , "Rc1" , "Nf1" , "Rh6+" , "Rh7" , "Rf2+" , "Rxf1" , "Re1" , "Kd6" , "h4" , "Ne2" , "Rh1" , "g4" , "Rf8+" , "Kh4" , "Kf4" , "Kg2" , "Rh6" , "c5" , "Kf7" ;
+        chon:nextHalfMove      :hmgam65ZLpfW .
+
+:gamU53xS  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolU53xSg ;
+        chon:atPlace           :plaU53xSg ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamU53xSgT ;
+        chon:hasHalfMove       :hmgam65ZLpfW , :hmgamU53xSgT ;
+        chon:hasLastHalfMove   :hmgam65ZLpfW ;
+        chon:hasOpening        :opeU53xSg ;
+        chon:hasReport         :cgrU53xSg ;
+        chon:hasResult         :resU53xSgT ;
+        chon:subEventOf        :touU53xS .
+
+:agU53xSg  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Gligoric, Svetozar" .
+
+:touU53xS  a          chon:hessTournament ;
+        chon:atPlace  :plaU53xSg ;
+        chon:hasName  "Siegen olm" .
+
+:hmgamU53xSgT  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgU53xSgTM , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "e4" , "Be2" , "Qc2" , "Bxe5" , "f6" , "Bd5" , "h5" , "Bd4+" , "d4" , "O-O" , "dxc5" , "Rb4" , "Rc1" , "c6" , "Qxg3" , "Qh4" , "Kg2" , "e5" , "Nxe5" , "Rae8" , "Bd7" , "Nc3" , "Bc4" , "g3" , "h6" , "Rfe8" , "Qg3" , "Nxd5" , "Be3" , "cxd5" , "Rd3" , "Nc5" , "Re5" , "g6" , "Nf6" , "g5" , "Kh1" , "d5" , "f4" , "Qd3" , "Ng4" , "h3" , "Rb8" , "Rad1" , "Bxc6" , "Qf3" , "Bxc5" , "f5" , "Nbd7" , "Bg7" , "a5" , "Rxg3" , "Nf3" , "c4" , "bxc6" , "Bg5" , "b3" , "d6" , "hxg3" , "h4" , "dxc6" ;
+        chon:nextHalfMove      :hmgam65ZLpfW , :hmgamU53xSgT .
+
+:opeU53xSg  a            chon:ChessOpening ;
+        chon:hasECOCode  "E94" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resU53xSgT  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plaU53xSg  a         chon:Place ;
+        chon:hasName  "Siegen" .

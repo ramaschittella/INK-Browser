@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamW7EGa  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolW7EGaQ ;
+        chon:atPlace           :plaW7EGaQ ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam97AUHR2 ;
+        chon:hasHalfMove       :hmgam97AUHR2 ;
+        chon:hasLastHalfMove   :hmgam97AUHR2 ;
+        chon:hasOpening        :opeW7EGaQ ;
+        chon:hasReport         :cgrW7EGaQ ;
+        chon:hasResult         :resW7EGaQY ;
+        chon:subEventOf        :touW7EGa .
+
+:touW7EGa  a          chon:hessTournament ;
+        chon:atPlace  :plaW7EGaQ ;
+        chon:hasName  "Caracas" .
+
+:plaW7EGaQ  a         chon:Place ;
+        chon:hasName  "Caracas" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agW7EGaQ .
+
+:hmgam97AUHR2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg97AUHR2P , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qe7" , "e4" , "e5" , "O-O-O" , "Nc3" , "Be7" , "Ne4" , "d3" , "c6" , "Nc5" , "dxe4" , "Qe2" , "Bxe2" , "Nf3" , "Nd2" , "Kxe7" , "Bg5" , "Nxe4" , "d6" , "Qxe2+" , "Nxe5" , "Nf6" , "Na6" , "Bxe7" ;
+        chon:nextHalfMove      :hmgam97AUHR2 .
+
+chon:HalfMove  chon:subEventOf  :gamW7EGa .
+
+:resW7EGaQY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agW7EGaQ  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Addison, William" .
+
+:rolW7EGaQ  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agW7EGaQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agW7EGaQ .
+
+:opeW7EGaQ  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+:rolhg97AUHR2P  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agW7EGaQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrW7EGaQ  a   chon:ChessGameReport .

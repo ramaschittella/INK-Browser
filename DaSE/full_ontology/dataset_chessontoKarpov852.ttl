@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolsKKDbG  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gamsKKDb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsKKDbG ;
+        chon:atPlace           :plasKKDbG ;
+        chon:atTime            "1984.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTKUYyHx ;
+        chon:hasHalfMove       :hmgamTKUYyHx ;
+        chon:hasLastHalfMove   :hmgamTKUYyHx ;
+        chon:hasOpening        :opeTKUYyH ;
+        chon:hasReport         :cgrTKUYyH ;
+        chon:hasResult         :resTKUYyHx ;
+        chon:subEventOf        :tousKKDb .
+
+:resTKUYyHx  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:tousKKDb  a          chon:hessTournament ;
+        chon:atPlace  :plasKKDbG ;
+        chon:hasName  "London" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsKKDbG .
+
+:rolhgTKUYyHxt  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsKKDbG .
+
+chon:HalfMove  chon:subEventOf  :gamsKKDb .
+
+:cgrTKUYyH  a   chon:ChessGameReport .
+
+:agsKKDbG  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Torre, Eugenio" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsKKDbG .
+
+:rolTKUYyH  a             chon:AuthorRole ;
+        chon:performedBy  :agTKUYyH .
+
+:opeTKUYyH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E42" .
+
+:plasKKDbG  a         chon:Place ;
+        chon:hasName  "London" .
+
+:hmgamTKUYyHx  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTKUYyHxt , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e2" , "Re1" , "Ke6" , "Bxf6" , "c4" , "Nc6" , "Bb6" , "Re5" , "Bxd5" , "Be6" , "c5" , "Qc2" , "Qd2" , "exd4" , "Kxg7" , "Bb4" , "h3" , "g7" , "Rc8" , "e6" , "Ne5" , "hxg5" , "e3" , "Rxc8" , "Qe3" , "cxd4" , "Re8+" , "Qxh7" , "d5" , "Be2" , "e4" , "Bd7" , "Be7" , "Nf6" , "Ng6" , "Rac1" , "Bc5" , "Rf1+" , "Na4" , "Qh6+" , "gxf6" , "Nxb6" , "exd5" , "Qc3" , "a3" , "axb6" , "h4" , "Qg7" , "Qc3+" , "Bf3" , "Kf4" , "f5" , "Nc3" , "Ng3" , "Ke5" , "dxe5" , "f4" , "cxd5" , "Bb2" , "Qxc8" , "d6" , "Qxg5" , "Kh2" , "Kg7" , "Ne4" , "Kxf6" , "b5" , "fxe5+" , "Rfe1" , "Ne2" , "Qg4" , "Qc4" , "Qxd5" , "Rxd5" , "b4" , "Qc1" , "Kf6" , "Qg5" , "Nxf6" , "Qe3+" , "g6" , "Kg3" , "Bc4" , "O-O" , "d4" ;
+        chon:nextHalfMove      :hmgamTKUYyHx .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

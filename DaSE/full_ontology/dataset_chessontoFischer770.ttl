@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agI1fWoK  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Taimanov, Mark E" .
+
+:hmgamI1fWoKo  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgI1fWoKoG , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "b4" , "Qe7" , "Ne7" , "Ne8" , "g6" , "Rc1" , "Rc8" , "Rfd8" , "Qa4" , "Nc3" , "Ra8" , "Rxd8" , "Kf2" , "Bg7" , "Nd4" , "f3" , "Kf1" , "exf4" , "d5" , "Nb5" , "Rxd8+" , "Kg2" , "d4" , "Qe5+" , "Bf8" , "Ng5" , "Be2" , "Re6" , "e5" , "gxf5" , "Nf3" , "Be5" , "c5" , "Rd1" , "Kg1" , "e4" , "Rc6" , "Qg7+" , "Kh8" , "Nc6" , "Qc5+" , "Qf6" , "Qxc6" , "Nf6" , "dxe5" , "h6" , "Nfxd5" , "b6" , "O-O" , "axb6" , "gxf3" , "Bc6" , "a3" , "Kh7" , "Qd7" , "f5" , "Qc1+" , "Qb3" , "f4" , "Bb7" , "exf5" , "d6" , "cxb6" , "Bd2" , "Bxf4" , "Be4" , "c4" , "Re8" , "Rg6" , "Nf4" , "Kxh2" , "fxe5" , "Bxh2" , "Nxd5" ;
+        chon:nextHalfMove      :hmgamI1fWoKo .
+
+:opeI1fWoK  a            chon:ChessOpening ;
+        chon:hasECOCode  "E97" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agI1fWoK .
+
+chon:HalfMove  chon:subEventOf  :gamI1fWo .
+
+:gamI1fWo  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolI1fWoK ;
+        chon:atPlace           :plaI1fWoK ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamI1fWoKo ;
+        chon:hasHalfMove       :hmgamI1fWoKo ;
+        chon:hasLastHalfMove   :hmgamI1fWoKo ;
+        chon:hasOpening        :opeI1fWoK ;
+        chon:hasReport         :cgrI1fWoK ;
+        chon:hasResult         :resI1fWoKo ;
+        chon:subEventOf        :touI1fWo .
+
+:resI1fWoKo  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:touI1fWo  a          chon:hessTournament ;
+        chon:atPlace  :plaI1fWoK ;
+        chon:hasName  "Candidats qf3" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agI1fWoK .
+
+:cgrI1fWoK  a   chon:ChessGameReport .
+
+:rolI1fWoK  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agI1fWoK .
+
+:rolhgI1fWoKoG  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agI1fWoK .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaI1fWoK  a         chon:Place ;
+        chon:hasName  "Vancouver" .

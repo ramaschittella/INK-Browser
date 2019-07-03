@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:touZ8if6  a          chon:hessTournament ;
+        chon:atPlace  :plaZ8if6P ;
+        chon:hasName  "Bastia sim" .
+
+:opeZ8if6P  a            chon:ChessOpening ;
+        chon:hasECOCode  "B31" .
+
+:resZ8if6PY  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ8if6P .
+
+:hmgamZ8if6PY  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZ8if6PYE , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Perez, F." ;
+        chon:hasSANRecord      "d6" , "a6" , "Re1" , "Bxc6" , "Nc6" , "Bg7" , "g6" , "c3" , "h3" , "bxc6" , "O-O" , "c5" , "Nc3" , "Nf3" , "Nf6" , "Rb8" , "Rb1" , "d4" , "cxd4" , "Bb5" , "e4" ;
+        chon:nextHalfMove      :hmgamS0pLZOQ , :hmgamZ8if6PY .
+
+:rolZ8if6P  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agZ8if6P .
+
+chon:HalfMove  chon:subEventOf  :gamZ8if6 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamy67UIM7  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgy67UIM7f , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Perez, F." ;
+        chon:hasSANRecord      "Qb3" , "Bf4" , "f6" , "Nf7" , "f5" , "Rb8" , "Bf8" , "Re8" , "e5" , "Nxf6+" , "Qg8+" , "Ne5" , "Nd5" , "Qc2" , "Kg7" , "c5" , "exd6" , "Bg3" , "Rc8" , "Bd7" , "f4" , "Nxd4" , "cxd4" , "Kh1" ;
+        chon:nextHalfMove      :hmgamy67UIM7 .
+
+:plaZ8if6P  a         chon:Place ;
+        chon:hasName  "Bastia" .
+
+:rolhgZ8if6PYE  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ8if6P .
+
+:agZ8if6P  a          chon:Agent ;
+        chon:hasName  "Perez, F." , "Karpov, Anatoly" .
+
+:hmgamS0pLZOQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgy67UIM7f , :rolhgS0pLZOQh , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Perez, F." ;
+        chon:hasSANRecord      "Bg5" , "Nd7" ;
+        chon:nextHalfMove      :hmgamy67UIM7 , :hmgamS0pLZOQ .
+
+:cgrZ8if6P  a   chon:ChessGameReport .
+
+:rolhgS0pLZOQh  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ8if6P .
+
+:rolhgy67UIM7f  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agZ8if6P .
+
+:gamZ8if6  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolZ8if6P ;
+        chon:atPlace           :plaZ8if6P ;
+        chon:atTime            "1998.11.05"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZ8if6PY ;
+        chon:hasHalfMove       :hmgamS0pLZOQ , :hmgamy67UIM7 , :hmgamZ8if6PY ;
+        chon:hasLastHalfMove   :hmgamy67UIM7 ;
+        chon:hasOpening        :opeZ8if6P ;
+        chon:hasReport         :cgrZ8if6P ;
+        chon:hasResult         :resZ8if6PY ;
+        chon:subEventOf        :touZ8if6 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agZ8if6P .

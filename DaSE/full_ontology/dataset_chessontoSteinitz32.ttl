@@ -1,0 +1,89 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamhxxcu86  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghxxcu86E , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Barnes, Thomas Wilson" ;
+        chon:hasSANRecord      "Qxg6+" , "d5" , "Nxa3" , "d4" , "Qxh7" , "Nc2" , "Qxb6" , "Nxe5" , "bxc5" , "Qc6" , "Kd8" , "Qd6" , "Qxf8" , "Bc4" , "c4" , "Qf6+" , "Nb6" , "Nxc4" , "b4" , "Bd7" , "Kc7" , "Rad1" , "Qg7+" , "Qxc5" , "Qxh8" ;
+        chon:nextHalfMove      :hmgamsxtp278 , :hmgamhxxcu86 .
+
+:plaEvqDB9  a         chon:Place ;
+        chon:hasName  "London" .
+
+:rolhgEvqDB9c3  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEvqDB9 .
+
+:rolhgPvmR98fg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEvqDB9 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEvqDB9 .
+
+:agEvqDB9  a          chon:Agent ;
+        chon:hasName  "Barnes, Thomas Wilson" , "Steinitz, William" .
+
+:touEvqDB  a          chon:hessTournament ;
+        chon:atPlace  :plaEvqDB9 ;
+        chon:hasName  "London mt" .
+
+:cgrEvqDB9  a   chon:ChessGameReport .
+
+chon:HalfMove  chon:subEventOf  :gamIzJuR .
+
+:rolhgsxtp278R  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEvqDB9 .
+
+:rolhghxxcu86E  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agEvqDB9 .
+
+:opeEvqDB9  a            chon:ChessOpening ;
+        chon:hasECOCode  "B40" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resEvqDB9c  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:hmgamsxtp278  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsxtp278R ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Barnes, Thomas Wilson" ;
+        chon:hasSANRecord      "Qe5+" , "Qf8" , "Rf6" , "Rb1" , "Qc5+" , "Rf8" , "Qe8" , "Nb4" , "Kc8" , "Nc6" , "Rxe6" ;
+        chon:nextHalfMove      :hmgamsxtp278 .
+
+:rolEvqDB9  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agEvqDB9 .
+
+:hmgamEvqDB9c  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEvqDB9c3 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Barnes, Thomas Wilson" ;
+        chon:hasSANRecord      "e6" , "e4" , "c5" , "Nf3" ;
+        chon:nextHalfMove      :hmgamPvmR98f , :hmgamEvqDB9c .
+
+:hmgamPvmR98f  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgPvmR98fg , :rolhghxxcu86E , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Barnes, Thomas Wilson" ;
+        chon:hasSANRecord      "Rfe1" , "Nh6" , "f5" , "b6" , "d4" , "Nf7" , "e5" , "b3" , "Qc3" , "a6" , "Ba3" , "O-O" , "Qd2" , "Na4" , "Nc6" , "Bf8" , "dxc5" , "Qc7" , "g6" , "bxc5" , "Nfxe5" , "Bg7" , "Nc3" , "Be2" ;
+        chon:nextHalfMove      :hmgamPvmR98f , :hmgamhxxcu86 .
+
+:gamIzJuR  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolEvqDB9 ;
+        chon:atPlace           :plaEvqDB9 ;
+        chon:atTime            "1862.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamEvqDB9c ;
+        chon:hasHalfMove       :hmgamsxtp278 , :hmgamhxxcu86 , :hmgamPvmR98f , :hmgamEvqDB9c ;
+        chon:hasLastHalfMove   :hmgamsxtp278 ;
+        chon:hasOpening        :opeEvqDB9 ;
+        chon:hasReport         :cgrEvqDB9 ;
+        chon:hasResult         :resEvqDB9c ;
+        chon:subEventOf        :touEvqDB .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agEvqDB9 .

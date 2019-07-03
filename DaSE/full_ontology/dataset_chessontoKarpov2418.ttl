@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resF6ktIfQ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:gamt6ngb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolF6ktIf ;
+        chon:atPlace           :plat6ngbg ;
+        chon:atTime            "1999.04.06"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamF6ktIfQ ;
+        chon:hasHalfMove       :hmgamF6ktIfQ ;
+        chon:hasLastHalfMove   :hmgamF6ktIfQ ;
+        chon:hasOpening        :opeF6ktIf ;
+        chon:hasReport         :cgrF6ktIf ;
+        chon:hasResult         :resF6ktIfQ ;
+        chon:subEventOf        :touF6ktI .
+
+:rolhgF6ktIfQl  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agF6ktIf .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agF6ktIf .
+
+chon:HalfMove  chon:subEventOf  :gamt6ngb .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agF6ktIf .
+
+:plat6ngbg  a         chon:Place ;
+        chon:hasName  "Dos Hermanas" .
+
+:cgrF6ktIf  a   chon:ChessGameReport .
+
+:hmgamF6ktIfQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgF6ktIfQl , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "b6" , "Kxg7" , "Nf8" , "f3" , "Bb7" , "Nc3" , "bxc4" , "O-O" , "Be3" , "Bg7" , "Nf3" , "Rac1" , "d6" , "hxg5" , "g4" , "g3" , "h3" , "Ne4" , "Be4" , "c3" , "Qxd6" , "Bxe4" , "Bxg5" , "a4" , "b3" , "Qg3" , "g6" , "g5" , "h4" , "Qb8" , "e6" , "Rc8" , "c4" , "Rc7" , "Nxe4" , "Qf4" , "cxd4" , "Bd3" , "d4" , "Bxg7" , "Qa8" , "a6" , "a5" , "b5" , "b4" , "Nf6" , "Bxf3" , "Re8" , "Rxd6" , "Qh4" , "h6" , "Qxd4" , "Rd1" , "Qxb4" , "c5" , "Nbd7" , "Bd5" , "Bd4" , "Bg2" , "Rc4" ;
+        chon:nextHalfMove      :hmgamF6ktIfQ .
+
+:touF6ktI  a          chon:hessTournament ;
+        chon:atPlace  :plat6ngbg ;
+        chon:hasName  "Dos Hermanas" .
+
+:agF6ktIf  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kramnik, Vladimir" .
+
+:rolF6ktIf  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agF6ktIf .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeF6ktIf  a            chon:ChessOpening ;
+        chon:hasECOCode  "A30" .

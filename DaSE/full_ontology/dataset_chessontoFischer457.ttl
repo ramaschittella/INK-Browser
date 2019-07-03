@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamBJV4Y  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBJV4YT ;
+        chon:atPlace           :plaBJV4YT ;
+        chon:atTime            "1964.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBJV4YTc ;
+        chon:hasHalfMove       :hmgamBJV4YTc , :hmgam3L8mlU3 ;
+        chon:hasLastHalfMove   :hmgam3L8mlU3 ;
+        chon:hasOpening        :opeBJV4YT ;
+        chon:hasReport         :cgrBJV4YT ;
+        chon:hasResult         :resBJV4YTc ;
+        chon:subEventOf        :touBJV4Y .
+
+:cgrBJV4YT  a   chon:ChessGameReport .
+
+:touBJV4Y  a          chon:hessTournament ;
+        chon:atPlace  :plaBJV4YT ;
+        chon:hasName  "Cicero sim" .
+
+:rolBJV4YT  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBJV4YT .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBJV4YT .
+
+:plaBJV4YT  a         chon:Place ;
+        chon:hasName  "Cicero" .
+
+chon:HalfMove  chon:subEventOf  :gamBJV4Y .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBJV4YT .
+
+:agBJV4YT  a          chon:Agent ;
+        chon:hasName  "Sandrin, Albert" , "Fischer, Robert James" .
+
+:hmgam3L8mlU3  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3L8mlU37 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sandrin, Albert" ;
+        chon:hasSANRecord      "Qe2" , "O-O" , "Be3" , "Qxh6" , "Bg1" , "Ngf6" , "Kg2" , "Rf7" , "Bf2" , "c5" , "Bg6" , "h6" , "c6" , "Qxb6" , "g5" , "Qc3" , "axb6" , "Nf5" , "Ne6" , "Rd1" , "Nc5" , "Bc4" , "Rg8" , "Qf3" , "Qb3" , "Bg4" , "Qxh7" , "Qb4" , "Bh7" , "Rxd7" , "Nxe7+" , "Nh4" , "O-O-O" , "Rf8" , "h3" , "Kc6" , "Rxd1" , "Ng5" , "g4" , "a4" , "f3" , "Qxb2" , "Bxe6+" , "Nc3" , "Bh5" , "Be7" , "Qxg7+" , "Rgf8" , "dxe5" , "Qe1" , "Nd7" , "Bxd5" , "a5" , "b5" , "Qxe7" , "Nxd5" , "a6" , "Kxd7" , "fxe6" , "Qxc2" , "Nd5" , "Nf3" , "Rd7" , "Qxe5" , "Qg3" , "Qc7" , "Qd2+" ;
+        chon:nextHalfMove      :hmgam3L8mlU3 .
+
+:opeBJV4YT  a            chon:ChessOpening ;
+        chon:hasECOCode  "C41" .
+
+:hmgamBJV4YTc  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBJV4YTcF , :rolhg3L8mlU37 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sandrin, Albert" ;
+        chon:hasSANRecord      "d6" , "d4" , "e4" , "Nf3" , "e5" ;
+        chon:nextHalfMove      :hmgam3L8mlU3 , :hmgamBJV4YTc .
+
+:rolhgBJV4YTcF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBJV4YT .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg3L8mlU37  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBJV4YT .
+
+:resBJV4YTc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .

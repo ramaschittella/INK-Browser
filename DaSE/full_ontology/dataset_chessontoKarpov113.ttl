@@ -1,0 +1,67 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgZQfqnKDW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNQicPI .
+
+:agNQicPI  a          chon:Agent ;
+        chon:hasName  "Najdorf, Miguel" , "Karpov, Anatoly" .
+
+:rolNQicPI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agNQicPI .
+
+:resNQicPIA  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNQicPI .
+
+:gamNQicP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolNQicPI ;
+        chon:atPlace           :plaNQicPI ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamNQicPIA ;
+        chon:hasHalfMove       :hmgamNQicPIA , :hmgamZQfqnKD ;
+        chon:hasLastHalfMove   :hmgamZQfqnKD ;
+        chon:hasOpening        :opeNQicPI ;
+        chon:hasReport         :cgrNQicPI ;
+        chon:hasResult         :resNQicPIA ;
+        chon:subEventOf        :touNQicP .
+
+chon:HalfMove  chon:subEventOf  :gamNQicP .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agNQicPI .
+
+:hmgamNQicPIA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgNQicPIAL , chon:AgentRole ;
+        chon:hasSANRecord      "e4" ;
+        chon:nextHalfMove      :hmgamZQfqnKD .
+
+:opeNQicPI  a            chon:ChessOpening ;
+        chon:hasECOCode  "B92" .
+
+:hmgamZQfqnKD  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgZQfqnKDW , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Najdorf, Miguel" ;
+        chon:hasSANRecord      "c5" , "Be7" , "Nf3" , "Kh1" , "exf4" , "d5" , "Bxf4" , "Nc6" , "Be6" , "Bg5" , "a6" , "cxd4" , "f4" , "dxe4" , "Nxe4" , "d6" , "d4" , "Nb3" , "O-O" , "e5" , "Ne4" , "Be2" , "Nd2" , "Nf6" , "Nxd4" , "Nc3" ;
+        chon:nextHalfMove      :hmgamZQfqnKD .
+
+:rolhgNQicPIAL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agNQicPI .
+
+:touNQicP  a          chon:hessTournament ;
+        chon:atPlace  :plaNQicPI ;
+        chon:hasName  "Hastings7172" .
+
+:plaNQicPI  a         chon:Place ;
+        chon:hasName  "Hastings" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrNQicPI  a   chon:ChessGameReport .

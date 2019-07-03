@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamY7DR8wP  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgU5k2Rw6T , :rolhgY7DR8wPT , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Bc5" , "Bc4" , "e4" , "e5" , "d6" , "Nc6" , "c3" , "Bxb4" , "b4" , "Nf3" , "O-O" ;
+        chon:nextHalfMove      :hmgamU5k2Rw6 , :hmgamY7DR8wP .
+
+:hmgamU5k2Rw6  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgU5k2Rw6T , :rolhg73geov95 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Kh1" , "Ne7" , "Rac1" , "gxf3" , "Re8" , "d5" , "Rg1" , "Bxf3" , "O-O" , "Rc8" , "Ng6" , "Na5" , "Bb6" , "c6" , "Ne5" , "Rxc1" , "exd5" , "Rf8" , "Nf5" , "f6" , "Bd3" , "cxd5" , "d4" , "Bb2" , "Ne2" , "Bb5" , "Qd2" , "g6" , "Bg4" , "exd4" , "Nc3" , "cxd4" , "Ng3" ;
+        chon:nextHalfMove      :hmgamU5k2Rw6 , :hmgam73geov9 .
+
+:rolY7DR8w  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agY7DR8w .
+
+:rolhg73geov95  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agY7DR8w .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agY7DR8w .
+
+:hmgam73geov9  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg73geov95 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Nh6" , "Rxg6+" , "Rf7" , "fxe5" , "Kf8" , "Qxg6+" , "Qh6" , "hxg6" , "Qe6+" , "Qf5+" , "Ke7" , "Rg7" , "Bxe5" ;
+        chon:nextHalfMove      :hmgam73geov9 .
+
+:agY7DR8w  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Blackburne, Joseph Henry" .
+
+chon:HalfMove  chon:subEventOf  :gamN7GSy .
+
+:rolhgY7DR8wPT  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agY7DR8w .
+
+:plaN7GSyx  a         chon:Place ;
+        chon:hasName  "Baden-Baden" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeY7DR8w  a            chon:ChessOpening ;
+        chon:hasECOCode  "C51" .
+
+:touY7DR8  a          chon:hessTournament ;
+        chon:atPlace  :plaN7GSyx ;
+        chon:hasName  "Baden-Baden" .
+
+:cgrY7DR8w  a   chon:ChessGameReport .
+
+:rolhgU5k2Rw6T  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agY7DR8w .
+
+:gamN7GSy  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolY7DR8w ;
+        chon:atPlace           :plaN7GSyx ;
+        chon:atTime            "1870.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamY7DR8wP ;
+        chon:hasHalfMove       :hmgam73geov9 , :hmgamY7DR8wP , :hmgamU5k2Rw6 ;
+        chon:hasLastHalfMove   :hmgam73geov9 ;
+        chon:hasOpening        :opeY7DR8w ;
+        chon:hasReport         :cgrY7DR8w ;
+        chon:hasResult         :resY7DR8wP ;
+        chon:subEventOf        :touY7DR8 .
+
+:resY7DR8wP  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agY7DR8w .

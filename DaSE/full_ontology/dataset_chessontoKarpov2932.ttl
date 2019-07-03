@@ -1,0 +1,74 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgVLZBOIF2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiLS6UG , :agKO4nhH .
+
+:hmgamVLZBOIF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgVLZBOIF2 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Georgiev,Ki" ;
+        chon:hasSANRecord      "Kxe3" , "Nc7" , "Kf3" , "a3" ;
+        chon:nextHalfMove      :hmgamVLZBOIF .
+
+:touiLS6U  a          chon:hessTournament ;
+        chon:atPlace  :plaiLS6UG ;
+        chon:hasName  "Gorenje GM" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agKO4nhH .
+
+:plaiLS6UG  a         chon:Place ;
+        chon:hasName  "Valjevo SRB" .
+
+:rolKO4nhH  a             chon:AuthorRole ;
+        chon:performedBy  :agKO4nhH .
+
+:agiLS6UG  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" .
+
+chon:HalfMove  chon:subEventOf  :gamiLS6U .
+
+:resKO4nhHS  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgKO4nhHSO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agKO4nhH , :agiLS6UG .
+
+:agKO4nhH  a          chon:Agent ;
+        chon:hasName  "Georgiev,Ki" .
+
+:hmgamKO4nhHS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgKO4nhHSO , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Georgiev,Ki" ;
+        chon:hasSANRecord      "Rd2" , "Nxd7" , "Nc5" , "Nf3" , "Rb6" , "cxd5" , "Bb4" , "b6" , "h5" , "Be2" , "e4" , "f4" , "Nc6" , "Rh7" , "Ra3" , "Re7" , "a3" , "Rxc5" , "d4" , "Ke8" , "Kf8" , "Rxh6" , "Kf2" , "Nc3" , "d5" , "gxf5+" , "Rd7" , "g5" , "a6" , "Qxc3+" , "Ne6" , "Rxd5" , "Kd2" , "Rac8" , "Ra1" , "Rb1" , "Nb3+" , "bxc3" , "Bg4" , "h6" , "Kf6" , "Bf3" , "f5" , "Nc7" , "dxc5" , "Na6" , "Nb3" , "Rb4" , "Bc3" , "Bd3" , "Rc7" , "a4" , "Be6" , "Ne4" , "O-O" , "fxe5" , "Nxb6" , "exd5" , "g6" , "Bxc3+" , "exf5" , "c5" , "Kg3" , "e6" , "Rxd7" , "Nd4" , "Nxc3" , "Re5" , "f6" , "Rfe8" , "Nxe6" , "Bc4" , "g4" , "h4" , "e3" , "f3" , "Ra2" , "Qxc3" , "Nd8" , "Bd7" , "Ke7" , "Nxc7+" , "Qf6" , "Ke1" , "c4" , "c6" , "Rxc7" , "Nd5" , "Nf6" , "Kg4" , "a5" , "Rd6" , "Bd2" , "axb6" , "gxh6" , "Qc2" ;
+        chon:nextHalfMove      :hmgamVLZBOIF , :hmgamKO4nhHS .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeKO4nhH  a            chon:ChessOpening ;
+        chon:hasECOCode  "E37" .
+
+:gamiLS6U  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliLS6UG ;
+        chon:atPlace           :plaiLS6UG ;
+        chon:atTime            "2007.06.16"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKO4nhHS ;
+        chon:hasHalfMove       :hmgamVLZBOIF , :hmgamKO4nhHS ;
+        chon:hasLastHalfMove   :hmgamVLZBOIF ;
+        chon:hasOpening        :opeKO4nhH ;
+        chon:hasReport         :cgrKO4nhH ;
+        chon:hasResult         :resKO4nhHS ;
+        chon:subEventOf        :touiLS6U .
+
+:cgrKO4nhH  a   chon:ChessGameReport .
+
+:roliLS6UG  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiLS6UG .

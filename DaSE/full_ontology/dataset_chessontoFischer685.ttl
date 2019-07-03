@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamyoTbP  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolyoTbPq ;
+        chon:atPlace           :playoTbPq ;
+        chon:atTime            "1970.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamKoPpmpU ;
+        chon:hasHalfMove       :hmgamKoPpmpU ;
+        chon:hasLastHalfMove   :hmgamKoPpmpU ;
+        chon:hasOpening        :opeyoTbPq ;
+        chon:hasReport         :cgryoTbPq ;
+        chon:hasResult         :resyoTbPqR ;
+        chon:subEventOf        :touyoTbP .
+
+:touyoTbP  a          chon:hessTournament ;
+        chon:atPlace  :playoTbPq ;
+        chon:hasName  "Palma de Mallorca Interzonal" .
+
+:resyoTbPqR  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:playoTbPq  a         chon:Place ;
+        chon:hasName  "Palma de Mallorca" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyoTbPq .
+
+:cgryoTbPq  a   chon:ChessGameReport .
+
+:hmgamKoPpmpU  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgKoPpmpUj ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "e3" , "Qb1" , "Bxg6" , "e4" , "Ne5" , "c4" , "Bd3" , "Ra1" , "Rb1" , "c5" , "Rc2" , "Qe2" , "e4+" , "Kd6" , "Ra4" , "c3" , "d3" , "Re1" , "Kh1" , "Qc6" , "Qd7" , "Rd2" , "Be2" , "Kf3" , "Kg4" , "Kd4" , "Bb6" , "Ra2" , "Bg7" , "Bh6" , "h4" , "Rxe4" , "Qa2" , "fxe5" , "Nge7" , "d5" , "bxa6" , "Bxc3" , "Qa5" , "dxc4" , "Nd1" , "Bg2" , "Re8+" , "f4" , "Ke5" , "Rb3" , "e6" , "Rxc4" , "Rf1+" , "Bd4" , "Kxg4" , "Nec6" , "Be3" , "Bd2" , "Bxd4" , "e5" , "Ke7" , "Rc6" , "a4" , "g4" , "Qa4" , "Bc5" , "Ra3+" , "Nxc4" , "Ra3" , "Bh3" , "Bg4" , "Kf6" , "a6" , "f6" , "g6" , "d6" , "Rfd8" , "Rac8" , "Nc6" , "Nc3" , "hxg4" , "Ng4+" , "Kf5" , "Nc4" , "Kh2" , "Qc7" , "Kg7" , "Rb6" , "Rxa6" , "Bxf3" , "Re1+" , "Nd4" , "b5" , "O-O" , "h5" , "Ke6" , "Rxa1" , "Bd8" , "Rd1" , "b4" , "Rb8" , "fxe5+" , "Rc7" , "Ra4+" , "g3" , "h3" , "Kg2" , "Ne3" , "Nf3" , "Ra2+" , "Kg3" , "Bxa1" , "Qxc4" , "Bf1" , "Bf6" , "Ba7" , "a5" ;
+        chon:nextHalfMove      :hmgamKoPpmpU .
+
+chon:HalfMove  chon:subEventOf  :gamyoTbP .
+
+:agyoTbPq  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Hort, Vlastimil" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agyoTbPq .
+
+:rolyoTbPq  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agyoTbPq .
+
+:opeyoTbPq  a            chon:ChessOpening ;
+        chon:hasECOCode  "B50" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhgKoPpmpUj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agyoTbPq .

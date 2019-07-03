@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgwWNgfMmV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBY78wO .
+
+:rolhgBY78wO4X  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBY78wO .
+
+:hmgamBY78wO4  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgBY78wO4X , chon:AgentRole , :rolhgwWNgfMmV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "c4" , "Bg7" , "Nf3" , "Bg2" , "g3" , "Nf6" , "d4" , "c6" , "g6" ;
+        chon:nextHalfMove      :hmgamBY78wO4 , :hmgamwWNgfMm .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBY78wO .
+
+:hmgamwWNgfMm  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgwWNgfMmV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Kasparov, Gary" ;
+        chon:hasSANRecord      "cxd5" , "Nc6" , "Kf1" , "Nxc6" , "b3" , "O-O" , "Rxf4+" , "Qg5" , "Ne5" , "a5" , "Nbd3" , "Be8" , "Nfd7" , "Bb4" , "Bxe4" , "Rg8" , "Kh8" , "Be1" , "Bxc6" , "Rfd1" , "g5" , "Rg4" , "Bd7" , "Rc8" , "dxe5" , "gxf4" , "e6" , "Ke1" , "Nc8" , "Nf3" , "f4" , "d5" , "Nc3" , "Rac1" , "Ba3" , "h3" , "Bd6" , "h5" , "f5" , "Rxc1" , "Bxe5" , "Be3" , "Rxg5" , "Na4" , "Nb6" , "Ne4" , "a4" , "Nb2" , "Qe3" , "Qh3" , "Bf6" , "Nd6" , "b6" , "e3" , "h4" , "Bf2" , "Qd2" , "f6" , "Qxg5" , "dxe4" ;
+        chon:nextHalfMove      :hmgamwWNgfMm .
+
+chon:HalfMove  chon:subEventOf  :gamBY78w .
+
+:opeBY78wO  a            chon:ChessOpening ;
+        chon:hasECOCode  "D79" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBY78wO .
+
+:gamBY78w  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBY78wO ;
+        chon:atPlace           :plaBY78wO ;
+        chon:atTime            "1986.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBY78wO4 ;
+        chon:hasHalfMove       :hmgamBY78wO4 , :hmgamwWNgfMm ;
+        chon:hasLastHalfMove   :hmgamwWNgfMm ;
+        chon:hasOpening        :opeBY78wO ;
+        chon:hasReport         :cgrBY78wO ;
+        chon:hasResult         :resBY78wO4 ;
+        chon:subEventOf        :touBY78w .
+
+:resBY78wO4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaBY78wO  a         chon:Place ;
+        chon:hasName  "London/Leningrad" .
+
+:cgrBY78wO  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agBY78wO  a          chon:Agent ;
+        chon:hasName  "Kasparov, Gary" , "Karpov, Anatoly" .
+
+:rolBY78wO  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBY78wO .
+
+:touBY78w  a          chon:hessTournament ;
+        chon:atPlace  :plaBY78wO ;
+        chon:hasName  "World Championship 33th-KK3" .

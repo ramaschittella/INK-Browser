@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrrqjsi4  a   chon:ChessGameReport .
+
+:gamrqjsi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolrqjsi4 ;
+        chon:atPlace           :plarqjsi4 ;
+        chon:atTime            "2006.08.22"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamTtvKE5Z ;
+        chon:hasHalfMove       :hmgamTtvKE5Z ;
+        chon:hasLastHalfMove   :hmgamTtvKE5Z ;
+        chon:hasOpening        :operqjsi4 ;
+        chon:hasReport         :cgrrqjsi4 ;
+        chon:hasResult         :resrqjsi49 ;
+        chon:subEventOf        :tourqjsi .
+
+:tourqjsi  a          chon:hessTournament ;
+        chon:atPlace  :plarqjsi4 ;
+        chon:hasName  "Lichthof Champions Blitz" .
+
+:agrqjsi4  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Korchnoi,V" .
+
+:rolrqjsi4  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:rolhgTtvKE5Zk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agrqjsi4 .
+
+:operqjsi4  a            chon:ChessOpening ;
+        chon:hasECOCode  "D28" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrqjsi4 .
+
+:hmgamTtvKE5Z  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgTtvKE5Zk , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Raxc5" , "Rdf3" , "Bg5" , "Bc5" , "e5" , "h4" , "a5" , "Rd3" , "Nd5" , "R1c4+" , "Nc6" , "Rc8" , "Bd4" , "Qxf6" , "Bb7" , "Rfa1" , "g6" , "Rc2" , "bxa4" , "Rd2" , "Bxc4" , "Nf3" , "Nf6" , "Bxc4+" , "Rac8" , "Rf3" , "Bc6" , "Qf6+" , "Qe2" , "a6" , "Rf8" , "Rb2+" , "Qd6" , "Rc1" , "Nxf6" , "d5" , "Bxf2+" , "O-O" , "Rfd8" , "Ka4" , "Rxa4" , "dxc4" , "Qb6" , "Ra8" , "Rxe4" , "Qf6" , "e3" , "a3" , "d4" , "b5" , "Ra2" , "Ra5" , "Kc4" , "Bxc5" , "Kb3" , "Rb7" , "Nd4" , "Rxg2" , "Bb5" , "Qf5" , "Kh8" , "c4" , "Qg4" , "h6" , "Nc3" , "Kd3" , "Bxd4" , "Bb2" , "dxc5" , "Rf1" , "Ke2" , "Bc4" , "e4" , "Kb4" , "a4" , "Rb8" , "e6" , "Bd3" , "Rc2+" , "Nxd4" , "b3" , "Ra3" , "Ne3" , "Bxf6" , "bxc4" , "Rc4" , "c5" , "Kc2" , "Nf5" , "Kf1" , "Kg7" ;
+        chon:nextHalfMove      :hmgamTtvKE5Z .
+
+chon:HalfMove  chon:subEventOf  :gamrqjsi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agrqjsi4 .
+
+:rolTtvKE5  a             chon:AuthorRole ;
+        chon:performedBy  :agTtvKE5 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resrqjsi49  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:plarqjsi4  a         chon:Place ;
+        chon:hasName  "Zurich SUI" .

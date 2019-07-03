@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamxIAjI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxIAjIU ;
+        chon:atPlace           :plaxIAjIU ;
+        chon:atTime            "1974.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxIAjIUk ;
+        chon:hasHalfMove       :hmgamsGjstTA , :hmgamxIAjIUk ;
+        chon:hasLastHalfMove   :hmgamsGjstTA ;
+        chon:hasOpening        :opexIAjIU ;
+        chon:hasReport         :cgrxIAjIU ;
+        chon:hasResult         :resxIAjIUk ;
+        chon:subEventOf        :touxIAjI .
+
+:touxIAjI  a          chon:hessTournament ;
+        chon:atPlace  :plaxIAjIU ;
+        chon:hasName  "Nice olm fin-A" .
+
+:rolhgsGjstTAU  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxIAjIU .
+
+:hmgamxIAjIUk  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgxIAjIUkW , :rolhgsGjstTAU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Nxe4" , "Qc7" , "c5" , "Ngf6" , "Nxf6+" , "Bc3" , "c6" , "Bxc5" , "Bc4" , "N1f3" , "Nc3" , "Nbd5" , "Be7" , "e6" , "d4" , "Bd2" , "Nb6" , "Bd3" , "Ne4" , "dxe4" , "Ng5" , "dxc5" , "Qe2" , "Nd7" , "h6" , "d5" , "e4" ;
+        chon:nextHalfMove      :hmgamxIAjIUk , :hmgamsGjstTA .
+
+:rolhgxIAjIUkW  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxIAjIU .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxIAjIU .
+
+chon:HalfMove  chon:subEventOf  :gamxIAjI .
+
+:hmgamsGjstTA  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsGjstTAU , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "O-O" , "Bxf4" , "Qxf4" , "Nf4" , "Bd2" , "gxf6" , "Bb5" , "Bd7" , "O-O-O" ;
+        chon:nextHalfMove      :hmgamsGjstTA .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxIAjIU .
+
+:resxIAjIUk  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaxIAjIU  a         chon:Place ;
+        chon:hasName  "Nice" .
+
+:cgrxIAjIU  a   chon:ChessGameReport .
+
+:agxIAjIU  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Radulov, Ivan" .
+
+:rolxIAjIU  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxIAjIU .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opexIAjIU  a            chon:ChessOpening ;
+        chon:hasECOCode  "B17" .

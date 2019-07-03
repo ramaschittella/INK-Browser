@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeugdTW7  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:rolhgugdTW7rg  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agugdTW7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agugdTW7 .
+
+:plaugdTW7  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:HalfMove  chon:subEventOf  :gamugdTW .
+
+:cgrugdTW7  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agugdTW7 .
+
+:hmgamugdTW7r  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsvPI9fZ1 , :rolhgugdTW7rg , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "e6" , "d4" , "Nf3" , "Nf6" , "d5" , "g3" , "c4" ;
+        chon:nextHalfMove      :hmgamugdTW7r , :hmgamsvPI9fZ .
+
+:agugdTW7  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Grischuk,A" .
+
+:gamugdTW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolugdTW7 ;
+        chon:atPlace           :plaugdTW7 ;
+        chon:atTime            "2008.08.29"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamugdTW7r ;
+        chon:hasHalfMove       :hmgamsvPI9fZ , :hmgamugdTW7r ;
+        chon:hasLastHalfMove   :hmgamsvPI9fZ ;
+        chon:hasOpening        :opeugdTW7 ;
+        chon:hasReport         :cgrugdTW7 ;
+        chon:hasResult         :resugdTW7r ;
+        chon:subEventOf        :touugdTW .
+
+:rolugdTW7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agugdTW7 .
+
+:touugdTW  a          chon:hessTournament ;
+        chon:atPlace  :plaugdTW7 ;
+        chon:hasName  "Tal Memorial Blitz" .
+
+:hmgamsvPI9fZ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgsvPI9fZ1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Be7" , "Qb3" , "Qe4" , "Bd2" , "Bf4" , "c5" , "Qe8" , "Rfd1" , "Bd6" , "Bg2" , "a4" , "a6" , "dxc5" , "Bc6" , "Nxf4" , "Nb6" , "Rb7" , "bxa4" , "Na4" , "Qe3" , "Bxc5" , "Nd5" , "Bxg2" , "Qxa5" , "Qb7" , "Bb7" , "Nc3" , "Qxc4" , "Nxg2" , "Qe7" , "Nxa4" , "b5" , "Qxc5" , "Qc2" , "Ne1" , "Qc3" , "dxc4" , "Rb6" , "Qxf4" , "h4" , "h6" , "Bb4" , "Rac1" , "Ra7" , "Qd3" , "Nc5" , "Qc1" , "Nc6" , "Rxb2" , "O-O" , "Be4" , "e3" , "a5" , "Bc5" ;
+        chon:nextHalfMove      :hmgamsvPI9fZ .
+
+:rolhgsvPI9fZ1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agugdTW7 .
+
+:resugdTW7r  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

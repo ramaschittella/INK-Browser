@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opezTvoAc  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:rolhgzTvoAc7X  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agzTvoAc .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzTvoAc .
+
+:gammVmBD  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolzTvoAc ;
+        chon:atPlace           :plamVmBDd ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamzTvoAc7 ;
+        chon:hasHalfMove       :hmgamzTvoAc7 ;
+        chon:hasLastHalfMove   :hmgamzTvoAc7 ;
+        chon:hasOpening        :opezTvoAc ;
+        chon:hasReport         :cgrzTvoAc ;
+        chon:hasResult         :reszTvoAc7 ;
+        chon:subEventOf        :touzTvoA .
+
+:hmgamzTvoAc7  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgzTvoAc7X ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Tarnutzer, Werner" ;
+        chon:hasSANRecord      "Bf5" , "Ke3" , "e5" , "Qa4" , "Nc6" , "fxe3" , "Re8" , "Kb8" , "Ka8" , "Bxd5" , "Be3" , "g5" , "e6" , "Bg8" , "h6" , "d4" , "Qe5" , "Nd7" , "Kd2" , "Rxd7" , "Be3+" , "Nge2" , "e4" , "Bc5" , "Nxd4" , "Rhd1" , "Qc4" , "Bxd4" , "d5" , "c6" , "O-O-O" , "Bg2" , "Qd2" , "Bh7" , "Qc6" , "Qf7" , "Qe7" , "Qf4+" , "fxe6" , "Nd4" , "Qf5" , "exd5" , "Qg7" , "Nxe6" , "cxd4" , "Bg6" , "Nf4" , "g4" , "Ne7" , "c5" , "Rxd5" , "Qf6" , "Qxd4" , "Nc3" , "Qxd7" , "a4" , "Rd8" , "Rc8" ;
+        chon:nextHalfMove      :hmgamzTvoAc7 .
+
+:touzTvoA  a          chon:hessTournament ;
+        chon:atPlace  :plamVmBDd ;
+        chon:hasName  "Zuerich sim" .
+
+chon:HalfMove  chon:subEventOf  :gammVmBD .
+
+:cgrzTvoAc  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agzTvoAc .
+
+:rolzTvoAc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agzTvoAc .
+
+:reszTvoAc7  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agzTvoAc  a          chon:Agent ;
+        chon:hasName  "Tarnutzer, Werner" , "Karpov, Anatoly" .
+
+:plamVmBDd  a         chon:Place ;
+        chon:hasName  "Zuerich" .

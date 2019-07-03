@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgamMJHcQD4  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgMJHcQD4j ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Huebner, Robert" ;
+        chon:hasSANRecord      "Ree3" , "b4" , "Bf5" , "d5" , "h4" , "Rf4" , "fxe4" , "Rd5" , "Bxd2+" , "Nd4" , "Nc3" , "Rd4" , "Rc8" , "Rxf4" , "a4" , "Nb4+" , "Nxf3" , "Bf3" , "Kxd2" , "Kb3" , "c4" , "O-O-O" , "f4" , "h5" , "h3" , "Rc3" , "Qe5" , "Nf6" , "Qd4+" , "Kb4" , "Qe3" , "Rxc5" , "Qxd4" , "e6" , "Qe2" , "Be2" , "bxc5" , "Nxe4" , "gxf3" , "Bb4" , "e4" , "Rxe6" , "Nxc4" , "b6" , "Kc3" , "Nc6" , "Rc1" , "Rhe1" , "Kc2" , "Bd2" , "f3" , "c6" , "c5" , "Qd5+" , "Kb8" , "Nf3" , "Re6" , "Rxd4" , "Ne5" , "Qxe4+" , "d4" , "Bxe4" , "dxc4" , "f6" , "Na6" ;
+        chon:nextHalfMove      :hmgamMJHcQD4 .
+
+:cgrMJHcQD  a   chon:ChessGameReport .
+
+:agMJHcQD  a          chon:Agent ;
+        chon:hasName  "Huebner, Robert" , "Karpov, Anatoly" .
+
+:rolMJHcQD  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agMJHcQD .
+
+:resMJHcQD4  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMJHcQD .
+
+:touMJHcQ  a          chon:hessTournament ;
+        chon:atPlace  :plaMJHcQD ;
+        chon:hasName  "Tilburg" .
+
+chon:HalfMove  chon:subEventOf  :gamMJHcQ .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agMJHcQD .
+
+:opeMJHcQD  a            chon:ChessOpening ;
+        chon:hasECOCode  "D17" .
+
+:rolhgMJHcQD4j  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agMJHcQD .
+
+:gamMJHcQ  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolMJHcQD ;
+        chon:atPlace           :plaMJHcQD ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamMJHcQD4 ;
+        chon:hasHalfMove       :hmgamMJHcQD4 ;
+        chon:hasLastHalfMove   :hmgamMJHcQD4 ;
+        chon:hasOpening        :opeMJHcQD ;
+        chon:hasReport         :cgrMJHcQD ;
+        chon:hasResult         :resMJHcQD4 ;
+        chon:subEventOf        :touMJHcQ .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaMJHcQD  a         chon:Place ;
+        chon:hasName  "Tilburg" .

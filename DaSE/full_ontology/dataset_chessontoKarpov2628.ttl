@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolsMxWrN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agsMxWrN .
+
+:gamsMxWr  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolsMxWrN ;
+        chon:atPlace           :plasMxWrN ;
+        chon:atTime            "2002.04.07"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamsMxWrNF ;
+        chon:hasHalfMove       :hmgamTMHhNOv , :hmgamsMxWrNF ;
+        chon:hasLastHalfMove   :hmgamTMHhNOv ;
+        chon:hasOpening        :opesMxWrN ;
+        chon:hasReport         :cgrsMxWrN ;
+        chon:hasResult         :ressMxWrNF ;
+        chon:subEventOf        :tousMxWr .
+
+:tousMxWr  a          chon:hessTournament ;
+        chon:atPlace  :plasMxWrN ;
+        chon:hasName  "FIDE GP" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsMxWrN .
+
+:hmgamTMHhNOv  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgTMHhNOv2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov,V" ;
+        chon:hasSANRecord      "exf5" , "Kg4" , "Re1" , "Rxd5" , "Ke2" , "a6" , "Ra2+" , "Bc3+" , "Qxh7+" , "axb5" , "Rf5" , "Be5" , "b6" , "Rb2" , "Kf3" , "g3" , "b7" , "Nbd2" , "Bxb5" , "e4" , "Kf8" , "Qf6" , "Nxe4" , "Na6" , "Neg5" , "Rxb3+" , "h4" , "Nxb5" , "f4" , "Rxf3" , "Bd4" , "Rxb7" , "Bxb2" , "a4" , "Bd5" , "Rb4" , "exd5" , "Rd1" , "Nc7" ;
+        chon:nextHalfMove      :hmgamTMHhNOv .
+
+:hmgamsMxWrNF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgsMxWrNFD , chon:AgentRole , :rolhgTMHhNOv2 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Topalov,V" ;
+        chon:hasSANRecord      "Qc2" , "fxe6" , "d5" , "c5" , "e3" , "e6" , "dxe6" , "b5" , "Bf6" , "Bb7" , "O-O" , "Ne4" , "Bb2" , "d4" , "Be7" , "Nf6" , "c4" , "Nf3" , "cxb5" , "b3" ;
+        chon:nextHalfMove      :hmgamsMxWrNF , :hmgamTMHhNOv .
+
+chon:HalfMove  chon:subEventOf  :gamsMxWr .
+
+:opesMxWrN  a            chon:ChessOpening ;
+        chon:hasECOCode  "A57" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agsMxWrN .
+
+:rolhgTMHhNOv2  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsMxWrN .
+
+:plasMxWrN  a         chon:Place ;
+        chon:hasName  "Dubai UAE" .
+
+:ressMxWrNF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rolhgsMxWrNFD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agsMxWrN .
+
+:cgrsMxWrN  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agsMxWrN  a          chon:Agent ;
+        chon:hasName  "Topalov,V" , "Karpov,An" .

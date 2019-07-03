@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam3mQnAmS  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhg3mQnAmSV , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Qg3" , "Qxe5" , "Qxf6" , "a6" , "Be4" , "Bxf6" , "f3" , "Ne2" , "Bh4" , "Rd1" , "Rce8" , "d5" , "Rxe5" , "exf5" , "e5" , "h6" , "Rc8" , "Bxf5" , "Qe1" , "Bxe4" , "Nxd5" , "f5" , "Ng6" , "Rd6" , "Rxe4" , "Bb1" , "Qe7" , "cxd5" , "Nxf5" , "Ne5" , "N5f6" , "f4" , "e4" , "Nxd4" , "O-O" , "Rxb6" , "Nh4" , "c5" , "cxd4" ;
+        chon:nextHalfMove      :hmgam3mQnAmS .
+
+:tou7o0eR  a          chon:hessTournament ;
+        chon:atPlace  :plaUoc1kp ;
+        chon:hasName  "Munich+" .
+
+:rolhg7o0eRpBV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7o0eRp .
+
+:plaUoc1kp  a         chon:Place ;
+        chon:hasName  "Munich" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7o0eRp .
+
+chon:HalfMove  chon:subEventOf  :gamUoc1k .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag7o0eRp .
+
+:hmgam7o0eRpB  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg7o0eRpBV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bg5" , "Bb4" , "Qxc3" , "d6" , "a3" , "e6" , "e3" , "Nc3" , "Qc2" , "b6" , "Nbd7" , "Bb7" , "Bxc3+" , "c4" , "O-O" , "d4" , "Nf6" , "Bd3" ;
+        chon:nextHalfMove      :hmgam3mQnAmS , :hmgam7o0eRpB .
+
+:cgr7o0eRp  a   chon:ChessGameReport .
+
+:res7o0eRpB  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:ag7o0eRp  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Sigurjonsson, Gudmundur" .
+
+:rol7o0eRp  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag7o0eRp .
+
+:gamUoc1k  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol7o0eRp ;
+        chon:atPlace           :plaUoc1kp ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam7o0eRpB ;
+        chon:hasHalfMove       :hmgam3mQnAmS , :hmgam7o0eRpB ;
+        chon:hasLastHalfMove   :hmgam3mQnAmS ;
+        chon:hasOpening        :ope7o0eRp ;
+        chon:hasReport         :cgr7o0eRp ;
+        chon:hasResult         :res7o0eRpB ;
+        chon:subEventOf        :tou7o0eR .
+
+:rolhg3mQnAmSV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag7o0eRp .
+
+:ope7o0eRp  a            chon:ChessOpening ;
+        chon:hasECOCode  "E32" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

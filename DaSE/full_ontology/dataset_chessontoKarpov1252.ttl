@@ -1,0 +1,64 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opew1aSyf  a            chon:ChessOpening ;
+        chon:hasECOCode  "B44" .
+
+:plak1eE2g  a         chon:Place ;
+        chon:hasName  "Zuerich" .
+
+:gamk1eE2  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolk1eE2g ;
+        chon:atPlace           :plak1eE2g ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamw1aSyfw ;
+        chon:hasHalfMove       :hmgamw1aSyfw ;
+        chon:hasLastHalfMove   :hmgamw1aSyfw ;
+        chon:hasOpening        :opew1aSyf ;
+        chon:hasReport         :cgrw1aSyf ;
+        chon:hasResult         :resw1aSyfw ;
+        chon:subEventOf        :touk1eE2 .
+
+:hmgamw1aSyfw  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgw1aSyfwO ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lienhard, D." ;
+        chon:hasSANRecord      "Nxd8" , "N5c3" , "b5" , "Ke7" , "Ndc6" , "Ke6" , "Bxf5" , "axb5" , "Qxd6" , "Kh8" , "cxd4" , "Be7+" , "c5" , "f5" , "a6" , "Bxc4" , "Rc8" , "Kg8" , "Nc6" , "Be2" , "g4" , "g6" , "Bg6" , "e5" , "Ke3" , "Kf7" , "Kd7" , "Qxe7" , "bxc4" , "d4" , "Rad1" , "Kf2" , "Nd5" , "c4" , "b6" , "Kf8" , "Nxa2" , "Qd2" , "Bd3" , "h4" , "Nxe7" , "e6" , "Ng5+" , "Rfd1" , "Bc4" , "Nc2" , "h5" , "Na3" , "exf5" , "Be3" , "Nb4" , "Be6" , "Nf6" , "Nd6" , "b3" , "Ke4" , "Ne4+" , "Rfd8" , "O-O" , "cxb5" , "Nh7+" , "Nf7" , "Rxd6" , "f3" , "Rxd8" , "Kg7" , "Nf5+" , "R1d2" , "Na4" , "Bf4" , "e4" , "Nxd4" , "Nb5" , "Bc5" , "Nc3" , "Rxd8+" , "Nc5" , "Nd7" , "Bf7" , "Nf3" , "d6" , "Kf6" , "Nxb5" , "Be7" , "Ke2" ;
+        chon:nextHalfMove      :hmgamw1aSyfw .
+
+:touk1eE2  a          chon:hessTournament ;
+        chon:atPlace  :plak1eE2g ;
+        chon:hasName  "Zuerich sim" .
+
+:agk1eE2g  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" .
+
+:rolk1eE2g  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agk1eE2g .
+
+chon:HalfMove  chon:subEventOf  :gamk1eE2 .
+
+:cgrw1aSyf  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agw1aSyf .
+
+:rolw1aSyf  a             chon:AuthorRole ;
+        chon:performedBy  :agw1aSyf .
+
+:rolhgw1aSyfwO  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agw1aSyf , :agk1eE2g .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resw1aSyfw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agw1aSyf  a          chon:Agent ;
+        chon:hasName  "Lienhard, D." .

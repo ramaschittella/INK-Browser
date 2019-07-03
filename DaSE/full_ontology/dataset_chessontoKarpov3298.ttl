@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:opeGU9cLo  a            chon:ChessOpening ;
+        chon:hasECOCode  "D57" .
+
+:rolhgSU6pkpfZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agGU9cLo .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGU9cLo .
+
+chon:HalfMove  chon:subEventOf  :gamGU9cL .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agGU9cLo .
+
+:hmgamSU6pkpf  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSU6pkpfZ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Maisuradze,N" ;
+        chon:hasSANRecord      "bxc5" , "Nd7" , "Be7" , "d5" , "Rxb8" , "Nxc3" , "Bxe7" , "d4" , "a4" , "Bxh3" , "dxc5" , "Rd8" , "Qa3" , "cxd5" , "Qb3" , "Ne4" , "Ra1" , "Qc3" , "Rb1" , "Qh4" , "h3" , "Rg1" , "Kh2" , "Qe4+" , "Bxf3" , "exd5" , "Nxf3+" , "Nc3" , "bxc3" , "Bg5" , "Nd4" , "c5" , "Qxd5" , "Ng4" , "Be2" , "gxh3" , "Kg2" , "Rfd1" , "Rb2" , "Qd4" , "e6" , "Nf3" , "h6" , "Bd3" , "a5" , "Kh7" , "Nh4" , "Qxe7" , "Qf6" , "Be6" , "c4" , "Rxa3" , "Rab8" , "Ne5" , "b6" , "O-O" , "Qh4+" , "a3" , "e3" , "Rc1" , "Nf6" , "Ng6" , "Rb3" , "Qxh3" , "Bh4" , "Qa8+" , "Qg4+" ;
+        chon:nextHalfMove      :hmgamSU6pkpf .
+
+:gamGU9cL  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolGU9cLo ;
+        chon:atPlace           :plaGU9cLo ;
+        chon:atTime            "2013.10.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSU6pkpf ;
+        chon:hasHalfMove       :hmgamSU6pkpf ;
+        chon:hasLastHalfMove   :hmgamSU6pkpf ;
+        chon:hasOpening        :opeGU9cLo ;
+        chon:hasReport         :cgrGU9cLo ;
+        chon:hasResult         :resGU9cLoc ;
+        chon:subEventOf        :touGU9cL .
+
+:resGU9cLoc  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:touGU9cL  a          chon:hessTournament ;
+        chon:atPlace  :plaGU9cLo ;
+        chon:hasName  "2nd Karpov Trophy Prelim" .
+
+:plaGU9cLo  a         chon:Place ;
+        chon:hasName  "Cap d'Agde FRA" .
+
+:cgrGU9cLo  a   chon:ChessGameReport .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:agGU9cLo  a          chon:Agent ;
+        chon:hasName  "Maisuradze,N" , "Karpov,Ana" .
+
+:rolGU9cLo  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agGU9cLo .

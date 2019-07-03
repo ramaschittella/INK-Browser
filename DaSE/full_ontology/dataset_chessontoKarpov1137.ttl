@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:reseS45jcr  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:gameS45j  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleS45jc ;
+        chon:atPlace           :plaeS45jc ;
+        chon:atTime            "1988.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameS45jcr ;
+        chon:hasHalfMove       :hmgameS45jcr ;
+        chon:hasLastHalfMove   :hmgameS45jcr ;
+        chon:hasOpening        :opeeS45jc ;
+        chon:hasReport         :cgreS45jc ;
+        chon:hasResult         :reseS45jcr ;
+        chon:subEventOf        :toueS45j .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageS45jc .
+
+:rolhgeS45jcrD  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageS45jc .
+
+chon:HalfMove  chon:subEventOf  :gameS45j .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageS45jc .
+
+:plaeS45jc  a         chon:Place ;
+        chon:hasName  "Belfort" .
+
+:cgreS45jc  a   chon:ChessGameReport .
+
+:ageS45jc  a          chon:Agent ;
+        chon:hasName  "Hjartarson, Johann" , "Karpov, Anatoly" .
+
+:toueS45j  a          chon:hessTournament ;
+        chon:atPlace  :plaeS45jc ;
+        chon:hasName  "World Cup" .
+
+:roleS45jc  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageS45jc .
+
+:opeeS45jc  a            chon:ChessOpening ;
+        chon:hasECOCode  "E05" .
+
+:hmgameS45jcr  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgeS45jcrD ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Hjartarson, Johann" ;
+        chon:hasSANRecord      "Bxd5" , "Be7" , "dxc4" , "g4" , "a4" , "f5" , "e5" , "Qh4" , "Qc8" , "Bxf6" , "a6" , "Kf2" , "Bc4" , "Nc6" , "Nf6" , "d5" , "exd5" , "Re8" , "Rd8" , "Rxd6" , "O-O" , "Qxf6" , "Ba7" , "Kh3" , "Qg5+" , "Ra3" , "Qxd4" , "Qxc4" , "Kh7" , "cxd4" , "Qxe7" , "h4" , "f3" , "e4" , "Ra5" , "Ra6" , "Nf3" , "c5" , "h6" , "Rd4" , "bxc6" , "Qe8" , "Ne5" , "c4" , "Rd3" , "exd4" , "Rxd4" , "Qxh5" , "Qxh4+" , "Ba6" , "d4" , "Kg2" , "Rb1" , "Ra2" , "Kh6" , "Kg6" , "Bxc6" , "gxh5" , "axb4" , "Qa4" , "g3" , "e6" , "Ra4" , "Nxc6" , "Ra8" , "Qf2" , "Qe2" , "g5" , "h5" , "b4" , "Rc3" , "a5" , "Rc4" , "Rad1" , "Qe6" , "Bg2" , "Be3" , "Rb8" , "Rxb4" , "Nd5" , "a7" , "Rc6" , "Nc3" , "Bc5" , "Re1" , "Rd2" , "d6" , "Kg5" , "Nxe7+" , "Qe4+" , "Qe8+" , "f4+" , "gxh4" ;
+        chon:nextHalfMove      :hmgameS45jcr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

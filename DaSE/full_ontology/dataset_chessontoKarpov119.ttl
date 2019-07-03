@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:toueM7oD  a          chon:hessTournament ;
+        chon:atPlace  :plaeM7oDa ;
+        chon:hasName  "URS-ch39" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageM7oDa .
+
+:plaeM7oDa  a         chon:Place ;
+        chon:hasName  "Leningrad" .
+
+chon:HalfMove  chon:subEventOf  :gamiOpfU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ageM7oDa .
+
+:cgreM7oDa  a   chon:ChessGameReport .
+
+:ageM7oDa  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Kapengut, Albert Z" .
+
+:roleM7oDa  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ageM7oDa .
+
+:hmgameM7oDaF  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgeM7oDaFe , :rolhgpM4Sc0Ip , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "e4" , "cxd4" , "d6" , "Nf3" , "c5" , "e6" , "Nxd4" , "Nf6" , "d4" , "Nc3" ;
+        chon:nextHalfMove      :hmgameM7oDaF , :hmgampM4Sc0I .
+
+:opeeM7oDa  a            chon:ChessOpening ;
+        chon:hasECOCode  "B85" .
+
+:rolhgpM4Sc0Ip  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageM7oDa .
+
+:rolhgeM7oDaFe  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ageM7oDa .
+
+:hmgampM4Sc0I  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgpM4Sc0Ip ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "f5" , "Qe1" , "Bf8" , "Rb4" , "Ba8" , "Rd3" , "Be2" , "Nxa5" , "Be7" , "fxe6" , "f4" , "a4" , "Bb7" , "Nb3" , "Rb8" , "O-O" , "Nc6" , "Bd2" , "Qc7" , "a6" , "Rd1" , "b3" , "Na5" , "Be3" , "b6" , "Rfc8" , "bxa5" , "Bf3" ;
+        chon:nextHalfMove      :hmgampM4Sc0I .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamiOpfU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roleM7oDa ;
+        chon:atPlace           :plaeM7oDa ;
+        chon:atTime            "1971.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgameM7oDaF ;
+        chon:hasHalfMove       :hmgampM4Sc0I , :hmgameM7oDaF ;
+        chon:hasLastHalfMove   :hmgampM4Sc0I ;
+        chon:hasOpening        :opeeM7oDa ;
+        chon:hasReport         :cgreM7oDa ;
+        chon:hasResult         :reseM7oDaF ;
+        chon:subEventOf        :toueM7oD .
+
+:reseM7oDaF  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

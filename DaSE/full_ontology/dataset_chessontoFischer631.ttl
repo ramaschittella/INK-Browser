@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:tounuPkb  a          chon:hessTournament ;
+        chon:atPlace  :planuPkbX ;
+        chon:hasName  "Vinkovci" .
+
+:rolnuPkbX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agnuPkbX .
+
+:resnuPkbXh  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:planuPkbX  a         chon:Place ;
+        chon:hasName  "Vinkovci" .
+
+:rolhgnuPkbXhQ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnuPkbX .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnuPkbX .
+
+:hmgamnuPkbXh  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgnuPkbXhQ , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Matanovic, Aleksandar" ;
+        chon:hasSANRecord      "e5" , "e4" ;
+        chon:nextHalfMove      :hmgamOwZFxX7 , :hmgamnuPkbXh .
+
+chon:HalfMove  chon:subEventOf  :gamnuPkb .
+
+:agnuPkbX  a          chon:Agent ;
+        chon:hasName  "Matanovic, Aleksandar" , "Fischer, Robert James" .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agnuPkbX .
+
+:openuPkbX  a            chon:ChessOpening ;
+        chon:hasECOCode  "C92" .
+
+:rolhgOwZFxX7e  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agnuPkbX .
+
+:hmgamOwZFxX7  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgOwZFxX7e ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Matanovic, Aleksandar" ;
+        chon:hasSANRecord      "Nxb3" , "Nb6" , "Qe3" , "Ne7+" , "Ng6" , "Bf6" , "d6" , "Rc7" , "Be7" , "Qc5" , "Nf6" , "a6" , "Na3" , "b4" , "Re1" , "Rb7" , "Qxb3" , "f6" , "a4" , "c3" , "Qf8" , "Nd7" , "Bd7" , "a5" , "Qe8" , "c5" , "Re8" , "cxb4" , "Bc7" , "cxd4" , "Qd8" , "Qb3" , "Nc4" , "Qa5" , "b5" , "Rxe1+" , "exd4" , "Bf4" , "Bc2" , "d4" , "Qd2" , "Nb1" , "Kh2" , "Ba4" , "Qh5" , "Nac4" , "Nxb5" , "Nf8" , "Nxa3" , "O-O" , "Kh8" , "Ne5" , "Nf3" , "Re8+" , "Qxc7" , "Na5" , "Nxa5" , "d5" , "Qxb4" , "Bb3" , "h3" , "Bd6" , "Rxe1" , "Qa6" , "Bb5" , "exd5" , "Qb4" , "Nc6" , "Nbd2" , "Qd1+" , "a3" , "Nb2" , "Rxe7" ;
+        chon:nextHalfMove      :hmgamOwZFxX7 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrnuPkbX  a   chon:ChessGameReport .
+
+:gamnuPkb  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolnuPkbX ;
+        chon:atPlace           :planuPkbX ;
+        chon:atTime            "1968.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamnuPkbXh ;
+        chon:hasHalfMove       :hmgamnuPkbXh , :hmgamOwZFxX7 ;
+        chon:hasLastHalfMove   :hmgamOwZFxX7 ;
+        chon:hasOpening        :openuPkbX ;
+        chon:hasReport         :cgrnuPkbX ;
+        chon:hasResult         :resnuPkbXh ;
+        chon:subEventOf        :tounuPkb .

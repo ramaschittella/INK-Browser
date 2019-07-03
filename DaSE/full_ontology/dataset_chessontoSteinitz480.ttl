@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:reshc0zvLL  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plahc0zvL  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:cgrhc0zvL  a   chon:ChessGameReport .
+
+:rolhghc0zvLLn  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghc0zvL .
+
+:rolhc0zvL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :aghc0zvL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghc0zvL .
+
+:hmgamtc7M3MO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgtc7M3MOy , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lasker, Emanuel" ;
+        chon:hasSANRecord      "Qxb3" , "bxa4" , "Nxe7" , "Bc4" , "Rb8" , "Ra2" , "Rc2" , "Ra4" , "Bxe7" , "Rxb2" , "Nxa6" , "Nb4" , "Rc1" , "Nc6" , "Nd5" , "Rb5" , "Ra1" , "Qb6" , "Rd6" , "Rd8" , "Bxa6" , "a5" , "Nc3" , "Nc5" , "Nxa5" , "axb3" , "Rdd2" , "Rfd1" , "Rxa6" , "Nd4" , "Ba6" , "bxa5" , "Rb7" , "b6" , "Rbb1" , "Nc2" , "Nxa4" , "h3" , "Rxa5" , "Na4" , "g5" ;
+        chon:nextHalfMove      :hmgamtc7M3MO .
+
+chon:HalfMove  chon:subEventOf  :gamhc0zv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :aghc0zvL .
+
+:gamhc0zv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolhc0zvL ;
+        chon:atPlace           :plahc0zvL ;
+        chon:atTime            "1896.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamhc0zvLL ;
+        chon:hasHalfMove       :hmgamtc7M3MO , :hmgamhc0zvLL ;
+        chon:hasLastHalfMove   :hmgamtc7M3MO ;
+        chon:hasOpening        :opehc0zvL ;
+        chon:hasReport         :cgrhc0zvL ;
+        chon:hasResult         :reshc0zvLL ;
+        chon:subEventOf        :touhc0zv .
+
+:aghc0zvL  a          chon:Agent ;
+        chon:hasName  "Lasker, Emanuel" , "Steinitz, William" .
+
+:hmgamhc0zvLL  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhghc0zvLLn , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Lasker, Emanuel" ;
+        chon:hasSANRecord      "Nc3" , "Be2" , "Nf3" , "e3" , "Ne4" , "c4" , "Nf6" , "Bxc4" , "O-O" , "Qxc5" , "c5" , "dxc5" , "d4" , "Qb3" , "Bg5" , "Nc6" , "Qa5" , "Nd7" , "dxc4" , "d5" , "Be7" , "e6" ;
+        chon:nextHalfMove      :hmgamtc7M3MO , :hmgamhc0zvLL .
+
+:opehc0zvL  a            chon:ChessOpening ;
+        chon:hasECOCode  "D53" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touhc0zv  a          chon:hessTournament ;
+        chon:atPlace  :plahc0zvL ;
+        chon:hasName  "World Championship 6th" .
+
+:rolhgtc7M3MOy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :aghc0zvL .

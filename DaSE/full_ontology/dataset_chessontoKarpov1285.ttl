@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gam2awr5  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolX7dAPN ;
+        chon:atPlace           :pla2awr5P ;
+        chon:atTime            "1989.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamX7dAPNO ;
+        chon:hasHalfMove       :hmgamX7dAPNO ;
+        chon:hasLastHalfMove   :hmgamX7dAPNO ;
+        chon:hasOpening        :opeX7dAPN ;
+        chon:hasReport         :cgrX7dAPN ;
+        chon:hasResult         :resX7dAPNO ;
+        chon:subEventOf        :touX7dAP .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agX7dAPN .
+
+chon:HalfMove  chon:subEventOf  :gam2awr5 .
+
+:touX7dAP  a          chon:hessTournament ;
+        chon:atPlace  :pla2awr5P ;
+        chon:hasName  "Marostica m" .
+
+:hmgamX7dAPNO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgX7dAPNO8 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "Rxc8" , "Qb7" , "Qc7" , "Ne2" , "Nxe7" , "O-O" , "c4" , "Nxd4" , "h3" , "Bxf3" , "cxd5" , "Rc8" , "e6" , "Nf6" , "Ng6" , "Bxe7" , "Nc3" , "a6" , "Nf3" , "b6" , "Bb7" , "Nd7" , "Rc1" , "d4" , "a3" , "d5" , "Be7" , "Nxd5" , "Nxe5" , "Bg5" , "e3" , "Be2" , "b4" , "Nxf3" , "Qb3" , "Nde5" , "cxd4" , "Bf3" ;
+        chon:nextHalfMove      :hmgamX7dAPNO .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agX7dAPN .
+
+:rolhgX7dAPNO8  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agX7dAPN .
+
+:cgrX7dAPN  a   chon:ChessGameReport .
+
+:pla2awr5P  a         chon:Place ;
+        chon:hasName  "Marostica" .
+
+:resX7dAPNO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agX7dAPN  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Andersson, Ulf" .
+
+:rolX7dAPN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agX7dAPN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeX7dAPN  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .

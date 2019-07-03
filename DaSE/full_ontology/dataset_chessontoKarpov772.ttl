@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:hmgam0EztdXq  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg0EztdXqF ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Portisch, Lajos" ;
+        chon:hasSANRecord      "Kh7" , "Bd6" , "Be7" , "a6" , "c4" , "Re5" , "Bxc4" , "Rf5" , "a3" , "Nc6" , "a4" , "Bxf7+" , "dxc4" , "d4" , "e5" , "Qxf7" , "h3" , "bxc3" , "Nc3" , "Re1" , "d5" , "Qg6" , "Ra1+" , "Nc4" , "Kh8" , "Bf5" , "Rc1" , "Bd3" , "b5" , "Bb4" , "Qe2" , "Rfb8" , "Kg2" , "Qf7" , "Qf8" , "h6" , "Bg5" , "Qd7" , "O-O" , "axb5" , "Rxa8" , "Nxc3" , "Nxe4" , "Bf1" , "d6" , "Bc5" , "Bxd6" , "Nd6" , "Qd3" , "Qe4" , "Qf4" , "cxd6" , "Nb4" , "Re4" , "Nf3" , "Re7" , "Nh4" , "Ba2" , "Na5" , "g4" , "f3" , "Qxf5" , "Nxe5" , "Nxf5" , "e4" , "Nf6" ;
+        chon:nextHalfMove      :hmgam0EztdXq .
+
+:gam0Eztd  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol0EztdX ;
+        chon:atPlace           :pla0EztdX ;
+        chon:atTime            "1982.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam0EztdXq ;
+        chon:hasHalfMove       :hmgam0EztdXq ;
+        chon:hasLastHalfMove   :hmgam0EztdXq ;
+        chon:hasOpening        :ope0EztdX ;
+        chon:hasReport         :cgr0EztdX ;
+        chon:hasResult         :res0EztdXq ;
+        chon:subEventOf        :tou0Eztd .
+
+:tou0Eztd  a          chon:hessTournament ;
+        chon:atPlace  :pla0EztdX ;
+        chon:hasName  "Turin" .
+
+:ag0EztdX  a          chon:Agent ;
+        chon:hasName  "Portisch, Lajos" , "Karpov, Anatoly" .
+
+:rolhg0EztdXqF  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag0EztdX .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0EztdX .
+
+:ope0EztdX  a            chon:ChessOpening ;
+        chon:hasECOCode  "C42" .
+
+chon:HalfMove  chon:subEventOf  :gam0Eztd .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag0EztdX .
+
+:pla0EztdX  a         chon:Place ;
+        chon:hasName  "Turin" .
+
+:cgr0EztdX  a   chon:ChessGameReport .
+
+:res0EztdXq  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:rol0EztdX  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag0EztdX .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

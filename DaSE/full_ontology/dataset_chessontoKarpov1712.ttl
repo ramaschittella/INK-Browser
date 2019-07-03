@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gambvZ2r  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolbvZ2r7 ;
+        chon:atPlace           :plabvZ2r7 ;
+        chon:atTime            "1993.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgambvZ2r7l ;
+        chon:hasHalfMove       :hmgambvZ2r7l ;
+        chon:hasLastHalfMove   :hmgambvZ2r7l ;
+        chon:hasOpening        :opebvZ2r7 ;
+        chon:hasReport         :cgrbvZ2r7 ;
+        chon:hasResult         :resbvZ2r7l ;
+        chon:subEventOf        :toubvZ2r .
+
+:hmgambvZ2r7l  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgbvZ2r7l4 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "Nf3" , "e4" , "Bg2" , "c4" , "c6" , "Ne5" , "O-O" , "Nxd7" , "d4" , "Bc3" , "Nxe4" , "Bxd4" , "cxd4" , "cxd5" , "Nfd7" , "g3" , "Nd2" , "b6" , "b3" , "Bd2" , "Ba6" , "dxe4" , "Re1" , "Be7" , "e6" , "h4" , "Nf6" , "exd5" , "Rc8" , "d5" , "Bb4+" ;
+        chon:nextHalfMove      :hmgambvZ2r7l .
+
+:rolhgbvZ2r7l4  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agbvZ2r7 .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbvZ2r7 .
+
+:plabvZ2r7  a         chon:Place ;
+        chon:hasName  "Tilburg" .
+
+chon:HalfMove  chon:subEventOf  :gambvZ2r .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agbvZ2r7 .
+
+:cgrbvZ2r7  a   chon:ChessGameReport .
+
+:toubvZ2r  a          chon:hessTournament ;
+        chon:atPlace  :plabvZ2r7 ;
+        chon:hasName  "Tilburg" .
+
+:resbvZ2r7l  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:agbvZ2r7  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Vyzmanavin, Alexey" .
+
+:rolbvZ2r7  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agbvZ2r7 .
+
+:opebvZ2r7  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

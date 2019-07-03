@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrtQc8rN  a   chon:ChessGameReport .
+
+:restQc8rNJ  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+:roltQc8rN  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agtQc8rN .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtQc8rN .
+
+chon:HalfMove  chon:subEventOf  :gamtQc8r .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agtQc8rN .
+
+:rolhgEQ0k1OOH  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtQc8rN .
+
+:agtQc8rN  a          chon:Agent ;
+        chon:hasName  "Polgar,Ju" , "Karpov,An" .
+
+:opetQc8rN  a            chon:ChessOpening ;
+        chon:hasECOCode  "E12" .
+
+:hmgamtQc8rNJ  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgtQc8rNJw ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Ju" ;
+        chon:hasSANRecord      "axb4" , "Qc2" , "Rd2" , "e3" , "c6" , "Nf3" , "Bb2" , "O-O" , "Qa3" , "Nxd5" , "Nxc3" , "Qc8" , "bxa5" , "d4" , "Nc3" , "h6" , "Qxc3" , "b4" , "Bxc6" , "Qd6" , "Bb5" , "b5" , "e6" , "Rc8" , "Rc2" , "Bxb5" , "Bb7" , "d5" , "bxc6" , "a3" , "b6" , "Rd1" , "Nf6" , "Bb4+" , "Qb3" , "Bc4" , "Be7" , "Nd7" , "c4" , "a5" , "cxd5" ;
+        chon:nextHalfMove      :hmgamEQ0k1OO , :hmgamtQc8rNJ .
+
+:hmgamEQ0k1OO  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgEQ0k1OOH ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Polgar,Ju" ;
+        chon:hasSANRecord      "Rc8" , "Nb6" , "Nd2" , "e5" , "Rb8" , "f6" , "Kb1" , "Nc4+" , "Qxg2" , "Qc3" , "Kc2" , "Qh1+" , "d6" , "Kxd2" , "Rc2" , "Rc1" , "Ka2" , "Nxd6" , "Rxd2" , "Qc5" , "Qg4" ;
+        chon:nextHalfMove      :hmgamEQ0k1OO .
+
+:rolhgtQc8rNJw  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agtQc8rN .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamtQc8r  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roltQc8rN ;
+        chon:atPlace           :platQc8rN ;
+        chon:atTime            "2003.01.15"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamtQc8rNJ ;
+        chon:hasHalfMove       :hmgamEQ0k1OO , :hmgamtQc8rNJ ;
+        chon:hasLastHalfMove   :hmgamEQ0k1OO ;
+        chon:hasOpening        :opetQc8rN ;
+        chon:hasReport         :cgrtQc8rN ;
+        chon:hasResult         :restQc8rNJ ;
+        chon:subEventOf        :toutQc8r .
+
+:toutQc8r  a          chon:hessTournament ;
+        chon:atPlace  :platQc8rN ;
+        chon:hasName  "GMA" .
+
+:platQc8rN  a         chon:Place ;
+        chon:hasName  "Wijk aan Zee NED" .

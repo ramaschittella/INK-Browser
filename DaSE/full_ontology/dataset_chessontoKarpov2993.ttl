@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolM5Z4JR  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agM5Z4JR .
+
+:resM5Z4JRU  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:plaM5Z4JR  a         chon:Place ;
+        chon:hasName  "Moscow RUS" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM5Z4JR .
+
+chon:HalfMove  chon:subEventOf  :gamM5Z4J .
+
+:agM5Z4JR  a          chon:Agent ;
+        chon:hasName  "Korotylev,A" , "Karpov,Ana" .
+
+:rolhgM5Z4JRUx  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agM5Z4JR .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agM5Z4JR .
+
+:opeM5Z4JR  a            chon:ChessOpening ;
+        chon:hasECOCode  "E71" .
+
+:gamM5Z4J  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolM5Z4JR ;
+        chon:atPlace           :plaM5Z4JR ;
+        chon:atTime            "2007.11.21"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamM5Z4JRU ;
+        chon:hasHalfMove       :hmgamY5UhgRX , :hmgamM5Z4JRU ;
+        chon:hasLastHalfMove   :hmgamY5UhgRX ;
+        chon:hasOpening        :opeM5Z4JR ;
+        chon:hasReport         :cgrM5Z4JR ;
+        chon:hasResult         :resM5Z4JRU ;
+        chon:subEventOf        :touM5Z4J .
+
+:touM5Z4J  a          chon:hessTournament ;
+        chon:atPlace  :plaM5Z4JR ;
+        chon:hasName  "World Blitz" .
+
+:hmgamM5Z4JRU  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgY5UhgRXL , :rolhgM5Z4JRUx , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Korotylev,A" ;
+        chon:hasSANRecord      "Bd7" , "Nc5" , "Nh7" , "g5" , "Qd2" , "a5" , "Bg7" , "f3" , "d4" , "d5" , "g6" , "d6" , "Be3" , "c4" , "h3" , "Nc3" , "h5" , "Bg2" , "h4" , "e4" , "e5" , "Nf6" , "O-O" , "Na6" , "g4" , "Bg4" ;
+        chon:nextHalfMove      :hmgamY5UhgRX , :hmgamM5Z4JRU .
+
+:rolhgY5UhgRXL  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agM5Z4JR .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrM5Z4JR  a   chon:ChessGameReport .
+
+:hmgamY5UhgRX  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgY5UhgRXL , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Korotylev,A" ;
+        chon:hasSANRecord      "Ref7" , "Bxh3" , "Qxe7" , "Qxd6" , "dxc5" , "Kf8" , "Ng6+" , "cxd6" , "Nd5" , "O-O-O" , "Rf8" , "Nxh3" , "Bh3" , "Rd6" , "Rxe7" , "Rxh3" , "d6" , "hxg5" , "Rff3" , "Rxg6" , "Rxb7" , "Rb6" , "Rf7" , "Kc2" , "f6" , "fxg5" , "Rg3" , "Kg8" , "Ne7+" , "Rxf3" , "Bxc5" , "Qe7" ;
+        chon:nextHalfMove      :hmgamY5UhgRX .

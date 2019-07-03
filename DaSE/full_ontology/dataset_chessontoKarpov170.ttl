@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgR69gvP2z  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR69gvP .
+
+:agR69gvP  a          chon:Agent ;
+        chon:hasName  "Taimanov, Mark E" , "Karpov, Anatoly" .
+
+:rolR69gvP  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agR69gvP .
+
+:resR69gvP2  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:opeR69gvP  a            chon:ChessOpening ;
+        chon:hasECOCode  "B42" .
+
+:rolhgi6kzPQQY  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agR69gvP .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR69gvP .
+
+chon:HalfMove  chon:subEventOf  :gamR69gv .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agR69gvP .
+
+:hmgami6kzPQQ  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgi6kzPQQY , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Taimanov, Mark E" ;
+        chon:hasSANRecord      "N1d2" , "Kh7" , "g5" , "g4" , "axb3" , "Nxd4" , "hxg5" , "a5" , "h6" , "Qb1+" , "Rc3" , "Qxe3" , "Rac1" , "Kh2" , "Rxc8+" , "Ng5+" , "Bxc8" , "Qa2" , "e5" , "Qg5" , "Qb4" , "cxb6" , "h4" , "Rg3" , "Qb7" , "Qd4" , "d5" , "Nf3" , "Rfc1" , "Qxg5" , "Nbd4" , "Qc1" , "Ne7" , "Qe2" , "Na5" , "Bxe3" , "Rg8" , "Nc6" , "Be3" , "Nxd3" , "b3" , "Nxf7+" , "a4" , "Qxb3" , "h5" , "c5" , "Qc7" , "b6" , "Nb3" , "Qb8" , "Qxb6" , "c4" , "Qxd3" , "Rc5" , "Bc5" , "Bb6" , "Rc8" , "Bd7" , "Ne5" , "Nbc6" , "O-O" , "Qe3" , "Kh8" ;
+        chon:nextHalfMove      :hmgami6kzPQQ .
+
+:hmgamR69gvP2  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgR69gvP2z , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Taimanov, Mark E" ;
+        chon:hasSANRecord      "a6" , "e4" , "e6" , "cxd4" , "Bd3" , "c5" , "d4" , "Nxd4" , "Nf3" ;
+        chon:nextHalfMove      :hmgami6kzPQQ , :hmgamR69gvP2 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:gamR69gv  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolR69gvP ;
+        chon:atPlace           :plaR69gvP ;
+        chon:atTime            "1972.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamR69gvP2 ;
+        chon:hasHalfMove       :hmgami6kzPQQ , :hmgamR69gvP2 ;
+        chon:hasLastHalfMove   :hmgami6kzPQQ ;
+        chon:hasOpening        :opeR69gvP ;
+        chon:hasReport         :cgrR69gvP ;
+        chon:hasResult         :resR69gvP2 ;
+        chon:subEventOf        :touR69gv .
+
+:plaR69gvP  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+:touR69gv  a          chon:hessTournament ;
+        chon:atPlace  :plaR69gvP ;
+        chon:hasName  "URS-chT Moscow" .
+
+:cgrR69gvP  a   chon:ChessGameReport .

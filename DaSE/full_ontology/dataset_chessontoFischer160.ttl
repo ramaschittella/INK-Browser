@@ -1,0 +1,79 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:agSki3Pr  a          chon:Agent ;
+        chon:hasName  "Smyslov, Vassily" , "Fischer, Robert James" .
+
+:hmgam3yS6zzp  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3yS6zzp1 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Rg3+" , "Ke6" , "Kc4" , "Ke7" , "Rb7" , "Kd2" , "Rg1" , "Rc1" , "e4" , "Kf6" , "Re1+" , "fxe3" , "Rf2+" , "Ra8" , "g2" , "Rg7" , "Rf8+" , "f6" , "Rf8" , "Rxf7" , "Kd6" , "Re8" , "f5" , "a4" , "Rd7+" , "Kc2" , "Kf5" , "Rxb4" , "exf5" , "g3" , "f7" , "Kd3" , "g4" ;
+        chon:nextHalfMove      :hmgam3yS6zzp .
+
+:hmgamQyWR1ym  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgQyWR1ymN ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "Bxc6" , "Rhf3" , "Qe2" , "c3" , "Qd3" , "Kxe2" , "h5" , "Nxd5" , "Bxf4" , "Rcd3+" , "Qxe2+" , "b4" , "Bd6" , "g5" , "hxg6" , "Nf5" , "Nxe3" , "d4" , "Kf7" , "e6" , "Nxe6" , "Ne3" , "Re2" , "Nxf4" , "Qa6" , "gxh5" , "Be3" , "cxb4" , "Rc4" , "b3" , "Rxh5" , "Kd3" , "Nf4" , "Kc1" , "Qa5+" , "Rcc3" , "Qc2" , "Rh3+" , "Rxd4" , "Bf4" , "Ne2" , "Rh6" , "Nge7" , "Rh8" , "b5" , "Rxc6" , "Rhe1" , "Kd2" ;
+        chon:nextHalfMove      :hmgamQyWR1ym , :hmgam3yS6zzp .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSki3Pr .
+
+:rolhgSki3PrO6  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSki3Pr .
+
+:gamHkoOh  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSki3Pr ;
+        chon:atPlace           :plaSki3Pr ;
+        chon:atTime            "1959.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSki3PrO ;
+        chon:hasHalfMove       :hmgamSki3PrO , :hmgam3yS6zzp , :hmgamQyWR1ym ;
+        chon:hasLastHalfMove   :hmgam3yS6zzp ;
+        chon:hasOpening        :opeSki3Pr ;
+        chon:hasReport         :cgrSki3Pr ;
+        chon:hasResult         :resSki3PrO ;
+        chon:subEventOf        :touSki3P .
+
+:rolhgQyWR1ymN  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSki3Pr .
+
+:touSki3P  a          chon:hessTournament ;
+        chon:atPlace  :plaSki3Pr ;
+        chon:hasName  "Candidats Tournament" .
+
+chon:HalfMove  chon:subEventOf  :gamHkoOh .
+
+:opeSki3Pr  a            chon:ChessOpening ;
+        chon:hasECOCode  "B11" .
+
+:cgrSki3Pr  a   chon:ChessGameReport .
+
+:rolSki3Pr  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSki3Pr .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:rolhg3yS6zzp1  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSki3Pr .
+
+:resSki3PrO  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:hmgamSki3PrO  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgSki3PrO6 , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Smyslov, Vassily" ;
+        chon:hasSANRecord      "c6" , "d5" , "h4" , "cxd5" , "Bg6" , "exd5" , "Bh5" , "g4" , "f6" , "Nc6" , "Bg4" , "Bb5+" , "Nc3" , "h3" , "e4" , "Ne5" , "Nxg6" , "Rc8" , "Nf3" ;
+        chon:nextHalfMove      :hmgamSki3PrO , :hmgamQyWR1ym .
+
+:plaSki3Pr  a         chon:Place ;
+        chon:hasName  "Bled/Zagreb/Belgrade" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSki3Pr .

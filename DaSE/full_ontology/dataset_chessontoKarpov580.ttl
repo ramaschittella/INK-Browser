@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamiuw23  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliuw23p ;
+        chon:atPlace           :plaiuw23p ;
+        chon:atTime            "1979.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiuw23pw ;
+        chon:hasHalfMove       :hmgamiuw23pw , :hmgamgLaRdw6 ;
+        chon:hasLastHalfMove   :hmgamgLaRdw6 ;
+        chon:hasOpening        :opeiuw23p ;
+        chon:hasReport         :cgriuw23p ;
+        chon:hasResult         :resiuw23pw ;
+        chon:subEventOf        :touiuw23 .
+
+:touiuw23  a          chon:hessTournament ;
+        chon:atPlace  :plaiuw23p ;
+        chon:hasName  "Waddinxveen" .
+
+:resiuw23pw  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiuw23p .
+
+:rolhgiuw23pwZ  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiuw23p .
+
+chon:HalfMove  chon:subEventOf  :gamiuw23 .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiuw23p .
+
+:plaiuw23p  a         chon:Place ;
+        chon:hasName  "Waddinxveen" .
+
+:cgriuw23p  a   chon:ChessGameReport .
+
+:hmgamgLaRdw6  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhggLaRdw6H , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sosonko, Gennadi" ;
+        chon:hasSANRecord      "Red8" , "Qe2" , "a5" , "Qc7" , "g5" , "g6" , "fxg6" , "Rfe8" , "h5" , "Na5" , "Rhe1" , "Bf3" , "Bd6" , "Qg5" , "c4" , "Qxc4" , "Rxd8" , "Qxc2+" , "Qh2" , "Bf8" , "Rg1" , "Nxc5" , "Rxg6" , "Nb3" , "h4" , "Nxa5" , "dxc5" , "Rc8" , "Kg8" , "Nc5" , "Kf8" , "Qb5" , "Qxa5" , "hxg6" , "Qg6" , "Be7" , "Qf7" , "Rh1" , "Ka1" ;
+        chon:nextHalfMove      :hmgamgLaRdw6 .
+
+:hmgamiuw23pw  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgiuw23pwZ , :rolhggLaRdw6H , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Sosonko, Gennadi" ;
+        chon:hasSANRecord      "b5" , "Nb3" , "Rac8" , "e6" , "cxd4" , "Bg2" , "Be7" , "g4" , "Nec1" , "Na4" , "Ne2" , "f3" , "Qf2" , "Nf6" , "Bg5" , "Bb7" , "d4" , "Nf3" , "O-O-O" , "a6" , "e4" , "f4" , "Qb6" , "Qd2" , "b4" , "Kb1" , "Nd7" , "Nb6" , "Nc6" , "Nxd4" , "d6" , "Be3" , "c5" , "Nc3" , "Qc7" , "O-O" ;
+        chon:nextHalfMove      :hmgamiuw23pw , :hmgamgLaRdw6 .
+
+:agiuw23p  a          chon:Agent ;
+        chon:hasName  "Sosonko, Gennadi" , "Karpov, Anatoly" .
+
+:roliuw23p  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiuw23p .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:opeiuw23p  a            chon:ChessOpening ;
+        chon:hasECOCode  "B63" .
+
+:rolhggLaRdw6H  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiuw23p .

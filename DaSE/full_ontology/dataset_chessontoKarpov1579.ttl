@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolhgJZyqESL9  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxZBc6T .
+
+:rolhgxZBc6TGV  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agxZBc6T .
+
+:hmgamxZBc6TG  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgxZBc6TGV ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Speelman, Jonathan S" ;
+        chon:hasSANRecord      "Bg6" , "f5" , "Rc2" , "Nd7" , "b3" , "Rh8" , "Ke2" , "Bd2" , "Bf5" , "Nxg6" , "Nh4" , "Kb2" , "Kc1" , "Qa4" , "a5" , "c5" , "Rxh2" , "Be3" , "Kd1" , "Kf1" , "Nd2" , "Bxe3+" , "Rd1" , "Rf1" , "Be7" , "e4" , "g4" , "Rxc2+" , "b4" , "f6" , "Bf2" , "Kg2" , "Rcb8" , "Bxh4" , "O-O" , "Kf7" , "Ref3" , "d4" , "c6" , "Rb5" , "Bc2" , "bxc6" , "Nf5" , "Nf3" , "Rxe3" , "Kg8" , "Ne7" , "Rfc8" , "a3" , "e5" , "g5" , "g3" , "Rh3" , "d5" , "Qb6" , "f4" , "Rac1" , "Rh7" , "c3" , "e6" , "Qc6" , "Bd1" , "Rcc1" , "Qxc6" , "Rf3" , "a6" , "a4" , "c4" , "Be2" , "Rb1" , "Rh4" , "Rh2" , "hxg6" , "Nxh4" , "Nb6" ;
+        chon:nextHalfMove      :hmgamxZBc6TG , :hmgamJZyqESL .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxZBc6T .
+
+chon:HalfMove  chon:subEventOf  :gam7ZpUI .
+
+:cgrxZBc6T  a   chon:ChessGameReport .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agxZBc6T .
+
+:resxZBc6TG  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agxZBc6T  a          chon:Agent ;
+        chon:hasName  "Speelman, Jonathan S" , "Karpov, Anatoly" .
+
+:rolxZBc6T  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agxZBc6T .
+
+:opexZBc6T  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+:hmgamJZyqESL  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgJZyqESL9 ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Speelman, Jonathan S" ;
+        chon:hasSANRecord      "R1b4" , "a4" , "Rb3" , "Kc6" , "Nf8" , "a5" , "Nc4" , "Kxc2" , "Rb4" , "Nd7" , "Rb7" , "Rxc3" , "b5" , "Ke7" , "Kd3" , "Rb1" , "Rxb3" , "Kf7" , "Kc7" , "Rb8" , "Rc5+" , "cxb5" , "Rfh1" , "Rh8" , "Rxa4" , "Nb8" , "Rh2" , "Rb5" , "Kb7" , "Rxc4" , "Rxb5" , "Kd8" , "Rh3" , "Kf1" , "Rh1+" , "Kd1" , "Kc2" , "Rh2+" , "Na5" , "Kxc4" , "cxb3" , "Nc6" , "dxc4+" , "Kd2" , "Rhb2" , "Ke2" ;
+        chon:nextHalfMove      :hmgamJZyqESL .
+
+:touxZBc6  a          chon:hessTournament ;
+        chon:atPlace  :pla7ZpUIT ;
+        chon:hasName  "Roquebrune rapid" .
+
+:pla7ZpUIT  a         chon:Place ;
+        chon:hasName  "Roquebrune" .
+
+:gam7ZpUI  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolxZBc6T ;
+        chon:atPlace           :pla7ZpUIT ;
+        chon:atTime            "1992.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamxZBc6TG ;
+        chon:hasHalfMove       :hmgamxZBc6TG , :hmgamJZyqESL ;
+        chon:hasLastHalfMove   :hmgamJZyqESL ;
+        chon:hasOpening        :opexZBc6T ;
+        chon:hasReport         :cgrxZBc6T ;
+        chon:hasResult         :resxZBc6TG ;
+        chon:subEventOf        :touxZBc6 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .

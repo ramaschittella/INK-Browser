@@ -1,0 +1,61 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:rolZzfrGR  a             chon:AuthorRole ;
+        chon:performedBy  :agZzfrGR .
+
+:ag4ByiWT  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Spassky, Boris V" .
+
+:rol4ByiWT  a   chon:BlackPlayerRole , chon:WhitePlayerRole .
+
+:gam4ByiW  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol4ByiWT ;
+        chon:atPlace           :pla4ByiWT ;
+        chon:atTime            "1973.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamZzfrGRs ;
+        chon:hasHalfMove       :hmgamZzfrGRs ;
+        chon:hasLastHalfMove   :hmgamZzfrGRs ;
+        chon:hasOpening        :ope4ByiWT ;
+        chon:hasReport         :cgrZzfrGR ;
+        chon:hasResult         :res4ByiWTb ;
+        chon:subEventOf        :tou4ByiW .
+
+:tou4ByiW  a          chon:hessTournament ;
+        chon:atPlace  :pla4ByiWT ;
+        chon:hasName  "Moscow-3teams" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4ByiWT .
+
+chon:HalfMove  chon:subEventOf  :gam4ByiW .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag4ByiWT .
+
+:ope4ByiWT  a            chon:ChessOpening ;
+        chon:hasECOCode  "A34" .
+
+:hmgamZzfrGRs  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgZzfrGRsy ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "c5" , "Nxe5" , "Nxc3" , "Nxd5" , "a6" , "Bxe5" , "bxc3" , "Nf6" , "dxe5" , "Rfe8" , "Bd3" , "Bg7" , "Nf3" , "d5" , "Nd7" , "e5" , "c4" , "e3" , "O-O" , "cxd5" , "axb5" , "d4" , "Qc7" , "cxb5" , "Qxc5" , "e4" , "Bxc5" , "Bb5" , "Ba3" , "g6" , "Nc3" , "Bxd7" ;
+        chon:nextHalfMove      :hmgamZzfrGRs .
+
+:rolhgZzfrGRsy  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag4ByiWT .
+
+:res4ByiWTb  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:pla4ByiWT  a         chon:Place ;
+        chon:hasName  "Moscow" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:cgrZzfrGR  a   chon:ChessGameReport .

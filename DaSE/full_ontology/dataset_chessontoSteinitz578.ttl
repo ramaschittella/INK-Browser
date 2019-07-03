@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgrBI3Pcd  a   chon:ChessGameReport .
+
+:hmgamBI3Pcdm  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgBI3Pcdml ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Steinitz, William" ;
+        chon:hasSANRecord      "Qa4" , "Qc1" , "exd3" , "d3" , "c3" , "f4" , "Qxe4" , "Nd2" , "Rd1" , "h3" , "f5" , "e5" , "Ne4" , "Nd4" , "Nb3" , "Bxd3" , "Nc6" , "Nd5" , "O-O" , "Nxc6" , "Kh8" , "Qd7" , "fxe4" , "d5" , "Qf4" , "Rb6" , "Bf4" , "Qg7" , "Qf7" , "e4" , "f3" , "Qh4" , "Bc4" , "Re8" , "Nc2" , "b3" , "Nf6" , "Bxd6" , "Qe3" , "Qe6" , "dxe4" , "Rb8" , "Qd5" , "Rh6" , "bxc6" , "g5" , "cxd6" , "Nf3" , "Bc4+" , "Bd6" , "Nxe5" ;
+        chon:nextHalfMove      :hmgamBI3Pcdm .
+
+:agBI3Pcd  a          chon:Agent ;
+        chon:hasName  "Steinitz, William" , "Chigorin, Mikhail" .
+
+:rolBI3Pcd  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agBI3Pcd .
+
+:opeBI3Pcd  a            chon:ChessOpening ;
+        chon:hasECOCode  "C44" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBI3Pcd .
+
+chon:HalfMove  chon:subEventOf  :gamBI3Pc .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agBI3Pcd .
+
+:rolhgBI3Pcdml  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agBI3Pcd .
+
+:gamBI3Pc  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolBI3Pcd ;
+        chon:atPlace           :plaBI3Pcd ;
+        chon:atTime            "1899.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamBI3Pcdm ;
+        chon:hasHalfMove       :hmgamBI3Pcdm ;
+        chon:hasLastHalfMove   :hmgamBI3Pcdm ;
+        chon:hasOpening        :opeBI3Pcd ;
+        chon:hasReport         :cgrBI3Pcd ;
+        chon:hasResult         :resBI3Pcdm ;
+        chon:subEventOf        :touBI3Pc .
+
+:touBI3Pc  a          chon:hessTournament ;
+        chon:atPlace  :plaBI3Pcd ;
+        chon:hasName  "London" .
+
+:resBI3Pcdm  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:plaBI3Pcd  a         chon:Place ;
+        chon:hasName  "London" .

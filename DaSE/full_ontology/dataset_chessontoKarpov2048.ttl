@@ -1,0 +1,69 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:gamvOKgg  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolvOKggu ;
+        chon:atPlace           :plavOKggu ;
+        chon:atTime            "1996.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamvOKgguu ;
+        chon:hasHalfMove       :hmgamHOHuPtx , :hmgamvOKgguu ;
+        chon:hasLastHalfMove   :hmgamHOHuPtx ;
+        chon:hasOpening        :opevOKggu ;
+        chon:hasReport         :cgrvOKggu ;
+        chon:hasResult         :resvOKgguu ;
+        chon:subEventOf        :touvOKgg .
+
+:cgrvOKggu  a   chon:ChessGameReport .
+
+:touvOKgg  a          chon:hessTournament ;
+        chon:atPlace  :plavOKggu ;
+        chon:hasName  "Helsinki sim" .
+
+:rolhgvOKgguuo  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvOKggu .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvOKggu .
+
+:plavOKggu  a         chon:Place ;
+        chon:hasName  "Helsinki" .
+
+chon:HalfMove  chon:subEventOf  :gamvOKgg .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agvOKggu .
+
+:hmgamHOHuPtx  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgHOHuPtxz ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pyhala, Antti" ;
+        chon:hasSANRecord      "Qxe2" , "Ke2" , "hxg4" , "Qd2" , "f5" , "c4" , "e3" , "Bg4" , "Ba5" , "Na5" , "Nb4" , "Qxc2" , "Bxa3" , "Kf7" , "Rxc2" , "a6" , "Nbc7" , "bxa3" , "Bxe2" , "Qd7" , "Nxd6+" , "cxd6" , "e5" , "b5" , "Kf2" , "Bd6" , "a3" , "Nbd2" , "Nfd5" , "Rd8" , "Bh5" , "Qd1" , "Nbd5" , "h3" , "Rc1" , "g5" , "Nf3" , "Nb8" , "Nc4" , "Ba3" , "Be2" , "Nf6" , "Bb2" , "Kg5" , "g4" , "Bc1" , "b4" , "Nb5" , "Kf1" , "Bd2" , "Nfe5" , "Qe7" , "Bxc4" , "Qxc7" , "fxe4" , "f3" , "Qc1" , "e6" , "dxc4" , "Nxc7" , "Rfd8" , "e4" , "Ke6" , "Kf5" , "Rxc8" , "Qc7" , "h5" , "Rc8" , "Nc6" , "Rc2" , "Rac1" , "g3" , "b3" , "O-O" ;
+        chon:nextHalfMove      :hmgamHOHuPtx .
+
+:agvOKggu  a          chon:Agent ;
+        chon:hasName  "Pyhala, Antti" , "Karpov, Anatoly" .
+
+:rolvOKggu  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agvOKggu .
+
+:hmgamvOKgguu  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgvOKgguuo , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Pyhala, Antti" ;
+        chon:hasSANRecord      "d5" , "d4" ;
+        chon:nextHalfMove      :hmgamHOHuPtx , :hmgamvOKgguu .
+
+:opevOKggu  a            chon:ChessOpening ;
+        chon:hasECOCode  "D22" .
+
+:rolhgHOHuPtxz  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agvOKggu .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:resvOKgguu  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .

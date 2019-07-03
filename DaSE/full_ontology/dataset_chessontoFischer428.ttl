@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resSo8LYLy  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "0-1" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSo8LYL .
+
+:touSo8LY  a          chon:hessTournament ;
+        chon:atPlace  :plaSo8LYL ;
+        chon:hasName  "USA-ch" .
+
+:rolhgSo8LYLyk  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agSo8LYL .
+
+:plaSo8LYL  a         chon:Place ;
+        chon:hasName  "New York" .
+
+chon:HalfMove  chon:subEventOf  :gamSo8LY .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agSo8LYL .
+
+:cgrSo8LYL  a   chon:ChessGameReport .
+
+:agSo8LYL  a          chon:Agent ;
+        chon:hasName  "Fischer, Robert James" , "Byrne, Robert E" .
+
+:rolSo8LYL  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agSo8LYL .
+
+:opeSo8LYL  a            chon:ChessOpening ;
+        chon:hasECOCode  "D71" .
+
+:gamSo8LY  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rolSo8LYL ;
+        chon:atPlace           :plaSo8LYL ;
+        chon:atTime            "1963.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamSo8LYLy ;
+        chon:hasHalfMove       :hmgamSo8LYLy ;
+        chon:hasLastHalfMove   :hmgamSo8LYLy ;
+        chon:hasOpening        :opeSo8LYL ;
+        chon:hasReport         :cgrSo8LYL ;
+        chon:hasResult         :resSo8LYLy ;
+        chon:subEventOf        :touSo8LY .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:hmgamSo8LYLy  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgSo8LYLyk ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Fischer, Robert James" ;
+        chon:hasSANRecord      "Qd2" , "Ng4+" , "Kxf2" , "Qd7" , "Kf1" , "Nc3" , "Nxe3" , "e5" , "cxd5" , "g6" , "c6" , "Nf6" , "Bg2" , "Kg1" , "e3" , "Re8" , "g3" , "Nxf2" , "d4" , "d5" , "Nxe5" , "Nd3" , "Qc2" , "Bb7+" , "Nc6" , "Rfd1" , "Ba6" , "dxe5" , "Kxg2" , "Bg7" , "b6" , "c4" , "b3" , "O-O" , "Nxg2" , "Nge2" , "Nxd4" , "Ba3" ;
+        chon:nextHalfMove      :hmgamSo8LYLy .

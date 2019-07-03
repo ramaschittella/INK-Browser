@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:cgr9X3oi6  a   chon:ChessGameReport .
+
+:ag9X3oi6  a          chon:Agent ;
+        chon:hasName  "Karpov, Anatoly" , "Topalov, Veselin" .
+
+:rol9X3oi6  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag9X3oi6 .
+
+:ope9X3oi6  a            chon:ChessOpening ;
+        chon:hasECOCode  "B12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9X3oi6 .
+
+:rolhgAXdGE6Kj  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag9X3oi6 .
+
+:hmgamAXdGE6K  a               chon:HalfMove ;
+        rdf:providesAgentRole  :rolhgAXdGE6Kj , chon:AgentRole ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov, Anatoly" ;
+        chon:hasSANRecord      "Bf5" , "Bd3" , "c6" , "Bxg6" , "d5" , "Be3" , "Rxe4" , "Rc8" , "Qe7" , "O-O" , "Bxf6" , "Nh4" , "Qh6" , "c3" , "Qa4" , "Qg7" , "Ng5" , "cxd4" , "Rxc8" , "g6" , "exf6" , "Bxf2+" , "Nb6" , "c5" , "Qd2" , "Nc4" , "Rb1" , "Ne7" , "Be2" , "f5" , "Ne4+" , "Qc7" , "Nxf5" , "b4" , "e5" , "Ng7" , "Qd1" , "Be7" , "Ne8" , "Re1" , "e6" , "Bg5" , "e4" , "Rb3" , "Qb6" , "Bxc8" , "Qe6+" , "Bxd4" , "Nf6" , "Na4" , "g4" , "Bf4" , "Nd7" , "Nf3" , "Nd2" , "a6" , "Kxf2" , "dxe4" , "d4" ;
+        chon:nextHalfMove      :hmgamAXdGE6K .
+
+chon:HalfMove  chon:subEventOf  :gam9X3oi .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag9X3oi6 .
+
+:gam9X3oi  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol9X3oi6 ;
+        chon:atPlace           :pla9X3oi6 ;
+        chon:atTime            "1995.??.??"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamAXdGE6K ;
+        chon:hasHalfMove       :hmgamAXdGE6K ;
+        chon:hasLastHalfMove   :hmgamAXdGE6K ;
+        chon:hasOpening        :ope9X3oi6 ;
+        chon:hasReport         :cgr9X3oi6 ;
+        chon:hasResult         :res9X3oi6V ;
+        chon:subEventOf        :tou9X3oi .
+
+:tou9X3oi  a          chon:hessTournament ;
+        chon:atPlace  :pla9X3oi6 ;
+        chon:hasName  "Varna rap m" .
+
+:res9X3oi6V  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla9X3oi6  a         chon:Place ;
+        chon:hasName  "Varna" .

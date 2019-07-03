@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:resiG1FZ0i  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1-0" .
+
+:agiG1FZ0  a          chon:Agent ;
+        chon:hasName  "Karpov,Ana" , "Kasimdzhanov,R" .
+
+:opeiG1FZ0  a            chon:ChessOpening ;
+        chon:hasECOCode  "E15" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiG1FZ0 .
+
+chon:HalfMove  chon:subEventOf  :gam8I4ss .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :agiG1FZ0 .
+
+:pla8I4ssa  a         chon:Place ;
+        chon:hasName  "Bastia FRA" .
+
+:cgriG1FZ0  a   chon:ChessGameReport .
+
+:gam8I4ss  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :roliG1FZ0 ;
+        chon:atPlace           :pla8I4ssa ;
+        chon:atTime            "2007.10.30"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgamiG1FZ0i ;
+        chon:hasHalfMove       :hmgamiG1FZ0i ;
+        chon:hasLastHalfMove   :hmgamiG1FZ0i ;
+        chon:hasOpening        :opeiG1FZ0 ;
+        chon:hasReport         :cgriG1FZ0 ;
+        chon:hasResult         :resiG1FZ0i ;
+        chon:subEventOf        :touiG1FZ .
+
+:rolhgiG1FZ0iu  a         chon:ActingPlayerRole ;
+        chon:performedBy  :agiG1FZ0 .
+
+:hmgamiG1FZ0i  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhgiG1FZ0iu ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Karpov,Ana" ;
+        chon:hasSANRecord      "Bd4" , "Kd7" , "h6" , "Qc7" , "Kf2" , "Rd1" , "Re1" , "Ne5" , "Nd5" , "Nfd7" , "a3" , "b3" , "Qxd7" , "Ne8" , "Nxd8" , "exf4" , "f4" , "e4" , "Kf7" , "Bb4+" , "Bf1" , "a6" , "Qd7" , "b6" , "Bxd8" , "Nc6" , "Ba5" , "Nb6" , "d5" , "Bxh5" , "Rb1" , "Bd2" , "Bf4" , "Be4" , "Bxc4" , "Qxc6" , "dxc5" , "Qe4" , "c6" , "Bd3" , "Bc3" , "h5" , "Ke3" , "Bg4" , "Rxd8" , "Bf8" , "Ke6" , "Kh8" , "Kg8" , "b5" , "a5" , "Nxe4" , "d4" , "c4" , "f6" , "Qa5" , "e6" , "Nc5" , "cxd7" , "gxf4" , "Nxd7" , "d8=Q+" , "Kc5" , "Bc4+" , "g4" , "Kg2" , "dxe4" , "Bxf5" , "Rb8" , "Bd5" , "Bc5" , "Nd8" , "Rd8" , "Rc8" , "Be7" , "Qc8" , "Ne6" , "O-O" , "Bh6" , "a4" , "Qxd8" , "Qxb1" , "Nf3" , "Bb1" , "Ba1" , "f5" , "e5" , "Ke8" , "Be2" , "Qd5+" , "Nf6" , "Nc7" , "Kb5" , "Ba6" , "Kd4" , "bxc4" , "g3" , "g5" , "Bxc5" , "Nd2" , "Bg2" , "Rxb1" ;
+        chon:nextHalfMove      :hmgamiG1FZ0i .
+
+:roliG1FZ0  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :agiG1FZ0 .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:touiG1FZ  a          chon:hessTournament ;
+        chon:atPlace  :pla8I4ssa ;
+        chon:hasName  "Corsica Masters" .

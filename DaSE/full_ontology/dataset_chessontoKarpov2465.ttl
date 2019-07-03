@@ -1,0 +1,59 @@
+@prefix :      <https://w3id.org/rdfchess/id/> .
+@prefix rdf:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix chon:  <https://w3id.org/rdfchess/chessonto/> .
+
+:ag3ZkyUI  a          chon:Agent ;
+        chon:hasName  "Bacrot,E" , "Karpov,An" .
+
+:ope3ZkyUI  a            chon:ChessOpening ;
+        chon:hasECOCode  "D12" .
+
+chon:WhitePlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3ZkyUI .
+
+chon:HalfMove  chon:subEventOf  :gam3ZkyU .
+
+chon:BlackPlayerRole  <PREFIX_RDFSsubClassOf>
+                chon:AgentRole ;
+        chon:performedBy         :ag3ZkyUI .
+
+:hmgam3ZkyUIt  a               chon:HalfMove ;
+        rdf:providesAgentRole  chon:AgentRole , :rolhg3ZkyUItP ;
+        <https://w3id.org/rdfchess/chessonto-view/playedBy>
+                "Bacrot,E" ;
+        chon:hasSANRecord      "Qc7" , "Qa6" , "Be7" , "Bxh4" , "d4" , "h5" , "Be2" , "f5" , "f4" , "Nf6" , "c6" , "c5" , "e6" , "Nh4" , "g3" , "Bd2" , "Nbd7" , "Kd1" , "Bd3" , "b6" , "Be4" , "g5" , "gxh4" , "e5" , "Kb7" , "Rhc1" , "Ne8" , "Nc7" , "Ra1" , "Kxd3" , "Rb1" , "Bxd3" , "Ke2" , "h6" , "Bf5" , "O-O-O" , "c4" , "a4" , "b3" , "Nc3" , "Rc1" , "Bh5" , "Qb6" , "Qc2" , "Qxd3" , "Ng2" , "Ne2" , "Qxd3+" , "Bg6" , "a6" , "Kc2" , "g4" , "Qb3" , "e3" , "f3" , "Nf3" , "e4+" , "d5" , "b5" , "b4" ;
+        chon:nextHalfMove      :hmgam3ZkyUIt .
+
+:cgr3ZkyUI  a   chon:ChessGameReport .
+
+:rolhg3ZkyUItP  a         chon:ActingPlayerRole ;
+        chon:performedBy  :ag3ZkyUI .
+
+:gam3ZkyU  a                   chon:ChessGame ;
+        rdf:providesAgentRole  :rol3ZkyUI ;
+        chon:atPlace           :pla3ZkyUI ;
+        chon:atTime            "2000.02.24"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        chon:hasFirstHalfMove  :hmgam3ZkyUIt ;
+        chon:hasHalfMove       :hmgam3ZkyUIt ;
+        chon:hasLastHalfMove   :hmgam3ZkyUIt ;
+        chon:hasOpening        :ope3ZkyUI ;
+        chon:hasReport         :cgr3ZkyUI ;
+        chon:hasResult         :res3ZkyUIt ;
+        chon:subEventOf        :tou3ZkyU .
+
+:res3ZkyUIt  a             chon:ChessGameResult ;
+        chon:encodedAsSAN  "1/2-1/2" .
+
+:tou3ZkyU  a          chon:hessTournament ;
+        chon:atPlace  :pla3ZkyUI ;
+        chon:hasName  "Match" .
+
+:rol3ZkyUI  a             chon:AuthorRole , chon:BlackPlayerRole , chon:WhitePlayerRole ;
+        chon:performedBy  :ag3ZkyUI .
+
+chon:ActingPlayerRole
+        <PREFIX_RDFSsubClassOf>  chon:AgentRole .
+
+:pla3ZkyUI  a         chon:Place ;
+        chon:hasName  "Cannes FRA" .
